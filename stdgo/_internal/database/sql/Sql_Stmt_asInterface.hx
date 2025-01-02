@@ -1,32 +1,43 @@
 package stdgo._internal.database.sql;
 class Stmt_asInterface {
     @:keep
-    public dynamic function _finalClose():stdgo.Error return __self__.value._finalClose();
+    @:tdfield
+    public dynamic function _finalClose():stdgo.Error return @:_0 __self__.value._finalClose();
     @:keep
-    public dynamic function close():stdgo.Error return __self__.value.close();
+    @:tdfield
+    public dynamic function close():stdgo.Error return @:_0 __self__.value.close();
     @:keep
-    public dynamic function queryRow(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.Ref<stdgo._internal.database.sql.Sql_Row.Row> return __self__.value.queryRow(..._args);
+    @:tdfield
+    public dynamic function queryRow(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.Ref<stdgo._internal.database.sql.Sql_Row.Row> return @:_0 __self__.value.queryRow(..._args);
     @:keep
-    public dynamic function queryRowContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.Ref<stdgo._internal.database.sql.Sql_Row.Row> return __self__.value.queryRowContext(_ctx, ..._args);
+    @:tdfield
+    public dynamic function queryRowContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.Ref<stdgo._internal.database.sql.Sql_Row.Row> return @:_0 __self__.value.queryRowContext(_ctx, ..._args);
     @:keep
-    public dynamic function query(_args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>; var _1 : stdgo.Error; } return __self__.value.query(..._args);
+    @:tdfield
+    public dynamic function query(_args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>; var _1 : stdgo.Error; } return @:_0 __self__.value.query(..._args);
     @:keep
-    public dynamic function queryContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>; var _1 : stdgo.Error; } return __self__.value.queryContext(_ctx, ..._args);
+    @:tdfield
+    public dynamic function queryContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>; var _1 : stdgo.Error; } return @:_0 __self__.value.queryContext(_ctx, ..._args);
     @:keep
-    public dynamic function _prepareOnConnLocked(_ctx:stdgo._internal.context.Context_Context.Context, _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>; var _1 : stdgo.Error; } return __self__.value._prepareOnConnLocked(_ctx, _dc);
+    @:tdfield
+    public dynamic function _prepareOnConnLocked(_ctx:stdgo._internal.context.Context_Context.Context, _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>; var _1 : stdgo.Error; } return @:_0 __self__.value._prepareOnConnLocked(_ctx, _dc);
     @:keep
-    public dynamic function _connStmt(_ctx:stdgo._internal.context.Context_Context.Context, _strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>; var _3 : stdgo.Error; } return __self__.value._connStmt(_ctx, _strategy);
+    @:tdfield
+    public dynamic function _connStmt(_ctx:stdgo._internal.context.Context_Context.Context, _strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>; var _3 : stdgo.Error; } return @:_0 __self__.value._connStmt(_ctx, _strategy);
     @:keep
-    public dynamic function _removeClosedStmtLocked():Void __self__.value._removeClosedStmtLocked();
+    @:tdfield
+    public dynamic function _removeClosedStmtLocked():Void @:_0 __self__.value._removeClosedStmtLocked();
     @:keep
-    public dynamic function exec(_args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } return __self__.value.exec(..._args);
+    @:tdfield
+    public dynamic function exec(_args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } return @:_0 __self__.value.exec(..._args);
     @:keep
-    public dynamic function execContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } return __self__.value.execContext(_ctx, ..._args);
+    @:tdfield
+    public dynamic function execContext(_ctx:stdgo._internal.context.Context_Context.Context, _args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } return @:_0 __self__.value.execContext(_ctx, ..._args);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.database.sql.Sql_Stmt.Stmt>;
+    var __self__ : stdgo._internal.database.sql.Sql_StmtPointer.StmtPointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

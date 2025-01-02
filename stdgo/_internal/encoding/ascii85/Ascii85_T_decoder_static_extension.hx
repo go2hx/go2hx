@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.ascii85;
 @:keep @:allow(stdgo._internal.encoding.ascii85.Ascii85.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
+    @:tdfield
     static public function read( _d:stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
@@ -12,72 +13,72 @@ package stdgo._internal.encoding.ascii85;
                 __tmp__;
             };
         };
-        if (_d._err != null) {
+        if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         while (true) {
-            if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
-                _n = _p.__copyTo__(_d._out);
-                _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
+            if ((((@:checkr _d ?? throw "null pointer dereference")._out.length) > (0 : stdgo.GoInt) : Bool)) {
+                _n = _p.__copyTo__((@:checkr _d ?? throw "null pointer dereference")._out);
+                (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 return { _0 : _n, _1 : _err };
             };
             var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
 var _ndst = __2, _nsrc = __1, _nn = __0;
-            if ((_d._nbuf > (0 : stdgo.GoInt) : Bool)) {
+            if (((@:checkr _d ?? throw "null pointer dereference")._nbuf > (0 : stdgo.GoInt) : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.encoding.ascii85.Ascii85_decode.decode((_d._outbuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_d._buf.__slice__((0 : stdgo.GoInt), _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>), _d._readErr != null);
+                    var __tmp__ = stdgo._internal.encoding.ascii85.Ascii85_decode.decode(((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), (@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._readErr != null);
                     _ndst = __tmp__._0;
                     _nsrc = __tmp__._1;
-                    _d._err = __tmp__._2;
+                    (@:checkr _d ?? throw "null pointer dereference")._err = __tmp__._2;
                 };
                 if ((_ndst > (0 : stdgo.GoInt) : Bool)) {
-                    _d._out = (_d._outbuf.__slice__((0 : stdgo.GoInt), _ndst) : stdgo.Slice<stdgo.GoUInt8>);
-                    _d._nbuf = (_d._buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_d._buf.__slice__(_nsrc, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
+                    (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt), _ndst) : stdgo.Slice<stdgo.GoUInt8>);
+                    (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__(_nsrc, (@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
                     continue;
                 };
-                if (((_ndst == (0 : stdgo.GoInt)) && (_d._err == null) : Bool)) {
+                if (((_ndst == (0 : stdgo.GoInt)) && ((@:checkr _d ?? throw "null pointer dereference")._err == null) : Bool)) {
                     var _off = (0 : stdgo.GoInt);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        while ((_i < _d._nbuf : Bool)) {
-                            if ((_d._buf[(_i : stdgo.GoInt)] > (32 : stdgo.GoUInt8) : Bool)) {
-                                _d._buf[(_off : stdgo.GoInt)] = _d._buf[(_i : stdgo.GoInt)];
+                        while ((_i < (@:checkr _d ?? throw "null pointer dereference")._nbuf : Bool)) {
+                            if (((@:checkr _d ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] > (32 : stdgo.GoUInt8) : Bool)) {
+                                (@:checkr _d ?? throw "null pointer dereference")._buf[(_off : stdgo.GoInt)] = (@:checkr _d ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)];
                                 _off++;
                             };
                             _i++;
                         };
                     };
-                    _d._nbuf = _off;
+                    (@:checkr _d ?? throw "null pointer dereference")._nbuf = _off;
                 };
             };
-            if (_d._err != null) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
-            if (_d._readErr != null) {
-                _d._err = _d._readErr;
+            if ((@:checkr _d ?? throw "null pointer dereference")._readErr != null) {
+                (@:checkr _d ?? throw "null pointer dereference")._err = (@:checkr _d ?? throw "null pointer dereference")._readErr;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             {
-                var __tmp__ = _d._r.read((_d._buf.__slice__(_d._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
+                var __tmp__ = (@:checkr _d ?? throw "null pointer dereference")._r.read(((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
                 _nn = __tmp__._0;
-                _d._readErr = __tmp__._1;
+                (@:checkr _d ?? throw "null pointer dereference")._readErr = __tmp__._1;
             };
-            _d._nbuf = (_d._nbuf + (_nn) : stdgo.GoInt);
+            (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._nbuf + (_nn) : stdgo.GoInt);
         };
     }
 }

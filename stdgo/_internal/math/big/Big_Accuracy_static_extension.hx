@@ -1,6 +1,7 @@
 package stdgo._internal.math.big;
 @:keep @:allow(stdgo._internal.math.big.Big.Accuracy_asInterface) class Accuracy_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.math.big.Big_Accuracy.Accuracy):stdgo.GoString {
         @:recv var _i:stdgo._internal.math.big.Big_Accuracy.Accuracy = _i;
         _i = (_i - ((-1 : stdgo._internal.math.big.Big_Accuracy.Accuracy)) : stdgo._internal.math.big.Big_Accuracy.Accuracy);

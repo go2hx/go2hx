@@ -6,5 +6,6 @@ typedef T__interface_0 = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function deadline():{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
 };

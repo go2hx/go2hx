@@ -8,10 +8,10 @@ function _numError(_err:stdgo.Error):stdgo.Error {
         if (!_ok) {
             return _err;
         };
-        if (stdgo.Go.toInterface(_ne.err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errSyntax.errSyntax))) {
+        if (stdgo.Go.toInterface((@:checkr _ne ?? throw "null pointer dereference").err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errSyntax.errSyntax))) {
             return stdgo._internal.flag.Flag__errParse._errParse;
         };
-        if (stdgo.Go.toInterface(_ne.err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange))) {
+        if (stdgo.Go.toInterface((@:checkr _ne ?? throw "null pointer dereference").err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange))) {
             return stdgo._internal.flag.Flag__errRange._errRange;
         };
         return _err;

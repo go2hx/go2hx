@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql.driver;
 @:keep @:allow(stdgo._internal.database.sql.driver.Driver.T_int32Type_asInterface) class T_int32Type_static_extension {
     @:keep
+    @:tdfield
     static public function convertValue( _:stdgo._internal.database.sql.driver.Driver_T_int32Type.T_int32Type, _v:stdgo.AnyInterface):{ var _0 : stdgo._internal.database.sql.driver.Driver_Value.Value; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.database.sql.driver.Driver_T_int32Type.T_int32Type = _?.__copy__();
         var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);

@@ -5,5 +5,6 @@ typedef T__http2ConfigureServer___localname___baseContexter_139945 = stdgo.Struc
         
         
     **/
+    @:interfacetypeffun
     public dynamic function baseContext():stdgo._internal.context.Context_Context.Context;
 };

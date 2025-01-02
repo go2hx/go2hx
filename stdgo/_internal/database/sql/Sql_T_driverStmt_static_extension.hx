@@ -1,35 +1,39 @@
 package stdgo._internal.database.sql;
 @:keep @:allow(stdgo._internal.database.sql.Sql.T_driverStmt_asInterface) class T_driverStmt_static_extension {
     @:keep
+    @:tdfield
     static public function close( _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>):stdgo.Error {
         @:recv var _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = _ds;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _ds.lock();
+            (@:checkr _ds ?? throw "null pointer dereference").lock();
             {
-                final __f__ = _ds.unlock;
+                final __f__ = (@:checkr _ds ?? throw "null pointer dereference").unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (_ds._closed) {
+            if ((@:checkr _ds ?? throw "null pointer dereference")._closed) {
                 {
-                    final __ret__:stdgo.Error = _ds._closeErr;
+                    final __ret__:stdgo.Error = (@:checkr _ds ?? throw "null pointer dereference")._closeErr;
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            _ds._closed = true;
-            _ds._closeErr = _ds._si.close();
+            (@:checkr _ds ?? throw "null pointer dereference")._closed = true;
+            (@:checkr _ds ?? throw "null pointer dereference")._closeErr = (@:checkr _ds ?? throw "null pointer dereference")._si.close();
             {
-                final __ret__:stdgo.Error = _ds._closeErr;
+                final __ret__:stdgo.Error = (@:checkr _ds ?? throw "null pointer dereference")._closeErr;
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -44,6 +48,7 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -51,7 +56,9 @@ package stdgo._internal.database.sql;
         };
     }
     @:embedded
-    public static function unlock( __self__:stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt) __self__.unlock();
+    @:embeddededffieldsffun
+    public static function unlock( __self__:stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt):Void return @:_5 __self__.unlock();
     @:embedded
-    public static function lock( __self__:stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt) __self__.lock();
+    @:embeddededffieldsffun
+    public static function lock( __self__:stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt):Void return @:_5 __self__.lock();
 }

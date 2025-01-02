@@ -7,7 +7,7 @@ function parseCertificates(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Sli
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>), _1 : _err };
             };
             _certs = (_certs.__append__(_cert));
-            _der = (_der.__slice__((_cert.raw.length)) : stdgo.Slice<stdgo.GoUInt8>);
+            _der = (_der.__slice__(((@:checkr _cert ?? throw "null pointer dereference").raw.length)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return { _0 : _certs, _1 : (null : stdgo.Error) };
     }

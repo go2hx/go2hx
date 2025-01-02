@@ -1,18 +1,18 @@
 package stdgo._internal.encoding.gob;
 function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         if (!stdgo._internal.encoding.gob.Gob__doFuzzTests._doFuzzTests.value) {
-            _t.skipf(("disabled; run with -gob.fuzz to enable" : stdgo.GoString));
+            @:check2r _t.skipf(("disabled; run with -gob.fuzz to enable" : stdgo.GoString));
         };
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly() : stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly)));
         var _dt = (stdgo._internal.encoding.gob.Gob__newDT._newDT()?.__copy__() : stdgo._internal.encoding.gob.Gob_DT.DT);
         {
-            var _err = (stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf)).encode(stdgo.Go.toInterface(_dt)) : stdgo.Error);
+            var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf)).encode(stdgo.Go.toInterface(_dt)) : stdgo.Error);
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        var _s = ((_buf.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+        var _s = ((@:check2r _buf.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _indices = (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
@@ -59,7 +59,7 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                                     r;
                                                 } : stdgo.AnyInterface);
                                                 if (_p != null) {
-                                                    _t.errorf(("crash for b[%d] ^= 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j));
+                                                    @:check2r _t.errorf(("crash for b[%d] ^= 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j));
                                                     throw stdgo.Go.toInterface(_p);
                                                 };
                                             };
@@ -67,10 +67,11 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                         a();
                                     }));
                                 };
-                                var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
+                                var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -85,6 +86,7 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                 };
                                 stdgo.Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

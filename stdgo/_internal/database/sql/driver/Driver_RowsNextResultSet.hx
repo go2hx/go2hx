@@ -7,6 +7,7 @@ typedef RowsNextResultSet = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function hasNextResultSet():Bool;
     /**
         NextResultSet advances the driver to the next result set even
@@ -16,5 +17,6 @@ typedef RowsNextResultSet = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function nextResultSet():stdgo.Error;
 };

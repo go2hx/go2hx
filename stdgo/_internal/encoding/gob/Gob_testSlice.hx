@@ -6,7 +6,7 @@ function testSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_t3), stdgo.Go.toInterface(_t3p)) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

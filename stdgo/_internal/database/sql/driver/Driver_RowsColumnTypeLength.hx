@@ -6,5 +6,6 @@ typedef RowsColumnTypeLength = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columnTypeLength(_index:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : Bool; };
 };

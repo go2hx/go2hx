@@ -3,7 +3,7 @@ function _fmtX(_dst:stdgo.Slice<stdgo.GoUInt8>, _prec:stdgo.GoInt, _fmt:stdgo.Go
         if (_mant == ((0i64 : stdgo.GoUInt64))) {
             _exp = (0 : stdgo.GoInt);
         };
-        _mant = (_mant << (((60u32 : stdgo.GoUInt) - _flt._mantbits : stdgo.GoUInt)) : stdgo.GoUInt64);
+        _mant = (_mant << (((60u32 : stdgo.GoUInt) - (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt)) : stdgo.GoUInt64);
         while (((_mant != (0i64 : stdgo.GoUInt64)) && ((_mant & (1152921504606846976i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (0i64 : stdgo.GoUInt64)) : Bool)) {
             _mant = (_mant << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _exp--;

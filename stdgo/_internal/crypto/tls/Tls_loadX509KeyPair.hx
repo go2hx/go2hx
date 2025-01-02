@@ -8,5 +8,5 @@ function loadX509KeyPair(_certFile:stdgo.GoString, _keyFile:stdgo.GoString):{ va
         if (_err != null) {
             return { _0 : (new stdgo._internal.crypto.tls.Tls_Certificate.Certificate() : stdgo._internal.crypto.tls.Tls_Certificate.Certificate), _1 : _err };
         };
-        return stdgo._internal.crypto.tls.Tls_x509keyPair.x509keyPair(_certPEMBlock, _keyPEMBlock);
+        return stdgo._internal.crypto.tls.Tls_x509KeyPair.x509KeyPair(_certPEMBlock, _keyPEMBlock);
     }

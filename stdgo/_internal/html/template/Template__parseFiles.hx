@@ -2,7 +2,7 @@ package stdgo._internal.html.template;
 function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>, _readFile:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; }, _filenames:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } {
         var _filenames = new stdgo.Slice<stdgo.GoString>(_filenames.length, 0, ..._filenames);
         {
-            var _err = (_t._checkCanParse() : stdgo.Error);
+            var _err = (@:check2r _t._checkCanParse() : stdgo.Error);
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
@@ -20,13 +20,13 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_Templat
             if ((_t == null || (_t : Dynamic).__nil__)) {
                 _t = stdgo._internal.html.template.Template_new_.new_(_name?.__copy__());
             };
-            if (_name == (_t.name())) {
+            if (_name == (@:check2r _t.name())) {
                 _tmpl = _t;
             } else {
-                _tmpl = _t.new_(_name?.__copy__());
+                _tmpl = @:check2r _t.new_(_name?.__copy__());
             };
             {
-                var __tmp__ = _tmpl.parse(_s?.__copy__());
+                var __tmp__ = @:check2r _tmpl.parse(_s?.__copy__());
                 _err = __tmp__._1;
             };
             if (_err != null) {

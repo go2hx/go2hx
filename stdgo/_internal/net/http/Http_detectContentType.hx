@@ -8,7 +8,7 @@ function detectContentType(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoString {
             {};
             _firstNonWS++;
         };
-        for (__132 => _sig in stdgo._internal.net.http.Http__sniffSignatures._sniffSignatures) {
+        for (__137 => _sig in stdgo._internal.net.http.Http__sniffSignatures._sniffSignatures) {
             {
                 var _ct = (_sig._match(_data, _firstNonWS)?.__copy__() : stdgo.GoString);
                 if (_ct != (stdgo.Go.str())) {

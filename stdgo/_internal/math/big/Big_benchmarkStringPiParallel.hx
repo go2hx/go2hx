@@ -8,8 +8,8 @@ function benchmarkStringPiParallel(_b:stdgo.Ref<stdgo._internal.testing.Testing_
         if ((_x._utoa((10 : stdgo.GoInt)) : stdgo.GoString) != (stdgo._internal.math.big.Big__pi._pi)) {
             throw stdgo.Go.toInterface(("benchmark incorrect: conversion failed" : stdgo.GoString));
         };
-        _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
-            while (_pb.next()) {
+        @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
+            while (@:check2r _pb.next()) {
                 _x._utoa((10 : stdgo.GoInt));
             };
         });

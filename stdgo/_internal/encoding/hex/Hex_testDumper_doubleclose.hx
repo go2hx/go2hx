@@ -8,7 +8,7 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
         _dumper.write((("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
         _dumper.close();
         var _expected = ("00000000  67 6f 70 68 65 72                                 |gopher|\n" : stdgo.GoString);
-        if ((_out.string() : stdgo.GoString) != (_expected)) {
-            _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((_out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
+        if ((@:check2 _out.string() : stdgo.GoString) != (_expected)) {
+            @:check2r _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((@:check2 _out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
         };
     }

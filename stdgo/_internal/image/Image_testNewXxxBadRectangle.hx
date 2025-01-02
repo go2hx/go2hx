@@ -22,12 +22,14 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                 {
                     final __ret__:Bool = _ok = true;
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -42,6 +44,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                 };
                 stdgo.Go.recover_exception = exe;
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -98,7 +101,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                     var _got = (_call(_tc._f, _r?.__copy__()) : Bool);
                     var _want = (!_negDx && !_negDy : Bool);
                     if (_got != (_want)) {
-                        _t.errorf(("New%s: negDx=%t, negDy=%t: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), stdgo.Go.toInterface(_negDx), stdgo.Go.toInterface(_negDy), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                        @:check2r _t.errorf(("New%s: negDx=%t, negDy=%t: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), stdgo.Go.toInterface(_negDx), stdgo.Go.toInterface(_negDy), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
                 };
             };
@@ -108,7 +111,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                 var _maxInt = ((_maxUint / (2u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt);
                 var _got = (_call(_tc._f, ({ min : (new stdgo._internal.image.Image_Point.Point((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.image.Image_Point.Point), max : (new stdgo._internal.image.Image_Point.Point(_maxInt, _maxInt) : stdgo._internal.image.Image_Point.Point) } : stdgo._internal.image.Image_Rectangle.Rectangle)) : Bool);
                 if (_got) {
-                    _t.errorf(("New%s: overflow: got ok, want !ok" : stdgo.GoString), stdgo.Go.toInterface(_tc._name));
+                    @:check2r _t.errorf(("New%s: overflow: got ok, want !ok" : stdgo.GoString), stdgo.Go.toInterface(_tc._name));
                 };
             };
         };

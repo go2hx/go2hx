@@ -6,7 +6,7 @@ function testUnmarshalRecursivePointer(_t:stdgo.Ref<stdgo._internal.testing.Test
         {
             var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, _v) : stdgo.Error);
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
     }

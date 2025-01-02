@@ -12,6 +12,7 @@ function checkRuntimeTimerPeriodOverflow():Void {
             stdgo._internal.time.Time_after.after((25000000i64 : stdgo._internal.time.Time_Duration.Duration)).__get__();
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -26,6 +27,7 @@ function checkRuntimeTimerPeriodOverflow():Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

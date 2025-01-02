@@ -7,6 +7,7 @@ typedef Context = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function deadline():{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     /**
         Done returns a channel that's closed when work done on behalf of this
@@ -43,6 +44,7 @@ typedef Context = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function done():stdgo.Chan<{ }>;
     /**
         If Done is not yet closed, Err returns nil.
@@ -53,6 +55,7 @@ typedef Context = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function err():stdgo.Error;
     /**
         Value returns the value associated with this context for key, or nil
@@ -103,5 +106,6 @@ typedef Context = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function value(_key:stdgo.AnyInterface):stdgo.AnyInterface;
 };

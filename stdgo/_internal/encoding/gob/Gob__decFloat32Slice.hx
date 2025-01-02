@@ -11,13 +11,13 @@ function _decFloat32Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_de
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _length : Bool)) {
-                if (_state._b.len() == ((0 : stdgo.GoInt))) {
+                if (@:check2r (@:checkr _state ?? throw "null pointer dereference")._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding float32 array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
 if ((_i >= (_slice.length) : Bool)) {
                     stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoFloat32>>), _length);
                 };
-_slice[(_i : stdgo.GoInt)] = (stdgo._internal.encoding.gob.Gob__float32FromBits._float32FromBits(_state._decodeUint(), _ovfl) : stdgo.GoFloat32);
+_slice[(_i : stdgo.GoInt)] = (stdgo._internal.encoding.gob.Gob__float32FromBits._float32FromBits(@:check2r _state._decodeUint(), _ovfl) : stdgo.GoFloat32);
                 _i++;
             };
         };

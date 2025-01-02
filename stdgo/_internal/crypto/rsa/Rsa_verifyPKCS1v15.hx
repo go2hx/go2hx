@@ -18,7 +18,7 @@ function verifyPKCS1v15(_pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.
             return _err;
         };
         var _tLen = ((_prefix.length) + _hashLen : stdgo.GoInt);
-        var _k = (_pub.size() : stdgo.GoInt);
+        var _k = (@:check2r _pub.size() : stdgo.GoInt);
         if ((_k < (_tLen + (11 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
             return stdgo._internal.crypto.rsa.Rsa_errVerification.errVerification;
         };

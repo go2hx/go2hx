@@ -2,7 +2,7 @@ package stdgo._internal.crypto.elliptic;
 function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _rand:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _3 : stdgo.Error; } {
         var _priv = (null : stdgo.Slice<stdgo.GoUInt8>), _x = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _err = (null : stdgo.Error);
         var n = _curve.params().n;
-        var _bitSize = (n.bitLen() : stdgo.GoInt);
+        var _bitSize = (@:check2r n.bitLen() : stdgo.GoInt);
         var _byteLen = (((_bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         _priv = (new stdgo.Slice<stdgo.GoUInt8>((_byteLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while ((_x == null || (_x : Dynamic).__nil__)) {
@@ -15,7 +15,7 @@ function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
             };
             _priv[(0 : stdgo.GoInt)] = (_priv[(0 : stdgo.GoInt)] & (stdgo._internal.crypto.elliptic.Elliptic__mask._mask[((_bitSize % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt8);
             _priv[(1 : stdgo.GoInt)] = (_priv[(1 : stdgo.GoInt)] ^ ((66 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-            if (((stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes(_priv).cmp(n) >= (0 : stdgo.GoInt) : Bool)) {
+            if ((@:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes(_priv).cmp(n) >= (0 : stdgo.GoInt) : Bool)) {
                 continue;
             };
             {

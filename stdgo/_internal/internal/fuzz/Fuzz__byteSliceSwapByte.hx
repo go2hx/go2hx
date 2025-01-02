@@ -3,10 +3,10 @@ function _byteSliceSwapByte(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mu
         if (((_b.length) <= (1 : stdgo.GoInt) : Bool)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        var _src = (_m._rand((_b.length)) : stdgo.GoInt);
-        var _dst = (_m._rand((_b.length)) : stdgo.GoInt);
+        var _src = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
+        var _dst = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
         while (_dst == (_src)) {
-            _dst = _m._rand((_b.length));
+            _dst = @:check2r _m._rand((_b.length));
         };
         {
             final __tmp__0 = _b[(_dst : stdgo.GoInt)];

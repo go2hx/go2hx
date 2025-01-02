@@ -1,6 +1,7 @@
 package stdgo._internal.reflect;
 @:keep @:allow(stdgo._internal.reflect.Reflect.Kind_asInterface) class Kind_static_extension {
     @:keep
+    @:tdfield
     static public function string( _k:stdgo._internal.reflect.Reflect_Kind.Kind):stdgo.GoString {
         @:recv var _k:stdgo._internal.reflect.Reflect_Kind.Kind = _k;
         var idx:Int = _k.toBasic();

@@ -7,8 +7,8 @@ function _ryuFtoaFixed64(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalS
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (0 : stdgo.GoInt);
-                _d._nd = __tmp__0;
-                _d._dp = __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._nd = __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._dp = __tmp__1;
             };
             return;
         };
@@ -44,5 +44,5 @@ var _dfrac = __1, _di = __0;
             _d0 = false;
         };
         stdgo._internal.strconv.Strconv__formatDecimal._formatDecimal(_d, _di, !_d0, _roundUp, _prec);
-        _d._dp = (_d._dp - (_q) : stdgo.GoInt);
+        (@:checkr _d ?? throw "null pointer dereference")._dp = ((@:checkr _d ?? throw "null pointer dereference")._dp - (_q) : stdgo.GoInt);
     }

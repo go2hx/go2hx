@@ -1,57 +1,57 @@
 package stdgo._internal.debug.macho;
 @:structInit class Regs386 {
-    public var ax : stdgo.GoUInt32 = 0;
-    public var bx : stdgo.GoUInt32 = 0;
-    public var cx : stdgo.GoUInt32 = 0;
-    public var dx : stdgo.GoUInt32 = 0;
-    public var di : stdgo.GoUInt32 = 0;
-    public var si : stdgo.GoUInt32 = 0;
-    public var bp : stdgo.GoUInt32 = 0;
-    public var sp : stdgo.GoUInt32 = 0;
-    public var ss : stdgo.GoUInt32 = 0;
-    public var flags : stdgo.GoUInt32 = 0;
-    public var ip : stdgo.GoUInt32 = 0;
-    public var cs : stdgo.GoUInt32 = 0;
-    public var ds : stdgo.GoUInt32 = 0;
-    public var es : stdgo.GoUInt32 = 0;
-    public var fs : stdgo.GoUInt32 = 0;
-    public var gs : stdgo.GoUInt32 = 0;
-    public function new(?ax:stdgo.GoUInt32, ?bx:stdgo.GoUInt32, ?cx:stdgo.GoUInt32, ?dx:stdgo.GoUInt32, ?di:stdgo.GoUInt32, ?si:stdgo.GoUInt32, ?bp:stdgo.GoUInt32, ?sp:stdgo.GoUInt32, ?ss:stdgo.GoUInt32, ?flags:stdgo.GoUInt32, ?ip:stdgo.GoUInt32, ?cs:stdgo.GoUInt32, ?ds:stdgo.GoUInt32, ?es:stdgo.GoUInt32, ?fs:stdgo.GoUInt32, ?gs:stdgo.GoUInt32) {
-        if (ax != null) this.ax = ax;
-        if (bx != null) this.bx = bx;
-        if (cx != null) this.cx = cx;
-        if (dx != null) this.dx = dx;
-        if (di != null) this.di = di;
-        if (si != null) this.si = si;
-        if (bp != null) this.bp = bp;
-        if (sp != null) this.sp = sp;
-        if (ss != null) this.ss = ss;
-        if (flags != null) this.flags = flags;
-        if (ip != null) this.ip = ip;
-        if (cs != null) this.cs = cs;
-        if (ds != null) this.ds = ds;
-        if (es != null) this.es = es;
-        if (fs != null) this.fs = fs;
-        if (gs != null) this.gs = gs;
+    public var aX : stdgo.GoUInt32 = 0;
+    public var bX : stdgo.GoUInt32 = 0;
+    public var cX : stdgo.GoUInt32 = 0;
+    public var dX : stdgo.GoUInt32 = 0;
+    public var dI : stdgo.GoUInt32 = 0;
+    public var sI : stdgo.GoUInt32 = 0;
+    public var bP : stdgo.GoUInt32 = 0;
+    public var sP : stdgo.GoUInt32 = 0;
+    public var sS : stdgo.GoUInt32 = 0;
+    public var fLAGS : stdgo.GoUInt32 = 0;
+    public var iP : stdgo.GoUInt32 = 0;
+    public var cS : stdgo.GoUInt32 = 0;
+    public var dS : stdgo.GoUInt32 = 0;
+    public var eS : stdgo.GoUInt32 = 0;
+    public var fS : stdgo.GoUInt32 = 0;
+    public var gS : stdgo.GoUInt32 = 0;
+    public function new(?aX:stdgo.GoUInt32, ?bX:stdgo.GoUInt32, ?cX:stdgo.GoUInt32, ?dX:stdgo.GoUInt32, ?dI:stdgo.GoUInt32, ?sI:stdgo.GoUInt32, ?bP:stdgo.GoUInt32, ?sP:stdgo.GoUInt32, ?sS:stdgo.GoUInt32, ?fLAGS:stdgo.GoUInt32, ?iP:stdgo.GoUInt32, ?cS:stdgo.GoUInt32, ?dS:stdgo.GoUInt32, ?eS:stdgo.GoUInt32, ?fS:stdgo.GoUInt32, ?gS:stdgo.GoUInt32) {
+        if (aX != null) this.aX = aX;
+        if (bX != null) this.bX = bX;
+        if (cX != null) this.cX = cX;
+        if (dX != null) this.dX = dX;
+        if (dI != null) this.dI = dI;
+        if (sI != null) this.sI = sI;
+        if (bP != null) this.bP = bP;
+        if (sP != null) this.sP = sP;
+        if (sS != null) this.sS = sS;
+        if (fLAGS != null) this.fLAGS = fLAGS;
+        if (iP != null) this.iP = iP;
+        if (cS != null) this.cS = cS;
+        if (dS != null) this.dS = dS;
+        if (eS != null) this.eS = eS;
+        if (fS != null) this.fS = fS;
+        if (gS != null) this.gS = gS;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new Regs386(
-ax,
-bx,
-cx,
-dx,
-di,
-si,
-bp,
-sp,
-ss,
-flags,
-ip,
-cs,
-ds,
-es,
-fs,
-gs);
+aX,
+bX,
+cX,
+dX,
+dI,
+sI,
+bP,
+sP,
+sS,
+fLAGS,
+iP,
+cS,
+dS,
+eS,
+fS,
+gS);
     }
 }

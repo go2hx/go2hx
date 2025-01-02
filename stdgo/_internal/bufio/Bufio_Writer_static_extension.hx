@@ -1,27 +1,28 @@
 package stdgo._internal.bufio;
 @:keep @:allow(stdgo._internal.bufio.Bufio.Writer_asInterface) class Writer_static_extension {
     @:keep
+    @:tdfield
     static public function readFrom( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
-        if (_b._err != null) {
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : _b._err };
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (@:checkr _b ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom)) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : true };
+            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _b ?? throw "null pointer dereference")._wr) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom)) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : false };
         }, _readerFrom = __tmp__._0, _readerFromOK = __tmp__._1;
         var _m:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
-            if (_b.available() == ((0 : stdgo.GoInt))) {
+            if (@:check2r _b.available() == ((0 : stdgo.GoInt))) {
                 {
-                    var _err1 = (_b.flush() : stdgo.Error);
+                    var _err1 = (@:check2r _b.flush() : stdgo.Error);
                     if (_err1 != null) {
                         return {
                             final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err1 };
@@ -32,9 +33,9 @@ package stdgo._internal.bufio;
                     };
                 };
             };
-            if ((_readerFromOK && (_b.buffered() == (0 : stdgo.GoInt)) : Bool)) {
+            if ((_readerFromOK && (@:check2r _b.buffered() == (0 : stdgo.GoInt)) : Bool)) {
                 var __tmp__ = _readerFrom.readFrom(_r), _nn:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                _b._err = _err;
+                (@:checkr _b ?? throw "null pointer dereference")._err = _err;
                 _n = (_n + (_nn) : stdgo.GoInt64);
                 return {
                     final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
@@ -46,7 +47,7 @@ package stdgo._internal.bufio;
             var _nr = (0 : stdgo.GoInt);
             while ((_nr < (100 : stdgo.GoInt) : Bool)) {
                 {
-                    var __tmp__ = _r.read((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>));
+                    var __tmp__ = _r.read(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>));
                     _m = __tmp__._0;
                     _err = __tmp__._1;
                 };
@@ -63,15 +64,15 @@ package stdgo._internal.bufio;
                     __tmp__;
                 };
             };
-            _b._n = (_b._n + (_m) : stdgo.GoInt);
+            (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_m) : stdgo.GoInt);
             _n = (_n + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
             if (_err != null) {
                 break;
             };
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            if (_b.available() == ((0 : stdgo.GoInt))) {
-                _err = _b.flush();
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+            if (@:check2r _b.available() == ((0 : stdgo.GoInt))) {
+                _err = @:check2r _b.flush();
             } else {
                 _err = (null : stdgo.Error);
             };
@@ -84,17 +85,18 @@ package stdgo._internal.bufio;
         };
     }
     @:keep
+    @:tdfield
     static public function writeString( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         var _sw:stdgo._internal.io.Io_StringWriter.StringWriter = (null : stdgo._internal.io.Io_StringWriter.StringWriter);
         var _tryStringWriter = (true : Bool);
         var _nn = (0 : stdgo.GoInt);
-        while ((((_s.length) > _b.available() : Bool) && (_b._err == null) : Bool)) {
+        while ((((_s.length) > @:check2r _b.available() : Bool) && ((@:checkr _b ?? throw "null pointer dereference")._err == null) : Bool)) {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
-            if (((_b.buffered() == ((0 : stdgo.GoInt)) && _sw == null : Bool) && _tryStringWriter : Bool)) {
+            if (((@:check2r _b.buffered() == ((0 : stdgo.GoInt)) && _sw == null : Bool) && _tryStringWriter : Bool)) {
                 {
                     var __tmp__ = try {
-                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo._internal.io.Io_StringWriter.StringWriter)) : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _b ?? throw "null pointer dereference")._wr) : stdgo._internal.io.Io_StringWriter.StringWriter)) : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : true };
                     } catch(_) {
                         { _0 : (null : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : false };
                     };
@@ -102,34 +104,35 @@ package stdgo._internal.bufio;
                     _tryStringWriter = __tmp__._1;
                 };
             };
-            if (((_b.buffered() == (0 : stdgo.GoInt)) && _tryStringWriter : Bool)) {
+            if (((@:check2r _b.buffered() == (0 : stdgo.GoInt)) && _tryStringWriter : Bool)) {
                 {
                     var __tmp__ = _sw.writeString(_s?.__copy__());
                     _n = __tmp__._0;
-                    _b._err = __tmp__._1;
+                    (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
                 };
             } else {
-                _n = (_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s);
-                _b._n = (_b._n + (_n) : stdgo.GoInt);
-                _b.flush();
+                _n = ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s);
+                (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_n) : stdgo.GoInt);
+                @:check2r _b.flush();
             };
             _nn = (_nn + (_n) : stdgo.GoInt);
             _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
         };
-        if (_b._err != null) {
-            return { _0 : _nn, _1 : _b._err };
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
+            return { _0 : _nn, _1 : (@:checkr _b ?? throw "null pointer dereference")._err };
         };
-        var _n = ((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s) : stdgo.GoInt);
-        _b._n = (_b._n + (_n) : stdgo.GoInt);
+        var _n = (((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s) : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_n) : stdgo.GoInt);
         _nn = (_nn + (_n) : stdgo.GoInt);
         return { _0 : _nn, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function writeRune( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _r:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         var _size = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_r : stdgo.GoUInt32) < (128u32 : stdgo.GoUInt32) : Bool)) {
-            _err = _b.writeByte((_r : stdgo.GoUInt8));
+            _err = @:check2r _b.writeByte((_r : stdgo.GoUInt8));
             if (_err != null) {
                 return {
                     final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
@@ -145,39 +148,39 @@ package stdgo._internal.bufio;
                 __tmp__;
             };
         };
-        if (_b._err != null) {
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _b._err };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _b ?? throw "null pointer dereference")._err };
                 _size = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        var _n = (_b.available() : stdgo.GoInt);
+        var _n = (@:check2r _b.available() : stdgo.GoInt);
         if ((_n < (4 : stdgo.GoInt) : Bool)) {
             {
-                _b.flush();
-                if (_b._err != null) {
+                @:check2r _b.flush();
+                if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _b._err };
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _b ?? throw "null pointer dereference")._err };
                         _size = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
                 };
             };
-            _n = _b.available();
+            _n = @:check2r _b.available();
             if ((_n < (4 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _b.writeString((_r : stdgo.GoString)?.__copy__());
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _b.writeString((_r : stdgo.GoString)?.__copy__());
                     _size = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
         };
-        _size = stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _r);
-        _b._n = (_b._n + (_size) : stdgo.GoInt);
+        _size = stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>), _r);
+        (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_size) : stdgo.GoInt);
         return {
             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _size, _1 : (null : stdgo.Error) };
             _size = __tmp__._0;
@@ -186,48 +189,50 @@ package stdgo._internal.bufio;
         };
     }
     @:keep
+    @:tdfield
     static public function writeByte( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _c:stdgo.GoUInt8):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        if (_b._err != null) {
-            return _b._err;
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
+            return (@:checkr _b ?? throw "null pointer dereference")._err;
         };
-        if (((_b.available() <= (0 : stdgo.GoInt) : Bool) && (_b.flush() != null) : Bool)) {
-            return _b._err;
+        if (((@:check2r _b.available() <= (0 : stdgo.GoInt) : Bool) && (@:check2r _b.flush() != null) : Bool)) {
+            return (@:checkr _b ?? throw "null pointer dereference")._err;
         };
-        _b._buf[(_b._n : stdgo.GoInt)] = _c;
-        _b._n++;
+        (@:checkr _b ?? throw "null pointer dereference")._buf[((@:checkr _b ?? throw "null pointer dereference")._n : stdgo.GoInt)] = _c;
+        (@:checkr _b ?? throw "null pointer dereference")._n++;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function write( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         var _nn = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        while ((((_p.length) > _b.available() : Bool) && (_b._err == null) : Bool)) {
+        while ((((_p.length) > @:check2r _b.available() : Bool) && ((@:checkr _b ?? throw "null pointer dereference")._err == null) : Bool)) {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
-            if (_b.buffered() == ((0 : stdgo.GoInt))) {
+            if (@:check2r _b.buffered() == ((0 : stdgo.GoInt))) {
                 {
-                    var __tmp__ = _b._wr.write(_p);
+                    var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._wr.write(_p);
                     _n = __tmp__._0;
-                    _b._err = __tmp__._1;
+                    (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
                 };
             } else {
-                _n = (_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);
-                _b._n = (_b._n + (_n) : stdgo.GoInt);
-                _b.flush();
+                _n = ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);
+                (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_n) : stdgo.GoInt);
+                @:check2r _b.flush();
             };
             _nn = (_nn + (_n) : stdgo.GoInt);
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        if (_b._err != null) {
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nn, _1 : _b._err };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nn, _1 : (@:checkr _b ?? throw "null pointer dereference")._err };
                 _nn = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        var _n = ((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p) : stdgo.GoInt);
-        _b._n = (_b._n + (_n) : stdgo.GoInt);
+        var _n = (((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p) : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n + (_n) : stdgo.GoInt);
         _nn = (_nn + (_n) : stdgo.GoInt);
         return {
             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nn, _1 : (null : stdgo.Error) };
@@ -237,60 +242,66 @@ package stdgo._internal.bufio;
         };
     }
     @:keep
+    @:tdfield
     static public function buffered( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        return _b._n;
+        return (@:checkr _b ?? throw "null pointer dereference")._n;
     }
     @:keep
+    @:tdfield
     static public function availableBuffer( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        return ((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        return (((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
+    @:tdfield
     static public function available( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        return ((_b._buf.length) - _b._n : stdgo.GoInt);
+        return (((@:checkr _b ?? throw "null pointer dereference")._buf.length) - (@:checkr _b ?? throw "null pointer dereference")._n : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function flush( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        if (_b._err != null) {
-            return _b._err;
+        if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
+            return (@:checkr _b ?? throw "null pointer dereference")._err;
         };
-        if (_b._n == ((0 : stdgo.GoInt))) {
+        if ((@:checkr _b ?? throw "null pointer dereference")._n == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Error);
         };
-        var __tmp__ = _b._wr.write((_b._buf.__slice__((0 : stdgo.GoInt), _b._n) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (((_n < _b._n : Bool) && (_err == null) : Bool)) {
+        var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._wr.write(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), (@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if (((_n < (@:checkr _b ?? throw "null pointer dereference")._n : Bool) && (_err == null) : Bool)) {
             _err = stdgo._internal.io.Io_errShortWrite.errShortWrite;
         };
         if (_err != null) {
-            if (((_n > (0 : stdgo.GoInt) : Bool) && (_n < _b._n : Bool) : Bool)) {
-                (_b._buf.__slice__((0 : stdgo.GoInt), (_b._n - _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._buf.__slice__(_n, _b._n) : stdgo.Slice<stdgo.GoUInt8>));
+            if (((_n > (0 : stdgo.GoInt) : Bool) && (_n < (@:checkr _b ?? throw "null pointer dereference")._n : Bool) : Bool)) {
+                ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), ((@:checkr _b ?? throw "null pointer dereference")._n - _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_n, (@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>));
             };
-            _b._n = (_b._n - (_n) : stdgo.GoInt);
-            _b._err = _err;
+            (@:checkr _b ?? throw "null pointer dereference")._n = ((@:checkr _b ?? throw "null pointer dereference")._n - (_n) : stdgo.GoInt);
+            (@:checkr _b ?? throw "null pointer dereference")._err = _err;
             return _err;
         };
-        _b._n = (0 : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._n = (0 : stdgo.GoInt);
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function reset( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _w:stdgo._internal.io.Io_Writer.Writer):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         if (stdgo.Go.toInterface(stdgo.Go.asInterface(_b)) == (stdgo.Go.toInterface(_w))) {
             return;
         };
-        if (_b._buf == null) {
-            _b._buf = (new stdgo.Slice<stdgo.GoUInt8>((4096 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        if ((@:checkr _b ?? throw "null pointer dereference")._buf == null) {
+            (@:checkr _b ?? throw "null pointer dereference")._buf = (new stdgo.Slice<stdgo.GoUInt8>((4096 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
-        _b._err = (null : stdgo.Error);
-        _b._n = (0 : stdgo.GoInt);
-        _b._wr = _w;
+        (@:checkr _b ?? throw "null pointer dereference")._err = (null : stdgo.Error);
+        (@:checkr _b ?? throw "null pointer dereference")._n = (0 : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._wr = _w;
     }
     @:keep
+    @:tdfield
     static public function size( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
-        return (_b._buf.length);
+        return ((@:checkr _b ?? throw "null pointer dereference")._buf.length);
     }
 }

@@ -16,6 +16,7 @@ package stdgo.math.cmplx;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.math.cmplx.Cmplx_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }

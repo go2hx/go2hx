@@ -10,10 +10,10 @@ function _readEncodedData(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Sli
             };
             _n = (_n + (_nn) : stdgo.GoInt);
         };
-        if ((((_n < _min : Bool) && (_n > (0 : stdgo.GoInt) : Bool) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+        if ((((_n < _min : Bool) && (_n > (0 : stdgo.GoInt) : Bool) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
         };
-        if ((((_expectsPadding && (_min < (8 : stdgo.GoInt) : Bool) : Bool) && _n == ((0 : stdgo.GoInt)) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+        if ((((_expectsPadding && (_min < (8 : stdgo.GoInt) : Bool) : Bool) && _n == ((0 : stdgo.GoInt)) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
         };
         return { _0 : _n, _1 : _err };

@@ -12,8 +12,8 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             var _needIndent = (false : Bool);
             var _depth = (0 : stdgo.GoInt);
             for (__4 => _c in _src) {
-                _scan._bytes++;
-                var _v = (_scan._step(_scan, _c) : stdgo.GoInt);
+                (@:checkr _scan ?? throw "null pointer dereference")._bytes++;
+                var _v = ((@:checkr _scan ?? throw "null pointer dereference")._step(_scan, _c) : stdgo.GoInt);
                 if (_v == ((9 : stdgo.GoInt))) {
                     continue;
                 };
@@ -52,10 +52,11 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
                     };
                 };
             };
-            if (_scan._eof() == ((11 : stdgo.GoInt))) {
+            if (@:check2r _scan._eof() == ((11 : stdgo.GoInt))) {
                 {
-                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
+                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : (@:checkr _scan ?? throw "null pointer dereference")._err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -64,12 +65,14 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -84,6 +87,7 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -4,9 +4,9 @@ function testFloatMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             var _x = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._x?.__copy__());
             var _mant = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._mant?.__copy__());
             var _m = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-            var _e = (_x.mantExp(_m) : stdgo.GoInt);
+            var _e = (@:check2r _x.mantExp(_m) : stdgo.GoInt);
             if ((!stdgo._internal.math.big.Big__alike._alike(_m, _mant) || (_e != _test._exp) : Bool)) {
-                _t.errorf(("%s.MantExp() = %s, %d; want %s, %d" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_m.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_test._mant), stdgo.Go.toInterface(_test._exp));
+                @:check2r _t.errorf(("%s.MantExp() = %s, %d; want %s, %d" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(@:check2r _m.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_test._mant), stdgo.Go.toInterface(_test._exp));
             };
         };
     }

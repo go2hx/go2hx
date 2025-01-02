@@ -1,37 +1,37 @@
 package stdgo._internal.crypto.tls;
 function _illegalClientHelloChange(_ch:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg>, _ch1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg>):Bool {
-        if (((((((_ch._supportedVersions.length) != ((_ch1._supportedVersions.length)) || (_ch._cipherSuites.length) != ((_ch1._cipherSuites.length)) : Bool) || (_ch._supportedCurves.length) != ((_ch1._supportedCurves.length)) : Bool) || (_ch._supportedSignatureAlgorithms.length) != ((_ch1._supportedSignatureAlgorithms.length)) : Bool) || (_ch._supportedSignatureAlgorithmsCert.length) != ((_ch1._supportedSignatureAlgorithmsCert.length)) : Bool) || (_ch._alpnProtocols.length != (_ch1._alpnProtocols.length)) : Bool)) {
+        if ((((((((@:checkr _ch ?? throw "null pointer dereference")._supportedVersions.length) != (((@:checkr _ch1 ?? throw "null pointer dereference")._supportedVersions.length)) || ((@:checkr _ch ?? throw "null pointer dereference")._cipherSuites.length) != (((@:checkr _ch1 ?? throw "null pointer dereference")._cipherSuites.length)) : Bool) || ((@:checkr _ch ?? throw "null pointer dereference")._supportedCurves.length) != (((@:checkr _ch1 ?? throw "null pointer dereference")._supportedCurves.length)) : Bool) || ((@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithms.length) != (((@:checkr _ch1 ?? throw "null pointer dereference")._supportedSignatureAlgorithms.length)) : Bool) || ((@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert.length) != (((@:checkr _ch1 ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert.length)) : Bool) || ((@:checkr _ch ?? throw "null pointer dereference")._alpnProtocols.length != ((@:checkr _ch1 ?? throw "null pointer dereference")._alpnProtocols.length)) : Bool)) {
             return true;
         };
-        for (_i => _ in _ch._supportedVersions) {
-            if (_ch._supportedVersions[(_i : stdgo.GoInt)] != (_ch1._supportedVersions[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._supportedVersions) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._supportedVersions[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._supportedVersions[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        for (_i => _ in _ch._cipherSuites) {
-            if (_ch._cipherSuites[(_i : stdgo.GoInt)] != (_ch1._cipherSuites[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._cipherSuites) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._cipherSuites[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._cipherSuites[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        for (_i => _ in _ch._supportedCurves) {
-            if (_ch._supportedCurves[(_i : stdgo.GoInt)] != (_ch1._supportedCurves[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._supportedCurves) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._supportedCurves[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._supportedCurves[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        for (_i => _ in _ch._supportedSignatureAlgorithms) {
-            if (_ch._supportedSignatureAlgorithms[(_i : stdgo.GoInt)] != (_ch1._supportedSignatureAlgorithms[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithms[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._supportedSignatureAlgorithms[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        for (_i => _ in _ch._supportedSignatureAlgorithmsCert) {
-            if (_ch._supportedSignatureAlgorithmsCert[(_i : stdgo.GoInt)] != (_ch1._supportedSignatureAlgorithmsCert[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        for (_i => _ in _ch._alpnProtocols) {
-            if (_ch._alpnProtocols[(_i : stdgo.GoInt)] != (_ch1._alpnProtocols[(_i : stdgo.GoInt)])) {
+        for (_i => _ in (@:checkr _ch ?? throw "null pointer dereference")._alpnProtocols) {
+            if ((@:checkr _ch ?? throw "null pointer dereference")._alpnProtocols[(_i : stdgo.GoInt)] != ((@:checkr _ch1 ?? throw "null pointer dereference")._alpnProtocols[(_i : stdgo.GoInt)])) {
                 return true;
             };
         };
-        return (((((((((((((_ch._vers != (_ch1._vers) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._random, _ch1._random) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._sessionId, _ch1._sessionId) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._compressionMethods, _ch1._compressionMethods) : Bool) || _ch._serverName != (_ch1._serverName) : Bool) || _ch._ocspStapling != (_ch1._ocspStapling) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._supportedPoints, _ch1._supportedPoints) : Bool) || _ch._ticketSupported != (_ch1._ticketSupported) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._sessionTicket, _ch1._sessionTicket) : Bool) || _ch._secureRenegotiationSupported != (_ch1._secureRenegotiationSupported) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._secureRenegotiation, _ch1._secureRenegotiation) : Bool) || _ch._scts != (_ch1._scts) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._cookie, _ch1._cookie) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal(_ch._pskModes, _ch1._pskModes) : Bool);
+        return ((((((((((((((@:checkr _ch ?? throw "null pointer dereference")._vers != ((@:checkr _ch1 ?? throw "null pointer dereference")._vers) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._random, (@:checkr _ch1 ?? throw "null pointer dereference")._random) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._sessionId, (@:checkr _ch1 ?? throw "null pointer dereference")._sessionId) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._compressionMethods, (@:checkr _ch1 ?? throw "null pointer dereference")._compressionMethods) : Bool) || (@:checkr _ch ?? throw "null pointer dereference")._serverName != ((@:checkr _ch1 ?? throw "null pointer dereference")._serverName) : Bool) || (@:checkr _ch ?? throw "null pointer dereference")._ocspStapling != ((@:checkr _ch1 ?? throw "null pointer dereference")._ocspStapling) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._supportedPoints, (@:checkr _ch1 ?? throw "null pointer dereference")._supportedPoints) : Bool) || (@:checkr _ch ?? throw "null pointer dereference")._ticketSupported != ((@:checkr _ch1 ?? throw "null pointer dereference")._ticketSupported) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._sessionTicket, (@:checkr _ch1 ?? throw "null pointer dereference")._sessionTicket) : Bool) || (@:checkr _ch ?? throw "null pointer dereference")._secureRenegotiationSupported != ((@:checkr _ch1 ?? throw "null pointer dereference")._secureRenegotiationSupported) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._secureRenegotiation, (@:checkr _ch1 ?? throw "null pointer dereference")._secureRenegotiation) : Bool) || (@:checkr _ch ?? throw "null pointer dereference")._scts != ((@:checkr _ch1 ?? throw "null pointer dereference")._scts) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._cookie, (@:checkr _ch1 ?? throw "null pointer dereference")._cookie) : Bool) || !stdgo._internal.bytes.Bytes_equal.equal((@:checkr _ch ?? throw "null pointer dereference")._pskModes, (@:checkr _ch1 ?? throw "null pointer dereference")._pskModes) : Bool);
     }

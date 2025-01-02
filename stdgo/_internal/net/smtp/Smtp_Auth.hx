@@ -10,6 +10,7 @@ typedef Auth = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function start(_server:stdgo.Ref<stdgo._internal.net.smtp.Smtp_ServerInfo.ServerInfo>):{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; };
     /**
         Next continues the authentication. The server has just sent
@@ -21,5 +22,6 @@ typedef Auth = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function next(_fromServer:stdgo.Slice<stdgo.GoUInt8>, _more:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
 };

@@ -31,7 +31,7 @@ function atoi(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; }
                 { _0 : (null : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>), _1 : false };
             }, _nerr = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                _nerr.func = ("Atoi" : stdgo.GoString);
+                (@:checkr _nerr ?? throw "null pointer dereference").func = ("Atoi" : stdgo.GoString);
             };
         };
         return { _0 : (_i64 : stdgo.GoInt), _1 : _err };

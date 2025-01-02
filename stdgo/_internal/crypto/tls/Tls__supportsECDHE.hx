@@ -2,7 +2,7 @@ package stdgo._internal.crypto.tls;
 function _supportsECDHE(_c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>, _supportedCurves:stdgo.Slice<stdgo._internal.crypto.tls.Tls_CurveID.CurveID>, _supportedPoints:stdgo.Slice<stdgo.GoUInt8>):Bool {
         var _supportsCurve = (false : Bool);
         for (__65 => _curve in _supportedCurves) {
-            if (_c._supportsCurve(_curve)) {
+            if (@:check2r _c._supportsCurve(_curve)) {
                 _supportsCurve = true;
                 break;
             };

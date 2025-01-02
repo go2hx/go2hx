@@ -6,6 +6,7 @@ typedef ClientSessionCache = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function get(_sessionKey:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>; var _1 : Bool; };
     /**
         Put adds the ClientSessionState to the cache with the given key. It might
@@ -15,5 +16,6 @@ typedef ClientSessionCache = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function put(_sessionKey:stdgo.GoString, _cs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>):Void;
 };

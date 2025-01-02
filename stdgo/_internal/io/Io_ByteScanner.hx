@@ -6,5 +6,6 @@ typedef ByteScanner = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function unreadByte():stdgo.Error;
 };

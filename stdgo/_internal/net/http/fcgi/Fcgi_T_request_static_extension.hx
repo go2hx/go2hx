@@ -1,10 +1,11 @@
 package stdgo._internal.net.http.fcgi;
 @:keep @:allow(stdgo._internal.net.http.fcgi.Fcgi.T_request_asInterface) class T_request_static_extension {
     @:keep
+    @:tdfield
     static public function _parseParams( _r:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_request.T_request>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_request.T_request> = _r;
-        var _text = _r._rawParams;
-        _r._rawParams = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _text = (@:checkr _r ?? throw "null pointer dereference")._rawParams;
+        (@:checkr _r ?? throw "null pointer dereference")._rawParams = (null : stdgo.Slice<stdgo.GoUInt8>);
         while (((_text.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.net.http.fcgi.Fcgi__readSize._readSize(_text), _keyLen:stdgo.GoUInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
             if (_n == ((0 : stdgo.GoInt))) {
@@ -23,7 +24,7 @@ package stdgo._internal.net.http.fcgi;
             _text = (_text.__slice__(_keyLen) : stdgo.Slice<stdgo.GoUInt8>);
             var _val = (stdgo._internal.net.http.fcgi.Fcgi__readString._readString(_text, _valLen)?.__copy__() : stdgo.GoString);
             _text = (_text.__slice__(_valLen) : stdgo.Slice<stdgo.GoUInt8>);
-            _r._params[_key] = _val?.__copy__();
+            (@:checkr _r ?? throw "null pointer dereference")._params[_key] = _val?.__copy__();
         };
     }
 }

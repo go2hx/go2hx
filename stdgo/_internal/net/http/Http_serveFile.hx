@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _name:stdgo.GoString):Void {
-        if (stdgo._internal.net.http.Http__containsDotDot._containsDotDot(_r.url.path?.__copy__())) {
+        if (stdgo._internal.net.http.Http__containsDotDot._containsDotDot((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__())) {
             stdgo._internal.net.http.Http_error.error(_w, ("invalid URL path" : stdgo.GoString), (400 : stdgo.GoInt));
             return;
         };

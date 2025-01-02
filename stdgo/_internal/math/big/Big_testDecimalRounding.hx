@@ -23,28 +23,28 @@ function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
 ({ _x : (12999999i64 : stdgo.GoUInt64), _n : (4 : stdgo.GoInt), _down : ("12990000" : stdgo.GoString), _even : ("13000000" : stdgo.GoString), _up : ("13000000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_9.T__struct_9)].concat([for (i in 20 ... (20 > 20 ? 20 : 20 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("" : stdgo.GoString), _even : ("" : stdgo.GoString), _up : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_9.T__struct_9)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_9.T__struct_9>)) {
             var _x = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setUint64(_test._x) : stdgo._internal.math.big.Big_T_nat.T_nat);
             var _d:stdgo._internal.math.big.Big_T_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_T_decimal.T_decimal);
-            _d._init(_x, (0 : stdgo.GoInt));
-            _d._roundDown(_test._n);
+            @:check2 _d._init(_x, (0 : stdgo.GoInt));
+            @:check2 _d._roundDown(_test._n);
             {
-                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._down)) {
-                    _t.errorf(("roundDown(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._down));
+                    @:check2r _t.errorf(("roundDown(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._down));
                 };
             };
-            _d._init(_x, (0 : stdgo.GoInt));
-            _d._round(_test._n);
+            @:check2 _d._init(_x, (0 : stdgo.GoInt));
+            @:check2 _d._round(_test._n);
             {
-                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._even)) {
-                    _t.errorf(("round(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._even));
+                    @:check2r _t.errorf(("round(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._even));
                 };
             };
-            _d._init(_x, (0 : stdgo.GoInt));
-            _d._roundUp(_test._n);
+            @:check2 _d._init(_x, (0 : stdgo.GoInt));
+            @:check2 _d._roundUp(_test._n);
             {
-                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._up)) {
-                    _t.errorf(("roundUp(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._up));
+                    @:check2r _t.errorf(("roundUp(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._up));
                 };
             };
         };

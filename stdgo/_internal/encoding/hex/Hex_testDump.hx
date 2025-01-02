@@ -6,6 +6,6 @@ function testDump(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         };
         var _out = (stdgo._internal.encoding.hex.Hex_dump.dump((_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
         if (!stdgo._internal.bytes.Bytes_equal.equal(_out, stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump)) {
-            _t.errorf(("got:\n%s\nwant:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump));
+            @:check2r _t.errorf(("got:\n%s\nwant:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump));
         };
     }

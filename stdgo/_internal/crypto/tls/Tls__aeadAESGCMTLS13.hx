@@ -12,6 +12,6 @@ function _aeadAESGCMTLS13(_key:stdgo.Slice<stdgo.GoUInt8>, _nonceMask:stdgo.Slic
             throw stdgo.Go.toInterface(_err);
         };
         var _ret = (stdgo.Go.setRef(({ _aead : _aead } : stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD>);
-        (_ret._nonceMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_nonceMask);
+        ((@:checkr _ret ?? throw "null pointer dereference")._nonceMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_nonceMask);
         return stdgo.Go.asInterface(_ret);
     }

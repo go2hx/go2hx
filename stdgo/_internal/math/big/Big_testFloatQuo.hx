@@ -17,12 +17,12 @@ if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                 };
 var _z = _bits.float_();
 var _y = stdgo._internal.math.big.Big_newFloat.newFloat((3.141592653589793e+123 : stdgo.GoFloat64));
-var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((_z.prec() + _y.prec() : stdgo.GoUInt)).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode));
-_x.mul(_z, _y);
+var _x = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((@:check2r _z.prec() + @:check2r _y.prec() : stdgo.GoUInt)).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode));
+@:check2r _x.mul(_z, _y);
 {
-                    var _got = (_x.acc() : stdgo._internal.math.big.Big_Accuracy.Accuracy);
+                    var _got = (@:check2r _x.acc() : stdgo._internal.math.big.Big_Accuracy.Accuracy);
                     if (_got != ((0 : stdgo._internal.math.big.Big_Accuracy.Accuracy))) {
-                        _t.errorf(("got acc = %s; want exact" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
+                        @:check2r _t.errorf(("got acc = %s; want exact" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));
                     };
                 };
 for (__8 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big_RoundingMode.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), (3 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.math.big.Big_RoundingMode.RoundingMode>)) {
@@ -30,10 +30,10 @@ for (__8 => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big_RoundingMod
                         var _d = (-5 : stdgo.GoInt);
                         while ((_d < (5 : stdgo.GoInt) : Bool)) {
                             var _prec = ((_preci + _d : stdgo.GoInt) : stdgo.GoUInt);
-var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode(_mode).quo(_x, _y);
+var _got = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode(_mode).quo(_x, _y);
 var _want = _bits._round(_prec, _mode);
-if (_got.cmp(_want) != ((0 : stdgo.GoInt))) {
-                                _t.errorf(("i = %d, prec = %d, %s:\n\t     %s\n\t/    %s\n\t=    %s\n\twant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+if (@:check2r _got.cmp(_want) != ((0 : stdgo.GoInt))) {
+                                @:check2r _t.errorf(("i = %d, prec = %d, %s:\n\t     %s\n\t/    %s\n\t=    %s\n\twant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_y)), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
                             };
                             _d++;
                         };

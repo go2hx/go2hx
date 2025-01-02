@@ -8,8 +8,8 @@ function testDenomRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             while ((_i < (3 : stdgo.GoInt) : Bool)) {
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
-                        _x.denom();
-                        (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setRat(_x);
+                        @:check2r _x.denom();
+                        @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setRat(_x);
                         _c.__send__(true);
                     };
                     a();

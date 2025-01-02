@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.x509.pkix;
 @:keep @:allow(stdgo._internal.crypto.x509.pkix.Pkix.Name_asInterface) class Name_static_extension {
     @:keep
+    @:tdfield
     static public function string( _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name):stdgo.GoString {
         @:recv var _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name = _n?.__copy__();
         var _rdns:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence(0, 0);
@@ -22,6 +23,7 @@ package stdgo._internal.crypto.x509.pkix;
         return (_rdns.string() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function toRDNSequence( _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name):stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence {
         @:recv var _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name = _n?.__copy__();
         var _ret = new stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence(0, 0);
@@ -44,6 +46,7 @@ package stdgo._internal.crypto.x509.pkix;
         return _ret;
     }
     @:keep
+    @:tdfield
     static public function _appendRDNs( _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, _in:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence, _values:stdgo.Slice<stdgo.GoString>, _oid:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence {
         @:recv var _n:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name = _n?.__copy__();
         if (((_values.length == (0 : stdgo.GoInt)) || stdgo._internal.crypto.x509.pkix.Pkix__oidInAttributeTypeAndValue._oidInAttributeTypeAndValue(_oid, _n.extraNames) : Bool)) {
@@ -57,6 +60,7 @@ package stdgo._internal.crypto.x509.pkix;
         return (_in.__append__(_s));
     }
     @:keep
+    @:tdfield
     static public function fillFromRDNSequence( _n:stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_Name.Name>, _rdns:stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_Name.Name> = _n;
         for (__0 => _rdn in (_rdns : stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence)) {
@@ -64,7 +68,7 @@ package stdgo._internal.crypto.x509.pkix;
                 continue;
             };
             for (__1 => _atv in _rdn) {
-                _n.names = (_n.names.__append__(_atv?.__copy__()));
+                (@:checkr _n ?? throw "null pointer dereference").names = ((@:checkr _n ?? throw "null pointer dereference").names.__append__(_atv?.__copy__()));
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((_atv.value : stdgo.GoString)) : stdgo.GoString), _1 : true };
                 } catch(_) {
@@ -78,23 +82,23 @@ package stdgo._internal.crypto.x509.pkix;
                     {
                         final __value__ = _t[(3 : stdgo.GoInt)];
                         if (__value__ == ((3 : stdgo.GoInt))) {
-                            _n.commonName = _value?.__copy__();
+                            (@:checkr _n ?? throw "null pointer dereference").commonName = _value?.__copy__();
                         } else if (__value__ == ((5 : stdgo.GoInt))) {
-                            _n.serialNumber = _value?.__copy__();
+                            (@:checkr _n ?? throw "null pointer dereference").serialNumber = _value?.__copy__();
                         } else if (__value__ == ((6 : stdgo.GoInt))) {
-                            _n.country = (_n.country.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").country = ((@:checkr _n ?? throw "null pointer dereference").country.__append__(_value?.__copy__()));
                         } else if (__value__ == ((7 : stdgo.GoInt))) {
-                            _n.locality = (_n.locality.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").locality = ((@:checkr _n ?? throw "null pointer dereference").locality.__append__(_value?.__copy__()));
                         } else if (__value__ == ((8 : stdgo.GoInt))) {
-                            _n.province = (_n.province.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").province = ((@:checkr _n ?? throw "null pointer dereference").province.__append__(_value?.__copy__()));
                         } else if (__value__ == ((9 : stdgo.GoInt))) {
-                            _n.streetAddress = (_n.streetAddress.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").streetAddress = ((@:checkr _n ?? throw "null pointer dereference").streetAddress.__append__(_value?.__copy__()));
                         } else if (__value__ == ((10 : stdgo.GoInt))) {
-                            _n.organization = (_n.organization.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").organization = ((@:checkr _n ?? throw "null pointer dereference").organization.__append__(_value?.__copy__()));
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
-                            _n.organizationalUnit = (_n.organizationalUnit.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").organizationalUnit = ((@:checkr _n ?? throw "null pointer dereference").organizationalUnit.__append__(_value?.__copy__()));
                         } else if (__value__ == ((17 : stdgo.GoInt))) {
-                            _n.postalCode = (_n.postalCode.__append__(_value?.__copy__()));
+                            (@:checkr _n ?? throw "null pointer dereference").postalCode = ((@:checkr _n ?? throw "null pointer dereference").postalCode.__append__(_value?.__copy__()));
                         };
                     };
                 };

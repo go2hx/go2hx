@@ -8,22 +8,38 @@ package stdgo._internal.net.http;
         if (_boundAddr != null) this._boundAddr = _boundAddr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function close():stdgo.Error return this.conn.close();
+    @:embeddededffieldsffun
+    public function get_close():() -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").close;
+    public var localAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function localAddr():stdgo._internal.net.Net_Addr.Addr return this.conn.localAddr();
+    @:embeddededffieldsffun
+    public function get_localAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.conn ?? throw "null pointer derefrence").localAddr;
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.conn.read(__0);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.conn ?? throw "null pointer derefrence").read;
+    public var remoteAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function remoteAddr():stdgo._internal.net.Net_Addr.Addr return this.conn.remoteAddr();
+    @:embeddededffieldsffun
+    public function get_remoteAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.conn ?? throw "null pointer derefrence").remoteAddr;
+    public var setDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setDeadline;
+    public var setReadDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setReadDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setReadDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setReadDeadline;
+    public var setWriteDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setWriteDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setWriteDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setWriteDeadline;
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.conn.write(__0);
+    @:embeddededffieldsffun
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.conn ?? throw "null pointer derefrence").write;
     public function __copy__() {
         return new T_socksConn(conn, _boundAddr);
     }

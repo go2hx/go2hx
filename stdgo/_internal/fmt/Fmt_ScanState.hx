@@ -8,12 +8,14 @@ typedef ScanState = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function readRune():{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; };
     /**
         UnreadRune causes the next call to ReadRune to return the same rune.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function unreadRune():stdgo.Error;
     /**
         SkipSpace skips space in the input. Newlines are treated appropriately
@@ -22,6 +24,7 @@ typedef ScanState = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function skipSpace():Void;
     /**
         Token skips space in the input if skipSpace is true, then returns the
@@ -35,6 +38,7 @@ typedef ScanState = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function token(_skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     /**
         Width returns the value of the width option and whether it has been set.
@@ -42,6 +46,7 @@ typedef ScanState = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function width():{ var _0 : stdgo.GoInt; var _1 : Bool; };
     /**
         Because ReadRune is implemented by the interface, Read should never be
@@ -50,5 +55,6 @@ typedef ScanState = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function read(_buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
 };

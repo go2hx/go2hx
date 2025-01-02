@@ -27,17 +27,17 @@ function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString {
             };
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _b.grow(_n);
-        _b.writeString(_s?.__copy__());
-        while ((_b.len() < _n : Bool)) {
-            var _chunk = (_n - _b.len() : stdgo.GoInt);
-            if ((_chunk > _b.len() : Bool)) {
-                _chunk = _b.len();
+        @:check2 _b.grow(_n);
+        @:check2 _b.writeString(_s?.__copy__());
+        while ((@:check2 _b.len() < _n : Bool)) {
+            var _chunk = (_n - @:check2 _b.len() : stdgo.GoInt);
+            if ((_chunk > @:check2 _b.len() : Bool)) {
+                _chunk = @:check2 _b.len();
             };
             if ((_chunk > _chunkMax : Bool)) {
                 _chunk = _chunkMax;
             };
-            _b.writeString(((_b.string() : stdgo.GoString).__slice__(0, _chunk) : stdgo.GoString)?.__copy__());
+            @:check2 _b.writeString(((@:check2 _b.string() : stdgo.GoString).__slice__(0, _chunk) : stdgo.GoString)?.__copy__());
         };
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

@@ -10,17 +10,17 @@ function _readDirectory64End(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _offset
         };
         var _b = (_buf : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
         {
-            var _sig = (_b._uint32() : stdgo.GoUInt32);
+            var _sig = (@:check2 _b._uint32() : stdgo.GoUInt32);
             if (_sig != ((101075792u32 : stdgo.GoUInt32))) {
                 return _err = stdgo._internal.archive.zip.Zip_errFormat.errFormat;
             };
         };
         _b = (_b.__slice__((12 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
-        _d._diskNbr = _b._uint32();
-        _d._dirDiskNbr = _b._uint32();
-        _d._dirRecordsThisDisk = _b._uint64();
-        _d._directoryRecords = _b._uint64();
-        _d._directorySize = _b._uint64();
-        _d._directoryOffset = _b._uint64();
+        (@:checkr _d ?? throw "null pointer dereference")._diskNbr = @:check2 _b._uint32();
+        (@:checkr _d ?? throw "null pointer dereference")._dirDiskNbr = @:check2 _b._uint32();
+        (@:checkr _d ?? throw "null pointer dereference")._dirRecordsThisDisk = @:check2 _b._uint64();
+        (@:checkr _d ?? throw "null pointer dereference")._directoryRecords = @:check2 _b._uint64();
+        (@:checkr _d ?? throw "null pointer dereference")._directorySize = @:check2 _b._uint64();
+        (@:checkr _d ?? throw "null pointer dereference")._directoryOffset = @:check2 _b._uint64();
         return _err = (null : stdgo.Error);
     }

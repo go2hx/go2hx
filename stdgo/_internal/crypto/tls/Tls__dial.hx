@@ -2,10 +2,10 @@ package stdgo._internal.crypto.tls;
 function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:stdgo.Ref<stdgo._internal.net.Net_Dialer.Dialer>, _network:stdgo.GoString, _addr:stdgo.GoString, _config:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_netDialer.timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
+            if ((@:checkr _netDialer ?? throw "null pointer dereference").timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
-                    var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, _netDialer.timeout);
+                    var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, (@:checkr _netDialer ?? throw "null pointer dereference").timeout);
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
@@ -14,10 +14,10 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                     __deferstack__.unshift(() -> __f__());
                 };
             };
-            if (!_netDialer.deadline.isZero()) {
+            if (!(@:checkr _netDialer ?? throw "null pointer dereference").deadline.isZero()) {
                 var _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
-                    var __tmp__ = stdgo._internal.context.Context_withDeadline.withDeadline(_ctx, _netDialer.deadline?.__copy__());
+                    var __tmp__ = stdgo._internal.context.Context_withDeadline.withDeadline(_ctx, (@:checkr _netDialer ?? throw "null pointer dereference").deadline?.__copy__());
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
@@ -26,11 +26,12 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                     __deferstack__.unshift(() -> __f__());
                 };
             };
-            var __tmp__ = _netDialer.dialContext(_ctx, _network?.__copy__(), _addr?.__copy__()), _rawConn:stdgo._internal.net.Net_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _netDialer.dialContext(_ctx, _network?.__copy__(), _addr?.__copy__()), _rawConn:stdgo._internal.net.Net_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -44,19 +45,20 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
             if ((_config == null || (_config : Dynamic).__nil__)) {
                 _config = stdgo._internal.crypto.tls.Tls__defaultConfig._defaultConfig();
             };
-            if (_config.serverName == (stdgo.Go.str())) {
-                var _c = _config.clone();
-                _c.serverName = _hostname?.__copy__();
+            if ((@:checkr _config ?? throw "null pointer dereference").serverName == (stdgo.Go.str())) {
+                var _c = @:check2r _config.clone();
+                (@:checkr _c ?? throw "null pointer dereference").serverName = _hostname?.__copy__();
                 _config = _c;
             };
             var _conn = stdgo._internal.crypto.tls.Tls_client.client(_rawConn, _config);
             {
-                var _err = (_conn.handshakeContext(_ctx) : stdgo.Error);
+                var _err = (@:check2r _conn.handshakeContext(_ctx) : stdgo.Error);
                 if (_err != null) {
                     _rawConn.close();
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -66,12 +68,14 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>; var _1 : stdgo.Error; } = { _0 : _conn, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -86,6 +90,7 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

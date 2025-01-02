@@ -5,5 +5,6 @@ typedef T_sniffSig = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _match(_data:stdgo.Slice<stdgo.GoUInt8>, _firstNonWS:stdgo.GoInt):stdgo.GoString;
 };

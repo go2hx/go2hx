@@ -14,6 +14,6 @@ function _tryExec():stdgo.Error {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("can\'t probe for exec support: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         var _cmd = stdgo._internal.os.exec.Exec_command.command(_exe?.__copy__(), ("-test.list=^$" : stdgo.GoString));
-        _cmd.env = stdgo._internal.internal.testenv.Testenv__origEnv._origEnv;
-        return _cmd.run();
+        (@:checkr _cmd ?? throw "null pointer dereference").env = stdgo._internal.internal.testenv.Testenv__origEnv._origEnv;
+        return @:check2r _cmd.run();
     }

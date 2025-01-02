@@ -6,7 +6,7 @@ function newReader(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _size:stdgo.GoInt
         var _zr = (stdgo.Go.setRef(({} : stdgo._internal.archive.zip.Zip_Reader.Reader)) : stdgo.Ref<stdgo._internal.archive.zip.Zip_Reader.Reader>);
         var _err:stdgo.Error = (null : stdgo.Error);
         {
-            _err = _zr._init(_r, _size);
+            _err = @:check2r _zr._init(_r, _size);
             if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.archive.zip.Zip_errInsecurePath.errInsecurePath)) : Bool)) {
                 return { _0 : null, _1 : _err };
             };

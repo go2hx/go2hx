@@ -7,5 +7,6 @@ typedef ConnPrepareContext = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function prepareContext(_ctx:stdgo._internal.context.Context_Context.Context, _query:stdgo.GoString):{ var _0 : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt; var _1 : stdgo.Error; };
 };

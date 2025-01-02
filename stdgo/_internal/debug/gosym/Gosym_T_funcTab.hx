@@ -8,54 +8,102 @@ package stdgo._internal.debug.gosym;
         if (_sz != null) this._sz = _sz;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var lineToPC(get, never) : (stdgo.GoInt, stdgo.GoUInt64) -> stdgo.GoUInt64;
     @:embedded
-    public function lineToPC(_line:stdgo.GoInt, _maxpc:stdgo.GoUInt64):stdgo.GoUInt64 return this.lineTable.lineToPC(_line, _maxpc);
+    @:embeddededffieldsffun
+    public function get_lineToPC():(stdgo.GoInt, stdgo.GoUInt64) -> stdgo.GoUInt64 return @:check3 (this.lineTable ?? throw "null pointer derefrence").lineToPC;
+    public var pCToLine(get, never) : stdgo.GoUInt64 -> stdgo.GoInt;
     @:embedded
-    public function pctoLine(__0:stdgo.GoUInt64):stdgo.GoInt return this.lineTable.pctoLine(__0);
+    @:embeddededffieldsffun
+    public function get_pCToLine():stdgo.GoUInt64 -> stdgo.GoInt return @:check3 (this.lineTable ?? throw "null pointer derefrence").pCToLine;
+    public var _findFileLine(get, never) : (stdgo.GoUInt64, stdgo.GoUInt32, stdgo.GoUInt32, stdgo.GoInt32, stdgo.GoInt32, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoUInt64;
     @:embedded
-    public function _findFileLine(_entry:stdgo.GoUInt64, _filetab:stdgo.GoUInt32, _linetab:stdgo.GoUInt32, _filenum:stdgo.GoInt32, _line:stdgo.GoInt32, _cutab:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 return this.lineTable._findFileLine(_entry, _filetab, _linetab, _filenum, _line, _cutab);
+    @:embeddededffieldsffun
+    public function get__findFileLine():(stdgo.GoUInt64, stdgo.GoUInt32, stdgo.GoUInt32, stdgo.GoInt32, stdgo.GoInt32, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoUInt64 return @:check3 (this.lineTable ?? throw "null pointer derefrence")._findFileLine;
+    public var _findFunc(get, never) : stdgo.GoUInt64 -> stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData;
     @:embedded
-    public function _findFunc(__0:stdgo.GoUInt64):stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData return this.lineTable._findFunc(__0);
+    @:embeddededffieldsffun
+    public function get__findFunc():stdgo.GoUInt64 -> stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData return @:check3 (this.lineTable ?? throw "null pointer derefrence")._findFunc;
+    public var _funcData(get, never) : stdgo.GoUInt32 -> stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData;
     @:embedded
-    public function _funcData(__0:stdgo.GoUInt32):stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData return this.lineTable._funcData(__0);
+    @:embeddededffieldsffun
+    public function get__funcData():stdgo.GoUInt32 -> stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData return @:check3 (this.lineTable ?? throw "null pointer derefrence")._funcData;
+    public var _funcName(get, never) : stdgo.GoUInt32 -> stdgo.GoString;
     @:embedded
-    public function _funcName(__0:stdgo.GoUInt32):stdgo.GoString return this.lineTable._funcName(__0);
+    @:embeddededffieldsffun
+    public function get__funcName():stdgo.GoUInt32 -> stdgo.GoString return @:check3 (this.lineTable ?? throw "null pointer derefrence")._funcName;
+    public var _funcTab(get, never) : () -> stdgo._internal.debug.gosym.Gosym_T_funcTab.T_funcTab;
     @:embedded
-    public function _funcTab():stdgo._internal.debug.gosym.Gosym_T_funcTab.T_funcTab return this.lineTable._funcTab();
+    @:embeddededffieldsffun
+    public function get__funcTab():() -> stdgo._internal.debug.gosym.Gosym_T_funcTab.T_funcTab return @:check3 (this.lineTable ?? throw "null pointer derefrence")._funcTab;
+    public var _functabFieldSize(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function _functabFieldSize():stdgo.GoInt return this.lineTable._functabFieldSize();
+    @:embeddededffieldsffun
+    public function get__functabFieldSize():() -> stdgo.GoInt return @:check3 (this.lineTable ?? throw "null pointer derefrence")._functabFieldSize;
+    public var _go12Funcs(get, never) : () -> stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>;
     @:embedded
-    public function _go12Funcs():stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> return this.lineTable._go12Funcs();
+    @:embeddededffieldsffun
+    public function get__go12Funcs():() -> stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> return @:check3 (this.lineTable ?? throw "null pointer derefrence")._go12Funcs;
+    public var _go12LineToPC(get, never) : (stdgo.GoString, stdgo.GoInt) -> stdgo.GoUInt64;
     @:embedded
-    public function _go12LineToPC(_path:stdgo.GoString, _line:stdgo.GoInt):stdgo.GoUInt64 return this.lineTable._go12LineToPC(_path, _line);
+    @:embeddededffieldsffun
+    public function get__go12LineToPC():(stdgo.GoString, stdgo.GoInt) -> stdgo.GoUInt64 return @:check3 (this.lineTable ?? throw "null pointer derefrence")._go12LineToPC;
+    public var _go12MapFiles(get, never) : (stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>>, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>) -> Void;
     @:embedded
-    public function _go12MapFiles(_m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>>, _obj:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>) this.lineTable._go12MapFiles(_m, _obj);
+    @:embeddededffieldsffun
+    public function get__go12MapFiles():(stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>>, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>) -> Void return @:check3 (this.lineTable ?? throw "null pointer derefrence")._go12MapFiles;
+    public var _go12PCToFile(get, never) : stdgo.GoUInt64 -> stdgo.GoString;
     @:embedded
-    public function _go12PCToFile(__0:stdgo.GoUInt64):stdgo.GoString return this.lineTable._go12PCToFile(__0);
+    @:embeddededffieldsffun
+    public function get__go12PCToFile():stdgo.GoUInt64 -> stdgo.GoString return @:check3 (this.lineTable ?? throw "null pointer derefrence")._go12PCToFile;
+    public var _go12PCToLine(get, never) : stdgo.GoUInt64 -> stdgo.GoInt;
     @:embedded
-    public function _go12PCToLine(__0:stdgo.GoUInt64):stdgo.GoInt return this.lineTable._go12PCToLine(__0);
+    @:embeddededffieldsffun
+    public function get__go12PCToLine():stdgo.GoUInt64 -> stdgo.GoInt return @:check3 (this.lineTable ?? throw "null pointer derefrence")._go12PCToLine;
+    public var _initFileMap(get, never) : () -> Void;
     @:embedded
-    public function _initFileMap() this.lineTable._initFileMap();
+    @:embeddededffieldsffun
+    public function get__initFileMap():() -> Void return @:check3 (this.lineTable ?? throw "null pointer derefrence")._initFileMap;
+    public var _isGo12(get, never) : () -> Bool;
     @:embedded
-    public function _isGo12():Bool return this.lineTable._isGo12();
+    @:embeddededffieldsffun
+    public function get__isGo12():() -> Bool return @:check3 (this.lineTable ?? throw "null pointer derefrence")._isGo12;
+    public var _parse(get, never) : (stdgo.GoUInt64, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoUInt64; var _2 : stdgo.GoInt; };
     @:embedded
-    public function _parse(_targetPC:stdgo.GoUInt64, _targetLine:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoUInt64; var _2 : stdgo.GoInt; } return this.lineTable._parse(_targetPC, _targetLine);
+    @:embeddededffieldsffun
+    public function get__parse():(stdgo.GoUInt64, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoUInt64; var _2 : stdgo.GoInt; } return @:check3 (this.lineTable ?? throw "null pointer derefrence")._parse;
+    public var _parsePclnTab(get, never) : () -> Void;
     @:embedded
-    public function _parsePclnTab() this.lineTable._parsePclnTab();
+    @:embeddededffieldsffun
+    public function get__parsePclnTab():() -> Void return @:check3 (this.lineTable ?? throw "null pointer derefrence")._parsePclnTab;
+    public var _pcvalue(get, never) : (stdgo.GoUInt32, stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoInt32;
     @:embedded
-    public function _pcvalue(_off:stdgo.GoUInt32, _entry:stdgo.GoUInt64, _targetpc:stdgo.GoUInt64):stdgo.GoInt32 return this.lineTable._pcvalue(_off, _entry, _targetpc);
+    @:embeddededffieldsffun
+    public function get__pcvalue():(stdgo.GoUInt32, stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoInt32 return @:check3 (this.lineTable ?? throw "null pointer derefrence")._pcvalue;
+    public var _readvarint(get, never) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> -> stdgo.GoUInt32;
     @:embedded
-    public function _readvarint(_pp:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):stdgo.GoUInt32 return this.lineTable._readvarint(_pp);
+    @:embeddededffieldsffun
+    public function get__readvarint():stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> -> stdgo.GoUInt32 return @:check3 (this.lineTable ?? throw "null pointer derefrence")._readvarint;
+    public var _slice(get, never) : stdgo.GoUInt64 -> stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>;
     @:embedded
-    public function _slice(__0:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> return this.lineTable._slice(__0);
+    @:embeddededffieldsffun
+    public function get__slice():stdgo.GoUInt64 -> stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> return @:check3 (this.lineTable ?? throw "null pointer derefrence")._slice;
+    public var _step(get, never) : (stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Pointer<stdgo.GoUInt64>, stdgo.Pointer<stdgo.GoInt32>, Bool) -> Bool;
     @:embedded
-    public function _step(_p:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, _pc:stdgo.Pointer<stdgo.GoUInt64>, _val:stdgo.Pointer<stdgo.GoInt32>, _first:Bool):Bool return this.lineTable._step(_p, _pc, _val, _first);
+    @:embeddededffieldsffun
+    public function get__step():(stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Pointer<stdgo.GoUInt64>, stdgo.Pointer<stdgo.GoInt32>, Bool) -> Bool return @:check3 (this.lineTable ?? throw "null pointer derefrence")._step;
+    public var _string(get, never) : stdgo.GoUInt32 -> stdgo.GoString;
     @:embedded
-    public function _string(__0:stdgo.GoUInt32):stdgo.GoString return this.lineTable._string(__0);
+    @:embeddededffieldsffun
+    public function get__string():stdgo.GoUInt32 -> stdgo.GoString return @:check3 (this.lineTable ?? throw "null pointer derefrence")._string;
+    public var _stringFrom(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> stdgo.GoString;
     @:embedded
-    public function _stringFrom(_arr:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoUInt32):stdgo.GoString return this.lineTable._stringFrom(_arr, _off);
+    @:embeddededffieldsffun
+    public function get__stringFrom():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> stdgo.GoString return @:check3 (this.lineTable ?? throw "null pointer derefrence")._stringFrom;
+    public var _uintptr(get, never) : stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt64;
     @:embedded
-    public function _uintptr(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 return this.lineTable._uintptr(_b);
+    @:embeddededffieldsffun
+    public function get__uintptr():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt64 return @:check3 (this.lineTable ?? throw "null pointer derefrence")._uintptr;
     public function __copy__() {
         return new T_funcTab(lineTable, _sz);
     }

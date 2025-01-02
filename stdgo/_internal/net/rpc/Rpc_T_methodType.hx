@@ -14,16 +14,26 @@ package stdgo._internal.net.rpc;
         if (_numCalls != null) this._numCalls = _numCalls;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var lock(get, never) : () -> Void;
     @:embedded
-    public function lock() this.mutex.lock();
+    @:embeddededffieldsffun
+    public function get_lock():() -> Void return @:check3 (this.mutex ?? throw "null pointer derefrence").lock;
+    public var tryLock(get, never) : () -> Bool;
     @:embedded
-    public function tryLock():Bool return this.mutex.tryLock();
+    @:embeddededffieldsffun
+    public function get_tryLock():() -> Bool return @:check3 (this.mutex ?? throw "null pointer derefrence").tryLock;
+    public var unlock(get, never) : () -> Void;
     @:embedded
-    public function unlock() this.mutex.unlock();
+    @:embeddededffieldsffun
+    public function get_unlock():() -> Void return @:check3 (this.mutex ?? throw "null pointer derefrence").unlock;
+    public var _lockSlow(get, never) : () -> Void;
     @:embedded
-    public function _lockSlow() this.mutex._lockSlow();
+    @:embeddededffieldsffun
+    public function get__lockSlow():() -> Void return @:check3 (this.mutex ?? throw "null pointer derefrence")._lockSlow;
+    public var _unlockSlow(get, never) : stdgo.GoInt32 -> Void;
     @:embedded
-    public function _unlockSlow(_new:stdgo.GoInt32) this.mutex._unlockSlow(_new);
+    @:embeddededffieldsffun
+    public function get__unlockSlow():stdgo.GoInt32 -> Void return @:check3 (this.mutex ?? throw "null pointer derefrence")._unlockSlow;
     public function __copy__() {
         return new T_methodType(mutex, _method, argType, replyType, _numCalls);
     }

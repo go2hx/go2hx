@@ -129,6 +129,7 @@ _endChar,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef WriterPointer = stdgo._internal.text.tabwriter.Tabwriter_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function write(_b:Writer, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>);

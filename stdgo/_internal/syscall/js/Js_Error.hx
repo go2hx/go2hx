@@ -6,50 +6,94 @@ package stdgo._internal.syscall.js;
         if (value != null) this.value = value;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var bool_(get, never) : () -> Bool;
     @:embedded
-    public function bool_():Bool return this.value.bool_();
+    @:embeddededffieldsffun
+    public function get_bool_():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").bool_;
+    public var call(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo._internal.syscall.js.Js_Value.Value;
     @:embedded
-    public function call(_m:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js_Value.Value return this.value.call(_m, ..._args);
+    @:embeddededffieldsffun
+    public function get_call():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo._internal.syscall.js.Js_Value.Value return @:check3 (this.value ?? throw "null pointer derefrence").call;
+    public var delete(get, never) : stdgo.GoString -> Void;
     @:embedded
-    public function delete(_p:stdgo.GoString) this.value.delete(_p);
+    @:embeddededffieldsffun
+    public function get_delete():stdgo.GoString -> Void return @:check3 (this.value ?? throw "null pointer derefrence").delete;
+    public var equal(get, never) : stdgo._internal.syscall.js.Js_Value.Value -> Bool;
     @:embedded
-    public function equal(__0:stdgo._internal.syscall.js.Js_Value.Value):Bool return this.value.equal(__0);
+    @:embeddededffieldsffun
+    public function get_equal():stdgo._internal.syscall.js.Js_Value.Value -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").equal;
+    public var float_(get, never) : () -> stdgo.GoFloat64;
     @:embedded
-    public function float_():stdgo.GoFloat64 return this.value.float_();
+    @:embeddededffieldsffun
+    public function get_float_():() -> stdgo.GoFloat64 return @:check3 (this.value ?? throw "null pointer derefrence").float_;
+    public var get(get, never) : stdgo.GoString -> stdgo._internal.syscall.js.Js_Value.Value;
     @:embedded
-    public function get(_p:stdgo.GoString):stdgo._internal.syscall.js.Js_Value.Value return this.value.get(_p);
+    @:embeddededffieldsffun
+    public function get_get():stdgo.GoString -> stdgo._internal.syscall.js.Js_Value.Value return @:check3 (this.value ?? throw "null pointer derefrence").get;
+    public var index(get, never) : stdgo.GoInt -> stdgo._internal.syscall.js.Js_Value.Value;
     @:embedded
-    public function index(_i:stdgo.GoInt):stdgo._internal.syscall.js.Js_Value.Value return this.value.index(_i);
+    @:embeddededffieldsffun
+    public function get_index():stdgo.GoInt -> stdgo._internal.syscall.js.Js_Value.Value return @:check3 (this.value ?? throw "null pointer derefrence").index;
+    public var instanceOf(get, never) : stdgo._internal.syscall.js.Js_Value.Value -> Bool;
     @:embedded
-    public function instanceOf(__0:stdgo._internal.syscall.js.Js_Value.Value):Bool return this.value.instanceOf(__0);
+    @:embeddededffieldsffun
+    public function get_instanceOf():stdgo._internal.syscall.js.Js_Value.Value -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").instanceOf;
+    public var int_(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function int_():stdgo.GoInt return this.value.int_();
+    @:embeddededffieldsffun
+    public function get_int_():() -> stdgo.GoInt return @:check3 (this.value ?? throw "null pointer derefrence").int_;
+    public var invoke(get, never) : haxe.Rest<stdgo.AnyInterface> -> stdgo._internal.syscall.js.Js_Value.Value;
     @:embedded
-    public function invoke(_args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js_Value.Value return this.value.invoke(..._args);
+    @:embeddededffieldsffun
+    public function get_invoke():haxe.Rest<stdgo.AnyInterface> -> stdgo._internal.syscall.js.Js_Value.Value return @:check3 (this.value ?? throw "null pointer derefrence").invoke;
+    public var isNaN(get, never) : () -> Bool;
     @:embedded
-    public function isNaN():Bool return this.value.isNaN();
+    @:embeddededffieldsffun
+    public function get_isNaN():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").isNaN;
+    public var isNull(get, never) : () -> Bool;
     @:embedded
-    public function isNull():Bool return this.value.isNull();
+    @:embeddededffieldsffun
+    public function get_isNull():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").isNull;
+    public var isUndefined(get, never) : () -> Bool;
     @:embedded
-    public function isUndefined():Bool return this.value.isUndefined();
+    @:embeddededffieldsffun
+    public function get_isUndefined():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").isUndefined;
+    public var length_(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function length_():stdgo.GoInt return this.value.length_();
+    @:embeddededffieldsffun
+    public function get_length_():() -> stdgo.GoInt return @:check3 (this.value ?? throw "null pointer derefrence").length_;
+    public var new_(get, never) : haxe.Rest<stdgo.AnyInterface> -> stdgo._internal.syscall.js.Js_Value.Value;
     @:embedded
-    public function new_(_args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js_Value.Value return this.value.new_(..._args);
+    @:embeddededffieldsffun
+    public function get_new_():haxe.Rest<stdgo.AnyInterface> -> stdgo._internal.syscall.js.Js_Value.Value return @:check3 (this.value ?? throw "null pointer derefrence").new_;
+    public var set(get, never) : (stdgo.GoString, stdgo.AnyInterface) -> Void;
     @:embedded
-    public function set(_p:stdgo.GoString, _x:stdgo.AnyInterface) this.value.set(_p, _x);
+    @:embeddededffieldsffun
+    public function get_set():(stdgo.GoString, stdgo.AnyInterface) -> Void return @:check3 (this.value ?? throw "null pointer derefrence").set;
+    public var setIndex(get, never) : (stdgo.GoInt, stdgo.AnyInterface) -> Void;
     @:embedded
-    public function setIndex(_i:stdgo.GoInt, _x:stdgo.AnyInterface) this.value.setIndex(_i, _x);
+    @:embeddededffieldsffun
+    public function get_setIndex():(stdgo.GoInt, stdgo.AnyInterface) -> Void return @:check3 (this.value ?? throw "null pointer derefrence").setIndex;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.value.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.value ?? throw "null pointer derefrence").string;
+    public var truthy(get, never) : () -> Bool;
     @:embedded
-    public function truthy():Bool return this.value.truthy();
+    @:embeddededffieldsffun
+    public function get_truthy():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence").truthy;
+    public var type(get, never) : () -> stdgo._internal.syscall.js.Js_Type_.Type_;
     @:embedded
-    public function type():stdgo._internal.syscall.js.Js_Type_.Type_ return this.value.type();
+    @:embeddededffieldsffun
+    public function get_type():() -> stdgo._internal.syscall.js.Js_Type_.Type_ return @:check3 (this.value ?? throw "null pointer derefrence").type;
+    public var _float(get, never) : stdgo.GoString -> stdgo.GoFloat64;
     @:embedded
-    public function _float(_p:stdgo.GoString):stdgo.GoFloat64 return this.value._float(_p);
+    @:embeddededffieldsffun
+    public function get__float():stdgo.GoString -> stdgo.GoFloat64 return @:check3 (this.value ?? throw "null pointer derefrence")._float;
+    public var _isNumber(get, never) : () -> Bool;
     @:embedded
-    public function _isNumber():Bool return this.value._isNumber();
+    @:embeddededffieldsffun
+    public function get__isNumber():() -> Bool return @:check3 (this.value ?? throw "null pointer derefrence")._isNumber;
     public function __copy__() {
         return new Error(value);
     }

@@ -2,7 +2,8 @@ package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_nilTextMarshaler_asInterface) class T_nilTextMarshaler_static_extension {
     @:keep
     @:pointer
-    static public function marshalText(____:stdgo._internal.encoding.json.Json_T_nilTextMarshaler.T_nilTextMarshaler,  _nm:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_nilTextMarshaler.T_nilTextMarshaler>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    @:tdfield
+    static public function marshalText( _nm:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_nilTextMarshaler.T_nilTextMarshaler>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         if (_nm == null) {
             return { _0 : (("0zenil0" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };

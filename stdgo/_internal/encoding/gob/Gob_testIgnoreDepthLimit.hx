@@ -24,18 +24,19 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
                 };
             };
             var _badStruct = (stdgo._internal.reflect.Reflect_new_.new_(stdgo._internal.reflect.Reflect_structOf.structOf((new stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>(1, 1, ...[({ name : ("F" : stdgo.GoString), type : _nested } : stdgo._internal.reflect.Reflect_StructField.StructField)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_StructField.StructField)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>)))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-            _enc.encode(_badStruct.interface_());
+            @:check2r _enc.encode(_badStruct.interface_());
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _output:stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4 = ({ hello : (0 : stdgo.GoInt) } : stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4);
             var _expectedErr = ("invalid nesting depth" : stdgo.GoString);
             {
-                var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>)))) : stdgo.Error);
+                var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>)))) : stdgo.Error);
                 if (((_err == null) || (_err.error() != _expectedErr) : Bool)) {
-                    _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
                 };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -50,6 +51,7 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

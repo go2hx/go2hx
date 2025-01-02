@@ -11,12 +11,14 @@ function valid(_data:stdgo.Slice<stdgo.GoUInt8>):Bool {
             {
                 final __ret__:Bool = stdgo._internal.encoding.json.Json__checkValid._checkValid(_data, _scan) == null;
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -31,6 +33,7 @@ function valid(_data:stdgo.Slice<stdgo.GoUInt8>):Bool {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

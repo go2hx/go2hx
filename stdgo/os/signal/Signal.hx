@@ -62,24 +62,26 @@ typedef T_stringer = stdgo._internal.os.signal.Signal_T_stringer.T_stringer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.os.signal.Signal_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0, _new:StdTypes.Int) {
-        stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension._unlockSlow(__self__, _new);
+    public static function _unlockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0, _0:StdTypes.Int):Void {
+        stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0) {
+    public static function _lockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0):Void {
         stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0) {
+    public static function unlock(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0):Void {
         stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0):Bool {
         return stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0) {
+    public static function lock(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0):Void {
         stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension.lock(__self__);
     }
 }
 typedef T__struct_0 = stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0;
+typedef T_handlerPointer = stdgo._internal.os.signal.Signal_T_handlerPointer.T_handlerPointer;
 class T_handler_static_extension {
     static public function _clear(_h:T_handler, _sig:StdTypes.Int):Void {
         stdgo._internal.os.signal.Signal_T_handler_static_extension.T_handler_static_extension._clear(_h, _sig);
@@ -91,6 +93,7 @@ class T_handler_static_extension {
         return stdgo._internal.os.signal.Signal_T_handler_static_extension.T_handler_static_extension._want(_h, _sig);
     }
 }
+typedef T_signalCtxPointer = stdgo._internal.os.signal.Signal_T_signalCtxPointer.T_signalCtxPointer;
 class T_signalCtx_static_extension {
     static public function string(_c:T_signalCtx):String {
         return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.string(_c);
@@ -98,8 +101,8 @@ class T_signalCtx_static_extension {
     static public function _stop(_c:T_signalCtx):Void {
         stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension._stop(_c);
     }
-    public static function value(__self__:stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx):stdgo.Error {
         return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.err(__self__);

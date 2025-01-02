@@ -12,11 +12,11 @@ function _parseBigInt(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<st
             for (_i => _ in _notBytes) {
                 _notBytes[(_i : stdgo.GoInt)] = (-1 ^ _bytes[(_i : stdgo.GoInt)]);
             };
-            _ret.setBytes(_notBytes);
-            _ret.add(_ret, stdgo._internal.encoding.asn1.Asn1__bigOne._bigOne);
-            _ret.neg(_ret);
+            @:check2r _ret.setBytes(_notBytes);
+            @:check2r _ret.add(_ret, stdgo._internal.encoding.asn1.Asn1__bigOne._bigOne);
+            @:check2r _ret.neg(_ret);
             return { _0 : _ret, _1 : (null : stdgo.Error) };
         };
-        _ret.setBytes(_bytes);
+        @:check2r _ret.setBytes(_bytes);
         return { _0 : _ret, _1 : (null : stdgo.Error) };
     }

@@ -7,7 +7,7 @@ function readUvarint(_r:stdgo._internal.io.Io_ByteReader.ByteReader):{ var _0 : 
             while ((_i < (10 : stdgo.GoInt) : Bool)) {
                 var __tmp__ = _r.readByte(), _b:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
-                    if (((_i > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+                    if (((_i > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                         _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                     };
                     return { _0 : _x, _1 : _err };

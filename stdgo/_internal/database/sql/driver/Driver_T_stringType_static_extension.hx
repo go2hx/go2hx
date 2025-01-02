@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql.driver;
 @:keep @:allow(stdgo._internal.database.sql.driver.Driver.T_stringType_asInterface) class T_stringType_static_extension {
     @:keep
+    @:tdfield
     static public function convertValue( _:stdgo._internal.database.sql.driver.Driver_T_stringType.T_stringType, _v:stdgo.AnyInterface):{ var _0 : stdgo._internal.database.sql.driver.Driver_Value.Value; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.database.sql.driver.Driver_T_stringType.T_stringType = _?.__copy__();
         {

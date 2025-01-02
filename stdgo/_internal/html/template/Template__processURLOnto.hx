@@ -1,6 +1,6 @@
 package stdgo._internal.html.template;
 function _processURLOnto(_s:stdgo.GoString, _norm:Bool, _b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Bool {
-        _b.grow(((_s.length) + (16 : stdgo.GoInt) : stdgo.GoInt));
+        @:check2r _b.grow(((_s.length) + (16 : stdgo.GoInt) : stdgo.GoInt));
         var _written = (0 : stdgo.GoInt);
         {
             var __0 = (0 : stdgo.GoInt), __1 = (_s.length : stdgo.GoInt);
@@ -49,12 +49,12 @@ var _n = __1, _i = __0;
                         };
                     };
                 };
-_b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
+@:check2r _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%%%02x" : stdgo.GoString), stdgo.Go.toInterface(_c));
 _written = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 _i++;
             };
         };
-        _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
+        @:check2r _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
         return _written != ((0 : stdgo.GoInt));
     }

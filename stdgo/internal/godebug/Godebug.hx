@@ -73,6 +73,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef SettingPointer = stdgo._internal.internal.godebug.Godebug_SettingPointer.SettingPointer;
 class Setting_static_extension {
     static public function value(_s:Setting):String {
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.value(_s);
@@ -93,6 +94,7 @@ class Setting_static_extension {
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.name(_s);
     }
 }
+typedef T_runtimeStderrPointer = stdgo._internal.internal.godebug.Godebug_T_runtimeStderrPointer.T_runtimeStderrPointer;
 class T_runtimeStderr_static_extension {
     static public function write(_:T_runtimeStderr, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);

@@ -18,10 +18,10 @@ typedef T__interface_1 = stdgo._internal.net.url.Url_T__interface_1.T__interface
         this.op = v;
         return v;
     }
-    public var url(get, set) : String;
-    function get_url():String return this.url;
-    function set_url(v:String):String {
-        this.url = v;
+    public var uRL(get, set) : String;
+    function get_uRL():String return this.uRL;
+    function set_uRL(v:String):String {
+        this.uRL = v;
         return v;
     }
     public var err(get, set) : stdgo.Error;
@@ -30,7 +30,7 @@ typedef T__interface_1 = stdgo._internal.net.url.Url_T__interface_1.T__interface
         this.err = v;
         return v;
     }
-    public function new(?op:String, ?url:String, ?err:stdgo.Error) this = new stdgo._internal.net.url.Url_Error.Error(op, url, err);
+    public function new(?op:String, ?uRL:String, ?err:stdgo.Error) this = new stdgo._internal.net.url.Url_Error.Error(op, uRL, err);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -143,6 +143,7 @@ typedef T_encoding = stdgo._internal.net.url.Url_T_encoding.T_encoding;
 typedef EscapeError = stdgo._internal.net.url.Url_EscapeError.EscapeError;
 typedef InvalidHostError = stdgo._internal.net.url.Url_InvalidHostError.InvalidHostError;
 typedef Values = stdgo._internal.net.url.Url_Values.Values;
+typedef ErrorPointer = stdgo._internal.net.url.Url_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function temporary(_e:Error):Bool {
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.temporary(_e);
@@ -157,6 +158,7 @@ class Error_static_extension {
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.unwrap(_e);
     }
 }
+typedef URLPointer = stdgo._internal.net.url.Url_URLPointer.URLPointer;
 class URL_static_extension {
     static public function joinPath(_u:URL, _elem:haxe.Rest<String>):URL {
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.joinPath(_u, ...[for (i in _elem) i]);
@@ -214,6 +216,7 @@ class URL_static_extension {
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension._setPath(_u, _p);
     }
 }
+typedef UserinfoPointer = stdgo._internal.net.url.Url_UserinfoPointer.UserinfoPointer;
 class Userinfo_static_extension {
     static public function string(_u:Userinfo):String {
         return stdgo._internal.net.url.Url_Userinfo_static_extension.Userinfo_static_extension.string(_u);
@@ -228,16 +231,19 @@ class Userinfo_static_extension {
         return stdgo._internal.net.url.Url_Userinfo_static_extension.Userinfo_static_extension.username(_u);
     }
 }
+typedef EscapeErrorPointer = stdgo._internal.net.url.Url_EscapeErrorPointer.EscapeErrorPointer;
 class EscapeError_static_extension {
     static public function error(_e:EscapeError):String {
         return stdgo._internal.net.url.Url_EscapeError_static_extension.EscapeError_static_extension.error(_e);
     }
 }
+typedef InvalidHostErrorPointer = stdgo._internal.net.url.Url_InvalidHostErrorPointer.InvalidHostErrorPointer;
 class InvalidHostError_static_extension {
     static public function error(_e:InvalidHostError):String {
         return stdgo._internal.net.url.Url_InvalidHostError_static_extension.InvalidHostError_static_extension.error(_e);
     }
 }
+typedef ValuesPointer = stdgo._internal.net.url.Url_ValuesPointer.ValuesPointer;
 class Values_static_extension {
     static public function encode(_v:Values):String {
         return stdgo._internal.net.url.Url_Values_static_extension.Values_static_extension.encode(_v);

@@ -1,33 +1,35 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2FrameWriteRequest_asInterface) class T_http2FrameWriteRequest_static_extension {
     @:keep
+    @:tdfield
     static public function _replyToWriter( _wr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>, _err:stdgo.Error):Void {
         @:recv var _wr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest> = _wr;
-        if (_wr._done == null) {
+        if ((@:checkr _wr ?? throw "null pointer dereference")._done == null) {
             return;
         };
         {
             var __select__ = true;
             while (__select__) {
-                if (_wr._done != null && _wr._done.__isSend__()) {
+                if ((@:checkr _wr ?? throw "null pointer dereference")._done != null && (@:checkr _wr ?? throw "null pointer dereference")._done.__isSend__()) {
                     __select__ = false;
                     {
-                        _wr._done.__send__(_err);
+                        (@:checkr _wr ?? throw "null pointer dereference")._done.__send__(_err);
                         {};
                     };
                 } else {
                     __select__ = false;
                     {
-                        throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unbuffered done channel passed in for type %T" : stdgo.GoString), stdgo.Go.toInterface(_wr._write)));
+                        throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unbuffered done channel passed in for type %T" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _wr ?? throw "null pointer dereference")._write)));
                     };
                 };
                 #if !js Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
         };
-        _wr._write = (null : stdgo._internal.net.http.Http_T_http2writeFramer.T_http2writeFramer);
+        (@:checkr _wr ?? throw "null pointer dereference")._write = (null : stdgo._internal.net.http.Http_T_http2writeFramer.T_http2writeFramer);
     }
     @:keep
+    @:tdfield
     static public function string( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):stdgo.GoString {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         var _des:stdgo.GoString = ("" : stdgo.GoString);
@@ -46,6 +48,7 @@ package stdgo._internal.net.http;
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[FrameWriteRequest stream=%d, ch=%v, writer=%v]" : stdgo.GoString), stdgo.Go.toInterface(_wr.streamID()), stdgo.Go.toInterface(_wr._done != null), stdgo.Go.toInterface(_des))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function consume( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest, _n:stdgo.GoInt32):{ var _0 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _1 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _2 : stdgo.GoInt; } {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         var _empty:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = ({} : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
@@ -54,29 +57,30 @@ package stdgo._internal.net.http;
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>), _1 : false };
         }, _wd = __tmp__._0, _ok = __tmp__._1;
-        if ((!_ok || (_wd._p.length == (0 : stdgo.GoInt)) : Bool)) {
+        if ((!_ok || ((@:checkr _wd ?? throw "null pointer dereference")._p.length == (0 : stdgo.GoInt)) : Bool)) {
             return { _0 : _wr?.__copy__(), _1 : _empty?.__copy__(), _2 : (1 : stdgo.GoInt) };
         };
-        var _allowed = (_wr._stream._flow._available() : stdgo.GoInt32);
+        var _allowed = (@:check2 (@:checkr _wr._stream ?? throw "null pointer dereference")._flow._available() : stdgo.GoInt32);
         if ((_n < _allowed : Bool)) {
             _allowed = _n;
         };
-        if ((_wr._stream._sc._maxFrameSize < _allowed : Bool)) {
-            _allowed = _wr._stream._sc._maxFrameSize;
+        if (((@:checkr (@:checkr _wr._stream ?? throw "null pointer dereference")._sc ?? throw "null pointer dereference")._maxFrameSize < _allowed : Bool)) {
+            _allowed = (@:checkr (@:checkr _wr._stream ?? throw "null pointer dereference")._sc ?? throw "null pointer dereference")._maxFrameSize;
         };
         if ((_allowed <= (0 : stdgo.GoInt32) : Bool)) {
             return { _0 : _empty?.__copy__(), _1 : _empty?.__copy__(), _2 : (0 : stdgo.GoInt) };
         };
-        if (((_wd._p.length) > (_allowed : stdgo.GoInt) : Bool)) {
-            _wr._stream._flow._take(_allowed);
-            var _consumed = ({ _stream : _wr._stream, _write : stdgo.Go.asInterface((stdgo.Go.setRef(({ _streamID : _wd._streamID, _p : (_wd._p.__slice__(0, _allowed) : stdgo.Slice<stdgo.GoUInt8>), _endStream : false } : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>)), _done : (null : stdgo.Chan<stdgo.Error>) } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
-            var _rest = ({ _stream : _wr._stream, _write : stdgo.Go.asInterface((stdgo.Go.setRef(({ _streamID : _wd._streamID, _p : (_wd._p.__slice__(_allowed) : stdgo.Slice<stdgo.GoUInt8>), _endStream : _wd._endStream } : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>)), _done : _wr._done } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
+        if ((((@:checkr _wd ?? throw "null pointer dereference")._p.length) > (_allowed : stdgo.GoInt) : Bool)) {
+            @:check2 (@:checkr _wr._stream ?? throw "null pointer dereference")._flow._take(_allowed);
+            var _consumed = ({ _stream : _wr._stream, _write : stdgo.Go.asInterface((stdgo.Go.setRef(({ _streamID : (@:checkr _wd ?? throw "null pointer dereference")._streamID, _p : ((@:checkr _wd ?? throw "null pointer dereference")._p.__slice__(0, _allowed) : stdgo.Slice<stdgo.GoUInt8>), _endStream : false } : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>)), _done : (null : stdgo.Chan<stdgo.Error>) } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
+            var _rest = ({ _stream : _wr._stream, _write : stdgo.Go.asInterface((stdgo.Go.setRef(({ _streamID : (@:checkr _wd ?? throw "null pointer dereference")._streamID, _p : ((@:checkr _wd ?? throw "null pointer dereference")._p.__slice__(_allowed) : stdgo.Slice<stdgo.GoUInt8>), _endStream : (@:checkr _wd ?? throw "null pointer dereference")._endStream } : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>)), _done : _wr._done } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
             return { _0 : _consumed?.__copy__(), _1 : _rest?.__copy__(), _2 : (2 : stdgo.GoInt) };
         };
-        _wr._stream._flow._take((_wd._p.length : stdgo.GoInt32));
+        @:check2 (@:checkr _wr._stream ?? throw "null pointer dereference")._flow._take(((@:checkr _wd ?? throw "null pointer dereference")._p.length : stdgo.GoInt32));
         return { _0 : _wr?.__copy__(), _1 : _empty?.__copy__(), _2 : (1 : stdgo.GoInt) };
     }
     @:keep
+    @:tdfield
     static public function dataSize( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):stdgo.GoInt {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         {
@@ -86,17 +90,19 @@ package stdgo._internal.net.http;
                 { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>), _1 : false };
             }, _wd = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return (_wd._p.length);
+                return ((@:checkr _wd ?? throw "null pointer dereference")._p.length);
             };
         };
         return (0 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function _isControl( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Bool {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         return (_wr._stream == null || (_wr._stream : Dynamic).__nil__);
     }
     @:keep
+    @:tdfield
     static public function streamID( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):stdgo.GoUInt32 {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         if ((_wr._stream == null || (_wr._stream : Dynamic).__nil__)) {
@@ -112,6 +118,6 @@ package stdgo._internal.net.http;
             };
             return (0u32 : stdgo.GoUInt32);
         };
-        return _wr._stream._id;
+        return (@:checkr _wr._stream ?? throw "null pointer dereference")._id;
     }
 }

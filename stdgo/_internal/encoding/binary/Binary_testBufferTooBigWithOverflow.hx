@@ -27,20 +27,20 @@ function testBufferTooBigWithOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testi
                 final x = _tt;
                 ({ _in : x._in, _name : x._name?.__copy__(), _wantN : x._wantN, _wantValue : x._wantValue } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6);
             } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6);
-            _t.run(_tt._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
+            @:check2r _t.run(_tt._name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var __tmp__ = stdgo._internal.encoding.binary.Binary_uvarint.uvarint(_tt._in), _value:stdgo.GoUInt64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
                 {
                     var __0 = (_n : stdgo.GoInt), __1 = (_tt._wantN : stdgo.GoInt);
 var _w = __1, _g = __0;
                     if (_g != (_w)) {
-                        _t.errorf(("bytes returned=%d, want=%d" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
+                        @:check2r _t.errorf(("bytes returned=%d, want=%d" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
                     };
                 };
                 {
                     var __0 = (_value : stdgo.GoUInt64), __1 = (_tt._wantValue : stdgo.GoUInt64);
 var _w = __1, _g = __0;
                     if (_g != (_w)) {
-                        _t.errorf(("value=%d, want=%d" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
+                        @:check2r _t.errorf(("value=%d, want=%d" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));
                     };
                 };
             });

@@ -27,15 +27,17 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                     a();
                 }));
             };
-            _encodeErr = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
+            _encodeErr = @:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _encodeErr, _1 : _panicErr };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -50,6 +52,7 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

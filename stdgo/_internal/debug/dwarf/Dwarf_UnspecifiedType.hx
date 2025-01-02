@@ -6,14 +6,22 @@ package stdgo._internal.debug.dwarf;
         if (basicType != null) this.basicType = basicType;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var basic(get, never) : () -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType>;
     @:embedded
-    public function basic():stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType> return this.basicType.basic();
+    @:embeddededffieldsffun
+    public function get_basic():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType> return @:check3 (this.basicType ?? throw "null pointer derefrence").basic;
+    public var common(get, never) : () -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType>;
     @:embedded
-    public function common():stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return this.basicType.common();
+    @:embeddededffieldsffun
+    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 (this.basicType ?? throw "null pointer derefrence").common;
+    public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
-    public function size():stdgo.GoInt64 return this.basicType.size();
+    @:embeddededffieldsffun
+    public function get_size():() -> stdgo.GoInt64 return @:check3 (this.basicType ?? throw "null pointer derefrence").size;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.basicType.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.basicType ?? throw "null pointer derefrence").string;
     public function __copy__() {
         return new UnspecifiedType(basicType);
     }

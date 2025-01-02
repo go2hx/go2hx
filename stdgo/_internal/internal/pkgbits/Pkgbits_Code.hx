@@ -5,11 +5,13 @@ typedef Code = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function marker():stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker;
     /**
         Value returns the Code's ordinal value.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function value():stdgo.GoInt;
 };

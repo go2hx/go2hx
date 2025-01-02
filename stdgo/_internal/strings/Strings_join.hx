@@ -22,11 +22,11 @@ function join(_elems:stdgo.Slice<stdgo.GoString>, _sep:stdgo.GoString):stdgo.GoS
             _n = (_n + ((_elem.length)) : stdgo.GoInt);
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _b.grow(_n);
-        _b.writeString(_elems[(0 : stdgo.GoInt)]?.__copy__());
+        @:check2 _b.grow(_n);
+        @:check2 _b.writeString(_elems[(0 : stdgo.GoInt)]?.__copy__());
         for (__1 => _s in (_elems.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
-            _b.writeString(_sep?.__copy__());
-            _b.writeString(_s?.__copy__());
+            @:check2 _b.writeString(_sep?.__copy__());
+            @:check2 _b.writeString(_s?.__copy__());
         };
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

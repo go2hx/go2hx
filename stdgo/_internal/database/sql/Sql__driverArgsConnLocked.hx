@@ -1,21 +1,21 @@
 package stdgo._internal.database.sql;
 function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Conn.Conn, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, _args:stdgo.Slice<stdgo.AnyInterface>):{ var _0 : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>; var _1 : stdgo.Error; } {
-        var _cc_3702940:stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker = ({} : stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker);
-        var _checker_3704395:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
-        var _nvc_3703234:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
         var _n_3703659:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ok_3703721:Bool = false;
-        var _want_3702903:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _np_3703717:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
-        var _i_3703680_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _si_3702920:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
-        var _nvargs_3702687:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-        var _nextCC_3704431:Bool = false;
-        var _nv_3703695:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-        var _arg_3703673:stdgo.AnyInterface = (null : stdgo.AnyInterface);
         var _err_3703644:stdgo.Error = (null : stdgo.Error);
-        var _cci_3703331:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
+        var _nvc_3703234:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
+        var _ok_3703721:Bool = false;
+        var _np_3703717:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
+        var _nv_3703695:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        var _i_3703680_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _cc_3702940:stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker = ({} : stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker);
+        var _want_3702903:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_3703673:stdgo.AnyInterface = (null : stdgo.AnyInterface);
         var _ok_3703239:Bool = false;
+        var _si_3702920:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
+        var _checker_3704395:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
+        var _nextCC_3704431:Bool = false;
+        var _cci_3703331:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
+        var _nvargs_3702687:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -30,8 +30,8 @@ function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Co
                         _gotoNext = 3703234i32;
                     };
                 } else if (__value__ == (3702967i32)) {
-                    _si_3702920 = _ds._si;
-                    _want_3702903 = _ds._si.numInput();
+                    _si_3702920 = (@:checkr _ds ?? throw "null pointer dereference")._si;
+                    _want_3702903 = (@:checkr _ds ?? throw "null pointer dereference")._si.numInput();
                     _cc_3702940._want = _want_3702903;
                     _gotoNext = 3703234i32;
                 } else if (__value__ == (3703234i32)) {
@@ -120,11 +120,11 @@ function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Co
                     _gotoNext = 3703834i32;
                 } else if (__value__ == (3703834i32)) {
                     _arg_3703673 = _np_3703717.value;
-                    _nv_3703695.name = _np_3703717.name?.__copy__();
+                    (@:checkr _nv_3703695 ?? throw "null pointer dereference").name = _np_3703717.name?.__copy__();
                     _gotoNext = 3703876i32;
                 } else if (__value__ == (3703876i32)) {
-                    _nv_3703695.ordinal = (_n_3703659 + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _nv_3703695.value = stdgo.Go.toInterface(_arg_3703673);
+                    (@:checkr _nv_3703695 ?? throw "null pointer dereference").ordinal = (_n_3703659 + (1 : stdgo.GoInt) : stdgo.GoInt);
+                    (@:checkr _nv_3703695 ?? throw "null pointer dereference").value = stdgo.Go.toInterface(_arg_3703673);
                     _checker_3704395 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
                     _nextCC_3704431 = false;
                     _gotoNext = 3704449i32;

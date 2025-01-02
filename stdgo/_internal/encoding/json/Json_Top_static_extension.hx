@@ -1,19 +1,27 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.Top_asInterface) class Top_static_extension {
     @:embedded
-    public static function sub( __self__:stdgo._internal.encoding.json.Json_Top.Top, _q:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return __self__.sub(_q);
+    @:embeddededffieldsffun
+    public static function sub( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return @:_5 __self__.sub(_0);
     @:embedded
-    public static function string( __self__:stdgo._internal.encoding.json.Json_Top.Top):stdgo.GoString return __self__.string();
+    @:embeddededffieldsffun
+    public static function string( __self__:stdgo._internal.encoding.json.Json_Top.Top):stdgo.GoString return @:_5 __self__.string();
     @:embedded
-    public static function mul( __self__:stdgo._internal.encoding.json.Json_Top.Top, _n:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return __self__.mul(_n);
+    @:embeddededffieldsffun
+    public static function mul( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return @:_5 __self__.mul(_0);
     @:embedded
-    public static function mod( __self__:stdgo._internal.encoding.json.Json_Top.Top, _r:stdgo._internal.image.Image_Rectangle.Rectangle):stdgo._internal.image.Image_Point.Point return __self__.mod(_r);
+    @:embeddededffieldsffun
+    public static function mod( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Rectangle.Rectangle):stdgo._internal.image.Image_Point.Point return @:_5 __self__.mod(_0);
     @:embedded
-    public static function in_( __self__:stdgo._internal.encoding.json.Json_Top.Top, _r:stdgo._internal.image.Image_Rectangle.Rectangle):Bool return __self__.in_(_r);
+    @:embeddededffieldsffun
+    public static function in_( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Rectangle.Rectangle):Bool return @:_5 __self__.in_(_0);
     @:embedded
-    public static function eq( __self__:stdgo._internal.encoding.json.Json_Top.Top, _q:stdgo._internal.image.Image_Point.Point):Bool return __self__.eq(_q);
+    @:embeddededffieldsffun
+    public static function eq( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Point.Point):Bool return @:_5 __self__.eq(_0);
     @:embedded
-    public static function div( __self__:stdgo._internal.encoding.json.Json_Top.Top, _n:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return __self__.div(_n);
+    @:embeddededffieldsffun
+    public static function div( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return @:_5 __self__.div(_0);
     @:embedded
-    public static function add( __self__:stdgo._internal.encoding.json.Json_Top.Top, _q:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return __self__.add(_q);
+    @:embeddededffieldsffun
+    public static function add( __self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return @:_5 __self__.add(_0);
 }

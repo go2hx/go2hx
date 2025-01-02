@@ -1,7 +1,7 @@
 package stdgo._internal.internal.testenv;
 function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        stdgo._internal.internal.testenv.Testenv__gorootOnce._gorootOnce.do_(function():Void {
-            stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath = stdgo._internal.runtime.Runtime_goroot.goroot()?.__copy__();
+        @:check2 stdgo._internal.internal.testenv.Testenv__gorootOnce._gorootOnce.do_(function():Void {
+            stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath = stdgo._internal.runtime.Runtime_gOROOT.gOROOT()?.__copy__();
             if (stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath != (stdgo.Go.str())) {
                 return;
             };

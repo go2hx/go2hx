@@ -9,31 +9,31 @@ function testEncoderSetEscapeHTML(_t:stdgo.Ref<stdgo._internal.testing.Testing_T
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)));
             {
-                var _err = (_enc.encode(_tt._v) : stdgo.Error);
+                var _err = (@:check2r _enc.encode(_tt._v) : stdgo.Error);
                 if (_err != null) {
-                    _t.errorf(("Encode(%s): %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Encode(%s): %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
             {
-                var _got = (stdgo._internal.strings.Strings_trimSpace.trimSpace((_buf.string() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
+                var _got = (stdgo._internal.strings.Strings_trimSpace.trimSpace((@:check2 _buf.string() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_got != (_tt._wantEscape)) {
-                    _t.errorf(("Encode(%s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._wantEscape));
+                    @:check2r _t.errorf(("Encode(%s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._wantEscape));
                 };
             };
-            _buf.reset();
-            _enc.setEscapeHTML(false);
+            @:check2 _buf.reset();
+            @:check2r _enc.setEscapeHTML(false);
             {
-                var _err = (_enc.encode(_tt._v) : stdgo.Error);
+                var _err = (@:check2r _enc.encode(_tt._v) : stdgo.Error);
                 if (_err != null) {
-                    _t.errorf(("SetEscapeHTML(false) Encode(%s): %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("SetEscapeHTML(false) Encode(%s): %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
             {
-                var _got = (stdgo._internal.strings.Strings_trimSpace.trimSpace((_buf.string() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
+                var _got = (stdgo._internal.strings.Strings_trimSpace.trimSpace((@:check2 _buf.string() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_got != (_tt._want)) {
-                    _t.errorf(("SetEscapeHTML(false) Encode(%s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                    @:check2r _t.errorf(("SetEscapeHTML(false) Encode(%s) = %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_tt._name), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                 };
             };
         };

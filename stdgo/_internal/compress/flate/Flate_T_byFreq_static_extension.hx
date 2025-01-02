@@ -1,6 +1,7 @@
 package stdgo._internal.compress.flate;
 @:keep @:allow(stdgo._internal.compress.flate.Flate.T_byFreq_asInterface) class T_byFreq_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq = _s;
         {
@@ -15,6 +16,7 @@ package stdgo._internal.compress.flate;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq = _s;
         if (_s[(_i : stdgo.GoInt)]._freq == (_s[(_j : stdgo.GoInt)]._freq)) {
@@ -23,11 +25,13 @@ package stdgo._internal.compress.flate;
         return (_s[(_i : stdgo.GoInt)]._freq < _s[(_j : stdgo.GoInt)]._freq : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq):stdgo.GoInt {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq = _s;
         return (_s.length);
     }
     @:keep
+    @:tdfield
     static public function _sort( _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq>, _a:stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq> = _s;
         (_s : stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq).__setData__((_a : stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq));

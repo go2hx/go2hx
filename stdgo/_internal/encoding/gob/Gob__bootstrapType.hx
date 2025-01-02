@@ -8,5 +8,5 @@ function _bootstrapType(_name:stdgo.GoString, _e:stdgo.AnyInterface):stdgo._inte
         var _typ = (stdgo.Go.setRef(({ name : _name?.__copy__() } : stdgo._internal.encoding.gob.Gob_CommonType.CommonType)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_CommonType.CommonType>);
         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_typ);
         stdgo._internal.encoding.gob.Gob__setTypeId._setTypeId(stdgo.Go.asInterface(_typ));
-        return _typ._id();
+        return @:check2r _typ._id();
     }

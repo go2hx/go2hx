@@ -5,7 +5,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
         _dumper.close();
         _dumper.write((("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
         var _expected = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
-        if ((_out.string() : stdgo.GoString) != (_expected)) {
-            _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((_out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
+        if ((@:check2 _out.string() : stdgo.GoString) != (_expected)) {
+            @:check2r _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((@:check2 _out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
         };
     }

@@ -1,54 +1,60 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_bodyEOFSignal_asInterface) class T_bodyEOFSignal_static_extension {
     @:keep
+    @:tdfield
     static public function _condfn( _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal>, _err:stdgo.Error):stdgo.Error {
         @:recv var _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal> = _es;
-        if (_es._fn == null) {
+        if ((@:checkr _es ?? throw "null pointer dereference")._fn == null) {
             return _err;
         };
-        _err = _es._fn(_err);
-        _es._fn = null;
+        _err = (@:checkr _es ?? throw "null pointer dereference")._fn(_err);
+        (@:checkr _es ?? throw "null pointer dereference")._fn = null;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function close( _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal>):stdgo.Error {
         @:recv var _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal> = _es;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _es._mu.lock();
+            @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _es._mu.unlock;
+                final __f__ = @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (_es._closed) {
+            if ((@:checkr _es ?? throw "null pointer dereference")._closed) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            _es._closed = true;
-            if (((_es._earlyCloseFn != null) && (stdgo.Go.toInterface(_es._rerr) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+            (@:checkr _es ?? throw "null pointer dereference")._closed = true;
+            if ((((@:checkr _es ?? throw "null pointer dereference")._earlyCloseFn != null) && (stdgo.Go.toInterface((@:checkr _es ?? throw "null pointer dereference")._rerr) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                 {
-                    final __ret__:stdgo.Error = _es._earlyCloseFn();
+                    final __ret__:stdgo.Error = (@:checkr _es ?? throw "null pointer dereference")._earlyCloseFn();
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            var _err = (_es._body.close() : stdgo.Error);
+            var _err = ((@:checkr _es ?? throw "null pointer dereference")._body.close() : stdgo.Error);
             {
-                final __ret__:stdgo.Error = _es._condfn(_err);
+                final __ret__:stdgo.Error = @:check2r _es._condfn(_err);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -63,6 +69,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -70,15 +77,16 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function read( _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal> = _es;
         var __deferstack__:Array<Void -> Void> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            _es._mu.lock();
-            var __0 = (_es._closed : Bool), __1 = (_es._rerr : stdgo.Error);
+            @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.lock();
+            var __0 = ((@:checkr _es ?? throw "null pointer dereference")._closed : Bool), __1 = ((@:checkr _es ?? throw "null pointer dereference")._rerr : stdgo.Error);
 var _rerr = __1, _closed = __0;
-            _es._mu.unlock();
+            @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.unlock();
             if (_closed) {
                 return {
                     final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__errReadOnClosedResBody._errReadOnClosedResBody };
@@ -96,29 +104,31 @@ var _rerr = __1, _closed = __0;
                 };
             };
             {
-                var __tmp__ = _es._body.read(_p);
+                var __tmp__ = (@:checkr _es ?? throw "null pointer dereference")._body.read(_p);
                 _n = __tmp__._0;
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                _es._mu.lock();
+                @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.lock();
                 {
-                    final __f__ = _es._mu.unlock;
+                    final __f__ = @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.unlock;
                     __deferstack__.unshift(() -> __f__());
                 };
-                if (_es._rerr == null) {
-                    _es._rerr = _err;
+                if ((@:checkr _es ?? throw "null pointer dereference")._rerr == null) {
+                    (@:checkr _es ?? throw "null pointer dereference")._rerr = _err;
                 };
-                _err = _es._condfn(_err);
+                _err = @:check2r _es._condfn(_err);
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _n, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -133,6 +143,7 @@ var _rerr = __1, _closed = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

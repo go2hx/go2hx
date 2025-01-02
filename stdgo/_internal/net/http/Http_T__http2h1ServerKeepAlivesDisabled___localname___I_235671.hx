@@ -5,5 +5,6 @@ typedef T__http2h1ServerKeepAlivesDisabled___localname___I_235671 = stdgo.Struct
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _doKeepAlives():Bool;
 };

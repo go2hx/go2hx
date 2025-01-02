@@ -3,11 +3,11 @@ function _http2shouldRetryRequest(_req:stdgo.Ref<stdgo._internal.net.http.Http_R
         if (!stdgo._internal.net.http.Http__http2canRetryError._http2canRetryError(_err)) {
             return { _0 : null, _1 : _err };
         };
-        if (((_req.body == null) || (stdgo.Go.toInterface(_req.body) == stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool)) {
+        if ((((@:checkr _req ?? throw "null pointer dereference").body == null) || (stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").body) == stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool)) {
             return { _0 : _req, _1 : (null : stdgo.Error) };
         };
-        if (_req.getBody != null) {
-            var __tmp__ = _req.getBody(), _body:stdgo._internal.io.Io_ReadCloser.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if ((@:checkr _req ?? throw "null pointer dereference").getBody != null) {
+            var __tmp__ = (@:checkr _req ?? throw "null pointer dereference").getBody(), _body:stdgo._internal.io.Io_ReadCloser.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };

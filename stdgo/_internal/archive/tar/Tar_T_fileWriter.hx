@@ -7,5 +7,6 @@ typedef T_fileWriter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function readFrom(_0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
 };

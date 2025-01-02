@@ -22,12 +22,14 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
             stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] = _p;
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _p;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -42,6 +44,7 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

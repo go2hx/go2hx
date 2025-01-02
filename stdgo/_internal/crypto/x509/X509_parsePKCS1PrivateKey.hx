@@ -23,25 +23,25 @@ function parsePKCS1PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
         if ((_priv.version > (1 : stdgo.GoInt) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: unsupported private key version" : stdgo.GoString)) };
         };
-        if (((((_priv.n.sign() <= (0 : stdgo.GoInt) : Bool) || (_priv.d.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (_priv.p.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (_priv.q.sign() <= (0 : stdgo.GoInt) : Bool) : Bool)) {
+        if (((((@:check2r _priv.n.sign() <= (0 : stdgo.GoInt) : Bool) || (@:check2r _priv.d.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (@:check2r _priv.p.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (@:check2r _priv.q.sign() <= (0 : stdgo.GoInt) : Bool) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: private key contains zero or negative value" : stdgo.GoString)) };
         };
         var _key = (stdgo.Go.setRef(({} : stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
-        _key.publicKey = ({ e : _priv.e, n : _priv.n } : stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey);
-        _key.d = _priv.d;
-        _key.primes = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>(((2 : stdgo.GoInt) + (_priv.additionalPrimes.length) : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>);
-        _key.primes[(0 : stdgo.GoInt)] = _priv.p;
-        _key.primes[(1 : stdgo.GoInt)] = _priv.q;
+        (@:checkr _key ?? throw "null pointer dereference").publicKey = ({ e : _priv.e, n : _priv.n } : stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey);
+        (@:checkr _key ?? throw "null pointer dereference").d = _priv.d;
+        (@:checkr _key ?? throw "null pointer dereference").primes = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>(((2 : stdgo.GoInt) + (_priv.additionalPrimes.length) : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>);
+        (@:checkr _key ?? throw "null pointer dereference").primes[(0 : stdgo.GoInt)] = _priv.p;
+        (@:checkr _key ?? throw "null pointer dereference").primes[(1 : stdgo.GoInt)] = _priv.q;
         for (_i => _a in _priv.additionalPrimes) {
-            if ((_a.prime.sign() <= (0 : stdgo.GoInt) : Bool)) {
+            if ((@:check2r _a.prime.sign() <= (0 : stdgo.GoInt) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: private key contains zero or negative prime" : stdgo.GoString)) };
             };
-            _key.primes[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] = _a.prime;
+            (@:checkr _key ?? throw "null pointer dereference").primes[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] = _a.prime;
         };
-        _err = _key.validate();
+        _err = @:check2r _key.validate();
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        _key.precompute();
+        @:check2r _key.precompute();
         return { _0 : _key, _1 : (null : stdgo.Error) };
     }

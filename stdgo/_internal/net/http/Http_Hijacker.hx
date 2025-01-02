@@ -23,5 +23,6 @@ typedef Hijacker = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function hijack():{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>; var _2 : stdgo.Error; };
 };

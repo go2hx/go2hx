@@ -19,23 +19,23 @@ var _m = __1, _n = __0;
             };
         };
         if (stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp)) {
-            _t.fatalf(("terrible rand.rand" : stdgo.GoString));
+            @:check2r _t.fatalf(("terrible rand.rand" : stdgo.GoString));
         };
         _data._initB();
         stdgo._internal.slices.Slices_sortStableFunc.sortStableFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp);
         if (!stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp)) {
-            _t.errorf(("Stable didn\'t sort %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable didn\'t sort %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
         if (!_data._inOrder()) {
-            _t.errorf(("Stable wasn\'t stable on %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable wasn\'t stable on %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
         _data._initB();
         stdgo._internal.slices.Slices_sortStableFunc.sortStableFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp);
         if (!stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp)) {
-            _t.errorf(("Stable shuffled sorted %d ints (order)" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable shuffled sorted %d ints (order)" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
         if (!_data._inOrder()) {
-            _t.errorf(("Stable shuffled sorted %d ints (stability)" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable shuffled sorted %d ints (stability)" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
         {
             var _i = (0 : stdgo.GoInt);
@@ -47,9 +47,9 @@ var _m = __1, _n = __0;
         _data._initB();
         stdgo._internal.slices.Slices_sortStableFunc.sortStableFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp);
         if (!stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp)) {
-            _t.errorf(("Stable didn\'t sort %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable didn\'t sort %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
         if (!_data._inOrder()) {
-            _t.errorf(("Stable wasn\'t stable on %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("Stable wasn\'t stable on %d ints" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
     }

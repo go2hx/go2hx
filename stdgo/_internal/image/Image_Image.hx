@@ -5,6 +5,7 @@ typedef Image = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function colorModel():stdgo._internal.image.color.Color_Model.Model;
     /**
         Bounds returns the domain for which At can return non-zero color.
@@ -12,6 +13,7 @@ typedef Image = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function bounds():stdgo._internal.image.Image_Rectangle.Rectangle;
     /**
         At returns the color of the pixel at (x, y).
@@ -20,5 +22,6 @@ typedef Image = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function at(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color_Color.Color;
 };

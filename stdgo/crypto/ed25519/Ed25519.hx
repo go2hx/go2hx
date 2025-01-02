@@ -22,16 +22,19 @@ final seedSize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_seedSize.s
 }
 typedef PublicKey = stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey;
+typedef OptionsPointer = stdgo._internal.crypto.ed25519.Ed25519_OptionsPointer.OptionsPointer;
 class Options_static_extension {
     static public function hashFunc(_o:Options):stdgo._internal.crypto.Crypto_Hash.Hash {
         return stdgo._internal.crypto.ed25519.Ed25519_Options_static_extension.Options_static_extension.hashFunc(_o);
     }
 }
+typedef PublicKeyPointer = stdgo._internal.crypto.ed25519.Ed25519_PublicKeyPointer.PublicKeyPointer;
 class PublicKey_static_extension {
     static public function equal(_pub:PublicKey, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
         return stdgo._internal.crypto.ed25519.Ed25519_PublicKey_static_extension.PublicKey_static_extension.equal(_pub, _x);
     }
 }
+typedef PrivateKeyPointer = stdgo._internal.crypto.ed25519.Ed25519_PrivateKeyPointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
     static public function sign(_priv:PrivateKey, _rand:stdgo._internal.io.Io_Reader.Reader, _message:Array<std.UInt>, _opts:stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _message = ([for (i in _message) i] : stdgo.Slice<stdgo.GoUInt8>);

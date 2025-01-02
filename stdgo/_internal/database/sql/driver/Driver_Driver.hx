@@ -13,5 +13,6 @@ typedef Driver = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function open(_name:stdgo.GoString):{ var _0 : stdgo._internal.database.sql.driver.Driver_Conn.Conn; var _1 : stdgo.Error; };
 };

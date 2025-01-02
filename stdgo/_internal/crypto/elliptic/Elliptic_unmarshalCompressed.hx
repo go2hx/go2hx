@@ -34,8 +34,8 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
             };
         };
         var _p = _curve.params().p;
-        _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        if ((_x.cmp(_p) >= (0 : stdgo.GoInt) : Bool)) {
+        _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        if ((@:check2r _x.cmp(_p) >= (0 : stdgo.GoInt) : Bool)) {
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
@@ -43,8 +43,8 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
                 __tmp__;
             };
         };
-        _y = _curve.params()._polynomial(_x);
-        _y = _y.modSqrt(_y, _p);
+        _y = @:check2r _curve.params()._polynomial(_x);
+        _y = @:check2r _y.modSqrt(_y, _p);
         if ((_y == null || (_y : Dynamic).__nil__)) {
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
@@ -53,8 +53,8 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
                 __tmp__;
             };
         };
-        if ((_y.bit((0 : stdgo.GoInt)) : stdgo.GoUInt8) != ((_data[(0 : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8))) {
-            _y.neg(_y).mod(_y, _p);
+        if ((@:check2r _y.bit((0 : stdgo.GoInt)) : stdgo.GoUInt8) != ((_data[(0 : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8))) {
+            @:check2r @:check2r _y.neg(_y).mod(_y, _p);
         };
         if (!_curve.isOnCurve(_x, _y)) {
             return {

@@ -11,10 +11,10 @@ x.set((new stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerTex
             cast x;
         } : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText, stdgo.GoInt>))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("Failed to Marshal text.Marshaler: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatalf(("Failed to Marshal text.Marshaler: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {};
         if ((_b : stdgo.GoString) != (("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString))) {
-            _t.errorf(("Marshal map with text.Marshaler keys: got %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString)));
+            @:check2r _t.errorf(("Marshal map with text.Marshaler keys: got %#q, want %#q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(("{\"a:z\":3,\"x:y\":1,\"y:x\":2,\"z:a\":4}" : stdgo.GoString)));
         };
     }

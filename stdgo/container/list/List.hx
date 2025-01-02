@@ -45,6 +45,7 @@ package stdgo.container.list;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ElementPointer = stdgo._internal.container.list.List_ElementPointer.ElementPointer;
 class Element_static_extension {
     static public function prev(_e:Element):Element {
         return stdgo._internal.container.list.List_Element_static_extension.Element_static_extension.prev(_e);
@@ -53,6 +54,7 @@ class Element_static_extension {
         return stdgo._internal.container.list.List_Element_static_extension.Element_static_extension.next(_e);
     }
 }
+typedef ListPointer = stdgo._internal.container.list.List_ListPointer.ListPointer;
 class List_static_extension {
     static public function pushFrontList(_l:List_, _other:List_):Void {
         stdgo._internal.container.list.List_List_static_extension.List_static_extension.pushFrontList(_l, _other);

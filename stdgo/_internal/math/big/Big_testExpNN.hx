@@ -10,7 +10,7 @@ function testExpNN(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             };
             var _z = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._expNN(_x, _y, _m, false) : stdgo._internal.math.big.Big_T_nat.T_nat);
             if (_z._cmp(_out) != ((0 : stdgo.GoInt))) {
-                _t.errorf(("#%d got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_z._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_out._utoa((10 : stdgo.GoInt))));
+                @:check2r _t.errorf(("#%d got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_z._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_out._utoa((10 : stdgo.GoInt))));
             };
         };
     }

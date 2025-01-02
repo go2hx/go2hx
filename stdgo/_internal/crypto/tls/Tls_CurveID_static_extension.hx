@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.CurveID_asInterface) class CurveID_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.crypto.tls.Tls_CurveID.CurveID):stdgo.GoString {
         @:recv var _i:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = _i;
         if ((((23 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID) <= _i : Bool) && (_i <= (25 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID) : Bool) : Bool)) {

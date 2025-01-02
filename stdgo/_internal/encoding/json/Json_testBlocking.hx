@@ -5,9 +5,9 @@ function testBlocking(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             stdgo.Go.routine(() -> _w.write((_enc : stdgo.Slice<stdgo.GoUInt8>)));
             var _val:stdgo.AnyInterface = (null : stdgo.AnyInterface);
             {
-                var _err = (stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_r).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_val) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
+                var _err = (@:check2r stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_r).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_val) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
                 if (_err != null) {
-                    _t.errorf(("decoding %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_enc), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("decoding %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_enc), stdgo.Go.toInterface(_err));
                 };
             };
             _r.close();

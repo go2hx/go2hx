@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.csv;
 @:keep @:allow(stdgo._internal.encoding.csv.Csv.Writer_asInterface) class Writer_static_extension {
     @:keep
+    @:tdfield
     static public function _fieldNeedsQuotes( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>, _field:stdgo.GoString):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
         if (_field == (stdgo.Go.str())) {
@@ -9,19 +10,19 @@ package stdgo._internal.encoding.csv;
         if (_field == (("\\." : stdgo.GoString))) {
             return true;
         };
-        if ((_w.comma < (128 : stdgo.GoInt32) : Bool)) {
+        if (((@:checkr _w ?? throw "null pointer dereference").comma < (128 : stdgo.GoInt32) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (_field.length) : Bool)) {
                     var _c = (_field[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _c == ((34 : stdgo.GoUInt8)) : Bool) || (_c == (_w.comma : stdgo.GoUInt8)) : Bool)) {
+if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _c == ((34 : stdgo.GoUInt8)) : Bool) || (_c == ((@:checkr _w ?? throw "null pointer dereference").comma : stdgo.GoUInt8)) : Bool)) {
                         return true;
                     };
                     _i++;
                 };
             };
         } else {
-            if ((stdgo._internal.strings.Strings_containsRune.containsRune(_field?.__copy__(), _w.comma) || stdgo._internal.strings.Strings_containsAny.containsAny(_field?.__copy__(), ("\"\r\n" : stdgo.GoString)) : Bool)) {
+            if ((stdgo._internal.strings.Strings_containsRune.containsRune(_field?.__copy__(), (@:checkr _w ?? throw "null pointer dereference").comma) || stdgo._internal.strings.Strings_containsAny.containsAny(_field?.__copy__(), ("\"\r\n" : stdgo.GoString)) : Bool)) {
                 return true;
             };
         };
@@ -29,45 +30,49 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
         return stdgo._internal.unicode.Unicode_isSpace.isSpace(_r1);
     }
     @:keep
+    @:tdfield
     static public function writeAll( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>, _records:stdgo.Slice<stdgo.Slice<stdgo.GoString>>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
         for (__0 => _record in _records) {
-            var _err = (_w.write(_record) : stdgo.Error);
+            var _err = (@:check2r _w.write(_record) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };
         };
-        return _w._w.flush();
+        return @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.flush();
     }
     @:keep
+    @:tdfield
     static public function error( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
-        var __tmp__ = _w._w.write((null : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.write((null : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function flush( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
-        _w._w.flush();
+        @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.flush();
     }
     @:keep
+    @:tdfield
     static public function write( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>, _record:stdgo.Slice<stdgo.GoString>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
-        if (!stdgo._internal.encoding.csv.Csv__validDelim._validDelim(_w.comma)) {
+        if (!stdgo._internal.encoding.csv.Csv__validDelim._validDelim((@:checkr _w ?? throw "null pointer dereference").comma)) {
             return stdgo._internal.encoding.csv.Csv__errInvalidDelim._errInvalidDelim;
         };
         for (_n => _field in _record) {
             if ((_n > (0 : stdgo.GoInt) : Bool)) {
                 {
-                    var __tmp__ = _w._w.writeRune(_w.comma), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeRune((@:checkr _w ?? throw "null pointer dereference").comma), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
                 };
             };
-            if (!_w._fieldNeedsQuotes(_field?.__copy__())) {
+            if (!@:check2r _w._fieldNeedsQuotes(_field?.__copy__())) {
                 {
-                    var __tmp__ = _w._w.writeString(_field?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(_field?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
@@ -75,7 +80,7 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                 continue;
             };
             {
-                var _err = (_w._w.writeByte((34 : stdgo.GoUInt8)) : stdgo.Error);
+                var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((34 : stdgo.GoUInt8)) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
@@ -86,7 +91,7 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                     _i = (_field.length);
                 };
                 {
-                    var __tmp__ = _w._w.writeString((_field.__slice__(0, _i) : stdgo.GoString)?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString((_field.__slice__(0, _i) : stdgo.GoString)?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
@@ -98,21 +103,21 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                         final __value__ = _field[(0 : stdgo.GoInt)];
                         if (__value__ == ((34 : stdgo.GoUInt8))) {
                             {
-                                var __tmp__ = _w._w.writeString(("\"\"" : stdgo.GoString));
+                                var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\"\"" : stdgo.GoString));
                                 _err = __tmp__._1;
                             };
                         } else if (__value__ == ((13 : stdgo.GoUInt8))) {
-                            if (!_w.useCRLF) {
-                                _err = _w._w.writeByte((13 : stdgo.GoUInt8));
+                            if (!(@:checkr _w ?? throw "null pointer dereference").useCRLF) {
+                                _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((13 : stdgo.GoUInt8));
                             };
                         } else if (__value__ == ((10 : stdgo.GoUInt8))) {
-                            if (_w.useCRLF) {
+                            if ((@:checkr _w ?? throw "null pointer dereference").useCRLF) {
                                 {
-                                    var __tmp__ = _w._w.writeString(("\r\n" : stdgo.GoString));
+                                    var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\r\n" : stdgo.GoString));
                                     _err = __tmp__._1;
                                 };
                             } else {
-                                _err = _w._w.writeByte((10 : stdgo.GoUInt8));
+                                _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((10 : stdgo.GoUInt8));
                             };
                         };
                     };
@@ -123,20 +128,20 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                 };
             };
             {
-                var _err = (_w._w.writeByte((34 : stdgo.GoUInt8)) : stdgo.Error);
+                var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((34 : stdgo.GoUInt8)) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
         };
         var _err:stdgo.Error = (null : stdgo.Error);
-        if (_w.useCRLF) {
+        if ((@:checkr _w ?? throw "null pointer dereference").useCRLF) {
             {
-                var __tmp__ = _w._w.writeString(("\r\n" : stdgo.GoString));
+                var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\r\n" : stdgo.GoString));
                 _err = __tmp__._1;
             };
         } else {
-            _err = _w._w.writeByte((10 : stdgo.GoUInt8));
+            _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((10 : stdgo.GoUInt8));
         };
         return _err;
     }

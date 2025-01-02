@@ -6,6 +6,6 @@ function joinPath(_base:stdgo.GoString, _elem:haxe.Rest<stdgo.GoString>):{ var _
         if (_err != null) {
             return { _0 : _result, _1 : _err };
         };
-        _result = (_url.joinPath(...(_elem : Array<stdgo.GoString>)).string() : stdgo.GoString)?.__copy__();
+        _result = (@:check2r @:check2r _url.joinPath(...(_elem : Array<stdgo.GoString>)).string() : stdgo.GoString)?.__copy__();
         return { _0 : _result, _1 : _err };
     }

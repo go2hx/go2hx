@@ -13,11 +13,11 @@ function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
 ({ _x : (195312u32 : stdgo._internal.math.big.Big_Word.Word), _shift : (9 : stdgo.GoInt), _want : ("99999744" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8),
 ({ _x : (1953125u32 : stdgo._internal.math.big.Big_Word.Word), _shift : (9 : stdgo.GoInt), _want : ("1000000000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({ _x : ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _shift : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_8.T__struct_8>)) {
             var _d:stdgo._internal.math.big.Big_T_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_T_decimal.T_decimal);
-            _d._init((new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(1, 1, ...[_test._x]).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat)._norm(), _test._shift);
+            @:check2 _d._init((new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(1, 1, ...[_test._x]).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat)._norm(), _test._shift);
             {
-                var _got = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((@:check2 _d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._want)) {
-                    _t.errorf(("%d << %d == %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._shift), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("%d << %d == %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._shift), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

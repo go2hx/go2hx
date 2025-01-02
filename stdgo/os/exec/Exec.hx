@@ -279,6 +279,7 @@ _lookPathErr);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ErrorPointer = stdgo._internal.os.exec.Exec_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function unwrap(_e:Error):stdgo.Error {
         return stdgo._internal.os.exec.Exec_Error_static_extension.Error_static_extension.unwrap(_e);
@@ -287,6 +288,7 @@ class Error_static_extension {
         return stdgo._internal.os.exec.Exec_Error_static_extension.Error_static_extension.error(_e);
     }
 }
+typedef T_wrappedErrorPointer = stdgo._internal.os.exec.Exec_T_wrappedErrorPointer.T_wrappedErrorPointer;
 class T_wrappedError_static_extension {
     static public function unwrap(_w:T_wrappedError):stdgo.Error {
         return stdgo._internal.os.exec.Exec_T_wrappedError_static_extension.T_wrappedError_static_extension.unwrap(_w);
@@ -295,6 +297,7 @@ class T_wrappedError_static_extension {
         return stdgo._internal.os.exec.Exec_T_wrappedError_static_extension.T_wrappedError_static_extension.error(_w);
     }
 }
+typedef CmdPointer = stdgo._internal.os.exec.Exec_CmdPointer.CmdPointer;
 class Cmd_static_extension {
     static public function environ_(_c:Cmd):Array<String> {
         return [for (i in stdgo._internal.os.exec.Exec_Cmd_static_extension.Cmd_static_extension.environ_(_c)) i];
@@ -381,6 +384,7 @@ class Cmd_static_extension {
         return stdgo._internal.os.exec.Exec_Cmd_static_extension.Cmd_static_extension.string(_c);
     }
 }
+typedef ExitErrorPointer = stdgo._internal.os.exec.Exec_ExitErrorPointer.ExitErrorPointer;
 class ExitError_static_extension {
     static public function error(_e:ExitError):String {
         return stdgo._internal.os.exec.Exec_ExitError_static_extension.ExitError_static_extension.error(_e);
@@ -431,6 +435,7 @@ class ExitError_static_extension {
         return stdgo._internal.os.exec.Exec_ExitError_static_extension.ExitError_static_extension.exitCode(__self__);
     }
 }
+typedef T_prefixSuffixSaverPointer = stdgo._internal.os.exec.Exec_T_prefixSuffixSaverPointer.T_prefixSuffixSaverPointer;
 class T_prefixSuffixSaver_static_extension {
     static public function bytes(_w:T_prefixSuffixSaver):Array<std.UInt> {
         return [for (i in stdgo._internal.os.exec.Exec_T_prefixSuffixSaver_static_extension.T_prefixSuffixSaver_static_extension.bytes(_w)) i];

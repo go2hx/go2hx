@@ -112,6 +112,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_Writer.Writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef MatcherPointer = stdgo._internal.internal.bisect.Bisect_MatcherPointer.MatcherPointer;
 class Matcher_static_extension {
     static public function _stack(_m:Matcher, _w:Writer):Bool {
         return stdgo._internal.internal.bisect.Bisect_Matcher_static_extension.Matcher_static_extension._stack(_m, _w);
@@ -138,6 +139,7 @@ class Matcher_static_extension {
         return stdgo._internal.internal.bisect.Bisect_Matcher_static_extension.Matcher_static_extension.markerOnly(_m);
     }
 }
+typedef T_atomicPointerDedupPointer = stdgo._internal.internal.bisect.Bisect_T_atomicPointerDedupPointer.T_atomicPointerDedupPointer;
 class T_atomicPointerDedup_static_extension {
     static public function compareAndSwap(_p:T_atomicPointerDedup, _old:T_dedup, _new:T_dedup):Bool {
         return stdgo._internal.internal.bisect.Bisect_T_atomicPointerDedup_static_extension.T_atomicPointerDedup_static_extension.compareAndSwap(_p, _old, _new);
@@ -146,11 +148,13 @@ class T_atomicPointerDedup_static_extension {
         return stdgo._internal.internal.bisect.Bisect_T_atomicPointerDedup_static_extension.T_atomicPointerDedup_static_extension.load(_p);
     }
 }
+typedef T_parseErrorPointer = stdgo._internal.internal.bisect.Bisect_T_parseErrorPointer.T_parseErrorPointer;
 class T_parseError_static_extension {
     static public function error(_e:T_parseError):String {
         return stdgo._internal.internal.bisect.Bisect_T_parseError_static_extension.T_parseError_static_extension.error(_e);
     }
 }
+typedef T_dedupPointer = stdgo._internal.internal.bisect.Bisect_T_dedupPointer.T_dedupPointer;
 class T_dedup_static_extension {
     static public function _seenLossy(_d:T_dedup, _h:haxe.UInt64):Bool {
         return stdgo._internal.internal.bisect.Bisect_T_dedup_static_extension.T_dedup_static_extension._seenLossy(_d, _h);

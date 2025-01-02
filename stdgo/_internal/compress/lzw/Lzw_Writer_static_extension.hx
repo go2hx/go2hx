@@ -1,21 +1,22 @@
 package stdgo._internal.compress.lzw;
 @:keep @:allow(stdgo._internal.compress.lzw.Lzw.Writer_asInterface) class Writer_static_extension {
     @:keep
+    @:tdfield
     static public function _init( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _dst:stdgo._internal.io.Io_Writer.Writer, _order:stdgo._internal.compress.lzw.Lzw_Order.Order, _litWidth:stdgo.GoInt):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
         {
             final __value__ = _order;
             if (__value__ == ((0 : stdgo._internal.compress.lzw.Lzw_Order.Order))) {
-                _w._write = stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeLSB;
+                (@:checkr _w ?? throw "null pointer dereference")._write = stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeLSB;
             } else if (__value__ == ((1 : stdgo._internal.compress.lzw.Lzw_Order.Order))) {
-                _w._write = stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeMSB;
+                (@:checkr _w ?? throw "null pointer dereference")._write = stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeMSB;
             } else {
-                _w._err = stdgo._internal.errors.Errors_new_.new_(("lzw: unknown order" : stdgo.GoString));
+                (@:checkr _w ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("lzw: unknown order" : stdgo.GoString));
                 return;
             };
         };
         if (((_litWidth < (2 : stdgo.GoInt) : Bool) || ((8 : stdgo.GoInt) < _litWidth : Bool) : Bool)) {
-            _w._err = stdgo._internal.fmt.Fmt_errorf.errorf(("lzw: litWidth %d out of range" : stdgo.GoString), stdgo.Go.toInterface(_litWidth));
+            (@:checkr _w ?? throw "null pointer dereference")._err = stdgo._internal.fmt.Fmt_errorf.errorf(("lzw: litWidth %d out of range" : stdgo.GoString), stdgo.Go.toInterface(_litWidth));
             return;
         };
         var __tmp__ = try {
@@ -26,16 +27,17 @@ package stdgo._internal.compress.lzw;
         if ((!_ok && (_dst != null) : Bool)) {
             _bw = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newWriter.newWriter(_dst));
         };
-        _w._w = _bw;
+        (@:checkr _w ?? throw "null pointer dereference")._w = _bw;
         var _lw = (_litWidth : stdgo.GoUInt);
-        _w._order = _order;
-        _w._width = ((1u32 : stdgo.GoUInt) + _lw : stdgo.GoUInt);
-        _w._litWidth = _lw;
-        _w._hi = (((1u32 : stdgo.GoUInt32) << _lw : stdgo.GoUInt32) + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-        _w._overflow = ((1u32 : stdgo.GoUInt32) << ((_lw + (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt32);
-        _w._savedCode = (-1u32 : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._order = _order;
+        (@:checkr _w ?? throw "null pointer dereference")._width = ((1u32 : stdgo.GoUInt) + _lw : stdgo.GoUInt);
+        (@:checkr _w ?? throw "null pointer dereference")._litWidth = _lw;
+        (@:checkr _w ?? throw "null pointer dereference")._hi = (((1u32 : stdgo.GoUInt32) << _lw : stdgo.GoUInt32) + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._overflow = ((1u32 : stdgo.GoUInt32) << ((_lw + (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._savedCode = (-1u32 : stdgo.GoUInt32);
     }
     @:keep
+    @:tdfield
     static public function reset( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _dst:stdgo._internal.io.Io_Writer.Writer, _order:stdgo._internal.compress.lzw.Lzw_Order.Order, _litWidth:stdgo.GoInt):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
         {
@@ -54,92 +56,94 @@ package stdgo._internal.compress.lzw;
             x._err = __tmp__._err;
             x._table = __tmp__._table;
         };
-        _w._init(_dst, _order, _litWidth);
+        @:check2r _w._init(_dst, _order, _litWidth);
     }
     @:keep
+    @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
-        if (_w._err != null) {
-            if (stdgo.Go.toInterface(_w._err) == (stdgo.Go.toInterface(stdgo._internal.compress.lzw.Lzw__errClosed._errClosed))) {
+        if ((@:checkr _w ?? throw "null pointer dereference")._err != null) {
+            if (stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._err) == (stdgo.Go.toInterface(stdgo._internal.compress.lzw.Lzw__errClosed._errClosed))) {
                 return (null : stdgo.Error);
             };
-            return _w._err;
+            return (@:checkr _w ?? throw "null pointer dereference")._err;
         };
-        _w._err = stdgo._internal.compress.lzw.Lzw__errClosed._errClosed;
-        if (_w._savedCode != ((-1u32 : stdgo.GoUInt32))) {
+        (@:checkr _w ?? throw "null pointer dereference")._err = stdgo._internal.compress.lzw.Lzw__errClosed._errClosed;
+        if ((@:checkr _w ?? throw "null pointer dereference")._savedCode != ((-1u32 : stdgo.GoUInt32))) {
             {
-                var _err = (_w._write(_w, _w._savedCode) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._write(_w, (@:checkr _w ?? throw "null pointer dereference")._savedCode) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
             {
-                var _err = (_w._incHi() : stdgo.Error);
+                var _err = (@:check2r _w._incHi() : stdgo.Error);
                 if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.compress.lzw.Lzw__errOutOfCodes._errOutOfCodes)) : Bool)) {
                     return _err;
                 };
             };
         } else {
-            var _clear = ((1u32 : stdgo.GoUInt32) << _w._litWidth : stdgo.GoUInt32);
+            var _clear = ((1u32 : stdgo.GoUInt32) << (@:checkr _w ?? throw "null pointer dereference")._litWidth : stdgo.GoUInt32);
             {
-                var _err = (_w._write(_w, _clear) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._write(_w, _clear) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
         };
-        var _eof = (((1u32 : stdgo.GoUInt32) << _w._litWidth : stdgo.GoUInt32) + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _eof = (((1u32 : stdgo.GoUInt32) << (@:checkr _w ?? throw "null pointer dereference")._litWidth : stdgo.GoUInt32) + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {
-            var _err = (_w._write(_w, _eof) : stdgo.Error);
+            var _err = ((@:checkr _w ?? throw "null pointer dereference")._write(_w, _eof) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };
         };
-        if ((_w._nBits > (0u32 : stdgo.GoUInt) : Bool)) {
-            if (_w._order == ((1 : stdgo._internal.compress.lzw.Lzw_Order.Order))) {
-                _w._bits = (_w._bits >> ((24i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+        if (((@:checkr _w ?? throw "null pointer dereference")._nBits > (0u32 : stdgo.GoUInt) : Bool)) {
+            if ((@:checkr _w ?? throw "null pointer dereference")._order == ((1 : stdgo._internal.compress.lzw.Lzw_Order.Order))) {
+                (@:checkr _w ?? throw "null pointer dereference")._bits = ((@:checkr _w ?? throw "null pointer dereference")._bits >> ((24i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             };
             {
-                var _err = (_w._w.writeByte((_w._bits : stdgo.GoUInt8)) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._w.writeByte(((@:checkr _w ?? throw "null pointer dereference")._bits : stdgo.GoUInt8)) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
         };
-        return _w._w.flush();
+        return (@:checkr _w ?? throw "null pointer dereference")._w.flush();
     }
     @:keep
+    @:tdfield
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _x_3646070:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _maxLit_3646008:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _literal_3646905:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3646671:stdgo.Error = (null : stdgo.Error);
-        var _code_3646218:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _h_3647103:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err1_3647607:stdgo.Error = (null : stdgo.Error);
-        var _i_3646893_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _clear_3646633:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_3646075_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _t_3647106:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _hash_3647061:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _key_3646928:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _clear_3646633:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _maxLit_3646008:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err1_3647607:stdgo.Error = (null : stdgo.Error);
+        var _h_3647103:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _x_3646888:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_3646671:stdgo.Error = (null : stdgo.Error);
+        var _i_3646075_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _literal_3646905:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _hash_3647061:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _i_3646893_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _code_3646218:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_3646070:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _t_3647106:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    if (_w._err != null) {
+                    if ((@:checkr _w ?? throw "null pointer dereference")._err != null) {
                         _gotoNext = 3645944i32;
                     } else {
                         _gotoNext = 3645968i32;
                     };
                 } else if (__value__ == (3645944i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _w._err };
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _w ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -161,7 +165,7 @@ package stdgo._internal.compress.lzw;
                     _gotoNext = 3646005i32;
                 } else if (__value__ == (3646005i32)) {
                     {
-                        _maxLit_3646008 = (((1 : stdgo.GoUInt8) << _w._litWidth : stdgo.GoUInt8) - (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
+                        _maxLit_3646008 = (((1 : stdgo.GoUInt8) << (@:checkr _w ?? throw "null pointer dereference")._litWidth : stdgo.GoUInt8) - (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
                         if (_maxLit_3646008 != ((255 : stdgo.GoUInt8))) {
                             _gotoNext = 3646059i32;
                         } else {
@@ -185,9 +189,9 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3646067i32;
                     };
                 } else if (__value__ == (3646102i32)) {
-                    _w._err = stdgo._internal.errors.Errors_new_.new_(("lzw: input byte too large for the litWidth" : stdgo.GoString));
+                    (@:checkr _w ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("lzw: input byte too large for the litWidth" : stdgo.GoString));
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _w._err };
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _w ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -209,16 +213,16 @@ package stdgo._internal.compress.lzw;
                     };
                 } else if (__value__ == (3646206i32)) {
                     _n = (_p.length);
-                    _code_3646218 = _w._savedCode;
+                    _code_3646218 = (@:checkr _w ?? throw "null pointer dereference")._savedCode;
                     if (_code_3646218 == ((-1u32 : stdgo.GoUInt32))) {
                         _gotoNext = 3646262i32;
                     } else {
                         _gotoNext = 3646874i32;
                     };
                 } else if (__value__ == (3646262i32)) {
-                    _clear_3646633 = ((1u32 : stdgo.GoUInt32) << _w._litWidth : stdgo.GoUInt32);
+                    _clear_3646633 = ((1u32 : stdgo.GoUInt32) << (@:checkr _w ?? throw "null pointer dereference")._litWidth : stdgo.GoUInt32);
                     {
-                        _err_3646671 = _w._write(_w, _clear_3646633);
+                        _err_3646671 = (@:checkr _w ?? throw "null pointer dereference")._write(_w, _clear_3646633);
                         if (_err_3646671 != null) {
                             _gotoNext = 3646708i32;
                         } else {
@@ -258,7 +262,7 @@ package stdgo._internal.compress.lzw;
                     _hash_3647061 = ((((_key_3646928 >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) ^ _key_3646928 : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
                     {
                         final __tmp__0 = _hash_3647061;
-                        final __tmp__1 = _w._table[(_hash_3647061 : stdgo.GoInt)];
+                        final __tmp__1 = (@:checkr _w ?? throw "null pointer dereference")._table[(_hash_3647061 : stdgo.GoInt)];
                         _h_3647103 = __tmp__0;
                         _t_3647106 = __tmp__1;
                     };
@@ -281,12 +285,12 @@ package stdgo._internal.compress.lzw;
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647223i32)) {
                     _h_3647103 = (((_h_3647103 + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    _t_3647106 = _w._table[(_h_3647103 : stdgo.GoInt)];
+                    _t_3647106 = (@:checkr _w ?? throw "null pointer dereference")._table[(_h_3647103 : stdgo.GoInt)];
                     _gotoNext = 3647099i32;
                 } else if (__value__ == (3647372i32)) {
                     {
-                        _w._err = _w._write(_w, _code_3646218);
-                        if (_w._err != null) {
+                        (@:checkr _w ?? throw "null pointer dereference")._err = (@:checkr _w ?? throw "null pointer dereference")._write(_w, _code_3646218);
+                        if ((@:checkr _w ?? throw "null pointer dereference")._err != null) {
                             _gotoNext = 3647414i32;
                         } else {
                             _gotoNext = 3647441i32;
@@ -294,7 +298,7 @@ package stdgo._internal.compress.lzw;
                     };
                 } else if (__value__ == (3647414i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _w._err };
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _w ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -303,7 +307,7 @@ package stdgo._internal.compress.lzw;
                 } else if (__value__ == (3647441i32)) {
                     _code_3646218 = _literal_3646905;
                     {
-                        _err1_3647607 = _w._incHi();
+                        _err1_3647607 = @:check2r _w._incHi();
                         if (_err1_3647607 != null) {
                             _gotoNext = 3647638i32;
                         } else {
@@ -320,9 +324,9 @@ package stdgo._internal.compress.lzw;
                     _i_3646893_0++;
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647691i32)) {
-                    _w._err = _err1_3647607;
+                    (@:checkr _w ?? throw "null pointer dereference")._err = _err1_3647607;
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _w._err };
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _w ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -337,13 +341,13 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3646885i32;
                     };
                 } else if (__value__ == (3647806i32)) {
-                    if (_w._table[(_hash_3647061 : stdgo.GoInt)] == ((0u32 : stdgo.GoUInt32))) {
+                    if ((@:checkr _w ?? throw "null pointer dereference")._table[(_hash_3647061 : stdgo.GoInt)] == ((0u32 : stdgo.GoUInt32))) {
                         _gotoNext = 3647844i32;
                     } else {
                         _gotoNext = 3647903i32;
                     };
                 } else if (__value__ == (3647844i32)) {
-                    _w._table[(_hash_3647061 : stdgo.GoInt)] = (((_key_3646928 << (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | _w._hi : stdgo.GoUInt32);
+                    (@:checkr _w ?? throw "null pointer dereference")._table[(_hash_3647061 : stdgo.GoInt)] = (((_key_3646928 << (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | (@:checkr _w ?? throw "null pointer dereference")._hi : stdgo.GoUInt32);
                     _gotoNext = 3646885i32;
                 } else if (__value__ == (3647903i32)) {
                     _hash_3647061 = (((_hash_3647061 + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -363,7 +367,7 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3647941i32;
                     };
                 } else if (__value__ == (3647941i32)) {
-                    _w._savedCode = _code_3646218;
+                    (@:checkr _w ?? throw "null pointer dereference")._savedCode = _code_3646218;
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                         _n = __tmp__._0;
@@ -377,62 +381,65 @@ package stdgo._internal.compress.lzw;
         throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _incHi( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
-        _w._hi++;
-        if (_w._hi == (_w._overflow)) {
-            _w._width++;
-            _w._overflow = (_w._overflow << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._hi++;
+        if ((@:checkr _w ?? throw "null pointer dereference")._hi == ((@:checkr _w ?? throw "null pointer dereference")._overflow)) {
+            (@:checkr _w ?? throw "null pointer dereference")._width++;
+            (@:checkr _w ?? throw "null pointer dereference")._overflow = ((@:checkr _w ?? throw "null pointer dereference")._overflow << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
         };
-        if (_w._hi == ((4095u32 : stdgo.GoUInt32))) {
-            var _clear = ((1u32 : stdgo.GoUInt32) << _w._litWidth : stdgo.GoUInt32);
+        if ((@:checkr _w ?? throw "null pointer dereference")._hi == ((4095u32 : stdgo.GoUInt32))) {
+            var _clear = ((1u32 : stdgo.GoUInt32) << (@:checkr _w ?? throw "null pointer dereference")._litWidth : stdgo.GoUInt32);
             {
-                var _err = (_w._write(_w, _clear) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._write(_w, _clear) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
-            _w._width = (_w._litWidth + (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
-            _w._hi = (_clear + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            _w._overflow = (_clear << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-            for (_i => _ in _w._table) {
-                _w._table[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt32);
+            (@:checkr _w ?? throw "null pointer dereference")._width = ((@:checkr _w ?? throw "null pointer dereference")._litWidth + (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
+            (@:checkr _w ?? throw "null pointer dereference")._hi = (_clear + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+            (@:checkr _w ?? throw "null pointer dereference")._overflow = (_clear << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
+            for (_i => _ in (@:checkr _w ?? throw "null pointer dereference")._table) {
+                (@:checkr _w ?? throw "null pointer dereference")._table[(_i : stdgo.GoInt)] = (0u32 : stdgo.GoUInt32);
             };
             return stdgo._internal.compress.lzw.Lzw__errOutOfCodes._errOutOfCodes;
         };
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _writeMSB( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _c:stdgo.GoUInt32):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
-        _w._bits = (_w._bits | ((_c << ((((32u32 : stdgo.GoUInt) - _w._width : stdgo.GoUInt) - _w._nBits : stdgo.GoUInt)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-        _w._nBits = (_w._nBits + (_w._width) : stdgo.GoUInt);
-        while ((_w._nBits >= (8u32 : stdgo.GoUInt) : Bool)) {
+        (@:checkr _w ?? throw "null pointer dereference")._bits = ((@:checkr _w ?? throw "null pointer dereference")._bits | ((_c << ((((32u32 : stdgo.GoUInt) - (@:checkr _w ?? throw "null pointer dereference")._width : stdgo.GoUInt) - (@:checkr _w ?? throw "null pointer dereference")._nBits : stdgo.GoUInt)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._nBits = ((@:checkr _w ?? throw "null pointer dereference")._nBits + ((@:checkr _w ?? throw "null pointer dereference")._width) : stdgo.GoUInt);
+        while (((@:checkr _w ?? throw "null pointer dereference")._nBits >= (8u32 : stdgo.GoUInt) : Bool)) {
             {
-                var _err = (_w._w.writeByte(((_w._bits >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._w.writeByte((((@:checkr _w ?? throw "null pointer dereference")._bits >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8)) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
-            _w._bits = (_w._bits << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-            _w._nBits = (_w._nBits - ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+            (@:checkr _w ?? throw "null pointer dereference")._bits = ((@:checkr _w ?? throw "null pointer dereference")._bits << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+            (@:checkr _w ?? throw "null pointer dereference")._nBits = ((@:checkr _w ?? throw "null pointer dereference")._nBits - ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         };
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _writeLSB( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _c:stdgo.GoUInt32):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
-        _w._bits = (_w._bits | ((_c << _w._nBits : stdgo.GoUInt32)) : stdgo.GoUInt32);
-        _w._nBits = (_w._nBits + (_w._width) : stdgo.GoUInt);
-        while ((_w._nBits >= (8u32 : stdgo.GoUInt) : Bool)) {
+        (@:checkr _w ?? throw "null pointer dereference")._bits = ((@:checkr _w ?? throw "null pointer dereference")._bits | ((_c << (@:checkr _w ?? throw "null pointer dereference")._nBits : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        (@:checkr _w ?? throw "null pointer dereference")._nBits = ((@:checkr _w ?? throw "null pointer dereference")._nBits + ((@:checkr _w ?? throw "null pointer dereference")._width) : stdgo.GoUInt);
+        while (((@:checkr _w ?? throw "null pointer dereference")._nBits >= (8u32 : stdgo.GoUInt) : Bool)) {
             {
-                var _err = (_w._w.writeByte((_w._bits : stdgo.GoUInt8)) : stdgo.Error);
+                var _err = ((@:checkr _w ?? throw "null pointer dereference")._w.writeByte(((@:checkr _w ?? throw "null pointer dereference")._bits : stdgo.GoUInt8)) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
-            _w._bits = (_w._bits >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-            _w._nBits = (_w._nBits - ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+            (@:checkr _w ?? throw "null pointer dereference")._bits = ((@:checkr _w ?? throw "null pointer dereference")._bits >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+            (@:checkr _w ?? throw "null pointer dereference")._nBits = ((@:checkr _w ?? throw "null pointer dereference")._nBits - ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         };
         return (null : stdgo.Error);
     }

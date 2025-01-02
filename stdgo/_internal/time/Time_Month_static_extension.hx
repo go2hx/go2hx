@@ -1,6 +1,7 @@
 package stdgo._internal.time;
 @:keep @:allow(stdgo._internal.time.Time.Month_asInterface) class Month_static_extension {
     @:keep
+    @:tdfield
     static public function string( _m:stdgo._internal.time.Time_Month.Month):stdgo.GoString {
         @:recv var _m:stdgo._internal.time.Time_Month.Month = _m;
         if ((((1 : stdgo._internal.time.Time_Month.Month) <= _m : Bool) && (_m <= (12 : stdgo._internal.time.Time_Month.Month) : Bool) : Bool)) {

@@ -2,7 +2,7 @@ package stdgo._internal.time;
 function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
         var _d = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(_data, false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
         {
-            var _magic = _d._read((4 : stdgo.GoInt));
+            var _magic = @:check2 _d._read((4 : stdgo.GoInt));
             if ((_magic : stdgo.GoString) != (("TZif" : stdgo.GoString))) {
                 return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
             };
@@ -10,7 +10,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
         var _version:stdgo.GoInt = (0 : stdgo.GoInt);
         var _p:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
-            _p = _d._read((16 : stdgo.GoInt));
+            _p = @:check2 _d._read((16 : stdgo.GoInt));
             if ((_p.length) != ((16 : stdgo.GoInt))) {
                 return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
             } else {
@@ -33,7 +33,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (6 : stdgo.GoInt) : Bool)) {
-                var __tmp__ = _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = @:check2 _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                 };
@@ -48,12 +48,12 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
         if ((_version > (1 : stdgo.GoInt) : Bool)) {
             var _skip = (((((((_n[(3 : stdgo.GoInt)] * (4 : stdgo.GoInt) : stdgo.GoInt) + _n[(3 : stdgo.GoInt)] : stdgo.GoInt) + (_n[(4 : stdgo.GoInt)] * (6 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + _n[(5 : stdgo.GoInt)] : stdgo.GoInt) + (_n[(2 : stdgo.GoInt)] * (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + _n[(1 : stdgo.GoInt)] : stdgo.GoInt) + _n[(0 : stdgo.GoInt)] : stdgo.GoInt);
             _skip = (_skip + ((20 : stdgo.GoInt)) : stdgo.GoInt);
-            _d._read(_skip);
+            @:check2 _d._read(_skip);
             _is64 = true;
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (6 : stdgo.GoInt) : Bool)) {
-                    var __tmp__ = _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                         return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                     };
@@ -69,18 +69,18 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
         if (_is64) {
             _size = (8 : stdgo.GoInt);
         };
-        var _txtimes = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(_d._read((_n[(3 : stdgo.GoInt)] * _size : stdgo.GoInt)), false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
-        var _txzones = _d._read(_n[(3 : stdgo.GoInt)]);
-        var _zonedata = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(_d._read((_n[(4 : stdgo.GoInt)] * (6 : stdgo.GoInt) : stdgo.GoInt)), false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
-        var _abbrev = _d._read(_n[(5 : stdgo.GoInt)]);
-        _d._read((_n[(2 : stdgo.GoInt)] * ((_size + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt));
-        var _isstd = _d._read(_n[(1 : stdgo.GoInt)]);
-        var _isutc = _d._read(_n[(0 : stdgo.GoInt)]);
+        var _txtimes = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(@:check2 _d._read((_n[(3 : stdgo.GoInt)] * _size : stdgo.GoInt)), false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
+        var _txzones = @:check2 _d._read(_n[(3 : stdgo.GoInt)]);
+        var _zonedata = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(@:check2 _d._read((_n[(4 : stdgo.GoInt)] * (6 : stdgo.GoInt) : stdgo.GoInt)), false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
+        var _abbrev = @:check2 _d._read(_n[(5 : stdgo.GoInt)]);
+        @:check2 _d._read((_n[(2 : stdgo.GoInt)] * ((_size + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt));
+        var _isstd = @:check2 _d._read(_n[(1 : stdgo.GoInt)]);
+        var _isutc = @:check2 _d._read(_n[(0 : stdgo.GoInt)]);
         if (_d._error) {
             return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
         };
         var _extend:stdgo.GoString = ("" : stdgo.GoString);
-        var _rest = _d._rest();
+        var _rest = @:check2 _d._rest();
         if (((((_rest.length) > (2 : stdgo.GoInt) : Bool) && _rest[(0 : stdgo.GoInt)] == ((10 : stdgo.GoUInt8)) : Bool) && (_rest[((_rest.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) : Bool)) {
             _extend = ((_rest.__slice__((1 : stdgo.GoInt), ((_rest.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
         };
@@ -94,7 +94,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             var _n:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             {
                 {
-                    var __tmp__ = _zonedata._big4();
+                    var __tmp__ = @:check2 _zonedata._big4();
                     _n = __tmp__._0;
                     _ok = __tmp__._1;
                 };
@@ -109,7 +109,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             var _b:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
             {
                 {
-                    var __tmp__ = _zonedata._byte();
+                    var __tmp__ = @:check2 _zonedata._byte();
                     _b = __tmp__._0;
                     _ok = __tmp__._1;
                 };
@@ -120,7 +120,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             _zones[(_i : stdgo.GoInt)]._isDST = _b != ((0 : stdgo.GoUInt8));
             {
                 {
-                    var __tmp__ = _zonedata._byte();
+                    var __tmp__ = @:check2 _zonedata._byte();
                     _b = __tmp__._0;
                     _ok = __tmp__._1;
                 };
@@ -140,7 +140,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             var _n:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             if (!_is64) {
                 {
-                    var __tmp__ = _txtimes._big4(), _n4:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 _txtimes._big4(), _n4:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                     } else {
@@ -149,7 +149,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
                 };
             } else {
                 {
-                    var __tmp__ = _txtimes._big8(), _n8:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 _txtimes._big8(), _n8:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                     } else {
@@ -176,23 +176,23 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
         var __tmp__ = stdgo._internal.time.Time__now._now(), _sec:stdgo.GoInt64 = __tmp__._0, __1:stdgo.GoInt32 = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2;
         for (_i => _ in _tx) {
             if (((_tx[(_i : stdgo.GoInt)]._when <= _sec : Bool) && ((((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (_tx.length)) || (_sec < _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when : Bool) : Bool)) : Bool)) {
-                _l._cacheStart = _tx[(_i : stdgo.GoInt)]._when;
-                _l._cacheEnd = (9223372036854775807i64 : stdgo.GoInt64);
-                _l._cacheZone = (stdgo.Go.setRef(_l._zone[(_tx[(_i : stdgo.GoInt)]._index : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
+                (@:checkr _l ?? throw "null pointer dereference")._cacheStart = _tx[(_i : stdgo.GoInt)]._when;
+                (@:checkr _l ?? throw "null pointer dereference")._cacheEnd = (9223372036854775807i64 : stdgo.GoInt64);
+                (@:checkr _l ?? throw "null pointer dereference")._cacheZone = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._zone[(_tx[(_i : stdgo.GoInt)]._index : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
                 if (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_tx.length) : Bool)) {
-                    _l._cacheEnd = _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when;
-                } else if (_l._extend != (stdgo.Go.str())) {
+                    (@:checkr _l ?? throw "null pointer dereference")._cacheEnd = _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when;
+                } else if ((@:checkr _l ?? throw "null pointer dereference")._extend != (stdgo.Go.str())) {
                     {
-                        var __tmp__ = stdgo._internal.time.Time__tzset._tzset(_l._extend?.__copy__(), _l._cacheStart, _sec), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _estart:stdgo.GoInt64 = __tmp__._2, _eend:stdgo.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4, _ok:Bool = __tmp__._5;
+                        var __tmp__ = stdgo._internal.time.Time__tzset._tzset((@:checkr _l ?? throw "null pointer dereference")._extend?.__copy__(), (@:checkr _l ?? throw "null pointer dereference")._cacheStart, _sec), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _estart:stdgo.GoInt64 = __tmp__._2, _eend:stdgo.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4, _ok:Bool = __tmp__._5;
                         if (_ok) {
-                            _l._cacheStart = _estart;
-                            _l._cacheEnd = _eend;
+                            (@:checkr _l ?? throw "null pointer dereference")._cacheStart = _estart;
+                            (@:checkr _l ?? throw "null pointer dereference")._cacheEnd = _eend;
                             {
-                                var _zoneIdx = (stdgo._internal.time.Time__findZone._findZone(_l._zone, _name?.__copy__(), _offset, _isDST) : stdgo.GoInt);
+                                var _zoneIdx = (stdgo._internal.time.Time__findZone._findZone((@:checkr _l ?? throw "null pointer dereference")._zone, _name?.__copy__(), _offset, _isDST) : stdgo.GoInt);
                                 if (_zoneIdx != ((-1 : stdgo.GoInt))) {
-                                    _l._cacheZone = (stdgo.Go.setRef(_l._zone[(_zoneIdx : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
+                                    (@:checkr _l ?? throw "null pointer dereference")._cacheZone = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._zone[(_zoneIdx : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
                                 } else {
-                                    _l._cacheZone = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _offset : _offset, _isDST : _isDST } : stdgo._internal.time.Time_T_zone.T_zone)) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
+                                    (@:checkr _l ?? throw "null pointer dereference")._cacheZone = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _offset : _offset, _isDST : _isDST } : stdgo._internal.time.Time_T_zone.T_zone)) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
                                 };
                             };
                         };

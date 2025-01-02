@@ -33,6 +33,7 @@ package stdgo.index.suffixarray;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef IndexPointer = stdgo._internal.index.suffixarray.Suffixarray_IndexPointer.IndexPointer;
 class Index_static_extension {
     static public function findAllIndex(_x:Index, _r:stdgo._internal.regexp.Regexp_Regexp.Regexp, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
         return [for (i in stdgo._internal.index.suffixarray.Suffixarray_Index_static_extension.Index_static_extension.findAllIndex(_x, _r, _n)) [for (i in i) i]];
@@ -58,6 +59,7 @@ class Index_static_extension {
         return stdgo._internal.index.suffixarray.Suffixarray_Index_static_extension.Index_static_extension.read(_x, _r);
     }
 }
+typedef T_intsPointer = stdgo._internal.index.suffixarray.Suffixarray_T_intsPointer.T_intsPointer;
 class T_ints_static_extension {
     static public function _slice(_a:T_ints, _i:StdTypes.Int, _j:StdTypes.Int):T_ints {
         return stdgo._internal.index.suffixarray.Suffixarray_T_ints_static_extension.T_ints_static_extension._slice(_a, _i, _j);

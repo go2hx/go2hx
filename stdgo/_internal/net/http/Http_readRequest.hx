@@ -4,6 +4,6 @@ function readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{ 
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        if (_req.header != null) _req.header.remove(("Host" : stdgo.GoString));
+        if ((@:checkr _req ?? throw "null pointer dereference").header != null) (@:checkr _req ?? throw "null pointer dereference").header.remove(("Host" : stdgo.GoString));
         return { _0 : _req, _1 : _err };
     }

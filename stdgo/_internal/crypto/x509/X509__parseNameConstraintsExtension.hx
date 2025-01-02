@@ -8,7 +8,7 @@ var _excluded = __2, _permitted = __1, _toplevel = __0;
 var _haveExcluded = __1, _havePermitted = __0;
         var _haveExcluded__pointer__ = stdgo.Go.pointer(_haveExcluded);
         var _havePermitted__pointer__ = stdgo.Go.pointer(_havePermitted);
-        if (((((!_outer.readASN1((stdgo.Go.setRef(_toplevel) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_outer.empty() : Bool) || !_toplevel.readOptionalASN1((stdgo.Go.setRef(_permitted) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _havePermitted__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.readOptionalASN1((stdgo.Go.setRef(_excluded) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _haveExcluded__pointer__, (1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.empty() : Bool)) {
+        if (((((!@:check2 _outer.readASN1((stdgo.Go.setRef(_toplevel) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_outer.empty() : Bool) || !@:check2 _toplevel.readOptionalASN1((stdgo.Go.setRef(_permitted) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _havePermitted__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !@:check2 _toplevel.readOptionalASN1((stdgo.Go.setRef(_excluded) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _haveExcluded__pointer__, (1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.empty() : Bool)) {
             return {
                 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                 _unhandled = __tmp__._0;
@@ -31,7 +31,7 @@ var _haveExcluded = __1, _havePermitted = __0;
 var _value = __1, _seq = __0;
                 var _tag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag);
                 var _tag__pointer__ = stdgo.Go.pointer(_tag);
-                if ((!_subtrees.readASN1((stdgo.Go.setRef(_seq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_seq.readAnyASN1((stdgo.Go.setRef(_value) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _tag__pointer__) : Bool)) {
+                if ((!@:check2 _subtrees.readASN1((stdgo.Go.setRef(_seq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !@:check2 _seq.readAnyASN1((stdgo.Go.setRef(_value) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _tag__pointer__) : Bool)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                         _dnsNames = __tmp__._0;
@@ -116,7 +116,7 @@ var _mask = __1, _ip = __0;
                                 __tmp__;
                             };
                         };
-                        _ips = (_ips.__append__((stdgo.Go.setRef(({ ip : (_ip : stdgo._internal.net.Net_IP.IP), mask : (_mask : stdgo._internal.net.Net_IPMask.IPMask) } : stdgo._internal.net.Net_IPNet.IPNet)) : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)));
+                        _ips = (_ips.__append__((stdgo.Go.setRef(({ iP : (_ip : stdgo._internal.net.Net_IP.IP), mask : (_mask : stdgo._internal.net.Net_IPMask.IPMask) } : stdgo._internal.net.Net_IPNet.IPNet)) : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)));
                     } else if (__value__ == (_emailTag)) {
                         var _constraint = ((_value : stdgo.GoString)?.__copy__() : stdgo.GoString);
                         {
@@ -233,10 +233,10 @@ var _mask = __1, _ip = __0;
         {
             {
                 var __tmp__ = _getValues(_permitted);
-                _out.permittedDNSDomains = __tmp__._0;
-                _out.permittedIPRanges = __tmp__._1;
-                _out.permittedEmailAddresses = __tmp__._2;
-                _out.permittedURIDomains = __tmp__._3;
+                (@:checkr _out ?? throw "null pointer dereference").permittedDNSDomains = __tmp__._0;
+                (@:checkr _out ?? throw "null pointer dereference").permittedIPRanges = __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").permittedEmailAddresses = __tmp__._2;
+                (@:checkr _out ?? throw "null pointer dereference").permittedURIDomains = __tmp__._3;
                 _err = __tmp__._4;
             };
             if (_err != null) {
@@ -251,10 +251,10 @@ var _mask = __1, _ip = __0;
         {
             {
                 var __tmp__ = _getValues(_excluded);
-                _out.excludedDNSDomains = __tmp__._0;
-                _out.excludedIPRanges = __tmp__._1;
-                _out.excludedEmailAddresses = __tmp__._2;
-                _out.excludedURIDomains = __tmp__._3;
+                (@:checkr _out ?? throw "null pointer dereference").excludedDNSDomains = __tmp__._0;
+                (@:checkr _out ?? throw "null pointer dereference").excludedIPRanges = __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").excludedEmailAddresses = __tmp__._2;
+                (@:checkr _out ?? throw "null pointer dereference").excludedURIDomains = __tmp__._3;
                 _err = __tmp__._4;
             };
             if (_err != null) {
@@ -266,7 +266,7 @@ var _mask = __1, _ip = __0;
                 };
             };
         };
-        _out.permittedDNSDomainsCritical = _e.critical;
+        (@:checkr _out ?? throw "null pointer dereference").permittedDNSDomainsCritical = _e.critical;
         return {
             final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _unhandled, _1 : (null : stdgo.Error) };
             _unhandled = __tmp__._0;

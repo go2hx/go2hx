@@ -6,18 +6,30 @@ package stdgo._internal.math.big;
         if (scanState != null) this.scanState = scanState;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(_buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.scanState.read(_buf);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.scanState ?? throw "null pointer derefrence").read;
+    public var readRune(get, never) : () -> { var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; };
     @:embedded
-    public function readRune():{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return this.scanState.readRune();
+    @:embeddededffieldsffun
+    public function get_readRune():() -> { var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return @:check3 (this.scanState ?? throw "null pointer derefrence").readRune;
+    public var skipSpace(get, never) : () -> Void;
     @:embedded
-    public function skipSpace() this.scanState.skipSpace();
+    @:embeddededffieldsffun
+    public function get_skipSpace():() -> Void return @:check3 (this.scanState ?? throw "null pointer derefrence").skipSpace;
+    public var token(get, never) : (Bool, stdgo.GoInt32 -> Bool) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     @:embedded
-    public function token(_skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return this.scanState.token(_skipSpace, _f);
+    @:embeddededffieldsffun
+    public function get_token():(Bool, stdgo.GoInt32 -> Bool) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:check3 (this.scanState ?? throw "null pointer derefrence").token;
+    public var unreadRune(get, never) : () -> stdgo.Error;
     @:embedded
-    public function unreadRune():stdgo.Error return this.scanState.unreadRune();
+    @:embeddededffieldsffun
+    public function get_unreadRune():() -> stdgo.Error return @:check3 (this.scanState ?? throw "null pointer derefrence").unreadRune;
+    public var width(get, never) : () -> { var _0 : stdgo.GoInt; var _1 : Bool; };
     @:embedded
-    public function width():{ var _0 : stdgo.GoInt; var _1 : Bool; } return this.scanState.width();
+    @:embeddededffieldsffun
+    public function get_width():() -> { var _0 : stdgo.GoInt; var _1 : Bool; } return @:check3 (this.scanState ?? throw "null pointer derefrence").width;
     public function __copy__() {
         return new T_byteReader(scanState);
     }

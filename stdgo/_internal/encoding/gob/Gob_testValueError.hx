@@ -6,7 +6,7 @@ function testValueError(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_t4p), stdgo.Go.toInterface(_t4)) : stdgo.Error);
             if (((_err == null) || !stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), ("pointer" : stdgo.GoString)) : Bool)) {
-                _t.error(stdgo.Go.toInterface(("expected error about pointer; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(("expected error about pointer; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
     }

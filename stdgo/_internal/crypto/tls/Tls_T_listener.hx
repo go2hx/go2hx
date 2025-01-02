@@ -8,10 +8,14 @@ package stdgo._internal.crypto.tls;
         if (_config != null) this._config = _config;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var addr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function addr():stdgo._internal.net.Net_Addr.Addr return this.listener.addr();
+    @:embeddededffieldsffun
+    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.listener ?? throw "null pointer derefrence").addr;
+    public var close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function close():stdgo.Error return this.listener.close();
+    @:embeddededffieldsffun
+    public function get_close():() -> stdgo.Error return @:check3 (this.listener ?? throw "null pointer derefrence").close;
     public function __copy__() {
         return new T_listener(listener, _config);
     }

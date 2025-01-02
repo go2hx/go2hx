@@ -13,10 +13,14 @@ package stdgo._internal.text.template.parse;
         if (line != null) this.line = line;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var position(get, never) : () -> stdgo._internal.text.template.parse.Parse_Pos.Pos;
     @:embedded
-    public function position():stdgo._internal.text.template.parse.Parse_Pos.Pos return this.pos.position();
+    @:embeddededffieldsffun
+    public function get_position():() -> stdgo._internal.text.template.parse.Parse_Pos.Pos return @:check3 (this.pos ?? throw "null pointer derefrence").position;
+    public var type(get, never) : () -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType;
     @:embedded
-    public function type():stdgo._internal.text.template.parse.Parse_NodeType.NodeType return this.nodeType.type();
+    @:embeddededffieldsffun
+    public function get_type():() -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:check3 (this.nodeType ?? throw "null pointer derefrence").type;
     public function __copy__() {
         return new ContinueNode(_tr, nodeType, pos, line);
     }

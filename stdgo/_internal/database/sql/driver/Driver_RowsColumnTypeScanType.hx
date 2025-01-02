@@ -6,5 +6,6 @@ typedef RowsColumnTypeScanType = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columnTypeScanType(_index:stdgo.GoInt):stdgo._internal.reflect.Reflect_Type_.Type_;
 };

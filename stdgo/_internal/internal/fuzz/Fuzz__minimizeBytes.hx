@@ -16,6 +16,7 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                         if (_shouldStop()) {
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return;
@@ -36,6 +37,7 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                     if (_shouldStop()) {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return;
@@ -66,6 +68,7 @@ _i--;
                             if (_shouldStop()) {
                                 {
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return;
@@ -93,6 +96,7 @@ _j = (_v.length);
                 if (_shouldStop()) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return;
@@ -108,6 +112,7 @@ _j = (_v.length);
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -122,6 +127,7 @@ _j = (_v.length);
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

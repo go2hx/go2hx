@@ -6,6 +6,7 @@ typedef AEAD = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function nonceSize():stdgo.GoInt;
     /**
         Overhead returns the maximum difference between the lengths of a
@@ -13,6 +14,7 @@ typedef AEAD = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function overhead():stdgo.GoInt;
     /**
         Seal encrypts and authenticates plaintext, authenticates the
@@ -25,6 +27,7 @@ typedef AEAD = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function seal(_dst:stdgo.Slice<stdgo.GoUInt8>, _nonce:stdgo.Slice<stdgo.GoUInt8>, _plaintext:stdgo.Slice<stdgo.GoUInt8>, _additionalData:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8>;
     /**
         Open decrypts and authenticates ciphertext, authenticates the
@@ -41,5 +44,6 @@ typedef AEAD = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function open(_dst:stdgo.Slice<stdgo.GoUInt8>, _nonce:stdgo.Slice<stdgo.GoUInt8>, _ciphertext:stdgo.Slice<stdgo.GoUInt8>, _additionalData:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
 };

@@ -6,5 +6,6 @@ typedef T_http2clientConnPoolIdleCloser = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _closeIdleConnections():Void;
 };

@@ -5,12 +5,12 @@ function _generateLegacy(_c:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
             return { _0 : null, _1 : _err };
         };
         var _priv = (stdgo.Go.setRef(({} : stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>);
-        _priv.publicKey.curve = _c;
-        _priv.d = _k;
+        (@:checkr _priv ?? throw "null pointer dereference").publicKey.curve = _c;
+        (@:checkr _priv ?? throw "null pointer dereference").d = _k;
         {
-            var __tmp__ = _c.scalarBaseMult(_k.bytes());
-            _priv.publicKey.x = __tmp__._0;
-            _priv.publicKey.y = __tmp__._1;
+            var __tmp__ = _c.scalarBaseMult(@:check2r _k.bytes());
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = __tmp__._0;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = __tmp__._1;
         };
         return { _0 : _priv, _1 : (null : stdgo.Error) };
     }

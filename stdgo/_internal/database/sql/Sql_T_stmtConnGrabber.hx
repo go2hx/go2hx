@@ -6,6 +6,7 @@ typedef T_stmtConnGrabber = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _grabConn(_0:stdgo._internal.context.Context_Context.Context):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>; var _1 : stdgo._internal.database.sql.Sql_T_releaseConn.T_releaseConn; var _2 : stdgo.Error; };
     /**
         txCtx returns the transaction context if available.
@@ -14,5 +15,6 @@ typedef T_stmtConnGrabber = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _txCtx():stdgo._internal.context.Context_Context.Context;
 };

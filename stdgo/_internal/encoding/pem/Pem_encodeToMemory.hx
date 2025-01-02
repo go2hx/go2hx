@@ -7,5 +7,5 @@ function encodeToMemory(_b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Bloc
                 return (null : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
-        return _buf.bytes();
+        return @:check2 _buf.bytes();
     }

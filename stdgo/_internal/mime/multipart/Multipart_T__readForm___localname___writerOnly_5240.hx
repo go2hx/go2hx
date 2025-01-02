@@ -6,8 +6,9 @@ package stdgo._internal.mime.multipart;
         if (writer != null) this.writer = writer;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(_d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.writer.write(_d);
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.writer ?? throw "null pointer derefrence").write;
     public function __copy__() {
         return new T__readForm___localname___writerOnly_5240(writer);
     }

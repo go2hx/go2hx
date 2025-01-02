@@ -1,6 +1,7 @@
 package stdgo._internal.hash.fnv;
 @:keep @:allow(stdgo._internal.hash.fnv.Fnv.T_sum128a_asInterface) class T_sum128a_static_extension {
     @:keep
+    @:tdfield
     static public function unmarshalBinary( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         if ((((_b.length) < (stdgo.Go.str("fnv", 6).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("fnv", 6).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("fnv", 6)) : Bool)) {
@@ -14,6 +15,7 @@ package stdgo._internal.hash.fnv;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalBinary( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -23,6 +25,7 @@ package stdgo._internal.hash.fnv;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function sum( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         return (_in.__append__(((_s[(0 : stdgo.GoInt)] >> (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8),
@@ -43,16 +46,19 @@ package stdgo._internal.hash.fnv;
 (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt8)));
     }
     @:keep
+    @:tdfield
     static public function blockSize( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>):stdgo.GoInt {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         return (1 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function size( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>):stdgo.GoInt {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         return (16 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function write( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         for (__0 => _c in _data) {
@@ -65,6 +71,7 @@ package stdgo._internal.hash.fnv;
         return { _0 : (_data.length), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function reset( _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a> = _s;
         _s[(0 : stdgo.GoInt)] = (7809847782465536322i64 : stdgo.GoUInt64);

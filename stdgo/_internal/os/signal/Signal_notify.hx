@@ -27,11 +27,11 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
                 if ((_n < (0 : stdgo.GoInt) : Bool)) {
                     return;
                 };
-                if (!_h._want(_n)) {
-                    _h._set(_n);
+                if (!@:check2r _h._want(_n)) {
+                    @:check2r _h._set(_n);
                     if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
                         stdgo._internal.os.signal.Signal__enableSignal._enableSignal(_n);
-                        stdgo._internal.os.signal.Signal__watchSignalLoopOnce._watchSignalLoopOnce.do_(function():Void {
+                        @:check2 stdgo._internal.os.signal.Signal__watchSignalLoopOnce._watchSignalLoopOnce.do_(function():Void {
                             if (stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop != null) {
                                 stdgo.Go.routine(() -> stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop());
                             };
@@ -55,6 +55,7 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -69,6 +70,7 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

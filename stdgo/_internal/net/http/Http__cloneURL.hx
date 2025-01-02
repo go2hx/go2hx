@@ -19,11 +19,11 @@ function _cloneURL(_u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.Ref<
             x.fragment = __tmp__.fragment;
             x.rawFragment = __tmp__.rawFragment;
         };
-        if ((_u.user != null && ((_u.user : Dynamic).__nil__ == null || !(_u.user : Dynamic).__nil__))) {
-            _u2.user = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_Userinfo.Userinfo)) : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
+        if (((@:checkr _u ?? throw "null pointer dereference").user != null && (((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__ == null || !((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__))) {
+            (@:checkr _u2 ?? throw "null pointer dereference").user = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_Userinfo.Userinfo)) : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
             {
-                var __tmp__ = (_u.user : stdgo._internal.net.url.Url_Userinfo.Userinfo)?.__copy__();
-                var x = (_u2.user : stdgo._internal.net.url.Url_Userinfo.Userinfo);
+                var __tmp__ = ((@:checkr _u ?? throw "null pointer dereference").user : stdgo._internal.net.url.Url_Userinfo.Userinfo)?.__copy__();
+                var x = ((@:checkr _u2 ?? throw "null pointer dereference").user : stdgo._internal.net.url.Url_Userinfo.Userinfo);
                 x._username = __tmp__._username;
                 x._password = __tmp__._password;
                 x._passwordSet = __tmp__._passwordSet;

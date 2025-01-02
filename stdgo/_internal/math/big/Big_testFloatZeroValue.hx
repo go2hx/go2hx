@@ -2,21 +2,21 @@ package stdgo._internal.math.big;
 function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _x:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
         {
-            var _s = (_x.text((102 : stdgo.GoUInt8), (1 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
+            var _s = (@:check2 _x.text((102 : stdgo.GoUInt8), (1 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             if (_s != (("0.0" : stdgo.GoString))) {
-                _t.errorf(("zero value = %s; want 0.0" : stdgo.GoString), stdgo.Go.toInterface(_s));
+                @:check2r _t.errorf(("zero value = %s; want 0.0" : stdgo.GoString), stdgo.Go.toInterface(_s));
             };
         };
         {
-            var _prec = (_x.prec() : stdgo.GoUInt);
+            var _prec = (@:check2 _x.prec() : stdgo.GoUInt);
             if (_prec != ((0u32 : stdgo.GoUInt))) {
-                _t.errorf(("prec = %d; want 0" : stdgo.GoString), stdgo.Go.toInterface(_prec));
+                @:check2r _t.errorf(("prec = %d; want 0" : stdgo.GoString), stdgo.Go.toInterface(_prec));
             };
         };
         var _make = function(_x:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             if (_x != ((0 : stdgo.GoInt))) {
-                _f.setInt64((_x : stdgo.GoInt64));
+                @:check2 _f.setInt64((_x : stdgo.GoInt64));
             };
             return (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
         };
@@ -39,11 +39,11 @@ function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             var _z = _make(_test._z);
             _test._op(_z, _make(_test._x), _make(_test._y));
             var _got = (0 : stdgo.GoInt);
-            if (!_z.isInf()) {
-                _got = (_z._int64() : stdgo.GoInt);
+            if (!@:check2r _z.isInf()) {
+                _got = (@:check2r _z._int64() : stdgo.GoInt);
             };
             if (_got != (_test._want)) {
-                _t.errorf(("%d %c %d = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._opname), stdgo.Go.toInterface(_test._y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                @:check2r _t.errorf(("%d %c %d = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._opname), stdgo.Go.toInterface(_test._y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
         };
     }

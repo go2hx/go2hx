@@ -6,25 +6,26 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                 throw stdgo.Go.toInterface(("roots must be non-nil" : stdgo.GoString));
             };
             var __blank__ = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
-            stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
+            @:check2 stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
             {
-                final __f__ = stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
+                final __f__ = @:check2 stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             if (stdgo._internal.crypto.x509.X509__fallbacksSet._fallbacksSet) {
                 throw stdgo.Go.toInterface(("SetFallbackRoots has already been called" : stdgo.GoString));
             };
             stdgo._internal.crypto.x509.X509__fallbacksSet._fallbacksSet = true;
-            if (((stdgo._internal.crypto.x509.X509__systemRoots._systemRoots != null && ((stdgo._internal.crypto.x509.X509__systemRoots._systemRoots : Dynamic).__nil__ == null || !(stdgo._internal.crypto.x509.X509__systemRoots._systemRoots : Dynamic).__nil__)) && (((stdgo._internal.crypto.x509.X509__systemRoots._systemRoots._len() > (0 : stdgo.GoInt) : Bool) || stdgo._internal.crypto.x509.X509__systemRoots._systemRoots._systemPool : Bool)) : Bool)) {
-                if (stdgo._internal.crypto.x509.X509__x509usefallbackroots._x509usefallbackroots.value() != (("1" : stdgo.GoString))) {
+            if (((stdgo._internal.crypto.x509.X509__systemRoots._systemRoots != null && ((stdgo._internal.crypto.x509.X509__systemRoots._systemRoots : Dynamic).__nil__ == null || !(stdgo._internal.crypto.x509.X509__systemRoots._systemRoots : Dynamic).__nil__)) && (((@:check2r stdgo._internal.crypto.x509.X509__systemRoots._systemRoots._len() > (0 : stdgo.GoInt) : Bool) || (@:checkr stdgo._internal.crypto.x509.X509__systemRoots._systemRoots ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
+                if (@:check2r stdgo._internal.crypto.x509.X509__x509usefallbackroots._x509usefallbackroots.value() != (("1" : stdgo.GoString))) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return;
                     };
                 };
-                stdgo._internal.crypto.x509.X509__x509usefallbackroots._x509usefallbackroots.incNonDefault();
+                @:check2r stdgo._internal.crypto.x509.X509__x509usefallbackroots._x509usefallbackroots.incNonDefault();
             };
             {
                 final __tmp__0 = _roots;
@@ -34,6 +35,7 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -48,6 +50,7 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

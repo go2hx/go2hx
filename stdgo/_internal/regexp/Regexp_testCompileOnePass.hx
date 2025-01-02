@@ -10,11 +10,11 @@ var _err = __2, _re = __1, _p = __0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    _t.errorf(("Parse(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Parse(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
-            _re = _re.simplify();
+            _re = @:check2r _re.simplify();
             {
                 {
                     var __tmp__ = stdgo._internal.regexp.syntax.Syntax_compile.compile(_re);
@@ -22,13 +22,13 @@ var _err = __2, _re = __1, _p = __0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    _t.errorf(("Compile(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Compile(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
             var _isOnePass = (stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) != null && ((stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__ == null || !(stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__) : Bool);
             if (_isOnePass != (_test._isOnePass)) {
-                _t.errorf(("CompileOnePass(%q) got isOnePass=%v, expected %v" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_isOnePass), stdgo.Go.toInterface(_test._isOnePass));
+                @:check2r _t.errorf(("CompileOnePass(%q) got isOnePass=%v, expected %v" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_isOnePass), stdgo.Go.toInterface(_test._isOnePass));
             };
         };
     }

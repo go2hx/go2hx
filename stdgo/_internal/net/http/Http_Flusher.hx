@@ -5,5 +5,6 @@ typedef Flusher = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function flush():Void;
 };

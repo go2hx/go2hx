@@ -1,12 +1,12 @@
 package stdgo._internal.crypto.rand;
 function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } {
         var _n = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _err = (null : stdgo.Error);
-        if ((_max.sign() <= (0 : stdgo.GoInt) : Bool)) {
+        if ((@:check2r _max.sign() <= (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("crypto/rand: argument to Int is <= 0" : stdgo.GoString));
         };
         _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        _n.sub(_max, _n.setUint64((1i64 : stdgo.GoUInt64)));
-        var _bitLen = (_n.bitLen() : stdgo.GoInt);
+        @:check2r _n.sub(_max, @:check2r _n.setUint64((1i64 : stdgo.GoUInt64)));
+        var _bitLen = (@:check2r _n.bitLen() : stdgo.GoInt);
         if (_bitLen == ((0 : stdgo.GoInt))) {
             return { _0 : _n, _1 : _err };
         };
@@ -30,8 +30,8 @@ function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._i
                 };
             };
             _bytes[(0 : stdgo.GoInt)] = (_bytes[(0 : stdgo.GoInt)] & (((((1 : stdgo.GoInt) << _b : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
-            _n.setBytes(_bytes);
-            if ((_n.cmp(_max) < (0 : stdgo.GoInt) : Bool)) {
+            @:check2r _n.setBytes(_bytes);
+            if ((@:check2r _n.cmp(_max) < (0 : stdgo.GoInt) : Bool)) {
                 return { _0 : _n, _1 : _err };
             };
         };

@@ -259,16 +259,19 @@ typedef T_setEncoder = stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEnco
 typedef T_int64Encoder = stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder;
 typedef T_bitStringEncoder = stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoder.T_bitStringEncoder;
 typedef T_oidEncoder = stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder;
+typedef StructuralErrorPointer = stdgo._internal.encoding.asn1.Asn1_StructuralErrorPointer.StructuralErrorPointer;
 class StructuralError_static_extension {
     static public function error(_e:StructuralError):String {
         return stdgo._internal.encoding.asn1.Asn1_StructuralError_static_extension.StructuralError_static_extension.error(_e);
     }
 }
+typedef SyntaxErrorPointer = stdgo._internal.encoding.asn1.Asn1_SyntaxErrorPointer.SyntaxErrorPointer;
 class SyntaxError_static_extension {
     static public function error(_e:SyntaxError):String {
         return stdgo._internal.encoding.asn1.Asn1_SyntaxError_static_extension.SyntaxError_static_extension.error(_e);
     }
 }
+typedef BitStringPointer = stdgo._internal.encoding.asn1.Asn1_BitStringPointer.BitStringPointer;
 class BitString_static_extension {
     static public function rightAlign(_b:BitString):Array<std.UInt> {
         return [for (i in stdgo._internal.encoding.asn1.Asn1_BitString_static_extension.BitString_static_extension.rightAlign(_b)) i];
@@ -277,11 +280,13 @@ class BitString_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_BitString_static_extension.BitString_static_extension.at(_b, _i);
     }
 }
+typedef T_invalidUnmarshalErrorPointer = stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalErrorPointer.T_invalidUnmarshalErrorPointer;
 class T_invalidUnmarshalError_static_extension {
     static public function error(_e:T_invalidUnmarshalError):String {
         return stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError_static_extension.T_invalidUnmarshalError_static_extension.error(_e);
     }
 }
+typedef T_taggedEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_taggedEncoderPointer.T_taggedEncoderPointer;
 class T_taggedEncoder_static_extension {
     static public function encode(_t:T_taggedEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -291,6 +296,7 @@ class T_taggedEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder_static_extension.T_taggedEncoder_static_extension.len(_t);
     }
 }
+typedef ObjectIdentifierPointer = stdgo._internal.encoding.asn1.Asn1_ObjectIdentifierPointer.ObjectIdentifierPointer;
 class ObjectIdentifier_static_extension {
     static public function string(_oi:ObjectIdentifier):String {
         return stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension.string(_oi);
@@ -299,6 +305,7 @@ class ObjectIdentifier_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension.equal(_oi, _other);
     }
 }
+typedef T_byteEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_byteEncoderPointer.T_byteEncoderPointer;
 class T_byteEncoder_static_extension {
     static public function encode(_c:T_byteEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -308,6 +315,7 @@ class T_byteEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_byteEncoder_static_extension.T_byteEncoder_static_extension.len(_c);
     }
 }
+typedef T_bytesEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_bytesEncoderPointer.T_bytesEncoderPointer;
 class T_bytesEncoder_static_extension {
     static public function encode(_b:T_bytesEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -317,6 +325,7 @@ class T_bytesEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder_static_extension.T_bytesEncoder_static_extension.len(_b);
     }
 }
+typedef T_stringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_stringEncoderPointer.T_stringEncoderPointer;
 class T_stringEncoder_static_extension {
     static public function encode(_s:T_stringEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -326,6 +335,7 @@ class T_stringEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_stringEncoder_static_extension.T_stringEncoder_static_extension.len(_s);
     }
 }
+typedef T_multiEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_multiEncoderPointer.T_multiEncoderPointer;
 class T_multiEncoder_static_extension {
     static public function encode(_m:T_multiEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -335,6 +345,7 @@ class T_multiEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_multiEncoder_static_extension.T_multiEncoder_static_extension.len(_m);
     }
 }
+typedef T_setEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_setEncoderPointer.T_setEncoderPointer;
 class T_setEncoder_static_extension {
     static public function encode(_s:T_setEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -344,6 +355,7 @@ class T_setEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_setEncoder_static_extension.T_setEncoder_static_extension.len(_s);
     }
 }
+typedef T_int64EncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_int64EncoderPointer.T_int64EncoderPointer;
 class T_int64Encoder_static_extension {
     static public function encode(_i:T_int64Encoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -353,6 +365,7 @@ class T_int64Encoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_int64Encoder_static_extension.T_int64Encoder_static_extension.len(_i);
     }
 }
+typedef T_bitStringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoderPointer.T_bitStringEncoderPointer;
 class T_bitStringEncoder_static_extension {
     static public function encode(_b:T_bitStringEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -362,6 +375,7 @@ class T_bitStringEncoder_static_extension {
         return stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoder_static_extension.T_bitStringEncoder_static_extension.len(_b);
     }
 }
+typedef T_oidEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_oidEncoderPointer.T_oidEncoderPointer;
 class T_oidEncoder_static_extension {
     static public function encode(_oid:T_oidEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);

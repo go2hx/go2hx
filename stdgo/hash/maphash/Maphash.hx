@@ -45,6 +45,7 @@ package stdgo.hash.maphash;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef HashPointer = stdgo._internal.hash.maphash.Maphash_HashPointer.HashPointer;
 class Hash_static_extension {
     static public function blockSize(_h:Hash):StdTypes.Int {
         return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.blockSize(_h);

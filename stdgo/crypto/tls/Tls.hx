@@ -1,32 +1,32 @@
 package stdgo.crypto.tls;
-final tls_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_RC4_128_SHA.tls_RSA_WITH_RC4_128_SHA;
-final tls_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_3DES_EDE_CBC_SHA.tls_RSA_WITH_3DES_EDE_CBC_SHA;
-final tls_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_AES_128_CBC_SHA.tls_RSA_WITH_AES_128_CBC_SHA;
-final tls_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_AES_256_CBC_SHA.tls_RSA_WITH_AES_256_CBC_SHA;
-final tls_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_AES_128_CBC_SHA256.tls_RSA_WITH_AES_128_CBC_SHA256;
-final tls_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_AES_128_GCM_SHA256.tls_RSA_WITH_AES_128_GCM_SHA256;
-final tls_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_RSA_WITH_AES_256_GCM_SHA384.tls_RSA_WITH_AES_256_GCM_SHA384;
-final tls_ECDHE_ECDSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_RC4_128_SHA.tls_ECDHE_ECDSA_WITH_RC4_128_SHA;
-final tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA.tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA;
-final tls_ECDHE_ECDSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_AES_256_CBC_SHA.tls_ECDHE_ECDSA_WITH_AES_256_CBC_SHA;
-final tls_ECDHE_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_RC4_128_SHA.tls_ECDHE_RSA_WITH_RC4_128_SHA;
-final tls_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA.tls_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA;
-final tls_ECDHE_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_AES_128_CBC_SHA.tls_ECDHE_RSA_WITH_AES_128_CBC_SHA;
-final tls_ECDHE_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_AES_256_CBC_SHA.tls_ECDHE_RSA_WITH_AES_256_CBC_SHA;
-final tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256.tls_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256;
-final tls_ECDHE_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_AES_128_CBC_SHA256.tls_ECDHE_RSA_WITH_AES_128_CBC_SHA256;
-final tls_ECDHE_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_AES_128_GCM_SHA256.tls_ECDHE_RSA_WITH_AES_128_GCM_SHA256;
-final tls_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.tls_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256;
-final tls_ECDHE_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_AES_256_GCM_SHA384.tls_ECDHE_RSA_WITH_AES_256_GCM_SHA384;
-final tls_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384.tls_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384;
-final tls_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256.tls_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256;
-final tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256.tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256;
-final tls_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_AES_128_GCM_SHA256.tls_AES_128_GCM_SHA256;
-final tls_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_AES_256_GCM_SHA384.tls_AES_256_GCM_SHA384;
-final tls_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_CHACHA20_POLY1305_SHA256.tls_CHACHA20_POLY1305_SHA256;
-final tls_FALLBACK_SCSV : std.UInt = stdgo._internal.crypto.tls.Tls_tls_FALLBACK_SCSV.tls_FALLBACK_SCSV;
-final tls_ECDHE_RSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_RSA_WITH_CHACHA20_POLY1305.tls_ECDHE_RSA_WITH_CHACHA20_POLY1305;
-final tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305.tls_ECDHE_ECDSA_WITH_CHACHA20_POLY1305;
+final tLS_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_RC4_128_SHA.tLS_RSA_WITH_RC4_128_SHA;
+final tLS_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_3DES_EDE_CBC_SHA.tLS_RSA_WITH_3DES_EDE_CBC_SHA;
+final tLS_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_CBC_SHA.tLS_RSA_WITH_AES_128_CBC_SHA;
+final tLS_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_256_CBC_SHA.tLS_RSA_WITH_AES_256_CBC_SHA;
+final tLS_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_CBC_SHA256.tLS_RSA_WITH_AES_128_CBC_SHA256;
+final tLS_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_GCM_SHA256.tLS_RSA_WITH_AES_128_GCM_SHA256;
+final tLS_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_256_GCM_SHA384.tLS_RSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_ECDSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_RC4_128_SHA.tLS_ECDHE_ECDSA_WITH_RC4_128_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA.tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_RC4_128_SHA.tLS_ECDHE_RSA_WITH_RC4_128_SHA;
+final tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA.tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA.tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256.tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256;
+final tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384.tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384.tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256;
+final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256;
+final tLS_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_AES_128_GCM_SHA256.tLS_AES_128_GCM_SHA256;
+final tLS_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_AES_256_GCM_SHA384.tLS_AES_256_GCM_SHA384;
+final tLS_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_CHACHA20_POLY1305_SHA256.tLS_CHACHA20_POLY1305_SHA256;
+final tLS_FALLBACK_SCSV : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_FALLBACK_SCSV.tLS_FALLBACK_SCSV;
+final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305;
+final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305;
 final versionTLS10 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS10.versionTLS10;
 final versionTLS11 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS11.versionTLS11;
 final versionTLS12 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS12.versionTLS12;
@@ -41,33 +41,33 @@ final requestClientCert = stdgo._internal.crypto.tls.Tls_requestClientCert.reque
 final requireAnyClientCert = stdgo._internal.crypto.tls.Tls_requireAnyClientCert.requireAnyClientCert;
 final verifyClientCertIfGiven = stdgo._internal.crypto.tls.Tls_verifyClientCertIfGiven.verifyClientCertIfGiven;
 final requireAndVerifyClientCert = stdgo._internal.crypto.tls.Tls_requireAndVerifyClientCert.requireAndVerifyClientCert;
-final pkcs1withSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withSHA256.pkcs1withSHA256;
-final pkcs1withSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withSHA384.pkcs1withSHA384;
-final pkcs1withSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withSHA512.pkcs1withSHA512;
-final psswithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithSHA256.psswithSHA256;
-final psswithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithSHA384.psswithSHA384;
-final psswithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithSHA512.psswithSHA512;
-final ecdsawithP256AndSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithP256AndSHA256.ecdsawithP256AndSHA256;
-final ecdsawithP384AndSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithP384AndSHA384.ecdsawithP384AndSHA384;
-final ecdsawithP521AndSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithP521AndSHA512.ecdsawithP521AndSHA512;
+final pKCS1WithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA256.pKCS1WithSHA256;
+final pKCS1WithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA384.pKCS1WithSHA384;
+final pKCS1WithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA512.pKCS1WithSHA512;
+final pSSWithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA256.pSSWithSHA256;
+final pSSWithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA384.pSSWithSHA384;
+final pSSWithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA512.pSSWithSHA512;
+final eCDSAWithP256AndSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP256AndSHA256.eCDSAWithP256AndSHA256;
+final eCDSAWithP384AndSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP384AndSHA384.eCDSAWithP384AndSHA384;
+final eCDSAWithP521AndSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP521AndSHA512.eCDSAWithP521AndSHA512;
 final ed25519 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ed25519.ed25519;
-final pkcs1withSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withSHA1.pkcs1withSHA1;
-final ecdsawithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithSHA1.ecdsawithSHA1;
+final pKCS1WithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA1.pKCS1WithSHA1;
+final eCDSAWithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithSHA1.eCDSAWithSHA1;
 final renegotiateNever : RenegotiationSupport = stdgo._internal.crypto.tls.Tls_renegotiateNever.renegotiateNever;
 final renegotiateOnceAsClient = stdgo._internal.crypto.tls.Tls_renegotiateOnceAsClient.renegotiateOnceAsClient;
 final renegotiateFreelyAsClient = stdgo._internal.crypto.tls.Tls_renegotiateFreelyAsClient.renegotiateFreelyAsClient;
-final quicencryptionLevelInitial : QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_quicencryptionLevelInitial.quicencryptionLevelInitial;
-final quicencryptionLevelEarly = stdgo._internal.crypto.tls.Tls_quicencryptionLevelEarly.quicencryptionLevelEarly;
-final quicencryptionLevelHandshake = stdgo._internal.crypto.tls.Tls_quicencryptionLevelHandshake.quicencryptionLevelHandshake;
-final quicencryptionLevelApplication = stdgo._internal.crypto.tls.Tls_quicencryptionLevelApplication.quicencryptionLevelApplication;
-final quicnoEvent : QUICEventKind = stdgo._internal.crypto.tls.Tls_quicnoEvent.quicnoEvent;
-final quicsetReadSecret = stdgo._internal.crypto.tls.Tls_quicsetReadSecret.quicsetReadSecret;
-final quicsetWriteSecret = stdgo._internal.crypto.tls.Tls_quicsetWriteSecret.quicsetWriteSecret;
-final quicwriteData = stdgo._internal.crypto.tls.Tls_quicwriteData.quicwriteData;
-final quictransportParameters = stdgo._internal.crypto.tls.Tls_quictransportParameters.quictransportParameters;
-final quictransportParametersRequired = stdgo._internal.crypto.tls.Tls_quictransportParametersRequired.quictransportParametersRequired;
-final quicrejectedEarlyData = stdgo._internal.crypto.tls.Tls_quicrejectedEarlyData.quicrejectedEarlyData;
-final quichandshakeDone = stdgo._internal.crypto.tls.Tls_quichandshakeDone.quichandshakeDone;
+final qUICEncryptionLevelInitial : QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelInitial.qUICEncryptionLevelInitial;
+final qUICEncryptionLevelEarly = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelEarly.qUICEncryptionLevelEarly;
+final qUICEncryptionLevelHandshake = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelHandshake.qUICEncryptionLevelHandshake;
+final qUICEncryptionLevelApplication = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelApplication.qUICEncryptionLevelApplication;
+final qUICNoEvent : QUICEventKind = stdgo._internal.crypto.tls.Tls_qUICNoEvent.qUICNoEvent;
+final qUICSetReadSecret = stdgo._internal.crypto.tls.Tls_qUICSetReadSecret.qUICSetReadSecret;
+final qUICSetWriteSecret = stdgo._internal.crypto.tls.Tls_qUICSetWriteSecret.qUICSetWriteSecret;
+final qUICWriteData = stdgo._internal.crypto.tls.Tls_qUICWriteData.qUICWriteData;
+final qUICTransportParameters = stdgo._internal.crypto.tls.Tls_qUICTransportParameters.qUICTransportParameters;
+final qUICTransportParametersRequired = stdgo._internal.crypto.tls.Tls_qUICTransportParametersRequired.qUICTransportParametersRequired;
+final qUICRejectedEarlyData = stdgo._internal.crypto.tls.Tls_qUICRejectedEarlyData.qUICRejectedEarlyData;
+final qUICHandshakeDone = stdgo._internal.crypto.tls.Tls_qUICHandshakeDone.qUICHandshakeDone;
 class T_aead_static_extension {
     static public function _explicitNonceLen(t:stdgo._internal.crypto.tls.Tls_T_aead.T_aead):StdTypes.Int {
         return stdgo._internal.crypto.tls.Tls_T_aead_static_extension.T_aead_static_extension._explicitNonceLen(t);
@@ -187,10 +187,10 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract CipherSuite(stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite) from stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite to stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite {
-    public var id(get, set) : std.UInt;
-    function get_id():std.UInt return this.id;
-    function set_id(v:std.UInt):std.UInt {
-        this.id = v;
+    public var iD(get, set) : std.UInt;
+    function get_iD():std.UInt return this.iD;
+    function set_iD(v:std.UInt):std.UInt {
+        this.iD = v;
         return v;
     }
     public var name(get, set) : String;
@@ -211,7 +211,7 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this.insecure = v;
         return v;
     }
-    public function new(?id:std.UInt, ?name:String, ?supportedVersions:Array<std.UInt>, ?insecure:Bool) this = new stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite(id, name, ([for (i in supportedVersions) i] : stdgo.Slice<stdgo.GoUInt16>), insecure);
+    public function new(?iD:std.UInt, ?name:String, ?supportedVersions:Array<std.UInt>, ?insecure:Bool) this = new stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite(iD, name, ([for (i in supportedVersions) i] : stdgo.Slice<stdgo.GoUInt16>), insecure);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -443,16 +443,16 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this.signedCertificateTimestamps = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
-    public var ocspresponse(get, set) : Array<std.UInt>;
-    function get_ocspresponse():Array<std.UInt> return [for (i in this.ocspresponse) i];
-    function set_ocspresponse(v:Array<std.UInt>):Array<std.UInt> {
-        this.ocspresponse = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public var oCSPResponse(get, set) : Array<std.UInt>;
+    function get_oCSPResponse():Array<std.UInt> return [for (i in this.oCSPResponse) i];
+    function set_oCSPResponse(v:Array<std.UInt>):Array<std.UInt> {
+        this.oCSPResponse = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var tlsunique(get, set) : Array<std.UInt>;
-    function get_tlsunique():Array<std.UInt> return [for (i in this.tlsunique) i];
-    function set_tlsunique(v:Array<std.UInt>):Array<std.UInt> {
-        this.tlsunique = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public var tLSUnique(get, set) : Array<std.UInt>;
+    function get_tLSUnique():Array<std.UInt> return [for (i in this.tLSUnique) i];
+    function set_tLSUnique(v:Array<std.UInt>):Array<std.UInt> {
+        this.tLSUnique = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _ekm(get, set) : (stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
@@ -461,7 +461,7 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._ekm = v;
         return v;
     }
-    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?ocspresponse:Array<std.UInt>, ?tlsunique:Array<std.UInt>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState(
+    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?oCSPResponse:Array<std.UInt>, ?tLSUnique:Array<std.UInt>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState(
 version,
 handshakeComplete,
 didResume,
@@ -472,8 +472,8 @@ serverName,
 ([for (i in peerCertificates) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>),
 ([for (i in verifiedChains) ([for (i in i) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>)] : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>),
 ([for (i in signedCertificateTimestamps) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>),
-([for (i in ocspresponse) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in tlsunique) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in oCSPResponse) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in tLSUnique) i] : stdgo.Slice<stdgo.GoUInt8>),
 _ekm);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -836,10 +836,10 @@ _mutex,
         this.supportedSignatureAlgorithms = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>);
         return v;
     }
-    public var ocspstaple(get, set) : Array<std.UInt>;
-    function get_ocspstaple():Array<std.UInt> return [for (i in this.ocspstaple) i];
-    function set_ocspstaple(v:Array<std.UInt>):Array<std.UInt> {
-        this.ocspstaple = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public var oCSPStaple(get, set) : Array<std.UInt>;
+    function get_oCSPStaple():Array<std.UInt> return [for (i in this.oCSPStaple) i];
+    function set_oCSPStaple(v:Array<std.UInt>):Array<std.UInt> {
+        this.oCSPStaple = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signedCertificateTimestamps(get, set) : Array<Array<std.UInt>>;
@@ -854,7 +854,7 @@ _mutex,
         this.leaf = v;
         return v;
     }
-    public function new(?certificate:Array<Array<std.UInt>>, ?privateKey:stdgo._internal.crypto.Crypto_PrivateKey.PrivateKey, ?supportedSignatureAlgorithms:Array<SignatureScheme>, ?ocspstaple:Array<std.UInt>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?leaf:stdgo._internal.crypto.x509.X509_Certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_Certificate.Certificate(([for (i in certificate) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), privateKey, ([for (i in supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>), ([for (i in ocspstaple) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signedCertificateTimestamps) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), leaf);
+    public function new(?certificate:Array<Array<std.UInt>>, ?privateKey:stdgo._internal.crypto.Crypto_PrivateKey.PrivateKey, ?supportedSignatureAlgorithms:Array<SignatureScheme>, ?oCSPStaple:Array<std.UInt>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?leaf:stdgo._internal.crypto.x509.X509_Certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_Certificate.Certificate(([for (i in certificate) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), privateKey, ([for (i in supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>), ([for (i in oCSPStaple) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signedCertificateTimestamps) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), leaf);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2524,13 +2524,13 @@ _transcript,
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract QUICConfig(stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig) from stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig to stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig {
-    public var tlsconfig(get, set) : Config;
-    function get_tlsconfig():Config return this.tlsconfig;
-    function set_tlsconfig(v:Config):Config {
-        this.tlsconfig = v;
+    public var tLSConfig(get, set) : Config;
+    function get_tLSConfig():Config return this.tLSConfig;
+    function set_tLSConfig(v:Config):Config {
+        this.tLSConfig = v;
         return v;
     }
-    public function new(?tlsconfig:Config) this = new stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig(tlsconfig);
+    public function new(?tLSConfig:Config) this = new stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig(tLSConfig);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2812,10 +2812,12 @@ _ageAdd);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.crypto.tls.Tls_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.crypto.tls.Tls_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.crypto.tls.Tls_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
@@ -2843,6 +2845,7 @@ class T__cloneHash___localname___binaryMarshaler_12373_static_extension {
     }
 }
 typedef T__cloneHash___localname___binaryMarshaler_12373 = stdgo._internal.crypto.tls.Tls_T__cloneHash___localname___binaryMarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373;
+typedef T_certCachePointer = stdgo._internal.crypto.tls.Tls_T_certCachePointer.T_certCachePointer;
 class T_certCache_static_extension {
     static public function _newCert(_cc:T_certCache, _der:Array<std.UInt>):stdgo.Tuple<T_activeCert, stdgo.Error> {
         final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2857,56 +2860,57 @@ class T_certCache_static_extension {
     static public function _active(_cc:T_certCache, _e:T_cacheEntry):T_activeCert {
         return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._active(_cc, _e);
     }
-    public static function _missLocked(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache) {
+    public static function _missLocked(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache):Void {
         stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._missLocked(__self__);
     }
     public static function _loadReadOnly(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache):stdgo._internal.sync.Sync_T_readOnly.T_readOnly {
         return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._loadReadOnly(__self__);
     }
-    public static function _dirtyLocked(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache) {
+    public static function _dirtyLocked(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache):Void {
         stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._dirtyLocked(__self__);
     }
-    public static function swap(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
+    public static function swap(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.swap(__self__, _parsedName, _constraint);
+            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.swap(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function store(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface) {
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.store(__self__, _parsedName, _constraint);
+    public static function store(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Void {
+        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.store(__self__, _0, _1);
     }
-    public static function range(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _f:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool) {
-        final _f = _f;
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.range(__self__, _f);
+    public static function range(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void {
+        final _0 = _0;
+        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.range(__self__, _0);
     }
-    public static function loadOrStore(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
+    public static function loadOrStore(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadOrStore(__self__, _parsedName, _constraint);
+            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadOrStore(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function loadAndDelete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _key:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
+    public static function loadAndDelete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadAndDelete(__self__, _key);
+            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadAndDelete(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function load(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _key:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
+    public static function load(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.load(__self__, _key);
+            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.load(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function delete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _key:stdgo.AnyInterface) {
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.delete(__self__, _key);
+    public static function delete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface):Void {
+        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.delete(__self__, _0);
     }
-    public static function compareAndSwap(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndSwap(__self__, _key, _old, _new);
+    public static function compareAndSwap(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface, _2:stdgo.AnyInterface):Bool {
+        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndSwap(__self__, _0, _1, _2);
     }
-    public static function compareAndDelete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndDelete(__self__, _parsedName, _constraint);
+    public static function compareAndDelete(__self__:stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Bool {
+        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndDelete(__self__, _0, _1);
     }
 }
+typedef T_cipherSuiteTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13Pointer.T_cipherSuiteTLS13Pointer;
 class T_cipherSuiteTLS13_static_extension {
     static public function _exportKeyingMaterial(_c:T_cipherSuiteTLS13, _masterSecret:Array<std.UInt>, _transcript:stdgo._internal.hash.Hash_Hash.Hash):(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         final _masterSecret = ([for (i in _masterSecret) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2942,6 +2946,7 @@ class T_cipherSuiteTLS13_static_extension {
         return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._expandLabel(_c, _secret, _label, _context, _length)) i];
     }
 }
+typedef T_prefixNonceAEADPointer = stdgo._internal.crypto.tls.Tls_T_prefixNonceAEADPointer.T_prefixNonceAEADPointer;
 class T_prefixNonceAEAD_static_extension {
     static public function open(_f:T_prefixNonceAEAD, _out:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _out = ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2970,6 +2975,7 @@ class T_prefixNonceAEAD_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension.nonceSize(_f);
     }
 }
+typedef T_xorNonceAEADPointer = stdgo._internal.crypto.tls.Tls_T_xorNonceAEADPointer.T_xorNonceAEADPointer;
 class T_xorNonceAEAD_static_extension {
     static public function open(_f:T_xorNonceAEAD, _out:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _out = ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2998,6 +3004,7 @@ class T_xorNonceAEAD_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension.nonceSize(_f);
     }
 }
+typedef T_cthWrapperPointer = stdgo._internal.crypto.tls.Tls_T_cthWrapperPointer.T_cthWrapperPointer;
 class T_cthWrapper_static_extension {
     static public function sum(_c:T_cthWrapper, _b:Array<std.UInt>):Array<std.UInt> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3020,6 +3027,7 @@ class T_cthWrapper_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.size(_c);
     }
 }
+typedef ConnectionStatePointer = stdgo._internal.crypto.tls.Tls_ConnectionStatePointer.ConnectionStatePointer;
 class ConnectionState_static_extension {
     static public function exportKeyingMaterial(_cs:ConnectionState, _label:String, _context:Array<std.UInt>, _length:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _context = ([for (i in _context) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3029,6 +3037,7 @@ class ConnectionState_static_extension {
         };
     }
 }
+typedef ClientHelloInfoPointer = stdgo._internal.crypto.tls.Tls_ClientHelloInfoPointer.ClientHelloInfoPointer;
 class ClientHelloInfo_static_extension {
     static public function supportsCertificate(_chi:ClientHelloInfo, _c:Certificate):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_ClientHelloInfo_static_extension.ClientHelloInfo_static_extension.supportsCertificate(_chi, _c);
@@ -3037,6 +3046,7 @@ class ClientHelloInfo_static_extension {
         return stdgo._internal.crypto.tls.Tls_ClientHelloInfo_static_extension.ClientHelloInfo_static_extension.context(_c);
     }
 }
+typedef CertificateRequestInfoPointer = stdgo._internal.crypto.tls.Tls_CertificateRequestInfoPointer.CertificateRequestInfoPointer;
 class CertificateRequestInfo_static_extension {
     static public function supportsCertificate(_cri:CertificateRequestInfo, _c:Certificate):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_CertificateRequestInfo_static_extension.CertificateRequestInfo_static_extension.supportsCertificate(_cri, _c);
@@ -3045,6 +3055,7 @@ class CertificateRequestInfo_static_extension {
         return stdgo._internal.crypto.tls.Tls_CertificateRequestInfo_static_extension.CertificateRequestInfo_static_extension.context(_c);
     }
 }
+typedef ConfigPointer = stdgo._internal.crypto.tls.Tls_ConfigPointer.ConfigPointer;
 class Config_static_extension {
     static public function _decryptTicket(_c:Config, _encrypted:Array<std.UInt>, _ticketKeys:Array<T_ticketKey>):Array<std.UInt> {
         final _encrypted = ([for (i in _encrypted) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3132,6 +3143,7 @@ class Config_static_extension {
         return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._ticketKeyFromBytes(_c, _b);
     }
 }
+typedef CertificatePointer = stdgo._internal.crypto.tls.Tls_CertificatePointer.CertificatePointer;
 class Certificate_static_extension {
     static public function _leaf(_c:Certificate):stdgo.Tuple<stdgo._internal.crypto.x509.X509_Certificate.Certificate, stdgo.Error> {
         return {
@@ -3140,6 +3152,7 @@ class Certificate_static_extension {
         };
     }
 }
+typedef T_lruSessionCachePointer = stdgo._internal.crypto.tls.Tls_T_lruSessionCachePointer.T_lruSessionCachePointer;
 class T_lruSessionCache_static_extension {
     static public function get(_c:T_lruSessionCache, _sessionKey:String):stdgo.Tuple<ClientSessionState, Bool> {
         return {
@@ -3150,22 +3163,23 @@ class T_lruSessionCache_static_extension {
     static public function put(_c:T_lruSessionCache, _sessionKey:String, _cs:ClientSessionState):Void {
         stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.put(_c, _sessionKey, _cs);
     }
-    public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache, __0:StdTypes.Int) {
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension._unlockSlow(__self__, __0);
+    public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache, _0:StdTypes.Int):Void {
+        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache) {
+    public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache):Void {
         stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache) {
+    public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache):Void {
         stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache):Bool {
         return stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache) {
+    public static function lock(__self__:stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache):Void {
         stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.lock(__self__);
     }
 }
+typedef CertificateVerificationErrorPointer = stdgo._internal.crypto.tls.Tls_CertificateVerificationErrorPointer.CertificateVerificationErrorPointer;
 class CertificateVerificationError_static_extension {
     static public function unwrap(_e:CertificateVerificationError):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_CertificateVerificationError_static_extension.CertificateVerificationError_static_extension.unwrap(_e);
@@ -3174,6 +3188,7 @@ class CertificateVerificationError_static_extension {
         return stdgo._internal.crypto.tls.Tls_CertificateVerificationError_static_extension.CertificateVerificationError_static_extension.error(_e);
     }
 }
+typedef ConnPointer = stdgo._internal.crypto.tls.Tls_ConnPointer.ConnPointer;
 class Conn_static_extension {
     static public function _sessionState(_c:Conn):stdgo.Tuple<SessionState, stdgo.Error> {
         return {
@@ -3267,8 +3282,8 @@ class Conn_static_extension {
     static public function verifyHostname(_c:Conn, _host:String):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.verifyHostname(_c, _host);
     }
-    static public function ocspresponse(_c:Conn):Array<std.UInt> {
-        return [for (i in stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.ocspresponse(_c)) i];
+    static public function oCSPResponse(_c:Conn):Array<std.UInt> {
+        return [for (i in stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.oCSPResponse(_c)) i];
     }
     static public function _connectionStateLocked(_c:Conn):ConnectionState {
         return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._connectionStateLocked(_c);
@@ -3408,6 +3423,7 @@ class Conn_static_extension {
         return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.localAddr(_c);
     }
 }
+typedef T_halfConnPointer = stdgo._internal.crypto.tls.Tls_T_halfConnPointer.T_halfConnPointer;
 class T_halfConn_static_extension {
     static public function _encrypt(_hc:T_halfConn, _record:Array<std.UInt>, _payload:Array<std.UInt>, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _record = ([for (i in _record) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3443,22 +3459,23 @@ class T_halfConn_static_extension {
     static public function _setErrorLocked(_hc:T_halfConn, _err:stdgo.Error):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._setErrorLocked(_hc, _err);
     }
-    public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn, __0:StdTypes.Int) {
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._unlockSlow(__self__, __0);
+    public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn, _0:StdTypes.Int):Void {
+        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn) {
+    public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn):Void {
         stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn) {
+    public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn):Void {
         stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn):Bool {
         return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn) {
+    public static function lock(__self__:stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn):Void {
         stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.lock(__self__);
     }
 }
+typedef T_permanentErrorPointer = stdgo._internal.crypto.tls.Tls_T_permanentErrorPointer.T_permanentErrorPointer;
 class T_permanentError_static_extension {
     static public function temporary(_e:T_permanentError):Bool {
         return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.temporary(_e);
@@ -3473,11 +3490,13 @@ class T_permanentError_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.error(_e);
     }
 }
+typedef RecordHeaderErrorPointer = stdgo._internal.crypto.tls.Tls_RecordHeaderErrorPointer.RecordHeaderErrorPointer;
 class RecordHeaderError_static_extension {
     static public function error(_e:RecordHeaderError):String {
         return stdgo._internal.crypto.tls.Tls_RecordHeaderError_static_extension.RecordHeaderError_static_extension.error(_e);
     }
 }
+typedef T_atLeastReaderPointer = stdgo._internal.crypto.tls.Tls_T_atLeastReaderPointer.T_atLeastReaderPointer;
 class T_atLeastReader_static_extension {
     static public function read(_r:T_atLeastReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3487,6 +3506,7 @@ class T_atLeastReader_static_extension {
         };
     }
 }
+typedef T_clientHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_T_clientHandshakeStatePointer.T_clientHandshakeStatePointer;
 class T_clientHandshakeState_static_extension {
     static public function _sendFinished(_hs:T_clientHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _out = ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3524,6 +3544,7 @@ class T_clientHandshakeState_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._handshake(_hs);
     }
 }
+typedef T_clientHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13Pointer.T_clientHandshakeStateTLS13Pointer;
 class T_clientHandshakeStateTLS13_static_extension {
     static public function _sendClientFinished(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendClientFinished(_hs);
@@ -3559,6 +3580,7 @@ class T_clientHandshakeStateTLS13_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._handshake(_hs);
     }
 }
+typedef T_clientHelloMsgPointer = stdgo._internal.crypto.tls.Tls_T_clientHelloMsgPointer.T_clientHelloMsgPointer;
 class T_clientHelloMsg_static_extension {
     static public function _unmarshal(_m:T_clientHelloMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3581,6 +3603,7 @@ class T_clientHelloMsg_static_extension {
         };
     }
 }
+typedef T_serverHelloMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverHelloMsgPointer.T_serverHelloMsgPointer;
 class T_serverHelloMsg_static_extension {
     static public function _unmarshal(_m:T_serverHelloMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3593,6 +3616,7 @@ class T_serverHelloMsg_static_extension {
         };
     }
 }
+typedef T_encryptedExtensionsMsgPointer = stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsgPointer.T_encryptedExtensionsMsgPointer;
 class T_encryptedExtensionsMsg_static_extension {
     static public function _unmarshal(_m:T_encryptedExtensionsMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3605,6 +3629,7 @@ class T_encryptedExtensionsMsg_static_extension {
         };
     }
 }
+typedef T_endOfEarlyDataMsgPointer = stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsgPointer.T_endOfEarlyDataMsgPointer;
 class T_endOfEarlyDataMsg_static_extension {
     static public function _unmarshal(_m:T_endOfEarlyDataMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3617,6 +3642,7 @@ class T_endOfEarlyDataMsg_static_extension {
         };
     }
 }
+typedef T_keyUpdateMsgPointer = stdgo._internal.crypto.tls.Tls_T_keyUpdateMsgPointer.T_keyUpdateMsgPointer;
 class T_keyUpdateMsg_static_extension {
     static public function _unmarshal(_m:T_keyUpdateMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3629,6 +3655,7 @@ class T_keyUpdateMsg_static_extension {
         };
     }
 }
+typedef T_newSessionTicketMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13Pointer.T_newSessionTicketMsgTLS13Pointer;
 class T_newSessionTicketMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_newSessionTicketMsgTLS13, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3641,6 +3668,7 @@ class T_newSessionTicketMsgTLS13_static_extension {
         };
     }
 }
+typedef T_certificateRequestMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13Pointer.T_certificateRequestMsgTLS13Pointer;
 class T_certificateRequestMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_certificateRequestMsgTLS13, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3653,6 +3681,7 @@ class T_certificateRequestMsgTLS13_static_extension {
         };
     }
 }
+typedef T_certificateMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateMsgPointer.T_certificateMsgPointer;
 class T_certificateMsg_static_extension {
     static public function _unmarshal(_m:T_certificateMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3665,6 +3694,7 @@ class T_certificateMsg_static_extension {
         };
     }
 }
+typedef T_certificateMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13Pointer.T_certificateMsgTLS13Pointer;
 class T_certificateMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_certificateMsgTLS13, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3677,6 +3707,7 @@ class T_certificateMsgTLS13_static_extension {
         };
     }
 }
+typedef T_serverKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsgPointer.T_serverKeyExchangeMsgPointer;
 class T_serverKeyExchangeMsg_static_extension {
     static public function _unmarshal(_m:T_serverKeyExchangeMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3689,6 +3720,7 @@ class T_serverKeyExchangeMsg_static_extension {
         };
     }
 }
+typedef T_certificateStatusMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateStatusMsgPointer.T_certificateStatusMsgPointer;
 class T_certificateStatusMsg_static_extension {
     static public function _unmarshal(_m:T_certificateStatusMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3701,6 +3733,7 @@ class T_certificateStatusMsg_static_extension {
         };
     }
 }
+typedef T_serverHelloDoneMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsgPointer.T_serverHelloDoneMsgPointer;
 class T_serverHelloDoneMsg_static_extension {
     static public function _unmarshal(_m:T_serverHelloDoneMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3713,6 +3746,7 @@ class T_serverHelloDoneMsg_static_extension {
         };
     }
 }
+typedef T_clientKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsgPointer.T_clientKeyExchangeMsgPointer;
 class T_clientKeyExchangeMsg_static_extension {
     static public function _unmarshal(_m:T_clientKeyExchangeMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3725,6 +3759,7 @@ class T_clientKeyExchangeMsg_static_extension {
         };
     }
 }
+typedef T_finishedMsgPointer = stdgo._internal.crypto.tls.Tls_T_finishedMsgPointer.T_finishedMsgPointer;
 class T_finishedMsg_static_extension {
     static public function _unmarshal(_m:T_finishedMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3737,6 +3772,7 @@ class T_finishedMsg_static_extension {
         };
     }
 }
+typedef T_certificateRequestMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgPointer.T_certificateRequestMsgPointer;
 class T_certificateRequestMsg_static_extension {
     static public function _unmarshal(_m:T_certificateRequestMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3749,6 +3785,7 @@ class T_certificateRequestMsg_static_extension {
         };
     }
 }
+typedef T_certificateVerifyMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsgPointer.T_certificateVerifyMsgPointer;
 class T_certificateVerifyMsg_static_extension {
     static public function _unmarshal(_m:T_certificateVerifyMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3761,6 +3798,7 @@ class T_certificateVerifyMsg_static_extension {
         };
     }
 }
+typedef T_newSessionTicketMsgPointer = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgPointer.T_newSessionTicketMsgPointer;
 class T_newSessionTicketMsg_static_extension {
     static public function _unmarshal(_m:T_newSessionTicketMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3773,6 +3811,7 @@ class T_newSessionTicketMsg_static_extension {
         };
     }
 }
+typedef T_helloRequestMsgPointer = stdgo._internal.crypto.tls.Tls_T_helloRequestMsgPointer.T_helloRequestMsgPointer;
 class T_helloRequestMsg_static_extension {
     static public function _unmarshal(_:T_helloRequestMsg, _data:Array<std.UInt>):Bool {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3785,6 +3824,7 @@ class T_helloRequestMsg_static_extension {
         };
     }
 }
+typedef T_serverHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_T_serverHandshakeStatePointer.T_serverHandshakeStatePointer;
 class T_serverHandshakeState_static_extension {
     static public function _sendFinished(_hs:T_serverHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _out = ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3822,6 +3862,7 @@ class T_serverHandshakeState_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._handshake(_hs);
     }
 }
+typedef T_serverHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13Pointer.T_serverHandshakeStateTLS13Pointer;
 class T_serverHandshakeStateTLS13_static_extension {
     static public function _readClientFinished(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._readClientFinished(_hs);
@@ -3866,6 +3907,7 @@ class T_serverHandshakeStateTLS13_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._handshake(_hs);
     }
 }
+typedef T_rsaKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreementPointer.T_rsaKeyAgreementPointer;
 class T_rsaKeyAgreement_static_extension {
     static public function _generateClientKeyExchange(_ka:T_rsaKeyAgreement, _config:Config, _clientHello:T_clientHelloMsg, _cert:stdgo._internal.crypto.x509.X509_Certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         return {
@@ -3889,6 +3931,7 @@ class T_rsaKeyAgreement_static_extension {
         };
     }
 }
+typedef T_ecdheKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreementPointer.T_ecdheKeyAgreementPointer;
 class T_ecdheKeyAgreement_static_extension {
     static public function _generateClientKeyExchange(_ka:T_ecdheKeyAgreement, _config:Config, _clientHello:T_clientHelloMsg, _cert:stdgo._internal.crypto.x509.X509_Certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         return {
@@ -3912,6 +3955,7 @@ class T_ecdheKeyAgreement_static_extension {
         };
     }
 }
+typedef T_finishedHashPointer = stdgo._internal.crypto.tls.Tls_T_finishedHashPointer.T_finishedHashPointer;
 class T_finishedHash_static_extension {
     static public function _discardHandshakeBuffer(_h:T_finishedHash):Void {
         stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension._discardHandshakeBuffer(_h);
@@ -3938,6 +3982,7 @@ class T_finishedHash_static_extension {
         };
     }
 }
+typedef QUICConnPointer = stdgo._internal.crypto.tls.Tls_QUICConnPointer.QUICConnPointer;
 class QUICConn_static_extension {
     static public function setTransportParameters(_q:QUICConn, _params:Array<std.UInt>):Void {
         final _params = ([for (i in _params) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3963,6 +4008,7 @@ class QUICConn_static_extension {
         return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.start(_q, _ctx);
     }
 }
+typedef SessionStatePointer = stdgo._internal.crypto.tls.Tls_SessionStatePointer.SessionStatePointer;
 class SessionState_static_extension {
     static public function bytes(_s:SessionState):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -3971,6 +4017,7 @@ class SessionState_static_extension {
         };
     }
 }
+typedef ClientSessionStatePointer = stdgo._internal.crypto.tls.Tls_ClientSessionStatePointer.ClientSessionStatePointer;
 class ClientSessionState_static_extension {
     static public function resumptionState(_cs:ClientSessionState):stdgo.Tuple.Tuple3<Array<std.UInt>, SessionState, stdgo.Error> {
         return {
@@ -3979,6 +4026,7 @@ class ClientSessionState_static_extension {
         };
     }
 }
+typedef T_listenerPointer = stdgo._internal.crypto.tls.Tls_T_listenerPointer.T_listenerPointer;
 class T_listener_static_extension {
     static public function accept(_l:T_listener):stdgo.Tuple<stdgo._internal.net.Net_Conn.Conn, stdgo.Error> {
         return {
@@ -3993,6 +4041,7 @@ class T_listener_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_listener_static_extension.T_listener_static_extension.addr(__self__);
     }
 }
+typedef T_timeoutErrorPointer = stdgo._internal.crypto.tls.Tls_T_timeoutErrorPointer.T_timeoutErrorPointer;
 class T_timeoutError_static_extension {
     static public function temporary(_:T_timeoutError):Bool {
         return stdgo._internal.crypto.tls.Tls_T_timeoutError_static_extension.T_timeoutError_static_extension.temporary(_);
@@ -4004,6 +4053,7 @@ class T_timeoutError_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_timeoutError_static_extension.T_timeoutError_static_extension.error(_);
     }
 }
+typedef DialerPointer = stdgo._internal.crypto.tls.Tls_DialerPointer.DialerPointer;
 class Dialer_static_extension {
     static public function dialContext(_d:Dialer, _ctx:stdgo._internal.context.Context_Context.Context, _network:String, _addr:String):stdgo.Tuple<stdgo._internal.net.Net_Conn.Conn, stdgo.Error> {
         return {
@@ -4021,11 +4071,13 @@ class Dialer_static_extension {
         };
     }
 }
+typedef AlertErrorPointer = stdgo._internal.crypto.tls.Tls_AlertErrorPointer.AlertErrorPointer;
 class AlertError_static_extension {
     static public function error(_e:AlertError):String {
         return stdgo._internal.crypto.tls.Tls_AlertError_static_extension.AlertError_static_extension.error(_e);
     }
 }
+typedef T_alertPointer = stdgo._internal.crypto.tls.Tls_T_alertPointer.T_alertPointer;
 class T_alert_static_extension {
     static public function error(_e:T_alert):String {
         return stdgo._internal.crypto.tls.Tls_T_alert_static_extension.T_alert_static_extension.error(_e);
@@ -4034,26 +4086,31 @@ class T_alert_static_extension {
         return stdgo._internal.crypto.tls.Tls_T_alert_static_extension.T_alert_static_extension.string(_e);
     }
 }
+typedef CurveIDPointer = stdgo._internal.crypto.tls.Tls_CurveIDPointer.CurveIDPointer;
 class CurveID_static_extension {
     static public function string(_i:CurveID):String {
         return stdgo._internal.crypto.tls.Tls_CurveID_static_extension.CurveID_static_extension.string(_i);
     }
 }
+typedef ClientAuthTypePointer = stdgo._internal.crypto.tls.Tls_ClientAuthTypePointer.ClientAuthTypePointer;
 class ClientAuthType_static_extension {
     static public function string(_i:ClientAuthType):String {
         return stdgo._internal.crypto.tls.Tls_ClientAuthType_static_extension.ClientAuthType_static_extension.string(_i);
     }
 }
+typedef SignatureSchemePointer = stdgo._internal.crypto.tls.Tls_SignatureSchemePointer.SignatureSchemePointer;
 class SignatureScheme_static_extension {
     static public function string(_i:SignatureScheme):String {
         return stdgo._internal.crypto.tls.Tls_SignatureScheme_static_extension.SignatureScheme_static_extension.string(_i);
     }
 }
+typedef T_marshalingFunctionPointer = stdgo._internal.crypto.tls.Tls_T_marshalingFunctionPointer.T_marshalingFunctionPointer;
 class T_marshalingFunction_static_extension {
     static public function marshal(_f:T_marshalingFunction, _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder):stdgo.Error {
         return stdgo._internal.crypto.tls.Tls_T_marshalingFunction_static_extension.T_marshalingFunction_static_extension.marshal(_f, _b);
     }
 }
+typedef QUICEncryptionLevelPointer = stdgo._internal.crypto.tls.Tls_QUICEncryptionLevelPointer.QUICEncryptionLevelPointer;
 class QUICEncryptionLevel_static_extension {
     static public function string(_l:QUICEncryptionLevel):String {
         return stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel_static_extension.QUICEncryptionLevel_static_extension.string(_l);
@@ -4061,380 +4118,380 @@ class QUICEncryptionLevel_static_extension {
 }
 /**
     /|*{
-    	c_5749916 = hs.c
+    	c_5731981 = hs.c
     	hs.hello = new(serverHelloMsg)
     	hs.hello.vers = 771
-    	hs.hello.supportedVersion = c_5749916.vers
+    	hs.hello.supportedVersion = c_5731981.vers
     	if len(hs.clientHello.supportedVersions) == 0 {
-    		gotoNext = 5750211
-    		_ = gotoNext == 5750211
-    		c_5749916.sendAlert(47)
+    		gotoNext = 5732276
+    		_ = gotoNext == 5732276
+    		c_5731981.sendAlert(47)
     		return errors.New("tls: client used the legacy version field to negotiate TLS 1.3")
-    		gotoNext = 5751004
+    		gotoNext = 5733069
     	} else {
-    		gotoNext = 5751004
+    		gotoNext = 5733069
     	}
-    	_ = gotoNext == 5751004
+    	_ = gotoNext == 5733069
     	if 0 < len(hs.clientHello.cipherSuites) {
-    		gotoNext = 5751422
-    		_ = gotoNext == 5751422
-    		i_5751017_0, id_5751011 = 0, hs.clientHello.cipherSuites[0]
-    		gotoNext = 5751423
-    		_ = gotoNext == 5751423
-    		if i_5751017_0 < len(hs.clientHello.cipherSuites) {
-    			gotoNext = 5751051
-    			_ = gotoNext == 5751051
-    			id_5751011 = hs.clientHello.cipherSuites[i_5751017_0]
-    			if id_5751011 == 22016 {
-    				gotoNext = 5751082
-    				_ = gotoNext == 5751082
-    				if c_5749916.vers < c_5749916.config.maxSupportedVersion(false) {
-    					gotoNext = 5751283
-    					_ = gotoNext == 5751283
-    					c_5749916.sendAlert(86)
+    		gotoNext = 5733487
+    		_ = gotoNext == 5733487
+    		i_5733082_0, id_5733076 = 0, hs.clientHello.cipherSuites[0]
+    		gotoNext = 5733488
+    		_ = gotoNext == 5733488
+    		if i_5733082_0 < len(hs.clientHello.cipherSuites) {
+    			gotoNext = 5733116
+    			_ = gotoNext == 5733116
+    			id_5733076 = hs.clientHello.cipherSuites[i_5733082_0]
+    			if id_5733076 == 22016 {
+    				gotoNext = 5733147
+    				_ = gotoNext == 5733147
+    				if c_5731981.vers < c_5731981.config.maxSupportedVersion(false) {
+    					gotoNext = 5733348
+    					_ = gotoNext == 5733348
+    					c_5731981.sendAlert(86)
     					return errors.New("tls: client using inappropriate protocol fallback")
-    					gotoNext = 5751412
+    					gotoNext = 5733477
     				} else {
-    					gotoNext = 5751412
+    					gotoNext = 5733477
     				}
-    				_ = gotoNext == 5751412
-    				gotoNext = 5751427
-    				gotoNext = 5751008
+    				_ = gotoNext == 5733477
+    				gotoNext = 5733492
+    				gotoNext = 5733073
     			} else {
-    				gotoNext = 5751008
+    				gotoNext = 5733073
     			}
-    			_ = gotoNext == 5751008
-    			i_5751017_0++
-    			gotoNext = 5751423
+    			_ = gotoNext == 5733073
+    			i_5733082_0++
+    			gotoNext = 5733488
     		} else {
-    			gotoNext = 5751427
+    			gotoNext = 5733492
     		}
-    		gotoNext = 5751427
+    		gotoNext = 5733492
     	} else {
-    		gotoNext = 5751427
+    		gotoNext = 5733492
     	}
-    	_ = gotoNext == 5751427
+    	_ = gotoNext == 5733492
     	if len(hs.clientHello.compressionMethods) != 1 || hs.clientHello.compressionMethods[0] != 0 {
-    		gotoNext = 5751535
-    		_ = gotoNext == 5751535
-    		c_5749916.sendAlert(47)
+    		gotoNext = 5733600
+    		_ = gotoNext == 5733600
+    		c_5731981.sendAlert(47)
     		return errors.New("tls: TLS 1.3 client supports illegal compression methods")
-    		gotoNext = 5751659
+    		gotoNext = 5733724
     	} else {
-    		gotoNext = 5751659
+    		gotoNext = 5733724
     	}
-    	_ = gotoNext == 5751659
+    	_ = gotoNext == 5733724
     	hs.hello.random = make([]byte, 32)
-    	if _, err_5751701 = io.ReadFull(c_5749916.config.rand(), hs.hello.random); err_5751701 != nil {
-    		gotoNext = 5751766
-    		_ = gotoNext == 5751766
-    		c_5749916.sendAlert(80)
-    		return err_5751701
-    		gotoNext = 5751820
+    	if _, err_5733766 = io.ReadFull(c_5731981.config.rand(), hs.hello.random); err_5733766 != nil {
+    		gotoNext = 5733831
+    		_ = gotoNext == 5733831
+    		c_5731981.sendAlert(80)
+    		return err_5733766
+    		gotoNext = 5733885
     	} else {
-    		gotoNext = 5751820
+    		gotoNext = 5733885
     	}
-    	_ = gotoNext == 5751820
+    	_ = gotoNext == 5733885
     	if len(hs.clientHello.secureRenegotiation) != 0 {
-    		gotoNext = 5751868
-    		_ = gotoNext == 5751868
-    		c_5749916.sendAlert(40)
+    		gotoNext = 5733933
+    		_ = gotoNext == 5733933
+    		c_5731981.sendAlert(40)
     		return errors.New("tls: initial handshake had non-empty renegotiation extension")
-    		gotoNext = 5751996
+    		gotoNext = 5734061
     	} else {
-    		gotoNext = 5751996
+    		gotoNext = 5734061
     	}
-    	_ = gotoNext == 5751996
-    	if hs.clientHello.earlyData && c_5749916.quic != nil {
-    		gotoNext = 5752041
-    		_ = gotoNext == 5752041
+    	_ = gotoNext == 5734061
+    	if hs.clientHello.earlyData && c_5731981.quic != nil {
+    		gotoNext = 5734106
+    		_ = gotoNext == 5734106
     		if len(hs.clientHello.pskIdentities) == 0 {
-    			gotoNext = 5752087
-    			_ = gotoNext == 5752087
-    			c_5749916.sendAlert(47)
+    			gotoNext = 5734152
+    			_ = gotoNext == 5734152
+    			c_5731981.sendAlert(47)
     			return errors.New("tls: early_data without pre_shared_key")
-    			gotoNext = 5752766
+    			gotoNext = 5734831
     		} else {
-    			gotoNext = 5752766
+    			gotoNext = 5734831
     		}
-    		gotoNext = 5752766
+    		gotoNext = 5734831
     	} else if hs.clientHello.earlyData {
-    		gotoNext = 5752230
-    		_ = gotoNext == 5752230
-    		c_5749916.sendAlert(110)
+    		gotoNext = 5734295
+    		_ = gotoNext == 5734295
+    		c_5731981.sendAlert(110)
     		return errors.New("tls: client sent unexpected early data")
-    		gotoNext = 5752766
+    		gotoNext = 5734831
     	} else {
-    		gotoNext = 5752766
+    		gotoNext = 5734831
     	}
-    	_ = gotoNext == 5752766
+    	_ = gotoNext == 5734831
     	hs.hello.sessionId = hs.clientHello.sessionId
     	hs.hello.compressionMethod = 0
-    	preferenceList_5752860 = defaultCipherSuitesTLS13
+    	preferenceList_5734925 = defaultCipherSuitesTLS13
     	if !hasAESGCMHardwareSupport || !aesgcmPreferred(hs.clientHello.cipherSuites) {
-    		gotoNext = 5752982
-    		_ = gotoNext == 5752982
-    		preferenceList_5752860 = defaultCipherSuitesTLS13NoAES
-    		gotoNext = 5753037
+    		gotoNext = 5735047
+    		_ = gotoNext == 5735047
+    		preferenceList_5734925 = defaultCipherSuitesTLS13NoAES
+    		gotoNext = 5735102
     	} else {
-    		gotoNext = 5753037
+    		gotoNext = 5735102
     	}
-    	_ = gotoNext == 5753037
-    	if 0 < len(preferenceList_5752860) {
-    		gotoNext = 5753188
-    		_ = gotoNext == 5753188
-    		i_5753055_0, suiteID_5753044 = 0, preferenceList_5752860[0]
-    		gotoNext = 5753189
-    		_ = gotoNext == 5753189
-    		if i_5753055_0 < len(preferenceList_5752860) {
-    			gotoNext = 5753076
-    			_ = gotoNext == 5753076
-    			suiteID_5753044 = preferenceList_5752860[i_5753055_0]
-    			hs.suite = mutualCipherSuiteTLS13(hs.clientHello.cipherSuites, suiteID_5753044)
+    	_ = gotoNext == 5735102
+    	if 0 < len(preferenceList_5734925) {
+    		gotoNext = 5735253
+    		_ = gotoNext == 5735253
+    		i_5735120_0, suiteID_5735109 = 0, preferenceList_5734925[0]
+    		gotoNext = 5735254
+    		_ = gotoNext == 5735254
+    		if i_5735120_0 < len(preferenceList_5734925) {
+    			gotoNext = 5735141
+    			_ = gotoNext == 5735141
+    			suiteID_5735109 = preferenceList_5734925[i_5735120_0]
+    			hs.suite = mutualCipherSuiteTLS13(hs.clientHello.cipherSuites, suiteID_5735109)
     			if hs.suite != nil {
-    				gotoNext = 5753173
-    				_ = gotoNext == 5753173
-    				gotoNext = 5753192
-    				gotoNext = 5753041
+    				gotoNext = 5735238
+    				_ = gotoNext == 5735238
+    				gotoNext = 5735257
+    				gotoNext = 5735106
     			} else {
-    				gotoNext = 5753041
+    				gotoNext = 5735106
     			}
-    			_ = gotoNext == 5753041
-    			i_5753055_0++
-    			gotoNext = 5753189
+    			_ = gotoNext == 5735106
+    			i_5735120_0++
+    			gotoNext = 5735254
     		} else {
-    			gotoNext = 5753192
+    			gotoNext = 5735257
     		}
-    		gotoNext = 5753192
+    		gotoNext = 5735257
     	} else {
-    		gotoNext = 5753192
+    		gotoNext = 5735257
     	}
-    	_ = gotoNext == 5753192
+    	_ = gotoNext == 5735257
     	if hs.suite == nil {
-    		gotoNext = 5753211
-    		_ = gotoNext == 5753211
-    		c_5749916.sendAlert(40)
+    		gotoNext = 5735276
+    		_ = gotoNext == 5735276
+    		c_5731981.sendAlert(40)
     		return errors.New("tls: no cipher suite supported by both client and server")
-    		gotoNext = 5753334
+    		gotoNext = 5735399
     	} else {
-    		gotoNext = 5753334
+    		gotoNext = 5735399
     	}
-    	_ = gotoNext == 5753334
-    	c_5749916.cipherSuite = hs.suite.id
+    	_ = gotoNext == 5735399
+    	c_5731981.cipherSuite = hs.suite.id
     	hs.hello.cipherSuite = hs.suite.id
     	hs.transcript = hs.suite.hash.New()
-    	gotoNext = 5753637
-    	_ = gotoNext == 5753637
-    	if 0 < len(c_5749916.config.curvePreferences()) {
-    		gotoNext = 5754062
-    		_ = gotoNext == 5754062
-    		i_5753679_0, preferredGroup_5753661 = 0, c_5749916.config.curvePreferences()[0]
-    		gotoNext = 5754063
-    		_ = gotoNext == 5754063
-    		if i_5753679_0 < len(c_5749916.config.curvePreferences()) {
-    			gotoNext = 5753713
-    			_ = gotoNext == 5753713
-    			preferredGroup_5753661 = c_5749916.config.curvePreferences()[i_5753679_0]
+    	gotoNext = 5735702
+    	_ = gotoNext == 5735702
+    	if 0 < len(c_5731981.config.curvePreferences()) {
+    		gotoNext = 5736127
+    		_ = gotoNext == 5736127
+    		i_5735744_0, preferredGroup_5735726 = 0, c_5731981.config.curvePreferences()[0]
+    		gotoNext = 5736128
+    		_ = gotoNext == 5736128
+    		if i_5735744_0 < len(c_5731981.config.curvePreferences()) {
+    			gotoNext = 5735778
+    			_ = gotoNext == 5735778
+    			preferredGroup_5735726 = c_5731981.config.curvePreferences()[i_5735744_0]
     			if 0 < len(hs.clientHello.keyShares) {
-    				gotoNext = 5753883
-    				_ = gotoNext == 5753883
-    				i_5753730_0, ks_5753724 = 0, hs.clientHello.keyShares[0]
-    				gotoNext = 5753884
-    				_ = gotoNext == 5753884
-    				if i_5753730_0 < len(hs.clientHello.keyShares) {
-    					gotoNext = 5753761
-    					_ = gotoNext == 5753761
-    					ks_5753724 = hs.clientHello.keyShares[i_5753730_0]
-    					if ks_5753724.group == preferredGroup_5753661 {
-    						gotoNext = 5753796
-    						_ = gotoNext == 5753796
-    						selectedGroup_5753585 = ks_5753724.group
-    						clientKeyShare_5753612 = &ks_5753724
+    				gotoNext = 5735948
+    				_ = gotoNext == 5735948
+    				i_5735795_0, ks_5735789 = 0, hs.clientHello.keyShares[0]
+    				gotoNext = 5735949
+    				_ = gotoNext == 5735949
+    				if i_5735795_0 < len(hs.clientHello.keyShares) {
+    					gotoNext = 5735826
+    					_ = gotoNext == 5735826
+    					ks_5735789 = hs.clientHello.keyShares[i_5735795_0]
+    					if ks_5735789.group == preferredGroup_5735726 {
+    						gotoNext = 5735861
+    						_ = gotoNext == 5735861
+    						selectedGroup_5735650 = ks_5735789.group
+    						clientKeyShare_5735677 = &ks_5735789
     						GroupSelectionBreak = true
-    						gotoNext = 5754063
-    						gotoNext = 5753721
+    						gotoNext = 5736128
+    						gotoNext = 5735786
     					} else {
-    						gotoNext = 5753721
+    						gotoNext = 5735786
     					}
-    					_ = gotoNext == 5753721
-    					i_5753730_0++
-    					gotoNext = 5753884
+    					_ = gotoNext == 5735786
+    					i_5735795_0++
+    					gotoNext = 5735949
     				} else {
-    					gotoNext = 5753888
+    					gotoNext = 5735953
     				}
-    				gotoNext = 5753888
+    				gotoNext = 5735953
     			} else {
-    				gotoNext = 5753888
+    				gotoNext = 5735953
     			}
-    			_ = gotoNext == 5753888
-    			if selectedGroup_5753585 != 0 {
-    				gotoNext = 5753910
-    				_ = gotoNext == 5753910
-    				i_5753679_0++
-    				gotoNext = 5754063
-    				gotoNext = 5753930
+    			_ = gotoNext == 5735953
+    			if selectedGroup_5735650 != 0 {
+    				gotoNext = 5735975
+    				_ = gotoNext == 5735975
+    				i_5735744_0++
+    				gotoNext = 5736128
+    				gotoNext = 5735995
     			} else {
-    				gotoNext = 5753930
+    				gotoNext = 5735995
     			}
-    			_ = gotoNext == 5753930
+    			_ = gotoNext == 5735995
     			if 0 < len(hs.clientHello.supportedCurves) {
-    				gotoNext = 5754059
-    				_ = gotoNext == 5754059
-    				i_5753946_0, group_5753937 = 0, hs.clientHello.supportedCurves[0]
-    				gotoNext = 5754060
-    				_ = gotoNext == 5754060
-    				if i_5753946_0 < len(hs.clientHello.supportedCurves) {
-    					gotoNext = 5753983
-    					_ = gotoNext == 5753983
-    					group_5753937 = hs.clientHello.supportedCurves[i_5753946_0]
-    					if group_5753937 == preferredGroup_5753661 {
-    						gotoNext = 5754015
-    						_ = gotoNext == 5754015
-    						selectedGroup_5753585 = group_5753937
-    						gotoNext = 5753658
-    						gotoNext = 5753934
+    				gotoNext = 5736124
+    				_ = gotoNext == 5736124
+    				i_5736011_0, group_5736002 = 0, hs.clientHello.supportedCurves[0]
+    				gotoNext = 5736125
+    				_ = gotoNext == 5736125
+    				if i_5736011_0 < len(hs.clientHello.supportedCurves) {
+    					gotoNext = 5736048
+    					_ = gotoNext == 5736048
+    					group_5736002 = hs.clientHello.supportedCurves[i_5736011_0]
+    					if group_5736002 == preferredGroup_5735726 {
+    						gotoNext = 5736080
+    						_ = gotoNext == 5736080
+    						selectedGroup_5735650 = group_5736002
+    						gotoNext = 5735723
+    						gotoNext = 5735999
     					} else {
-    						gotoNext = 5753934
+    						gotoNext = 5735999
     					}
-    					_ = gotoNext == 5753934
-    					i_5753946_0++
-    					gotoNext = 5754060
+    					_ = gotoNext == 5735999
+    					i_5736011_0++
+    					gotoNext = 5736125
     				} else {
-    					gotoNext = 5753658
+    					gotoNext = 5735723
     				}
-    				gotoNext = 5753658
+    				gotoNext = 5735723
     			} else {
-    				gotoNext = 5753658
+    				gotoNext = 5735723
     			}
-    			_ = gotoNext == 5753658
-    			i_5753679_0++
-    			gotoNext = 5754063
+    			_ = gotoNext == 5735723
+    			i_5735744_0++
+    			gotoNext = 5736128
     		} else {
-    			gotoNext = 5754066
+    			gotoNext = 5736131
     		}
-    		gotoNext = 5754066
+    		gotoNext = 5736131
     	} else {
-    		gotoNext = 5754066
+    		gotoNext = 5736131
     	}
-    	_ = gotoNext == 5754066
-    	if selectedGroup_5753585 == 0 {
-    		gotoNext = 5754088
-    		_ = gotoNext == 5754088
-    		c_5749916.sendAlert(40)
+    	_ = gotoNext == 5736131
+    	if selectedGroup_5735650 == 0 {
+    		gotoNext = 5736153
+    		_ = gotoNext == 5736153
+    		c_5731981.sendAlert(40)
     		return errors.New("tls: no ECDHE curve supported by both client and server")
-    		gotoNext = 5754210
+    		gotoNext = 5736275
     	} else {
-    		gotoNext = 5754210
+    		gotoNext = 5736275
     	}
-    	_ = gotoNext == 5754210
-    	if clientKeyShare_5753612 == nil {
-    		gotoNext = 5754235
-    		_ = gotoNext == 5754235
-    		if err_5754242 = hs.doHelloRetryRequest(selectedGroup_5753585); err_5754242 != nil {
-    			gotoNext = 5754299
-    			_ = gotoNext == 5754299
-    			return err_5754242
-    			gotoNext = 5754321
+    	_ = gotoNext == 5736275
+    	if clientKeyShare_5735677 == nil {
+    		gotoNext = 5736300
+    		_ = gotoNext == 5736300
+    		if err_5736307 = hs.doHelloRetryRequest(selectedGroup_5735650); err_5736307 != nil {
+    			gotoNext = 5736364
+    			_ = gotoNext == 5736364
+    			return err_5736307
+    			gotoNext = 5736386
     		} else {
-    			gotoNext = 5754321
+    			gotoNext = 5736386
     		}
-    		_ = gotoNext == 5754321
-    		clientKeyShare_5753612 = &hs.clientHello.keyShares[0]
-    		gotoNext = 5754372
+    		_ = gotoNext == 5736386
+    		clientKeyShare_5735677 = &hs.clientHello.keyShares[0]
+    		gotoNext = 5736437
     	} else {
-    		gotoNext = 5754372
+    		gotoNext = 5736437
     	}
-    	_ = gotoNext == 5754372
-    	if _, ok_5754378 = curveForCurveID(selectedGroup_5753585); !ok_5754378 {
-    		gotoNext = 5754420
-    		_ = gotoNext == 5754420
-    		c_5749916.sendAlert(80)
+    	_ = gotoNext == 5736437
+    	if _, ok_5736443 = curveForCurveID(selectedGroup_5735650); !ok_5736443 {
+    		gotoNext = 5736485
+    		_ = gotoNext == 5736485
+    		c_5731981.sendAlert(80)
     		return errors.New("tls: CurvePreferences includes unsupported curve")
-    		gotoNext = 5754532
+    		gotoNext = 5736597
     	} else {
-    		gotoNext = 5754532
+    		gotoNext = 5736597
     	}
-    	_ = gotoNext == 5754532
-    	key_5754532, err_5754537 = generateECDHEKey(c_5749916.config.rand(), selectedGroup_5753585)
-    	if err_5754537 != nil {
-    		gotoNext = 5754608
-    		_ = gotoNext == 5754608
-    		c_5749916.sendAlert(80)
-    		return err_5754537
-    		gotoNext = 5754661
+    	_ = gotoNext == 5736597
+    	key_5736597, err_5736602 = generateECDHEKey(c_5731981.config.rand(), selectedGroup_5735650)
+    	if err_5736602 != nil {
+    		gotoNext = 5736673
+    		_ = gotoNext == 5736673
+    		c_5731981.sendAlert(80)
+    		return err_5736602
+    		gotoNext = 5736726
     	} else {
-    		gotoNext = 5754661
+    		gotoNext = 5736726
     	}
-    	_ = gotoNext == 5754661
-    	hs.hello.serverShare = keyShare{group: selectedGroup_5753585, data: key_5754532.PublicKey().Bytes()}
-    	peerKey_5754747, err_5754537 = key_5754532.Curve().NewPublicKey(clientKeyShare_5753612.data)
-    	if err_5754537 != nil {
-    		gotoNext = 5754824
-    		_ = gotoNext == 5754824
-    		c_5749916.sendAlert(47)
+    	_ = gotoNext == 5736726
+    	hs.hello.serverShare = keyShare{group: selectedGroup_5735650, data: key_5736597.PublicKey().Bytes()}
+    	peerKey_5736812, err_5736602 = key_5736597.Curve().NewPublicKey(clientKeyShare_5735677.data)
+    	if err_5736602 != nil {
+    		gotoNext = 5736889
+    		_ = gotoNext == 5736889
+    		c_5731981.sendAlert(47)
     		return errors.New("tls: invalid client key share")
-    		gotoNext = 5754920
+    		gotoNext = 5736985
     	} else {
-    		gotoNext = 5754920
+    		gotoNext = 5736985
     	}
-    	_ = gotoNext == 5754920
-    	hs.sharedKey, err_5754537 = key_5754532.ECDH(peerKey_5754747)
-    	if err_5754537 != nil {
-    		gotoNext = 5754973
-    		_ = gotoNext == 5754973
-    		c_5749916.sendAlert(47)
+    	_ = gotoNext == 5736985
+    	hs.sharedKey, err_5736602 = key_5736597.ECDH(peerKey_5736812)
+    	if err_5736602 != nil {
+    		gotoNext = 5737038
+    		_ = gotoNext == 5737038
+    		c_5731981.sendAlert(47)
     		return errors.New("tls: invalid client key share")
-    		gotoNext = 5755070
+    		gotoNext = 5737135
     	} else {
-    		gotoNext = 5755070
+    		gotoNext = 5737135
     	}
-    	_ = gotoNext == 5755070
-    	selectedProto_5755070, err_5754537 = negotiateALPN(c_5749916.config.NextProtos, hs.clientHello.alpnProtocols, c_5749916.quic != nil)
-    	if err_5754537 != nil {
-    		gotoNext = 5755187
-    		_ = gotoNext == 5755187
-    		c_5749916.sendAlert(120)
-    		return err_5754537
-    		gotoNext = 5755248
+    	_ = gotoNext == 5737135
+    	selectedProto_5737135, err_5736602 = negotiateALPN(c_5731981.config.NextProtos, hs.clientHello.alpnProtocols, c_5731981.quic != nil)
+    	if err_5736602 != nil {
+    		gotoNext = 5737252
+    		_ = gotoNext == 5737252
+    		c_5731981.sendAlert(120)
+    		return err_5736602
+    		gotoNext = 5737313
     	} else {
-    		gotoNext = 5755248
+    		gotoNext = 5737313
     	}
-    	_ = gotoNext == 5755248
-    	c_5749916.clientProtocol = selectedProto_5755070
-    	if c_5749916.quic != nil {
-    		gotoNext = 5755300
-    		_ = gotoNext == 5755300
+    	_ = gotoNext == 5737313
+    	c_5731981.clientProtocol = selectedProto_5737135
+    	if c_5731981.quic != nil {
+    		gotoNext = 5737365
+    		_ = gotoNext == 5737365
     		if hs.clientHello.quicTransportParameters == nil {
-    			gotoNext = 5755353
-    			_ = gotoNext == 5755353
-    			c_5749916.sendAlert(109)
+    			gotoNext = 5737418
+    			_ = gotoNext == 5737418
+    			c_5731981.sendAlert(109)
     			return errors.New("tls: client did not send a quic_transport_parameters extension")
-    			gotoNext = 5755514
+    			gotoNext = 5737579
     		} else {
-    			gotoNext = 5755514
+    			gotoNext = 5737579
     		}
-    		_ = gotoNext == 5755514
-    		c_5749916.quicSetTransportParameters(hs.clientHello.quicTransportParameters)
-    		gotoNext = 5755788
+    		_ = gotoNext == 5737579
+    		c_5731981.quicSetTransportParameters(hs.clientHello.quicTransportParameters)
+    		gotoNext = 5737853
     	} else {
-    		gotoNext = 5755591
-    		_ = gotoNext == 5755591
-    		gotoNext = 5755591
-    		_ = gotoNext == 5755591
+    		gotoNext = 5737656
+    		_ = gotoNext == 5737656
+    		gotoNext = 5737656
+    		_ = gotoNext == 5737656
     		if hs.clientHello.quicTransportParameters != nil {
-    			gotoNext = 5755644
-    			_ = gotoNext == 5755644
-    			c_5749916.sendAlert(110)
+    			gotoNext = 5737709
+    			_ = gotoNext == 5737709
+    			c_5731981.sendAlert(110)
     			return errors.New("tls: client sent an unexpected quic_transport_parameters extension")
-    			gotoNext = 5755788
+    			gotoNext = 5737853
     		} else {
-    			gotoNext = 5755788
+    			gotoNext = 5737853
     		}
     		_ = 0
-    		gotoNext = 5755788
+    		gotoNext = 5737853
     	}
-    	_ = gotoNext == 5755788
-    	c_5749916.serverName = hs.clientHello.serverName
+    	_ = gotoNext == 5737853
+    	c_5731981.serverName = hs.clientHello.serverName
     	return nil
     	gotoNext = -1
     }*|/
@@ -4492,8 +4549,8 @@ class Tls {
         
         The config's MinVersion must be at least TLS 1.3.
     **/
-    static public function quicclient(_config:QUICConfig):QUICConn {
-        return stdgo._internal.crypto.tls.Tls_quicclient.quicclient(_config);
+    static public function qUICClient(_config:QUICConfig):QUICConn {
+        return stdgo._internal.crypto.tls.Tls_qUICClient.qUICClient(_config);
     }
     /**
         QUICServer returns a new TLS server side connection using QUICTransport as the
@@ -4501,8 +4558,8 @@ class Tls {
         
         The config's MinVersion must be at least TLS 1.3.
     **/
-    static public function quicserver(_config:QUICConfig):QUICConn {
-        return stdgo._internal.crypto.tls.Tls_quicserver.quicserver(_config);
+    static public function qUICServer(_config:QUICConfig):QUICConn {
+        return stdgo._internal.crypto.tls.Tls_qUICServer.qUICServer(_config);
     }
     /**
         ParseSessionState parses a [SessionState] encoded by [SessionState.Bytes].
@@ -4617,11 +4674,11 @@ class Tls {
         PEM encoded data. On successful return, Certificate.Leaf will be nil because
         the parsed form of the certificate is not retained.
     **/
-    static public function x509keyPair(_certPEMBlock:Array<std.UInt>, _keyPEMBlock:Array<std.UInt>):stdgo.Tuple<Certificate, stdgo.Error> {
+    static public function x509KeyPair(_certPEMBlock:Array<std.UInt>, _keyPEMBlock:Array<std.UInt>):stdgo.Tuple<Certificate, stdgo.Error> {
         final _certPEMBlock = ([for (i in _certPEMBlock) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _keyPEMBlock = ([for (i in _keyPEMBlock) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_x509keyPair.x509keyPair(_certPEMBlock, _keyPEMBlock);
+            final obj = stdgo._internal.crypto.tls.Tls_x509KeyPair.x509KeyPair(_certPEMBlock, _keyPEMBlock);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

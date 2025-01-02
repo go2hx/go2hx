@@ -26,14 +26,14 @@ if (_sign == ((45 : stdgo.GoInt32))) {
                                 var __0 = stdgo._internal.math.big.Big_newInt.newInt(_b), __1 = stdgo._internal.math.big.Big_newInt.newInt((1i64 : stdgo.GoInt64));
 var _den = __1, _num = __0;
 if ((_exp > (0 : stdgo.GoInt) : Bool)) {
-                                    _num.lsh(_num, (_exp : stdgo.GoUInt));
+                                    @:check2r _num.lsh(_num, (_exp : stdgo.GoUInt));
                                 } else {
-                                    _den.lsh(_den, (-_exp : stdgo.GoUInt));
+                                    @:check2r _den.lsh(_den, (-_exp : stdgo.GoUInt));
                                 };
-var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFrac(_num, _den);
-var __tmp__ = _r.float32(), _f:stdgo.GoFloat32 = __tmp__._0, __10:Bool = __tmp__._1;
+var _r = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFrac(_num, _den);
+var __tmp__ = @:check2r _r.float32(), _f:stdgo.GoFloat32 = __tmp__._0, __10:Bool = __tmp__._1;
 if (!stdgo._internal.math.big.Big__checkIsBestApprox32._checkIsBestApprox32(_t, _f, _r)) {
-                                    _t.errorf(("(input was mantissa %#x, exp %d; f = %g (%b); f ~ %g; r = %v)" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_exp), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.Math_ldexp.ldexp((_b : stdgo.GoFloat64), _exp)), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
+                                    @:check2r _t.errorf(("(input was mantissa %#x, exp %d; f = %g (%b); f ~ %g; r = %v)" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_exp), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.Math_ldexp.ldexp((_b : stdgo.GoFloat64), _exp)), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
                                 };
 stdgo._internal.math.big.Big__checkNonLossyRoundtrip32._checkNonLossyRoundtrip32(_t, _f);
                                 _exp = (_exp + (_einc) : stdgo.GoInt);

@@ -8,8 +8,10 @@ package stdgo._internal.net.smtp;
         if (writeCloser != null) this.writeCloser = writeCloser;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.writeCloser.write(_b);
+    @:embeddededffieldsffun
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.writeCloser ?? throw "null pointer derefrence").write;
     public function __copy__() {
         return new T_dataCloser(_c, writeCloser);
     }

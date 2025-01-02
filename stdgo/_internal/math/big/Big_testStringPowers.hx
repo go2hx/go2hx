@@ -14,7 +14,7 @@ var _x = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.
 var _xs = _x._utoa(_b);
 var _xs2 = stdgo._internal.math.big.Big__itoa._itoa(_x, _b);
 if (!stdgo._internal.bytes.Bytes_equal.equal(_xs, _xs2)) {
-                            _t.errorf(("failed at %d ** %d in base %d: %s != %s" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_xs), stdgo.Go.toInterface(_xs2));
+                            @:check2r _t.errorf(("failed at %d ** %d in base %d: %s != %s" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_xs), stdgo.Go.toInterface(_xs2));
                         };
                         _p++;
                     };

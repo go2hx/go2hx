@@ -1,24 +1,26 @@
 package stdgo._internal.internal.xcoff;
 @:keep @:allow(stdgo._internal.internal.xcoff.Xcoff.File_asInterface) class File_static_extension {
     @:keep
+    @:tdfield
     static public function importedLibraries( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        var _s = _f.sectionByType((4096u32 : stdgo.GoUInt32));
+        var _s = @:check2r _f.sectionByType((4096u32 : stdgo.GoUInt32));
         if ((_s == null || (_s : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
-        var __tmp__ = _f._readImportIDs(_s), _all:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _f._readImportIDs(_s), _all:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : _all, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function importedSymbols( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        var _s = _f.sectionByType((4096u32 : stdgo.GoUInt32));
+        var _s = @:check2r _f.sectionByType((4096u32 : stdgo.GoUInt32));
         if ((_s == null || (_s : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : (null : stdgo.Error) };
         };
         {
-            var __tmp__ = _s._sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
             };
@@ -28,52 +30,52 @@ package stdgo._internal.internal.xcoff;
         var _nsyms:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _symoff:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            final __value__ = _f.fileHeader.targetMachine;
+            final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.targetMachine;
             if (__value__ == ((479 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                     };
                 };
-                _stlen = _lhdr.lstlen;
-                _stoff = (_lhdr.lstoff : stdgo.GoUInt64);
-                _nsyms = _lhdr.lnsyms;
+                _stlen = (@:checkr _lhdr ?? throw "null pointer dereference").lstlen;
+                _stoff = ((@:checkr _lhdr ?? throw "null pointer dereference").lstoff : stdgo.GoUInt64);
+                _nsyms = (@:checkr _lhdr ?? throw "null pointer dereference").lnsyms;
                 _symoff = (32i64 : stdgo.GoUInt64);
             } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                     };
                 };
-                _stlen = _lhdr.lstlen;
-                _stoff = _lhdr.lstoff;
-                _nsyms = _lhdr.lnsyms;
-                _symoff = _lhdr.lsymoff;
+                _stlen = (@:checkr _lhdr ?? throw "null pointer dereference").lstlen;
+                _stoff = (@:checkr _lhdr ?? throw "null pointer dereference").lstoff;
+                _nsyms = (@:checkr _lhdr ?? throw "null pointer dereference").lnsyms;
+                _symoff = (@:checkr _lhdr ?? throw "null pointer dereference").lsymoff;
             };
         };
         {
-            var __tmp__ = _s._sr.seek((_stoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.seek((_stoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
             };
         };
         var _st = (new stdgo.Slice<stdgo.GoUInt8>((_stlen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(stdgo.Go.asInterface(_s._sr), _st), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), _st), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
             };
         };
-        var __tmp__ = _f._readImportIDs(_s), _libs:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _f._readImportIDs(_s), _libs:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
         };
         {
-            var __tmp__ = _s._sr.seek((_symoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __3:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.seek((_symoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __3:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
             };
@@ -86,26 +88,26 @@ package stdgo._internal.internal.xcoff;
 var _ifile:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
 var _ok:Bool = false;
 {
-                    final __value__ = _f.fileHeader.targetMachine;
+                    final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.targetMachine;
                     if (__value__ == ((479 : stdgo.GoUInt16))) {
                         var _ldsym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                             };
                         };
-                        if ((_ldsym.lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+                        if (((@:checkr _ldsym ?? throw "null pointer dereference").lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                             {
                                 _i++;
                                 continue;
                             };
                         };
-                        var _zeroes = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_ldsym.lname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
+                        var _zeroes = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _ldsym ?? throw "null pointer dereference").lname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                         if (_zeroes != ((0u32 : stdgo.GoUInt32))) {
-                            _name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_ldsym.lname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
+                            _name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring(((@:checkr _ldsym ?? throw "null pointer dereference").lname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         } else {
-                            var _offset = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_ldsym.lname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
+                            var _offset = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _ldsym ?? throw "null pointer dereference").lname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                             {
                                 var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, _offset);
                                 _name = __tmp__._0.__copy__();
@@ -118,23 +120,23 @@ var _ok:Bool = false;
                                 };
                             };
                         };
-                        _ifile = _ldsym.lifile;
+                        _ifile = (@:checkr _ldsym ?? throw "null pointer dereference").lifile;
                     } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                         var _ldsym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol64.LoaderSymbol64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol64.LoaderSymbol64>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                             };
                         };
-                        if ((_ldsym.lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+                        if (((@:checkr _ldsym ?? throw "null pointer dereference").lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                             {
                                 _i++;
                                 continue;
                             };
                         };
                         {
-                            var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, _ldsym.loffset);
+                            var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, (@:checkr _ldsym ?? throw "null pointer dereference").loffset);
                             _name = __tmp__._0.__copy__();
                             _ok = __tmp__._1;
                         };
@@ -144,7 +146,7 @@ var _ok:Bool = false;
                                 continue;
                             };
                         };
-                        _ifile = _ldsym.lifile;
+                        _ifile = (@:checkr _ldsym ?? throw "null pointer dereference").lifile;
                     };
                 };
 var _sym:stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol = ({} : stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol);
@@ -159,10 +161,11 @@ _all = (_all.__append__(_sym.__copy__()));
         return { _0 : _all, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function _readImportIDs( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>, _s:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
         {
-            var __tmp__ = _s._sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
@@ -171,47 +174,47 @@ _all = (_all.__append__(_sym.__copy__()));
         var _nimpid:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _impoff:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            final __value__ = _f.fileHeader.targetMachine;
+            final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.targetMachine;
             if (__value__ == ((479 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
                     };
                 };
-                _istlen = _lhdr.listlen;
-                _nimpid = _lhdr.lnimpid;
-                _impoff = (_lhdr.limpoff : stdgo.GoUInt64);
+                _istlen = (@:checkr _lhdr ?? throw "null pointer dereference").listlen;
+                _nimpid = (@:checkr _lhdr ?? throw "null pointer dereference").lnimpid;
+                _impoff = ((@:checkr _lhdr ?? throw "null pointer dereference").limpoff : stdgo.GoUInt64);
             } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_s._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
                     };
                 };
-                _istlen = _lhdr.listlen;
-                _nimpid = _lhdr.lnimpid;
-                _impoff = _lhdr.limpoff;
+                _istlen = (@:checkr _lhdr ?? throw "null pointer dereference").listlen;
+                _nimpid = (@:checkr _lhdr ?? throw "null pointer dereference").lnimpid;
+                _impoff = (@:checkr _lhdr ?? throw "null pointer dereference").limpoff;
             };
         };
         {
-            var __tmp__ = _s._sr.seek((_impoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.seek((_impoff : stdgo.GoInt64), (0 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
         };
         var _table = (new stdgo.Slice<stdgo.GoUInt8>((_istlen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(stdgo.Go.asInterface(_s._sr), _table), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), _table), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
         };
         var _offset = (0 : stdgo.GoInt);
         var _libpath = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
-        _f.libraryPaths = stdgo._internal.strings.Strings_split.split(_libpath?.__copy__(), (":" : stdgo.GoString));
+        (@:checkr _f ?? throw "null pointer dereference").libraryPaths = stdgo._internal.strings.Strings_split.split(_libpath?.__copy__(), (":" : stdgo.GoString));
         _offset = (_offset + (((_libpath.length) + (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         var _all = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
@@ -236,15 +239,16 @@ _all = (_all.__append__(_path.__copy__()));
         return { _0 : _all, _1 : (null : stdgo.Error) };
     }
     @:keep
-    static public function dwarf( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Data.Data>; var _1 : stdgo.Error; } {
+    @:tdfield
+    static public function dWARF( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Data.Data>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
         var _subtypes = (new stdgo.GoArray<stdgo.GoUInt32>(5, 5, ...[(393216u32 : stdgo.GoUInt32), (65536u32 : stdgo.GoUInt32), (131072u32 : stdgo.GoUInt32), (524288u32 : stdgo.GoUInt32), (458752u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>)?.__copy__();
         var _dat:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>(5, 5, ...[for (i in 0 ... 5) (null : stdgo.Slice<stdgo.GoUInt8>)]);
         for (_i => _subtype in _subtypes) {
-            var _s = _f.sectionByType(((16u32 : stdgo.GoUInt32) | _subtype : stdgo.GoUInt32));
+            var _s = @:check2r _f.sectionByType(((16u32 : stdgo.GoUInt32) | _subtype : stdgo.GoUInt32));
             if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
-                var __tmp__ = _s.data(), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (((_err != null) && ((_b.length : stdgo.GoUInt64) < _s.sectionHeader.size : Bool) : Bool)) {
+                var __tmp__ = @:check2r _s.data(), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                if (((_err != null) && ((_b.length : stdgo.GoUInt64) < (@:checkr _s ?? throw "null pointer dereference").sectionHeader.size : Bool) : Bool)) {
                     return { _0 : null, _1 : _err };
                 };
                 _dat[(_i : stdgo.GoInt)] = _b;
@@ -255,17 +259,18 @@ var _str = __4, _ranges = __3, _line = __2, _info = __1, _abbrev = __0;
         return stdgo._internal.debug.dwarf.Dwarf_new_.new_(_abbrev, (null : stdgo.Slice<stdgo.GoUInt8>), (null : stdgo.Slice<stdgo.GoUInt8>), _info, _line, (null : stdgo.Slice<stdgo.GoUInt8>), _ranges, _str);
     }
     @:keep
-    static public function csect( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>, _name:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
+    @:tdfield
+    static public function cSect( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>, _name:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        for (__0 => _sym in _f.symbols) {
-            if (((_sym.name == _name) && (_sym.auxCSect.symbolType == (1 : stdgo.GoInt)) : Bool)) {
+        for (__0 => _sym in (@:checkr _f ?? throw "null pointer dereference").symbols) {
+            if ((((@:checkr _sym ?? throw "null pointer dereference").name == _name) && ((@:checkr _sym ?? throw "null pointer dereference").auxCSect.symbolType == (1 : stdgo.GoInt)) : Bool)) {
                 {
-                    var _i = (_sym.sectionNumber - (1 : stdgo.GoInt) : stdgo.GoInt);
-                    if ((((0 : stdgo.GoInt) <= _i : Bool) && (_i < (_f.sections.length) : Bool) : Bool)) {
-                        var _s = _f.sections[(_i : stdgo.GoInt)];
-                        if (((_sym.value + (_sym.auxCSect.length_ : stdgo.GoUInt64) : stdgo.GoUInt64) <= _s.sectionHeader.size : Bool)) {
-                            var _dat = (new stdgo.Slice<stdgo.GoUInt8>((_sym.auxCSect.length_ : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                            var __tmp__ = _s._sr.readAt(_dat, (_sym.value : stdgo.GoInt64)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var _i = ((@:checkr _sym ?? throw "null pointer dereference").sectionNumber - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    if ((((0 : stdgo.GoInt) <= _i : Bool) && (_i < ((@:checkr _f ?? throw "null pointer dereference").sections.length) : Bool) : Bool)) {
+                        var _s = (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)];
+                        if ((((@:checkr _sym ?? throw "null pointer dereference").value + ((@:checkr _sym ?? throw "null pointer dereference").auxCSect.length_ : stdgo.GoUInt64) : stdgo.GoUInt64) <= (@:checkr _s ?? throw "null pointer dereference").sectionHeader.size : Bool)) {
+                            var _dat = (new stdgo.Slice<stdgo.GoUInt8>(((@:checkr _sym ?? throw "null pointer dereference").auxCSect.length_ : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                            var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._sr.readAt(_dat, ((@:checkr _sym ?? throw "null pointer dereference").value : stdgo.GoInt64)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 return (null : stdgo.Slice<stdgo.GoUInt8>);
                             };
@@ -279,32 +284,35 @@ var _str = __4, _ranges = __3, _line = __2, _info = __1, _abbrev = __0;
         return (null : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
+    @:tdfield
     static public function sectionByType( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>, _typ:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        for (__0 => _s in _f.sections) {
-            if (_s.sectionHeader.type == (_typ)) {
+        for (__0 => _s in (@:checkr _f ?? throw "null pointer dereference").sections) {
+            if ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.type == (_typ)) {
                 return _s;
             };
         };
         return null;
     }
     @:keep
+    @:tdfield
     static public function section( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        for (__0 => _s in _f.sections) {
-            if (((_s.sectionHeader.name == _name) || ((((_name.length) > (8 : stdgo.GoInt) : Bool) && (_s.sectionHeader.name == (_name.__slice__(0, (8 : stdgo.GoInt)) : stdgo.GoString)) : Bool)) : Bool)) {
+        for (__0 => _s in (@:checkr _f ?? throw "null pointer dereference").sections) {
+            if ((((@:checkr _s ?? throw "null pointer dereference").sectionHeader.name == _name) || ((((_name.length) > (8 : stdgo.GoInt) : Bool) && ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.name == (_name.__slice__(0, (8 : stdgo.GoInt)) : stdgo.GoString)) : Bool)) : Bool)) {
                 return _s;
             };
         };
         return null;
     }
     @:keep
+    @:tdfield
     static public function close( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
         var _err:stdgo.Error = (null : stdgo.Error);
-        if (_f._closer != null) {
-            _err = _f._closer.close();
-            _f._closer = (null : stdgo._internal.io.Io_Closer.Closer);
+        if ((@:checkr _f ?? throw "null pointer dereference")._closer != null) {
+            _err = (@:checkr _f ?? throw "null pointer dereference")._closer.close();
+            (@:checkr _f ?? throw "null pointer dereference")._closer = (null : stdgo._internal.io.Io_Closer.Closer);
         };
         return _err;
     }

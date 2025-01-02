@@ -48,6 +48,7 @@ typedef T_ctrAble = stdgo._internal.crypto.aes.Aes_T_ctrAble.T_ctrAble;
     public function __copy__() return this.__copy__();
 }
 typedef KeySizeError = stdgo._internal.crypto.aes.Aes_KeySizeError.KeySizeError;
+typedef T_aesCipherPointer = stdgo._internal.crypto.aes.Aes_T_aesCipherPointer.T_aesCipherPointer;
 class T_aesCipher_static_extension {
     static public function decrypt(_c:T_aesCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -63,6 +64,7 @@ class T_aesCipher_static_extension {
         return stdgo._internal.crypto.aes.Aes_T_aesCipher_static_extension.T_aesCipher_static_extension.blockSize(_c);
     }
 }
+typedef KeySizeErrorPointer = stdgo._internal.crypto.aes.Aes_KeySizeErrorPointer.KeySizeErrorPointer;
 class KeySizeError_static_extension {
     static public function error(_k:KeySizeError):String {
         return stdgo._internal.crypto.aes.Aes_KeySizeError_static_extension.KeySizeError_static_extension.error(_k);

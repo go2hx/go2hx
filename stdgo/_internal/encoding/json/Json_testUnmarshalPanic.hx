@@ -12,7 +12,7 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                                 r;
                             } : stdgo.AnyInterface);
                             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_got, stdgo.Go.toInterface((57005 : stdgo.GoInt)))) {
-                                _t.errorf(("panic() = (%T)(%v), want 0xdead" : stdgo.GoString), _got, _got);
+                                @:check2r _t.errorf(("panic() = (%T)(%v), want 0xdead" : stdgo.GoString), _got, _got);
                             };
                         };
                     };
@@ -20,9 +20,10 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                 }));
             };
             stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic() : stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic>))));
-            _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
+            @:check2r _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -37,6 +38,7 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

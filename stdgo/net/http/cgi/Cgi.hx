@@ -99,6 +99,7 @@ package stdgo.net.http.cgi;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_responsePointer = stdgo._internal.net.http.cgi.Cgi_T_responsePointer.T_responsePointer;
 class T_response_static_extension {
     static public function _writeCGIHeader(_r:T_response, _p:Array<std.UInt>):Void {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -121,6 +122,7 @@ class T_response_static_extension {
         stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension.flush(_r);
     }
 }
+typedef HandlerPointer = stdgo._internal.net.http.cgi.Cgi_HandlerPointer.HandlerPointer;
 class Handler_static_extension {
     static public function _handleInternalRedirect(_h:Handler, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request, _path:String):Void {
         stdgo._internal.net.http.cgi.Cgi_Handler_static_extension.Handler_static_extension._handleInternalRedirect(_h, _rw, _req, _path);

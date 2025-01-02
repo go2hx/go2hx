@@ -9,7 +9,7 @@ function _scanUntilBoundary(_buf:stdgo.Slice<stdgo.GoUInt8>, _dashBoundary:stdgo
                     } else if (__value__ == ((0 : stdgo.GoInt))) {
                         return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                     } else if (__value__ == ((1 : stdgo.GoInt))) {
-                        return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                        return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
                     };
                 };
             };
@@ -27,7 +27,7 @@ function _scanUntilBoundary(_buf:stdgo.Slice<stdgo.GoUInt8>, _dashBoundary:stdgo
                     } else if (__value__ == ((0 : stdgo.GoInt))) {
                         return { _0 : _i, _1 : (null : stdgo.Error) };
                     } else if (__value__ == ((1 : stdgo.GoInt))) {
-                        return { _0 : _i, _1 : stdgo._internal.io.Io_eof.eof };
+                        return { _0 : _i, _1 : stdgo._internal.io.Io_eOF.eOF };
                     };
                 };
             };

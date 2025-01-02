@@ -7,12 +7,12 @@ function _genMap(_n:stdgo.GoInt):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>
         if (((_n > (0 : stdgo.GoInt) : Bool) && (_f == (0 : stdgo.GoInt)) : Bool)) {
             _f = (1 : stdgo.GoInt);
         };
-        var _x = ({
+        var _x = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _f : Bool)) {

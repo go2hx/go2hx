@@ -146,11 +146,13 @@ final invalidUnsafeString = stdgo._internal.internal.types.errors.Errors_invalid
 final invalidClear = stdgo._internal.internal.types.errors.Errors_invalidClear.invalidClear;
 final typeTooLarge = stdgo._internal.internal.types.errors.Errors_typeTooLarge.typeTooLarge;
 final invalidMinMaxOperand = stdgo._internal.internal.types.errors.Errors_invalidMinMaxOperand.invalidMinMaxOperand;
+typedef T__struct_0Pointer = stdgo._internal.internal.types.errors.Errors_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.internal.types.errors.Errors_T__struct_0.T__struct_0;
 typedef Code = stdgo._internal.internal.types.errors.Errors_Code.Code;
+typedef CodePointer = stdgo._internal.internal.types.errors.Errors_CodePointer.CodePointer;
 class Code_static_extension {
     static public function string(_i:Code):String {
         return stdgo._internal.internal.types.errors.Errors_Code_static_extension.Code_static_extension.string(_i);

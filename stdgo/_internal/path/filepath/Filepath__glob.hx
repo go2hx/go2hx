@@ -16,10 +16,10 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                 return { _0 : _m, _1 : _e };
             };
             {
-                final __f__ = _d.close;
+                final __f__ = @:check2r _d.close;
                 __deferstack__.unshift(() -> __f__());
             };
-            var __tmp__ = _d.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _d.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             stdgo._internal.sort.Sort_strings.strings(_names);
             for (__1 => _n in _names) {
                 var __tmp__ = stdgo._internal.path.filepath.Filepath_match.match(_pattern?.__copy__(), _n?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -32,6 +32,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -43,12 +44,14 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _m, _1 : _e };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -63,6 +66,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

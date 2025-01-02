@@ -7,6 +7,7 @@ typedef T_http2WriteScheduler = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function openStream(_streamID:stdgo.GoUInt32, _options:stdgo._internal.net.http.Http_T_http2OpenStreamOptions.T_http2OpenStreamOptions):Void;
     /**
         CloseStream closes a stream in the write scheduler. Any frames queued on
@@ -15,6 +16,7 @@ typedef T_http2WriteScheduler = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function closeStream(_streamID:stdgo.GoUInt32):Void;
     /**
         AdjustStream adjusts the priority of the given stream. This may be called
@@ -24,6 +26,7 @@ typedef T_http2WriteScheduler = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function adjustStream(_streamID:stdgo.GoUInt32, _priority:stdgo._internal.net.http.Http_T_http2PriorityParam.T_http2PriorityParam):Void;
     /**
         Push queues a frame in the scheduler. In most cases, this will not be
@@ -32,6 +35,7 @@ typedef T_http2WriteScheduler = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function push(_wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Void;
     /**
         Pop dequeues the next frame to write. Returns false if no frames can
@@ -41,5 +45,6 @@ typedef T_http2WriteScheduler = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function pop():{ var _0 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _1 : Bool; };
 };

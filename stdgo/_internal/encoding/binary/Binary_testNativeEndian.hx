@@ -10,7 +10,7 @@ function testNativeEndian(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         {
             var _v = (stdgo._internal.encoding.binary.Binary_nativeEndian.nativeEndian.uint32(_s) : stdgo.GoUInt32);
             if (_v != ((305419896u32 : stdgo.GoUInt32))) {
-                _t.errorf(("NativeEndian.Uint32 returned %#x, expected %#x" : stdgo.GoString), stdgo.Go.toInterface(_v), stdgo.Go.toInterface((305419896 : stdgo.GoInt)));
+                @:check2r _t.errorf(("NativeEndian.Uint32 returned %#x, expected %#x" : stdgo.GoString), stdgo.Go.toInterface(_v), stdgo.Go.toInterface((305419896 : stdgo.GoInt)));
             };
         };
     }

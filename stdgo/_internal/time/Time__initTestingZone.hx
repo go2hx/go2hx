@@ -5,6 +5,6 @@ function _initTestingZone():Void {
         if (_err != null) {
             throw stdgo.Go.toInterface(((("cannot load America/Los_Angeles for testing: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString) + ("; you may want to use -tags=timetzdata" : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        _z._name = ("Local" : stdgo.GoString);
+        (@:checkr _z ?? throw "null pointer dereference")._name = ("Local" : stdgo.GoString);
         stdgo._internal.time.Time__localLoc._localLoc = (_z : stdgo._internal.time.Time_Location.Location)?.__copy__();
     }

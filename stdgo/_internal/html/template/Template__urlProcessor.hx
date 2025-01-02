@@ -7,7 +7,7 @@ function _urlProcessor(_norm:Bool, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.Go
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         if (stdgo._internal.html.template.Template__processURLOnto._processURLOnto(_s?.__copy__(), _norm, (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))) {
-            return (_b.string() : stdgo.GoString)?.__copy__();
+            return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
         };
         return _s?.__copy__();
     }

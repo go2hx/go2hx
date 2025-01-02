@@ -6,5 +6,6 @@ typedef T_cbcMode = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setIV(_0:stdgo.Slice<stdgo.GoUInt8>):Void;
 };

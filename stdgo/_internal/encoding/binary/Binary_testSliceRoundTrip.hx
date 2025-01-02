@@ -21,20 +21,20 @@ function testSliceRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     _i++;
                 };
             };
-            _buf.reset();
+            @:check2r _buf.reset();
             var _srcSlice = (_src.slice((0 : stdgo.GoInt), _src.len())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), _srcSlice.interface_()) : stdgo.Error);
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
             var _dst = (stdgo._internal.reflect.Reflect_new_.new_(_src.type()).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _dstSlice = (_dst.slice((0 : stdgo.GoInt), _dst.len())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             _err = stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), _dstSlice.interface_());
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_src.interface_(), _dst.interface_())) {
-                _t.fatal(stdgo.Go.toInterface(stdgo.Go.asInterface(_src)));
+                @:check2r _t.fatal(stdgo.Go.toInterface(stdgo.Go.asInterface(_src)));
             };
         };
     }

@@ -5,5 +5,6 @@ typedef T_interfaceIndirectTestI = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function f():Bool;
 };

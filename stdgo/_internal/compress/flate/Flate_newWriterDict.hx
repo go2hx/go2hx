@@ -5,7 +5,7 @@ function newWriterDict(_w:stdgo._internal.io.Io_Writer.Writer, _level:stdgo.GoIn
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        _zw._d._fillWindow(_dict);
-        _zw._dict = (_zw._dict.__append__(...(_dict : Array<stdgo.GoUInt8>)));
+        @:check2 (@:checkr _zw ?? throw "null pointer dereference")._d._fillWindow(_dict);
+        (@:checkr _zw ?? throw "null pointer dereference")._dict = ((@:checkr _zw ?? throw "null pointer dereference")._dict.__append__(...(_dict : Array<stdgo.GoUInt8>)));
         return { _0 : _zw, _1 : _err };
     }

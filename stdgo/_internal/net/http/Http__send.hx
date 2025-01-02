@@ -3,7 +3,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _didTimeout = null, _err = (null : stdgo.Error);
         var _req = _ireq;
         if (_rt == null) {
-            _req._closeBody();
+            @:check2r _req._closeBody();
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: no Client.Transport or DefaultTransport" : stdgo.GoString)) };
                 _resp = __tmp__._0;
@@ -12,8 +12,8 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                 __tmp__;
             };
         };
-        if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
-            _req._closeBody();
+        if (((@:checkr _req ?? throw "null pointer dereference").uRL == null || ((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) {
+            @:check2r _req._closeBody();
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) };
                 _resp = __tmp__._0;
@@ -22,8 +22,8 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                 __tmp__;
             };
         };
-        if (_req.requestURI != (stdgo.Go.str())) {
-            _req._closeBody();
+        if ((@:checkr _req ?? throw "null pointer dereference").requestURI != (stdgo.Go.str())) {
+            @:check2r _req._closeBody();
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: Request.RequestURI can\'t be set in client requests" : stdgo.GoString)) };
                 _resp = __tmp__._0;
@@ -39,7 +39,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                     var __tmp__ = (_ireq : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
                     var x = (_req : stdgo._internal.net.http.Http_Request.Request);
                     x.method = __tmp__.method;
-                    x.url = __tmp__.url;
+                    x.uRL = __tmp__.uRL;
                     x.proto = __tmp__.proto;
                     x.protoMajor = __tmp__.protoMajor;
                     x.protoMinor = __tmp__.protoMinor;
@@ -56,16 +56,16 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                     x.trailer = __tmp__.trailer;
                     x.remoteAddr = __tmp__.remoteAddr;
                     x.requestURI = __tmp__.requestURI;
-                    x.tls = __tmp__.tls;
+                    x.tLS = __tmp__.tLS;
                     x.cancel = __tmp__.cancel;
                     x.response = __tmp__.response;
                     x._ctx = __tmp__._ctx;
                 };
             };
         } : () -> Void);
-        if (_req.header == null) {
+        if ((@:checkr _req ?? throw "null pointer dereference").header == null) {
             _forkReq();
-            _req.header = (({
+            (@:checkr _req ?? throw "null pointer dereference").header = (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
                 x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
                 {};
@@ -73,13 +73,13 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
         };
         {
-            var _u = _req.url.user;
-            if (((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && (_req.header.get(("Authorization" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
-                var _username = (_u.username()?.__copy__() : stdgo.GoString);
-                var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __132:Bool = __tmp__._1;
+            var _u = (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").user;
+            if (((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && ((@:checkr _req ?? throw "null pointer dereference").header.get(("Authorization" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
+                var _username = (@:check2r _u.username()?.__copy__() : stdgo.GoString);
+                var __tmp__ = @:check2r _u.password(), _password:stdgo.GoString = __tmp__._0, __137:Bool = __tmp__._1;
                 _forkReq();
-                _req.header = stdgo._internal.net.http.Http__cloneOrMakeHeader._cloneOrMakeHeader(_ireq.header);
-                _req.header.set(("Authorization" : stdgo.GoString), (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());
+                (@:checkr _req ?? throw "null pointer dereference").header = stdgo._internal.net.http.Http__cloneOrMakeHeader._cloneOrMakeHeader((@:checkr _ireq ?? throw "null pointer dereference").header);
+                (@:checkr _req ?? throw "null pointer dereference").header.set(("Authorization" : stdgo.GoString), (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());
             };
         };
         if (!_deadline.isZero()) {
@@ -125,20 +125,20 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                 __tmp__;
             };
         };
-        if (_resp.body == null) {
-            if (((_resp.contentLength > (0i64 : stdgo.GoInt64) : Bool) && (_req.method != ("HEAD" : stdgo.GoString)) : Bool)) {
+        if ((@:checkr _resp ?? throw "null pointer dereference").body == null) {
+            if ((((@:checkr _resp ?? throw "null pointer dereference").contentLength > (0i64 : stdgo.GoInt64) : Bool) && ((@:checkr _req ?? throw "null pointer dereference").method != ("HEAD" : stdgo.GoString)) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : null, _1 : _didTimeout, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a *Response with content length %d but a nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_resp.contentLength)) };
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : null, _1 : _didTimeout, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a *Response with content length %d but a nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rt), stdgo.Go.toInterface((@:checkr _resp ?? throw "null pointer dereference").contentLength)) };
                     _resp = __tmp__._0;
                     _didTimeout = __tmp__._1;
                     _err = __tmp__._2;
                     __tmp__;
                 };
             };
-            _resp.body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(stdgo.Go.str()?.__copy__())));
+            (@:checkr _resp ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(stdgo.Go.str()?.__copy__())));
         };
         if (!_deadline.isZero()) {
-            _resp.body = stdgo.Go.asInterface((stdgo.Go.setRef(({ _stop : _stopTimer, _rc : _resp.body, _reqDidTimeout : _didTimeout } : stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody)) : stdgo.Ref<stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody>));
+            (@:checkr _resp ?? throw "null pointer dereference").body = stdgo.Go.asInterface((stdgo.Go.setRef(({ _stop : _stopTimer, _rc : (@:checkr _resp ?? throw "null pointer dereference").body, _reqDidTimeout : _didTimeout } : stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody)) : stdgo.Ref<stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody>));
         };
         return {
             final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : () -> Bool; var _2 : stdgo.Error; } = { _0 : _resp, _1 : null, _2 : (null : stdgo.Error) };

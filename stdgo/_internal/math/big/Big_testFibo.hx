@@ -4,7 +4,7 @@ function testFibo(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _n = (_i * (10 : stdgo.GoInt) : stdgo.GoInt);
             var _got = ((stdgo._internal.math.big.Big__fibo._fibo(_n)._utoa((10 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_got != (_want)) {
-                _t.errorf(("fibo(%d) failed: got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("fibo(%d) failed: got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

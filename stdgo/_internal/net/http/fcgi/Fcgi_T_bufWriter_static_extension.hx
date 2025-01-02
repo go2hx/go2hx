@@ -1,37 +1,49 @@
 package stdgo._internal.net.http.fcgi;
 @:keep @:allow(stdgo._internal.net.http.fcgi.Fcgi.T_bufWriter_asInterface) class T_bufWriter_static_extension {
     @:keep
+    @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter> = _w;
         {
-            var _err = (_w.writer.flush() : stdgo.Error);
+            var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference").writer.flush() : stdgo.Error);
             if (_err != null) {
-                _w._closer.close();
+                (@:checkr _w ?? throw "null pointer dereference")._closer.close();
                 return _err;
             };
         };
-        return _w._closer.close();
+        return (@:checkr _w ?? throw "null pointer dereference")._closer.close();
     }
     @:embedded
-    public static function writeString( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, __0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeString(__0);
+    @:embeddededffieldsffun
+    public static function writeString( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeString(_0);
     @:embedded
-    public static function writeRune( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _new:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeRune(_new);
+    @:embeddededffieldsffun
+    public static function writeRune( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeRune(_0);
     @:embedded
-    public static function writeByte( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _c:stdgo.GoUInt8):stdgo.Error return __self__.writeByte(_c);
+    @:embeddededffieldsffun
+    public static function writeByte( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo.GoUInt8):stdgo.Error return @:_5 __self__.writeByte(_0);
     @:embedded
-    public static function write( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(_data);
+    @:embeddededffieldsffun
+    public static function write( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.write(_0);
     @:embedded
-    public static function size( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return __self__.size();
+    @:embeddededffieldsffun
+    public static function size( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return @:_5 __self__.size();
     @:embedded
-    public static function reset( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _w:stdgo._internal.io.Io_Writer.Writer) __self__.reset(_w);
+    @:embeddededffieldsffun
+    public static function reset( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo._internal.io.Io_Writer.Writer):Void return @:_5 __self__.reset(_0);
     @:embedded
-    public static function readFrom( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.readFrom(_r);
+    @:embeddededffieldsffun
+    public static function readFrom( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_5 __self__.readFrom(_0);
     @:embedded
-    public static function flush( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.Error return __self__.flush();
+    @:embeddededffieldsffun
+    public static function flush( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.Error return @:_5 __self__.flush();
     @:embedded
-    public static function buffered( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return __self__.buffered();
+    @:embeddededffieldsffun
+    public static function buffered( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return @:_5 __self__.buffered();
     @:embedded
-    public static function availableBuffer( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.Slice<stdgo.GoUInt8> return __self__.availableBuffer();
+    @:embeddededffieldsffun
+    public static function availableBuffer( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__.availableBuffer();
     @:embedded
-    public static function available( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return __self__.available();
+    @:embeddededffieldsffun
+    public static function available( __self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):stdgo.GoInt return @:_5 __self__.available();
 }

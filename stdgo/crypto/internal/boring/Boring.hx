@@ -57,11 +57,13 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
 }
 typedef BigInt = stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt;
 typedef T_randReader = stdgo._internal.crypto.internal.boring.Boring_T_randReader.T_randReader;
+typedef PublicKeyECDHPointer = stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDHPointer.PublicKeyECDHPointer;
 class PublicKeyECDH_static_extension {
     static public function bytes(_:PublicKeyECDH):Array<std.UInt> {
         return [for (i in stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH_static_extension.PublicKeyECDH_static_extension.bytes(_)) i];
     }
 }
+typedef PrivateKeyECDHPointer = stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDHPointer.PrivateKeyECDHPointer;
 class PrivateKeyECDH_static_extension {
     static public function publicKey(_:PrivateKeyECDH):stdgo.Tuple<PublicKeyECDH, stdgo.Error> {
         return {
@@ -70,6 +72,7 @@ class PrivateKeyECDH_static_extension {
         };
     }
 }
+typedef T_randReaderPointer = stdgo._internal.crypto.internal.boring.Boring_T_randReaderPointer.T_randReaderPointer;
 class T_randReader_static_extension {
     static public function read(_:T_randReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -114,25 +117,25 @@ class Boring {
     static public function newSHA512():stdgo._internal.hash.Hash_Hash.Hash {
         return stdgo._internal.crypto.internal.boring.Boring_newSHA512.newSHA512();
     }
-    static public function sha1(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
+    static public function sHA1(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha1.sha1(_0)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sHA1.sHA1(_0)) i]);
     }
-    static public function sha224(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
+    static public function sHA224(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha224.sha224(_0)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sHA224.sHA224(_0)) i]);
     }
-    static public function sha256(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
+    static public function sHA256(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha256.sha256(_0)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sHA256.sHA256(_0)) i]);
     }
-    static public function sha384(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
+    static public function sHA384(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha384.sha384(_0)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sHA384.sHA384(_0)) i]);
     }
-    static public function sha512(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
+    static public function sHA512(_0:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha512.sha512(_0)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sHA512.sHA512(_0)) i]);
     }
     static public function newHMAC(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_Hash.Hash {
         final _h = _h;
@@ -268,9 +271,9 @@ class Boring {
         final _sig = ([for (i in _sig) i] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.internal.boring.Boring_verifyRSAPSS.verifyRSAPSS(_pub, _h, _hashed, _sig, _saltLen);
     }
-    static public function ecdh(_0:PrivateKeyECDH, _1:PublicKeyECDH):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function eCDH(_0:PrivateKeyECDH, _1:PublicKeyECDH):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.internal.boring.Boring_ecdh.ecdh(_0, _1);
+            final obj = stdgo._internal.crypto.internal.boring.Boring_eCDH.eCDH(_0, _1);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }

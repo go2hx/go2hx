@@ -6,28 +6,28 @@ function _mergeCharClass(_dst:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Reg
             while (__run__) {
                 __run__ = false;
                 {
-                    final __value__ = _dst.op;
+                    final __value__ = (@:checkr _dst ?? throw "null pointer dereference").op;
                     if (__value__ == ((6 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
                         break;
                     } else if (__value__ == ((5 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
                         if (stdgo._internal.regexp.syntax.Syntax__matchRune._matchRune(_src, (10 : stdgo.GoInt32))) {
-                            _dst.op = (6 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                            (@:checkr _dst ?? throw "null pointer dereference").op = (6 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
                         };
                         break;
                     } else if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                        if (_src.op == ((3 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                            _dst.rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral(_dst.rune, _src.rune[(0 : stdgo.GoInt)], _src.flags);
+                        if ((@:checkr _src ?? throw "null pointer dereference").op == ((3 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
+                            (@:checkr _dst ?? throw "null pointer dereference").rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral((@:checkr _dst ?? throw "null pointer dereference").rune, (@:checkr _src ?? throw "null pointer dereference").rune[(0 : stdgo.GoInt)], (@:checkr _src ?? throw "null pointer dereference").flags);
                         } else {
-                            _dst.rune = stdgo._internal.regexp.syntax.Syntax__appendClass._appendClass(_dst.rune, _src.rune);
+                            (@:checkr _dst ?? throw "null pointer dereference").rune = stdgo._internal.regexp.syntax.Syntax__appendClass._appendClass((@:checkr _dst ?? throw "null pointer dereference").rune, (@:checkr _src ?? throw "null pointer dereference").rune);
                         };
                         break;
                     } else if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                        if (((_src.rune[(0 : stdgo.GoInt)] == _dst.rune[(0 : stdgo.GoInt)]) && (_src.flags == _dst.flags) : Bool)) {
+                        if ((((@:checkr _src ?? throw "null pointer dereference").rune[(0 : stdgo.GoInt)] == (@:checkr _dst ?? throw "null pointer dereference").rune[(0 : stdgo.GoInt)]) && ((@:checkr _src ?? throw "null pointer dereference").flags == (@:checkr _dst ?? throw "null pointer dereference").flags) : Bool)) {
                             break;
                         };
-                        _dst.op = (4 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-                        _dst.rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral((_dst.rune.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>), _dst.rune[(0 : stdgo.GoInt)], _dst.flags);
-                        _dst.rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral(_dst.rune, _src.rune[(0 : stdgo.GoInt)], _src.flags);
+                        (@:checkr _dst ?? throw "null pointer dereference").op = (4 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                        (@:checkr _dst ?? throw "null pointer dereference").rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral(((@:checkr _dst ?? throw "null pointer dereference").rune.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>), (@:checkr _dst ?? throw "null pointer dereference").rune[(0 : stdgo.GoInt)], (@:checkr _dst ?? throw "null pointer dereference").flags);
+                        (@:checkr _dst ?? throw "null pointer dereference").rune = stdgo._internal.regexp.syntax.Syntax__appendLiteral._appendLiteral((@:checkr _dst ?? throw "null pointer dereference").rune, (@:checkr _src ?? throw "null pointer dereference").rune[(0 : stdgo.GoInt)], (@:checkr _src ?? throw "null pointer dereference").flags);
                         break;
                     };
                 };

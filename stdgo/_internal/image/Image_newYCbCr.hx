@@ -9,5 +9,5 @@ function newYCbCr(_r:stdgo._internal.image.Image_Rectangle.Rectangle, _subsample
         var _i1 = ((_w * _h : stdgo.GoInt) + (((1 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _i2 = ((_w * _h : stdgo.GoInt) + (((2 : stdgo.GoInt) * _cw : stdgo.GoInt) * _ch : stdgo.GoInt) : stdgo.GoInt);
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((_i2 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, ystride : _w, cstride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image_YCbCr.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>);
+        return (stdgo.Go.setRef(({ y : (_b.__slice__(0, _i0, _i0) : stdgo.Slice<stdgo.GoUInt8>), cb : (_b.__slice__(_i0, _i1, _i1) : stdgo.Slice<stdgo.GoUInt8>), cr : (_b.__slice__(_i1, _i2, _i2) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _subsampleRatio, yStride : _w, cStride : _cw, rect : _r?.__copy__() } : stdgo._internal.image.Image_YCbCr.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>);
     }

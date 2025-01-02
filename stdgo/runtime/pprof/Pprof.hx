@@ -420,24 +420,26 @@ _deck);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.runtime.pprof.Pprof_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.runtime.pprof.Pprof_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.runtime.pprof.Pprof_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1, __0:StdTypes.Int) {
-        stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension._unlockSlow(__self__, __0);
+    public static function _unlockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1, _0:StdTypes.Int):Void {
+        stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1) {
+    public static function _lockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1) {
+    public static function unlock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Bool {
         return stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1) {
+    public static function lock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.lock(__self__);
     }
 }
@@ -446,12 +448,14 @@ typedef T_labelMap = stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap;
 typedef T_stackProfile = stdgo._internal.runtime.pprof.Pprof_T_stackProfile.T_stackProfile;
 typedef T_symbolizeFlag = stdgo._internal.runtime.pprof.Pprof_T_symbolizeFlag.T_symbolizeFlag;
 typedef T_msgOffset = stdgo._internal.runtime.pprof.Pprof_T_msgOffset.T_msgOffset;
+typedef T_profMapPointer = stdgo._internal.runtime.pprof.Pprof_T_profMapPointer.T_profMapPointer;
 class T_profMap_static_extension {
     static public function _lookup(_m:T_profMap, _stk:Array<haxe.UInt64>, _tag:stdgo._internal.unsafe.Unsafe.UnsafePointer):T_profMapEntry {
         final _stk = ([for (i in _stk) i] : stdgo.Slice<stdgo.GoUInt64>);
         return stdgo._internal.runtime.pprof.Pprof_T_profMap_static_extension.T_profMap_static_extension._lookup(_m, _stk, _tag);
     }
 }
+typedef ProfilePointer = stdgo._internal.runtime.pprof.Pprof_ProfilePointer.ProfilePointer;
 class Profile_static_extension {
     static public function writeTo(_p:Profile, _w:stdgo._internal.io.Io_Writer.Writer, _debug:StdTypes.Int):stdgo.Error {
         return stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.writeTo(_p, _w, _debug);
@@ -469,6 +473,7 @@ class Profile_static_extension {
         return stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.name(_p);
     }
 }
+typedef T_keysByCountPointer = stdgo._internal.runtime.pprof.Pprof_T_keysByCountPointer.T_keysByCountPointer;
 class T_keysByCount_static_extension {
     static public function less(_x:T_keysByCount, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         return stdgo._internal.runtime.pprof.Pprof_T_keysByCount_static_extension.T_keysByCount_static_extension.less(_x, _i, _j);
@@ -480,6 +485,7 @@ class T_keysByCount_static_extension {
         return stdgo._internal.runtime.pprof.Pprof_T_keysByCount_static_extension.T_keysByCount_static_extension.len(_x);
     }
 }
+typedef T_runtimeProfilePointer = stdgo._internal.runtime.pprof.Pprof_T_runtimeProfilePointer.T_runtimeProfilePointer;
 class T_runtimeProfile_static_extension {
     static public function label(_p:T_runtimeProfile, _i:StdTypes.Int):T_labelMap {
         return stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile_static_extension.T_runtimeProfile_static_extension.label(_p, _i);
@@ -491,6 +497,7 @@ class T_runtimeProfile_static_extension {
         return stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile_static_extension.T_runtimeProfile_static_extension.len(_p);
     }
 }
+typedef T_profileBuilderPointer = stdgo._internal.runtime.pprof.Pprof_T_profileBuilderPointer.T_profileBuilderPointer;
 class T_profileBuilder_static_extension {
     static public function _readMapping(_b:T_profileBuilder):Void {
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._readMapping(_b);
@@ -571,6 +578,7 @@ class T_profileBuilder_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_pcDeckPointer = stdgo._internal.runtime.pprof.Pprof_T_pcDeckPointer.T_pcDeckPointer;
 class T_pcDeck_static_extension {
     static public function _tryAdd(_d:T_pcDeck, _pc:stdgo.GoUIntptr, _frames:Array<stdgo._internal.runtime.Runtime_Frame.Frame>, _symbolizeResult:T_symbolizeFlag):Bool {
         final _frames = ([for (i in _frames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>);
@@ -580,6 +588,7 @@ class T_pcDeck_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_pcDeck_static_extension.T_pcDeck_static_extension._reset(_d);
     }
 }
+typedef T_protobufPointer = stdgo._internal.runtime.pprof.Pprof_T_protobufPointer.T_protobufPointer;
 class T_protobuf_static_extension {
     static public function _endMessage(_b:T_protobuf, _tag:StdTypes.Int, _start:T_msgOffset):Void {
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._endMessage(_b, _tag, _start);
@@ -630,11 +639,13 @@ class T_protobuf_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._varint(_b, _x);
     }
 }
+typedef T_labelMapPointer = stdgo._internal.runtime.pprof.Pprof_T_labelMapPointer.T_labelMapPointer;
 class T_labelMap_static_extension {
     static public function string(_l:T_labelMap):String {
         return stdgo._internal.runtime.pprof.Pprof_T_labelMap_static_extension.T_labelMap_static_extension.string(_l);
     }
 }
+typedef T_stackProfilePointer = stdgo._internal.runtime.pprof.Pprof_T_stackProfilePointer.T_stackProfilePointer;
 class T_stackProfile_static_extension {
     static public function label(_x:T_stackProfile, _i:StdTypes.Int):T_labelMap {
         return stdgo._internal.runtime.pprof.Pprof_T_stackProfile_static_extension.T_stackProfile_static_extension.label(_x, _i);
@@ -648,169 +659,169 @@ class T_stackProfile_static_extension {
 }
 /**
     /|*{
-    	h_3891226 = uintptr(0)
+    	h_3864564 = uintptr(0)
     	if 0 < len(stk) {
-    		gotoNext = 3891339
-    		_ = gotoNext == 3891339
-    		i_3891255_0, x_3891250 = 0, stk[0]
-    		gotoNext = 3891340
-    		_ = gotoNext == 3891340
-    		if i_3891255_0 < len(stk) {
-    			gotoNext = 3891265
-    			_ = gotoNext == 3891265
-    			x_3891250 = stk[i_3891255_0]
-    			h_3891226 = h_3891226<<8 | (h_3891226 >> 24)
-    			h_3891226 += uintptr(x_3891250) * 41
-    			i_3891255_0++
-    			gotoNext = 3891340
+    		gotoNext = 3864677
+    		_ = gotoNext == 3864677
+    		i_3864593_0, x_3864588 = 0, stk[0]
+    		gotoNext = 3864678
+    		_ = gotoNext == 3864678
+    		if i_3864593_0 < len(stk) {
+    			gotoNext = 3864603
+    			_ = gotoNext == 3864603
+    			x_3864588 = stk[i_3864593_0]
+    			h_3864564 = h_3864564<<8 | (h_3864564 >> 24)
+    			h_3864564 += uintptr(x_3864588) * 41
+    			i_3864593_0++
+    			gotoNext = 3864678
     		} else {
-    			gotoNext = 3891343
+    			gotoNext = 3864681
     		}
-    		gotoNext = 3891343
+    		gotoNext = 3864681
     	} else {
-    		gotoNext = 3891343
+    		gotoNext = 3864681
     	}
-    	_ = gotoNext == 3891343
-    	h_3891226 = h_3891226<<8 | (h_3891226 >> 24)
-    	h_3891226 += uintptr(tag) * 41
-    	gotoNext = 3891466
-    	_ = gotoNext == 3891466
-    	e_3891479 = m.hash[h_3891226]
+    	_ = gotoNext == 3864681
+    	h_3864564 = h_3864564<<8 | (h_3864564 >> 24)
+    	h_3864564 += uintptr(tag) * 41
+    	gotoNext = 3864804
+    	_ = gotoNext == 3864804
+    	e_3864817 = m.hash[h_3864564]
     	SearchBreak = false
-    	gotoNext = 3891475
-    	_ = gotoNext == 3891475
-    	if !SearchBreak && (e_3891479 != nil) {
-    		gotoNext = 3891529
-    		_ = gotoNext == 3891529
-    		if len(e_3891479.stk) != len(stk) || e_3891479.tag != tag {
-    			gotoNext = 3891575
-    			_ = gotoNext == 3891575
-    			last_3891447, e_3891479 = e_3891479, e_3891479.nextHash
-    			gotoNext = 3891475
-    			gotoNext = 3891595
+    	gotoNext = 3864813
+    	_ = gotoNext == 3864813
+    	if !SearchBreak && (e_3864817 != nil) {
+    		gotoNext = 3864867
+    		_ = gotoNext == 3864867
+    		if len(e_3864817.stk) != len(stk) || e_3864817.tag != tag {
+    			gotoNext = 3864913
+    			_ = gotoNext == 3864913
+    			last_3864785, e_3864817 = e_3864817, e_3864817.nextHash
+    			gotoNext = 3864813
+    			gotoNext = 3864933
     		} else {
-    			gotoNext = 3891595
+    			gotoNext = 3864933
     		}
-    		_ = gotoNext == 3891595
+    		_ = gotoNext == 3864933
     		if 0 < len(stk) {
-    			gotoNext = 3891678
-    			_ = gotoNext == 3891678
-    			j_3891599 = 0
-    			gotoNext = 3891679
-    			_ = gotoNext == 3891679
-    			if j_3891599 < len(stk) {
-    				gotoNext = 3891614
-    				_ = gotoNext == 3891614
-    				if e_3891479.stk[j_3891599] != uintptr(stk[j_3891599]) {
-    					gotoNext = 3891650
-    					_ = gotoNext == 3891650
-    					last_3891447, e_3891479 = e_3891479, e_3891479.nextHash
-    					gotoNext = 3891475
-    					gotoNext = 3891599
+    			gotoNext = 3865016
+    			_ = gotoNext == 3865016
+    			j_3864937 = 0
+    			gotoNext = 3865017
+    			_ = gotoNext == 3865017
+    			if j_3864937 < len(stk) {
+    				gotoNext = 3864952
+    				_ = gotoNext == 3864952
+    				if e_3864817.stk[j_3864937] != uintptr(stk[j_3864937]) {
+    					gotoNext = 3864988
+    					_ = gotoNext == 3864988
+    					last_3864785, e_3864817 = e_3864817, e_3864817.nextHash
+    					gotoNext = 3864813
+    					gotoNext = 3864937
     				} else {
-    					gotoNext = 3891599
+    					gotoNext = 3864937
     				}
-    				_ = gotoNext == 3891599
-    				j_3891599++
-    				gotoNext = 3891679
+    				_ = gotoNext == 3864937
+    				j_3864937++
+    				gotoNext = 3865017
     			} else {
-    				gotoNext = 3891703
+    				gotoNext = 3865041
     			}
-    			gotoNext = 3891703
+    			gotoNext = 3865041
     		} else {
-    			gotoNext = 3891703
+    			gotoNext = 3865041
     		}
-    		_ = gotoNext == 3891703
-    		if last_3891447 != nil {
-    			gotoNext = 3891718
-    			_ = gotoNext == 3891718
-    			last_3891447.nextHash = e_3891479.nextHash
-    			e_3891479.nextHash = m.hash[h_3891226]
-    			m.hash[h_3891226] = e_3891479
-    			gotoNext = 3891799
+    		_ = gotoNext == 3865041
+    		if last_3864785 != nil {
+    			gotoNext = 3865056
+    			_ = gotoNext == 3865056
+    			last_3864785.nextHash = e_3864817.nextHash
+    			e_3864817.nextHash = m.hash[h_3864564]
+    			m.hash[h_3864564] = e_3864817
+    			gotoNext = 3865137
     		} else {
-    			gotoNext = 3891799
+    			gotoNext = 3865137
     		}
-    		_ = gotoNext == 3891799
-    		return e_3891479
-    		last_3891447, e_3891479 = e_3891479, e_3891479.nextHash
-    		gotoNext = 3891475
+    		_ = gotoNext == 3865137
+    		return e_3864817
+    		last_3864785, e_3864817 = e_3864817, e_3864817.nextHash
+    		gotoNext = 3864813
     	} else {
-    		gotoNext = 3891832
+    		gotoNext = 3865170
     	}
-    	_ = gotoNext == 3891832
+    	_ = gotoNext == 3865170
     	if len(m.free) < 1 {
-    		gotoNext = 3891851
-    		_ = gotoNext == 3891851
+    		gotoNext = 3865189
+    		_ = gotoNext == 3865189
     		m.free = make([]profMapEntry, 128)
-    		gotoNext = 3891894
+    		gotoNext = 3865232
     	} else {
-    		gotoNext = 3891894
+    		gotoNext = 3865232
     	}
-    	_ = gotoNext == 3891894
-    	e_3891894 = &m.free[0]
+    	_ = gotoNext == 3865232
+    	e_3865232 = &m.free[0]
     	m.free = m.free[1:]
-    	e_3891894.nextHash = m.hash[h_3891226]
-    	e_3891894.tag = tag
+    	e_3865232.nextHash = m.hash[h_3864564]
+    	e_3865232.tag = tag
     	if len(m.freeStk) < len(stk) {
-    		gotoNext = 3891999
-    		_ = gotoNext == 3891999
+    		gotoNext = 3865337
+    		_ = gotoNext == 3865337
     		m.freeStk = make([]uintptr, 1024)
-    		gotoNext = 3892098
+    		gotoNext = 3865436
     	} else {
-    		gotoNext = 3892098
+    		gotoNext = 3865436
     	}
-    	_ = gotoNext == 3892098
-    	e_3891894.stk = m.freeStk[:len(stk):len(stk)]
+    	_ = gotoNext == 3865436
+    	e_3865232.stk = m.freeStk[:len(stk):len(stk)]
     	m.freeStk = m.freeStk[len(stk):]
     	if 0 < len(stk) {
-    		gotoNext = 3892222
-    		_ = gotoNext == 3892222
-    		j_3892176 = 0
-    		gotoNext = 3892223
-    		_ = gotoNext == 3892223
-    		if j_3892176 < len(stk) {
-    			gotoNext = 3892191
-    			_ = gotoNext == 3892191
-    			e_3891894.stk[j_3892176] = uintptr(stk[j_3892176])
-    			j_3892176++
-    			gotoNext = 3892223
+    		gotoNext = 3865560
+    		_ = gotoNext == 3865560
+    		j_3865514 = 0
+    		gotoNext = 3865561
+    		_ = gotoNext == 3865561
+    		if j_3865514 < len(stk) {
+    			gotoNext = 3865529
+    			_ = gotoNext == 3865529
+    			e_3865232.stk[j_3865514] = uintptr(stk[j_3865514])
+    			j_3865514++
+    			gotoNext = 3865561
     		} else {
-    			gotoNext = 3892226
+    			gotoNext = 3865564
     		}
-    		gotoNext = 3892226
+    		gotoNext = 3865564
     	} else {
-    		gotoNext = 3892226
+    		gotoNext = 3865564
     	}
-    	_ = gotoNext == 3892226
+    	_ = gotoNext == 3865564
     	if m.hash == nil {
-    		gotoNext = 3892243
-    		_ = gotoNext == 3892243
+    		gotoNext = 3865581
+    		_ = gotoNext == 3865581
     		m.hash = make(map[uintptr]*profMapEntry)
-    		gotoNext = 3892292
+    		gotoNext = 3865630
     	} else {
-    		gotoNext = 3892292
+    		gotoNext = 3865630
     	}
-    	_ = gotoNext == 3892292
-    	m.hash[h_3891226] = e_3891894
+    	_ = gotoNext == 3865630
+    	m.hash[h_3864564] = e_3865232
     	if m.all == nil {
-    		gotoNext = 3892323
-    		_ = gotoNext == 3892323
-    		m.all = e_3891894
-    		m.last = e_3891894
-    		gotoNext = 3892398
+    		gotoNext = 3865661
+    		_ = gotoNext == 3865661
+    		m.all = e_3865232
+    		m.last = e_3865232
+    		gotoNext = 3865736
     	} else {
-    		gotoNext = 3892358
-    		_ = gotoNext == 3892358
-    		gotoNext = 3892358
-    		_ = gotoNext == 3892358
-    		m.last.nextAll = e_3891894
-    		m.last = e_3891894
+    		gotoNext = 3865696
+    		_ = gotoNext == 3865696
+    		gotoNext = 3865696
+    		_ = gotoNext == 3865696
+    		m.last.nextAll = e_3865232
+    		m.last = e_3865232
     		_ = 0
-    		gotoNext = 3892398
+    		gotoNext = 3865736
     	}
-    	_ = gotoNext == 3892398
-    	return e_3891894
+    	_ = gotoNext == 3865736
+    	return e_3865232
     	gotoNext = -1
     }*|/
 **/

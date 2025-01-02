@@ -1,35 +1,41 @@
 package stdgo._internal.text.template.parse;
 @:keep @:allow(stdgo._internal.text.template.parse.Parse.TemplateNode_asInterface) class TemplateNode_static_extension {
     @:keep
+    @:tdfield
     static public function copy( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):stdgo._internal.text.template.parse.Parse_Node.Node {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> = _t;
-        return stdgo.Go.asInterface(_t._tr._newTemplate(_t.pos, _t.line, _t.name?.__copy__(), _t.pipe.copyPipe()));
+        return stdgo.Go.asInterface(@:check2r (@:checkr _t ?? throw "null pointer dereference")._tr._newTemplate((@:checkr _t ?? throw "null pointer dereference").pos, (@:checkr _t ?? throw "null pointer dereference").line, (@:checkr _t ?? throw "null pointer dereference").name?.__copy__(), @:check2r (@:checkr _t ?? throw "null pointer dereference").pipe.copyPipe()));
     }
     @:keep
+    @:tdfield
     static public function _tree( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> = _t;
-        return _t._tr;
+        return (@:checkr _t ?? throw "null pointer dereference")._tr;
     }
     @:keep
+    @:tdfield
     static public function _writeTo( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> = _t;
-        _sb.writeString(("{{template " : stdgo.GoString));
-        _sb.writeString(stdgo._internal.strconv.Strconv_quote.quote(_t.name?.__copy__())?.__copy__());
-        if ((_t.pipe != null && ((_t.pipe : Dynamic).__nil__ == null || !(_t.pipe : Dynamic).__nil__))) {
-            _sb.writeByte((32 : stdgo.GoUInt8));
-            _t.pipe._writeTo(_sb);
+        @:check2r _sb.writeString(("{{template " : stdgo.GoString));
+        @:check2r _sb.writeString(stdgo._internal.strconv.Strconv_quote.quote((@:checkr _t ?? throw "null pointer dereference").name?.__copy__())?.__copy__());
+        if (((@:checkr _t ?? throw "null pointer dereference").pipe != null && (((@:checkr _t ?? throw "null pointer dereference").pipe : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference").pipe : Dynamic).__nil__))) {
+            @:check2r _sb.writeByte((32 : stdgo.GoUInt8));
+            @:check2r (@:checkr _t ?? throw "null pointer dereference").pipe._writeTo(_sb);
         };
-        _sb.writeString(("}}" : stdgo.GoString));
+        @:check2r _sb.writeString(("}}" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> = _t;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _t._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
-        return (_sb.string() : stdgo.GoString)?.__copy__();
+        @:check2r _t._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
+        return (@:check2 _sb.string() : stdgo.GoString)?.__copy__();
     }
     @:embedded
-    public static function type( __self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):stdgo._internal.text.template.parse.Parse_NodeType.NodeType return __self__.type();
+    @:embeddededffieldsffun
+    public static function type( __self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:_5 __self__.type();
     @:embedded
-    public static function position( __self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):stdgo._internal.text.template.parse.Parse_Pos.Pos return __self__.position();
+    @:embeddededffieldsffun
+    public static function position( __self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):stdgo._internal.text.template.parse.Parse_Pos.Pos return @:_5 __self__.position();
 }

@@ -10,18 +10,30 @@ package stdgo._internal.context;
         if (_f != null) this._f = _f;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
-    public function deadline():{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return this._cancelCtx.deadline();
+    @:embeddededffieldsffun
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").deadline;
+    public var done(get, never) : () -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>;
     @:embedded
-    public function done():stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return this._cancelCtx.done();
+    @:embeddededffieldsffun
+    public function get_done():() -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").done;
+    public var err(get, never) : () -> stdgo.Error;
     @:embedded
-    public function err():stdgo.Error return this._cancelCtx.err();
+    @:embeddededffieldsffun
+    public function get_err():() -> stdgo.Error return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").err;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this._cancelCtx.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").string;
+    public var value(get, never) : stdgo.AnyInterface -> stdgo.AnyInterface;
     @:embedded
-    public function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return this._cancelCtx.value(_key);
+    @:embeddededffieldsffun
+    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").value;
+    public var _propagateCancel(get, never) : (stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_T_canceler.T_canceler) -> Void;
     @:embedded
-    public function _propagateCancel(_parent:stdgo._internal.context.Context_Context.Context, _child:stdgo._internal.context.Context_T_canceler.T_canceler) this._cancelCtx._propagateCancel(_parent, _child);
+    @:embeddededffieldsffun
+    public function get__propagateCancel():(stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_T_canceler.T_canceler) -> Void return @:check3 (this._cancelCtx ?? throw "null pointer derefrence")._propagateCancel;
     public function __copy__() {
         return new T_afterFuncCtx(_cancelCtx, _once, _f);
     }

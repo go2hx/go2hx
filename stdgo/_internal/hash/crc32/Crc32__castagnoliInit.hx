@@ -10,5 +10,5 @@ function _castagnoliInit():Void {
                 return stdgo._internal.hash.crc32.Crc32__slicingUpdate._slicingUpdate(_crc, stdgo._internal.hash.crc32.Crc32__castagnoliTable8._castagnoliTable8, _p);
             };
         };
-        stdgo._internal.hash.crc32.Crc32__haveCastagnoli._haveCastagnoli.store(true);
+        @:check2 stdgo._internal.hash.crc32.Crc32__haveCastagnoli._haveCastagnoli.store(true);
     }

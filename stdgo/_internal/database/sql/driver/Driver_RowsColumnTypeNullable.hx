@@ -6,5 +6,6 @@ typedef RowsColumnTypeNullable = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columnTypeNullable(_index:stdgo.GoInt):{ var _0 : Bool; var _1 : Bool; };
 };

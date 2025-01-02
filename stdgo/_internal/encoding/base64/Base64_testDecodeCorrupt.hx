@@ -26,11 +26,11 @@ function testDecodeCorrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
 ({ _input : ("A!\n" : stdgo.GoString), _offset : (1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),
 ({ _input : ("A=\n" : stdgo.GoString), _offset : (1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0)].concat([for (i in 24 ... (24 > 24 ? 24 : 24 : stdgo.GoInt).toBasic()) ({ _input : ("" : stdgo.GoString), _offset : (0 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0>);
         for (__0 => _tc in _testCases) {
-            var _dbuf = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_tc._input.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var __tmp__ = stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode(_dbuf, (_tc._input : stdgo.Slice<stdgo.GoUInt8>)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var _dbuf = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_tc._input.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+            var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode(_dbuf, (_tc._input : stdgo.Slice<stdgo.GoUInt8>)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_tc._offset == ((-1 : stdgo.GoInt))) {
                 if (_err != null) {
-                    _t.error(stdgo.Go.toInterface(("Decoder wrongly detected corruption in" : stdgo.GoString)), stdgo.Go.toInterface(_tc._input));
+                    @:check2r _t.error(stdgo.Go.toInterface(("Decoder wrongly detected corruption in" : stdgo.GoString)), stdgo.Go.toInterface(_tc._input));
                 };
                 continue;
             };
@@ -41,7 +41,7 @@ function testDecodeCorrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                     stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Corruption in %q at offset %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._input), stdgo.Go.toInterface((_err : stdgo.GoInt)), stdgo.Go.toInterface(_tc._offset));
                 } else {
                     var _err:stdgo.Error = __type__ == null ? (null : stdgo.Error) : cast __type__;
-                    _t.error(stdgo.Go.toInterface(("Decoder failed to detect corruption in" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tc)));
+                    @:check2r _t.error(stdgo.Go.toInterface(("Decoder failed to detect corruption in" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tc)));
                 };
             };
         };

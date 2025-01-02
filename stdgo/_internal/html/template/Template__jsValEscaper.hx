@@ -37,7 +37,7 @@ function _jsValEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         var _pad = (stdgo._internal.html.template.Template__isJSIdentPart._isJSIdentPart(_first) || stdgo._internal.html.template.Template__isJSIdentPart._isJSIdentPart(_last) : Bool);
         if (_pad) {
-            _buf.writeByte((32 : stdgo.GoUInt8));
+            @:check2 _buf.writeByte((32 : stdgo.GoUInt8));
         };
         var _written = (0 : stdgo.GoInt);
         {
@@ -51,19 +51,19 @@ function _jsValEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
                     _repl = ("\\u2029" : stdgo.GoString);
                 };
                 if (_repl != (stdgo.Go.str())) {
-                    _buf.write((_b.__slice__(_written, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                    _buf.writeString(_repl?.__copy__());
+                    @:check2 _buf.write((_b.__slice__(_written, _i) : stdgo.Slice<stdgo.GoUInt8>));
+                    @:check2 _buf.writeString(_repl?.__copy__());
                     _written = (_i + _n : stdgo.GoInt);
                 };
                 _i = (_i + (_n) : stdgo.GoInt);
             };
         };
-        if (_buf.len() != ((0 : stdgo.GoInt))) {
-            _buf.write((_b.__slice__(_written) : stdgo.Slice<stdgo.GoUInt8>));
+        if (@:check2 _buf.len() != ((0 : stdgo.GoInt))) {
+            @:check2 _buf.write((_b.__slice__(_written) : stdgo.Slice<stdgo.GoUInt8>));
             if (_pad) {
-                _buf.writeByte((32 : stdgo.GoUInt8));
+                @:check2 _buf.writeByte((32 : stdgo.GoUInt8));
             };
-            return (_buf.string() : stdgo.GoString)?.__copy__();
+            return (@:check2 _buf.string() : stdgo.GoString)?.__copy__();
         };
         return (_b : stdgo.GoString)?.__copy__();
     }

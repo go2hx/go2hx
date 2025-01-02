@@ -12,7 +12,7 @@ function _loadSystemRoots():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X50
         for (__1 => _file in _files) {
             var __tmp__ = stdgo._internal.os.Os_readFile.readFile(_file?.__copy__()), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
-                _roots.appendCertsFromPEM(_data);
+                @:check2r _roots.appendCertsFromPEM(_data);
                 break;
             };
             if (((_firstErr == null) && !stdgo._internal.os.Os_isNotExist.isNotExist(_err) : Bool)) {
@@ -37,11 +37,11 @@ function _loadSystemRoots():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X50
             for (__3 => _fi in _fis) {
                 var __tmp__ = stdgo._internal.os.Os_readFile.readFile(((_directory + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _fi.name()?.__copy__() : stdgo.GoString)?.__copy__()), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    _roots.appendCertsFromPEM(_data);
+                    @:check2r _roots.appendCertsFromPEM(_data);
                 };
             };
         };
-        if (((_roots._len() > (0 : stdgo.GoInt) : Bool) || (_firstErr == null) : Bool)) {
+        if (((@:check2r _roots._len() > (0 : stdgo.GoInt) : Bool) || (_firstErr == null) : Bool)) {
             return { _0 : _roots, _1 : (null : stdgo.Error) };
         };
         return { _0 : null, _1 : _firstErr };

@@ -14,7 +14,7 @@ function benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
 (10000000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         for (__8 => _i in _sizes) {
             var _j = ((2 : stdgo.GoInt) * _i : stdgo.GoInt);
-            _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/%d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
+            @:check2r _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/%d" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 stdgo._internal.math.big.Big__benchmarkDiv._benchmarkDiv(_b, _j, _i);
             });
         };

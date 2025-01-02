@@ -3,8 +3,8 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {
-                var _a0 = stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs((1 : stdgo.GoInt));
-                final __f__ = stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs;
+                var _a0 = stdgo._internal.runtime.Runtime_gOMAXPROCS.gOMAXPROCS((1 : stdgo.GoInt));
+                final __f__ = stdgo._internal.runtime.Runtime_gOMAXPROCS.gOMAXPROCS;
                 __deferstack__.unshift(() -> __f__(_a0));
             };
             var _x = (stdgo._internal.math.big.Big__rndNat._rndNat((50000 : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
@@ -16,11 +16,12 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             {
                 var _ratio = (_allocSize / (_inputSize : stdgo.GoUInt64) : stdgo.GoUInt64);
                 if ((_ratio > (10i64 : stdgo.GoUInt64) : Bool)) {
-                    _t.errorf(("multiplication uses too much memory (%d > %d times the size of inputs)" : stdgo.GoString), stdgo.Go.toInterface(_allocSize), stdgo.Go.toInterface(_ratio));
+                    @:check2r _t.errorf(("multiplication uses too much memory (%d > %d times the size of inputs)" : stdgo.GoString), stdgo.Go.toInterface(_allocSize), stdgo.Go.toInterface(_ratio));
                 };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -35,6 +36,7 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

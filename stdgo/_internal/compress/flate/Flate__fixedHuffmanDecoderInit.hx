@@ -1,6 +1,6 @@
 package stdgo._internal.compress.flate;
 function _fixedHuffmanDecoderInit():Void {
-        stdgo._internal.compress.flate.Flate__fixedOnce._fixedOnce.do_(function():Void {
+        @:check2 stdgo._internal.compress.flate.Flate__fixedOnce._fixedOnce.do_(function():Void {
             var _bits:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(288, 288, ...[for (i in 0 ... 288) (0 : stdgo.GoInt)]);
             {
                 var _i = (0 : stdgo.GoInt);
@@ -30,6 +30,6 @@ function _fixedHuffmanDecoderInit():Void {
                     _i++;
                 };
             };
-            stdgo._internal.compress.flate.Flate__fixedHuffmanDecoder._fixedHuffmanDecoder._init((_bits.__slice__(0) : stdgo.Slice<stdgo.GoInt>));
+            @:check2 stdgo._internal.compress.flate.Flate__fixedHuffmanDecoder._fixedHuffmanDecoder._init((_bits.__slice__(0) : stdgo.Slice<stdgo.GoInt>));
         });
     }

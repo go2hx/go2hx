@@ -12,8 +12,10 @@ package stdgo._internal.crypto.rsa;
         if (precomputed != null) this.precomputed = precomputed;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var size(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function size():stdgo.GoInt return this.publicKey.size();
+    @:embeddededffieldsffun
+    public function get_size():() -> stdgo.GoInt return @:check3 (this.publicKey ?? throw "null pointer derefrence").size;
     public function __copy__() {
         return new PrivateKey(publicKey, d, primes, precomputed);
     }

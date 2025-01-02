@@ -10,7 +10,7 @@ function multiWriter(_writers:haxe.Rest<stdgo._internal.io.Io_Writer.Writer>):st
                     { _0 : (null : stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter>), _1 : false };
                 }, _mw = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _allWriters = (_allWriters.__append__(...(_mw._writers : Array<stdgo._internal.io.Io_Writer.Writer>)));
+                    _allWriters = (_allWriters.__append__(...((@:checkr _mw ?? throw "null pointer dereference")._writers : Array<stdgo._internal.io.Io_Writer.Writer>)));
                 } else {
                     _allWriters = (_allWriters.__append__(_w));
                 };

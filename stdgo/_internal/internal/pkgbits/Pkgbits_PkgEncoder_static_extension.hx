@@ -1,35 +1,39 @@
 package stdgo._internal.internal.pkgbits;
 @:keep @:allow(stdgo._internal.internal.pkgbits.Pkgbits.PkgEncoder_asInterface) class PkgEncoder_static_extension {
     @:keep
+    @:tdfield
     static public function newEncoderRaw( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>, _k:stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind):stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
-        var _idx = (_pw._elems[(_k : stdgo.GoInt)].length : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index);
-        _pw._elems[(_k : stdgo.GoInt)] = (_pw._elems[(_k : stdgo.GoInt)].__append__(stdgo.Go.str()?.__copy__()));
+        var _idx = ((@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)].length : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index);
+        (@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)] = ((@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)].__append__(stdgo.Go.str()?.__copy__()));
         return ({ _p : _pw, _k : _k, idx : _idx } : stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder);
     }
     @:keep
+    @:tdfield
     static public function newEncoder( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>, _k:stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind, _marker:stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker):stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
-        var _e = (_pw.newEncoderRaw(_k)?.__copy__() : stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder);
-        _e.sync(_marker);
+        var _e = (@:check2r _pw.newEncoderRaw(_k)?.__copy__() : stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder);
+        @:check2 _e.sync(_marker);
         return _e?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function stringIdx( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>, _s:stdgo.GoString):stdgo._internal.internal.pkgbits.Pkgbits_Index.Index {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
         {
-            var __tmp__ = (_pw._stringsIdx != null && _pw._stringsIdx.exists(_s?.__copy__()) ? { _0 : _pw._stringsIdx[_s?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index), _1 : false }), _idx:stdgo._internal.internal.pkgbits.Pkgbits_Index.Index = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _pw ?? throw "null pointer dereference")._stringsIdx != null && (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx.exists(_s?.__copy__()) ? { _0 : (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx[_s?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index), _1 : false }), _idx:stdgo._internal.internal.pkgbits.Pkgbits_Index.Index = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_pw._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)][(_idx : stdgo.GoInt)] == (_s));
+                stdgo._internal.internal.pkgbits.Pkgbits__assert._assert((@:checkr _pw ?? throw "null pointer dereference")._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)][(_idx : stdgo.GoInt)] == (_s));
                 return _idx;
             };
         };
-        var _idx = (_pw._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)].length : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index);
-        _pw._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)] = (_pw._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)].__append__(_s?.__copy__()));
-        _pw._stringsIdx[_s] = _idx;
+        var _idx = ((@:checkr _pw ?? throw "null pointer dereference")._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)].length : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index);
+        (@:checkr _pw ?? throw "null pointer dereference")._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)] = ((@:checkr _pw ?? throw "null pointer dereference")._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind) : stdgo.GoInt)].__append__(_s?.__copy__()));
+        (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx[_s] = _idx;
         return _idx;
     }
     @:keep
+    @:tdfield
     static public function dumpTo( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>, _out0:stdgo._internal.io.Io_Writer.Writer):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
         var _fingerprint = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
@@ -40,23 +44,23 @@ package stdgo._internal.internal.pkgbits;
         } : stdgo.GoUInt32 -> Void);
         _writeUint32((1u32 : stdgo.GoUInt32));
         var _flags:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        if (_pw.syncMarkers()) {
+        if (@:check2r _pw.syncMarkers()) {
             _flags = (_flags | ((1u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
         };
         _writeUint32(_flags);
         var _sum:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        for (__2 => _elems in (stdgo.Go.setRef(_pw._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
+        for (__2 => _elems in (stdgo.Go.setRef((@:checkr _pw ?? throw "null pointer dereference")._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
             _sum = (_sum + ((_elems.length : stdgo.GoUInt32)) : stdgo.GoUInt32);
             _writeUint32(_sum);
         };
         _sum = (0u32 : stdgo.GoUInt32);
-        for (__3 => _elems in (stdgo.Go.setRef(_pw._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
+        for (__3 => _elems in (stdgo.Go.setRef((@:checkr _pw ?? throw "null pointer dereference")._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
             for (__4 => _elem in _elems) {
                 _sum = (_sum + ((_elem.length : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _writeUint32(_sum);
             };
         };
-        for (__4 => _elems in (stdgo.Go.setRef(_pw._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
+        for (__4 => _elems in (stdgo.Go.setRef((@:checkr _pw ?? throw "null pointer dereference")._elems) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoString>>>)) {
             for (__5 => _elem in _elems) {
                 var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_out, _elem?.__copy__()), __6:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_err == null);
@@ -68,8 +72,9 @@ package stdgo._internal.internal.pkgbits;
         return _fingerprint;
     }
     @:keep
+    @:tdfield
     static public function syncMarkers( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>):Bool {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
-        return (_pw._syncFrames >= (0 : stdgo.GoInt) : Bool);
+        return ((@:checkr _pw ?? throw "null pointer dereference")._syncFrames >= (0 : stdgo.GoInt) : Bool);
     }
 }

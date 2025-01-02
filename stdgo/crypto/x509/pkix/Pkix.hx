@@ -156,10 +156,10 @@ commonName,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.CertificateList_static_extension) abstract CertificateList(stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList to stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList {
-    public var tbscertList(get, set) : TBSCertificateList;
-    function get_tbscertList():TBSCertificateList return this.tbscertList;
-    function set_tbscertList(v:TBSCertificateList):TBSCertificateList {
-        this.tbscertList = v;
+    public var tBSCertList(get, set) : TBSCertificateList;
+    function get_tBSCertList():TBSCertificateList return this.tBSCertList;
+    function set_tBSCertList(v:TBSCertificateList):TBSCertificateList {
+        this.tBSCertList = v;
         return v;
     }
     public var signatureAlgorithm(get, set) : AlgorithmIdentifier;
@@ -174,7 +174,7 @@ commonName,
         this.signatureValue = v;
         return v;
     }
-    public function new(?tbscertList:TBSCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList(tbscertList, signatureAlgorithm, signatureValue);
+    public function new(?tBSCertList:TBSCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList(tBSCertList, signatureAlgorithm, signatureValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -256,6 +256,7 @@ commonName,
 }
 typedef RDNSequence = stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence;
 typedef RelativeDistinguishedNameSET = stdgo._internal.crypto.x509.pkix.Pkix_RelativeDistinguishedNameSET.RelativeDistinguishedNameSET;
+typedef NamePointer = stdgo._internal.crypto.x509.pkix.Pkix_NamePointer.NamePointer;
 class Name_static_extension {
     static public function string(_n:Name):String {
         return stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension.string(_n);
@@ -271,11 +272,13 @@ class Name_static_extension {
         stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension.fillFromRDNSequence(_n, _rdns);
     }
 }
+typedef CertificateListPointer = stdgo._internal.crypto.x509.pkix.Pkix_CertificateListPointer.CertificateListPointer;
 class CertificateList_static_extension {
     static public function hasExpired(_certList:CertificateList, _now:stdgo._internal.time.Time_Time.Time):Bool {
         return stdgo._internal.crypto.x509.pkix.Pkix_CertificateList_static_extension.CertificateList_static_extension.hasExpired(_certList, _now);
     }
 }
+typedef RDNSequencePointer = stdgo._internal.crypto.x509.pkix.Pkix_RDNSequencePointer.RDNSequencePointer;
 class RDNSequence_static_extension {
     static public function string(_r:RDNSequence):String {
         return stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence_static_extension.RDNSequence_static_extension.string(_r);

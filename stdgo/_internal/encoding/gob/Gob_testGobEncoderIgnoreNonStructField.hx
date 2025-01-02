@@ -17,17 +17,17 @@ function testGobEncoderIgnoreNonStructField(_t:stdgo.Ref<stdgo._internal.testing
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
         var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
-        var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3((17 : stdgo.GoInt), _gobber__pointer__, _bgobber__pointer__, _tgobber__pointer__) : stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3))) : stdgo.Error);
+        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3((17 : stdgo.GoInt), _gobber__pointer__, _bgobber__pointer__, _tgobber__pointer__) : stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3))) : stdgo.Error);
         if (_err != null) {
-            _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_GobTestIgnoreEncoder.GobTestIgnoreEncoder)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestIgnoreEncoder.GobTestIgnoreEncoder>);
-        _err = _dec.decode(stdgo.Go.toInterface(_x));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(_x));
         if (_err != null) {
-            _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        if (_x.x != ((17 : stdgo.GoInt))) {
-            _t.errorf(("expected 17 got %c" : stdgo.GoString), stdgo.Go.toInterface(_x.x));
+        if ((@:checkr _x ?? throw "null pointer dereference").x != ((17 : stdgo.GoInt))) {
+            @:check2r _t.errorf(("expected 17 got %c" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").x));
         };
     }

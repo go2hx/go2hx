@@ -13,8 +13,8 @@ package stdgo._internal.net.http;
     public var uncompressed : Bool = false;
     public var trailer : stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
     public var request : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
-    public var tls : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
-    public function new(?status:stdgo.GoString, ?statusCode:stdgo.GoInt, ?proto:stdgo.GoString, ?protoMajor:stdgo.GoInt, ?protoMinor:stdgo.GoInt, ?header:stdgo._internal.net.http.Http_Header.Header, ?body:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?contentLength:stdgo.GoInt64, ?transferEncoding:stdgo.Slice<stdgo.GoString>, ?close:Bool, ?uncompressed:Bool, ?trailer:stdgo._internal.net.http.Http_Header.Header, ?request:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, ?tls:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>) {
+    public var tLS : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+    public function new(?status:stdgo.GoString, ?statusCode:stdgo.GoInt, ?proto:stdgo.GoString, ?protoMajor:stdgo.GoInt, ?protoMinor:stdgo.GoInt, ?header:stdgo._internal.net.http.Http_Header.Header, ?body:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?contentLength:stdgo.GoInt64, ?transferEncoding:stdgo.Slice<stdgo.GoString>, ?close:Bool, ?uncompressed:Bool, ?trailer:stdgo._internal.net.http.Http_Header.Header, ?request:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, ?tLS:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>) {
         if (status != null) this.status = status;
         if (statusCode != null) this.statusCode = statusCode;
         if (proto != null) this.proto = proto;
@@ -28,7 +28,7 @@ package stdgo._internal.net.http;
         if (uncompressed != null) this.uncompressed = uncompressed;
         if (trailer != null) this.trailer = trailer;
         if (request != null) this.request = request;
-        if (tls != null) this.tls = tls;
+        if (tLS != null) this.tLS = tLS;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
@@ -46,6 +46,6 @@ close,
 uncompressed,
 trailer,
 request,
-tls);
+tLS);
     }
 }

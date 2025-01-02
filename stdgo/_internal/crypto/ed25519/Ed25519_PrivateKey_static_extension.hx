@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.ed25519;
 @:keep @:allow(stdgo._internal.crypto.ed25519.Ed25519.PrivateKey_asInterface) class PrivateKey_static_extension {
     @:keep
+    @:tdfield
     static public function sign( _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey, _rand:stdgo._internal.io.Io_Reader.Reader, _message:stdgo.Slice<stdgo.GoUInt8>, _opts:stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         var _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
@@ -13,7 +14,7 @@ package stdgo._internal.crypto.ed25519;
                 { _0 : (null : stdgo.Ref<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>), _1 : false };
             }, _opts = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                _context = _opts.context?.__copy__();
+                _context = (@:checkr _opts ?? throw "null pointer dereference").context?.__copy__();
             };
         };
         if (_hash == ((7u32 : stdgo._internal.crypto.Crypto_Hash.Hash))) {
@@ -84,11 +85,13 @@ package stdgo._internal.crypto.ed25519;
         };
     }
     @:keep
+    @:tdfield
     static public function seed( _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         return stdgo._internal.bytes.Bytes_clone.clone((_priv.__slice__(0, (32 : stdgo.GoInt)) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey));
     }
     @:keep
+    @:tdfield
     static public function equal( _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey, _x:stdgo._internal.crypto.Crypto_PrivateKey.PrivateKey):Bool {
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         var __tmp__ = try {
@@ -102,6 +105,7 @@ package stdgo._internal.crypto.ed25519;
         return stdgo._internal.crypto.subtle.Subtle_constantTimeCompare.constantTimeCompare(_priv, _xx) == ((1 : stdgo.GoInt));
     }
     @:keep
+    @:tdfield
     static public function public_( _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey):stdgo._internal.crypto.Crypto_PublicKey.PublicKey {
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         var _publicKey = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

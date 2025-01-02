@@ -6,78 +6,150 @@ package stdgo._internal.os;
         if (file != null) this.file = file;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var chdir(get, never) : () -> stdgo.Error;
     @:embedded
-    public function chdir():stdgo.Error return this.file.chdir();
+    @:embeddededffieldsffun
+    public function get_chdir():() -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").chdir;
+    public var chmod(get, never) : stdgo._internal.io.fs.Fs_FileMode.FileMode -> stdgo.Error;
     @:embedded
-    public function chmod(_mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error return this.file.chmod(_mode);
+    @:embeddededffieldsffun
+    public function get_chmod():stdgo._internal.io.fs.Fs_FileMode.FileMode -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").chmod;
+    public var chown(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo.Error;
     @:embedded
-    public function chown(_uid:stdgo.GoInt, _gid:stdgo.GoInt):stdgo.Error return this.file.chown(_uid, _gid);
+    @:embeddededffieldsffun
+    public function get_chown():(stdgo.GoInt, stdgo.GoInt) -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").chown;
+    public var close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function close():stdgo.Error return this.file.close();
+    @:embeddededffieldsffun
+    public function get_close():() -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").close;
+    public var fd(get, never) : () -> stdgo.GoUIntptr;
     @:embedded
-    public function fd():stdgo.GoUIntptr return this.file.fd();
+    @:embeddededffieldsffun
+    public function get_fd():() -> stdgo.GoUIntptr return @:check3 (this.file ?? throw "null pointer derefrence").fd;
+    public var name(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function name():stdgo.GoString return this.file.name();
+    @:embeddededffieldsffun
+    public function get_name():() -> stdgo.GoString return @:check3 (this.file ?? throw "null pointer derefrence").name;
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.read(_b);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").read;
+    public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function readAt(_b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.readAt(_b, _off);
+    @:embeddededffieldsffun
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").readAt;
+    public var readDir(get, never) : stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; };
     @:embedded
-    public function readDir(_n:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } return this.file.readDir(_n);
+    @:embeddededffieldsffun
+    public function get_readDir():stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").readDir;
+    public var readdir(get, never) : stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _1 : stdgo.Error; };
     @:embedded
-    public function readdir(_n:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _1 : stdgo.Error; } return this.file.readdir(_n);
+    @:embeddededffieldsffun
+    public function get_readdir():stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").readdir;
+    public var readdirnames(get, never) : stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; };
     @:embedded
-    public function readdirnames(_n:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return this.file.readdirnames(_n);
+    @:embeddededffieldsffun
+    public function get_readdirnames():stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").readdirnames;
+    public var seek(get, never) : (stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function seek(_offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.file.seek(_offset, _whence);
+    @:embeddededffieldsffun
+    public function get_seek():(stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").seek;
+    public var setDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file.setDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").setDeadline;
+    public var setReadDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setReadDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file.setReadDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").setReadDeadline;
+    public var setWriteDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setWriteDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file.setWriteDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").setWriteDeadline;
+    public var stat(get, never) : () -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
     @:embedded
-    public function stat():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return this.file.stat();
+    @:embeddededffieldsffun
+    public function get_stat():() -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").stat;
+    public var sync(get, never) : () -> stdgo.Error;
     @:embedded
-    public function sync():stdgo.Error return this.file.sync();
+    @:embeddededffieldsffun
+    public function get_sync():() -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").sync;
+    public var syscallConn(get, never) : () -> { var _0 : stdgo._internal.syscall.Syscall_RawConn.RawConn; var _1 : stdgo.Error; };
     @:embedded
-    public function syscallConn():{ var _0 : stdgo._internal.syscall.Syscall_RawConn.RawConn; var _1 : stdgo.Error; } return this.file.syscallConn();
+    @:embeddededffieldsffun
+    public function get_syscallConn():() -> { var _0 : stdgo._internal.syscall.Syscall_RawConn.RawConn; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").syscallConn;
+    public var truncate(get, never) : stdgo.GoInt64 -> stdgo.Error;
     @:embedded
-    public function truncate(__0:stdgo.GoInt64):stdgo.Error return this.file.truncate(__0);
+    @:embeddededffieldsffun
+    public function get_truncate():stdgo.GoInt64 -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").truncate;
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.write(_b);
+    @:embeddededffieldsffun
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").write;
+    public var writeAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function writeAt(_b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.writeAt(_b, _off);
+    @:embeddededffieldsffun
+    public function get_writeAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").writeAt;
+    public var writeString(get, never) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function writeString(__0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.writeString(__0);
+    @:embeddededffieldsffun
+    public function get_writeString():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").writeString;
+    public var _checkValid(get, never) : stdgo.GoString -> stdgo.Error;
     @:embedded
-    public function _checkValid(__0:stdgo.GoString):stdgo.Error return this.file._checkValid(__0);
+    @:embeddededffieldsffun
+    public function get__checkValid():stdgo.GoString -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._checkValid;
+    public var _chmod(get, never) : stdgo._internal.io.fs.Fs_FileMode.FileMode -> stdgo.Error;
     @:embedded
-    public function _chmod(_mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error return this.file._chmod(_mode);
+    @:embeddededffieldsffun
+    public function get__chmod():stdgo._internal.io.fs.Fs_FileMode.FileMode -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._chmod;
+    public var _close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function _close():stdgo.Error return this.file._close();
+    @:embeddededffieldsffun
+    public function get__close():() -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._close;
+    public var _pread(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function _pread(_b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file._pread(_b, _off);
+    @:embeddededffieldsffun
+    public function get__pread():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._pread;
+    public var _pwrite(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function _pwrite(_b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file._pwrite(_b, _off);
+    @:embeddededffieldsffun
+    public function get__pwrite():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._pwrite;
+    public var _read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function _read(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file._read(_b);
+    @:embeddededffieldsffun
+    public function get__read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._read;
+    public var _readFrom(get, never) : stdgo._internal.io.Io_Reader.Reader -> { var _0 : stdgo.GoInt64; var _1 : Bool; var _2 : stdgo.Error; };
     @:embedded
-    public function _readFrom(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : Bool; var _2 : stdgo.Error; } return this.file._readFrom(_r);
+    @:embeddededffieldsffun
+    public function get__readFrom():stdgo._internal.io.Io_Reader.Reader -> { var _0 : stdgo.GoInt64; var _1 : Bool; var _2 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._readFrom;
+    public var _readdir(get, never) : (stdgo.GoInt, stdgo._internal.os.Os_T_readdirMode.T_readdirMode) -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _2 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _3 : stdgo.Error; };
     @:embedded
-    public function _readdir(_n:stdgo.GoInt, _mode:stdgo._internal.os.Os_T_readdirMode.T_readdirMode):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _2 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _3 : stdgo.Error; } return this.file._readdir(_n, _mode);
+    @:embeddededffieldsffun
+    public function get__readdir():(stdgo.GoInt, stdgo._internal.os.Os_T_readdirMode.T_readdirMode) -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _2 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _3 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._readdir;
+    public var _seek(get, never) : (stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function _seek(_offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.file._seek(_offset, _whence);
+    @:embeddededffieldsffun
+    public function get__seek():(stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._seek;
+    public var _setDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function _setDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file._setDeadline(__0);
+    @:embeddededffieldsffun
+    public function get__setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._setDeadline;
+    public var _setReadDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function _setReadDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file._setReadDeadline(__0);
+    @:embeddededffieldsffun
+    public function get__setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._setReadDeadline;
+    public var _setWriteDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function _setWriteDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.file._setWriteDeadline(__0);
+    @:embeddededffieldsffun
+    public function get__setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._setWriteDeadline;
+    public var _wrapErr(get, never) : (stdgo.GoString, stdgo.Error) -> stdgo.Error;
     @:embedded
-    public function _wrapErr(_op:stdgo.GoString, _err:stdgo.Error):stdgo.Error return this.file._wrapErr(_op, _err);
+    @:embeddededffieldsffun
+    public function get__wrapErr():(stdgo.GoString, stdgo.Error) -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence")._wrapErr;
+    public var _write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function _write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file._write(_b);
+    @:embeddededffieldsffun
+    public function get__write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence")._write;
     public function __copy__() {
         return new T_fileWithoutReadFrom(file);
     }

@@ -1,6 +1,7 @@
 package stdgo._internal.math.big;
 @:keep @:allow(stdgo._internal.math.big.Big.RoundingMode_asInterface) class RoundingMode_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.math.big.Big_RoundingMode.RoundingMode):stdgo.GoString {
         @:recv var _i:stdgo._internal.math.big.Big_RoundingMode.RoundingMode = _i;
         if ((_i >= ((6 : stdgo.GoInt) : stdgo._internal.math.big.Big_RoundingMode.RoundingMode) : Bool)) {

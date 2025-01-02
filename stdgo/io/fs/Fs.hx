@@ -247,6 +247,7 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs_T__interface_0.T__interface_0;
 }
 typedef FileMode = stdgo._internal.io.fs.Fs_FileMode.FileMode;
 typedef WalkDirFunc = stdgo._internal.io.fs.Fs_WalkDirFunc.WalkDirFunc;
+typedef PathErrorPointer = stdgo._internal.io.fs.Fs_PathErrorPointer.PathErrorPointer;
 class PathError_static_extension {
     static public function timeout(_e:PathError):Bool {
         return stdgo._internal.io.fs.Fs_PathError_static_extension.PathError_static_extension.timeout(_e);
@@ -258,6 +259,7 @@ class PathError_static_extension {
         return stdgo._internal.io.fs.Fs_PathError_static_extension.PathError_static_extension.error(_e);
     }
 }
+typedef T_dirInfoPointer = stdgo._internal.io.fs.Fs_T_dirInfoPointer.T_dirInfoPointer;
 class T_dirInfo_static_extension {
     static public function string(_di:T_dirInfo):String {
         return stdgo._internal.io.fs.Fs_T_dirInfo_static_extension.T_dirInfo_static_extension.string(_di);
@@ -278,6 +280,7 @@ class T_dirInfo_static_extension {
         return stdgo._internal.io.fs.Fs_T_dirInfo_static_extension.T_dirInfo_static_extension.isDir(_di);
     }
 }
+typedef T_subFSPointer = stdgo._internal.io.fs.Fs_T_subFSPointer.T_subFSPointer;
 class T_subFS_static_extension {
     static public function sub(_f:T_subFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         return {
@@ -325,6 +328,7 @@ class T_subFS_static_extension {
         };
     }
 }
+typedef T_statDirEntryPointer = stdgo._internal.io.fs.Fs_T_statDirEntryPointer.T_statDirEntryPointer;
 class T_statDirEntry_static_extension {
     static public function string(_d:T_statDirEntry):String {
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.string(_d);
@@ -345,6 +349,7 @@ class T_statDirEntry_static_extension {
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.name(_d);
     }
 }
+typedef FileModePointer = stdgo._internal.io.fs.Fs_FileModePointer.FileModePointer;
 class FileMode_static_extension {
     static public function type(_m:FileMode):FileMode {
         return stdgo._internal.io.fs.Fs_FileMode_static_extension.FileMode_static_extension.type(_m);

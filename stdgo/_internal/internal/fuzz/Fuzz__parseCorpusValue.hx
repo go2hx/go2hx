@@ -13,26 +13,26 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
         if (!_ok) {
             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected call expression" : stdgo.GoString)) };
         };
-        if ((_call.args.length) != ((1 : stdgo.GoInt))) {
-            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected call expression with 1 argument; got %d" : stdgo.GoString), stdgo.Go.toInterface((_call.args.length))) };
+        if (((@:checkr _call ?? throw "null pointer dereference").args.length) != ((1 : stdgo.GoInt))) {
+            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected call expression with 1 argument; got %d" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _call ?? throw "null pointer dereference").args.length))) };
         };
-        var _arg = (_call.args[(0 : stdgo.GoInt)] : stdgo._internal.go.ast.Ast_Expr.Expr);
+        var _arg = ((@:checkr _call ?? throw "null pointer dereference").args[(0 : stdgo.GoInt)] : stdgo._internal.go.ast.Ast_Expr.Expr);
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_call.fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_ArrayType.ArrayType>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_ArrayType.ArrayType>), _1 : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _call ?? throw "null pointer dereference").fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_ArrayType.ArrayType>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_ArrayType.ArrayType>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_ArrayType.ArrayType>), _1 : false };
             }, _arrayType = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                if (_arrayType.len != null) {
+                if ((@:checkr _arrayType ?? throw "null pointer dereference").len != null) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected []byte or primitive type" : stdgo.GoString)) };
                 };
                 var __tmp__ = try {
-                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arrayType.elt) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _arrayType ?? throw "null pointer dereference").elt) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : false };
                 }, _elt = __tmp__._0, _ok = __tmp__._1;
-                if ((!_ok || (_elt.name != ("byte" : stdgo.GoString)) : Bool)) {
+                if ((!_ok || ((@:checkr _elt ?? throw "null pointer dereference").name != ("byte" : stdgo.GoString)) : Bool)) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected []byte" : stdgo.GoString)) };
                 };
                 var __tmp__ = try {
@@ -40,10 +40,10 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>), _1 : false };
                 }, _lit = __tmp__._0, _ok = __tmp__._1;
-                if ((!_ok || (_lit.kind != (9 : stdgo._internal.go.token.Token_Token.Token)) : Bool)) {
+                if ((!_ok || ((@:checkr _lit ?? throw "null pointer dereference").kind != (9 : stdgo._internal.go.token.Token_Token.Token)) : Bool)) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("string literal required for type []byte" : stdgo.GoString)) };
                 };
-                var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote(_lit.value?.__copy__()), _s:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote((@:checkr _lit ?? throw "null pointer dereference").value?.__copy__()), _s:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : _err };
                 };
@@ -53,21 +53,21 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
         var _idType:stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident> = (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>);
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_call.fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_SelectorExpr.SelectorExpr>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_SelectorExpr.SelectorExpr>), _1 : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _call ?? throw "null pointer dereference").fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_SelectorExpr.SelectorExpr>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_SelectorExpr.SelectorExpr>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_SelectorExpr.SelectorExpr>), _1 : false };
             }, _selector = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 var __tmp__ = try {
-                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_selector.x) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
+                    { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _selector ?? throw "null pointer dereference").x) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : false };
                 }, _xIdent = __tmp__._0, _ok = __tmp__._1;
-                if ((!_ok || (_xIdent.name != ("math" : stdgo.GoString)) : Bool)) {
+                if ((!_ok || ((@:checkr _xIdent ?? throw "null pointer dereference").name != ("math" : stdgo.GoString)) : Bool)) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid selector type" : stdgo.GoString)) };
                 };
                 {
-                    final __value__ = _selector.sel.name;
+                    final __value__ = (@:checkr (@:checkr _selector ?? throw "null pointer dereference").sel ?? throw "null pointer dereference").name;
                     if (__value__ == (("Float64frombits" : stdgo.GoString))) {
                         _idType = (stdgo.Go.setRef(({ name : ("float64-bits" : stdgo.GoString) } : stdgo._internal.go.ast.Ast_Ident.Ident)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>);
                     } else if (__value__ == (("Float32frombits" : stdgo.GoString))) {
@@ -79,7 +79,7 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
             } else {
                 {
                     var __tmp__ = try {
-                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_call.fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
+                        { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _call ?? throw "null pointer dereference").fun) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
                     } catch(_) {
                         { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : false };
                     };
@@ -89,7 +89,7 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                 if (!_ok) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected []byte or primitive type" : stdgo.GoString)) };
                 };
-                if (_idType.name == (("bool" : stdgo.GoString))) {
+                if ((@:checkr _idType ?? throw "null pointer dereference").name == (("bool" : stdgo.GoString))) {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arg) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : true };
                     } catch(_) {
@@ -98,9 +98,9 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                     if (!_ok) {
                         return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed bool" : stdgo.GoString)) };
                     };
-                    if (_id.name == (("true" : stdgo.GoString))) {
+                    if ((@:checkr _id ?? throw "null pointer dereference").name == (("true" : stdgo.GoString))) {
                         return { _0 : stdgo.Go.toInterface(true), _1 : (null : stdgo.Error) };
-                    } else if (_id.name == (("false" : stdgo.GoString))) {
+                    } else if ((@:checkr _id ?? throw "null pointer dereference").name == (("false" : stdgo.GoString))) {
                         return { _0 : stdgo.Go.toInterface(false), _1 : (null : stdgo.Error) };
                     } else {
                         return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("true or false required for type bool" : stdgo.GoString)) };
@@ -118,20 +118,20 @@ var _kind = __1, _val = __0;
             }, _op = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
-                    final __type__ = _op.x;
+                    final __type__ = (@:checkr _op ?? throw "null pointer dereference").x;
                     if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>))) {
                         var _lit:stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__.__underlying__().value;
-                        if (_op.op != ((13 : stdgo._internal.go.token.Token_Token.Token))) {
-                            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported operation on int/float: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_op.op))) };
+                        if ((@:checkr _op ?? throw "null pointer dereference").op != ((13 : stdgo._internal.go.token.Token_Token.Token))) {
+                            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported operation on int/float: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _op ?? throw "null pointer dereference").op))) };
                         };
-                        _val = ((_op.op.string() : stdgo.GoString) + _lit.value?.__copy__() : stdgo.GoString)?.__copy__();
-                        _kind = _lit.kind;
+                        _val = (((@:checkr _op ?? throw "null pointer dereference").op.string() : stdgo.GoString) + (@:checkr _lit ?? throw "null pointer dereference").value?.__copy__() : stdgo.GoString)?.__copy__();
+                        _kind = (@:checkr _lit ?? throw "null pointer dereference").kind;
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>))) {
                         var _lit:stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__.__underlying__().value;
-                        if (_lit.name != (("Inf" : stdgo.GoString))) {
+                        if ((@:checkr _lit ?? throw "null pointer dereference").name != (("Inf" : stdgo.GoString))) {
                             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected operation on int or float type" : stdgo.GoString)) };
                         };
-                        if (_op.op == ((13 : stdgo._internal.go.token.Token_Token.Token))) {
+                        if ((@:checkr _op ?? throw "null pointer dereference").op == ((13 : stdgo._internal.go.token.Token_Token.Token))) {
                             _val = ("-Inf" : stdgo.GoString);
                         } else {
                             _val = ("+Inf" : stdgo.GoString);
@@ -148,14 +148,14 @@ var _kind = __1, _val = __0;
                     if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>))) {
                         var _lit:stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_BasicLit.BasicLit>) : __type__.__underlying__().value;
                         {
-                            final __tmp__0 = _lit.value?.__copy__();
-                            final __tmp__1 = _lit.kind;
+                            final __tmp__0 = (@:checkr _lit ?? throw "null pointer dereference").value?.__copy__();
+                            final __tmp__1 = (@:checkr _lit ?? throw "null pointer dereference").kind;
                             _val = __tmp__0;
                             _kind = __tmp__1;
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>))) {
                         var _lit:stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>) : __type__.__underlying__().value;
-                        if (_lit.name != (("NaN" : stdgo.GoString))) {
+                        if ((@:checkr _lit ?? throw "null pointer dereference").name != (("NaN" : stdgo.GoString))) {
                             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("literal value required for primitive type" : stdgo.GoString)) };
                         };
                         {
@@ -172,7 +172,7 @@ var _kind = __1, _val = __0;
             };
         };
         {
-            var _typ = (_idType.name?.__copy__() : stdgo.GoString);
+            var _typ = ((@:checkr _idType ?? throw "null pointer dereference").name?.__copy__() : stdgo.GoString);
             {
                 final __value__ = _typ;
                 if (__value__ == (("string" : stdgo.GoString))) {

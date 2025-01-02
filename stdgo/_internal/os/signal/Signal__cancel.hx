@@ -10,10 +10,10 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             var _remove = (function(_n:stdgo.GoInt):Void {
                 var _zerohandler:stdgo._internal.os.signal.Signal_T_handler.T_handler = ({} : stdgo._internal.os.signal.Signal_T_handler.T_handler);
                 for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
-                    if (_h._want(_n)) {
+                    if (@:check2r _h._want(_n)) {
                         stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]--;
-                        _h._clear(_n);
-                        if (stdgo.Go.toInterface(_h._mask) == stdgo.Go.toInterface(_zerohandler._mask)) {
+                        @:check2r _h._clear(_n);
+                        if (stdgo.Go.toInterface((@:checkr _h ?? throw "null pointer dereference")._mask) == stdgo.Go.toInterface(_zerohandler._mask)) {
                             if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.remove(_c);
                         };
                     };
@@ -35,6 +35,7 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -49,6 +50,7 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

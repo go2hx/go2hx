@@ -70,6 +70,7 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_blockSize.block
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_digestPointer = stdgo._internal.crypto.sha1.Sha1_T_digestPointer.T_digestPointer;
 class T_digest_static_extension {
     static public function _constSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1_T_digest_static_extension.T_digest_static_extension._constSum(_d)) i]);

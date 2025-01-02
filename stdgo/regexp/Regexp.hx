@@ -632,40 +632,49 @@ _longest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.regexp.Regexp_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.regexp.Regexp_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.regexp.Regexp_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.regexp.Regexp_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
 typedef T__struct_2 = stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2;
+typedef T__struct_3Pointer = stdgo._internal.regexp.Regexp_T__struct_3Pointer.T__struct_3Pointer;
 class T__struct_3_static_extension {
 
 }
 typedef T__struct_3 = stdgo._internal.regexp.Regexp_T__struct_3.T__struct_3;
+typedef T__struct_4Pointer = stdgo._internal.regexp.Regexp_T__struct_4Pointer.T__struct_4Pointer;
 class T__struct_4_static_extension {
 
 }
 typedef T__struct_4 = stdgo._internal.regexp.Regexp_T__struct_4.T__struct_4;
+typedef T__struct_5Pointer = stdgo._internal.regexp.Regexp_T__struct_5Pointer.T__struct_5Pointer;
 class T__struct_5_static_extension {
 
 }
 typedef T__struct_5 = stdgo._internal.regexp.Regexp_T__struct_5.T__struct_5;
+typedef T__struct_6Pointer = stdgo._internal.regexp.Regexp_T__struct_6Pointer.T__struct_6Pointer;
 class T__struct_6_static_extension {
 
 }
 typedef T__struct_6 = stdgo._internal.regexp.Regexp_T__struct_6.T__struct_6;
+typedef T__struct_7Pointer = stdgo._internal.regexp.Regexp_T__struct_7Pointer.T__struct_7Pointer;
 class T__struct_7_static_extension {
 
 }
 typedef T__struct_7 = stdgo._internal.regexp.Regexp_T__struct_7.T__struct_7;
 typedef T_lazyFlag = stdgo._internal.regexp.Regexp_T_lazyFlag.T_lazyFlag;
 typedef T_runeSlice = stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice;
+typedef T_bitStatePointer = stdgo._internal.regexp.Regexp_T_bitStatePointer.T_bitStatePointer;
 class T_bitState_static_extension {
     static public function _push(_b:T_bitState, _re:Regexp_, _pc:std.UInt, _pos:StdTypes.Int, _arg:Bool):Void {
         stdgo._internal.regexp.Regexp_T_bitState_static_extension.T_bitState_static_extension._push(_b, _re, _pc, _pos, _arg);
@@ -677,6 +686,7 @@ class T_bitState_static_extension {
         stdgo._internal.regexp.Regexp_T_bitState_static_extension.T_bitState_static_extension._reset(_b, _prog, _end, _ncap);
     }
 }
+typedef T_machinePointer = stdgo._internal.regexp.Regexp_T_machinePointer.T_machinePointer;
 class T_machine_static_extension {
     static public function _add(_m:T_machine, _q:T_queue, _pc:std.UInt, _pos:StdTypes.Int, _cap:Array<StdTypes.Int>, _cond:stdgo.Pointer<T_lazyFlag>, _t:T_thread):T_thread {
         final _cap = ([for (i in _cap) i] : stdgo.Slice<stdgo.GoInt>);
@@ -698,6 +708,7 @@ class T_machine_static_extension {
         stdgo._internal.regexp.Regexp_T_machine_static_extension.T_machine_static_extension._init(_m, _ncap);
     }
 }
+typedef T_inputsPointer = stdgo._internal.regexp.Regexp_T_inputsPointer.T_inputsPointer;
 class T_inputs_static_extension {
     static public function _init(_i:T_inputs, _r:stdgo._internal.io.Io_RuneReader.RuneReader, _b:Array<std.UInt>, _s:String):stdgo.Tuple<T_input, StdTypes.Int> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -720,11 +731,13 @@ class T_inputs_static_extension {
         return stdgo._internal.regexp.Regexp_T_inputs_static_extension.T_inputs_static_extension._newBytes(_i, _b);
     }
 }
+typedef FindTestPointer = stdgo._internal.regexp.Regexp_FindTestPointer.FindTestPointer;
 class FindTest_static_extension {
     static public function string(_t:FindTest):String {
         return stdgo._internal.regexp.Regexp_FindTest_static_extension.FindTest_static_extension.string(_t);
     }
 }
+typedef T_onePassInstPointer = stdgo._internal.regexp.Regexp_T_onePassInstPointer.T_onePassInstPointer;
 class T_onePassInst_static_extension {
     public static function _op(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst):InstOp {
         return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension._op(__self__);
@@ -732,16 +745,17 @@ class T_onePassInst_static_extension {
     public static function string(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst):String {
         return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.string(__self__);
     }
-    public static function matchRunePos(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _nameOff:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchRunePos(__self__, _nameOff);
+    public static function matchRunePos(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _0:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchRunePos(__self__, _0);
     }
-    public static function matchRune(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _nameOff:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchRune(__self__, _nameOff);
+    public static function matchRune(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _0:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchRune(__self__, _0);
     }
-    public static function matchEmptyWidth(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _old:StdTypes.Int, _new:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchEmptyWidth(__self__, _old, _new);
+    public static function matchEmptyWidth(__self__:stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst, _0:StdTypes.Int, _1:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp_T_onePassInst_static_extension.T_onePassInst_static_extension.matchEmptyWidth(__self__, _0, _1);
     }
 }
+typedef T_queueOnePassPointer = stdgo._internal.regexp.Regexp_T_queueOnePassPointer.T_queueOnePassPointer;
 class T_queueOnePass_static_extension {
     static public function _insertNew(_q:T_queueOnePass, _u:std.UInt):Void {
         stdgo._internal.regexp.Regexp_T_queueOnePass_static_extension.T_queueOnePass_static_extension._insertNew(_q, _u);
@@ -762,6 +776,7 @@ class T_queueOnePass_static_extension {
         return stdgo._internal.regexp.Regexp_T_queueOnePass_static_extension.T_queueOnePass_static_extension._empty(_q);
     }
 }
+typedef RegexpPointer = stdgo._internal.regexp.Regexp_RegexpPointer.RegexpPointer;
 class Regexp_static_extension {
     static public function unmarshalText(_re:Regexp_, _text:Array<std.UInt>):stdgo.Error {
         final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -958,6 +973,7 @@ class Regexp_static_extension {
         return stdgo._internal.regexp.Regexp_Regexp_static_extension.Regexp_static_extension._tryBacktrack(_re, _b, _i, _pc, _pos);
     }
 }
+typedef T_inputStringPointer = stdgo._internal.regexp.Regexp_T_inputStringPointer.T_inputStringPointer;
 class T_inputString_static_extension {
     static public function _context(_i:T_inputString, _pos:StdTypes.Int):T_lazyFlag {
         return stdgo._internal.regexp.Regexp_T_inputString_static_extension.T_inputString_static_extension._context(_i, _pos);
@@ -978,6 +994,7 @@ class T_inputString_static_extension {
         };
     }
 }
+typedef T_inputBytesPointer = stdgo._internal.regexp.Regexp_T_inputBytesPointer.T_inputBytesPointer;
 class T_inputBytes_static_extension {
     static public function _context(_i:T_inputBytes, _pos:StdTypes.Int):T_lazyFlag {
         return stdgo._internal.regexp.Regexp_T_inputBytes_static_extension.T_inputBytes_static_extension._context(_i, _pos);
@@ -998,6 +1015,7 @@ class T_inputBytes_static_extension {
         };
     }
 }
+typedef T_inputReaderPointer = stdgo._internal.regexp.Regexp_T_inputReaderPointer.T_inputReaderPointer;
 class T_inputReader_static_extension {
     static public function _context(_i:T_inputReader, _pos:StdTypes.Int):T_lazyFlag {
         return stdgo._internal.regexp.Regexp_T_inputReader_static_extension.T_inputReader_static_extension._context(_i, _pos);
@@ -1018,11 +1036,13 @@ class T_inputReader_static_extension {
         };
     }
 }
+typedef T_lazyFlagPointer = stdgo._internal.regexp.Regexp_T_lazyFlagPointer.T_lazyFlagPointer;
 class T_lazyFlag_static_extension {
     static public function _match(_f:T_lazyFlag, _op:EmptyOp):Bool {
         return stdgo._internal.regexp.Regexp_T_lazyFlag_static_extension.T_lazyFlag_static_extension._match(_f, _op);
     }
 }
+typedef T_runeSlicePointer = stdgo._internal.regexp.Regexp_T_runeSlicePointer.T_runeSlicePointer;
 class T_runeSlice_static_extension {
     static public function swap(_p:T_runeSlice, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         stdgo._internal.regexp.Regexp_T_runeSlice_static_extension.T_runeSlice_static_extension.swap(_p, _i, _j);

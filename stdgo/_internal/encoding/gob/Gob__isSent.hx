@@ -1,9 +1,9 @@
 package stdgo._internal.encoding.gob;
 function _isSent(_field:stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>):Bool {
-        if (!stdgo._internal.encoding.gob.Gob__isExported._isExported(_field.name?.__copy__())) {
+        if (!stdgo._internal.encoding.gob.Gob__isExported._isExported((@:checkr _field ?? throw "null pointer dereference").name?.__copy__())) {
             return false;
         };
-        var _typ = (_field.type : stdgo._internal.reflect.Reflect_Type_.Type_);
+        var _typ = ((@:checkr _field ?? throw "null pointer dereference").type : stdgo._internal.reflect.Reflect_Type_.Type_);
         while (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
             _typ = _typ.elem();
         };

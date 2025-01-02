@@ -1,7 +1,7 @@
 package stdgo._internal.compress.flate;
 function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder> {
         var _h = stdgo._internal.compress.flate.Flate__newHuffmanEncoder._newHuffmanEncoder((286 : stdgo.GoInt));
-        var _codes = _h._codes;
+        var _codes = (@:checkr _h ?? throw "null pointer dereference")._codes;
         var _ch:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         {
             _ch = (0 : stdgo.GoUInt16);

@@ -1,9 +1,11 @@
 package stdgo.runtime.cgo;
+typedef T__struct_0Pointer = stdgo._internal.runtime.cgo.Cgo_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_T__struct_0.T__struct_0;
 typedef Handle = stdgo._internal.runtime.cgo.Cgo_Handle.Handle;
+typedef HandlePointer = stdgo._internal.runtime.cgo.Cgo_HandlePointer.HandlePointer;
 class Handle_static_extension {
     static public function delete(_h:Handle):Void {
         stdgo._internal.runtime.cgo.Cgo_Handle_static_extension.Handle_static_extension.delete(_h);

@@ -4,12 +4,12 @@ function _makemap(_arg:haxe.Rest<stdgo.GoString>):stdgo.GoMap<stdgo.GoString, st
         if (((_arg.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("bad makemap" : stdgo.GoString));
         };
-        var _m = ({
+        var _m = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_arg.length) : Bool)) {

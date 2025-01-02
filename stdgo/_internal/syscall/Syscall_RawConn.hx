@@ -8,6 +8,7 @@ typedef RawConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function control(_f:stdgo.GoUIntptr -> Void):stdgo.Error;
     /**
         Read invokes f on the underlying connection's file
@@ -21,11 +22,13 @@ typedef RawConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function read(_f:stdgo.GoUIntptr -> Bool):stdgo.Error;
     /**
         Write is like Read but for writing.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function write(_f:stdgo.GoUIntptr -> Bool):stdgo.Error;
 };

@@ -1,78 +1,112 @@
 package stdgo._internal.text.template;
 class T_state_asInterface {
     @:keep
-    public dynamic function _printValue(_n:stdgo._internal.text.template.parse.Parse_Node.Node, _v:stdgo._internal.reflect.Reflect_Value.Value):Void __self__.value._printValue(_n, _v);
+    @:tdfield
+    public dynamic function _printValue(_n:stdgo._internal.text.template.parse.Parse_Node.Node, _v:stdgo._internal.reflect.Reflect_Value.Value):Void @:_0 __self__.value._printValue(_n, _v);
     @:keep
-    public dynamic function _evalEmptyInterface(_dot:stdgo._internal.reflect.Reflect_Value.Value, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalEmptyInterface(_dot, _n);
+    @:tdfield
+    public dynamic function _evalEmptyInterface(_dot:stdgo._internal.reflect.Reflect_Value.Value, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalEmptyInterface(_dot, _n);
     @:keep
-    public dynamic function _evalComplex(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalComplex(_typ, _n);
+    @:tdfield
+    public dynamic function _evalComplex(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalComplex(_typ, _n);
     @:keep
-    public dynamic function _evalFloat(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalFloat(_typ, _n);
+    @:tdfield
+    public dynamic function _evalFloat(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalFloat(_typ, _n);
     @:keep
-    public dynamic function _evalUnsignedInteger(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalUnsignedInteger(_typ, _n);
+    @:tdfield
+    public dynamic function _evalUnsignedInteger(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalUnsignedInteger(_typ, _n);
     @:keep
-    public dynamic function _evalInteger(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalInteger(_typ, _n);
+    @:tdfield
+    public dynamic function _evalInteger(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalInteger(_typ, _n);
     @:keep
-    public dynamic function _evalString(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalString(_typ, _n);
+    @:tdfield
+    public dynamic function _evalString(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalString(_typ, _n);
     @:keep
-    public dynamic function _evalBool(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalBool(_typ, _n);
+    @:tdfield
+    public dynamic function _evalBool(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalBool(_typ, _n);
     @:keep
-    public dynamic function _evalArg(_dot:stdgo._internal.reflect.Reflect_Value.Value, _typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalArg(_dot, _typ, _n);
+    @:tdfield
+    public dynamic function _evalArg(_dot:stdgo._internal.reflect.Reflect_Value.Value, _typ:stdgo._internal.reflect.Reflect_Type_.Type_, _n:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalArg(_dot, _typ, _n);
     @:keep
-    public dynamic function _validateType(_value:stdgo._internal.reflect.Reflect_Value.Value, _typ:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._validateType(_value, _typ);
+    @:tdfield
+    public dynamic function _validateType(_value:stdgo._internal.reflect.Reflect_Value.Value, _typ:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._validateType(_value, _typ);
     @:keep
-    public dynamic function _evalCall(_dot:stdgo._internal.reflect.Reflect_Value.Value, _fun:stdgo._internal.reflect.Reflect_Value.Value, _isBuiltin:Bool, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _name:stdgo.GoString, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalCall(_dot, _fun, _isBuiltin, _node, _name, _args, _final);
+    @:tdfield
+    public dynamic function _evalCall(_dot:stdgo._internal.reflect.Reflect_Value.Value, _fun:stdgo._internal.reflect.Reflect_Value.Value, _isBuiltin:Bool, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _name:stdgo.GoString, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalCall(_dot, _fun, _isBuiltin, _node, _name, _args, _final);
     @:keep
-    public dynamic function _evalField(_dot:stdgo._internal.reflect.Reflect_Value.Value, _fieldName:stdgo.GoString, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value, _receiver:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalField(_dot, _fieldName, _node, _args, _final, _receiver);
+    @:tdfield
+    public dynamic function _evalField(_dot:stdgo._internal.reflect.Reflect_Value.Value, _fieldName:stdgo.GoString, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value, _receiver:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalField(_dot, _fieldName, _node, _args, _final, _receiver);
     @:keep
-    public dynamic function _evalFunction(_dot:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>, _cmd:stdgo._internal.text.template.parse.Parse_Node.Node, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalFunction(_dot, _node, _cmd, _args, _final);
+    @:tdfield
+    public dynamic function _evalFunction(_dot:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>, _cmd:stdgo._internal.text.template.parse.Parse_Node.Node, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalFunction(_dot, _node, _cmd, _args, _final);
     @:keep
-    public dynamic function _evalFieldChain(_dot:stdgo._internal.reflect.Reflect_Value.Value, _receiver:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _ident:stdgo.Slice<stdgo.GoString>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalFieldChain(_dot, _receiver, _node, _ident, _args, _final);
+    @:tdfield
+    public dynamic function _evalFieldChain(_dot:stdgo._internal.reflect.Reflect_Value.Value, _receiver:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _ident:stdgo.Slice<stdgo.GoString>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalFieldChain(_dot, _receiver, _node, _ident, _args, _final);
     @:keep
-    public dynamic function _evalVariableNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _variable:stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalVariableNode(_dot, _variable, _args, _final);
+    @:tdfield
+    public dynamic function _evalVariableNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _variable:stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalVariableNode(_dot, _variable, _args, _final);
     @:keep
-    public dynamic function _evalChainNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _chain:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalChainNode(_dot, _chain, _args, _final);
+    @:tdfield
+    public dynamic function _evalChainNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _chain:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalChainNode(_dot, _chain, _args, _final);
     @:keep
-    public dynamic function _evalFieldNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _field:stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalFieldNode(_dot, _field, _args, _final);
+    @:tdfield
+    public dynamic function _evalFieldNode(_dot:stdgo._internal.reflect.Reflect_Value.Value, _field:stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>, _args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalFieldNode(_dot, _field, _args, _final);
     @:keep
-    public dynamic function _idealConstant(_constant:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._idealConstant(_constant);
+    @:tdfield
+    public dynamic function _idealConstant(_constant:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._idealConstant(_constant);
     @:keep
-    public dynamic function _evalCommand(_dot:stdgo._internal.reflect.Reflect_Value.Value, _cmd:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalCommand(_dot, _cmd, _final);
+    @:tdfield
+    public dynamic function _evalCommand(_dot:stdgo._internal.reflect.Reflect_Value.Value, _cmd:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>, _final:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalCommand(_dot, _cmd, _final);
     @:keep
-    public dynamic function _notAFunction(_args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):Void __self__.value._notAFunction(_args, _final);
+    @:tdfield
+    public dynamic function _notAFunction(_args:stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>, _final:stdgo._internal.reflect.Reflect_Value.Value):Void @:_0 __self__.value._notAFunction(_args, _final);
     @:keep
-    public dynamic function _evalPipeline(_dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._evalPipeline(_dot, _pipe);
+    @:tdfield
+    public dynamic function _evalPipeline(_dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._evalPipeline(_dot, _pipe);
     @:keep
-    public dynamic function _walkTemplate(_dot:stdgo._internal.reflect.Reflect_Value.Value, _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):Void __self__.value._walkTemplate(_dot, _t);
+    @:tdfield
+    public dynamic function _walkTemplate(_dot:stdgo._internal.reflect.Reflect_Value.Value, _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):Void @:_0 __self__.value._walkTemplate(_dot, _t);
     @:keep
-    public dynamic function _walkRange(_dot:stdgo._internal.reflect.Reflect_Value.Value, _r:stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode>):Void __self__.value._walkRange(_dot, _r);
+    @:tdfield
+    public dynamic function _walkRange(_dot:stdgo._internal.reflect.Reflect_Value.Value, _r:stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode>):Void @:_0 __self__.value._walkRange(_dot, _r);
     @:keep
-    public dynamic function _walkIfOrWith(_typ:stdgo._internal.text.template.parse.Parse_NodeType.NodeType, _dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):Void __self__.value._walkIfOrWith(_typ, _dot, _pipe, _list, _elseList);
+    @:tdfield
+    public dynamic function _walkIfOrWith(_typ:stdgo._internal.text.template.parse.Parse_NodeType.NodeType, _dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):Void @:_0 __self__.value._walkIfOrWith(_typ, _dot, _pipe, _list, _elseList);
     @:keep
-    public dynamic function _walk(_dot:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo._internal.text.template.parse.Parse_Node.Node):Void __self__.value._walk(_dot, _node);
+    @:tdfield
+    public dynamic function _walk(_dot:stdgo._internal.reflect.Reflect_Value.Value, _node:stdgo._internal.text.template.parse.Parse_Node.Node):Void @:_0 __self__.value._walk(_dot, _node);
     @:keep
-    public dynamic function _writeError(_err:stdgo.Error):Void __self__.value._writeError(_err);
+    @:tdfield
+    public dynamic function _writeError(_err:stdgo.Error):Void @:_0 __self__.value._writeError(_err);
     @:keep
-    public dynamic function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void __self__.value._errorf(_format, ..._args);
+    @:tdfield
+    public dynamic function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void @:_0 __self__.value._errorf(_format, ..._args);
     @:keep
-    public dynamic function _at(_node:stdgo._internal.text.template.parse.Parse_Node.Node):Void __self__.value._at(_node);
+    @:tdfield
+    public dynamic function _at(_node:stdgo._internal.text.template.parse.Parse_Node.Node):Void @:_0 __self__.value._at(_node);
     @:keep
-    public dynamic function _varValue(_name:stdgo.GoString):stdgo._internal.reflect.Reflect_Value.Value return __self__.value._varValue(_name);
+    @:tdfield
+    public dynamic function _varValue(_name:stdgo.GoString):stdgo._internal.reflect.Reflect_Value.Value return @:_0 __self__.value._varValue(_name);
     @:keep
-    public dynamic function _setTopVar(_n:stdgo.GoInt, _value:stdgo._internal.reflect.Reflect_Value.Value):Void __self__.value._setTopVar(_n, _value);
+    @:tdfield
+    public dynamic function _setTopVar(_n:stdgo.GoInt, _value:stdgo._internal.reflect.Reflect_Value.Value):Void @:_0 __self__.value._setTopVar(_n, _value);
     @:keep
-    public dynamic function _setVar(_name:stdgo.GoString, _value:stdgo._internal.reflect.Reflect_Value.Value):Void __self__.value._setVar(_name, _value);
+    @:tdfield
+    public dynamic function _setVar(_name:stdgo.GoString, _value:stdgo._internal.reflect.Reflect_Value.Value):Void @:_0 __self__.value._setVar(_name, _value);
     @:keep
-    public dynamic function _pop(_mark:stdgo.GoInt):Void __self__.value._pop(_mark);
+    @:tdfield
+    public dynamic function _pop(_mark:stdgo.GoInt):Void @:_0 __self__.value._pop(_mark);
     @:keep
-    public dynamic function _mark():stdgo.GoInt return __self__.value._mark();
+    @:tdfield
+    public dynamic function _mark():stdgo.GoInt return @:_0 __self__.value._mark();
     @:keep
-    public dynamic function _push(_name:stdgo.GoString, _value:stdgo._internal.reflect.Reflect_Value.Value):Void __self__.value._push(_name, _value);
+    @:tdfield
+    public dynamic function _push(_name:stdgo.GoString, _value:stdgo._internal.reflect.Reflect_Value.Value):Void @:_0 __self__.value._push(_name, _value);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.text.template.Template_T_state.T_state>;
+    var __self__ : stdgo._internal.text.template.Template_T_statePointer.T_statePointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

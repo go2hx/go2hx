@@ -8,36 +8,66 @@ package stdgo._internal.os.exec;
         if (stderr != null) this.stderr = stderr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var exitCode(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function exitCode():stdgo.GoInt return this.processState.exitCode();
+    @:embeddededffieldsffun
+    public function get_exitCode():() -> stdgo.GoInt return @:check3 (this.processState ?? throw "null pointer derefrence").exitCode;
+    public var exited(get, never) : () -> Bool;
     @:embedded
-    public function exited():Bool return this.processState.exited();
+    @:embeddededffieldsffun
+    public function get_exited():() -> Bool return @:check3 (this.processState ?? throw "null pointer derefrence").exited;
+    public var pid(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function pid():stdgo.GoInt return this.processState.pid();
+    @:embeddededffieldsffun
+    public function get_pid():() -> stdgo.GoInt return @:check3 (this.processState ?? throw "null pointer derefrence").pid;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.processState.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.processState ?? throw "null pointer derefrence").string;
+    public var success(get, never) : () -> Bool;
     @:embedded
-    public function success():Bool return this.processState.success();
+    @:embeddededffieldsffun
+    public function get_success():() -> Bool return @:check3 (this.processState ?? throw "null pointer derefrence").success;
+    public var sys(get, never) : () -> stdgo.AnyInterface;
     @:embedded
-    public function sys():stdgo.AnyInterface return this.processState.sys();
+    @:embeddededffieldsffun
+    public function get_sys():() -> stdgo.AnyInterface return @:check3 (this.processState ?? throw "null pointer derefrence").sys;
+    public var sysUsage(get, never) : () -> stdgo.AnyInterface;
     @:embedded
-    public function sysUsage():stdgo.AnyInterface return this.processState.sysUsage();
+    @:embeddededffieldsffun
+    public function get_sysUsage():() -> stdgo.AnyInterface return @:check3 (this.processState ?? throw "null pointer derefrence").sysUsage;
+    public var systemTime(get, never) : () -> stdgo._internal.time.Time_Duration.Duration;
     @:embedded
-    public function systemTime():stdgo._internal.time.Time_Duration.Duration return this.processState.systemTime();
+    @:embeddededffieldsffun
+    public function get_systemTime():() -> stdgo._internal.time.Time_Duration.Duration return @:check3 (this.processState ?? throw "null pointer derefrence").systemTime;
+    public var userTime(get, never) : () -> stdgo._internal.time.Time_Duration.Duration;
     @:embedded
-    public function userTime():stdgo._internal.time.Time_Duration.Duration return this.processState.userTime();
+    @:embeddededffieldsffun
+    public function get_userTime():() -> stdgo._internal.time.Time_Duration.Duration return @:check3 (this.processState ?? throw "null pointer derefrence").userTime;
+    public var _exited(get, never) : () -> Bool;
     @:embedded
-    public function _exited():Bool return this.processState._exited();
+    @:embeddededffieldsffun
+    public function get__exited():() -> Bool return @:check3 (this.processState ?? throw "null pointer derefrence")._exited;
+    public var _success(get, never) : () -> Bool;
     @:embedded
-    public function _success():Bool return this.processState._success();
+    @:embeddededffieldsffun
+    public function get__success():() -> Bool return @:check3 (this.processState ?? throw "null pointer derefrence")._success;
+    public var _sys(get, never) : () -> stdgo.AnyInterface;
     @:embedded
-    public function _sys():stdgo.AnyInterface return this.processState._sys();
+    @:embeddededffieldsffun
+    public function get__sys():() -> stdgo.AnyInterface return @:check3 (this.processState ?? throw "null pointer derefrence")._sys;
+    public var _sysUsage(get, never) : () -> stdgo.AnyInterface;
     @:embedded
-    public function _sysUsage():stdgo.AnyInterface return this.processState._sysUsage();
+    @:embeddededffieldsffun
+    public function get__sysUsage():() -> stdgo.AnyInterface return @:check3 (this.processState ?? throw "null pointer derefrence")._sysUsage;
+    public var _systemTime(get, never) : () -> stdgo._internal.time.Time_Duration.Duration;
     @:embedded
-    public function _systemTime():stdgo._internal.time.Time_Duration.Duration return this.processState._systemTime();
+    @:embeddededffieldsffun
+    public function get__systemTime():() -> stdgo._internal.time.Time_Duration.Duration return @:check3 (this.processState ?? throw "null pointer derefrence")._systemTime;
+    public var _userTime(get, never) : () -> stdgo._internal.time.Time_Duration.Duration;
     @:embedded
-    public function _userTime():stdgo._internal.time.Time_Duration.Duration return this.processState._userTime();
+    @:embeddededffieldsffun
+    public function get__userTime():() -> stdgo._internal.time.Time_Duration.Duration return @:check3 (this.processState ?? throw "null pointer derefrence")._userTime;
     public function __copy__() {
         return new ExitError(processState, stderr);
     }

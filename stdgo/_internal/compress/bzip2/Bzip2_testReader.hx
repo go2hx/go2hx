@@ -29,14 +29,14 @@ function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var _fail = (_err != null : Bool);
                 if (_fail != (_v._fail)) {
                     if (_fail) {
-                        _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("test %d (%s), unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(_err));
                     } else {
-                        _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
+                        @:check2r _t.errorf(("test %d (%s), unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc));
                     };
                 };
             };
             if ((!_v._fail && !stdgo._internal.bytes.Bytes_equal.equal(_buf, _v._output) : Bool)) {
-                _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_buf)), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_v._output)));
+                @:check2r _t.errorf(("test %d (%s), output mismatch:\ngot  %s\nwant %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._desc), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_buf)), stdgo.Go.toInterface(stdgo._internal.compress.bzip2.Bzip2__trim._trim(_v._output)));
             };
         };
     }

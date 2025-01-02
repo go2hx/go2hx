@@ -19,7 +19,7 @@ function testMulBits(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _got = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x._mul(_test._y))))?.__copy__() : stdgo.GoString);
             var _want = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._want)))?.__copy__() : stdgo.GoString);
             if (_got != (_want)) {
-                _t.errorf(("%v * %v = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._y)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("%v * %v = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._y)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

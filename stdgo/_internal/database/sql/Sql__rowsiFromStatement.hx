@@ -3,9 +3,9 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_Context.Contex
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _ds.lock();
+            (@:checkr _ds ?? throw "null pointer dereference").lock();
             {
-                final __f__ = _ds.unlock;
+                final __f__ = (@:checkr _ds ?? throw "null pointer dereference").unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             var __tmp__ = stdgo._internal.database.sql.Sql__driverArgsConnLocked._driverArgsConnLocked(_ci, _ds, _args), _dargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -13,20 +13,23 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_Context.Contex
                 {
                     final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows), _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__ctxDriverStmtQuery._ctxDriverStmtQuery(_ctx, _ds._si, _dargs);
+                final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__ctxDriverStmtQuery._ctxDriverStmtQuery(_ctx, (@:checkr _ds ?? throw "null pointer dereference")._si, _dargs);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -41,6 +44,7 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_Context.Contex
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -14,13 +14,13 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.text.template.Template_Templat
             if ((_t == null || (_t : Dynamic).__nil__)) {
                 _t = stdgo._internal.text.template.Template_new_.new_(_name?.__copy__());
             };
-            if (_name == (_t.name())) {
+            if (_name == (@:check2r _t.name())) {
                 _tmpl = _t;
             } else {
-                _tmpl = _t.new_(_name?.__copy__());
+                _tmpl = @:check2r _t.new_(_name?.__copy__());
             };
             {
-                var __tmp__ = _tmpl.parse(_s?.__copy__());
+                var __tmp__ = @:check2r _tmpl.parse(_s?.__copy__());
                 _err = __tmp__._1;
             };
             if (_err != null) {

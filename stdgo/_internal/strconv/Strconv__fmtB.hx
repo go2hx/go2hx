@@ -8,7 +8,7 @@ function _fmtB(_dst:stdgo.Slice<stdgo.GoUInt8>, _neg:Bool, _mant:stdgo.GoUInt64,
             _dst = __tmp__._0;
         };
         _dst = (_dst.__append__((112 : stdgo.GoUInt8)));
-        _exp = (_exp - ((_flt._mantbits : stdgo.GoInt)) : stdgo.GoInt);
+        _exp = (_exp - (((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt)) : stdgo.GoInt);
         if ((_exp >= (0 : stdgo.GoInt) : Bool)) {
             _dst = (_dst.__append__((43 : stdgo.GoUInt8)));
         };

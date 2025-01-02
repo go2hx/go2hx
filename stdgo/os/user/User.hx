@@ -51,14 +51,15 @@ package stdgo.os.user;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.os.user.User_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function _doSlow(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _f);
+    public static function _doSlow(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _0);
     }
-    public static function do_(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _f);
+    public static function do_(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _0);
     }
 }
 typedef T__struct_0 = stdgo._internal.os.user.User_T__struct_0.T__struct_0;
@@ -67,6 +68,7 @@ typedef UnknownUserIdError = stdgo._internal.os.user.User_UnknownUserIdError.Unk
 typedef UnknownUserError = stdgo._internal.os.user.User_UnknownUserError.UnknownUserError;
 typedef UnknownGroupIdError = stdgo._internal.os.user.User_UnknownGroupIdError.UnknownGroupIdError;
 typedef UnknownGroupError = stdgo._internal.os.user.User_UnknownGroupError.UnknownGroupError;
+typedef UserPointer = stdgo._internal.os.user.User_UserPointer.UserPointer;
 class User_static_extension {
     static public function groupIds(_u:User_):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
@@ -75,21 +77,25 @@ class User_static_extension {
         };
     }
 }
+typedef UnknownUserIdErrorPointer = stdgo._internal.os.user.User_UnknownUserIdErrorPointer.UnknownUserIdErrorPointer;
 class UnknownUserIdError_static_extension {
     static public function error(_e:UnknownUserIdError):String {
         return stdgo._internal.os.user.User_UnknownUserIdError_static_extension.UnknownUserIdError_static_extension.error(_e);
     }
 }
+typedef UnknownUserErrorPointer = stdgo._internal.os.user.User_UnknownUserErrorPointer.UnknownUserErrorPointer;
 class UnknownUserError_static_extension {
     static public function error(_e:UnknownUserError):String {
         return stdgo._internal.os.user.User_UnknownUserError_static_extension.UnknownUserError_static_extension.error(_e);
     }
 }
+typedef UnknownGroupIdErrorPointer = stdgo._internal.os.user.User_UnknownGroupIdErrorPointer.UnknownGroupIdErrorPointer;
 class UnknownGroupIdError_static_extension {
     static public function error(_e:UnknownGroupIdError):String {
         return stdgo._internal.os.user.User_UnknownGroupIdError_static_extension.UnknownGroupIdError_static_extension.error(_e);
     }
 }
+typedef UnknownGroupErrorPointer = stdgo._internal.os.user.User_UnknownGroupErrorPointer.UnknownGroupErrorPointer;
 class UnknownGroupError_static_extension {
     static public function error(_e:UnknownGroupError):String {
         return stdgo._internal.os.user.User_UnknownGroupError_static_extension.UnknownGroupError_static_extension.error(_e);

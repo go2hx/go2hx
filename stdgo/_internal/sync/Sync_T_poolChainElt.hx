@@ -10,22 +10,38 @@ package stdgo._internal.sync;
         if (_prev != null) this._prev = _prev;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var popHead(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function popHead():{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this._poolDequeue.popHead();
+    @:embeddededffieldsffun
+    public function get_popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this._poolDequeue ?? throw "null pointer derefrence").popHead;
+    public var popTail(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function popTail():{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this._poolDequeue.popTail();
+    @:embeddededffieldsffun
+    public function get_popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this._poolDequeue ?? throw "null pointer derefrence").popTail;
+    public var pushHead(get, never) : stdgo.AnyInterface -> Bool;
     @:embedded
-    public function pushHead(_val:stdgo.AnyInterface):Bool return this._poolDequeue.pushHead(_val);
+    @:embeddededffieldsffun
+    public function get_pushHead():stdgo.AnyInterface -> Bool return @:check3 (this._poolDequeue ?? throw "null pointer derefrence").pushHead;
+    public var _pack(get, never) : (stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt64;
     @:embedded
-    public function _pack(_head:stdgo.GoUInt32, _tail:stdgo.GoUInt32):stdgo.GoUInt64 return this._poolDequeue._pack(_head, _tail);
+    @:embeddededffieldsffun
+    public function get__pack():(stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt64 return @:check3 (this._poolDequeue ?? throw "null pointer derefrence")._pack;
+    public var _popHead(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function _popHead():{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this._poolDequeue._popHead();
+    @:embeddededffieldsffun
+    public function get__popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this._poolDequeue ?? throw "null pointer derefrence")._popHead;
+    public var _popTail(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function _popTail():{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this._poolDequeue._popTail();
+    @:embeddededffieldsffun
+    public function get__popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this._poolDequeue ?? throw "null pointer derefrence")._popTail;
+    public var _pushHead(get, never) : stdgo.AnyInterface -> Bool;
     @:embedded
-    public function _pushHead(_val:stdgo.AnyInterface):Bool return this._poolDequeue._pushHead(_val);
+    @:embeddededffieldsffun
+    public function get__pushHead():stdgo.AnyInterface -> Bool return @:check3 (this._poolDequeue ?? throw "null pointer derefrence")._pushHead;
+    public var _unpack(get, never) : stdgo.GoUInt64 -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; };
     @:embedded
-    public function _unpack(__0:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } return this._poolDequeue._unpack(__0);
+    @:embeddededffieldsffun
+    public function get__unpack():stdgo.GoUInt64 -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } return @:check3 (this._poolDequeue ?? throw "null pointer derefrence")._unpack;
     public function __copy__() {
         return new T_poolChainElt(_poolDequeue, _next, _prev);
     }

@@ -7,14 +7,15 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T
                 final __f__ = stdgo._internal.encoding.gob.Gob__testError._testError;
                 __deferstack__.unshift(() -> __f__(_a0));
             };
-            var _v = (_state._decodeUint() : stdgo.GoInt);
-            if ((_v + _state._fieldnum : stdgo.GoInt) != ((6 : stdgo.GoInt))) {
-                _t.fatalf(("decoding field number %d, got %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)), stdgo.Go.toInterface((_v + _state._fieldnum : stdgo.GoInt)));
+            var _v = (@:check2r _state._decodeUint() : stdgo.GoInt);
+            if ((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt) != ((6 : stdgo.GoInt))) {
+                @:check2r _t.fatalf(("decoding field number %d, got %d" : stdgo.GoString), stdgo.Go.toInterface((6 : stdgo.GoInt)), stdgo.Go.toInterface((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt)));
             };
-            _instr._op(_instr, _state, _value.elem()?.__copy__());
-            _state._fieldnum = (6 : stdgo.GoInt);
+            (@:checkr _instr ?? throw "null pointer dereference")._op(_instr, _state, _value.elem()?.__copy__());
+            (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (6 : stdgo.GoInt);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -29,6 +30,7 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

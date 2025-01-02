@@ -1,6 +1,7 @@
 package stdgo._internal.debug.dwarf;
 @:keep @:allow(stdgo._internal.debug.dwarf.Dwarf.Attr_asInterface) class Attr_static_extension {
     @:keep
+    @:tdfield
     static public function goString( _a:stdgo._internal.debug.dwarf.Dwarf_Attr.Attr):stdgo.GoString {
         @:recv var _a:stdgo._internal.debug.dwarf.Dwarf_Attr.Attr = _a;
         {
@@ -12,6 +13,7 @@ package stdgo._internal.debug.dwarf;
         return (("dwarf." : stdgo.GoString) + (_a.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.debug.dwarf.Dwarf_Attr.Attr):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.dwarf.Dwarf_Attr.Attr = _i;
         {

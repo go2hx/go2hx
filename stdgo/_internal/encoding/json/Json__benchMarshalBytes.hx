@@ -5,11 +5,11 @@ function _benchMarshalBytes(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.testing.Te
         return function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                while ((_i < _b.n : Bool)) {
+                while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_v))), __12:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
-                            _b.fatal(stdgo.Go.toInterface(("Marshal:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                            @:check2r _b.fatal(stdgo.Go.toInterface(("Marshal:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                         };
                     };
                     _i++;

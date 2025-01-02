@@ -21,7 +21,7 @@ stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Write(%q) gav
                 };
 var _err = (_encoder.close() : stdgo.Error);
 stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Close gave error %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((null : stdgo.Error)));
-stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Encoding/%d of %q = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_bs), stdgo.Go.toInterface(stdgo._internal.encoding.base64.Base64__bigtest._bigtest._decoded), stdgo.Go.toInterface((_bb.string() : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.encoding.base64.Base64__bigtest._bigtest._encoded));
+stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Encoding/%d of %q = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_bs), stdgo.Go.toInterface(stdgo._internal.encoding.base64.Base64__bigtest._bigtest._decoded), stdgo.Go.toInterface((@:check2r _bb.string() : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.encoding.base64.Base64__bigtest._bigtest._encoded));
                 _bs++;
             };
         };

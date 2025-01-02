@@ -1,25 +1,25 @@
 package stdgo._internal.net.textproto;
 function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _maxMemory:stdgo.GoInt64, _maxHeaders:stdgo.GoInt64):{ var _0 : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader; var _1 : stdgo.Error; } {
         var _strs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        var _hint = (_r._upcomingHeaderKeys() : stdgo.GoInt);
+        var _hint = (@:check2r _r._upcomingHeaderKeys() : stdgo.GoInt);
         if ((_hint > (0 : stdgo.GoInt) : Bool)) {
             if ((_hint > (1000 : stdgo.GoInt) : Bool)) {
                 _hint = (1000 : stdgo.GoInt);
             };
             _strs = (new stdgo.Slice<stdgo.GoString>((_hint : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         };
-        var _m = (({
+        var _m = ((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
         _maxMemory = (_maxMemory - ((400i64 : stdgo.GoInt64)) : stdgo.GoInt64);
         {};
         {
-            var __tmp__ = _r.r.peek((1 : stdgo.GoInt)), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek((1 : stdgo.GoInt)), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err == null) && (((_buf[(0 : stdgo.GoInt)] == (32 : stdgo.GoUInt8)) || (_buf[(0 : stdgo.GoInt)] == (9 : stdgo.GoUInt8)) : Bool)) : Bool)) {
-                var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : _m, _1 : _err };
                 };
@@ -27,7 +27,7 @@ function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Re
             };
         };
         while (true) {
-            var __tmp__ = _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__mustHaveFieldNameColon._mustHaveFieldNameColon), _kv:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__mustHaveFieldNameColon._mustHaveFieldNameColon), _kv:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_kv.length) == ((0 : stdgo.GoInt))) {
                 return { _0 : _m, _1 : _err };
             };

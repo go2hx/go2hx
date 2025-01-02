@@ -29,13 +29,13 @@ package stdgo.testing.fstest;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) abstract T_fsOnly(stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly) from stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly to stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly {
-    public var fs(get, set) : stdgo._internal.io.fs.Fs_FS.FS;
-    function get_fs():stdgo._internal.io.fs.Fs_FS.FS return this.fs;
-    function set_fs(v:stdgo._internal.io.fs.Fs_FS.FS):stdgo._internal.io.fs.Fs_FS.FS {
-        this.fs = v;
+    public var fS(get, set) : stdgo._internal.io.fs.Fs_FS.FS;
+    function get_fS():stdgo._internal.io.fs.Fs_FS.FS return this.fS;
+    function set_fS(v:stdgo._internal.io.fs.Fs_FS.FS):stdgo._internal.io.fs.Fs_FS.FS {
+        this.fS = v;
         return v;
     }
-    public function new(?fs:stdgo._internal.io.fs.Fs_FS.FS) this = new stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly(fs);
+    public function new(?fS:stdgo._internal.io.fs.Fs_FS.FS) this = new stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly(fS);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -161,49 +161,52 @@ package stdgo.testing.fstest;
 }
 typedef MapFS = stdgo._internal.testing.fstest.Fstest_MapFS.MapFS;
 typedef T_shuffledFS = stdgo._internal.testing.fstest.Fstest_T_shuffledFS.T_shuffledFS;
+typedef T_fsOnlyPointer = stdgo._internal.testing.fstest.Fstest_T_fsOnlyPointer.T_fsOnlyPointer;
 class T_fsOnly_static_extension {
-    public static function open(__self__:stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
+    public static function open(__self__:stdgo._internal.testing.fstest.Fstest_T_fsOnly.T_fsOnly, _0:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_fsOnly_static_extension.T_fsOnly_static_extension.open(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_fsOnly_static_extension.T_fsOnly_static_extension.open(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef T_noSubPointer = stdgo._internal.testing.fstest.Fstest_T_noSubPointer.T_noSubPointer;
 class T_noSub_static_extension {
     static public function sub(_:T_noSub):Void {
         stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.sub(_);
     }
-    public static function stat(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
+    public static function stat(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.stat(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.stat(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readFile(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _pattern:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function readFile(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.readFile(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.readFile(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readDir(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _pattern:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
+    public static function readDir(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.readDir(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.readDir(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function open(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
+    public static function open(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.open(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.open(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function glob(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    public static function glob(__self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.glob(__self__, _pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_noSub_static_extension.T_noSub_static_extension.glob(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
+typedef T_mapFileInfoPointer = stdgo._internal.testing.fstest.Fstest_T_mapFileInfoPointer.T_mapFileInfoPointer;
 class T_mapFileInfo_static_extension {
     static public function string(_i:T_mapFileInfo):String {
         return stdgo._internal.testing.fstest.Fstest_T_mapFileInfo_static_extension.T_mapFileInfo_static_extension.string(_i);
@@ -236,6 +239,7 @@ class T_mapFileInfo_static_extension {
         return stdgo._internal.testing.fstest.Fstest_T_mapFileInfo_static_extension.T_mapFileInfo_static_extension.name(_i);
     }
 }
+typedef T_openMapFilePointer = stdgo._internal.testing.fstest.Fstest_T_openMapFilePointer.T_openMapFilePointer;
 class T_openMapFile_static_extension {
     static public function readAt(_f:T_openMapFile, _b:Array<std.UInt>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -297,6 +301,7 @@ class T_openMapFile_static_extension {
         };
     }
 }
+typedef T_mapDirPointer = stdgo._internal.testing.fstest.Fstest_T_mapDirPointer.T_mapDirPointer;
 class T_mapDir_static_extension {
     static public function readDir(_d:T_mapDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
         return {
@@ -351,6 +356,7 @@ class T_mapDir_static_extension {
         };
     }
 }
+typedef T_fsTesterPointer = stdgo._internal.testing.fstest.Fstest_T_fsTesterPointer.T_fsTesterPointer;
 class T_fsTester_static_extension {
     static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:stdgo.GoString -> stdgo.Error):Void {
         final _open = _open;
@@ -389,6 +395,7 @@ class T_fsTester_static_extension {
         stdgo._internal.testing.fstest.Fstest_T_fsTester_static_extension.T_fsTester_static_extension._errorf(_t, _format, ...[for (i in _args) i]);
     }
 }
+typedef T_shuffledFilePointer = stdgo._internal.testing.fstest.Fstest_T_shuffledFilePointer.T_shuffledFilePointer;
 class T_shuffledFile_static_extension {
     static public function readDir(_f:T_shuffledFile, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
         return {
@@ -402,10 +409,10 @@ class T_shuffledFile_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(__self__:stdgo._internal.testing.fstest.Fstest_T_shuffledFile.T_shuffledFile, __0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.testing.fstest.Fstest_T_shuffledFile.T_shuffledFile, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest_T_shuffledFile_static_extension.T_shuffledFile_static_extension.read(__self__, __0);
+            final obj = stdgo._internal.testing.fstest.Fstest_T_shuffledFile_static_extension.T_shuffledFile_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -413,6 +420,7 @@ class T_shuffledFile_static_extension {
         return stdgo._internal.testing.fstest.Fstest_T_shuffledFile_static_extension.T_shuffledFile_static_extension.close(__self__);
     }
 }
+typedef MapFSPointer = stdgo._internal.testing.fstest.Fstest_MapFSPointer.MapFSPointer;
 class MapFS_static_extension {
     static public function sub(_fsys:MapFS, _dir:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FS.FS, stdgo.Error> {
         return {
@@ -451,6 +459,7 @@ class MapFS_static_extension {
         };
     }
 }
+typedef T_shuffledFSPointer = stdgo._internal.testing.fstest.Fstest_T_shuffledFSPointer.T_shuffledFSPointer;
 class T_shuffledFS_static_extension {
     static public function open(_fsys:T_shuffledFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
         return {

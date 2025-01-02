@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-function _http2parseHeadersFrame(__132:stdgo.Ref<stdgo._internal.net.http.Http_T_http2frameCache.T_http2frameCache>, _fh:stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader, _countError:stdgo.GoString -> Void, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame; var _1 : stdgo.Error; } {
+function _http2parseHeadersFrame(__137:stdgo.Ref<stdgo._internal.net.http.Http_T_http2frameCache.T_http2frameCache>, _fh:stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader, _countError:stdgo.GoString -> Void, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame; var _1 : stdgo.Error; } {
         var _0 = (null : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame), _err = (null : stdgo.Error);
         var _hf = (stdgo.Go.setRef(({ _http2FrameHeader : _fh?.__copy__() } : stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame>);
         if (_fh.streamID == ((0u32 : stdgo.GoUInt32))) {
@@ -43,12 +43,12 @@ function _http2parseHeadersFrame(__132:stdgo.Ref<stdgo._internal.net.http.Http_T
                     __tmp__;
                 };
             };
-            _hf.priority.streamDep = (_v & (2147483647u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            _hf.priority.exclusive = (_v != _hf.priority.streamDep);
+            (@:checkr _hf ?? throw "null pointer dereference").priority.streamDep = (_v & (2147483647u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+            (@:checkr _hf ?? throw "null pointer dereference").priority.exclusive = (_v != (@:checkr _hf ?? throw "null pointer dereference").priority.streamDep);
             {
                 var __tmp__ = stdgo._internal.net.http.Http__http2readByte._http2readByte(_p);
                 _p = __tmp__._0;
-                _hf.priority.weight = __tmp__._1;
+                (@:checkr _hf ?? throw "null pointer dereference").priority.weight = __tmp__._1;
                 _err = __tmp__._2;
             };
             if (_err != null) {
@@ -70,7 +70,7 @@ function _http2parseHeadersFrame(__132:stdgo.Ref<stdgo._internal.net.http.Http_T
                 __tmp__;
             };
         };
-        _hf._headerFragBuf = (_p.__slice__(0, ((_p.length) - (_padLength : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        (@:checkr _hf ?? throw "null pointer dereference")._headerFragBuf = (_p.__slice__(0, ((_p.length) - (_padLength : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final __tmp__:{ var _0 : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_hf), _1 : (null : stdgo.Error) };
             _0 = __tmp__._0;

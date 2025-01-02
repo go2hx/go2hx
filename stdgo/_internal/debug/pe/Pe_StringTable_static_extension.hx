@@ -1,6 +1,7 @@
 package stdgo._internal.debug.pe;
 @:keep @:allow(stdgo._internal.debug.pe.Pe.StringTable_asInterface) class StringTable_static_extension {
     @:keep
+    @:tdfield
     static public function string( _st:stdgo._internal.debug.pe.Pe_StringTable.StringTable, _start:stdgo.GoUInt32):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _st:stdgo._internal.debug.pe.Pe_StringTable.StringTable = _st;
         if ((_start < (4u32 : stdgo.GoUInt32) : Bool)) {

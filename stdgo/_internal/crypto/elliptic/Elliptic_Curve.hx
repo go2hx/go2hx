@@ -5,6 +5,7 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function params():stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams>;
     /**
         IsOnCurve reports whether the given (x,y) lies on the curve.
@@ -15,6 +16,7 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function isOnCurve(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):Bool;
     /**
         Add returns the sum of (x1,y1) and (x2,y2).
@@ -23,6 +25,7 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function add(_x1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _x2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
     /**
         Double returns 2*(x,y).
@@ -31,6 +34,7 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function double(_x1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
     /**
         ScalarMult returns k*(x,y) where k is an integer in big-endian form.
@@ -41,6 +45,7 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function scalarMult(_x1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _k:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
     /**
         ScalarBaseMult returns k*G, where G is the base point of the group
@@ -52,5 +57,6 @@ typedef Curve = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function scalarBaseMult(_k:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
 };

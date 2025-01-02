@@ -18,54 +18,102 @@ package stdgo._internal.testing;
         if (_fuzzCalled != null) this._fuzzCalled = _fuzzCalled;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var cleanup(get, never) : (() -> Void) -> Void;
     @:embedded
-    public function cleanup(_f:() -> Void) this._common.cleanup(_f);
+    @:embeddededffieldsffun
+    public function get_cleanup():(() -> Void) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").cleanup;
+    public var error(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
-    public function error(_args:haxe.Rest<stdgo.AnyInterface>) this._common.error(..._args);
+    @:embeddededffieldsffun
+    public function get_error():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 (this._common ?? throw "null pointer derefrence").error;
+    public var errorf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
-    public function errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this._common.errorf(_format, ..._args);
+    @:embeddededffieldsffun
+    public function get_errorf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").errorf;
+    public var failNow(get, never) : () -> Void;
     @:embedded
-    public function failNow() this._common.failNow();
+    @:embeddededffieldsffun
+    public function get_failNow():() -> Void return @:check3 (this._common ?? throw "null pointer derefrence").failNow;
+    public var failed(get, never) : () -> Bool;
     @:embedded
-    public function failed():Bool return this._common.failed();
+    @:embeddededffieldsffun
+    public function get_failed():() -> Bool return @:check3 (this._common ?? throw "null pointer derefrence").failed;
+    public var fatal(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
-    public function fatal(_args:haxe.Rest<stdgo.AnyInterface>) this._common.fatal(..._args);
+    @:embeddededffieldsffun
+    public function get_fatal():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 (this._common ?? throw "null pointer derefrence").fatal;
+    public var fatalf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
-    public function fatalf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this._common.fatalf(_format, ..._args);
+    @:embeddededffieldsffun
+    public function get_fatalf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").fatalf;
+    public var log(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
-    public function log(_args:haxe.Rest<stdgo.AnyInterface>) this._common.log(..._args);
+    @:embeddededffieldsffun
+    public function get_log():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 (this._common ?? throw "null pointer derefrence").log;
+    public var logf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
-    public function logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this._common.logf(_format, ..._args);
+    @:embeddededffieldsffun
+    public function get_logf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").logf;
+    public var name(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function name():stdgo.GoString return this._common.name();
+    @:embeddededffieldsffun
+    public function get_name():() -> stdgo.GoString return @:check3 (this._common ?? throw "null pointer derefrence").name;
+    public var setenv(get, never) : (stdgo.GoString, stdgo.GoString) -> Void;
     @:embedded
-    public function setenv(_key:stdgo.GoString, _value:stdgo.GoString) this._common.setenv(_key, _value);
+    @:embeddededffieldsffun
+    public function get_setenv():(stdgo.GoString, stdgo.GoString) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").setenv;
+    public var skip(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
-    public function skip(_args:haxe.Rest<stdgo.AnyInterface>) this._common.skip(..._args);
+    @:embeddededffieldsffun
+    public function get_skip():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 (this._common ?? throw "null pointer derefrence").skip;
+    public var skipNow(get, never) : () -> Void;
     @:embedded
-    public function skipNow() this._common.skipNow();
+    @:embeddededffieldsffun
+    public function get_skipNow():() -> Void return @:check3 (this._common ?? throw "null pointer derefrence").skipNow;
+    public var skipf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
-    public function skipf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this._common.skipf(_format, ..._args);
+    @:embeddededffieldsffun
+    public function get_skipf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this._common ?? throw "null pointer derefrence").skipf;
+    public var tempDir(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function tempDir():stdgo.GoString return this._common.tempDir();
+    @:embeddededffieldsffun
+    public function get_tempDir():() -> stdgo.GoString return @:check3 (this._common ?? throw "null pointer derefrence").tempDir;
+    public var _checkFuzzFn(get, never) : stdgo.GoString -> Void;
     @:embedded
-    public function _checkFuzzFn(_s:stdgo.GoString) this._common._checkFuzzFn(_s);
+    @:embeddededffieldsffun
+    public function get__checkFuzzFn():stdgo.GoString -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._checkFuzzFn;
+    public var _decorate(get, never) : (stdgo.GoString, stdgo.GoInt) -> stdgo.GoString;
     @:embedded
-    public function _decorate(_s:stdgo.GoString, _skip:stdgo.GoInt):stdgo.GoString return this._common._decorate(_s, _skip);
+    @:embeddededffieldsffun
+    public function get__decorate():(stdgo.GoString, stdgo.GoInt) -> stdgo.GoString return @:check3 (this._common ?? throw "null pointer derefrence")._decorate;
+    public var _flushToParent(get, never) : (stdgo.GoString, stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
-    public function _flushToParent(_testName:stdgo.GoString, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this._common._flushToParent(_testName, _format, ..._args);
+    @:embeddededffieldsffun
+    public function get__flushToParent():(stdgo.GoString, stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._flushToParent;
+    public var _frameSkip(get, never) : stdgo.GoInt -> stdgo._internal.runtime.Runtime_Frame.Frame;
     @:embedded
-    public function _frameSkip(_skip:stdgo.GoInt):stdgo._internal.runtime.Runtime_Frame.Frame return this._common._frameSkip(_skip);
+    @:embeddededffieldsffun
+    public function get__frameSkip():stdgo.GoInt -> stdgo._internal.runtime.Runtime_Frame.Frame return @:check3 (this._common ?? throw "null pointer derefrence")._frameSkip;
+    public var _log(get, never) : stdgo.GoString -> Void;
     @:embedded
-    public function _log(_s:stdgo.GoString) this._common._log(_s);
+    @:embeddededffieldsffun
+    public function get__log():stdgo.GoString -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._log;
+    public var _logDepth(get, never) : (stdgo.GoString, stdgo.GoInt) -> Void;
     @:embedded
-    public function _logDepth(_s:stdgo.GoString, _skip:stdgo.GoInt) this._common._logDepth(_s, _skip);
+    @:embeddededffieldsffun
+    public function get__logDepth():(stdgo.GoString, stdgo.GoInt) -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._logDepth;
+    public var _private(get, never) : () -> Void;
     @:embedded
-    public function _private() this._common._private();
+    @:embeddededffieldsffun
+    public function get__private():() -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._private;
+    public var _runCleanup(get, never) : stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling -> stdgo.AnyInterface;
     @:embedded
-    public function _runCleanup(_ph:stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling):stdgo.AnyInterface return this._common._runCleanup(_ph);
+    @:embeddededffieldsffun
+    public function get__runCleanup():stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling -> stdgo.AnyInterface return @:check3 (this._common ?? throw "null pointer derefrence")._runCleanup;
+    public var _setRan(get, never) : () -> Void;
     @:embedded
-    public function _setRan() this._common._setRan();
+    @:embeddededffieldsffun
+    public function get__setRan():() -> Void return @:check3 (this._common ?? throw "null pointer derefrence")._setRan;
     public function __copy__() {
         return new F(_common, _fuzzContext, _testContext, _inFuzzFn, _corpus, _result, _fuzzCalled);
     }

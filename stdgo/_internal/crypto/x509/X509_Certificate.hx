@@ -27,12 +27,12 @@ package stdgo._internal.crypto.x509;
     public var maxPathLenZero : Bool = false;
     public var subjectKeyId : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var authorityKeyId : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var ocspserver : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+    public var oCSPServer : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var issuingCertificateURL : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-    public var dnsnames : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+    public var dNSNames : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var emailAddresses : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-    public var ipaddresses : stdgo.Slice<stdgo._internal.net.Net_IP.IP> = (null : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
-    public var uris : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+    public var iPAddresses : stdgo.Slice<stdgo._internal.net.Net_IP.IP> = (null : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
+    public var uRIs : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
     public var permittedDNSDomainsCritical : Bool = false;
     public var permittedDNSDomains : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var excludedDNSDomains : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
@@ -42,9 +42,9 @@ package stdgo._internal.crypto.x509;
     public var excludedEmailAddresses : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var permittedURIDomains : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var excludedURIDomains : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-    public var crldistributionPoints : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+    public var cRLDistributionPoints : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var policyIdentifiers : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier> = (null : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>);
-    public function new(?raw:stdgo.Slice<stdgo.GoUInt8>, ?rawTBSCertificate:stdgo.Slice<stdgo.GoUInt8>, ?rawSubjectPublicKeyInfo:stdgo.Slice<stdgo.GoUInt8>, ?rawSubject:stdgo.Slice<stdgo.GoUInt8>, ?rawIssuer:stdgo.Slice<stdgo.GoUInt8>, ?signature:stdgo.Slice<stdgo.GoUInt8>, ?signatureAlgorithm:stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm, ?publicKeyAlgorithm:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?version:stdgo.GoInt, ?serialNumber:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, ?issuer:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?subject:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?notBefore:stdgo._internal.time.Time_Time.Time, ?notAfter:stdgo._internal.time.Time_Time.Time, ?keyUsage:stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage, ?extensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?extraExtensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?unhandledCriticalExtensions:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?extKeyUsage:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>, ?unknownExtKeyUsage:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?basicConstraintsValid:Bool, ?isCA:Bool, ?maxPathLen:stdgo.GoInt, ?maxPathLenZero:Bool, ?subjectKeyId:stdgo.Slice<stdgo.GoUInt8>, ?authorityKeyId:stdgo.Slice<stdgo.GoUInt8>, ?ocspserver:stdgo.Slice<stdgo.GoString>, ?issuingCertificateURL:stdgo.Slice<stdgo.GoString>, ?dnsnames:stdgo.Slice<stdgo.GoString>, ?emailAddresses:stdgo.Slice<stdgo.GoString>, ?ipaddresses:stdgo.Slice<stdgo._internal.net.Net_IP.IP>, ?uris:stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>, ?permittedDNSDomainsCritical:Bool, ?permittedDNSDomains:stdgo.Slice<stdgo.GoString>, ?excludedDNSDomains:stdgo.Slice<stdgo.GoString>, ?permittedIPRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>, ?excludedIPRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>, ?permittedEmailAddresses:stdgo.Slice<stdgo.GoString>, ?excludedEmailAddresses:stdgo.Slice<stdgo.GoString>, ?permittedURIDomains:stdgo.Slice<stdgo.GoString>, ?excludedURIDomains:stdgo.Slice<stdgo.GoString>, ?crldistributionPoints:stdgo.Slice<stdgo.GoString>, ?policyIdentifiers:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) {
+    public function new(?raw:stdgo.Slice<stdgo.GoUInt8>, ?rawTBSCertificate:stdgo.Slice<stdgo.GoUInt8>, ?rawSubjectPublicKeyInfo:stdgo.Slice<stdgo.GoUInt8>, ?rawSubject:stdgo.Slice<stdgo.GoUInt8>, ?rawIssuer:stdgo.Slice<stdgo.GoUInt8>, ?signature:stdgo.Slice<stdgo.GoUInt8>, ?signatureAlgorithm:stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm, ?publicKeyAlgorithm:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?version:stdgo.GoInt, ?serialNumber:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, ?issuer:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?subject:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?notBefore:stdgo._internal.time.Time_Time.Time, ?notAfter:stdgo._internal.time.Time_Time.Time, ?keyUsage:stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage, ?extensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?extraExtensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?unhandledCriticalExtensions:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?extKeyUsage:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>, ?unknownExtKeyUsage:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?basicConstraintsValid:Bool, ?isCA:Bool, ?maxPathLen:stdgo.GoInt, ?maxPathLenZero:Bool, ?subjectKeyId:stdgo.Slice<stdgo.GoUInt8>, ?authorityKeyId:stdgo.Slice<stdgo.GoUInt8>, ?oCSPServer:stdgo.Slice<stdgo.GoString>, ?issuingCertificateURL:stdgo.Slice<stdgo.GoString>, ?dNSNames:stdgo.Slice<stdgo.GoString>, ?emailAddresses:stdgo.Slice<stdgo.GoString>, ?iPAddresses:stdgo.Slice<stdgo._internal.net.Net_IP.IP>, ?uRIs:stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>, ?permittedDNSDomainsCritical:Bool, ?permittedDNSDomains:stdgo.Slice<stdgo.GoString>, ?excludedDNSDomains:stdgo.Slice<stdgo.GoString>, ?permittedIPRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>, ?excludedIPRanges:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>, ?permittedEmailAddresses:stdgo.Slice<stdgo.GoString>, ?excludedEmailAddresses:stdgo.Slice<stdgo.GoString>, ?permittedURIDomains:stdgo.Slice<stdgo.GoString>, ?excludedURIDomains:stdgo.Slice<stdgo.GoString>, ?cRLDistributionPoints:stdgo.Slice<stdgo.GoString>, ?policyIdentifiers:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) {
         if (raw != null) this.raw = raw;
         if (rawTBSCertificate != null) this.rawTBSCertificate = rawTBSCertificate;
         if (rawSubjectPublicKeyInfo != null) this.rawSubjectPublicKeyInfo = rawSubjectPublicKeyInfo;
@@ -72,12 +72,12 @@ package stdgo._internal.crypto.x509;
         if (maxPathLenZero != null) this.maxPathLenZero = maxPathLenZero;
         if (subjectKeyId != null) this.subjectKeyId = subjectKeyId;
         if (authorityKeyId != null) this.authorityKeyId = authorityKeyId;
-        if (ocspserver != null) this.ocspserver = ocspserver;
+        if (oCSPServer != null) this.oCSPServer = oCSPServer;
         if (issuingCertificateURL != null) this.issuingCertificateURL = issuingCertificateURL;
-        if (dnsnames != null) this.dnsnames = dnsnames;
+        if (dNSNames != null) this.dNSNames = dNSNames;
         if (emailAddresses != null) this.emailAddresses = emailAddresses;
-        if (ipaddresses != null) this.ipaddresses = ipaddresses;
-        if (uris != null) this.uris = uris;
+        if (iPAddresses != null) this.iPAddresses = iPAddresses;
+        if (uRIs != null) this.uRIs = uRIs;
         if (permittedDNSDomainsCritical != null) this.permittedDNSDomainsCritical = permittedDNSDomainsCritical;
         if (permittedDNSDomains != null) this.permittedDNSDomains = permittedDNSDomains;
         if (excludedDNSDomains != null) this.excludedDNSDomains = excludedDNSDomains;
@@ -87,7 +87,7 @@ package stdgo._internal.crypto.x509;
         if (excludedEmailAddresses != null) this.excludedEmailAddresses = excludedEmailAddresses;
         if (permittedURIDomains != null) this.permittedURIDomains = permittedURIDomains;
         if (excludedURIDomains != null) this.excludedURIDomains = excludedURIDomains;
-        if (crldistributionPoints != null) this.crldistributionPoints = crldistributionPoints;
+        if (cRLDistributionPoints != null) this.cRLDistributionPoints = cRLDistributionPoints;
         if (policyIdentifiers != null) this.policyIdentifiers = policyIdentifiers;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -120,12 +120,12 @@ maxPathLen,
 maxPathLenZero,
 subjectKeyId,
 authorityKeyId,
-ocspserver,
+oCSPServer,
 issuingCertificateURL,
-dnsnames,
+dNSNames,
 emailAddresses,
-ipaddresses,
-uris,
+iPAddresses,
+uRIs,
 permittedDNSDomainsCritical,
 permittedDNSDomains,
 excludedDNSDomains,
@@ -135,7 +135,7 @@ permittedEmailAddresses,
 excludedEmailAddresses,
 permittedURIDomains,
 excludedURIDomains,
-crldistributionPoints,
+cRLDistributionPoints,
 policyIdentifiers);
     }
 }

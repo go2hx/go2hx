@@ -1,17 +1,18 @@
 package stdgo._internal.container.list;
 @:keep @:allow(stdgo._internal.container.list.List.List_asInterface) class List_static_extension {
     @:keep
+    @:tdfield
     static public function pushFrontList( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _other:stdgo.Ref<stdgo._internal.container.list.List_List.List>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _l._lazyInit();
+        @:check2r _l._lazyInit();
         {
-            var __0 = (_other.len() : stdgo.GoInt), __1 = _other.back();
+            var __0 = (@:check2r _other.len() : stdgo.GoInt), __1 = @:check2r _other.back();
 var _e = __1, _i = __0;
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                _l._insertValue(_e.value, (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
+                @:check2r _l._insertValue((@:checkr _e ?? throw "null pointer dereference").value, (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
                 {
                     final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
-                    final __tmp__1 = _e.prev();
+                    final __tmp__1 = @:check2r _e.prev();
                     _i = __tmp__0;
                     _e = __tmp__1;
                 };
@@ -19,17 +20,18 @@ var _e = __1, _i = __0;
         };
     }
     @:keep
+    @:tdfield
     static public function pushBackList( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _other:stdgo.Ref<stdgo._internal.container.list.List_List.List>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _l._lazyInit();
+        @:check2r _l._lazyInit();
         {
-            var __0 = (_other.len() : stdgo.GoInt), __1 = _other.front();
+            var __0 = (@:check2r _other.len() : stdgo.GoInt), __1 = @:check2r _other.front();
 var _e = __1, _i = __0;
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                _l._insertValue(_e.value, _l._root._prev);
+                @:check2r _l._insertValue((@:checkr _e ?? throw "null pointer dereference").value, (@:checkr _l ?? throw "null pointer dereference")._root._prev);
                 {
                     final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
-                    final __tmp__1 = _e.next();
+                    final __tmp__1 = @:check2r _e.next();
                     _i = __tmp__0;
                     _e = __tmp__1;
                 };
@@ -37,146 +39,164 @@ var _e = __1, _i = __0;
         };
     }
     @:keep
+    @:tdfield
     static public function moveAfter( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>, _mark:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (((_e._list != (_l) || _e == (_mark) : Bool) || (_mark._list != _l) : Bool)) {
+        if ((((@:checkr _e ?? throw "null pointer dereference")._list != (_l) || _e == (_mark) : Bool) || ((@:checkr _mark ?? throw "null pointer dereference")._list != _l) : Bool)) {
             return;
         };
-        _l._move(_e, _mark);
+        @:check2r _l._move(_e, _mark);
     }
     @:keep
+    @:tdfield
     static public function moveBefore( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>, _mark:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (((_e._list != (_l) || _e == (_mark) : Bool) || (_mark._list != _l) : Bool)) {
+        if ((((@:checkr _e ?? throw "null pointer dereference")._list != (_l) || _e == (_mark) : Bool) || ((@:checkr _mark ?? throw "null pointer dereference")._list != _l) : Bool)) {
             return;
         };
-        _l._move(_e, _mark._prev);
+        @:check2r _l._move(_e, (@:checkr _mark ?? throw "null pointer dereference")._prev);
     }
     @:keep
+    @:tdfield
     static public function moveToBack( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (((_e._list != _l) || (_l._root._prev == _e) : Bool)) {
+        if ((((@:checkr _e ?? throw "null pointer dereference")._list != _l) || ((@:checkr _l ?? throw "null pointer dereference")._root._prev == _e) : Bool)) {
             return;
         };
-        _l._move(_e, _l._root._prev);
+        @:check2r _l._move(_e, (@:checkr _l ?? throw "null pointer dereference")._root._prev);
     }
     @:keep
+    @:tdfield
     static public function moveToFront( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (((_e._list != _l) || (_l._root._next == _e) : Bool)) {
+        if ((((@:checkr _e ?? throw "null pointer dereference")._list != _l) || ((@:checkr _l ?? throw "null pointer dereference")._root._next == _e) : Bool)) {
             return;
         };
-        _l._move(_e, (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
+        @:check2r _l._move(_e, (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
     }
     @:keep
+    @:tdfield
     static public function insertAfter( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _v:stdgo.AnyInterface, _mark:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_mark._list != (_l)) {
+        if ((@:checkr _mark ?? throw "null pointer dereference")._list != (_l)) {
             return null;
         };
-        return _l._insertValue(_v, _mark);
+        return @:check2r _l._insertValue(_v, _mark);
     }
     @:keep
+    @:tdfield
     static public function insertBefore( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _v:stdgo.AnyInterface, _mark:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_mark._list != (_l)) {
+        if ((@:checkr _mark ?? throw "null pointer dereference")._list != (_l)) {
             return null;
         };
-        return _l._insertValue(_v, _mark._prev);
+        return @:check2r _l._insertValue(_v, (@:checkr _mark ?? throw "null pointer dereference")._prev);
     }
     @:keep
+    @:tdfield
     static public function pushBack( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _v:stdgo.AnyInterface):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _l._lazyInit();
-        return _l._insertValue(_v, _l._root._prev);
+        @:check2r _l._lazyInit();
+        return @:check2r _l._insertValue(_v, (@:checkr _l ?? throw "null pointer dereference")._root._prev);
     }
     @:keep
+    @:tdfield
     static public function pushFront( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _v:stdgo.AnyInterface):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _l._lazyInit();
-        return _l._insertValue(_v, (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
+        @:check2r _l._lazyInit();
+        return @:check2r _l._insertValue(_v, (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
     }
     @:keep
+    @:tdfield
     static public function remove( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):stdgo.AnyInterface {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_e._list == (_l)) {
-            _l._remove(_e);
+        if ((@:checkr _e ?? throw "null pointer dereference")._list == (_l)) {
+            @:check2r _l._remove(_e);
         };
-        return _e.value;
+        return (@:checkr _e ?? throw "null pointer dereference").value;
     }
     @:keep
+    @:tdfield
     static public function _move( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>, _at:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
         if (_e == (_at)) {
             return;
         };
-        _e._prev._next = _e._next;
-        _e._next._prev = _e._prev;
-        _e._prev = _at;
-        _e._next = _at._next;
-        _e._prev._next = _e;
-        _e._next._prev = _e;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._next = (@:checkr _e ?? throw "null pointer dereference")._next;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._next ?? throw "null pointer dereference")._prev = (@:checkr _e ?? throw "null pointer dereference")._prev;
+        (@:checkr _e ?? throw "null pointer dereference")._prev = _at;
+        (@:checkr _e ?? throw "null pointer dereference")._next = (@:checkr _at ?? throw "null pointer dereference")._next;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._next = _e;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._next ?? throw "null pointer dereference")._prev = _e;
     }
     @:keep
+    @:tdfield
     static public function _remove( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _e._prev._next = _e._next;
-        _e._next._prev = _e._prev;
-        _e._next = null;
-        _e._prev = null;
-        _e._list = null;
-        _l._len--;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._next = (@:checkr _e ?? throw "null pointer dereference")._next;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._next ?? throw "null pointer dereference")._prev = (@:checkr _e ?? throw "null pointer dereference")._prev;
+        (@:checkr _e ?? throw "null pointer dereference")._next = null;
+        (@:checkr _e ?? throw "null pointer dereference")._prev = null;
+        (@:checkr _e ?? throw "null pointer dereference")._list = null;
+        (@:checkr _l ?? throw "null pointer dereference")._len--;
     }
     @:keep
+    @:tdfield
     static public function _insertValue( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _v:stdgo.AnyInterface, _at:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        return _l._insert((stdgo.Go.setRef(({ value : _v } : stdgo._internal.container.list.List_Element.Element)) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _at);
+        return @:check2r _l._insert((stdgo.Go.setRef(({ value : _v } : stdgo._internal.container.list.List_Element.Element)) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _at);
     }
     @:keep
+    @:tdfield
     static public function _insert( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>, _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>, _at:stdgo.Ref<stdgo._internal.container.list.List_Element.Element>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _e._prev = _at;
-        _e._next = _at._next;
-        _e._prev._next = _e;
-        _e._next._prev = _e;
-        _e._list = _l;
-        _l._len++;
+        (@:checkr _e ?? throw "null pointer dereference")._prev = _at;
+        (@:checkr _e ?? throw "null pointer dereference")._next = (@:checkr _at ?? throw "null pointer dereference")._next;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._next = _e;
+        (@:checkr (@:checkr _e ?? throw "null pointer dereference")._next ?? throw "null pointer dereference")._prev = _e;
+        (@:checkr _e ?? throw "null pointer dereference")._list = _l;
+        (@:checkr _l ?? throw "null pointer dereference")._len++;
         return _e;
     }
     @:keep
+    @:tdfield
     static public function _lazyInit( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if ((_l._root._next == null || (_l._root._next : Dynamic).__nil__)) {
-            _l.init();
+        if (((@:checkr _l ?? throw "null pointer dereference")._root._next == null || ((@:checkr _l ?? throw "null pointer dereference")._root._next : Dynamic).__nil__)) {
+            @:check2r _l.init();
         };
     }
     @:keep
+    @:tdfield
     static public function back( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_l._len == ((0 : stdgo.GoInt))) {
+        if ((@:checkr _l ?? throw "null pointer dereference")._len == ((0 : stdgo.GoInt))) {
             return null;
         };
-        return _l._root._prev;
+        return (@:checkr _l ?? throw "null pointer dereference")._root._prev;
     }
     @:keep
+    @:tdfield
     static public function front( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):stdgo.Ref<stdgo._internal.container.list.List_Element.Element> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_l._len == ((0 : stdgo.GoInt))) {
+        if ((@:checkr _l ?? throw "null pointer dereference")._len == ((0 : stdgo.GoInt))) {
             return null;
         };
-        return _l._root._next;
+        return (@:checkr _l ?? throw "null pointer dereference")._root._next;
     }
     @:keep
+    @:tdfield
     static public function len( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):stdgo.GoInt {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        return _l._len;
+        return (@:checkr _l ?? throw "null pointer dereference")._len;
     }
     @:keep
+    @:tdfield
     static public function init( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):stdgo.Ref<stdgo._internal.container.list.List_List.List> {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        _l._root._next = (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>);
-        _l._root._prev = (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>);
-        _l._len = (0 : stdgo.GoInt);
+        (@:checkr _l ?? throw "null pointer dereference")._root._next = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>);
+        (@:checkr _l ?? throw "null pointer dereference")._root._prev = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>);
+        (@:checkr _l ?? throw "null pointer dereference")._len = (0 : stdgo.GoInt);
         return _l;
     }
 }

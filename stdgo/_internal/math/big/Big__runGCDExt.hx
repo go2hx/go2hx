@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function _runGCDExt(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _aSize:stdgo.GoUInt, _bSize:stdgo.GoUInt, _calcXY:Bool):Void {
-        _b.stopTimer();
+        @:check2r _b.stopTimer();
         var _r = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((1234i64 : stdgo.GoInt64)));
         var _aa = stdgo._internal.math.big.Big__randInt._randInt(_r, _aSize);
         var _bb = stdgo._internal.math.big.Big__randInt._randInt(_r, _bSize);
@@ -10,11 +10,11 @@ var _y = __1, _x = __0;
             _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
             _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         };
-        _b.startTimer();
+        @:check2r _b.startTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            while ((_i < _b.n : Bool)) {
-                (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).gcd(_x, _y, _aa, _bb);
+            while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).gCD(_x, _y, _aa, _bb);
                 _i++;
             };
         };

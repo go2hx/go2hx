@@ -124,25 +124,25 @@ function testFloatText(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
 ({ _x : ("0x.8p-2147483648" : stdgo.GoString), _round : (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (4u32 : stdgo.GoUInt), _format : (120 : stdgo.GoUInt8), _digits : (-1 : stdgo.GoInt), _want : ("0x1p-2147483649" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_30.T__struct_30)].concat([for (i in 120 ... (120 > 120 ? 120 : 120 : stdgo.GoInt).toBasic()) ({ _x : ("" : stdgo.GoString), _round : ((0 : stdgo.GoUInt8) : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (0 : stdgo.GoUInt), _format : (0 : stdgo.GoUInt8), _digits : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_30.T__struct_30)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_30.T__struct_30>)) {
             var __tmp__ = stdgo._internal.math.big.Big_parseFloat.parseFloat(_test._x?.__copy__(), (0 : stdgo.GoInt), _test._prec, (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)), _f:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                _t.errorf(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("%v: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_err));
                 continue;
             };
             if (_test._round != ((255 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode))) {
-                _f.setMode(_test._round);
+                @:check2r _f.setMode(_test._round);
             };
-            var _got = (_f.text(_test._format, _test._digits)?.__copy__() : stdgo.GoString);
+            var _got = (@:check2r _f.text(_test._format, _test._digits)?.__copy__() : stdgo.GoString);
             if (_got != (_test._want)) {
-                _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
-            if ((((_test._prec == ((53u32 : stdgo.GoUInt)) && _test._format != ((112 : stdgo.GoUInt8)) : Bool) && _f.sign() != ((0 : stdgo.GoInt)) : Bool) && (((_test._round == (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) || (_test._round == (255 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) : Bool)) : Bool)) {
-                var __tmp__ = _f.float64(), _f64:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+            if ((((_test._prec == ((53u32 : stdgo.GoUInt)) && _test._format != ((112 : stdgo.GoUInt8)) : Bool) && @:check2r _f.sign() != ((0 : stdgo.GoInt)) : Bool) && (((_test._round == (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) || (_test._round == (255 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) : Bool)) : Bool)) {
+                var __tmp__ = @:check2r _f.float64(), _f64:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
                 if (_acc != ((0 : stdgo._internal.math.big.Big_Accuracy.Accuracy))) {
-                    _t.errorf(("%v: expected exact conversion to float64" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
+                    @:check2r _t.errorf(("%v: expected exact conversion to float64" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
                     continue;
                 };
                 var _got = (stdgo._internal.strconv.Strconv_formatFloat.formatFloat(_f64, _test._format, _test._digits, (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 if (_got != (_test._want)) {
-                    _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

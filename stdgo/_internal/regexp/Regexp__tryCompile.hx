@@ -28,12 +28,14 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -48,6 +50,7 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -1,13 +1,18 @@
 package stdgo._internal.os;
 @:keep @:allow(stdgo._internal.os.Os.T__struct_0_asInterface) class T__struct_0_static_extension {
     @:embedded
-    public static function _unlockSlow( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0, __0:stdgo.GoInt32) __self__.mutex._unlockSlow(__0);
+    @:localembedfields
+    public static function _unlockSlow( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0, _0:stdgo.GoInt32):Void return @:check3 (__self__.mutex ?? throw "null pointer derefrence")._unlockSlow(_0);
     @:embedded
-    public static function _lockSlow( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0) __self__.mutex._lockSlow();
+    @:localembedfields
+    public static function _lockSlow( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void return @:check3 (__self__.mutex ?? throw "null pointer derefrence")._lockSlow();
     @:embedded
-    public static function unlock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0) __self__.mutex.unlock();
+    @:localembedfields
+    public static function unlock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void return @:check3 (__self__.mutex ?? throw "null pointer derefrence").unlock();
     @:embedded
-    public static function tryLock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Bool return return __self__.mutex.tryLock();
+    @:localembedfields
+    public static function tryLock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Bool return @:check3 (__self__.mutex ?? throw "null pointer derefrence").tryLock();
     @:embedded
-    public static function lock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0) __self__.mutex.lock();
+    @:localembedfields
+    public static function lock( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void return @:check3 (__self__.mutex ?? throw "null pointer derefrence").lock();
 }

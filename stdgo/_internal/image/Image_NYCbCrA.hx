@@ -1,24 +1,32 @@
 package stdgo._internal.image;
 @:structInit @:using(stdgo._internal.image.Image_NYCbCrA_static_extension.NYCbCrA_static_extension) class NYCbCrA {
     @:embedded
-    public var ycbCr : stdgo._internal.image.Image_YCbCr.YCbCr = ({} : stdgo._internal.image.Image_YCbCr.YCbCr);
+    public var yCbCr : stdgo._internal.image.Image_YCbCr.YCbCr = ({} : stdgo._internal.image.Image_YCbCr.YCbCr);
     public var a : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var astride : stdgo.GoInt = 0;
-    public function new(?ycbCr:stdgo._internal.image.Image_YCbCr.YCbCr, ?a:stdgo.Slice<stdgo.GoUInt8>, ?astride:stdgo.GoInt) {
-        if (ycbCr != null) this.ycbCr = ycbCr;
+    public var aStride : stdgo.GoInt = 0;
+    public function new(?yCbCr:stdgo._internal.image.Image_YCbCr.YCbCr, ?a:stdgo.Slice<stdgo.GoUInt8>, ?aStride:stdgo.GoInt) {
+        if (yCbCr != null) this.yCbCr = yCbCr;
         if (a != null) this.a = a;
-        if (astride != null) this.astride = astride;
+        if (aStride != null) this.aStride = aStride;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var bounds(get, never) : () -> stdgo._internal.image.Image_Rectangle.Rectangle;
     @:embedded
-    public function bounds():stdgo._internal.image.Image_Rectangle.Rectangle return this.ycbCr.bounds();
+    @:embeddededffieldsffun
+    public function get_bounds():() -> stdgo._internal.image.Image_Rectangle.Rectangle return @:check3 (this.yCbCr ?? throw "null pointer derefrence").bounds;
+    public var cOffset(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt;
     @:embedded
-    public function coffset(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt return this.ycbCr.coffset(_x, _y);
+    @:embeddededffieldsffun
+    public function get_cOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 (this.yCbCr ?? throw "null pointer derefrence").cOffset;
+    public var yCbCrAt(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo._internal.image.color.Color_YCbCr.YCbCr;
     @:embedded
-    public function ycbCrAt(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color_YCbCr.YCbCr return this.ycbCr.ycbCrAt(_x, _y);
+    @:embeddededffieldsffun
+    public function get_yCbCrAt():(stdgo.GoInt, stdgo.GoInt) -> stdgo._internal.image.color.Color_YCbCr.YCbCr return @:check3 (this.yCbCr ?? throw "null pointer derefrence").yCbCrAt;
+    public var yOffset(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt;
     @:embedded
-    public function yoffset(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt return this.ycbCr.yoffset(_x, _y);
+    @:embeddededffieldsffun
+    public function get_yOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 (this.yCbCr ?? throw "null pointer derefrence").yOffset;
     public function __copy__() {
-        return new NYCbCrA(ycbCr, a, astride);
+        return new NYCbCrA(yCbCr, a, aStride);
     }
 }

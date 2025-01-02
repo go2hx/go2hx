@@ -1,6 +1,6 @@
 package stdgo._internal.html;
 function unescapeString(_s:stdgo.GoString):stdgo.GoString {
-        stdgo._internal.html.Html__populateMapsOnce._populateMapsOnce.do_(stdgo._internal.html.Html__populateMaps._populateMaps);
+        @:check2 stdgo._internal.html.Html__populateMapsOnce._populateMapsOnce.do_(stdgo._internal.html.Html__populateMaps._populateMaps);
         var _i = (stdgo._internal.strings.Strings_indexByte.indexByte(_s?.__copy__(), (38 : stdgo.GoUInt8)) : stdgo.GoInt);
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             return _s?.__copy__();

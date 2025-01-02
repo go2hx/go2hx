@@ -9,7 +9,7 @@ function _srcsetFilterAndEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoSt
             } else if (__value__ == ((6 : stdgo._internal.html.template.Template_T_contentType.T_contentType))) {
                 var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
                 if (stdgo._internal.html.template.Template__processURLOnto._processURLOnto(_s?.__copy__(), true, (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))) {
-                    _s = (_b.string() : stdgo.GoString)?.__copy__();
+                    _s = (@:check2 _b.string() : stdgo.GoString)?.__copy__();
                 };
                 return stdgo._internal.strings.Strings_replaceAll.replaceAll(_s?.__copy__(), ("," : stdgo.GoString), ("%2c" : stdgo.GoString))?.__copy__();
             };
@@ -21,12 +21,12 @@ function _srcsetFilterAndEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoSt
             while ((_i < (_s.length) : Bool)) {
                 if (_s[(_i : stdgo.GoInt)] == ((44 : stdgo.GoUInt8))) {
                     stdgo._internal.html.template.Template__filterSrcsetElement._filterSrcsetElement(_s.__copy__(), _written, _i, (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
-                    _b.writeString(("," : stdgo.GoString));
+                    @:check2 _b.writeString(("," : stdgo.GoString));
                     _written = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
                 _i++;
             };
         };
         stdgo._internal.html.template.Template__filterSrcsetElement._filterSrcsetElement(_s?.__copy__(), _written, (_s.length), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

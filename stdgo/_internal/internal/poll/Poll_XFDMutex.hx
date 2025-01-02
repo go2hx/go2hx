@@ -6,16 +6,26 @@ package stdgo._internal.internal.poll;
         if (_fdMutex != null) this._fdMutex = _fdMutex;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _decref(get, never) : () -> Bool;
     @:embedded
-    public function _decref():Bool return this._fdMutex._decref();
+    @:embeddededffieldsffun
+    public function get__decref():() -> Bool return @:check3 (this._fdMutex ?? throw "null pointer derefrence")._decref;
+    public var _incref(get, never) : () -> Bool;
     @:embedded
-    public function _incref():Bool return this._fdMutex._incref();
+    @:embeddededffieldsffun
+    public function get__incref():() -> Bool return @:check3 (this._fdMutex ?? throw "null pointer derefrence")._incref;
+    public var _increfAndClose(get, never) : () -> Bool;
     @:embedded
-    public function _increfAndClose():Bool return this._fdMutex._increfAndClose();
+    @:embeddededffieldsffun
+    public function get__increfAndClose():() -> Bool return @:check3 (this._fdMutex ?? throw "null pointer derefrence")._increfAndClose;
+    public var _rwlock(get, never) : Bool -> Bool;
     @:embedded
-    public function _rwlock(__0:Bool):Bool return this._fdMutex._rwlock(__0);
+    @:embeddededffieldsffun
+    public function get__rwlock():Bool -> Bool return @:check3 (this._fdMutex ?? throw "null pointer derefrence")._rwlock;
+    public var _rwunlock(get, never) : Bool -> Bool;
     @:embedded
-    public function _rwunlock(__0:Bool):Bool return this._fdMutex._rwunlock(__0);
+    @:embeddededffieldsffun
+    public function get__rwunlock():Bool -> Bool return @:check3 (this._fdMutex ?? throw "null pointer derefrence")._rwunlock;
     public function __copy__() {
         return new XFDMutex(_fdMutex);
     }

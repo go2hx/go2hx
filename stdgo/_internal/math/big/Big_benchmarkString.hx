@@ -6,15 +6,15 @@ function benchmarkString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void
                 if ((stdgo._internal.math.big.Big__isRaceBuilder._isRaceBuilder && (_y > (1000u32 : stdgo._internal.math.big.Big_Word.Word) : Bool) : Bool)) {
                     continue;
                 };
-                _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/Base%d" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_base))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
-                    _b.stopTimer();
+                @:check2r _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/Base%d" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_base))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
+                    @:check2r _b.stopTimer();
                     var _z:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
                     _z = _z._expWW((10u32 : stdgo._internal.math.big.Big_Word.Word), _y);
                     _z._utoa(_base);
-                    _b.startTimer();
+                    @:check2r _b.startTimer();
                     {
                         var _i = (0 : stdgo.GoInt);
-                        while ((_i < _b.n : Bool)) {
+                        while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                             var __blank__ = _z._utoa(_base);
                             _i++;
                         };

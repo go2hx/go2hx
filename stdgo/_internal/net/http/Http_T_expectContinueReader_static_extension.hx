@@ -1,16 +1,18 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_expectContinueReader_asInterface) class T_expectContinueReader_static_extension {
     @:keep
+    @:tdfield
     static public function close( _ecr:stdgo.Ref<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader>):stdgo.Error {
         @:recv var _ecr:stdgo.Ref<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader> = _ecr;
-        _ecr._closed.store(true);
-        return _ecr._readCloser.close();
+        @:check2 (@:checkr _ecr ?? throw "null pointer dereference")._closed.store(true);
+        return (@:checkr _ecr ?? throw "null pointer dereference")._readCloser.close();
     }
     @:keep
+    @:tdfield
     static public function read( _ecr:stdgo.Ref<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _ecr:stdgo.Ref<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader> = _ecr;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if (_ecr._closed.load()) {
+        if (@:check2 (@:checkr _ecr ?? throw "null pointer dereference")._closed.load()) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyReadAfterClose.errBodyReadAfterClose };
                 _n = __tmp__._0;
@@ -18,24 +20,24 @@ package stdgo._internal.net.http;
                 __tmp__;
             };
         };
-        var _w = _ecr._resp;
-        if (((!_w._wroteContinue && _w._canWriteContinue.load() : Bool) && !_w._conn._hijacked() : Bool)) {
-            _w._wroteContinue = true;
-            _w._writeContinueMu.lock();
-            if (_w._canWriteContinue.load()) {
-                _w._conn._bufw.writeString(("HTTP/1.1 100 Continue\r\n\r\n" : stdgo.GoString));
-                _w._conn._bufw.flush();
-                _w._canWriteContinue.store(false);
+        var _w = (@:checkr _ecr ?? throw "null pointer dereference")._resp;
+        if (((!(@:checkr _w ?? throw "null pointer dereference")._wroteContinue && @:check2 (@:checkr _w ?? throw "null pointer dereference")._canWriteContinue.load() : Bool) && !@:check2r (@:checkr _w ?? throw "null pointer dereference")._conn._hijacked() : Bool)) {
+            (@:checkr _w ?? throw "null pointer dereference")._wroteContinue = true;
+            @:check2 (@:checkr _w ?? throw "null pointer dereference")._writeContinueMu.lock();
+            if (@:check2 (@:checkr _w ?? throw "null pointer dereference")._canWriteContinue.load()) {
+                @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw.writeString(("HTTP/1.1 100 Continue\r\n\r\n" : stdgo.GoString));
+                @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw.flush();
+                @:check2 (@:checkr _w ?? throw "null pointer dereference")._canWriteContinue.store(false);
             };
-            _w._writeContinueMu.unlock();
+            @:check2 (@:checkr _w ?? throw "null pointer dereference")._writeContinueMu.unlock();
         };
         {
-            var __tmp__ = _ecr._readCloser.read(_p);
+            var __tmp__ = (@:checkr _ecr ?? throw "null pointer dereference")._readCloser.read(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            _ecr._sawEOF.store(true);
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+            @:check2 (@:checkr _ecr ?? throw "null pointer dereference")._sawEOF.store(true);
         };
         return { _0 : _n, _1 : _err };
     }

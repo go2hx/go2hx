@@ -24,6 +24,7 @@ var _p = __2, _valid = __1, _once = __0;
                 _valid = true;
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -38,6 +39,7 @@ var _p = __2, _valid = __1, _once = __0;
                 };
                 stdgo.Go.recover_exception = exe;
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -45,7 +47,7 @@ var _p = __2, _valid = __1, _once = __0;
             };
         } : () -> Void);
         return function():Void {
-            _once.do_(_g);
+            @:check2 _once.do_(_g);
             if (!_valid) {
                 throw stdgo.Go.toInterface(_p);
             };

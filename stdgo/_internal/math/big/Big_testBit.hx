@@ -5,7 +5,7 @@ function testBit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (_x._bit(_test._i) : stdgo.GoUInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("#%d: %s.bit(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("#%d: %s.bit(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

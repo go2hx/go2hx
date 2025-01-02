@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.asn1;
 @:keep @:allow(stdgo._internal.encoding.asn1.Asn1.BitString_asInterface) class BitString_static_extension {
     @:keep
+    @:tdfield
     static public function rightAlign( _b:stdgo._internal.encoding.asn1.Asn1_BitString.BitString):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_BitString.BitString = _b?.__copy__();
         var _shift = (((8 : stdgo.GoInt) - ((_b.bitLength % (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoUInt);
@@ -20,6 +21,7 @@ _a[(_i : stdgo.GoInt)] = (_a[(_i : stdgo.GoInt)] | ((_b.bytes[(_i : stdgo.GoInt)
         return _a;
     }
     @:keep
+    @:tdfield
     static public function at( _b:stdgo._internal.encoding.asn1.Asn1_BitString.BitString, _i:stdgo.GoInt):stdgo.GoInt {
         @:recv var _b:stdgo._internal.encoding.asn1.Asn1_BitString.BitString = _b?.__copy__();
         if (((_i < (0 : stdgo.GoInt) : Bool) || (_i >= _b.bitLength : Bool) : Bool)) {

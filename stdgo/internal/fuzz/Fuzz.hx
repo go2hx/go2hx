@@ -891,11 +891,13 @@ _termC);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.internal.fuzz.Fuzz_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.internal.fuzz.Fuzz_T__struct_0.T__struct_0;
 typedef T_byteSliceMutator = stdgo._internal.internal.fuzz.Fuzz_T_byteSliceMutator.T_byteSliceMutator;
+typedef T_crashErrorPointer = stdgo._internal.internal.fuzz.Fuzz_T_crashErrorPointer.T_crashErrorPointer;
 class T_crashError_static_extension {
     static public function crashPath(_e:T_crashError):String {
         return stdgo._internal.internal.fuzz.Fuzz_T_crashError_static_extension.T_crashError_static_extension.crashPath(_e);
@@ -907,6 +909,7 @@ class T_crashError_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_crashError_static_extension.T_crashError_static_extension.error(_e);
     }
 }
+typedef T_coordinatorPointer = stdgo._internal.internal.fuzz.Fuzz_T_coordinatorPointer.T_coordinatorPointer;
 class T_coordinator_static_extension {
     static public function _debugLogf(_c:T_coordinator, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.internal.fuzz.Fuzz_T_coordinator_static_extension.T_coordinator_static_extension._debugLogf(_c, _format, ...[for (i in _args) i]);
@@ -965,11 +968,13 @@ class T_coordinator_static_extension {
         };
     }
 }
+typedef MalformedCorpusErrorPointer = stdgo._internal.internal.fuzz.Fuzz_MalformedCorpusErrorPointer.MalformedCorpusErrorPointer;
 class MalformedCorpusError_static_extension {
     static public function error(_e:MalformedCorpusError):String {
         return stdgo._internal.internal.fuzz.Fuzz_MalformedCorpusError_static_extension.MalformedCorpusError_static_extension.error(_e);
     }
 }
+typedef T_sharedMemPointer = stdgo._internal.internal.fuzz.Fuzz_T_sharedMemPointer.T_sharedMemPointer;
 class T_sharedMem_static_extension {
     static public function close(_m:T_sharedMem):stdgo.Error {
         return stdgo._internal.internal.fuzz.Fuzz_T_sharedMem_static_extension.T_sharedMem_static_extension.close(_m);
@@ -991,6 +996,7 @@ class T_sharedMem_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_sharedMem_static_extension.T_sharedMem_static_extension._header(_m);
     }
 }
+typedef T_mutatorPointer = stdgo._internal.internal.fuzz.Fuzz_T_mutatorPointer.T_mutatorPointer;
 class T_mutator_static_extension {
     static public function _mutateBytes(_m:T_mutator, _ptrB:Array<std.UInt>):Void {
         stdgo._internal.internal.fuzz.Fuzz_T_mutator_static_extension.T_mutator_static_extension._mutateBytes(_m, _ptrB);
@@ -1018,6 +1024,7 @@ class T_mutator_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_mutator_static_extension.T_mutator_static_extension._rand(_m, _n);
     }
 }
+typedef T_pcgRandPointer = stdgo._internal.internal.fuzz.Fuzz_T_pcgRandPointer.T_pcgRandPointer;
 class T_pcgRand_static_extension {
     static public function _bool(_r:T_pcgRand):Bool {
         return stdgo._internal.internal.fuzz.Fuzz_T_pcgRand_static_extension.T_pcgRand_static_extension._bool(_r);
@@ -1044,6 +1051,7 @@ class T_pcgRand_static_extension {
         stdgo._internal.internal.fuzz.Fuzz_T_pcgRand_static_extension.T_pcgRand_static_extension._step(_r);
     }
 }
+typedef T_noCopyPointer = stdgo._internal.internal.fuzz.Fuzz_T_noCopyPointer.T_noCopyPointer;
 class T_noCopy_static_extension {
     static public function _unlock(_:T_noCopy):Void {
         stdgo._internal.internal.fuzz.Fuzz_T_noCopy_static_extension.T_noCopy_static_extension._unlock(_);
@@ -1052,6 +1060,7 @@ class T_noCopy_static_extension {
         stdgo._internal.internal.fuzz.Fuzz_T_noCopy_static_extension.T_noCopy_static_extension._lock(_);
     }
 }
+typedef T_queuePointer = stdgo._internal.internal.fuzz.Fuzz_T_queuePointer.T_queuePointer;
 class T_queue_static_extension {
     static public function _clear(_q:T_queue):Void {
         stdgo._internal.internal.fuzz.Fuzz_T_queue_static_extension.T_queue_static_extension._clear(_q);
@@ -1078,6 +1087,7 @@ class T_queue_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_queue_static_extension.T_queue_static_extension._cap(_q);
     }
 }
+typedef T_workerPointer = stdgo._internal.internal.fuzz.Fuzz_T_workerPointer.T_workerPointer;
 class T_worker_static_extension {
     static public function _stop(_w:T_worker):stdgo.Error {
         return stdgo._internal.internal.fuzz.Fuzz_T_worker_static_extension.T_worker_static_extension._stop(_w);
@@ -1104,6 +1114,7 @@ class T_worker_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_worker_static_extension.T_worker_static_extension._cleanup(_w);
     }
 }
+typedef T_workerServerPointer = stdgo._internal.internal.fuzz.Fuzz_T_workerServerPointer.T_workerServerPointer;
 class T_workerServer_static_extension {
     static public function _ping(_ws:T_workerServer, _ctx:stdgo._internal.context.Context_Context.Context, _args:T_pingArgs):T_pingResponse {
         return stdgo._internal.internal.fuzz.Fuzz_T_workerServer_static_extension.T_workerServer_static_extension._ping(_ws, _ctx, _args);
@@ -1125,6 +1136,7 @@ class T_workerServer_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_workerServer_static_extension.T_workerServer_static_extension._serve(_ws, _ctx);
     }
 }
+typedef T_workerClientPointer = stdgo._internal.internal.fuzz.Fuzz_T_workerClientPointer.T_workerClientPointer;
 class T_workerClient_static_extension {
     static public function _callLocked(_wc:T_workerClient, _ctx:stdgo._internal.context.Context_Context.Context, _c:T_call, _resp:stdgo.AnyInterface):stdgo.Error {
         return stdgo._internal.internal.fuzz.Fuzz_T_workerClient_static_extension.T_workerClient_static_extension._callLocked(_wc, _ctx, _c, _resp);
@@ -1148,6 +1160,7 @@ class T_workerClient_static_extension {
         return stdgo._internal.internal.fuzz.Fuzz_T_workerClient_static_extension.T_workerClient_static_extension.close(_wc);
     }
 }
+typedef T_contextReaderPointer = stdgo._internal.internal.fuzz.Fuzz_T_contextReaderPointer.T_contextReaderPointer;
 class T_contextReader_static_extension {
     static public function read(_cr:T_contextReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);

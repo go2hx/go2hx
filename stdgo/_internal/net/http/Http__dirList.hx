@@ -45,7 +45,7 @@ if (_dirs._isDir(_i)) {
                     _name = (_name + (("/" : stdgo.GoString)).__copy__() : stdgo.GoString);
                 };
 var _url = ({ path : _name.__copy__() } : stdgo._internal.net.url.Url_URL.URL);
-stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("<a href=\"%s\">%s</a>\n" : stdgo.GoString), stdgo.Go.toInterface((_url.string() : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.net.http.Http__htmlReplacer._htmlReplacer.replace(_name.__copy__())));
+stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("<a href=\"%s\">%s</a>\n" : stdgo.GoString), stdgo.Go.toInterface((@:check2 _url.string() : stdgo.GoString)), stdgo.Go.toInterface(@:check2r stdgo._internal.net.http.Http__htmlReplacer._htmlReplacer.replace(_name.__copy__())));
                 _i++;
             };
         };

@@ -1,35 +1,37 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_streamReader_asInterface) class T_streamReader_static_extension {
     @:keep
+    @:tdfield
     static public function close( _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader> = _r;
-        _r._stream.call(("cancel" : stdgo.GoString));
-        if (_r._err == null) {
-            _r._err = stdgo._internal.net.http.Http__errClosed._errClosed;
+        (@:checkr _r ?? throw "null pointer dereference")._stream.call(("cancel" : stdgo.GoString));
+        if ((@:checkr _r ?? throw "null pointer dereference")._err == null) {
+            (@:checkr _r ?? throw "null pointer dereference")._err = stdgo._internal.net.http.Http__errClosed._errClosed;
         };
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function read( _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader> = _r;
         var __deferstack__:Array<Void -> Void> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            if (_r._err != null) {
+            if ((@:checkr _r ?? throw "null pointer dereference")._err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _r._err };
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _r ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
-            if ((_r._pending.length) == ((0 : stdgo.GoInt))) {
+            if (((@:checkr _r ?? throw "null pointer dereference")._pending.length) == ((0 : stdgo.GoInt))) {
                 var __0 = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), __1 = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
 var _errCh = __1, _bCh = __0;
                 var _success = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
                     var _result = (_args[(0 : stdgo.GoInt)] : stdgo._internal.syscall.js.Js_Value.Value);
                     if (_result.get(("done" : stdgo.GoString)).bool_()) {
-                        _errCh.__send__(stdgo._internal.io.Io_eof.eof);
+                        _errCh.__send__(stdgo._internal.io.Io_eOF.eOF);
                         return (null : stdgo.AnyInterface);
                     };
                     var _value = (new stdgo.Slice<stdgo.GoUInt8>((_result.get(("value" : stdgo.GoString)).get(("byteLength" : stdgo.GoString)).int_() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -49,7 +51,7 @@ var _errCh = __1, _bCh = __0;
                     final __f__ = _failure.release;
                     __deferstack__.unshift(() -> __f__());
                 };
-                _r._stream.call(("read" : stdgo.GoString)).call(("then" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_success)), stdgo.Go.toInterface(stdgo.Go.asInterface(_failure)));
+                (@:checkr _r ?? throw "null pointer dereference")._stream.call(("read" : stdgo.GoString)).call(("then" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_success)), stdgo.Go.toInterface(stdgo.Go.asInterface(_failure)));
                 {
                     var __select__ = true;
                     while (__select__) {
@@ -58,7 +60,7 @@ var _errCh = __1, _bCh = __0;
                             {
                                 var _b = _bCh.__get__();
                                 {
-                                    _r._pending = _b;
+                                    (@:checkr _r ?? throw "null pointer dereference")._pending = _b;
                                 };
                             };
                         } else if (_errCh != null && _errCh.__isGet__()) {
@@ -66,7 +68,7 @@ var _errCh = __1, _bCh = __0;
                             {
                                 var _err = _errCh.__get__();
                                 {
-                                    _r._err = _err;
+                                    (@:checkr _r ?? throw "null pointer dereference")._err = _err;
                                     {
                                         final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
                                             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
@@ -75,6 +77,7 @@ var _errCh = __1, _bCh = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -87,8 +90,8 @@ var _errCh = __1, _bCh = __0;
                     };
                 };
             };
-            _n = _p.__copyTo__(_r._pending);
-            _r._pending = (_r._pending.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
+            _n = _p.__copyTo__((@:checkr _r ?? throw "null pointer dereference")._pending);
+            (@:checkr _r ?? throw "null pointer dereference")._pending = ((@:checkr _r ?? throw "null pointer dereference")._pending.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
                     final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
@@ -97,12 +100,14 @@ var _errCh = __1, _bCh = __0;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -117,6 +122,7 @@ var _errCh = __1, _bCh = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

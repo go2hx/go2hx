@@ -7,12 +7,14 @@ typedef DirEntry = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function name():stdgo.GoString;
     /**
         IsDir reports whether the entry describes a directory.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function isDir():Bool;
     /**
         Type returns the type bits for the entry.
@@ -20,6 +22,7 @@ typedef DirEntry = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function type():stdgo._internal.io.fs.Fs_FileMode.FileMode;
     /**
         Info returns the FileInfo for the file or subdirectory described by the entry.
@@ -31,5 +34,6 @@ typedef DirEntry = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function info():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
 };

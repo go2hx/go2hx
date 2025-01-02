@@ -10,7 +10,7 @@ function testReadTruncated(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
 {
                     final __value__ = _i;
                     if (__value__ == ((0 : stdgo.GoInt))) {
-                        _errWant = stdgo._internal.io.Io_eof.eof;
+                        _errWant = stdgo._internal.io.Io_eOF.eOF;
                     } else if (__value__ == ((("0123456789abcdef" : stdgo.GoString).length))) {
                         _errWant = (null : stdgo.Error);
                     } else {
@@ -20,13 +20,13 @@ function testReadTruncated(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
 {
                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader((("0123456789abcdef" : stdgo.GoString).__slice__(0, _i) : stdgo.GoString).__copy__())), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>))) : stdgo.Error);
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_errWant))) {
-                        _t.errorf(("Read(%d) with slice: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errWant));
+                        @:check2r _t.errorf(("Read(%d) with slice: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errWant));
                     };
                 };
 {
                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader((("0123456789abcdef" : stdgo.GoString).__slice__(0, _i) : stdgo.GoString).__copy__())), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_b2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T__struct_5.T__struct_5>)))) : stdgo.Error);
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_errWant))) {
-                        _t.errorf(("Read(%d) with struct: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errWant));
+                        @:check2r _t.errorf(("Read(%d) with struct: got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errWant));
                     };
                 };
                 _i++;

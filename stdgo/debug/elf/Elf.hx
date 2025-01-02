@@ -1,523 +1,523 @@
 package stdgo.debug.elf;
-final ei_CLASS : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_CLASS.ei_CLASS;
-final ei_DATA : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_DATA.ei_DATA;
-final ei_VERSION : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_VERSION.ei_VERSION;
-final ei_OSABI : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_OSABI.ei_OSABI;
-final ei_ABIVERSION : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_ABIVERSION.ei_ABIVERSION;
-final ei_PAD : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_PAD.ei_PAD;
-final ei_NIDENT : haxe.UInt64 = stdgo._internal.debug.elf.Elf_ei_NIDENT.ei_NIDENT;
-final elfmag : String = stdgo._internal.debug.elf.Elf_elfmag.elfmag;
-final ev_NONE : Version = stdgo._internal.debug.elf.Elf_ev_NONE.ev_NONE;
-final ev_CURRENT : Version = stdgo._internal.debug.elf.Elf_ev_CURRENT.ev_CURRENT;
-final elfclassnone : Class_ = stdgo._internal.debug.elf.Elf_elfclassnone.elfclassnone;
-final elfclass32 : Class_ = stdgo._internal.debug.elf.Elf_elfclass32.elfclass32;
-final elfclass64 : Class_ = stdgo._internal.debug.elf.Elf_elfclass64.elfclass64;
-final elfdatanone : Data = stdgo._internal.debug.elf.Elf_elfdatanone.elfdatanone;
-final elfdata2lsb : Data = stdgo._internal.debug.elf.Elf_elfdata2lsb.elfdata2lsb;
-final elfdata2msb : Data = stdgo._internal.debug.elf.Elf_elfdata2msb.elfdata2msb;
-final elfosabi_NONE : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_NONE.elfosabi_NONE;
-final elfosabi_HPUX : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_HPUX.elfosabi_HPUX;
-final elfosabi_NETBSD : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_NETBSD.elfosabi_NETBSD;
-final elfosabi_LINUX : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_LINUX.elfosabi_LINUX;
-final elfosabi_HURD : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_HURD.elfosabi_HURD;
-final elfosabi_86OPEN : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_86OPEN.elfosabi_86OPEN;
-final elfosabi_SOLARIS : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_SOLARIS.elfosabi_SOLARIS;
-final elfosabi_AIX : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_AIX.elfosabi_AIX;
-final elfosabi_IRIX : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_IRIX.elfosabi_IRIX;
-final elfosabi_FREEBSD : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_FREEBSD.elfosabi_FREEBSD;
-final elfosabi_TRU64 : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_TRU64.elfosabi_TRU64;
-final elfosabi_MODESTO : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_MODESTO.elfosabi_MODESTO;
-final elfosabi_OPENBSD : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_OPENBSD.elfosabi_OPENBSD;
-final elfosabi_OPENVMS : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_OPENVMS.elfosabi_OPENVMS;
-final elfosabi_NSK : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_NSK.elfosabi_NSK;
-final elfosabi_AROS : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_AROS.elfosabi_AROS;
-final elfosabi_FENIXOS : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_FENIXOS.elfosabi_FENIXOS;
-final elfosabi_CLOUDABI : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_CLOUDABI.elfosabi_CLOUDABI;
-final elfosabi_ARM : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_ARM.elfosabi_ARM;
-final elfosabi_STANDALONE : OSABI = stdgo._internal.debug.elf.Elf_elfosabi_STANDALONE.elfosabi_STANDALONE;
-final et_NONE : Type_ = stdgo._internal.debug.elf.Elf_et_NONE.et_NONE;
-final et_REL : Type_ = stdgo._internal.debug.elf.Elf_et_REL.et_REL;
-final et_EXEC : Type_ = stdgo._internal.debug.elf.Elf_et_EXEC.et_EXEC;
-final et_DYN : Type_ = stdgo._internal.debug.elf.Elf_et_DYN.et_DYN;
-final et_CORE : Type_ = stdgo._internal.debug.elf.Elf_et_CORE.et_CORE;
-final et_LOOS : Type_ = stdgo._internal.debug.elf.Elf_et_LOOS.et_LOOS;
-final et_HIOS : Type_ = stdgo._internal.debug.elf.Elf_et_HIOS.et_HIOS;
-final et_LOPROC : Type_ = stdgo._internal.debug.elf.Elf_et_LOPROC.et_LOPROC;
-final et_HIPROC : Type_ = stdgo._internal.debug.elf.Elf_et_HIPROC.et_HIPROC;
-final em_NONE : Machine = stdgo._internal.debug.elf.Elf_em_NONE.em_NONE;
-final em_M32 : Machine = stdgo._internal.debug.elf.Elf_em_M32.em_M32;
-final em_SPARC : Machine = stdgo._internal.debug.elf.Elf_em_SPARC.em_SPARC;
-final em_386 : Machine = stdgo._internal.debug.elf.Elf_em_386.em_386;
-final em_68K : Machine = stdgo._internal.debug.elf.Elf_em_68K.em_68K;
-final em_88K : Machine = stdgo._internal.debug.elf.Elf_em_88K.em_88K;
-final em_860 : Machine = stdgo._internal.debug.elf.Elf_em_860.em_860;
-final em_MIPS : Machine = stdgo._internal.debug.elf.Elf_em_MIPS.em_MIPS;
-final em_S370 : Machine = stdgo._internal.debug.elf.Elf_em_S370.em_S370;
-final em_MIPS_RS3_LE : Machine = stdgo._internal.debug.elf.Elf_em_MIPS_RS3_LE.em_MIPS_RS3_LE;
-final em_PARISC : Machine = stdgo._internal.debug.elf.Elf_em_PARISC.em_PARISC;
-final em_VPP500 : Machine = stdgo._internal.debug.elf.Elf_em_VPP500.em_VPP500;
-final em_SPARC32PLUS : Machine = stdgo._internal.debug.elf.Elf_em_SPARC32PLUS.em_SPARC32PLUS;
-final em_960 : Machine = stdgo._internal.debug.elf.Elf_em_960.em_960;
-final em_PPC : Machine = stdgo._internal.debug.elf.Elf_em_PPC.em_PPC;
-final em_PPC64 : Machine = stdgo._internal.debug.elf.Elf_em_PPC64.em_PPC64;
-final em_S390 : Machine = stdgo._internal.debug.elf.Elf_em_S390.em_S390;
-final em_V800 : Machine = stdgo._internal.debug.elf.Elf_em_V800.em_V800;
-final em_FR20 : Machine = stdgo._internal.debug.elf.Elf_em_FR20.em_FR20;
-final em_RH32 : Machine = stdgo._internal.debug.elf.Elf_em_RH32.em_RH32;
-final em_RCE : Machine = stdgo._internal.debug.elf.Elf_em_RCE.em_RCE;
-final em_ARM : Machine = stdgo._internal.debug.elf.Elf_em_ARM.em_ARM;
-final em_SH : Machine = stdgo._internal.debug.elf.Elf_em_SH.em_SH;
-final em_SPARCV9 : Machine = stdgo._internal.debug.elf.Elf_em_SPARCV9.em_SPARCV9;
-final em_TRICORE : Machine = stdgo._internal.debug.elf.Elf_em_TRICORE.em_TRICORE;
-final em_ARC : Machine = stdgo._internal.debug.elf.Elf_em_ARC.em_ARC;
-final em_H8_300 : Machine = stdgo._internal.debug.elf.Elf_em_H8_300.em_H8_300;
-final em_H8_300H : Machine = stdgo._internal.debug.elf.Elf_em_H8_300H.em_H8_300H;
-final em_H8S : Machine = stdgo._internal.debug.elf.Elf_em_H8S.em_H8S;
-final em_H8_500 : Machine = stdgo._internal.debug.elf.Elf_em_H8_500.em_H8_500;
-final em_IA_64 : Machine = stdgo._internal.debug.elf.Elf_em_IA_64.em_IA_64;
-final em_MIPS_X : Machine = stdgo._internal.debug.elf.Elf_em_MIPS_X.em_MIPS_X;
-final em_COLDFIRE : Machine = stdgo._internal.debug.elf.Elf_em_COLDFIRE.em_COLDFIRE;
-final em_68HC12 : Machine = stdgo._internal.debug.elf.Elf_em_68HC12.em_68HC12;
-final em_MMA : Machine = stdgo._internal.debug.elf.Elf_em_MMA.em_MMA;
-final em_PCP : Machine = stdgo._internal.debug.elf.Elf_em_PCP.em_PCP;
-final em_NCPU : Machine = stdgo._internal.debug.elf.Elf_em_NCPU.em_NCPU;
-final em_NDR1 : Machine = stdgo._internal.debug.elf.Elf_em_NDR1.em_NDR1;
-final em_STARCORE : Machine = stdgo._internal.debug.elf.Elf_em_STARCORE.em_STARCORE;
-final em_ME16 : Machine = stdgo._internal.debug.elf.Elf_em_ME16.em_ME16;
-final em_ST100 : Machine = stdgo._internal.debug.elf.Elf_em_ST100.em_ST100;
-final em_TINYJ : Machine = stdgo._internal.debug.elf.Elf_em_TINYJ.em_TINYJ;
-final em_X86_64 : Machine = stdgo._internal.debug.elf.Elf_em_X86_64.em_X86_64;
-final em_PDSP : Machine = stdgo._internal.debug.elf.Elf_em_PDSP.em_PDSP;
-final em_PDP10 : Machine = stdgo._internal.debug.elf.Elf_em_PDP10.em_PDP10;
-final em_PDP11 : Machine = stdgo._internal.debug.elf.Elf_em_PDP11.em_PDP11;
-final em_FX66 : Machine = stdgo._internal.debug.elf.Elf_em_FX66.em_FX66;
-final em_ST9PLUS : Machine = stdgo._internal.debug.elf.Elf_em_ST9PLUS.em_ST9PLUS;
-final em_ST7 : Machine = stdgo._internal.debug.elf.Elf_em_ST7.em_ST7;
-final em_68HC16 : Machine = stdgo._internal.debug.elf.Elf_em_68HC16.em_68HC16;
-final em_68HC11 : Machine = stdgo._internal.debug.elf.Elf_em_68HC11.em_68HC11;
-final em_68HC08 : Machine = stdgo._internal.debug.elf.Elf_em_68HC08.em_68HC08;
-final em_68HC05 : Machine = stdgo._internal.debug.elf.Elf_em_68HC05.em_68HC05;
-final em_SVX : Machine = stdgo._internal.debug.elf.Elf_em_SVX.em_SVX;
-final em_ST19 : Machine = stdgo._internal.debug.elf.Elf_em_ST19.em_ST19;
-final em_VAX : Machine = stdgo._internal.debug.elf.Elf_em_VAX.em_VAX;
-final em_CRIS : Machine = stdgo._internal.debug.elf.Elf_em_CRIS.em_CRIS;
-final em_JAVELIN : Machine = stdgo._internal.debug.elf.Elf_em_JAVELIN.em_JAVELIN;
-final em_FIREPATH : Machine = stdgo._internal.debug.elf.Elf_em_FIREPATH.em_FIREPATH;
-final em_ZSP : Machine = stdgo._internal.debug.elf.Elf_em_ZSP.em_ZSP;
-final em_MMIX : Machine = stdgo._internal.debug.elf.Elf_em_MMIX.em_MMIX;
-final em_HUANY : Machine = stdgo._internal.debug.elf.Elf_em_HUANY.em_HUANY;
-final em_PRISM : Machine = stdgo._internal.debug.elf.Elf_em_PRISM.em_PRISM;
-final em_AVR : Machine = stdgo._internal.debug.elf.Elf_em_AVR.em_AVR;
-final em_FR30 : Machine = stdgo._internal.debug.elf.Elf_em_FR30.em_FR30;
-final em_D10V : Machine = stdgo._internal.debug.elf.Elf_em_D10V.em_D10V;
-final em_D30V : Machine = stdgo._internal.debug.elf.Elf_em_D30V.em_D30V;
-final em_V850 : Machine = stdgo._internal.debug.elf.Elf_em_V850.em_V850;
-final em_M32R : Machine = stdgo._internal.debug.elf.Elf_em_M32R.em_M32R;
-final em_MN10300 : Machine = stdgo._internal.debug.elf.Elf_em_MN10300.em_MN10300;
-final em_MN10200 : Machine = stdgo._internal.debug.elf.Elf_em_MN10200.em_MN10200;
-final em_PJ : Machine = stdgo._internal.debug.elf.Elf_em_PJ.em_PJ;
-final em_OPENRISC : Machine = stdgo._internal.debug.elf.Elf_em_OPENRISC.em_OPENRISC;
-final em_ARC_COMPACT : Machine = stdgo._internal.debug.elf.Elf_em_ARC_COMPACT.em_ARC_COMPACT;
-final em_XTENSA : Machine = stdgo._internal.debug.elf.Elf_em_XTENSA.em_XTENSA;
-final em_VIDEOCORE : Machine = stdgo._internal.debug.elf.Elf_em_VIDEOCORE.em_VIDEOCORE;
-final em_TMM_GPP : Machine = stdgo._internal.debug.elf.Elf_em_TMM_GPP.em_TMM_GPP;
-final em_NS32K : Machine = stdgo._internal.debug.elf.Elf_em_NS32K.em_NS32K;
-final em_TPC : Machine = stdgo._internal.debug.elf.Elf_em_TPC.em_TPC;
-final em_SNP1K : Machine = stdgo._internal.debug.elf.Elf_em_SNP1K.em_SNP1K;
-final em_ST200 : Machine = stdgo._internal.debug.elf.Elf_em_ST200.em_ST200;
-final em_IP2K : Machine = stdgo._internal.debug.elf.Elf_em_IP2K.em_IP2K;
-final em_MAX : Machine = stdgo._internal.debug.elf.Elf_em_MAX.em_MAX;
-final em_CR : Machine = stdgo._internal.debug.elf.Elf_em_CR.em_CR;
-final em_F2MC16 : Machine = stdgo._internal.debug.elf.Elf_em_F2MC16.em_F2MC16;
-final em_MSP430 : Machine = stdgo._internal.debug.elf.Elf_em_MSP430.em_MSP430;
-final em_BLACKFIN : Machine = stdgo._internal.debug.elf.Elf_em_BLACKFIN.em_BLACKFIN;
-final em_SE_C33 : Machine = stdgo._internal.debug.elf.Elf_em_SE_C33.em_SE_C33;
-final em_SEP : Machine = stdgo._internal.debug.elf.Elf_em_SEP.em_SEP;
-final em_ARCA : Machine = stdgo._internal.debug.elf.Elf_em_ARCA.em_ARCA;
-final em_UNICORE : Machine = stdgo._internal.debug.elf.Elf_em_UNICORE.em_UNICORE;
-final em_EXCESS : Machine = stdgo._internal.debug.elf.Elf_em_EXCESS.em_EXCESS;
-final em_DXP : Machine = stdgo._internal.debug.elf.Elf_em_DXP.em_DXP;
-final em_ALTERA_NIOS2 : Machine = stdgo._internal.debug.elf.Elf_em_ALTERA_NIOS2.em_ALTERA_NIOS2;
-final em_CRX : Machine = stdgo._internal.debug.elf.Elf_em_CRX.em_CRX;
-final em_XGATE : Machine = stdgo._internal.debug.elf.Elf_em_XGATE.em_XGATE;
-final em_C166 : Machine = stdgo._internal.debug.elf.Elf_em_C166.em_C166;
-final em_M16C : Machine = stdgo._internal.debug.elf.Elf_em_M16C.em_M16C;
-final em_DSPIC30F : Machine = stdgo._internal.debug.elf.Elf_em_DSPIC30F.em_DSPIC30F;
-final em_CE : Machine = stdgo._internal.debug.elf.Elf_em_CE.em_CE;
-final em_M32C : Machine = stdgo._internal.debug.elf.Elf_em_M32C.em_M32C;
-final em_TSK3000 : Machine = stdgo._internal.debug.elf.Elf_em_TSK3000.em_TSK3000;
-final em_RS08 : Machine = stdgo._internal.debug.elf.Elf_em_RS08.em_RS08;
-final em_SHARC : Machine = stdgo._internal.debug.elf.Elf_em_SHARC.em_SHARC;
-final em_ECOG2 : Machine = stdgo._internal.debug.elf.Elf_em_ECOG2.em_ECOG2;
-final em_SCORE7 : Machine = stdgo._internal.debug.elf.Elf_em_SCORE7.em_SCORE7;
-final em_DSP24 : Machine = stdgo._internal.debug.elf.Elf_em_DSP24.em_DSP24;
-final em_VIDEOCORE3 : Machine = stdgo._internal.debug.elf.Elf_em_VIDEOCORE3.em_VIDEOCORE3;
-final em_LATTICEMICO32 : Machine = stdgo._internal.debug.elf.Elf_em_LATTICEMICO32.em_LATTICEMICO32;
-final em_SE_C17 : Machine = stdgo._internal.debug.elf.Elf_em_SE_C17.em_SE_C17;
-final em_TI_C6000 : Machine = stdgo._internal.debug.elf.Elf_em_TI_C6000.em_TI_C6000;
-final em_TI_C2000 : Machine = stdgo._internal.debug.elf.Elf_em_TI_C2000.em_TI_C2000;
-final em_TI_C5500 : Machine = stdgo._internal.debug.elf.Elf_em_TI_C5500.em_TI_C5500;
-final em_TI_ARP32 : Machine = stdgo._internal.debug.elf.Elf_em_TI_ARP32.em_TI_ARP32;
-final em_TI_PRU : Machine = stdgo._internal.debug.elf.Elf_em_TI_PRU.em_TI_PRU;
-final em_MMDSP_PLUS : Machine = stdgo._internal.debug.elf.Elf_em_MMDSP_PLUS.em_MMDSP_PLUS;
-final em_CYPRESS_M8C : Machine = stdgo._internal.debug.elf.Elf_em_CYPRESS_M8C.em_CYPRESS_M8C;
-final em_R32C : Machine = stdgo._internal.debug.elf.Elf_em_R32C.em_R32C;
-final em_TRIMEDIA : Machine = stdgo._internal.debug.elf.Elf_em_TRIMEDIA.em_TRIMEDIA;
-final em_QDSP6 : Machine = stdgo._internal.debug.elf.Elf_em_QDSP6.em_QDSP6;
-final em_8051 : Machine = stdgo._internal.debug.elf.Elf_em_8051.em_8051;
-final em_STXP7X : Machine = stdgo._internal.debug.elf.Elf_em_STXP7X.em_STXP7X;
-final em_NDS32 : Machine = stdgo._internal.debug.elf.Elf_em_NDS32.em_NDS32;
-final em_ECOG1 : Machine = stdgo._internal.debug.elf.Elf_em_ECOG1.em_ECOG1;
-final em_ECOG1X : Machine = stdgo._internal.debug.elf.Elf_em_ECOG1X.em_ECOG1X;
-final em_MAXQ30 : Machine = stdgo._internal.debug.elf.Elf_em_MAXQ30.em_MAXQ30;
-final em_XIMO16 : Machine = stdgo._internal.debug.elf.Elf_em_XIMO16.em_XIMO16;
-final em_MANIK : Machine = stdgo._internal.debug.elf.Elf_em_MANIK.em_MANIK;
-final em_CRAYNV2 : Machine = stdgo._internal.debug.elf.Elf_em_CRAYNV2.em_CRAYNV2;
-final em_RX : Machine = stdgo._internal.debug.elf.Elf_em_RX.em_RX;
-final em_METAG : Machine = stdgo._internal.debug.elf.Elf_em_METAG.em_METAG;
-final em_MCST_ELBRUS : Machine = stdgo._internal.debug.elf.Elf_em_MCST_ELBRUS.em_MCST_ELBRUS;
-final em_ECOG16 : Machine = stdgo._internal.debug.elf.Elf_em_ECOG16.em_ECOG16;
-final em_CR16 : Machine = stdgo._internal.debug.elf.Elf_em_CR16.em_CR16;
-final em_ETPU : Machine = stdgo._internal.debug.elf.Elf_em_ETPU.em_ETPU;
-final em_SLE9X : Machine = stdgo._internal.debug.elf.Elf_em_SLE9X.em_SLE9X;
-final em_L10M : Machine = stdgo._internal.debug.elf.Elf_em_L10M.em_L10M;
-final em_K10M : Machine = stdgo._internal.debug.elf.Elf_em_K10M.em_K10M;
-final em_AARCH64 : Machine = stdgo._internal.debug.elf.Elf_em_AARCH64.em_AARCH64;
-final em_AVR32 : Machine = stdgo._internal.debug.elf.Elf_em_AVR32.em_AVR32;
-final em_STM8 : Machine = stdgo._internal.debug.elf.Elf_em_STM8.em_STM8;
-final em_TILE64 : Machine = stdgo._internal.debug.elf.Elf_em_TILE64.em_TILE64;
-final em_TILEPRO : Machine = stdgo._internal.debug.elf.Elf_em_TILEPRO.em_TILEPRO;
-final em_MICROBLAZE : Machine = stdgo._internal.debug.elf.Elf_em_MICROBLAZE.em_MICROBLAZE;
-final em_CUDA : Machine = stdgo._internal.debug.elf.Elf_em_CUDA.em_CUDA;
-final em_TILEGX : Machine = stdgo._internal.debug.elf.Elf_em_TILEGX.em_TILEGX;
-final em_CLOUDSHIELD : Machine = stdgo._internal.debug.elf.Elf_em_CLOUDSHIELD.em_CLOUDSHIELD;
-final em_COREA_1ST : Machine = stdgo._internal.debug.elf.Elf_em_COREA_1ST.em_COREA_1ST;
-final em_COREA_2ND : Machine = stdgo._internal.debug.elf.Elf_em_COREA_2ND.em_COREA_2ND;
-final em_ARC_COMPACT2 : Machine = stdgo._internal.debug.elf.Elf_em_ARC_COMPACT2.em_ARC_COMPACT2;
-final em_OPEN8 : Machine = stdgo._internal.debug.elf.Elf_em_OPEN8.em_OPEN8;
-final em_RL78 : Machine = stdgo._internal.debug.elf.Elf_em_RL78.em_RL78;
-final em_VIDEOCORE5 : Machine = stdgo._internal.debug.elf.Elf_em_VIDEOCORE5.em_VIDEOCORE5;
-final em_78KOR : Machine = stdgo._internal.debug.elf.Elf_em_78KOR.em_78KOR;
-final em_56800EX : Machine = stdgo._internal.debug.elf.Elf_em_56800EX.em_56800EX;
-final em_BA1 : Machine = stdgo._internal.debug.elf.Elf_em_BA1.em_BA1;
-final em_BA2 : Machine = stdgo._internal.debug.elf.Elf_em_BA2.em_BA2;
-final em_XCORE : Machine = stdgo._internal.debug.elf.Elf_em_XCORE.em_XCORE;
-final em_MCHP_PIC : Machine = stdgo._internal.debug.elf.Elf_em_MCHP_PIC.em_MCHP_PIC;
-final em_INTEL205 : Machine = stdgo._internal.debug.elf.Elf_em_INTEL205.em_INTEL205;
-final em_INTEL206 : Machine = stdgo._internal.debug.elf.Elf_em_INTEL206.em_INTEL206;
-final em_INTEL207 : Machine = stdgo._internal.debug.elf.Elf_em_INTEL207.em_INTEL207;
-final em_INTEL208 : Machine = stdgo._internal.debug.elf.Elf_em_INTEL208.em_INTEL208;
-final em_INTEL209 : Machine = stdgo._internal.debug.elf.Elf_em_INTEL209.em_INTEL209;
-final em_KM32 : Machine = stdgo._internal.debug.elf.Elf_em_KM32.em_KM32;
-final em_KMX32 : Machine = stdgo._internal.debug.elf.Elf_em_KMX32.em_KMX32;
-final em_KMX16 : Machine = stdgo._internal.debug.elf.Elf_em_KMX16.em_KMX16;
-final em_KMX8 : Machine = stdgo._internal.debug.elf.Elf_em_KMX8.em_KMX8;
-final em_KVARC : Machine = stdgo._internal.debug.elf.Elf_em_KVARC.em_KVARC;
-final em_CDP : Machine = stdgo._internal.debug.elf.Elf_em_CDP.em_CDP;
-final em_COGE : Machine = stdgo._internal.debug.elf.Elf_em_COGE.em_COGE;
-final em_COOL : Machine = stdgo._internal.debug.elf.Elf_em_COOL.em_COOL;
-final em_NORC : Machine = stdgo._internal.debug.elf.Elf_em_NORC.em_NORC;
-final em_CSR_KALIMBA : Machine = stdgo._internal.debug.elf.Elf_em_CSR_KALIMBA.em_CSR_KALIMBA;
-final em_Z80 : Machine = stdgo._internal.debug.elf.Elf_em_Z80.em_Z80;
-final em_VISIUM : Machine = stdgo._internal.debug.elf.Elf_em_VISIUM.em_VISIUM;
-final em_FT32 : Machine = stdgo._internal.debug.elf.Elf_em_FT32.em_FT32;
-final em_MOXIE : Machine = stdgo._internal.debug.elf.Elf_em_MOXIE.em_MOXIE;
-final em_AMDGPU : Machine = stdgo._internal.debug.elf.Elf_em_AMDGPU.em_AMDGPU;
-final em_RISCV : Machine = stdgo._internal.debug.elf.Elf_em_RISCV.em_RISCV;
-final em_LANAI : Machine = stdgo._internal.debug.elf.Elf_em_LANAI.em_LANAI;
-final em_BPF : Machine = stdgo._internal.debug.elf.Elf_em_BPF.em_BPF;
-final em_LOONGARCH : Machine = stdgo._internal.debug.elf.Elf_em_LOONGARCH.em_LOONGARCH;
-final em_486 : Machine = stdgo._internal.debug.elf.Elf_em_486.em_486;
-final em_MIPS_RS4_BE : Machine = stdgo._internal.debug.elf.Elf_em_MIPS_RS4_BE.em_MIPS_RS4_BE;
-final em_ALPHA_STD : Machine = stdgo._internal.debug.elf.Elf_em_ALPHA_STD.em_ALPHA_STD;
-final em_ALPHA : Machine = stdgo._internal.debug.elf.Elf_em_ALPHA.em_ALPHA;
-final shn_UNDEF : SectionIndex = stdgo._internal.debug.elf.Elf_shn_UNDEF.shn_UNDEF;
-final shn_LORESERVE : SectionIndex = stdgo._internal.debug.elf.Elf_shn_LORESERVE.shn_LORESERVE;
-final shn_LOPROC : SectionIndex = stdgo._internal.debug.elf.Elf_shn_LOPROC.shn_LOPROC;
-final shn_HIPROC : SectionIndex = stdgo._internal.debug.elf.Elf_shn_HIPROC.shn_HIPROC;
-final shn_LOOS : SectionIndex = stdgo._internal.debug.elf.Elf_shn_LOOS.shn_LOOS;
-final shn_HIOS : SectionIndex = stdgo._internal.debug.elf.Elf_shn_HIOS.shn_HIOS;
-final shn_ABS : SectionIndex = stdgo._internal.debug.elf.Elf_shn_ABS.shn_ABS;
-final shn_COMMON : SectionIndex = stdgo._internal.debug.elf.Elf_shn_COMMON.shn_COMMON;
-final shn_XINDEX : SectionIndex = stdgo._internal.debug.elf.Elf_shn_XINDEX.shn_XINDEX;
-final shn_HIRESERVE : SectionIndex = stdgo._internal.debug.elf.Elf_shn_HIRESERVE.shn_HIRESERVE;
-final sht_NULL : SectionType = stdgo._internal.debug.elf.Elf_sht_NULL.sht_NULL;
-final sht_PROGBITS : SectionType = stdgo._internal.debug.elf.Elf_sht_PROGBITS.sht_PROGBITS;
-final sht_SYMTAB : SectionType = stdgo._internal.debug.elf.Elf_sht_SYMTAB.sht_SYMTAB;
-final sht_STRTAB : SectionType = stdgo._internal.debug.elf.Elf_sht_STRTAB.sht_STRTAB;
-final sht_RELA : SectionType = stdgo._internal.debug.elf.Elf_sht_RELA.sht_RELA;
-final sht_HASH : SectionType = stdgo._internal.debug.elf.Elf_sht_HASH.sht_HASH;
-final sht_DYNAMIC : SectionType = stdgo._internal.debug.elf.Elf_sht_DYNAMIC.sht_DYNAMIC;
-final sht_NOTE : SectionType = stdgo._internal.debug.elf.Elf_sht_NOTE.sht_NOTE;
-final sht_NOBITS : SectionType = stdgo._internal.debug.elf.Elf_sht_NOBITS.sht_NOBITS;
-final sht_REL : SectionType = stdgo._internal.debug.elf.Elf_sht_REL.sht_REL;
-final sht_SHLIB : SectionType = stdgo._internal.debug.elf.Elf_sht_SHLIB.sht_SHLIB;
-final sht_DYNSYM : SectionType = stdgo._internal.debug.elf.Elf_sht_DYNSYM.sht_DYNSYM;
-final sht_INIT_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sht_INIT_ARRAY.sht_INIT_ARRAY;
-final sht_FINI_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sht_FINI_ARRAY.sht_FINI_ARRAY;
-final sht_PREINIT_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sht_PREINIT_ARRAY.sht_PREINIT_ARRAY;
-final sht_GROUP : SectionType = stdgo._internal.debug.elf.Elf_sht_GROUP.sht_GROUP;
-final sht_SYMTAB_SHNDX : SectionType = stdgo._internal.debug.elf.Elf_sht_SYMTAB_SHNDX.sht_SYMTAB_SHNDX;
-final sht_LOOS : SectionType = stdgo._internal.debug.elf.Elf_sht_LOOS.sht_LOOS;
-final sht_GNU_ATTRIBUTES : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_ATTRIBUTES.sht_GNU_ATTRIBUTES;
-final sht_GNU_HASH : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_HASH.sht_GNU_HASH;
-final sht_GNU_LIBLIST : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_LIBLIST.sht_GNU_LIBLIST;
-final sht_GNU_VERDEF : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_VERDEF.sht_GNU_VERDEF;
-final sht_GNU_VERNEED : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_VERNEED.sht_GNU_VERNEED;
-final sht_GNU_VERSYM : SectionType = stdgo._internal.debug.elf.Elf_sht_GNU_VERSYM.sht_GNU_VERSYM;
-final sht_HIOS : SectionType = stdgo._internal.debug.elf.Elf_sht_HIOS.sht_HIOS;
-final sht_LOPROC : SectionType = stdgo._internal.debug.elf.Elf_sht_LOPROC.sht_LOPROC;
-final sht_MIPS_ABIFLAGS : SectionType = stdgo._internal.debug.elf.Elf_sht_MIPS_ABIFLAGS.sht_MIPS_ABIFLAGS;
-final sht_HIPROC : SectionType = stdgo._internal.debug.elf.Elf_sht_HIPROC.sht_HIPROC;
-final sht_LOUSER : SectionType = stdgo._internal.debug.elf.Elf_sht_LOUSER.sht_LOUSER;
-final sht_HIUSER : SectionType = stdgo._internal.debug.elf.Elf_sht_HIUSER.sht_HIUSER;
-final shf_WRITE : SectionFlag = stdgo._internal.debug.elf.Elf_shf_WRITE.shf_WRITE;
-final shf_ALLOC : SectionFlag = stdgo._internal.debug.elf.Elf_shf_ALLOC.shf_ALLOC;
-final shf_EXECINSTR : SectionFlag = stdgo._internal.debug.elf.Elf_shf_EXECINSTR.shf_EXECINSTR;
-final shf_MERGE : SectionFlag = stdgo._internal.debug.elf.Elf_shf_MERGE.shf_MERGE;
-final shf_STRINGS : SectionFlag = stdgo._internal.debug.elf.Elf_shf_STRINGS.shf_STRINGS;
-final shf_INFO_LINK : SectionFlag = stdgo._internal.debug.elf.Elf_shf_INFO_LINK.shf_INFO_LINK;
-final shf_LINK_ORDER : SectionFlag = stdgo._internal.debug.elf.Elf_shf_LINK_ORDER.shf_LINK_ORDER;
-final shf_OS_NONCONFORMING : SectionFlag = stdgo._internal.debug.elf.Elf_shf_OS_NONCONFORMING.shf_OS_NONCONFORMING;
-final shf_GROUP : SectionFlag = stdgo._internal.debug.elf.Elf_shf_GROUP.shf_GROUP;
-final shf_TLS : SectionFlag = stdgo._internal.debug.elf.Elf_shf_TLS.shf_TLS;
-final shf_COMPRESSED : SectionFlag = stdgo._internal.debug.elf.Elf_shf_COMPRESSED.shf_COMPRESSED;
-final shf_MASKOS : SectionFlag = stdgo._internal.debug.elf.Elf_shf_MASKOS.shf_MASKOS;
-final shf_MASKPROC : SectionFlag = stdgo._internal.debug.elf.Elf_shf_MASKPROC.shf_MASKPROC;
-final compress_ZLIB : CompressionType = stdgo._internal.debug.elf.Elf_compress_ZLIB.compress_ZLIB;
-final compress_ZSTD : CompressionType = stdgo._internal.debug.elf.Elf_compress_ZSTD.compress_ZSTD;
-final compress_LOOS : CompressionType = stdgo._internal.debug.elf.Elf_compress_LOOS.compress_LOOS;
-final compress_HIOS : CompressionType = stdgo._internal.debug.elf.Elf_compress_HIOS.compress_HIOS;
-final compress_LOPROC : CompressionType = stdgo._internal.debug.elf.Elf_compress_LOPROC.compress_LOPROC;
-final compress_HIPROC : CompressionType = stdgo._internal.debug.elf.Elf_compress_HIPROC.compress_HIPROC;
-final pt_NULL : ProgType = stdgo._internal.debug.elf.Elf_pt_NULL.pt_NULL;
-final pt_LOAD : ProgType = stdgo._internal.debug.elf.Elf_pt_LOAD.pt_LOAD;
-final pt_DYNAMIC : ProgType = stdgo._internal.debug.elf.Elf_pt_DYNAMIC.pt_DYNAMIC;
-final pt_INTERP : ProgType = stdgo._internal.debug.elf.Elf_pt_INTERP.pt_INTERP;
-final pt_NOTE : ProgType = stdgo._internal.debug.elf.Elf_pt_NOTE.pt_NOTE;
-final pt_SHLIB : ProgType = stdgo._internal.debug.elf.Elf_pt_SHLIB.pt_SHLIB;
-final pt_PHDR : ProgType = stdgo._internal.debug.elf.Elf_pt_PHDR.pt_PHDR;
-final pt_TLS : ProgType = stdgo._internal.debug.elf.Elf_pt_TLS.pt_TLS;
-final pt_LOOS : ProgType = stdgo._internal.debug.elf.Elf_pt_LOOS.pt_LOOS;
-final pt_GNU_EH_FRAME : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_EH_FRAME.pt_GNU_EH_FRAME;
-final pt_GNU_STACK : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_STACK.pt_GNU_STACK;
-final pt_GNU_RELRO : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_RELRO.pt_GNU_RELRO;
-final pt_GNU_PROPERTY : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_PROPERTY.pt_GNU_PROPERTY;
-final pt_GNU_MBIND_LO : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_MBIND_LO.pt_GNU_MBIND_LO;
-final pt_GNU_MBIND_HI : ProgType = stdgo._internal.debug.elf.Elf_pt_GNU_MBIND_HI.pt_GNU_MBIND_HI;
-final pt_PAX_FLAGS : ProgType = stdgo._internal.debug.elf.Elf_pt_PAX_FLAGS.pt_PAX_FLAGS;
-final pt_OPENBSD_RANDOMIZE : ProgType = stdgo._internal.debug.elf.Elf_pt_OPENBSD_RANDOMIZE.pt_OPENBSD_RANDOMIZE;
-final pt_OPENBSD_WXNEEDED : ProgType = stdgo._internal.debug.elf.Elf_pt_OPENBSD_WXNEEDED.pt_OPENBSD_WXNEEDED;
-final pt_OPENBSD_BOOTDATA : ProgType = stdgo._internal.debug.elf.Elf_pt_OPENBSD_BOOTDATA.pt_OPENBSD_BOOTDATA;
-final pt_SUNW_EH_FRAME : ProgType = stdgo._internal.debug.elf.Elf_pt_SUNW_EH_FRAME.pt_SUNW_EH_FRAME;
-final pt_SUNWSTACK : ProgType = stdgo._internal.debug.elf.Elf_pt_SUNWSTACK.pt_SUNWSTACK;
-final pt_HIOS : ProgType = stdgo._internal.debug.elf.Elf_pt_HIOS.pt_HIOS;
-final pt_LOPROC : ProgType = stdgo._internal.debug.elf.Elf_pt_LOPROC.pt_LOPROC;
-final pt_ARM_ARCHEXT : ProgType = stdgo._internal.debug.elf.Elf_pt_ARM_ARCHEXT.pt_ARM_ARCHEXT;
-final pt_ARM_EXIDX : ProgType = stdgo._internal.debug.elf.Elf_pt_ARM_EXIDX.pt_ARM_EXIDX;
-final pt_AARCH64_ARCHEXT : ProgType = stdgo._internal.debug.elf.Elf_pt_AARCH64_ARCHEXT.pt_AARCH64_ARCHEXT;
-final pt_AARCH64_UNWIND : ProgType = stdgo._internal.debug.elf.Elf_pt_AARCH64_UNWIND.pt_AARCH64_UNWIND;
-final pt_MIPS_REGINFO : ProgType = stdgo._internal.debug.elf.Elf_pt_MIPS_REGINFO.pt_MIPS_REGINFO;
-final pt_MIPS_RTPROC : ProgType = stdgo._internal.debug.elf.Elf_pt_MIPS_RTPROC.pt_MIPS_RTPROC;
-final pt_MIPS_OPTIONS : ProgType = stdgo._internal.debug.elf.Elf_pt_MIPS_OPTIONS.pt_MIPS_OPTIONS;
-final pt_MIPS_ABIFLAGS : ProgType = stdgo._internal.debug.elf.Elf_pt_MIPS_ABIFLAGS.pt_MIPS_ABIFLAGS;
-final pt_S390_PGSTE : ProgType = stdgo._internal.debug.elf.Elf_pt_S390_PGSTE.pt_S390_PGSTE;
-final pt_HIPROC : ProgType = stdgo._internal.debug.elf.Elf_pt_HIPROC.pt_HIPROC;
-final pf_X : ProgFlag = stdgo._internal.debug.elf.Elf_pf_X.pf_X;
-final pf_W : ProgFlag = stdgo._internal.debug.elf.Elf_pf_W.pf_W;
-final pf_R : ProgFlag = stdgo._internal.debug.elf.Elf_pf_R.pf_R;
-final pf_MASKOS : ProgFlag = stdgo._internal.debug.elf.Elf_pf_MASKOS.pf_MASKOS;
-final pf_MASKPROC : ProgFlag = stdgo._internal.debug.elf.Elf_pf_MASKPROC.pf_MASKPROC;
-final dt_NULL : DynTag = stdgo._internal.debug.elf.Elf_dt_NULL.dt_NULL;
-final dt_NEEDED : DynTag = stdgo._internal.debug.elf.Elf_dt_NEEDED.dt_NEEDED;
-final dt_PLTRELSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_PLTRELSZ.dt_PLTRELSZ;
-final dt_PLTGOT : DynTag = stdgo._internal.debug.elf.Elf_dt_PLTGOT.dt_PLTGOT;
-final dt_HASH : DynTag = stdgo._internal.debug.elf.Elf_dt_HASH.dt_HASH;
-final dt_STRTAB : DynTag = stdgo._internal.debug.elf.Elf_dt_STRTAB.dt_STRTAB;
-final dt_SYMTAB : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMTAB.dt_SYMTAB;
-final dt_RELA : DynTag = stdgo._internal.debug.elf.Elf_dt_RELA.dt_RELA;
-final dt_RELASZ : DynTag = stdgo._internal.debug.elf.Elf_dt_RELASZ.dt_RELASZ;
-final dt_RELAENT : DynTag = stdgo._internal.debug.elf.Elf_dt_RELAENT.dt_RELAENT;
-final dt_STRSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_STRSZ.dt_STRSZ;
-final dt_SYMENT : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMENT.dt_SYMENT;
-final dt_INIT : DynTag = stdgo._internal.debug.elf.Elf_dt_INIT.dt_INIT;
-final dt_FINI : DynTag = stdgo._internal.debug.elf.Elf_dt_FINI.dt_FINI;
-final dt_SONAME : DynTag = stdgo._internal.debug.elf.Elf_dt_SONAME.dt_SONAME;
-final dt_RPATH : DynTag = stdgo._internal.debug.elf.Elf_dt_RPATH.dt_RPATH;
-final dt_SYMBOLIC : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMBOLIC.dt_SYMBOLIC;
-final dt_REL : DynTag = stdgo._internal.debug.elf.Elf_dt_REL.dt_REL;
-final dt_RELSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_RELSZ.dt_RELSZ;
-final dt_RELENT : DynTag = stdgo._internal.debug.elf.Elf_dt_RELENT.dt_RELENT;
-final dt_PLTREL : DynTag = stdgo._internal.debug.elf.Elf_dt_PLTREL.dt_PLTREL;
-final dt_DEBUG : DynTag = stdgo._internal.debug.elf.Elf_dt_DEBUG.dt_DEBUG;
-final dt_TEXTREL : DynTag = stdgo._internal.debug.elf.Elf_dt_TEXTREL.dt_TEXTREL;
-final dt_JMPREL : DynTag = stdgo._internal.debug.elf.Elf_dt_JMPREL.dt_JMPREL;
-final dt_BIND_NOW : DynTag = stdgo._internal.debug.elf.Elf_dt_BIND_NOW.dt_BIND_NOW;
-final dt_INIT_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dt_INIT_ARRAY.dt_INIT_ARRAY;
-final dt_FINI_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dt_FINI_ARRAY.dt_FINI_ARRAY;
-final dt_INIT_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_INIT_ARRAYSZ.dt_INIT_ARRAYSZ;
-final dt_FINI_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_FINI_ARRAYSZ.dt_FINI_ARRAYSZ;
-final dt_RUNPATH : DynTag = stdgo._internal.debug.elf.Elf_dt_RUNPATH.dt_RUNPATH;
-final dt_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dt_FLAGS.dt_FLAGS;
-final dt_ENCODING : DynTag = stdgo._internal.debug.elf.Elf_dt_ENCODING.dt_ENCODING;
-final dt_PREINIT_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dt_PREINIT_ARRAY.dt_PREINIT_ARRAY;
-final dt_PREINIT_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_PREINIT_ARRAYSZ.dt_PREINIT_ARRAYSZ;
-final dt_SYMTAB_SHNDX : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMTAB_SHNDX.dt_SYMTAB_SHNDX;
-final dt_LOOS : DynTag = stdgo._internal.debug.elf.Elf_dt_LOOS.dt_LOOS;
-final dt_HIOS : DynTag = stdgo._internal.debug.elf.Elf_dt_HIOS.dt_HIOS;
-final dt_VALRNGLO : DynTag = stdgo._internal.debug.elf.Elf_dt_VALRNGLO.dt_VALRNGLO;
-final dt_GNU_PRELINKED : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_PRELINKED.dt_GNU_PRELINKED;
-final dt_GNU_CONFLICTSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_CONFLICTSZ.dt_GNU_CONFLICTSZ;
-final dt_GNU_LIBLISTSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_LIBLISTSZ.dt_GNU_LIBLISTSZ;
-final dt_CHECKSUM : DynTag = stdgo._internal.debug.elf.Elf_dt_CHECKSUM.dt_CHECKSUM;
-final dt_PLTPADSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_PLTPADSZ.dt_PLTPADSZ;
-final dt_MOVEENT : DynTag = stdgo._internal.debug.elf.Elf_dt_MOVEENT.dt_MOVEENT;
-final dt_MOVESZ : DynTag = stdgo._internal.debug.elf.Elf_dt_MOVESZ.dt_MOVESZ;
-final dt_FEATURE : DynTag = stdgo._internal.debug.elf.Elf_dt_FEATURE.dt_FEATURE;
-final dt_POSFLAG_1 : DynTag = stdgo._internal.debug.elf.Elf_dt_POSFLAG_1.dt_POSFLAG_1;
-final dt_SYMINSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMINSZ.dt_SYMINSZ;
-final dt_SYMINENT : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMINENT.dt_SYMINENT;
-final dt_VALRNGHI : DynTag = stdgo._internal.debug.elf.Elf_dt_VALRNGHI.dt_VALRNGHI;
-final dt_ADDRRNGLO : DynTag = stdgo._internal.debug.elf.Elf_dt_ADDRRNGLO.dt_ADDRRNGLO;
-final dt_GNU_HASH : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_HASH.dt_GNU_HASH;
-final dt_TLSDESC_PLT : DynTag = stdgo._internal.debug.elf.Elf_dt_TLSDESC_PLT.dt_TLSDESC_PLT;
-final dt_TLSDESC_GOT : DynTag = stdgo._internal.debug.elf.Elf_dt_TLSDESC_GOT.dt_TLSDESC_GOT;
-final dt_GNU_CONFLICT : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_CONFLICT.dt_GNU_CONFLICT;
-final dt_GNU_LIBLIST : DynTag = stdgo._internal.debug.elf.Elf_dt_GNU_LIBLIST.dt_GNU_LIBLIST;
-final dt_CONFIG : DynTag = stdgo._internal.debug.elf.Elf_dt_CONFIG.dt_CONFIG;
-final dt_DEPAUDIT : DynTag = stdgo._internal.debug.elf.Elf_dt_DEPAUDIT.dt_DEPAUDIT;
-final dt_AUDIT : DynTag = stdgo._internal.debug.elf.Elf_dt_AUDIT.dt_AUDIT;
-final dt_PLTPAD : DynTag = stdgo._internal.debug.elf.Elf_dt_PLTPAD.dt_PLTPAD;
-final dt_MOVETAB : DynTag = stdgo._internal.debug.elf.Elf_dt_MOVETAB.dt_MOVETAB;
-final dt_SYMINFO : DynTag = stdgo._internal.debug.elf.Elf_dt_SYMINFO.dt_SYMINFO;
-final dt_ADDRRNGHI : DynTag = stdgo._internal.debug.elf.Elf_dt_ADDRRNGHI.dt_ADDRRNGHI;
-final dt_VERSYM : DynTag = stdgo._internal.debug.elf.Elf_dt_VERSYM.dt_VERSYM;
-final dt_RELACOUNT : DynTag = stdgo._internal.debug.elf.Elf_dt_RELACOUNT.dt_RELACOUNT;
-final dt_RELCOUNT : DynTag = stdgo._internal.debug.elf.Elf_dt_RELCOUNT.dt_RELCOUNT;
-final dt_FLAGS_1 : DynTag = stdgo._internal.debug.elf.Elf_dt_FLAGS_1.dt_FLAGS_1;
-final dt_VERDEF : DynTag = stdgo._internal.debug.elf.Elf_dt_VERDEF.dt_VERDEF;
-final dt_VERDEFNUM : DynTag = stdgo._internal.debug.elf.Elf_dt_VERDEFNUM.dt_VERDEFNUM;
-final dt_VERNEED : DynTag = stdgo._internal.debug.elf.Elf_dt_VERNEED.dt_VERNEED;
-final dt_VERNEEDNUM : DynTag = stdgo._internal.debug.elf.Elf_dt_VERNEEDNUM.dt_VERNEEDNUM;
-final dt_LOPROC : DynTag = stdgo._internal.debug.elf.Elf_dt_LOPROC.dt_LOPROC;
-final dt_MIPS_RLD_VERSION : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_RLD_VERSION.dt_MIPS_RLD_VERSION;
-final dt_MIPS_TIME_STAMP : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_TIME_STAMP.dt_MIPS_TIME_STAMP;
-final dt_MIPS_ICHECKSUM : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_ICHECKSUM.dt_MIPS_ICHECKSUM;
-final dt_MIPS_IVERSION : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_IVERSION.dt_MIPS_IVERSION;
-final dt_MIPS_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_FLAGS.dt_MIPS_FLAGS;
-final dt_MIPS_BASE_ADDRESS : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_BASE_ADDRESS.dt_MIPS_BASE_ADDRESS;
-final dt_MIPS_MSYM : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_MSYM.dt_MIPS_MSYM;
-final dt_MIPS_CONFLICT : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_CONFLICT.dt_MIPS_CONFLICT;
-final dt_MIPS_LIBLIST : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_LIBLIST.dt_MIPS_LIBLIST;
-final dt_MIPS_LOCAL_GOTNO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_LOCAL_GOTNO.dt_MIPS_LOCAL_GOTNO;
-final dt_MIPS_CONFLICTNO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_CONFLICTNO.dt_MIPS_CONFLICTNO;
-final dt_MIPS_LIBLISTNO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_LIBLISTNO.dt_MIPS_LIBLISTNO;
-final dt_MIPS_SYMTABNO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_SYMTABNO.dt_MIPS_SYMTABNO;
-final dt_MIPS_UNREFEXTNO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_UNREFEXTNO.dt_MIPS_UNREFEXTNO;
-final dt_MIPS_GOTSYM : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_GOTSYM.dt_MIPS_GOTSYM;
-final dt_MIPS_HIPAGENO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_HIPAGENO.dt_MIPS_HIPAGENO;
-final dt_MIPS_RLD_MAP : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_RLD_MAP.dt_MIPS_RLD_MAP;
-final dt_MIPS_DELTA_CLASS : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_CLASS.dt_MIPS_DELTA_CLASS;
-final dt_MIPS_DELTA_CLASS_NO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_CLASS_NO.dt_MIPS_DELTA_CLASS_NO;
-final dt_MIPS_DELTA_INSTANCE : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_INSTANCE.dt_MIPS_DELTA_INSTANCE;
-final dt_MIPS_DELTA_INSTANCE_NO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_INSTANCE_NO.dt_MIPS_DELTA_INSTANCE_NO;
-final dt_MIPS_DELTA_RELOC : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_RELOC.dt_MIPS_DELTA_RELOC;
-final dt_MIPS_DELTA_RELOC_NO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_RELOC_NO.dt_MIPS_DELTA_RELOC_NO;
-final dt_MIPS_DELTA_SYM : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_SYM.dt_MIPS_DELTA_SYM;
-final dt_MIPS_DELTA_SYM_NO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_SYM_NO.dt_MIPS_DELTA_SYM_NO;
-final dt_MIPS_DELTA_CLASSSYM : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_CLASSSYM.dt_MIPS_DELTA_CLASSSYM;
-final dt_MIPS_DELTA_CLASSSYM_NO : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DELTA_CLASSSYM_NO.dt_MIPS_DELTA_CLASSSYM_NO;
-final dt_MIPS_CXX_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_CXX_FLAGS.dt_MIPS_CXX_FLAGS;
-final dt_MIPS_PIXIE_INIT : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_PIXIE_INIT.dt_MIPS_PIXIE_INIT;
-final dt_MIPS_SYMBOL_LIB : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_SYMBOL_LIB.dt_MIPS_SYMBOL_LIB;
-final dt_MIPS_LOCALPAGE_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_LOCALPAGE_GOTIDX.dt_MIPS_LOCALPAGE_GOTIDX;
-final dt_MIPS_LOCAL_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_LOCAL_GOTIDX.dt_MIPS_LOCAL_GOTIDX;
-final dt_MIPS_HIDDEN_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_HIDDEN_GOTIDX.dt_MIPS_HIDDEN_GOTIDX;
-final dt_MIPS_PROTECTED_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_PROTECTED_GOTIDX.dt_MIPS_PROTECTED_GOTIDX;
-final dt_MIPS_OPTIONS : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_OPTIONS.dt_MIPS_OPTIONS;
-final dt_MIPS_INTERFACE : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_INTERFACE.dt_MIPS_INTERFACE;
-final dt_MIPS_DYNSTR_ALIGN : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_DYNSTR_ALIGN.dt_MIPS_DYNSTR_ALIGN;
-final dt_MIPS_INTERFACE_SIZE : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_INTERFACE_SIZE.dt_MIPS_INTERFACE_SIZE;
-final dt_MIPS_RLD_TEXT_RESOLVE_ADDR : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_RLD_TEXT_RESOLVE_ADDR.dt_MIPS_RLD_TEXT_RESOLVE_ADDR;
-final dt_MIPS_PERF_SUFFIX : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_PERF_SUFFIX.dt_MIPS_PERF_SUFFIX;
-final dt_MIPS_COMPACT_SIZE : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_COMPACT_SIZE.dt_MIPS_COMPACT_SIZE;
-final dt_MIPS_GP_VALUE : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_GP_VALUE.dt_MIPS_GP_VALUE;
-final dt_MIPS_AUX_DYNAMIC : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_AUX_DYNAMIC.dt_MIPS_AUX_DYNAMIC;
-final dt_MIPS_PLTGOT : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_PLTGOT.dt_MIPS_PLTGOT;
-final dt_MIPS_RWPLT : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_RWPLT.dt_MIPS_RWPLT;
-final dt_MIPS_RLD_MAP_REL : DynTag = stdgo._internal.debug.elf.Elf_dt_MIPS_RLD_MAP_REL.dt_MIPS_RLD_MAP_REL;
-final dt_PPC_GOT : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC_GOT.dt_PPC_GOT;
-final dt_PPC_OPT : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC_OPT.dt_PPC_OPT;
-final dt_PPC64_GLINK : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC64_GLINK.dt_PPC64_GLINK;
-final dt_PPC64_OPD : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC64_OPD.dt_PPC64_OPD;
-final dt_PPC64_OPDSZ : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC64_OPDSZ.dt_PPC64_OPDSZ;
-final dt_PPC64_OPT : DynTag = stdgo._internal.debug.elf.Elf_dt_PPC64_OPT.dt_PPC64_OPT;
-final dt_SPARC_REGISTER : DynTag = stdgo._internal.debug.elf.Elf_dt_SPARC_REGISTER.dt_SPARC_REGISTER;
-final dt_AUXILIARY : DynTag = stdgo._internal.debug.elf.Elf_dt_AUXILIARY.dt_AUXILIARY;
-final dt_USED : DynTag = stdgo._internal.debug.elf.Elf_dt_USED.dt_USED;
-final dt_FILTER : DynTag = stdgo._internal.debug.elf.Elf_dt_FILTER.dt_FILTER;
-final dt_HIPROC : DynTag = stdgo._internal.debug.elf.Elf_dt_HIPROC.dt_HIPROC;
-final df_ORIGIN : DynFlag = stdgo._internal.debug.elf.Elf_df_ORIGIN.df_ORIGIN;
-final df_SYMBOLIC : DynFlag = stdgo._internal.debug.elf.Elf_df_SYMBOLIC.df_SYMBOLIC;
-final df_TEXTREL : DynFlag = stdgo._internal.debug.elf.Elf_df_TEXTREL.df_TEXTREL;
-final df_BIND_NOW : DynFlag = stdgo._internal.debug.elf.Elf_df_BIND_NOW.df_BIND_NOW;
-final df_STATIC_TLS : DynFlag = stdgo._internal.debug.elf.Elf_df_STATIC_TLS.df_STATIC_TLS;
-final df_1_NOW : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NOW.df_1_NOW;
-final df_1_GLOBAL : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_GLOBAL.df_1_GLOBAL;
-final df_1_GROUP : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_GROUP.df_1_GROUP;
-final df_1_NODELETE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NODELETE.df_1_NODELETE;
-final df_1_LOADFLTR : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_LOADFLTR.df_1_LOADFLTR;
-final df_1_INITFIRST : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_INITFIRST.df_1_INITFIRST;
-final df_1_NOOPEN : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NOOPEN.df_1_NOOPEN;
-final df_1_ORIGIN : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_ORIGIN.df_1_ORIGIN;
-final df_1_DIRECT : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_DIRECT.df_1_DIRECT;
-final df_1_TRANS : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_TRANS.df_1_TRANS;
-final df_1_INTERPOSE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_INTERPOSE.df_1_INTERPOSE;
-final df_1_NODEFLIB : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NODEFLIB.df_1_NODEFLIB;
-final df_1_NODUMP : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NODUMP.df_1_NODUMP;
-final df_1_CONFALT : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_CONFALT.df_1_CONFALT;
-final df_1_ENDFILTEE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_ENDFILTEE.df_1_ENDFILTEE;
-final df_1_DISPRELDNE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_DISPRELDNE.df_1_DISPRELDNE;
-final df_1_DISPRELPND : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_DISPRELPND.df_1_DISPRELPND;
-final df_1_NODIRECT : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NODIRECT.df_1_NODIRECT;
-final df_1_IGNMULDEF : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_IGNMULDEF.df_1_IGNMULDEF;
-final df_1_NOKSYMS : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NOKSYMS.df_1_NOKSYMS;
-final df_1_NOHDR : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NOHDR.df_1_NOHDR;
-final df_1_EDITED : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_EDITED.df_1_EDITED;
-final df_1_NORELOC : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NORELOC.df_1_NORELOC;
-final df_1_SYMINTPOSE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_SYMINTPOSE.df_1_SYMINTPOSE;
-final df_1_GLOBAUDIT : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_GLOBAUDIT.df_1_GLOBAUDIT;
-final df_1_SINGLETON : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_SINGLETON.df_1_SINGLETON;
-final df_1_STUB : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_STUB.df_1_STUB;
-final df_1_PIE : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_PIE.df_1_PIE;
-final df_1_KMOD : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_KMOD.df_1_KMOD;
-final df_1_WEAKFILTER : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_WEAKFILTER.df_1_WEAKFILTER;
-final df_1_NOCOMMON : DynFlag1 = stdgo._internal.debug.elf.Elf_df_1_NOCOMMON.df_1_NOCOMMON;
-final nt_PRSTATUS : NType = stdgo._internal.debug.elf.Elf_nt_PRSTATUS.nt_PRSTATUS;
-final nt_FPREGSET : NType = stdgo._internal.debug.elf.Elf_nt_FPREGSET.nt_FPREGSET;
-final nt_PRPSINFO : NType = stdgo._internal.debug.elf.Elf_nt_PRPSINFO.nt_PRPSINFO;
-final stb_LOCAL : SymBind = stdgo._internal.debug.elf.Elf_stb_LOCAL.stb_LOCAL;
-final stb_GLOBAL : SymBind = stdgo._internal.debug.elf.Elf_stb_GLOBAL.stb_GLOBAL;
-final stb_WEAK : SymBind = stdgo._internal.debug.elf.Elf_stb_WEAK.stb_WEAK;
-final stb_LOOS : SymBind = stdgo._internal.debug.elf.Elf_stb_LOOS.stb_LOOS;
-final stb_HIOS : SymBind = stdgo._internal.debug.elf.Elf_stb_HIOS.stb_HIOS;
-final stb_LOPROC : SymBind = stdgo._internal.debug.elf.Elf_stb_LOPROC.stb_LOPROC;
-final stb_HIPROC : SymBind = stdgo._internal.debug.elf.Elf_stb_HIPROC.stb_HIPROC;
-final stt_NOTYPE : SymType = stdgo._internal.debug.elf.Elf_stt_NOTYPE.stt_NOTYPE;
-final stt_OBJECT : SymType = stdgo._internal.debug.elf.Elf_stt_OBJECT.stt_OBJECT;
-final stt_FUNC : SymType = stdgo._internal.debug.elf.Elf_stt_FUNC.stt_FUNC;
-final stt_SECTION : SymType = stdgo._internal.debug.elf.Elf_stt_SECTION.stt_SECTION;
-final stt_FILE : SymType = stdgo._internal.debug.elf.Elf_stt_FILE.stt_FILE;
-final stt_COMMON : SymType = stdgo._internal.debug.elf.Elf_stt_COMMON.stt_COMMON;
-final stt_TLS : SymType = stdgo._internal.debug.elf.Elf_stt_TLS.stt_TLS;
-final stt_LOOS : SymType = stdgo._internal.debug.elf.Elf_stt_LOOS.stt_LOOS;
-final stt_HIOS : SymType = stdgo._internal.debug.elf.Elf_stt_HIOS.stt_HIOS;
-final stt_LOPROC : SymType = stdgo._internal.debug.elf.Elf_stt_LOPROC.stt_LOPROC;
-final stt_HIPROC : SymType = stdgo._internal.debug.elf.Elf_stt_HIPROC.stt_HIPROC;
-final stv_DEFAULT : SymVis = stdgo._internal.debug.elf.Elf_stv_DEFAULT.stv_DEFAULT;
-final stv_INTERNAL : SymVis = stdgo._internal.debug.elf.Elf_stv_INTERNAL.stv_INTERNAL;
-final stv_HIDDEN : SymVis = stdgo._internal.debug.elf.Elf_stv_HIDDEN.stv_HIDDEN;
-final stv_PROTECTED : SymVis = stdgo._internal.debug.elf.Elf_stv_PROTECTED.stv_PROTECTED;
+final eI_CLASS : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_CLASS.eI_CLASS;
+final eI_DATA : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_DATA.eI_DATA;
+final eI_VERSION : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_VERSION.eI_VERSION;
+final eI_OSABI : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_OSABI.eI_OSABI;
+final eI_ABIVERSION : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_ABIVERSION.eI_ABIVERSION;
+final eI_PAD : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_PAD.eI_PAD;
+final eI_NIDENT : haxe.UInt64 = stdgo._internal.debug.elf.Elf_eI_NIDENT.eI_NIDENT;
+final eLFMAG : String = stdgo._internal.debug.elf.Elf_eLFMAG.eLFMAG;
+final eV_NONE : Version = stdgo._internal.debug.elf.Elf_eV_NONE.eV_NONE;
+final eV_CURRENT : Version = stdgo._internal.debug.elf.Elf_eV_CURRENT.eV_CURRENT;
+final eLFCLASSNONE : Class_ = stdgo._internal.debug.elf.Elf_eLFCLASSNONE.eLFCLASSNONE;
+final eLFCLASS32 : Class_ = stdgo._internal.debug.elf.Elf_eLFCLASS32.eLFCLASS32;
+final eLFCLASS64 : Class_ = stdgo._internal.debug.elf.Elf_eLFCLASS64.eLFCLASS64;
+final eLFDATANONE : Data = stdgo._internal.debug.elf.Elf_eLFDATANONE.eLFDATANONE;
+final eLFDATA2LSB : Data = stdgo._internal.debug.elf.Elf_eLFDATA2LSB.eLFDATA2LSB;
+final eLFDATA2MSB : Data = stdgo._internal.debug.elf.Elf_eLFDATA2MSB.eLFDATA2MSB;
+final eLFOSABI_NONE : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_NONE.eLFOSABI_NONE;
+final eLFOSABI_HPUX : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_HPUX.eLFOSABI_HPUX;
+final eLFOSABI_NETBSD : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_NETBSD.eLFOSABI_NETBSD;
+final eLFOSABI_LINUX : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_LINUX.eLFOSABI_LINUX;
+final eLFOSABI_HURD : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_HURD.eLFOSABI_HURD;
+final eLFOSABI_86OPEN : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_86OPEN.eLFOSABI_86OPEN;
+final eLFOSABI_SOLARIS : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_SOLARIS.eLFOSABI_SOLARIS;
+final eLFOSABI_AIX : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_AIX.eLFOSABI_AIX;
+final eLFOSABI_IRIX : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_IRIX.eLFOSABI_IRIX;
+final eLFOSABI_FREEBSD : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_FREEBSD.eLFOSABI_FREEBSD;
+final eLFOSABI_TRU64 : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_TRU64.eLFOSABI_TRU64;
+final eLFOSABI_MODESTO : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_MODESTO.eLFOSABI_MODESTO;
+final eLFOSABI_OPENBSD : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_OPENBSD.eLFOSABI_OPENBSD;
+final eLFOSABI_OPENVMS : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_OPENVMS.eLFOSABI_OPENVMS;
+final eLFOSABI_NSK : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_NSK.eLFOSABI_NSK;
+final eLFOSABI_AROS : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_AROS.eLFOSABI_AROS;
+final eLFOSABI_FENIXOS : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_FENIXOS.eLFOSABI_FENIXOS;
+final eLFOSABI_CLOUDABI : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_CLOUDABI.eLFOSABI_CLOUDABI;
+final eLFOSABI_ARM : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_ARM.eLFOSABI_ARM;
+final eLFOSABI_STANDALONE : OSABI = stdgo._internal.debug.elf.Elf_eLFOSABI_STANDALONE.eLFOSABI_STANDALONE;
+final eT_NONE : Type_ = stdgo._internal.debug.elf.Elf_eT_NONE.eT_NONE;
+final eT_REL : Type_ = stdgo._internal.debug.elf.Elf_eT_REL.eT_REL;
+final eT_EXEC : Type_ = stdgo._internal.debug.elf.Elf_eT_EXEC.eT_EXEC;
+final eT_DYN : Type_ = stdgo._internal.debug.elf.Elf_eT_DYN.eT_DYN;
+final eT_CORE : Type_ = stdgo._internal.debug.elf.Elf_eT_CORE.eT_CORE;
+final eT_LOOS : Type_ = stdgo._internal.debug.elf.Elf_eT_LOOS.eT_LOOS;
+final eT_HIOS : Type_ = stdgo._internal.debug.elf.Elf_eT_HIOS.eT_HIOS;
+final eT_LOPROC : Type_ = stdgo._internal.debug.elf.Elf_eT_LOPROC.eT_LOPROC;
+final eT_HIPROC : Type_ = stdgo._internal.debug.elf.Elf_eT_HIPROC.eT_HIPROC;
+final eM_NONE : Machine = stdgo._internal.debug.elf.Elf_eM_NONE.eM_NONE;
+final eM_M32 : Machine = stdgo._internal.debug.elf.Elf_eM_M32.eM_M32;
+final eM_SPARC : Machine = stdgo._internal.debug.elf.Elf_eM_SPARC.eM_SPARC;
+final eM_386 : Machine = stdgo._internal.debug.elf.Elf_eM_386.eM_386;
+final eM_68K : Machine = stdgo._internal.debug.elf.Elf_eM_68K.eM_68K;
+final eM_88K : Machine = stdgo._internal.debug.elf.Elf_eM_88K.eM_88K;
+final eM_860 : Machine = stdgo._internal.debug.elf.Elf_eM_860.eM_860;
+final eM_MIPS : Machine = stdgo._internal.debug.elf.Elf_eM_MIPS.eM_MIPS;
+final eM_S370 : Machine = stdgo._internal.debug.elf.Elf_eM_S370.eM_S370;
+final eM_MIPS_RS3_LE : Machine = stdgo._internal.debug.elf.Elf_eM_MIPS_RS3_LE.eM_MIPS_RS3_LE;
+final eM_PARISC : Machine = stdgo._internal.debug.elf.Elf_eM_PARISC.eM_PARISC;
+final eM_VPP500 : Machine = stdgo._internal.debug.elf.Elf_eM_VPP500.eM_VPP500;
+final eM_SPARC32PLUS : Machine = stdgo._internal.debug.elf.Elf_eM_SPARC32PLUS.eM_SPARC32PLUS;
+final eM_960 : Machine = stdgo._internal.debug.elf.Elf_eM_960.eM_960;
+final eM_PPC : Machine = stdgo._internal.debug.elf.Elf_eM_PPC.eM_PPC;
+final eM_PPC64 : Machine = stdgo._internal.debug.elf.Elf_eM_PPC64.eM_PPC64;
+final eM_S390 : Machine = stdgo._internal.debug.elf.Elf_eM_S390.eM_S390;
+final eM_V800 : Machine = stdgo._internal.debug.elf.Elf_eM_V800.eM_V800;
+final eM_FR20 : Machine = stdgo._internal.debug.elf.Elf_eM_FR20.eM_FR20;
+final eM_RH32 : Machine = stdgo._internal.debug.elf.Elf_eM_RH32.eM_RH32;
+final eM_RCE : Machine = stdgo._internal.debug.elf.Elf_eM_RCE.eM_RCE;
+final eM_ARM : Machine = stdgo._internal.debug.elf.Elf_eM_ARM.eM_ARM;
+final eM_SH : Machine = stdgo._internal.debug.elf.Elf_eM_SH.eM_SH;
+final eM_SPARCV9 : Machine = stdgo._internal.debug.elf.Elf_eM_SPARCV9.eM_SPARCV9;
+final eM_TRICORE : Machine = stdgo._internal.debug.elf.Elf_eM_TRICORE.eM_TRICORE;
+final eM_ARC : Machine = stdgo._internal.debug.elf.Elf_eM_ARC.eM_ARC;
+final eM_H8_300 : Machine = stdgo._internal.debug.elf.Elf_eM_H8_300.eM_H8_300;
+final eM_H8_300H : Machine = stdgo._internal.debug.elf.Elf_eM_H8_300H.eM_H8_300H;
+final eM_H8S : Machine = stdgo._internal.debug.elf.Elf_eM_H8S.eM_H8S;
+final eM_H8_500 : Machine = stdgo._internal.debug.elf.Elf_eM_H8_500.eM_H8_500;
+final eM_IA_64 : Machine = stdgo._internal.debug.elf.Elf_eM_IA_64.eM_IA_64;
+final eM_MIPS_X : Machine = stdgo._internal.debug.elf.Elf_eM_MIPS_X.eM_MIPS_X;
+final eM_COLDFIRE : Machine = stdgo._internal.debug.elf.Elf_eM_COLDFIRE.eM_COLDFIRE;
+final eM_68HC12 : Machine = stdgo._internal.debug.elf.Elf_eM_68HC12.eM_68HC12;
+final eM_MMA : Machine = stdgo._internal.debug.elf.Elf_eM_MMA.eM_MMA;
+final eM_PCP : Machine = stdgo._internal.debug.elf.Elf_eM_PCP.eM_PCP;
+final eM_NCPU : Machine = stdgo._internal.debug.elf.Elf_eM_NCPU.eM_NCPU;
+final eM_NDR1 : Machine = stdgo._internal.debug.elf.Elf_eM_NDR1.eM_NDR1;
+final eM_STARCORE : Machine = stdgo._internal.debug.elf.Elf_eM_STARCORE.eM_STARCORE;
+final eM_ME16 : Machine = stdgo._internal.debug.elf.Elf_eM_ME16.eM_ME16;
+final eM_ST100 : Machine = stdgo._internal.debug.elf.Elf_eM_ST100.eM_ST100;
+final eM_TINYJ : Machine = stdgo._internal.debug.elf.Elf_eM_TINYJ.eM_TINYJ;
+final eM_X86_64 : Machine = stdgo._internal.debug.elf.Elf_eM_X86_64.eM_X86_64;
+final eM_PDSP : Machine = stdgo._internal.debug.elf.Elf_eM_PDSP.eM_PDSP;
+final eM_PDP10 : Machine = stdgo._internal.debug.elf.Elf_eM_PDP10.eM_PDP10;
+final eM_PDP11 : Machine = stdgo._internal.debug.elf.Elf_eM_PDP11.eM_PDP11;
+final eM_FX66 : Machine = stdgo._internal.debug.elf.Elf_eM_FX66.eM_FX66;
+final eM_ST9PLUS : Machine = stdgo._internal.debug.elf.Elf_eM_ST9PLUS.eM_ST9PLUS;
+final eM_ST7 : Machine = stdgo._internal.debug.elf.Elf_eM_ST7.eM_ST7;
+final eM_68HC16 : Machine = stdgo._internal.debug.elf.Elf_eM_68HC16.eM_68HC16;
+final eM_68HC11 : Machine = stdgo._internal.debug.elf.Elf_eM_68HC11.eM_68HC11;
+final eM_68HC08 : Machine = stdgo._internal.debug.elf.Elf_eM_68HC08.eM_68HC08;
+final eM_68HC05 : Machine = stdgo._internal.debug.elf.Elf_eM_68HC05.eM_68HC05;
+final eM_SVX : Machine = stdgo._internal.debug.elf.Elf_eM_SVX.eM_SVX;
+final eM_ST19 : Machine = stdgo._internal.debug.elf.Elf_eM_ST19.eM_ST19;
+final eM_VAX : Machine = stdgo._internal.debug.elf.Elf_eM_VAX.eM_VAX;
+final eM_CRIS : Machine = stdgo._internal.debug.elf.Elf_eM_CRIS.eM_CRIS;
+final eM_JAVELIN : Machine = stdgo._internal.debug.elf.Elf_eM_JAVELIN.eM_JAVELIN;
+final eM_FIREPATH : Machine = stdgo._internal.debug.elf.Elf_eM_FIREPATH.eM_FIREPATH;
+final eM_ZSP : Machine = stdgo._internal.debug.elf.Elf_eM_ZSP.eM_ZSP;
+final eM_MMIX : Machine = stdgo._internal.debug.elf.Elf_eM_MMIX.eM_MMIX;
+final eM_HUANY : Machine = stdgo._internal.debug.elf.Elf_eM_HUANY.eM_HUANY;
+final eM_PRISM : Machine = stdgo._internal.debug.elf.Elf_eM_PRISM.eM_PRISM;
+final eM_AVR : Machine = stdgo._internal.debug.elf.Elf_eM_AVR.eM_AVR;
+final eM_FR30 : Machine = stdgo._internal.debug.elf.Elf_eM_FR30.eM_FR30;
+final eM_D10V : Machine = stdgo._internal.debug.elf.Elf_eM_D10V.eM_D10V;
+final eM_D30V : Machine = stdgo._internal.debug.elf.Elf_eM_D30V.eM_D30V;
+final eM_V850 : Machine = stdgo._internal.debug.elf.Elf_eM_V850.eM_V850;
+final eM_M32R : Machine = stdgo._internal.debug.elf.Elf_eM_M32R.eM_M32R;
+final eM_MN10300 : Machine = stdgo._internal.debug.elf.Elf_eM_MN10300.eM_MN10300;
+final eM_MN10200 : Machine = stdgo._internal.debug.elf.Elf_eM_MN10200.eM_MN10200;
+final eM_PJ : Machine = stdgo._internal.debug.elf.Elf_eM_PJ.eM_PJ;
+final eM_OPENRISC : Machine = stdgo._internal.debug.elf.Elf_eM_OPENRISC.eM_OPENRISC;
+final eM_ARC_COMPACT : Machine = stdgo._internal.debug.elf.Elf_eM_ARC_COMPACT.eM_ARC_COMPACT;
+final eM_XTENSA : Machine = stdgo._internal.debug.elf.Elf_eM_XTENSA.eM_XTENSA;
+final eM_VIDEOCORE : Machine = stdgo._internal.debug.elf.Elf_eM_VIDEOCORE.eM_VIDEOCORE;
+final eM_TMM_GPP : Machine = stdgo._internal.debug.elf.Elf_eM_TMM_GPP.eM_TMM_GPP;
+final eM_NS32K : Machine = stdgo._internal.debug.elf.Elf_eM_NS32K.eM_NS32K;
+final eM_TPC : Machine = stdgo._internal.debug.elf.Elf_eM_TPC.eM_TPC;
+final eM_SNP1K : Machine = stdgo._internal.debug.elf.Elf_eM_SNP1K.eM_SNP1K;
+final eM_ST200 : Machine = stdgo._internal.debug.elf.Elf_eM_ST200.eM_ST200;
+final eM_IP2K : Machine = stdgo._internal.debug.elf.Elf_eM_IP2K.eM_IP2K;
+final eM_MAX : Machine = stdgo._internal.debug.elf.Elf_eM_MAX.eM_MAX;
+final eM_CR : Machine = stdgo._internal.debug.elf.Elf_eM_CR.eM_CR;
+final eM_F2MC16 : Machine = stdgo._internal.debug.elf.Elf_eM_F2MC16.eM_F2MC16;
+final eM_MSP430 : Machine = stdgo._internal.debug.elf.Elf_eM_MSP430.eM_MSP430;
+final eM_BLACKFIN : Machine = stdgo._internal.debug.elf.Elf_eM_BLACKFIN.eM_BLACKFIN;
+final eM_SE_C33 : Machine = stdgo._internal.debug.elf.Elf_eM_SE_C33.eM_SE_C33;
+final eM_SEP : Machine = stdgo._internal.debug.elf.Elf_eM_SEP.eM_SEP;
+final eM_ARCA : Machine = stdgo._internal.debug.elf.Elf_eM_ARCA.eM_ARCA;
+final eM_UNICORE : Machine = stdgo._internal.debug.elf.Elf_eM_UNICORE.eM_UNICORE;
+final eM_EXCESS : Machine = stdgo._internal.debug.elf.Elf_eM_EXCESS.eM_EXCESS;
+final eM_DXP : Machine = stdgo._internal.debug.elf.Elf_eM_DXP.eM_DXP;
+final eM_ALTERA_NIOS2 : Machine = stdgo._internal.debug.elf.Elf_eM_ALTERA_NIOS2.eM_ALTERA_NIOS2;
+final eM_CRX : Machine = stdgo._internal.debug.elf.Elf_eM_CRX.eM_CRX;
+final eM_XGATE : Machine = stdgo._internal.debug.elf.Elf_eM_XGATE.eM_XGATE;
+final eM_C166 : Machine = stdgo._internal.debug.elf.Elf_eM_C166.eM_C166;
+final eM_M16C : Machine = stdgo._internal.debug.elf.Elf_eM_M16C.eM_M16C;
+final eM_DSPIC30F : Machine = stdgo._internal.debug.elf.Elf_eM_DSPIC30F.eM_DSPIC30F;
+final eM_CE : Machine = stdgo._internal.debug.elf.Elf_eM_CE.eM_CE;
+final eM_M32C : Machine = stdgo._internal.debug.elf.Elf_eM_M32C.eM_M32C;
+final eM_TSK3000 : Machine = stdgo._internal.debug.elf.Elf_eM_TSK3000.eM_TSK3000;
+final eM_RS08 : Machine = stdgo._internal.debug.elf.Elf_eM_RS08.eM_RS08;
+final eM_SHARC : Machine = stdgo._internal.debug.elf.Elf_eM_SHARC.eM_SHARC;
+final eM_ECOG2 : Machine = stdgo._internal.debug.elf.Elf_eM_ECOG2.eM_ECOG2;
+final eM_SCORE7 : Machine = stdgo._internal.debug.elf.Elf_eM_SCORE7.eM_SCORE7;
+final eM_DSP24 : Machine = stdgo._internal.debug.elf.Elf_eM_DSP24.eM_DSP24;
+final eM_VIDEOCORE3 : Machine = stdgo._internal.debug.elf.Elf_eM_VIDEOCORE3.eM_VIDEOCORE3;
+final eM_LATTICEMICO32 : Machine = stdgo._internal.debug.elf.Elf_eM_LATTICEMICO32.eM_LATTICEMICO32;
+final eM_SE_C17 : Machine = stdgo._internal.debug.elf.Elf_eM_SE_C17.eM_SE_C17;
+final eM_TI_C6000 : Machine = stdgo._internal.debug.elf.Elf_eM_TI_C6000.eM_TI_C6000;
+final eM_TI_C2000 : Machine = stdgo._internal.debug.elf.Elf_eM_TI_C2000.eM_TI_C2000;
+final eM_TI_C5500 : Machine = stdgo._internal.debug.elf.Elf_eM_TI_C5500.eM_TI_C5500;
+final eM_TI_ARP32 : Machine = stdgo._internal.debug.elf.Elf_eM_TI_ARP32.eM_TI_ARP32;
+final eM_TI_PRU : Machine = stdgo._internal.debug.elf.Elf_eM_TI_PRU.eM_TI_PRU;
+final eM_MMDSP_PLUS : Machine = stdgo._internal.debug.elf.Elf_eM_MMDSP_PLUS.eM_MMDSP_PLUS;
+final eM_CYPRESS_M8C : Machine = stdgo._internal.debug.elf.Elf_eM_CYPRESS_M8C.eM_CYPRESS_M8C;
+final eM_R32C : Machine = stdgo._internal.debug.elf.Elf_eM_R32C.eM_R32C;
+final eM_TRIMEDIA : Machine = stdgo._internal.debug.elf.Elf_eM_TRIMEDIA.eM_TRIMEDIA;
+final eM_QDSP6 : Machine = stdgo._internal.debug.elf.Elf_eM_QDSP6.eM_QDSP6;
+final eM_8051 : Machine = stdgo._internal.debug.elf.Elf_eM_8051.eM_8051;
+final eM_STXP7X : Machine = stdgo._internal.debug.elf.Elf_eM_STXP7X.eM_STXP7X;
+final eM_NDS32 : Machine = stdgo._internal.debug.elf.Elf_eM_NDS32.eM_NDS32;
+final eM_ECOG1 : Machine = stdgo._internal.debug.elf.Elf_eM_ECOG1.eM_ECOG1;
+final eM_ECOG1X : Machine = stdgo._internal.debug.elf.Elf_eM_ECOG1X.eM_ECOG1X;
+final eM_MAXQ30 : Machine = stdgo._internal.debug.elf.Elf_eM_MAXQ30.eM_MAXQ30;
+final eM_XIMO16 : Machine = stdgo._internal.debug.elf.Elf_eM_XIMO16.eM_XIMO16;
+final eM_MANIK : Machine = stdgo._internal.debug.elf.Elf_eM_MANIK.eM_MANIK;
+final eM_CRAYNV2 : Machine = stdgo._internal.debug.elf.Elf_eM_CRAYNV2.eM_CRAYNV2;
+final eM_RX : Machine = stdgo._internal.debug.elf.Elf_eM_RX.eM_RX;
+final eM_METAG : Machine = stdgo._internal.debug.elf.Elf_eM_METAG.eM_METAG;
+final eM_MCST_ELBRUS : Machine = stdgo._internal.debug.elf.Elf_eM_MCST_ELBRUS.eM_MCST_ELBRUS;
+final eM_ECOG16 : Machine = stdgo._internal.debug.elf.Elf_eM_ECOG16.eM_ECOG16;
+final eM_CR16 : Machine = stdgo._internal.debug.elf.Elf_eM_CR16.eM_CR16;
+final eM_ETPU : Machine = stdgo._internal.debug.elf.Elf_eM_ETPU.eM_ETPU;
+final eM_SLE9X : Machine = stdgo._internal.debug.elf.Elf_eM_SLE9X.eM_SLE9X;
+final eM_L10M : Machine = stdgo._internal.debug.elf.Elf_eM_L10M.eM_L10M;
+final eM_K10M : Machine = stdgo._internal.debug.elf.Elf_eM_K10M.eM_K10M;
+final eM_AARCH64 : Machine = stdgo._internal.debug.elf.Elf_eM_AARCH64.eM_AARCH64;
+final eM_AVR32 : Machine = stdgo._internal.debug.elf.Elf_eM_AVR32.eM_AVR32;
+final eM_STM8 : Machine = stdgo._internal.debug.elf.Elf_eM_STM8.eM_STM8;
+final eM_TILE64 : Machine = stdgo._internal.debug.elf.Elf_eM_TILE64.eM_TILE64;
+final eM_TILEPRO : Machine = stdgo._internal.debug.elf.Elf_eM_TILEPRO.eM_TILEPRO;
+final eM_MICROBLAZE : Machine = stdgo._internal.debug.elf.Elf_eM_MICROBLAZE.eM_MICROBLAZE;
+final eM_CUDA : Machine = stdgo._internal.debug.elf.Elf_eM_CUDA.eM_CUDA;
+final eM_TILEGX : Machine = stdgo._internal.debug.elf.Elf_eM_TILEGX.eM_TILEGX;
+final eM_CLOUDSHIELD : Machine = stdgo._internal.debug.elf.Elf_eM_CLOUDSHIELD.eM_CLOUDSHIELD;
+final eM_COREA_1ST : Machine = stdgo._internal.debug.elf.Elf_eM_COREA_1ST.eM_COREA_1ST;
+final eM_COREA_2ND : Machine = stdgo._internal.debug.elf.Elf_eM_COREA_2ND.eM_COREA_2ND;
+final eM_ARC_COMPACT2 : Machine = stdgo._internal.debug.elf.Elf_eM_ARC_COMPACT2.eM_ARC_COMPACT2;
+final eM_OPEN8 : Machine = stdgo._internal.debug.elf.Elf_eM_OPEN8.eM_OPEN8;
+final eM_RL78 : Machine = stdgo._internal.debug.elf.Elf_eM_RL78.eM_RL78;
+final eM_VIDEOCORE5 : Machine = stdgo._internal.debug.elf.Elf_eM_VIDEOCORE5.eM_VIDEOCORE5;
+final eM_78KOR : Machine = stdgo._internal.debug.elf.Elf_eM_78KOR.eM_78KOR;
+final eM_56800EX : Machine = stdgo._internal.debug.elf.Elf_eM_56800EX.eM_56800EX;
+final eM_BA1 : Machine = stdgo._internal.debug.elf.Elf_eM_BA1.eM_BA1;
+final eM_BA2 : Machine = stdgo._internal.debug.elf.Elf_eM_BA2.eM_BA2;
+final eM_XCORE : Machine = stdgo._internal.debug.elf.Elf_eM_XCORE.eM_XCORE;
+final eM_MCHP_PIC : Machine = stdgo._internal.debug.elf.Elf_eM_MCHP_PIC.eM_MCHP_PIC;
+final eM_INTEL205 : Machine = stdgo._internal.debug.elf.Elf_eM_INTEL205.eM_INTEL205;
+final eM_INTEL206 : Machine = stdgo._internal.debug.elf.Elf_eM_INTEL206.eM_INTEL206;
+final eM_INTEL207 : Machine = stdgo._internal.debug.elf.Elf_eM_INTEL207.eM_INTEL207;
+final eM_INTEL208 : Machine = stdgo._internal.debug.elf.Elf_eM_INTEL208.eM_INTEL208;
+final eM_INTEL209 : Machine = stdgo._internal.debug.elf.Elf_eM_INTEL209.eM_INTEL209;
+final eM_KM32 : Machine = stdgo._internal.debug.elf.Elf_eM_KM32.eM_KM32;
+final eM_KMX32 : Machine = stdgo._internal.debug.elf.Elf_eM_KMX32.eM_KMX32;
+final eM_KMX16 : Machine = stdgo._internal.debug.elf.Elf_eM_KMX16.eM_KMX16;
+final eM_KMX8 : Machine = stdgo._internal.debug.elf.Elf_eM_KMX8.eM_KMX8;
+final eM_KVARC : Machine = stdgo._internal.debug.elf.Elf_eM_KVARC.eM_KVARC;
+final eM_CDP : Machine = stdgo._internal.debug.elf.Elf_eM_CDP.eM_CDP;
+final eM_COGE : Machine = stdgo._internal.debug.elf.Elf_eM_COGE.eM_COGE;
+final eM_COOL : Machine = stdgo._internal.debug.elf.Elf_eM_COOL.eM_COOL;
+final eM_NORC : Machine = stdgo._internal.debug.elf.Elf_eM_NORC.eM_NORC;
+final eM_CSR_KALIMBA : Machine = stdgo._internal.debug.elf.Elf_eM_CSR_KALIMBA.eM_CSR_KALIMBA;
+final eM_Z80 : Machine = stdgo._internal.debug.elf.Elf_eM_Z80.eM_Z80;
+final eM_VISIUM : Machine = stdgo._internal.debug.elf.Elf_eM_VISIUM.eM_VISIUM;
+final eM_FT32 : Machine = stdgo._internal.debug.elf.Elf_eM_FT32.eM_FT32;
+final eM_MOXIE : Machine = stdgo._internal.debug.elf.Elf_eM_MOXIE.eM_MOXIE;
+final eM_AMDGPU : Machine = stdgo._internal.debug.elf.Elf_eM_AMDGPU.eM_AMDGPU;
+final eM_RISCV : Machine = stdgo._internal.debug.elf.Elf_eM_RISCV.eM_RISCV;
+final eM_LANAI : Machine = stdgo._internal.debug.elf.Elf_eM_LANAI.eM_LANAI;
+final eM_BPF : Machine = stdgo._internal.debug.elf.Elf_eM_BPF.eM_BPF;
+final eM_LOONGARCH : Machine = stdgo._internal.debug.elf.Elf_eM_LOONGARCH.eM_LOONGARCH;
+final eM_486 : Machine = stdgo._internal.debug.elf.Elf_eM_486.eM_486;
+final eM_MIPS_RS4_BE : Machine = stdgo._internal.debug.elf.Elf_eM_MIPS_RS4_BE.eM_MIPS_RS4_BE;
+final eM_ALPHA_STD : Machine = stdgo._internal.debug.elf.Elf_eM_ALPHA_STD.eM_ALPHA_STD;
+final eM_ALPHA : Machine = stdgo._internal.debug.elf.Elf_eM_ALPHA.eM_ALPHA;
+final sHN_UNDEF : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_UNDEF.sHN_UNDEF;
+final sHN_LORESERVE : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_LORESERVE.sHN_LORESERVE;
+final sHN_LOPROC : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_LOPROC.sHN_LOPROC;
+final sHN_HIPROC : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_HIPROC.sHN_HIPROC;
+final sHN_LOOS : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_LOOS.sHN_LOOS;
+final sHN_HIOS : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_HIOS.sHN_HIOS;
+final sHN_ABS : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_ABS.sHN_ABS;
+final sHN_COMMON : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_COMMON.sHN_COMMON;
+final sHN_XINDEX : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_XINDEX.sHN_XINDEX;
+final sHN_HIRESERVE : SectionIndex = stdgo._internal.debug.elf.Elf_sHN_HIRESERVE.sHN_HIRESERVE;
+final sHT_NULL : SectionType = stdgo._internal.debug.elf.Elf_sHT_NULL.sHT_NULL;
+final sHT_PROGBITS : SectionType = stdgo._internal.debug.elf.Elf_sHT_PROGBITS.sHT_PROGBITS;
+final sHT_SYMTAB : SectionType = stdgo._internal.debug.elf.Elf_sHT_SYMTAB.sHT_SYMTAB;
+final sHT_STRTAB : SectionType = stdgo._internal.debug.elf.Elf_sHT_STRTAB.sHT_STRTAB;
+final sHT_RELA : SectionType = stdgo._internal.debug.elf.Elf_sHT_RELA.sHT_RELA;
+final sHT_HASH : SectionType = stdgo._internal.debug.elf.Elf_sHT_HASH.sHT_HASH;
+final sHT_DYNAMIC : SectionType = stdgo._internal.debug.elf.Elf_sHT_DYNAMIC.sHT_DYNAMIC;
+final sHT_NOTE : SectionType = stdgo._internal.debug.elf.Elf_sHT_NOTE.sHT_NOTE;
+final sHT_NOBITS : SectionType = stdgo._internal.debug.elf.Elf_sHT_NOBITS.sHT_NOBITS;
+final sHT_REL : SectionType = stdgo._internal.debug.elf.Elf_sHT_REL.sHT_REL;
+final sHT_SHLIB : SectionType = stdgo._internal.debug.elf.Elf_sHT_SHLIB.sHT_SHLIB;
+final sHT_DYNSYM : SectionType = stdgo._internal.debug.elf.Elf_sHT_DYNSYM.sHT_DYNSYM;
+final sHT_INIT_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sHT_INIT_ARRAY.sHT_INIT_ARRAY;
+final sHT_FINI_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sHT_FINI_ARRAY.sHT_FINI_ARRAY;
+final sHT_PREINIT_ARRAY : SectionType = stdgo._internal.debug.elf.Elf_sHT_PREINIT_ARRAY.sHT_PREINIT_ARRAY;
+final sHT_GROUP : SectionType = stdgo._internal.debug.elf.Elf_sHT_GROUP.sHT_GROUP;
+final sHT_SYMTAB_SHNDX : SectionType = stdgo._internal.debug.elf.Elf_sHT_SYMTAB_SHNDX.sHT_SYMTAB_SHNDX;
+final sHT_LOOS : SectionType = stdgo._internal.debug.elf.Elf_sHT_LOOS.sHT_LOOS;
+final sHT_GNU_ATTRIBUTES : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_ATTRIBUTES.sHT_GNU_ATTRIBUTES;
+final sHT_GNU_HASH : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_HASH.sHT_GNU_HASH;
+final sHT_GNU_LIBLIST : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_LIBLIST.sHT_GNU_LIBLIST;
+final sHT_GNU_VERDEF : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_VERDEF.sHT_GNU_VERDEF;
+final sHT_GNU_VERNEED : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_VERNEED.sHT_GNU_VERNEED;
+final sHT_GNU_VERSYM : SectionType = stdgo._internal.debug.elf.Elf_sHT_GNU_VERSYM.sHT_GNU_VERSYM;
+final sHT_HIOS : SectionType = stdgo._internal.debug.elf.Elf_sHT_HIOS.sHT_HIOS;
+final sHT_LOPROC : SectionType = stdgo._internal.debug.elf.Elf_sHT_LOPROC.sHT_LOPROC;
+final sHT_MIPS_ABIFLAGS : SectionType = stdgo._internal.debug.elf.Elf_sHT_MIPS_ABIFLAGS.sHT_MIPS_ABIFLAGS;
+final sHT_HIPROC : SectionType = stdgo._internal.debug.elf.Elf_sHT_HIPROC.sHT_HIPROC;
+final sHT_LOUSER : SectionType = stdgo._internal.debug.elf.Elf_sHT_LOUSER.sHT_LOUSER;
+final sHT_HIUSER : SectionType = stdgo._internal.debug.elf.Elf_sHT_HIUSER.sHT_HIUSER;
+final sHF_WRITE : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_WRITE.sHF_WRITE;
+final sHF_ALLOC : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_ALLOC.sHF_ALLOC;
+final sHF_EXECINSTR : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_EXECINSTR.sHF_EXECINSTR;
+final sHF_MERGE : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_MERGE.sHF_MERGE;
+final sHF_STRINGS : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_STRINGS.sHF_STRINGS;
+final sHF_INFO_LINK : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_INFO_LINK.sHF_INFO_LINK;
+final sHF_LINK_ORDER : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_LINK_ORDER.sHF_LINK_ORDER;
+final sHF_OS_NONCONFORMING : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_OS_NONCONFORMING.sHF_OS_NONCONFORMING;
+final sHF_GROUP : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_GROUP.sHF_GROUP;
+final sHF_TLS : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_TLS.sHF_TLS;
+final sHF_COMPRESSED : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_COMPRESSED.sHF_COMPRESSED;
+final sHF_MASKOS : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_MASKOS.sHF_MASKOS;
+final sHF_MASKPROC : SectionFlag = stdgo._internal.debug.elf.Elf_sHF_MASKPROC.sHF_MASKPROC;
+final cOMPRESS_ZLIB : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_ZLIB.cOMPRESS_ZLIB;
+final cOMPRESS_ZSTD : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_ZSTD.cOMPRESS_ZSTD;
+final cOMPRESS_LOOS : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_LOOS.cOMPRESS_LOOS;
+final cOMPRESS_HIOS : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_HIOS.cOMPRESS_HIOS;
+final cOMPRESS_LOPROC : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_LOPROC.cOMPRESS_LOPROC;
+final cOMPRESS_HIPROC : CompressionType = stdgo._internal.debug.elf.Elf_cOMPRESS_HIPROC.cOMPRESS_HIPROC;
+final pT_NULL : ProgType = stdgo._internal.debug.elf.Elf_pT_NULL.pT_NULL;
+final pT_LOAD : ProgType = stdgo._internal.debug.elf.Elf_pT_LOAD.pT_LOAD;
+final pT_DYNAMIC : ProgType = stdgo._internal.debug.elf.Elf_pT_DYNAMIC.pT_DYNAMIC;
+final pT_INTERP : ProgType = stdgo._internal.debug.elf.Elf_pT_INTERP.pT_INTERP;
+final pT_NOTE : ProgType = stdgo._internal.debug.elf.Elf_pT_NOTE.pT_NOTE;
+final pT_SHLIB : ProgType = stdgo._internal.debug.elf.Elf_pT_SHLIB.pT_SHLIB;
+final pT_PHDR : ProgType = stdgo._internal.debug.elf.Elf_pT_PHDR.pT_PHDR;
+final pT_TLS : ProgType = stdgo._internal.debug.elf.Elf_pT_TLS.pT_TLS;
+final pT_LOOS : ProgType = stdgo._internal.debug.elf.Elf_pT_LOOS.pT_LOOS;
+final pT_GNU_EH_FRAME : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_EH_FRAME.pT_GNU_EH_FRAME;
+final pT_GNU_STACK : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_STACK.pT_GNU_STACK;
+final pT_GNU_RELRO : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_RELRO.pT_GNU_RELRO;
+final pT_GNU_PROPERTY : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_PROPERTY.pT_GNU_PROPERTY;
+final pT_GNU_MBIND_LO : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_MBIND_LO.pT_GNU_MBIND_LO;
+final pT_GNU_MBIND_HI : ProgType = stdgo._internal.debug.elf.Elf_pT_GNU_MBIND_HI.pT_GNU_MBIND_HI;
+final pT_PAX_FLAGS : ProgType = stdgo._internal.debug.elf.Elf_pT_PAX_FLAGS.pT_PAX_FLAGS;
+final pT_OPENBSD_RANDOMIZE : ProgType = stdgo._internal.debug.elf.Elf_pT_OPENBSD_RANDOMIZE.pT_OPENBSD_RANDOMIZE;
+final pT_OPENBSD_WXNEEDED : ProgType = stdgo._internal.debug.elf.Elf_pT_OPENBSD_WXNEEDED.pT_OPENBSD_WXNEEDED;
+final pT_OPENBSD_BOOTDATA : ProgType = stdgo._internal.debug.elf.Elf_pT_OPENBSD_BOOTDATA.pT_OPENBSD_BOOTDATA;
+final pT_SUNW_EH_FRAME : ProgType = stdgo._internal.debug.elf.Elf_pT_SUNW_EH_FRAME.pT_SUNW_EH_FRAME;
+final pT_SUNWSTACK : ProgType = stdgo._internal.debug.elf.Elf_pT_SUNWSTACK.pT_SUNWSTACK;
+final pT_HIOS : ProgType = stdgo._internal.debug.elf.Elf_pT_HIOS.pT_HIOS;
+final pT_LOPROC : ProgType = stdgo._internal.debug.elf.Elf_pT_LOPROC.pT_LOPROC;
+final pT_ARM_ARCHEXT : ProgType = stdgo._internal.debug.elf.Elf_pT_ARM_ARCHEXT.pT_ARM_ARCHEXT;
+final pT_ARM_EXIDX : ProgType = stdgo._internal.debug.elf.Elf_pT_ARM_EXIDX.pT_ARM_EXIDX;
+final pT_AARCH64_ARCHEXT : ProgType = stdgo._internal.debug.elf.Elf_pT_AARCH64_ARCHEXT.pT_AARCH64_ARCHEXT;
+final pT_AARCH64_UNWIND : ProgType = stdgo._internal.debug.elf.Elf_pT_AARCH64_UNWIND.pT_AARCH64_UNWIND;
+final pT_MIPS_REGINFO : ProgType = stdgo._internal.debug.elf.Elf_pT_MIPS_REGINFO.pT_MIPS_REGINFO;
+final pT_MIPS_RTPROC : ProgType = stdgo._internal.debug.elf.Elf_pT_MIPS_RTPROC.pT_MIPS_RTPROC;
+final pT_MIPS_OPTIONS : ProgType = stdgo._internal.debug.elf.Elf_pT_MIPS_OPTIONS.pT_MIPS_OPTIONS;
+final pT_MIPS_ABIFLAGS : ProgType = stdgo._internal.debug.elf.Elf_pT_MIPS_ABIFLAGS.pT_MIPS_ABIFLAGS;
+final pT_S390_PGSTE : ProgType = stdgo._internal.debug.elf.Elf_pT_S390_PGSTE.pT_S390_PGSTE;
+final pT_HIPROC : ProgType = stdgo._internal.debug.elf.Elf_pT_HIPROC.pT_HIPROC;
+final pF_X : ProgFlag = stdgo._internal.debug.elf.Elf_pF_X.pF_X;
+final pF_W : ProgFlag = stdgo._internal.debug.elf.Elf_pF_W.pF_W;
+final pF_R : ProgFlag = stdgo._internal.debug.elf.Elf_pF_R.pF_R;
+final pF_MASKOS : ProgFlag = stdgo._internal.debug.elf.Elf_pF_MASKOS.pF_MASKOS;
+final pF_MASKPROC : ProgFlag = stdgo._internal.debug.elf.Elf_pF_MASKPROC.pF_MASKPROC;
+final dT_NULL : DynTag = stdgo._internal.debug.elf.Elf_dT_NULL.dT_NULL;
+final dT_NEEDED : DynTag = stdgo._internal.debug.elf.Elf_dT_NEEDED.dT_NEEDED;
+final dT_PLTRELSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_PLTRELSZ.dT_PLTRELSZ;
+final dT_PLTGOT : DynTag = stdgo._internal.debug.elf.Elf_dT_PLTGOT.dT_PLTGOT;
+final dT_HASH : DynTag = stdgo._internal.debug.elf.Elf_dT_HASH.dT_HASH;
+final dT_STRTAB : DynTag = stdgo._internal.debug.elf.Elf_dT_STRTAB.dT_STRTAB;
+final dT_SYMTAB : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMTAB.dT_SYMTAB;
+final dT_RELA : DynTag = stdgo._internal.debug.elf.Elf_dT_RELA.dT_RELA;
+final dT_RELASZ : DynTag = stdgo._internal.debug.elf.Elf_dT_RELASZ.dT_RELASZ;
+final dT_RELAENT : DynTag = stdgo._internal.debug.elf.Elf_dT_RELAENT.dT_RELAENT;
+final dT_STRSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_STRSZ.dT_STRSZ;
+final dT_SYMENT : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMENT.dT_SYMENT;
+final dT_INIT : DynTag = stdgo._internal.debug.elf.Elf_dT_INIT.dT_INIT;
+final dT_FINI : DynTag = stdgo._internal.debug.elf.Elf_dT_FINI.dT_FINI;
+final dT_SONAME : DynTag = stdgo._internal.debug.elf.Elf_dT_SONAME.dT_SONAME;
+final dT_RPATH : DynTag = stdgo._internal.debug.elf.Elf_dT_RPATH.dT_RPATH;
+final dT_SYMBOLIC : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMBOLIC.dT_SYMBOLIC;
+final dT_REL : DynTag = stdgo._internal.debug.elf.Elf_dT_REL.dT_REL;
+final dT_RELSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_RELSZ.dT_RELSZ;
+final dT_RELENT : DynTag = stdgo._internal.debug.elf.Elf_dT_RELENT.dT_RELENT;
+final dT_PLTREL : DynTag = stdgo._internal.debug.elf.Elf_dT_PLTREL.dT_PLTREL;
+final dT_DEBUG : DynTag = stdgo._internal.debug.elf.Elf_dT_DEBUG.dT_DEBUG;
+final dT_TEXTREL : DynTag = stdgo._internal.debug.elf.Elf_dT_TEXTREL.dT_TEXTREL;
+final dT_JMPREL : DynTag = stdgo._internal.debug.elf.Elf_dT_JMPREL.dT_JMPREL;
+final dT_BIND_NOW : DynTag = stdgo._internal.debug.elf.Elf_dT_BIND_NOW.dT_BIND_NOW;
+final dT_INIT_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dT_INIT_ARRAY.dT_INIT_ARRAY;
+final dT_FINI_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dT_FINI_ARRAY.dT_FINI_ARRAY;
+final dT_INIT_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_INIT_ARRAYSZ.dT_INIT_ARRAYSZ;
+final dT_FINI_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_FINI_ARRAYSZ.dT_FINI_ARRAYSZ;
+final dT_RUNPATH : DynTag = stdgo._internal.debug.elf.Elf_dT_RUNPATH.dT_RUNPATH;
+final dT_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dT_FLAGS.dT_FLAGS;
+final dT_ENCODING : DynTag = stdgo._internal.debug.elf.Elf_dT_ENCODING.dT_ENCODING;
+final dT_PREINIT_ARRAY : DynTag = stdgo._internal.debug.elf.Elf_dT_PREINIT_ARRAY.dT_PREINIT_ARRAY;
+final dT_PREINIT_ARRAYSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_PREINIT_ARRAYSZ.dT_PREINIT_ARRAYSZ;
+final dT_SYMTAB_SHNDX : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMTAB_SHNDX.dT_SYMTAB_SHNDX;
+final dT_LOOS : DynTag = stdgo._internal.debug.elf.Elf_dT_LOOS.dT_LOOS;
+final dT_HIOS : DynTag = stdgo._internal.debug.elf.Elf_dT_HIOS.dT_HIOS;
+final dT_VALRNGLO : DynTag = stdgo._internal.debug.elf.Elf_dT_VALRNGLO.dT_VALRNGLO;
+final dT_GNU_PRELINKED : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_PRELINKED.dT_GNU_PRELINKED;
+final dT_GNU_CONFLICTSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_CONFLICTSZ.dT_GNU_CONFLICTSZ;
+final dT_GNU_LIBLISTSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_LIBLISTSZ.dT_GNU_LIBLISTSZ;
+final dT_CHECKSUM : DynTag = stdgo._internal.debug.elf.Elf_dT_CHECKSUM.dT_CHECKSUM;
+final dT_PLTPADSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_PLTPADSZ.dT_PLTPADSZ;
+final dT_MOVEENT : DynTag = stdgo._internal.debug.elf.Elf_dT_MOVEENT.dT_MOVEENT;
+final dT_MOVESZ : DynTag = stdgo._internal.debug.elf.Elf_dT_MOVESZ.dT_MOVESZ;
+final dT_FEATURE : DynTag = stdgo._internal.debug.elf.Elf_dT_FEATURE.dT_FEATURE;
+final dT_POSFLAG_1 : DynTag = stdgo._internal.debug.elf.Elf_dT_POSFLAG_1.dT_POSFLAG_1;
+final dT_SYMINSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMINSZ.dT_SYMINSZ;
+final dT_SYMINENT : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMINENT.dT_SYMINENT;
+final dT_VALRNGHI : DynTag = stdgo._internal.debug.elf.Elf_dT_VALRNGHI.dT_VALRNGHI;
+final dT_ADDRRNGLO : DynTag = stdgo._internal.debug.elf.Elf_dT_ADDRRNGLO.dT_ADDRRNGLO;
+final dT_GNU_HASH : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_HASH.dT_GNU_HASH;
+final dT_TLSDESC_PLT : DynTag = stdgo._internal.debug.elf.Elf_dT_TLSDESC_PLT.dT_TLSDESC_PLT;
+final dT_TLSDESC_GOT : DynTag = stdgo._internal.debug.elf.Elf_dT_TLSDESC_GOT.dT_TLSDESC_GOT;
+final dT_GNU_CONFLICT : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_CONFLICT.dT_GNU_CONFLICT;
+final dT_GNU_LIBLIST : DynTag = stdgo._internal.debug.elf.Elf_dT_GNU_LIBLIST.dT_GNU_LIBLIST;
+final dT_CONFIG : DynTag = stdgo._internal.debug.elf.Elf_dT_CONFIG.dT_CONFIG;
+final dT_DEPAUDIT : DynTag = stdgo._internal.debug.elf.Elf_dT_DEPAUDIT.dT_DEPAUDIT;
+final dT_AUDIT : DynTag = stdgo._internal.debug.elf.Elf_dT_AUDIT.dT_AUDIT;
+final dT_PLTPAD : DynTag = stdgo._internal.debug.elf.Elf_dT_PLTPAD.dT_PLTPAD;
+final dT_MOVETAB : DynTag = stdgo._internal.debug.elf.Elf_dT_MOVETAB.dT_MOVETAB;
+final dT_SYMINFO : DynTag = stdgo._internal.debug.elf.Elf_dT_SYMINFO.dT_SYMINFO;
+final dT_ADDRRNGHI : DynTag = stdgo._internal.debug.elf.Elf_dT_ADDRRNGHI.dT_ADDRRNGHI;
+final dT_VERSYM : DynTag = stdgo._internal.debug.elf.Elf_dT_VERSYM.dT_VERSYM;
+final dT_RELACOUNT : DynTag = stdgo._internal.debug.elf.Elf_dT_RELACOUNT.dT_RELACOUNT;
+final dT_RELCOUNT : DynTag = stdgo._internal.debug.elf.Elf_dT_RELCOUNT.dT_RELCOUNT;
+final dT_FLAGS_1 : DynTag = stdgo._internal.debug.elf.Elf_dT_FLAGS_1.dT_FLAGS_1;
+final dT_VERDEF : DynTag = stdgo._internal.debug.elf.Elf_dT_VERDEF.dT_VERDEF;
+final dT_VERDEFNUM : DynTag = stdgo._internal.debug.elf.Elf_dT_VERDEFNUM.dT_VERDEFNUM;
+final dT_VERNEED : DynTag = stdgo._internal.debug.elf.Elf_dT_VERNEED.dT_VERNEED;
+final dT_VERNEEDNUM : DynTag = stdgo._internal.debug.elf.Elf_dT_VERNEEDNUM.dT_VERNEEDNUM;
+final dT_LOPROC : DynTag = stdgo._internal.debug.elf.Elf_dT_LOPROC.dT_LOPROC;
+final dT_MIPS_RLD_VERSION : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_RLD_VERSION.dT_MIPS_RLD_VERSION;
+final dT_MIPS_TIME_STAMP : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_TIME_STAMP.dT_MIPS_TIME_STAMP;
+final dT_MIPS_ICHECKSUM : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_ICHECKSUM.dT_MIPS_ICHECKSUM;
+final dT_MIPS_IVERSION : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_IVERSION.dT_MIPS_IVERSION;
+final dT_MIPS_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_FLAGS.dT_MIPS_FLAGS;
+final dT_MIPS_BASE_ADDRESS : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_BASE_ADDRESS.dT_MIPS_BASE_ADDRESS;
+final dT_MIPS_MSYM : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_MSYM.dT_MIPS_MSYM;
+final dT_MIPS_CONFLICT : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_CONFLICT.dT_MIPS_CONFLICT;
+final dT_MIPS_LIBLIST : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_LIBLIST.dT_MIPS_LIBLIST;
+final dT_MIPS_LOCAL_GOTNO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_LOCAL_GOTNO.dT_MIPS_LOCAL_GOTNO;
+final dT_MIPS_CONFLICTNO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_CONFLICTNO.dT_MIPS_CONFLICTNO;
+final dT_MIPS_LIBLISTNO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_LIBLISTNO.dT_MIPS_LIBLISTNO;
+final dT_MIPS_SYMTABNO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_SYMTABNO.dT_MIPS_SYMTABNO;
+final dT_MIPS_UNREFEXTNO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_UNREFEXTNO.dT_MIPS_UNREFEXTNO;
+final dT_MIPS_GOTSYM : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_GOTSYM.dT_MIPS_GOTSYM;
+final dT_MIPS_HIPAGENO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_HIPAGENO.dT_MIPS_HIPAGENO;
+final dT_MIPS_RLD_MAP : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_RLD_MAP.dT_MIPS_RLD_MAP;
+final dT_MIPS_DELTA_CLASS : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_CLASS.dT_MIPS_DELTA_CLASS;
+final dT_MIPS_DELTA_CLASS_NO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_CLASS_NO.dT_MIPS_DELTA_CLASS_NO;
+final dT_MIPS_DELTA_INSTANCE : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_INSTANCE.dT_MIPS_DELTA_INSTANCE;
+final dT_MIPS_DELTA_INSTANCE_NO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_INSTANCE_NO.dT_MIPS_DELTA_INSTANCE_NO;
+final dT_MIPS_DELTA_RELOC : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_RELOC.dT_MIPS_DELTA_RELOC;
+final dT_MIPS_DELTA_RELOC_NO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_RELOC_NO.dT_MIPS_DELTA_RELOC_NO;
+final dT_MIPS_DELTA_SYM : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_SYM.dT_MIPS_DELTA_SYM;
+final dT_MIPS_DELTA_SYM_NO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_SYM_NO.dT_MIPS_DELTA_SYM_NO;
+final dT_MIPS_DELTA_CLASSSYM : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_CLASSSYM.dT_MIPS_DELTA_CLASSSYM;
+final dT_MIPS_DELTA_CLASSSYM_NO : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DELTA_CLASSSYM_NO.dT_MIPS_DELTA_CLASSSYM_NO;
+final dT_MIPS_CXX_FLAGS : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_CXX_FLAGS.dT_MIPS_CXX_FLAGS;
+final dT_MIPS_PIXIE_INIT : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_PIXIE_INIT.dT_MIPS_PIXIE_INIT;
+final dT_MIPS_SYMBOL_LIB : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_SYMBOL_LIB.dT_MIPS_SYMBOL_LIB;
+final dT_MIPS_LOCALPAGE_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_LOCALPAGE_GOTIDX.dT_MIPS_LOCALPAGE_GOTIDX;
+final dT_MIPS_LOCAL_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_LOCAL_GOTIDX.dT_MIPS_LOCAL_GOTIDX;
+final dT_MIPS_HIDDEN_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_HIDDEN_GOTIDX.dT_MIPS_HIDDEN_GOTIDX;
+final dT_MIPS_PROTECTED_GOTIDX : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_PROTECTED_GOTIDX.dT_MIPS_PROTECTED_GOTIDX;
+final dT_MIPS_OPTIONS : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_OPTIONS.dT_MIPS_OPTIONS;
+final dT_MIPS_INTERFACE : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_INTERFACE.dT_MIPS_INTERFACE;
+final dT_MIPS_DYNSTR_ALIGN : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_DYNSTR_ALIGN.dT_MIPS_DYNSTR_ALIGN;
+final dT_MIPS_INTERFACE_SIZE : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_INTERFACE_SIZE.dT_MIPS_INTERFACE_SIZE;
+final dT_MIPS_RLD_TEXT_RESOLVE_ADDR : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_RLD_TEXT_RESOLVE_ADDR.dT_MIPS_RLD_TEXT_RESOLVE_ADDR;
+final dT_MIPS_PERF_SUFFIX : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_PERF_SUFFIX.dT_MIPS_PERF_SUFFIX;
+final dT_MIPS_COMPACT_SIZE : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_COMPACT_SIZE.dT_MIPS_COMPACT_SIZE;
+final dT_MIPS_GP_VALUE : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_GP_VALUE.dT_MIPS_GP_VALUE;
+final dT_MIPS_AUX_DYNAMIC : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_AUX_DYNAMIC.dT_MIPS_AUX_DYNAMIC;
+final dT_MIPS_PLTGOT : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_PLTGOT.dT_MIPS_PLTGOT;
+final dT_MIPS_RWPLT : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_RWPLT.dT_MIPS_RWPLT;
+final dT_MIPS_RLD_MAP_REL : DynTag = stdgo._internal.debug.elf.Elf_dT_MIPS_RLD_MAP_REL.dT_MIPS_RLD_MAP_REL;
+final dT_PPC_GOT : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC_GOT.dT_PPC_GOT;
+final dT_PPC_OPT : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC_OPT.dT_PPC_OPT;
+final dT_PPC64_GLINK : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC64_GLINK.dT_PPC64_GLINK;
+final dT_PPC64_OPD : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC64_OPD.dT_PPC64_OPD;
+final dT_PPC64_OPDSZ : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC64_OPDSZ.dT_PPC64_OPDSZ;
+final dT_PPC64_OPT : DynTag = stdgo._internal.debug.elf.Elf_dT_PPC64_OPT.dT_PPC64_OPT;
+final dT_SPARC_REGISTER : DynTag = stdgo._internal.debug.elf.Elf_dT_SPARC_REGISTER.dT_SPARC_REGISTER;
+final dT_AUXILIARY : DynTag = stdgo._internal.debug.elf.Elf_dT_AUXILIARY.dT_AUXILIARY;
+final dT_USED : DynTag = stdgo._internal.debug.elf.Elf_dT_USED.dT_USED;
+final dT_FILTER : DynTag = stdgo._internal.debug.elf.Elf_dT_FILTER.dT_FILTER;
+final dT_HIPROC : DynTag = stdgo._internal.debug.elf.Elf_dT_HIPROC.dT_HIPROC;
+final dF_ORIGIN : DynFlag = stdgo._internal.debug.elf.Elf_dF_ORIGIN.dF_ORIGIN;
+final dF_SYMBOLIC : DynFlag = stdgo._internal.debug.elf.Elf_dF_SYMBOLIC.dF_SYMBOLIC;
+final dF_TEXTREL : DynFlag = stdgo._internal.debug.elf.Elf_dF_TEXTREL.dF_TEXTREL;
+final dF_BIND_NOW : DynFlag = stdgo._internal.debug.elf.Elf_dF_BIND_NOW.dF_BIND_NOW;
+final dF_STATIC_TLS : DynFlag = stdgo._internal.debug.elf.Elf_dF_STATIC_TLS.dF_STATIC_TLS;
+final dF_1_NOW : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NOW.dF_1_NOW;
+final dF_1_GLOBAL : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_GLOBAL.dF_1_GLOBAL;
+final dF_1_GROUP : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_GROUP.dF_1_GROUP;
+final dF_1_NODELETE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NODELETE.dF_1_NODELETE;
+final dF_1_LOADFLTR : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_LOADFLTR.dF_1_LOADFLTR;
+final dF_1_INITFIRST : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_INITFIRST.dF_1_INITFIRST;
+final dF_1_NOOPEN : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NOOPEN.dF_1_NOOPEN;
+final dF_1_ORIGIN : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_ORIGIN.dF_1_ORIGIN;
+final dF_1_DIRECT : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_DIRECT.dF_1_DIRECT;
+final dF_1_TRANS : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_TRANS.dF_1_TRANS;
+final dF_1_INTERPOSE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_INTERPOSE.dF_1_INTERPOSE;
+final dF_1_NODEFLIB : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NODEFLIB.dF_1_NODEFLIB;
+final dF_1_NODUMP : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NODUMP.dF_1_NODUMP;
+final dF_1_CONFALT : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_CONFALT.dF_1_CONFALT;
+final dF_1_ENDFILTEE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_ENDFILTEE.dF_1_ENDFILTEE;
+final dF_1_DISPRELDNE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_DISPRELDNE.dF_1_DISPRELDNE;
+final dF_1_DISPRELPND : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_DISPRELPND.dF_1_DISPRELPND;
+final dF_1_NODIRECT : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NODIRECT.dF_1_NODIRECT;
+final dF_1_IGNMULDEF : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_IGNMULDEF.dF_1_IGNMULDEF;
+final dF_1_NOKSYMS : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NOKSYMS.dF_1_NOKSYMS;
+final dF_1_NOHDR : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NOHDR.dF_1_NOHDR;
+final dF_1_EDITED : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_EDITED.dF_1_EDITED;
+final dF_1_NORELOC : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NORELOC.dF_1_NORELOC;
+final dF_1_SYMINTPOSE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_SYMINTPOSE.dF_1_SYMINTPOSE;
+final dF_1_GLOBAUDIT : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_GLOBAUDIT.dF_1_GLOBAUDIT;
+final dF_1_SINGLETON : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_SINGLETON.dF_1_SINGLETON;
+final dF_1_STUB : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_STUB.dF_1_STUB;
+final dF_1_PIE : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_PIE.dF_1_PIE;
+final dF_1_KMOD : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_KMOD.dF_1_KMOD;
+final dF_1_WEAKFILTER : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_WEAKFILTER.dF_1_WEAKFILTER;
+final dF_1_NOCOMMON : DynFlag1 = stdgo._internal.debug.elf.Elf_dF_1_NOCOMMON.dF_1_NOCOMMON;
+final nT_PRSTATUS : NType = stdgo._internal.debug.elf.Elf_nT_PRSTATUS.nT_PRSTATUS;
+final nT_FPREGSET : NType = stdgo._internal.debug.elf.Elf_nT_FPREGSET.nT_FPREGSET;
+final nT_PRPSINFO : NType = stdgo._internal.debug.elf.Elf_nT_PRPSINFO.nT_PRPSINFO;
+final sTB_LOCAL : SymBind = stdgo._internal.debug.elf.Elf_sTB_LOCAL.sTB_LOCAL;
+final sTB_GLOBAL : SymBind = stdgo._internal.debug.elf.Elf_sTB_GLOBAL.sTB_GLOBAL;
+final sTB_WEAK : SymBind = stdgo._internal.debug.elf.Elf_sTB_WEAK.sTB_WEAK;
+final sTB_LOOS : SymBind = stdgo._internal.debug.elf.Elf_sTB_LOOS.sTB_LOOS;
+final sTB_HIOS : SymBind = stdgo._internal.debug.elf.Elf_sTB_HIOS.sTB_HIOS;
+final sTB_LOPROC : SymBind = stdgo._internal.debug.elf.Elf_sTB_LOPROC.sTB_LOPROC;
+final sTB_HIPROC : SymBind = stdgo._internal.debug.elf.Elf_sTB_HIPROC.sTB_HIPROC;
+final sTT_NOTYPE : SymType = stdgo._internal.debug.elf.Elf_sTT_NOTYPE.sTT_NOTYPE;
+final sTT_OBJECT : SymType = stdgo._internal.debug.elf.Elf_sTT_OBJECT.sTT_OBJECT;
+final sTT_FUNC : SymType = stdgo._internal.debug.elf.Elf_sTT_FUNC.sTT_FUNC;
+final sTT_SECTION : SymType = stdgo._internal.debug.elf.Elf_sTT_SECTION.sTT_SECTION;
+final sTT_FILE : SymType = stdgo._internal.debug.elf.Elf_sTT_FILE.sTT_FILE;
+final sTT_COMMON : SymType = stdgo._internal.debug.elf.Elf_sTT_COMMON.sTT_COMMON;
+final sTT_TLS : SymType = stdgo._internal.debug.elf.Elf_sTT_TLS.sTT_TLS;
+final sTT_LOOS : SymType = stdgo._internal.debug.elf.Elf_sTT_LOOS.sTT_LOOS;
+final sTT_HIOS : SymType = stdgo._internal.debug.elf.Elf_sTT_HIOS.sTT_HIOS;
+final sTT_LOPROC : SymType = stdgo._internal.debug.elf.Elf_sTT_LOPROC.sTT_LOPROC;
+final sTT_HIPROC : SymType = stdgo._internal.debug.elf.Elf_sTT_HIPROC.sTT_HIPROC;
+final sTV_DEFAULT : SymVis = stdgo._internal.debug.elf.Elf_sTV_DEFAULT.sTV_DEFAULT;
+final sTV_INTERNAL : SymVis = stdgo._internal.debug.elf.Elf_sTV_INTERNAL.sTV_INTERNAL;
+final sTV_HIDDEN : SymVis = stdgo._internal.debug.elf.Elf_sTV_HIDDEN.sTV_HIDDEN;
+final sTV_PROTECTED : SymVis = stdgo._internal.debug.elf.Elf_sTV_PROTECTED.sTV_PROTECTED;
 final r_X86_64_NONE : R_X86_64 = stdgo._internal.debug.elf.Elf_r_X86_64_NONE.r_X86_64_NONE;
 final r_X86_64_64 : R_X86_64 = stdgo._internal.debug.elf.Elf_r_X86_64_64.r_X86_64_64;
 final r_X86_64_PC32 : R_X86_64 = stdgo._internal.debug.elf.Elf_r_X86_64_PC32.r_X86_64_PC32;
@@ -1451,7 +1451,7 @@ final r_SPARC_L44 : R_SPARC = stdgo._internal.debug.elf.Elf_r_SPARC_L44.r_SPARC_
 final r_SPARC_REGISTER : R_SPARC = stdgo._internal.debug.elf.Elf_r_SPARC_REGISTER.r_SPARC_REGISTER;
 final r_SPARC_UA64 : R_SPARC = stdgo._internal.debug.elf.Elf_r_SPARC_UA64.r_SPARC_UA64;
 final r_SPARC_UA16 : R_SPARC = stdgo._internal.debug.elf.Elf_r_SPARC_UA16.r_SPARC_UA16;
-final arm_MAGIC_TRAMP_NUMBER : haxe.UInt64 = stdgo._internal.debug.elf.Elf_arm_MAGIC_TRAMP_NUMBER.arm_MAGIC_TRAMP_NUMBER;
+final aRM_MAGIC_TRAMP_NUMBER : haxe.UInt64 = stdgo._internal.debug.elf.Elf_aRM_MAGIC_TRAMP_NUMBER.aRM_MAGIC_TRAMP_NUMBER;
 final sym32Size : haxe.UInt64 = stdgo._internal.debug.elf.Elf_sym32Size.sym32Size;
 final sym64Size : haxe.UInt64 = stdgo._internal.debug.elf.Elf_sym64Size.sym64Size;
 var errNoSymbols(get, set) : stdgo.Error;
@@ -2186,16 +2186,16 @@ shstrndx);
         this.version = v;
         return v;
     }
-    public var osabi(get, set) : OSABI;
-    function get_osabi():OSABI return this.osabi;
-    function set_osabi(v:OSABI):OSABI {
-        this.osabi = v;
+    public var oSABI(get, set) : OSABI;
+    function get_oSABI():OSABI return this.oSABI;
+    function set_oSABI(v:OSABI):OSABI {
+        this.oSABI = v;
         return v;
     }
-    public var abiversion(get, set) : std.UInt;
-    function get_abiversion():std.UInt return this.abiversion;
-    function set_abiversion(v:std.UInt):std.UInt {
-        this.abiversion = v;
+    public var aBIVersion(get, set) : std.UInt;
+    function get_aBIVersion():std.UInt return this.aBIVersion;
+    function set_aBIVersion(v:std.UInt):std.UInt {
+        this.aBIVersion = v;
         return v;
     }
     public var byteOrder(get, set) : stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder;
@@ -2222,7 +2222,7 @@ shstrndx);
         this.entry = v;
         return v;
     }
-    public function new(?class_:Class_, ?data:Data, ?version:Version, ?osabi:OSABI, ?abiversion:std.UInt, ?byteOrder:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?type:Type_, ?machine:Machine, ?entry:haxe.UInt64) this = new stdgo._internal.debug.elf.Elf_FileHeader.FileHeader(class_, data, version, osabi, abiversion, byteOrder, type, machine, entry);
+    public function new(?class_:Class_, ?data:Data, ?version:Version, ?oSABI:OSABI, ?aBIVersion:std.UInt, ?byteOrder:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?type:Type_, ?machine:Machine, ?entry:haxe.UInt64) this = new stdgo._internal.debug.elf.Elf_FileHeader.FileHeader(class_, data, version, oSABI, aBIVersion, byteOrder, type, machine, entry);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2652,6 +2652,7 @@ typedef R_PPC64 = stdgo._internal.debug.elf.Elf_R_PPC64.R_PPC64;
 typedef R_RISCV = stdgo._internal.debug.elf.Elf_R_RISCV.R_RISCV;
 typedef R_390 = stdgo._internal.debug.elf.Elf_R_390.R_390;
 typedef R_SPARC = stdgo._internal.debug.elf.Elf_R_SPARC.R_SPARC;
+typedef FilePointer = stdgo._internal.debug.elf.Elf_FilePointer.FilePointer;
 class File_static_extension {
     static public function dynValue(_f:File, _tag:DynTag):stdgo.Tuple<Array<haxe.UInt64>, stdgo.Error> {
         return {
@@ -2699,9 +2700,9 @@ class File_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dwarf(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dwarf(_f);
+            final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2804,6 +2805,7 @@ class File_static_extension {
         };
     }
 }
+typedef SectionPointer = stdgo._internal.debug.elf.Elf_SectionPointer.SectionPointer;
 class Section_static_extension {
     static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
         return stdgo._internal.debug.elf.Elf_Section_static_extension.Section_static_extension.open(_s);
@@ -2814,31 +2816,34 @@ class Section_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Section.Section, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.debug.elf.Elf_Section_static_extension.Section_static_extension.readAt(__self__, _p, _off);
+            final obj = stdgo._internal.debug.elf.Elf_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef ProgPointer = stdgo._internal.debug.elf.Elf_ProgPointer.ProgPointer;
 class Prog_static_extension {
     static public function open(_p:Prog):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
         return stdgo._internal.debug.elf.Elf_Prog_static_extension.Prog_static_extension.open(_p);
     }
-    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Prog.Prog, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Prog.Prog, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.debug.elf.Elf_Prog_static_extension.Prog_static_extension.readAt(__self__, _p, _off);
+            final obj = stdgo._internal.debug.elf.Elf_Prog_static_extension.Prog_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef FormatErrorPointer = stdgo._internal.debug.elf.Elf_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
         return stdgo._internal.debug.elf.Elf_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
+typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.elf.Elf_T_nobitsSectionReaderPointer.T_nobitsSectionReaderPointer;
 class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2848,6 +2853,7 @@ class T_nobitsSectionReader_static_extension {
         };
     }
 }
+typedef T_errorReaderPointer = stdgo._internal.debug.elf.Elf_T_errorReaderPointer.T_errorReaderPointer;
 class T_errorReader_static_extension {
     static public function close(_r:T_errorReader):stdgo.Error {
         return stdgo._internal.debug.elf.Elf_T_errorReader_static_extension.T_errorReader_static_extension.close(_r);
@@ -2876,6 +2882,7 @@ class T_errorReader_static_extension {
         return stdgo._internal.debug.elf.Elf_T_errorReader_static_extension.T_errorReader_static_extension.error(__self__);
     }
 }
+typedef T_readSeekerFromReaderPointer = stdgo._internal.debug.elf.Elf_T_readSeekerFromReaderPointer.T_readSeekerFromReaderPointer;
 class T_readSeekerFromReader_static_extension {
     static public function seek(_r:T_readSeekerFromReader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -2894,6 +2901,7 @@ class T_readSeekerFromReader_static_extension {
         stdgo._internal.debug.elf.Elf_T_readSeekerFromReader_static_extension.T_readSeekerFromReader_static_extension._start(_r);
     }
 }
+typedef VersionPointer = stdgo._internal.debug.elf.Elf_VersionPointer.VersionPointer;
 class Version_static_extension {
     static public function goString(_i:Version):String {
         return stdgo._internal.debug.elf.Elf_Version_static_extension.Version_static_extension.goString(_i);
@@ -2902,6 +2910,7 @@ class Version_static_extension {
         return stdgo._internal.debug.elf.Elf_Version_static_extension.Version_static_extension.string(_i);
     }
 }
+typedef Class_Pointer = stdgo._internal.debug.elf.Elf_Class_Pointer.Class_Pointer;
 class Class__static_extension {
     static public function goString(_i:Class_):String {
         return stdgo._internal.debug.elf.Elf_Class__static_extension.Class__static_extension.goString(_i);
@@ -2910,6 +2919,7 @@ class Class__static_extension {
         return stdgo._internal.debug.elf.Elf_Class__static_extension.Class__static_extension.string(_i);
     }
 }
+typedef DataPointer = stdgo._internal.debug.elf.Elf_DataPointer.DataPointer;
 class Data_static_extension {
     static public function goString(_i:Data):String {
         return stdgo._internal.debug.elf.Elf_Data_static_extension.Data_static_extension.goString(_i);
@@ -2918,6 +2928,7 @@ class Data_static_extension {
         return stdgo._internal.debug.elf.Elf_Data_static_extension.Data_static_extension.string(_i);
     }
 }
+typedef OSABIPointer = stdgo._internal.debug.elf.Elf_OSABIPointer.OSABIPointer;
 class OSABI_static_extension {
     static public function goString(_i:OSABI):String {
         return stdgo._internal.debug.elf.Elf_OSABI_static_extension.OSABI_static_extension.goString(_i);
@@ -2926,6 +2937,7 @@ class OSABI_static_extension {
         return stdgo._internal.debug.elf.Elf_OSABI_static_extension.OSABI_static_extension.string(_i);
     }
 }
+typedef Type_Pointer = stdgo._internal.debug.elf.Elf_Type_Pointer.Type_Pointer;
 class Type__static_extension {
     static public function goString(_i:Type_):String {
         return stdgo._internal.debug.elf.Elf_Type__static_extension.Type__static_extension.goString(_i);
@@ -2934,6 +2946,7 @@ class Type__static_extension {
         return stdgo._internal.debug.elf.Elf_Type__static_extension.Type__static_extension.string(_i);
     }
 }
+typedef MachinePointer = stdgo._internal.debug.elf.Elf_MachinePointer.MachinePointer;
 class Machine_static_extension {
     static public function goString(_i:Machine):String {
         return stdgo._internal.debug.elf.Elf_Machine_static_extension.Machine_static_extension.goString(_i);
@@ -2942,6 +2955,7 @@ class Machine_static_extension {
         return stdgo._internal.debug.elf.Elf_Machine_static_extension.Machine_static_extension.string(_i);
     }
 }
+typedef SectionIndexPointer = stdgo._internal.debug.elf.Elf_SectionIndexPointer.SectionIndexPointer;
 class SectionIndex_static_extension {
     static public function goString(_i:SectionIndex):String {
         return stdgo._internal.debug.elf.Elf_SectionIndex_static_extension.SectionIndex_static_extension.goString(_i);
@@ -2950,6 +2964,7 @@ class SectionIndex_static_extension {
         return stdgo._internal.debug.elf.Elf_SectionIndex_static_extension.SectionIndex_static_extension.string(_i);
     }
 }
+typedef SectionTypePointer = stdgo._internal.debug.elf.Elf_SectionTypePointer.SectionTypePointer;
 class SectionType_static_extension {
     static public function goString(_i:SectionType):String {
         return stdgo._internal.debug.elf.Elf_SectionType_static_extension.SectionType_static_extension.goString(_i);
@@ -2958,6 +2973,7 @@ class SectionType_static_extension {
         return stdgo._internal.debug.elf.Elf_SectionType_static_extension.SectionType_static_extension.string(_i);
     }
 }
+typedef SectionFlagPointer = stdgo._internal.debug.elf.Elf_SectionFlagPointer.SectionFlagPointer;
 class SectionFlag_static_extension {
     static public function goString(_i:SectionFlag):String {
         return stdgo._internal.debug.elf.Elf_SectionFlag_static_extension.SectionFlag_static_extension.goString(_i);
@@ -2966,6 +2982,7 @@ class SectionFlag_static_extension {
         return stdgo._internal.debug.elf.Elf_SectionFlag_static_extension.SectionFlag_static_extension.string(_i);
     }
 }
+typedef CompressionTypePointer = stdgo._internal.debug.elf.Elf_CompressionTypePointer.CompressionTypePointer;
 class CompressionType_static_extension {
     static public function goString(_i:CompressionType):String {
         return stdgo._internal.debug.elf.Elf_CompressionType_static_extension.CompressionType_static_extension.goString(_i);
@@ -2974,6 +2991,7 @@ class CompressionType_static_extension {
         return stdgo._internal.debug.elf.Elf_CompressionType_static_extension.CompressionType_static_extension.string(_i);
     }
 }
+typedef ProgTypePointer = stdgo._internal.debug.elf.Elf_ProgTypePointer.ProgTypePointer;
 class ProgType_static_extension {
     static public function goString(_i:ProgType):String {
         return stdgo._internal.debug.elf.Elf_ProgType_static_extension.ProgType_static_extension.goString(_i);
@@ -2982,6 +3000,7 @@ class ProgType_static_extension {
         return stdgo._internal.debug.elf.Elf_ProgType_static_extension.ProgType_static_extension.string(_i);
     }
 }
+typedef ProgFlagPointer = stdgo._internal.debug.elf.Elf_ProgFlagPointer.ProgFlagPointer;
 class ProgFlag_static_extension {
     static public function goString(_i:ProgFlag):String {
         return stdgo._internal.debug.elf.Elf_ProgFlag_static_extension.ProgFlag_static_extension.goString(_i);
@@ -2990,6 +3009,7 @@ class ProgFlag_static_extension {
         return stdgo._internal.debug.elf.Elf_ProgFlag_static_extension.ProgFlag_static_extension.string(_i);
     }
 }
+typedef DynTagPointer = stdgo._internal.debug.elf.Elf_DynTagPointer.DynTagPointer;
 class DynTag_static_extension {
     static public function goString(_i:DynTag):String {
         return stdgo._internal.debug.elf.Elf_DynTag_static_extension.DynTag_static_extension.goString(_i);
@@ -2998,6 +3018,7 @@ class DynTag_static_extension {
         return stdgo._internal.debug.elf.Elf_DynTag_static_extension.DynTag_static_extension.string(_i);
     }
 }
+typedef DynFlagPointer = stdgo._internal.debug.elf.Elf_DynFlagPointer.DynFlagPointer;
 class DynFlag_static_extension {
     static public function goString(_i:DynFlag):String {
         return stdgo._internal.debug.elf.Elf_DynFlag_static_extension.DynFlag_static_extension.goString(_i);
@@ -3006,6 +3027,7 @@ class DynFlag_static_extension {
         return stdgo._internal.debug.elf.Elf_DynFlag_static_extension.DynFlag_static_extension.string(_i);
     }
 }
+typedef DynFlag1Pointer = stdgo._internal.debug.elf.Elf_DynFlag1Pointer.DynFlag1Pointer;
 class DynFlag1_static_extension {
     static public function goString(_i:DynFlag1):String {
         return stdgo._internal.debug.elf.Elf_DynFlag1_static_extension.DynFlag1_static_extension.goString(_i);
@@ -3014,6 +3036,7 @@ class DynFlag1_static_extension {
         return stdgo._internal.debug.elf.Elf_DynFlag1_static_extension.DynFlag1_static_extension.string(_i);
     }
 }
+typedef NTypePointer = stdgo._internal.debug.elf.Elf_NTypePointer.NTypePointer;
 class NType_static_extension {
     static public function goString(_i:NType):String {
         return stdgo._internal.debug.elf.Elf_NType_static_extension.NType_static_extension.goString(_i);
@@ -3022,6 +3045,7 @@ class NType_static_extension {
         return stdgo._internal.debug.elf.Elf_NType_static_extension.NType_static_extension.string(_i);
     }
 }
+typedef SymBindPointer = stdgo._internal.debug.elf.Elf_SymBindPointer.SymBindPointer;
 class SymBind_static_extension {
     static public function goString(_i:SymBind):String {
         return stdgo._internal.debug.elf.Elf_SymBind_static_extension.SymBind_static_extension.goString(_i);
@@ -3030,6 +3054,7 @@ class SymBind_static_extension {
         return stdgo._internal.debug.elf.Elf_SymBind_static_extension.SymBind_static_extension.string(_i);
     }
 }
+typedef SymTypePointer = stdgo._internal.debug.elf.Elf_SymTypePointer.SymTypePointer;
 class SymType_static_extension {
     static public function goString(_i:SymType):String {
         return stdgo._internal.debug.elf.Elf_SymType_static_extension.SymType_static_extension.goString(_i);
@@ -3038,6 +3063,7 @@ class SymType_static_extension {
         return stdgo._internal.debug.elf.Elf_SymType_static_extension.SymType_static_extension.string(_i);
     }
 }
+typedef SymVisPointer = stdgo._internal.debug.elf.Elf_SymVisPointer.SymVisPointer;
 class SymVis_static_extension {
     static public function goString(_i:SymVis):String {
         return stdgo._internal.debug.elf.Elf_SymVis_static_extension.SymVis_static_extension.goString(_i);
@@ -3046,6 +3072,7 @@ class SymVis_static_extension {
         return stdgo._internal.debug.elf.Elf_SymVis_static_extension.SymVis_static_extension.string(_i);
     }
 }
+typedef R_X86_64Pointer = stdgo._internal.debug.elf.Elf_R_X86_64Pointer.R_X86_64Pointer;
 class R_X86_64_static_extension {
     static public function goString(_i:R_X86_64):String {
         return stdgo._internal.debug.elf.Elf_R_X86_64_static_extension.R_X86_64_static_extension.goString(_i);
@@ -3054,6 +3081,7 @@ class R_X86_64_static_extension {
         return stdgo._internal.debug.elf.Elf_R_X86_64_static_extension.R_X86_64_static_extension.string(_i);
     }
 }
+typedef R_AARCH64Pointer = stdgo._internal.debug.elf.Elf_R_AARCH64Pointer.R_AARCH64Pointer;
 class R_AARCH64_static_extension {
     static public function goString(_i:R_AARCH64):String {
         return stdgo._internal.debug.elf.Elf_R_AARCH64_static_extension.R_AARCH64_static_extension.goString(_i);
@@ -3062,6 +3090,7 @@ class R_AARCH64_static_extension {
         return stdgo._internal.debug.elf.Elf_R_AARCH64_static_extension.R_AARCH64_static_extension.string(_i);
     }
 }
+typedef R_ALPHAPointer = stdgo._internal.debug.elf.Elf_R_ALPHAPointer.R_ALPHAPointer;
 class R_ALPHA_static_extension {
     static public function goString(_i:R_ALPHA):String {
         return stdgo._internal.debug.elf.Elf_R_ALPHA_static_extension.R_ALPHA_static_extension.goString(_i);
@@ -3070,6 +3099,7 @@ class R_ALPHA_static_extension {
         return stdgo._internal.debug.elf.Elf_R_ALPHA_static_extension.R_ALPHA_static_extension.string(_i);
     }
 }
+typedef R_ARMPointer = stdgo._internal.debug.elf.Elf_R_ARMPointer.R_ARMPointer;
 class R_ARM_static_extension {
     static public function goString(_i:R_ARM):String {
         return stdgo._internal.debug.elf.Elf_R_ARM_static_extension.R_ARM_static_extension.goString(_i);
@@ -3078,6 +3108,7 @@ class R_ARM_static_extension {
         return stdgo._internal.debug.elf.Elf_R_ARM_static_extension.R_ARM_static_extension.string(_i);
     }
 }
+typedef R_386Pointer = stdgo._internal.debug.elf.Elf_R_386Pointer.R_386Pointer;
 class R_386_static_extension {
     static public function goString(_i:R_386):String {
         return stdgo._internal.debug.elf.Elf_R_386_static_extension.R_386_static_extension.goString(_i);
@@ -3086,6 +3117,7 @@ class R_386_static_extension {
         return stdgo._internal.debug.elf.Elf_R_386_static_extension.R_386_static_extension.string(_i);
     }
 }
+typedef R_MIPSPointer = stdgo._internal.debug.elf.Elf_R_MIPSPointer.R_MIPSPointer;
 class R_MIPS_static_extension {
     static public function goString(_i:R_MIPS):String {
         return stdgo._internal.debug.elf.Elf_R_MIPS_static_extension.R_MIPS_static_extension.goString(_i);
@@ -3094,6 +3126,7 @@ class R_MIPS_static_extension {
         return stdgo._internal.debug.elf.Elf_R_MIPS_static_extension.R_MIPS_static_extension.string(_i);
     }
 }
+typedef R_LARCHPointer = stdgo._internal.debug.elf.Elf_R_LARCHPointer.R_LARCHPointer;
 class R_LARCH_static_extension {
     static public function goString(_i:R_LARCH):String {
         return stdgo._internal.debug.elf.Elf_R_LARCH_static_extension.R_LARCH_static_extension.goString(_i);
@@ -3102,6 +3135,7 @@ class R_LARCH_static_extension {
         return stdgo._internal.debug.elf.Elf_R_LARCH_static_extension.R_LARCH_static_extension.string(_i);
     }
 }
+typedef R_PPCPointer = stdgo._internal.debug.elf.Elf_R_PPCPointer.R_PPCPointer;
 class R_PPC_static_extension {
     static public function goString(_i:R_PPC):String {
         return stdgo._internal.debug.elf.Elf_R_PPC_static_extension.R_PPC_static_extension.goString(_i);
@@ -3110,6 +3144,7 @@ class R_PPC_static_extension {
         return stdgo._internal.debug.elf.Elf_R_PPC_static_extension.R_PPC_static_extension.string(_i);
     }
 }
+typedef R_PPC64Pointer = stdgo._internal.debug.elf.Elf_R_PPC64Pointer.R_PPC64Pointer;
 class R_PPC64_static_extension {
     static public function goString(_i:R_PPC64):String {
         return stdgo._internal.debug.elf.Elf_R_PPC64_static_extension.R_PPC64_static_extension.goString(_i);
@@ -3118,6 +3153,7 @@ class R_PPC64_static_extension {
         return stdgo._internal.debug.elf.Elf_R_PPC64_static_extension.R_PPC64_static_extension.string(_i);
     }
 }
+typedef R_RISCVPointer = stdgo._internal.debug.elf.Elf_R_RISCVPointer.R_RISCVPointer;
 class R_RISCV_static_extension {
     static public function goString(_i:R_RISCV):String {
         return stdgo._internal.debug.elf.Elf_R_RISCV_static_extension.R_RISCV_static_extension.goString(_i);
@@ -3126,6 +3162,7 @@ class R_RISCV_static_extension {
         return stdgo._internal.debug.elf.Elf_R_RISCV_static_extension.R_RISCV_static_extension.string(_i);
     }
 }
+typedef R_390Pointer = stdgo._internal.debug.elf.Elf_R_390Pointer.R_390Pointer;
 class R_390_static_extension {
     static public function goString(_i:R_390):String {
         return stdgo._internal.debug.elf.Elf_R_390_static_extension.R_390_static_extension.goString(_i);
@@ -3134,6 +3171,7 @@ class R_390_static_extension {
         return stdgo._internal.debug.elf.Elf_R_390_static_extension.R_390_static_extension.string(_i);
     }
 }
+typedef R_SPARCPointer = stdgo._internal.debug.elf.Elf_R_SPARCPointer.R_SPARCPointer;
 class R_SPARC_static_extension {
     static public function goString(_i:R_SPARC):String {
         return stdgo._internal.debug.elf.Elf_R_SPARC_static_extension.R_SPARC_static_extension.goString(_i);
@@ -3165,17 +3203,17 @@ class Elf {
     static public function r_INFO32(_sym:std.UInt, _typ:std.UInt):std.UInt {
         return stdgo._internal.debug.elf.Elf_r_INFO32.r_INFO32(_sym, _typ);
     }
-    static public function st_BIND(_info:std.UInt):SymBind {
-        return stdgo._internal.debug.elf.Elf_st_BIND.st_BIND(_info);
+    static public function sT_BIND(_info:std.UInt):SymBind {
+        return stdgo._internal.debug.elf.Elf_sT_BIND.sT_BIND(_info);
     }
-    static public function st_TYPE(_info:std.UInt):SymType {
-        return stdgo._internal.debug.elf.Elf_st_TYPE.st_TYPE(_info);
+    static public function sT_TYPE(_info:std.UInt):SymType {
+        return stdgo._internal.debug.elf.Elf_sT_TYPE.sT_TYPE(_info);
     }
-    static public function st_INFO(_bind:SymBind, _typ:SymType):std.UInt {
-        return stdgo._internal.debug.elf.Elf_st_INFO.st_INFO(_bind, _typ);
+    static public function sT_INFO(_bind:SymBind, _typ:SymType):std.UInt {
+        return stdgo._internal.debug.elf.Elf_sT_INFO.sT_INFO(_bind, _typ);
     }
-    static public function st_VISIBILITY(_other:std.UInt):SymVis {
-        return stdgo._internal.debug.elf.Elf_st_VISIBILITY.st_VISIBILITY(_other);
+    static public function sT_VISIBILITY(_other:std.UInt):SymVis {
+        return stdgo._internal.debug.elf.Elf_sT_VISIBILITY.sT_VISIBILITY(_other);
     }
     static public function r_SYM64(_info:haxe.UInt64):std.UInt {
         return stdgo._internal.debug.elf.Elf_r_SYM64.r_SYM64(_info);

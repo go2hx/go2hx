@@ -8,7 +8,7 @@ function _mixedCSPRNG(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref
             };
         };
         var _md = (stdgo._internal.crypto.sha512.Sha512_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
-        _md.write(_priv.d.bytes());
+        _md.write(@:check2r (@:checkr _priv ?? throw "null pointer dereference").d.bytes());
         _md.write(_entropy);
         _md.write(_hash);
         var _key = (_md.sum((null : stdgo.Slice<stdgo.GoUInt8>)).__slice__(0, (32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

@@ -13,7 +13,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             var _s:stdgo.GoString = ("" : stdgo.GoString);
             {
                 {
-                    var __tmp__ = _tp.readLine();
+                    var __tmp__ = @:check2r _tp.readLine();
                     _s = __tmp__._0?.__copy__();
                     _err = __tmp__._1;
                 };
@@ -26,6 +26,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -35,7 +36,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             {
                 __deferstack__.unshift(() -> ({
                     var a = function():Void {
-                        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                         };
                     };
@@ -45,9 +46,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             var _ok:Bool = false;
             {
                 var __tmp__ = stdgo._internal.net.http.Http__parseRequestLine._parseRequestLine(_s?.__copy__());
-                _req.method = __tmp__._0?.__copy__();
-                _req.requestURI = __tmp__._1?.__copy__();
-                _req.proto = __tmp__._2?.__copy__();
+                (@:checkr _req ?? throw "null pointer dereference").method = __tmp__._0?.__copy__();
+                (@:checkr _req ?? throw "null pointer dereference").requestURI = __tmp__._1?.__copy__();
+                (@:checkr _req ?? throw "null pointer dereference").proto = __tmp__._2?.__copy__();
                 _ok = __tmp__._3;
             };
             if (!_ok) {
@@ -59,56 +60,59 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            if (!stdgo._internal.net.http.Http__validMethod._validMethod(_req.method?.__copy__())) {
+            if (!stdgo._internal.net.http.Http__validMethod._validMethod((@:checkr _req ?? throw "null pointer dereference").method?.__copy__())) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("invalid method" : stdgo.GoString), _req.method?.__copy__()) };
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("invalid method" : stdgo.GoString), (@:checkr _req ?? throw "null pointer dereference").method?.__copy__()) };
                         _req = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            var _rawurl = (_req.requestURI?.__copy__() : stdgo.GoString);
+            var _rawurl = ((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__() : stdgo.GoString);
             {
                 {
-                    var __tmp__ = stdgo._internal.net.http.Http_parseHTTPVersion.parseHTTPVersion(_req.proto?.__copy__());
-                    _req.protoMajor = __tmp__._0;
-                    _req.protoMinor = __tmp__._1;
+                    var __tmp__ = stdgo._internal.net.http.Http_parseHTTPVersion.parseHTTPVersion((@:checkr _req ?? throw "null pointer dereference").proto?.__copy__());
+                    (@:checkr _req ?? throw "null pointer dereference").protoMajor = __tmp__._0;
+                    (@:checkr _req ?? throw "null pointer dereference").protoMinor = __tmp__._1;
                     _ok = __tmp__._2;
                 };
                 if (!_ok) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP version" : stdgo.GoString), _req.proto?.__copy__()) };
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP version" : stdgo.GoString), (@:checkr _req ?? throw "null pointer dereference").proto?.__copy__()) };
                             _req = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
                     };
                 };
             };
-            var _justAuthority = ((_req.method == ("CONNECT" : stdgo.GoString)) && !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rawurl?.__copy__(), ("/" : stdgo.GoString)) : Bool);
+            var _justAuthority = (((@:checkr _req ?? throw "null pointer dereference").method == ("CONNECT" : stdgo.GoString)) && !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rawurl?.__copy__(), ("/" : stdgo.GoString)) : Bool);
             if (_justAuthority) {
                 _rawurl = (("http://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();
             };
             {
                 {
                     var __tmp__ = stdgo._internal.net.url.Url_parseRequestURI.parseRequestURI(_rawurl?.__copy__());
-                    _req.url = __tmp__._0;
+                    (@:checkr _req ?? throw "null pointer dereference").uRL = __tmp__._0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
@@ -120,6 +124,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -127,9 +132,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                 };
             };
             if (_justAuthority) {
-                _req.url.scheme = stdgo.Go.str()?.__copy__();
+                (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme = stdgo.Go.str()?.__copy__();
             };
-            var __tmp__ = _tp.readMIMEHeader(), _mimeHeader:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _tp.readMIMEHeader(), _mimeHeader:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = {
@@ -139,13 +144,14 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            _req.header = (_mimeHeader : stdgo._internal.net.http.Http_Header.Header);
-            if ((((_req.header[("Host" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)).length) > (1 : stdgo.GoInt) : Bool)) {
+            (@:checkr _req ?? throw "null pointer dereference").header = (_mimeHeader : stdgo._internal.net.http.Http_Header.Header);
+            if (((((@:checkr _req ?? throw "null pointer dereference").header[("Host" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)).length) > (1 : stdgo.GoInt) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = {
                         final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("too many Host headers" : stdgo.GoString)) };
@@ -154,17 +160,18 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            _req.host = _req.url.host?.__copy__();
-            if (_req.host == (stdgo.Go.str())) {
-                _req.host = _req.header._get(("Host" : stdgo.GoString))?.__copy__();
+            (@:checkr _req ?? throw "null pointer dereference").host = (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").host?.__copy__();
+            if ((@:checkr _req ?? throw "null pointer dereference").host == (stdgo.Go.str())) {
+                (@:checkr _req ?? throw "null pointer dereference").host = (@:checkr _req ?? throw "null pointer dereference").header._get(("Host" : stdgo.GoString))?.__copy__();
             };
-            stdgo._internal.net.http.Http__fixPragmaCacheControl._fixPragmaCacheControl(_req.header);
-            _req.close = stdgo._internal.net.http.Http__shouldClose._shouldClose(_req.protoMajor, _req.protoMinor, _req.header, false);
+            stdgo._internal.net.http.Http__fixPragmaCacheControl._fixPragmaCacheControl((@:checkr _req ?? throw "null pointer dereference").header);
+            (@:checkr _req ?? throw "null pointer dereference").close = stdgo._internal.net.http.Http__shouldClose._shouldClose((@:checkr _req ?? throw "null pointer dereference").protoMajor, (@:checkr _req ?? throw "null pointer dereference").protoMinor, (@:checkr _req ?? throw "null pointer dereference").header, false);
             _err = stdgo._internal.net.http.Http__readTransfer._readTransfer(stdgo.Go.toInterface(stdgo.Go.asInterface(_req)), _b);
             if (_err != null) {
                 {
@@ -175,14 +182,15 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            if (_req._isH2Upgrade()) {
-                _req.contentLength = (-1i64 : stdgo.GoInt64);
-                _req.close = true;
+            if (@:check2r _req._isH2Upgrade()) {
+                (@:checkr _req ?? throw "null pointer dereference").contentLength = (-1i64 : stdgo.GoInt64);
+                (@:checkr _req ?? throw "null pointer dereference").close = true;
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = {
@@ -192,12 +200,14 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -212,6 +222,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

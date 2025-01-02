@@ -10,16 +10,17 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             };
             var __tmp__ = stdgo._internal.os.Os_hostname.hostname(), _hostname:stdgo.GoString = __tmp__._0, __4:stdgo.Error = __tmp__._1;
             var _w = (stdgo.Go.setRef(({ _priority : _priority, _tag : _tag?.__copy__(), _hostname : _hostname?.__copy__(), _network : _network?.__copy__(), _raddr : _raddr?.__copy__() } : stdgo._internal.log.syslog.Syslog_Writer.Writer)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
-            _w._mu.lock();
+            @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _w._mu.unlock;
+                final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            var _err = (_w._connect() : stdgo.Error);
+            var _err = (@:check2r _w._connect() : stdgo.Error);
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -28,12 +29,14 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } = { _0 : _w, _1 : _err };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -48,6 +51,7 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

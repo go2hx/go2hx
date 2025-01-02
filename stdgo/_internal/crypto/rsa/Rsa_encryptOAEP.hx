@@ -7,7 +7,7 @@ function encryptOAEP(_hash:stdgo._internal.hash.Hash_Hash.Hash, _random:stdgo._i
             };
         };
         _hash.reset();
-        var _k = (_pub.size() : stdgo.GoInt);
+        var _k = (@:check2r _pub.size() : stdgo.GoInt);
         if (((_msg.length) > ((_k - ((2 : stdgo.GoInt) * _hash.size() : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errMessageTooLong.errMessageTooLong };
         };

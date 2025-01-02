@@ -10,7 +10,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoInt), _0, _1))) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._want)) {
-                    _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[int])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._want)));
+                    @:check2r _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[int])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._want)));
                 };
             };
         };
@@ -18,7 +18,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoFloat64), _0, _1))) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._wantEqual)) {
-                    _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[float64])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._wantEqual)));
+                    @:check2r _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[float64])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._wantEqual)));
                 };
             };
         };
@@ -26,7 +26,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, function(x:Dynamic, y:Dynamic):stdgo.GoInt return stdgo._internal.cmp.Cmp_compare.compare(x, y)) : stdgo.GoInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("CompareFunc(%v, %v, cmp[int]) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("CompareFunc(%v, %v, cmp[int]) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };
@@ -34,7 +34,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, function(x:Dynamic, y:Dynamic):stdgo.GoInt return stdgo._internal.cmp.Cmp_compare.compare(x, y)) : stdgo.GoInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("CompareFunc(%v, %v, cmp[float64]) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("CompareFunc(%v, %v, cmp[float64]) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };
@@ -43,7 +43,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_s1, _s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(stdgo._internal.slices.Slices__offByOne._offByOne)) : stdgo.GoInt);
             if (_got != ((0 : stdgo.GoInt))) {
-                _t.errorf(("CompareFunc(%v, %v, offByOne) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2), stdgo.Go.toInterface(_got));
+                @:check2r _t.errorf(("CompareFunc(%v, %v, offByOne) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2), stdgo.Go.toInterface(_got));
             };
         };
         var _s3 = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
@@ -51,7 +51,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_s3, _s4, stdgo._internal.strings.Strings_compare.compare) : stdgo.GoInt);
             if (_got != ((1 : stdgo.GoInt))) {
-                _t.errorf(("CompareFunc(%v, %v, strings.Compare) = %d, want 1" : stdgo.GoString), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_s4), stdgo.Go.toInterface(_got));
+                @:check2r _t.errorf(("CompareFunc(%v, %v, strings.Compare) = %d, want 1" : stdgo.GoString), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_s4), stdgo.Go.toInterface(_got));
             };
         };
         var _compareLower = (function(_v1:stdgo.GoString, _v2:stdgo.GoString):stdgo.GoInt {
@@ -60,7 +60,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_s3, _s4, _compareLower) : stdgo.GoInt);
             if (_got != ((0 : stdgo.GoInt))) {
-                _t.errorf(("CompareFunc(%v, %v, compareLower) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_s4), stdgo.Go.toInterface(_got));
+                @:check2r _t.errorf(("CompareFunc(%v, %v, compareLower) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_s4), stdgo.Go.toInterface(_got));
             };
         };
         var _cmpIntString = (function(_v1:stdgo.GoInt, _v2:stdgo.GoString):stdgo.GoInt {
@@ -69,7 +69,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_s1, _s3, _cmpIntString) : stdgo.GoInt);
             if (_got != ((0 : stdgo.GoInt))) {
-                _t.errorf(("CompareFunc(%v, %v, cmpIntString) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_got));
+                @:check2r _t.errorf(("CompareFunc(%v, %v, cmpIntString) = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s3), stdgo.Go.toInterface(_got));
             };
         };
     }

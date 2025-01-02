@@ -8,5 +8,6 @@ typedef GlobFS = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function glob(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; };
 };

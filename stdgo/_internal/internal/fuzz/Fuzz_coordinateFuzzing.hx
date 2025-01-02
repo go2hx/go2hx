@@ -13,7 +13,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 _opts.log = stdgo._internal.io.Io_discard.discard;
             };
             if (_opts.parallel == ((0 : stdgo.GoInt))) {
-                _opts.parallel = stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs((0 : stdgo.GoInt));
+                _opts.parallel = stdgo._internal.runtime.Runtime_gOMAXPROCS.gOMAXPROCS((0 : stdgo.GoInt));
             };
             if (((_opts.limit > (0i64 : stdgo.GoInt64) : Bool) && ((_opts.parallel : stdgo.GoInt64) > _opts.limit : Bool) : Bool)) {
                 _opts.parallel = (_opts.limit : stdgo.GoInt);
@@ -46,9 +46,9 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
                     var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller((1 : stdgo.GoInt)), __8:stdgo.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
                     if (_ok) {
-                        _c._debugLogf(("stop called at %s:%d. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_stopping));
+                        @:check2r _c._debugLogf(("stop called at %s:%d. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_stopping));
                     } else {
-                        _c._debugLogf(("stop called at unknown. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_stopping));
+                        @:check2r _c._debugLogf(("stop called at unknown. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_stopping));
                     };
                 };
                 if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_fuzzCtx.err())) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
@@ -68,16 +68,16 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             {
                 __deferstack__.unshift(() -> ({
                     var a = function():Void {
-                        if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
+                        if ((((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
                             return;
                         };
-                        var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_c._crashMinimizing._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
+                        var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef((@:checkr (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing ?? throw "null pointer dereference")._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
                         if (_werr != null) {
                             _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%w\n%v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_werr));
                             return;
                         };
                         if (_err == null) {
-                            _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _c._crashMinimizing._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_c._crashMinimizing._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
+                            _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : (@:checkr (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing ?? throw "null pointer dereference")._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_((@:checkr (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing ?? throw "null pointer dereference")._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
                         };
                     };
                     a();
@@ -99,6 +99,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -109,11 +110,11 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 var _w = _workers[(_i : stdgo.GoInt)];
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
-                        var _err = (_w._coordinate(_fuzzCtx) : stdgo.Error);
+                        var _err = (@:check2r _w._coordinate(_fuzzCtx) : stdgo.Error);
                         if (((_fuzzCtx.err() != null) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
                             _err = (null : stdgo.Error);
                         };
-                        var _cleanErr = (_w._cleanup() : stdgo.Error);
+                        var _cleanErr = (@:check2r _w._cleanup() : stdgo.Error);
                         if (_err == null) {
                             _err = _cleanErr;
                         };
@@ -125,27 +126,27 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             var _activeWorkers = (_workers.length : stdgo.GoInt);
             var _statTicker = stdgo._internal.time.Time_newTicker.newTicker((3000000000i64 : stdgo._internal.time.Time_Duration.Duration));
             {
-                final __f__ = _statTicker.stop;
+                final __f__ = @:check2r _statTicker.stop;
                 __deferstack__.unshift(() -> __f__());
             };
             {
-                final __f__ = _c._logStats;
+                final __f__ = @:check2r _c._logStats;
                 __deferstack__.unshift(() -> __f__());
             };
-            _c._logStats();
+            @:check2r _c._logStats();
             while (true) {
-                if (((_c._opts.limit > (0i64 : stdgo.GoInt64) : Bool) && (_c._count >= _c._opts.limit : Bool) : Bool)) {
+                if ((((@:checkr _c ?? throw "null pointer dereference")._opts.limit > (0i64 : stdgo.GoInt64) : Bool) && ((@:checkr _c ?? throw "null pointer dereference")._count >= (@:checkr _c ?? throw "null pointer dereference")._opts.limit : Bool) : Bool)) {
                     _stop((null : stdgo.Error));
                 };
                 var _inputC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput>);
-                var __tmp__ = _c._peekInput(), _input:stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput = __tmp__._0, _ok:Bool = __tmp__._1;
-                if (((_ok && (_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) : Bool) && !_stopping : Bool)) {
-                    _inputC = _c._inputC;
+                var __tmp__ = @:check2r _c._peekInput(), _input:stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput = __tmp__._0, _ok:Bool = __tmp__._1;
+                if (((_ok && ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) : Bool) && !_stopping : Bool)) {
+                    _inputC = (@:checkr _c ?? throw "null pointer dereference")._inputC;
                 };
                 var _minimizeC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput>);
-                var __tmp__ = _c._peekMinimizeInput(), _minimizeInput:stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = @:check2r _c._peekMinimizeInput(), _minimizeInput:stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput = __tmp__._0, _ok:Bool = __tmp__._1;
                 if ((_ok && !_stopping : Bool)) {
-                    _minimizeC = _c._minimizeC;
+                    _minimizeC = (@:checkr _c ?? throw "null pointer dereference")._minimizeC;
                 };
                 {
                     var __select__ = true;
@@ -169,6 +170,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                         {
                                             final __ret__:stdgo.Error = _err = _fuzzErr;
                                             for (defer in __deferstack__) {
+                                                __deferstack__.remove(defer);
                                                 defer();
                                             };
                                             return __ret__;
@@ -176,32 +178,32 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                     };
                                 };
                             };
-                        } else if (_c._resultC != null && _c._resultC.__isGet__()) {
+                        } else if ((@:checkr _c ?? throw "null pointer dereference")._resultC != null && (@:checkr _c ?? throw "null pointer dereference")._resultC.__isGet__()) {
                             __select__ = false;
                             {
-                                var _result = _c._resultC.__get__();
+                                var _result = (@:checkr _c ?? throw "null pointer dereference")._resultC.__get__();
                                 {
                                     if (_stopping) {
                                         break;
                                     };
-                                    _c._updateStats(_result?.__copy__());
+                                    @:check2r _c._updateStats(_result?.__copy__());
                                     if (_result._crasherMsg != (stdgo.Go.str())) {
-                                        if ((_c._warmupRun() && _result._entry.isSeed : Bool)) {
-                                            var _target = (stdgo._internal.path.filepath.Filepath_base.base(_c._opts.corpusDir?.__copy__())?.__copy__() : stdgo.GoString);
-                                            stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("failure while testing seed corpus entry: %s/%s\n" : stdgo.GoString), stdgo.Go.toInterface(_target), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__testName._testName(_result._entry.parent?.__copy__())));
+                                        if ((@:check2r _c._warmupRun() && _result._entry.isSeed : Bool)) {
+                                            var _target = (stdgo._internal.path.filepath.Filepath_base.base((@:checkr _c ?? throw "null pointer dereference")._opts.corpusDir?.__copy__())?.__copy__() : stdgo.GoString);
+                                            stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("failure while testing seed corpus entry: %s/%s\n" : stdgo.GoString), stdgo.Go.toInterface(_target), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__testName._testName(_result._entry.parent?.__copy__())));
                                             _stop(stdgo._internal.errors.Errors_new_.new_(_result._crasherMsg?.__copy__()));
                                             break;
                                         };
-                                        if ((_c._canMinimize() && _result._canMinimize : Bool)) {
-                                            if ((_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__))) {
+                                        if ((@:check2r _c._canMinimize() && _result._canMinimize : Bool)) {
+                                            if (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing != null && (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__))) {
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                    _c._debugLogf(("found unminimized crasher, skipping in favor of minimizable crasher" : stdgo.GoString));
+                                                    @:check2r _c._debugLogf(("found unminimized crasher, skipping in favor of minimizable crasher" : stdgo.GoString));
                                                 };
                                                 break;
                                             };
-                                            _c._crashMinimizing = (stdgo.Go.setRef(_result) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult>);
-                                            stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: minimizing %d-byte failing input file\n" : stdgo.GoString), stdgo.Go.toInterface((_result._entry.data.length)));
-                                            _c._queueForMinimization(_result?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>));
+                                            (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing = (stdgo.Go.setRef(_result) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult>);
+                                            stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("fuzz: minimizing %d-byte failing input file\n" : stdgo.GoString), stdgo.Go.toInterface((_result._entry.data.length)));
+                                            @:check2r _c._queueForMinimization(_result?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>));
                                         } else if (!_crashWritten) {
                                             var _err = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_result._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
                                             if (_err == null) {
@@ -209,60 +211,60 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                                 _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _result._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_result._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
                                             };
                                             if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                _c._debugLogf(("found crasher, id: %s, parent: %s, gen: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._entry.generation), stdgo.Go.toInterface((_result._entry.data.length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
+                                                @:check2r _c._debugLogf(("found crasher, id: %s, parent: %s, gen: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._entry.generation), stdgo.Go.toInterface((_result._entry.data.length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
                                             };
                                             _stop(_err);
                                         };
                                     } else if (_result._coverageData != null) {
-                                        if (_c._warmupRun()) {
+                                        if (@:check2r _c._warmupRun()) {
                                             if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                _c._debugLogf(("processed an initial input, id: %s, new bits: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage(_c._coverageMask, _result._coverageData))), stdgo.Go.toInterface((_result._entry.data.length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
+                                                @:check2r _c._debugLogf(("processed an initial input, id: %s, new bits: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage((@:checkr _c ?? throw "null pointer dereference")._coverageMask, _result._coverageData))), stdgo.Go.toInterface((_result._entry.data.length)), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
                                             };
-                                            _c._updateCoverage(_result._coverageData);
-                                            _c._warmupInputLeft--;
-                                            if (_c._warmupInputLeft == ((0 : stdgo.GoInt))) {
-                                                stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: elapsed: %s, gathering baseline coverage: %d/%d completed, now fuzzing with %d workers\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._elapsed())), stdgo.Go.toInterface(_c._warmupInputCount), stdgo.Go.toInterface(_c._warmupInputCount), stdgo.Go.toInterface(_c._opts.parallel));
+                                            @:check2r _c._updateCoverage(_result._coverageData);
+                                            (@:checkr _c ?? throw "null pointer dereference")._warmupInputLeft--;
+                                            if ((@:checkr _c ?? throw "null pointer dereference")._warmupInputLeft == ((0 : stdgo.GoInt))) {
+                                                stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("fuzz: elapsed: %s, gathering baseline coverage: %d/%d completed, now fuzzing with %d workers\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _c._elapsed())), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._warmupInputCount), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._warmupInputCount), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._opts.parallel));
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                    _c._debugLogf(("finished processing input corpus, entries: %d, initial coverage bits: %d" : stdgo.GoString), stdgo.Go.toInterface((_c._corpus._entries.length)), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(_c._coverageMask)));
+                                                    @:check2r _c._debugLogf(("finished processing input corpus, entries: %d, initial coverage bits: %d" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _c ?? throw "null pointer dereference")._corpus._entries.length)), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits((@:checkr _c ?? throw "null pointer dereference")._coverageMask)));
                                                 };
                                             };
                                         } else {
-                                            var _keepCoverage = stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage(_c._coverageMask, _result._coverageData);
+                                            var _keepCoverage = stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage((@:checkr _c ?? throw "null pointer dereference")._coverageMask, _result._coverageData);
                                             if (_keepCoverage != null) {
-                                                if (((_c._canMinimize() && _result._canMinimize : Bool) && (_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) : Bool)) {
-                                                    _c._queueForMinimization(_result?.__copy__(), _keepCoverage);
+                                                if (((@:check2r _c._canMinimize() && _result._canMinimize : Bool) && ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) : Bool)) {
+                                                    @:check2r _c._queueForMinimization(_result?.__copy__(), _keepCoverage);
                                                 } else {
                                                     var _inputSize = (_result._entry.data.length : stdgo.GoInt);
-                                                    var __tmp__ = _c._addCorpusEntries(true, _result._entry?.__copy__()), _entryNew:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                                    var __tmp__ = @:check2r _c._addCorpusEntries(true, _result._entry?.__copy__()), _entryNew:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                                     if (_err != null) {
                                                         _stop(_err);
                                                         break;
                                                     };
                                                     if (!_entryNew) {
                                                         if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                            _c._debugLogf(("ignoring duplicate input which increased coverage, id: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path));
+                                                            @:check2r _c._debugLogf(("ignoring duplicate input which increased coverage, id: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path));
                                                         };
                                                         break;
                                                     };
-                                                    _c._updateCoverage(_keepCoverage);
-                                                    _c._inputQueue._enqueue(stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entry)));
-                                                    _c._interestingCount++;
+                                                    @:check2r _c._updateCoverage(_keepCoverage);
+                                                    @:check2 (@:checkr _c ?? throw "null pointer dereference")._inputQueue._enqueue(stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entry)));
+                                                    (@:checkr _c ?? throw "null pointer dereference")._interestingCount++;
                                                     if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                        _c._debugLogf(("new interesting input, id: %s, parent: %s, gen: %d, new bits: %d, total bits: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._entry.generation), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(_keepCoverage)), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(_c._coverageMask)), stdgo.Go.toInterface(_inputSize), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
+                                                        @:check2r _c._debugLogf(("new interesting input, id: %s, parent: %s, gen: %d, new bits: %d, total bits: %d, size: %d, exec time: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._entry.generation), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits(_keepCoverage)), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__countBits._countBits((@:checkr _c ?? throw "null pointer dereference")._coverageMask)), stdgo.Go.toInterface(_inputSize), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._entryDuration)));
                                                     };
                                                 };
                                             } else {
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                    _c._debugLogf(("worker reported interesting input that doesn\'t expand coverage, id: %s, parent: %s, canMinimize: %t" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._canMinimize));
+                                                    @:check2r _c._debugLogf(("worker reported interesting input that doesn\'t expand coverage, id: %s, parent: %s, canMinimize: %t" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_result._canMinimize));
                                                 };
                                             };
                                         };
-                                    } else if (_c._warmupRun()) {
-                                        _c._warmupInputLeft--;
-                                        if (_c._warmupInputLeft == ((0 : stdgo.GoInt))) {
-                                            stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: elapsed: %s, testing seed corpus: %d/%d completed, now fuzzing with %d workers\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._elapsed())), stdgo.Go.toInterface(_c._warmupInputCount), stdgo.Go.toInterface(_c._warmupInputCount), stdgo.Go.toInterface(_c._opts.parallel));
+                                    } else if (@:check2r _c._warmupRun()) {
+                                        (@:checkr _c ?? throw "null pointer dereference")._warmupInputLeft--;
+                                        if ((@:checkr _c ?? throw "null pointer dereference")._warmupInputLeft == ((0 : stdgo.GoInt))) {
+                                            stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("fuzz: elapsed: %s, testing seed corpus: %d/%d completed, now fuzzing with %d workers\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _c._elapsed())), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._warmupInputCount), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._warmupInputCount), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._opts.parallel));
                                             if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                                _c._debugLogf(("finished testing-only phase, entries: %d" : stdgo.GoString), stdgo.Go.toInterface((_c._corpus._entries.length)));
+                                                @:check2r _c._debugLogf(("finished testing-only phase, entries: %d" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _c ?? throw "null pointer dereference")._corpus._entries.length)));
                                             };
                                         };
                                     };
@@ -273,7 +275,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                             {
                                 _inputC.__send__(_input);
                                 {
-                                    _c._sentInput(_input?.__copy__());
+                                    @:check2r _c._sentInput(_input?.__copy__());
                                 };
                             };
                         } else if (_minimizeC != null && _minimizeC.__isSend__()) {
@@ -281,15 +283,15 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                             {
                                 _minimizeC.__send__(_minimizeInput);
                                 {
-                                    _c._sentMinimizeInput(_minimizeInput?.__copy__());
+                                    @:check2r _c._sentMinimizeInput(_minimizeInput?.__copy__());
                                 };
                             };
-                        } else if (_statTicker.c != null && _statTicker.c.__isGet__()) {
+                        } else if ((@:checkr _statTicker ?? throw "null pointer dereference").c != null && (@:checkr _statTicker ?? throw "null pointer dereference").c.__isGet__()) {
                             __select__ = false;
                             {
-                                _statTicker.c.__get__();
+                                (@:checkr _statTicker ?? throw "null pointer dereference").c.__get__();
                                 {
-                                    _c._logStats();
+                                    @:check2r _c._logStats();
                                 };
                             };
                         };
@@ -300,6 +302,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -314,6 +317,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

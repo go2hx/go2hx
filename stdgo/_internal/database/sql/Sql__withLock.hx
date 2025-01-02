@@ -10,6 +10,7 @@ function _withLock(_lk:stdgo._internal.sync.Sync_Locker.Locker, _fn:() -> Void):
             _fn();
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -24,6 +25,7 @@ function _withLock(_lk:stdgo._internal.sync.Sync_Locker.Locker, _fn:() -> Void):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

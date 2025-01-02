@@ -6,5 +6,6 @@ typedef Source64 = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function uint64():stdgo.GoUInt64;
 };

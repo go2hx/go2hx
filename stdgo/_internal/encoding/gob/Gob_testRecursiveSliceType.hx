@@ -15,7 +15,7 @@ function testRecursiveSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface((stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

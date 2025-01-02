@@ -11,7 +11,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__boolResult._boolResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (true)) {
-                _t.errorf(("bool a = %v not true" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("bool a = %v not true" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -24,7 +24,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedResult._signedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoInt))) {
-                _t.errorf(("int a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("int a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -37,7 +37,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17u32 : stdgo.GoUInt))) {
-                _t.errorf(("uint a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uint a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -50,7 +50,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedResult._signedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoInt8))) {
-                _t.errorf(("int8 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("int8 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -63,7 +63,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoUInt8))) {
-                _t.errorf(("uint8 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uint8 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -76,7 +76,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedResult._signedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoInt16))) {
-                _t.errorf(("int16 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("int16 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -89,7 +89,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoUInt16))) {
-                _t.errorf(("uint16 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uint16 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -102,7 +102,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedResult._signedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoInt32))) {
-                _t.errorf(("int32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("int32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -115,7 +115,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17u32 : stdgo.GoUInt32))) {
-                _t.errorf(("uint32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uint32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -128,7 +128,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17 : stdgo.GoUIntptr))) {
-                _t.errorf(("uintptr a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uintptr a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -141,7 +141,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedResult._signedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17i64 : stdgo.GoInt64))) {
-                _t.errorf(("int64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("int64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -154,7 +154,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedResult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != ((17i64 : stdgo.GoUInt64))) {
-                _t.errorf(("uint64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("uint64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -167,7 +167,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__floatResult._floatResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (17 : stdgo.GoFloat64)) {
-                _t.errorf(("float32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("float32 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -180,7 +180,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__floatResult._floatResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (17 : stdgo.GoFloat64)) {
-                _t.errorf(("float64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("float64 a = %v not 17" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -193,7 +193,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__complexResult._complexResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (((17f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 19f64)))) {
-                _t.errorf(("complex a = %v not 17+19i" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("complex a = %v not 17+19i" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -206,7 +206,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__complexResult._complexResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (((17f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 19f64)))) {
-                _t.errorf(("complex a = %v not 17+19i" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("complex a = %v not 17+19i" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
         {
@@ -215,7 +215,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__bytesResult._bytesResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)))?.__copy__());
             if ((_data : stdgo.GoString) != (("hello" : stdgo.GoString))) {
-                _t.errorf(("bytes a = %q not \"hello\"" : stdgo.GoString), stdgo.Go.toInterface((_data : stdgo.GoString)));
+                @:check2r _t.errorf(("bytes a = %q not \"hello\"" : stdgo.GoString), stdgo.Go.toInterface((_data : stdgo.GoString)));
             };
         };
         {
@@ -228,7 +228,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__bytesResult._bytesResult);
             stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
             if (_data != (("hello" : stdgo.GoString))) {
-                _t.errorf(("bytes a = %q not \"hello\"" : stdgo.GoString), stdgo.Go.toInterface(_data));
+                @:check2r _t.errorf(("bytes a = %q not \"hello\"" : stdgo.GoString), stdgo.Go.toInterface(_data));
             };
         };
     }

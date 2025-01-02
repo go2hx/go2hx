@@ -6,5 +6,6 @@ typedef T_boolFlag = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function isBoolFlag():Bool;
 };

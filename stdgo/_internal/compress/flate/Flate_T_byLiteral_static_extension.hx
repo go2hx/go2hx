@@ -1,6 +1,7 @@
 package stdgo._internal.compress.flate;
 @:keep @:allow(stdgo._internal.compress.flate.Flate.T_byLiteral_asInterface) class T_byLiteral_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral = _s;
         {
@@ -15,16 +16,19 @@ package stdgo._internal.compress.flate;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral = _s;
         return (_s[(_i : stdgo.GoInt)]._literal < _s[(_j : stdgo.GoInt)]._literal : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral):stdgo.GoInt {
         @:recv var _s:stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral = _s;
         return (_s.length);
     }
     @:keep
+    @:tdfield
     static public function _sort( _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral>, _a:stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral> = _s;
         (_s : stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral).__setData__((_a : stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral));

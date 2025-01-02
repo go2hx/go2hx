@@ -27,7 +27,7 @@ final wasDollar = stdgo._internal.regexp.syntax.Syntax_wasDollar.wasDollar;
 final simple = stdgo._internal.regexp.syntax.Syntax_simple.simple;
 final matchNL : Flags = stdgo._internal.regexp.syntax.Syntax_matchNL.matchNL;
 final perl : Flags = stdgo._internal.regexp.syntax.Syntax_perl.perl;
-final posix : Flags = stdgo._internal.regexp.syntax.Syntax_posix.posix;
+final pOSIX : Flags = stdgo._internal.regexp.syntax.Syntax_pOSIX.pOSIX;
 final instAlt : InstOp = stdgo._internal.regexp.syntax.Syntax_instAlt.instAlt;
 final instAltMatch = stdgo._internal.regexp.syntax.Syntax_instAltMatch.instAltMatch;
 final instCapture = stdgo._internal.regexp.syntax.Syntax_instCapture.instCapture;
@@ -376,14 +376,17 @@ _size);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.regexp.syntax.Syntax_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.regexp.syntax.Syntax_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.regexp.syntax.Syntax_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.regexp.syntax.Syntax_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
@@ -393,6 +396,7 @@ typedef Flags = stdgo._internal.regexp.syntax.Syntax_Flags.Flags;
 typedef InstOp = stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp;
 typedef EmptyOp = stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp;
 typedef Op = stdgo._internal.regexp.syntax.Syntax_Op.Op;
+typedef T_patchListPointer = stdgo._internal.regexp.syntax.Syntax_T_patchListPointer.T_patchListPointer;
 class T_patchList_static_extension {
     static public function _append(_l1:T_patchList, _p:Prog, _l2:T_patchList):T_patchList {
         return stdgo._internal.regexp.syntax.Syntax_T_patchList_static_extension.T_patchList_static_extension._append(_l1, _p, _l2);
@@ -401,6 +405,7 @@ class T_patchList_static_extension {
         stdgo._internal.regexp.syntax.Syntax_T_patchList_static_extension.T_patchList_static_extension._patch(_l, _p, _val);
     }
 }
+typedef T_compilerPointer = stdgo._internal.regexp.syntax.Syntax_T_compilerPointer.T_compilerPointer;
 class T_compiler_static_extension {
     static public function _rune(_c:T_compiler, _r:Array<StdTypes.Int>, _flags:Flags):T_frag {
         final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoInt32>);
@@ -446,11 +451,13 @@ class T_compiler_static_extension {
         stdgo._internal.regexp.syntax.Syntax_T_compiler_static_extension.T_compiler_static_extension._init(_c);
     }
 }
+typedef ErrorPointer = stdgo._internal.regexp.syntax.Syntax_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function error(_e:Error):String {
         return stdgo._internal.regexp.syntax.Syntax_Error_static_extension.Error_static_extension.error(_e);
     }
 }
+typedef T_parserPointer = stdgo._internal.regexp.syntax.Syntax_T_parserPointer.T_parserPointer;
 class T_parser_static_extension {
     static public function _parseClass(_p:T_parser, _s:String):stdgo.Tuple<String, stdgo.Error> {
         return {
@@ -591,6 +598,7 @@ class T_parser_static_extension {
         return stdgo._internal.regexp.syntax.Syntax_T_parser_static_extension.T_parser_static_extension._newRegexp(_p, _op);
     }
 }
+typedef T_rangesPointer = stdgo._internal.regexp.syntax.Syntax_T_rangesPointer.T_rangesPointer;
 class T_ranges_static_extension {
     static public function swap(_ra:T_ranges, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         stdgo._internal.regexp.syntax.Syntax_T_ranges_static_extension.T_ranges_static_extension.swap(_ra, _i, _j);
@@ -602,6 +610,7 @@ class T_ranges_static_extension {
         return stdgo._internal.regexp.syntax.Syntax_T_ranges_static_extension.T_ranges_static_extension.less(_ra, _i, _j);
     }
 }
+typedef ProgPointer = stdgo._internal.regexp.syntax.Syntax_ProgPointer.ProgPointer;
 class Prog_static_extension {
     static public function startCond(_p:Prog):EmptyOp {
         return stdgo._internal.regexp.syntax.Syntax_Prog_static_extension.Prog_static_extension.startCond(_p);
@@ -619,6 +628,7 @@ class Prog_static_extension {
         return stdgo._internal.regexp.syntax.Syntax_Prog_static_extension.Prog_static_extension.string(_p);
     }
 }
+typedef InstPointer = stdgo._internal.regexp.syntax.Syntax_InstPointer.InstPointer;
 class Inst_static_extension {
     static public function string(_i:Inst):String {
         return stdgo._internal.regexp.syntax.Syntax_Inst_static_extension.Inst_static_extension.string(_i);
@@ -636,6 +646,7 @@ class Inst_static_extension {
         return stdgo._internal.regexp.syntax.Syntax_Inst_static_extension.Inst_static_extension._op(_i);
     }
 }
+typedef RegexpPointer = stdgo._internal.regexp.syntax.Syntax_RegexpPointer.RegexpPointer;
 class Regexp_static_extension {
     static public function simplify(_re:Regexp):Regexp {
         return stdgo._internal.regexp.syntax.Syntax_Regexp_static_extension.Regexp_static_extension.simplify(_re);
@@ -657,16 +668,19 @@ class Regexp_static_extension {
         return stdgo._internal.regexp.syntax.Syntax_Regexp_static_extension.Regexp_static_extension.equal(_x, _y);
     }
 }
+typedef ErrorCodePointer = stdgo._internal.regexp.syntax.Syntax_ErrorCodePointer.ErrorCodePointer;
 class ErrorCode_static_extension {
     static public function string(_e:ErrorCode):String {
         return stdgo._internal.regexp.syntax.Syntax_ErrorCode_static_extension.ErrorCode_static_extension.string(_e);
     }
 }
+typedef InstOpPointer = stdgo._internal.regexp.syntax.Syntax_InstOpPointer.InstOpPointer;
 class InstOp_static_extension {
     static public function string(_i:InstOp):String {
         return stdgo._internal.regexp.syntax.Syntax_InstOp_static_extension.InstOp_static_extension.string(_i);
     }
 }
+typedef OpPointer = stdgo._internal.regexp.syntax.Syntax_OpPointer.OpPointer;
 class Op_static_extension {
     static public function string(_i:Op):String {
         return stdgo._internal.regexp.syntax.Syntax_Op_static_extension.Op_static_extension.string(_i);
@@ -674,50 +688,50 @@ class Op_static_extension {
 }
 /**
     /|*{
-    	pc_3560546 = uint32(p.Start)
-    	i_3560569 = &p.Inst[pc_3560546]
-    	gotoNext = 3560586
-    	_ = gotoNext == 3560586
+    	pc_3599746 = uint32(p.Start)
+    	i_3599769 = &p.Inst[pc_3599746]
+    	gotoNext = 3599786
+    	_ = gotoNext == 3599786
     	_ = 0
     	LoopBreak = false
-    	gotoNext = 3560593
-    	_ = gotoNext == 3560593
+    	gotoNext = 3599793
+    	_ = gotoNext == 3599793
     	if !LoopBreak {
-    		gotoNext = 3560597
-    		_ = gotoNext == 3560597
-    		gotoNext = 3560601
-    		_ = gotoNext == 3560601
-    		switch i_3560569.Op {
+    		gotoNext = 3599797
+    		_ = gotoNext == 3599797
+    		gotoNext = 3599801
+    		_ = gotoNext == 3599801
+    		switch i_3599769.Op {
     		case 3:
-    			gotoNext = 3560617
-    			_ = gotoNext == 3560617
-    			flag_3560532 |= EmptyOp(i_3560569.Arg)
-    			gotoNext = 3560774
+    			gotoNext = 3599817
+    			_ = gotoNext == 3599817
+    			flag_3599732 |= EmptyOp(i_3599769.Arg)
+    			gotoNext = 3599974
     		case 5:
-    			gotoNext = 3560666
-    			_ = gotoNext == 3560666
+    			gotoNext = 3599866
+    			_ = gotoNext == 3599866
     			return 255
-    			gotoNext = 3560774
+    			gotoNext = 3599974
     		case 2, 6:
-    			gotoNext = 3560705
-    			_ = gotoNext == 3560705
-    			gotoNext = 3560774
+    			gotoNext = 3599905
+    			_ = gotoNext == 3599905
+    			gotoNext = 3599974
     		default:
-    			gotoNext = 3560745
-    			_ = gotoNext == 3560745
+    			gotoNext = 3599945
+    			_ = gotoNext == 3599945
     			LoopBreak = true
-    			gotoNext = 3560593
-    			gotoNext = 3560774
+    			gotoNext = 3599793
+    			gotoNext = 3599974
     		}
-    		_ = gotoNext == 3560774
-    		pc_3560546 = i_3560569.Out
-    		i_3560569 = &p.Inst[pc_3560546]
-    		gotoNext = 3560593
+    		_ = gotoNext == 3599974
+    		pc_3599746 = i_3599769.Out
+    		i_3599769 = &p.Inst[pc_3599746]
+    		gotoNext = 3599793
     	} else {
-    		gotoNext = 3560807
+    		gotoNext = 3600007
     	}
-    	_ = gotoNext == 3560807
-    	return flag_3560532
+    	_ = gotoNext == 3600007
+    	return flag_3599732
     	gotoNext = -1
     }*|/
 **/

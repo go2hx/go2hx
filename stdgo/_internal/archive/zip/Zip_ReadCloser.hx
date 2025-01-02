@@ -8,20 +8,34 @@ package stdgo._internal.archive.zip;
         if (reader != null) this.reader = reader;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var open(get, never) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; };
     @:embedded
-    public function open(_name:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return this.reader.open(_name);
+    @:embeddededffieldsffun
+    public function get_open():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").open;
+    public var registerDecompressor(get, never) : (stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_Decompressor.Decompressor) -> Void;
     @:embedded
-    public function registerDecompressor(_method:stdgo.GoUInt16, _dcomp:stdgo._internal.archive.zip.Zip_Decompressor.Decompressor) this.reader.registerDecompressor(_method, _dcomp);
+    @:embeddededffieldsffun
+    public function get_registerDecompressor():(stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_Decompressor.Decompressor) -> Void return @:check3 (this.reader ?? throw "null pointer derefrence").registerDecompressor;
+    public var _decompressor(get, never) : stdgo.GoUInt16 -> stdgo._internal.archive.zip.Zip_Decompressor.Decompressor;
     @:embedded
-    public function _decompressor(_method:stdgo.GoUInt16):stdgo._internal.archive.zip.Zip_Decompressor.Decompressor return this.reader._decompressor(_method);
+    @:embeddededffieldsffun
+    public function get__decompressor():stdgo.GoUInt16 -> stdgo._internal.archive.zip.Zip_Decompressor.Decompressor return @:check3 (this.reader ?? throw "null pointer derefrence")._decompressor;
+    public var _init(get, never) : (stdgo._internal.io.Io_ReaderAt.ReaderAt, stdgo.GoInt64) -> stdgo.Error;
     @:embedded
-    public function _init(_rdr:stdgo._internal.io.Io_ReaderAt.ReaderAt, _size:stdgo.GoInt64):stdgo.Error return this.reader._init(_rdr, _size);
+    @:embeddededffieldsffun
+    public function get__init():(stdgo._internal.io.Io_ReaderAt.ReaderAt, stdgo.GoInt64) -> stdgo.Error return @:check3 (this.reader ?? throw "null pointer derefrence")._init;
+    public var _initFileList(get, never) : () -> Void;
     @:embedded
-    public function _initFileList() this.reader._initFileList();
+    @:embeddededffieldsffun
+    public function get__initFileList():() -> Void return @:check3 (this.reader ?? throw "null pointer derefrence")._initFileList;
+    public var _openLookup(get, never) : stdgo.GoString -> stdgo.Ref<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry>;
     @:embedded
-    public function _openLookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry> return this.reader._openLookup(_name);
+    @:embeddededffieldsffun
+    public function get__openLookup():stdgo.GoString -> stdgo.Ref<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry> return @:check3 (this.reader ?? throw "null pointer derefrence")._openLookup;
+    public var _openReadDir(get, never) : stdgo.GoString -> stdgo.Slice<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry>;
     @:embedded
-    public function _openReadDir(_name:stdgo.GoString):stdgo.Slice<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry> return this.reader._openReadDir(_name);
+    @:embeddededffieldsffun
+    public function get__openReadDir():stdgo.GoString -> stdgo.Slice<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry> return @:check3 (this.reader ?? throw "null pointer derefrence")._openReadDir;
     public function __copy__() {
         return new ReadCloser(_f, reader);
     }

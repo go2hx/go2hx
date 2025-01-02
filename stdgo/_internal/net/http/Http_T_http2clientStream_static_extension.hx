@@ -1,10 +1,11 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2clientStream_asInterface) class T_http2clientStream_static_extension {
     @:keep
+    @:tdfield
     static public function _copyTrailers( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
-        for (_k => _vv in _cs._trailer) {
-            var _t = _cs._resTrailer;
+        for (_k => _vv in (@:checkr _cs ?? throw "null pointer dereference")._trailer) {
+            var _t = (@:checkr _cs ?? throw "null pointer dereference")._resTrailer;
             if ((_t : stdgo._internal.net.http.Http_Header.Header) == null) {
                 (_t : stdgo._internal.net.http.Http_Header.Header).__setData__((({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
@@ -17,20 +18,21 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _awaitFlowControl( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _maxBytes:stdgo.GoInt):{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         var _taken = (0 : stdgo.GoInt32), _err = (null : stdgo.Error);
         try {
-            var _cc = _cs._cc;
-            var _ctx = (_cs._ctx : stdgo._internal.context.Context_Context.Context);
-            _cc._mu.lock();
+            var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+            var _ctx = ((@:checkr _cs ?? throw "null pointer dereference")._ctx : stdgo._internal.context.Context_Context.Context);
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _cc._mu.unlock;
+                final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             while (true) {
-                if (_cc._closed) {
+                if ((@:checkr _cc ?? throw "null pointer dereference")._closed) {
                     {
                         final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
                             final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errClientConnClosed._http2errClientConnClosed };
@@ -39,12 +41,13 @@ package stdgo._internal.net.http;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
                     };
                 };
-                if (_cs._reqBodyClosed != null) {
+                if ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed != null) {
                     {
                         final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
                             final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite };
@@ -53,6 +56,7 @@ package stdgo._internal.net.http;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -61,19 +65,20 @@ package stdgo._internal.net.http;
                 {
                     var __select__ = true;
                     while (__select__) {
-                        if (_cs._abort != null && _cs._abort.__isGet__()) {
+                        if ((@:checkr _cs ?? throw "null pointer dereference")._abort != null && (@:checkr _cs ?? throw "null pointer dereference")._abort.__isGet__()) {
                             __select__ = false;
                             {
-                                _cs._abort.__get__();
+                                (@:checkr _cs ?? throw "null pointer dereference")._abort.__get__();
                                 {
                                     {
                                         final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
-                                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : _cs._abortErr };
+                                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (@:checkr _cs ?? throw "null pointer dereference")._abortErr };
                                             _taken = __tmp__._0;
                                             _err = __tmp__._1;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -93,16 +98,17 @@ package stdgo._internal.net.http;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
                                     };
                                 };
                             };
-                        } else if (_cs._reqCancel != null && _cs._reqCancel.__isGet__()) {
+                        } else if ((@:checkr _cs ?? throw "null pointer dereference")._reqCancel != null && (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__isGet__()) {
                             __select__ = false;
                             {
-                                _cs._reqCancel.__get__();
+                                (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__get__();
                                 {
                                     {
                                         final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
@@ -112,6 +118,7 @@ package stdgo._internal.net.http;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -127,16 +134,16 @@ package stdgo._internal.net.http;
                     };
                 };
                 {
-                    var _a = (_cs._flow._available() : stdgo.GoInt32);
+                    var _a = (@:check2 (@:checkr _cs ?? throw "null pointer dereference")._flow._available() : stdgo.GoInt32);
                     if ((_a > (0 : stdgo.GoInt32) : Bool)) {
                         var _take = (_a : stdgo.GoInt32);
                         if (((_take : stdgo.GoInt) > _maxBytes : Bool)) {
                             _take = (_maxBytes : stdgo.GoInt32);
                         };
-                        if ((_take > (_cc._maxFrameSize : stdgo.GoInt32) : Bool)) {
-                            _take = (_cc._maxFrameSize : stdgo.GoInt32);
+                        if ((_take > ((@:checkr _cc ?? throw "null pointer dereference")._maxFrameSize : stdgo.GoInt32) : Bool)) {
+                            _take = ((@:checkr _cc ?? throw "null pointer dereference")._maxFrameSize : stdgo.GoInt32);
                         };
-                        _cs._flow._take(_take);
+                        @:check2 (@:checkr _cs ?? throw "null pointer dereference")._flow._take(_take);
                         {
                             final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _take, _1 : (null : stdgo.Error) };
@@ -145,16 +152,18 @@ package stdgo._internal.net.http;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
                     };
                 };
-                _cc._cond.wait_();
+                @:check2r (@:checkr _cc ?? throw "null pointer dereference")._cond.wait_();
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -169,6 +178,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -176,32 +186,33 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _writeRequestBody( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Error {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            var _cc = _cs._cc;
-            var _body = (_cs._reqBody : stdgo._internal.io.Io_ReadCloser.ReadCloser);
+            var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+            var _body = ((@:checkr _cs ?? throw "null pointer dereference")._reqBody : stdgo._internal.io.Io_ReadCloser.ReadCloser);
             var _sentEnd = (false : Bool);
-            var _hasTrailers = (_req.trailer != null : Bool);
-            var _remainLen = (_cs._reqBodyContentLength : stdgo.GoInt64);
+            var _hasTrailers = ((@:checkr _req ?? throw "null pointer dereference").trailer != null : Bool);
+            var _remainLen = ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyContentLength : stdgo.GoInt64);
             var _hasContentLen = (_remainLen != ((-1i64 : stdgo.GoInt64)) : Bool);
-            _cc._mu.lock();
-            var _maxFrameSize = (_cc._maxFrameSize : stdgo.GoInt);
-            _cc._mu.unlock();
-            var _scratchLen = (_cs._frameScratchBufferLen(_maxFrameSize) : stdgo.GoInt);
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
+            var _maxFrameSize = ((@:checkr _cc ?? throw "null pointer dereference")._maxFrameSize : stdgo.GoInt);
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
+            var _scratchLen = (@:check2r _cs._frameScratchBufferLen(_maxFrameSize) : stdgo.GoInt);
             var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = try {
-                    { _0 : (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2bufPool._http2bufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _1 : true };
+                    { _0 : (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__http2bufPool._http2bufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _1 : false };
                 }, _bp = __tmp__._0, _ok = __tmp__._1;
                 if ((_ok && (((_bp : stdgo.Slice<stdgo.GoUInt8>).length) >= _scratchLen : Bool) : Bool)) {
                     {
                         var _a0 = _bp;
-                        final __f__ = stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
+                        final __f__ = @:check2 stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
                         __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
                     };
                     _buf = (_bp : stdgo.Slice<stdgo.GoUInt8>);
@@ -209,7 +220,7 @@ package stdgo._internal.net.http;
                     _buf = (new stdgo.Slice<stdgo.GoUInt8>((_scratchLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         var _a0 = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-                        final __f__ = stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
+                        final __f__ = @:check2 stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
                         __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
                     };
                 };
@@ -233,6 +244,7 @@ package stdgo._internal.net.http;
                         _err = stdgo._internal.net.http.Http__http2errReqBodyTooLong._http2errReqBodyTooLong;
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return _err;
@@ -240,23 +252,25 @@ package stdgo._internal.net.http;
                     };
                 };
                 if (_err != null) {
-                    _cc._mu.lock();
-                    var _bodyClosed = (_cs._reqBodyClosed != null : Bool);
-                    _cc._mu.unlock();
+                    @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
+                    var _bodyClosed = ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed != null : Bool);
+                    @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
                     if (_bodyClosed) {
                         {
                             final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite;
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                    } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                    } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         _sawEOF = true;
                         _err = (null : stdgo.Error);
                     } else {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return _err;
@@ -267,31 +281,33 @@ package stdgo._internal.net.http;
                 while ((((_remain.length) > (0 : stdgo.GoInt) : Bool) && (_err == null) : Bool)) {
                     var _allowed:stdgo.GoInt32 = (0 : stdgo.GoInt32);
                     {
-                        var __tmp__ = _cs._awaitFlowControl((_remain.length));
+                        var __tmp__ = @:check2r _cs._awaitFlowControl((_remain.length));
                         _allowed = __tmp__._0;
                         _err = __tmp__._1;
                     };
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return _err;
                         };
                     };
-                    _cc._wmu.lock();
+                    @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
                     var _data = (_remain.__slice__(0, _allowed) : stdgo.Slice<stdgo.GoUInt8>);
                     _remain = (_remain.__slice__(_allowed) : stdgo.Slice<stdgo.GoUInt8>);
                     _sentEnd = ((_sawEOF && (_remain.length) == ((0 : stdgo.GoInt)) : Bool) && !_hasTrailers : Bool);
-                    _err = _cc._fr.writeData(_cs.id, _sentEnd, _data);
+                    _err = @:check2r (@:checkr _cc ?? throw "null pointer dereference")._fr.writeData((@:checkr _cs ?? throw "null pointer dereference").iD, _sentEnd, _data);
                     if (_err == null) {
-                        _err = _cc._bw.flush();
+                        _err = @:check2r (@:checkr _cc ?? throw "null pointer dereference")._bw.flush();
                     };
-                    _cc._wmu.unlock();
+                    @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock();
                 };
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -302,38 +318,41 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            _cc._mu.lock();
-            var _trailer = (_req.trailer : stdgo._internal.net.http.Http_Header.Header);
-            _err = _cs._abortErr;
-            _cc._mu.unlock();
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
+            var _trailer = ((@:checkr _req ?? throw "null pointer dereference").trailer : stdgo._internal.net.http.Http_Header.Header);
+            _err = (@:checkr _cs ?? throw "null pointer dereference")._abortErr;
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            _cc._wmu.lock();
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
             {
-                final __f__ = _cc._wmu.unlock;
+                final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             var _trls:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             if (((_trailer.length) > (0 : stdgo.GoInt) : Bool)) {
                 {
-                    var __tmp__ = _cc._encodeTrailers(_trailer);
+                    var __tmp__ = @:check2r _cc._encodeTrailers(_trailer);
                     _trls = __tmp__._0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -341,24 +360,26 @@ package stdgo._internal.net.http;
                 };
             };
             if (((_trls.length) > (0 : stdgo.GoInt) : Bool)) {
-                _err = _cc._writeHeaders(_cs.id, true, _maxFrameSize, _trls);
+                _err = @:check2r _cc._writeHeaders((@:checkr _cs ?? throw "null pointer dereference").iD, true, _maxFrameSize, _trls);
             } else {
-                _err = _cc._fr.writeData(_cs.id, true, (null : stdgo.Slice<stdgo.GoUInt8>));
+                _err = @:check2r (@:checkr _cc ?? throw "null pointer dereference")._fr.writeData((@:checkr _cs ?? throw "null pointer dereference").iD, true, (null : stdgo.Slice<stdgo.GoUInt8>));
             };
             {
-                var _ferr = (_cc._bw.flush() : stdgo.Error);
+                var _ferr = (@:check2r (@:checkr _cc ?? throw "null pointer dereference")._bw.flush() : stdgo.Error);
                 if (((_ferr != null) && (_err == null) : Bool)) {
                     _err = _ferr;
                 };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -373,6 +394,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -380,6 +402,7 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _frameScratchBufferLen( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _maxFrameSize:stdgo.GoInt):stdgo.GoInt {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         {};
@@ -388,7 +411,7 @@ package stdgo._internal.net.http;
             _n = (524288i64 : stdgo.GoInt64);
         };
         {
-            var _cl = (_cs._reqBodyContentLength : stdgo.GoInt64);
+            var _cl = ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyContentLength : stdgo.GoInt64);
             if (((_cl != (-1i64 : stdgo.GoInt64)) && ((_cl + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) < _n : Bool) : Bool)) {
                 _n = (_cl + (1i64 : stdgo.GoInt64) : stdgo.GoInt64);
             };
@@ -399,35 +422,36 @@ package stdgo._internal.net.http;
         return (_n : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function _cleanupWriteRequest( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _err:stdgo.Error):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
-        var _cc = _cs._cc;
-        if (_cs.id == ((0u32 : stdgo.GoUInt32))) {
-            _cc._decrStreamReservations();
+        var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+        if ((@:checkr _cs ?? throw "null pointer dereference").iD == ((0u32 : stdgo.GoUInt32))) {
+            @:check2r _cc._decrStreamReservations();
         };
-        _cc._mu.lock();
+        @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
         var _mustCloseBody = (false : Bool);
-        if (((_cs._reqBody != null) && (_cs._reqBodyClosed == null) : Bool)) {
+        if ((((@:checkr _cs ?? throw "null pointer dereference")._reqBody != null) && ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed == null) : Bool)) {
             _mustCloseBody = true;
-            _cs._reqBodyClosed = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
+            (@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
         };
-        var _bodyClosed = _cs._reqBodyClosed;
-        _cc._mu.unlock();
+        var _bodyClosed = (@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed;
+        @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
         if (_mustCloseBody) {
-            _cs._reqBody.close();
+            (@:checkr _cs ?? throw "null pointer dereference")._reqBody.close();
             if (_bodyClosed != null) _bodyClosed.__close__();
         };
         if (_bodyClosed != null) {
             _bodyClosed.__get__();
         };
-        if (((_err != null) && _cs._sentEndStream : Bool)) {
+        if (((_err != null) && (@:checkr _cs ?? throw "null pointer dereference")._sentEndStream : Bool)) {
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_cs._peerClosed != null && _cs._peerClosed.__isGet__()) {
+                    if ((@:checkr _cs ?? throw "null pointer dereference")._peerClosed != null && (@:checkr _cs ?? throw "null pointer dereference")._peerClosed.__isGet__()) {
                         __select__ = false;
                         {
-                            _cs._peerClosed.__get__();
+                            (@:checkr _cs ?? throw "null pointer dereference")._peerClosed.__get__();
                             {
                                 _err = (null : stdgo.Error);
                             };
@@ -442,8 +466,8 @@ package stdgo._internal.net.http;
             };
         };
         if (_err != null) {
-            _cs._abortStream(_err);
-            if (_cs._sentHeaders) {
+            @:check2r _cs._abortStream(_err);
+            if ((@:checkr _cs ?? throw "null pointer dereference")._sentHeaders) {
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError), _1 : true };
@@ -452,54 +476,56 @@ package stdgo._internal.net.http;
                     }, _se = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         if (stdgo.Go.toInterface(_se.cause) != (stdgo.Go.toInterface(stdgo._internal.net.http.Http__http2errFromPeer._http2errFromPeer))) {
-                            _cc._writeStreamReset(_cs.id, _se.code, _err);
+                            @:check2r _cc._writeStreamReset((@:checkr _cs ?? throw "null pointer dereference").iD, _se.code, _err);
                         };
                     } else {
-                        _cc._writeStreamReset(_cs.id, (8u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), _err);
+                        @:check2r _cc._writeStreamReset((@:checkr _cs ?? throw "null pointer dereference").iD, (8u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), _err);
                     };
                 };
             };
-            _cs._bufPipe.closeWithError(_err);
+            @:check2 (@:checkr _cs ?? throw "null pointer dereference")._bufPipe.closeWithError(_err);
         } else {
-            if ((_cs._sentHeaders && !_cs._sentEndStream : Bool)) {
-                _cc._writeStreamReset(_cs.id, (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), (null : stdgo.Error));
+            if (((@:checkr _cs ?? throw "null pointer dereference")._sentHeaders && !(@:checkr _cs ?? throw "null pointer dereference")._sentEndStream : Bool)) {
+                @:check2r _cc._writeStreamReset((@:checkr _cs ?? throw "null pointer dereference").iD, (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), (null : stdgo.Error));
             };
-            _cs._bufPipe.closeWithError(stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled);
+            @:check2 (@:checkr _cs ?? throw "null pointer dereference")._bufPipe.closeWithError(stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled);
         };
-        if (_cs.id != ((0u32 : stdgo.GoUInt32))) {
-            _cc._forgetStreamID(_cs.id);
+        if ((@:checkr _cs ?? throw "null pointer dereference").iD != ((0u32 : stdgo.GoUInt32))) {
+            @:check2r _cc._forgetStreamID((@:checkr _cs ?? throw "null pointer dereference").iD);
         };
-        _cc._wmu.lock();
-        var _werr = (_cc._werr : stdgo.Error);
-        _cc._wmu.unlock();
+        @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
+        var _werr = ((@:checkr _cc ?? throw "null pointer dereference")._werr : stdgo.Error);
+        @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock();
         if (_werr != null) {
-            _cc.close();
+            @:check2r _cc.close();
         };
-        if (_cs._donec != null) _cs._donec.__close__();
+        if ((@:checkr _cs ?? throw "null pointer dereference")._donec != null) (@:checkr _cs ?? throw "null pointer dereference")._donec.__close__();
     }
     @:keep
+    @:tdfield
     static public function _encodeAndWriteHeaders( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Error {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _cc = _cs._cc;
-            var _ctx = (_cs._ctx : stdgo._internal.context.Context_Context.Context);
-            _cc._wmu.lock();
+            var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+            var _ctx = ((@:checkr _cs ?? throw "null pointer dereference")._ctx : stdgo._internal.context.Context_Context.Context);
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
             {
-                final __f__ = _cc._wmu.unlock;
+                final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_cs._abort != null && _cs._abort.__isGet__()) {
+                    if ((@:checkr _cs ?? throw "null pointer dereference")._abort != null && (@:checkr _cs ?? throw "null pointer dereference")._abort.__isGet__()) {
                         __select__ = false;
                         {
-                            _cs._abort.__get__();
+                            (@:checkr _cs ?? throw "null pointer dereference")._abort.__get__();
                             {
                                 {
-                                    final __ret__:stdgo.Error = _cs._abortErr;
+                                    final __ret__:stdgo.Error = (@:checkr _cs ?? throw "null pointer dereference")._abortErr;
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return __ret__;
@@ -514,19 +540,21 @@ package stdgo._internal.net.http;
                                 {
                                     final __ret__:stdgo.Error = _ctx.err();
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return __ret__;
                                 };
                             };
                         };
-                    } else if (_cs._reqCancel != null && _cs._reqCancel.__isGet__()) {
+                    } else if ((@:checkr _cs ?? throw "null pointer dereference")._reqCancel != null && (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__isGet__()) {
                         __select__ = false;
                         {
-                            _cs._reqCancel.__get__();
+                            (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__get__();
                             {
                                 {
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
@@ -545,6 +573,7 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -553,27 +582,30 @@ package stdgo._internal.net.http;
             var _hasTrailers = (_trailers != (stdgo.Go.str()) : Bool);
             var _contentLen = (stdgo._internal.net.http.Http__http2actualContentLength._http2actualContentLength(_req) : stdgo.GoInt64);
             var _hasBody = (_contentLen != ((0i64 : stdgo.GoInt64)) : Bool);
-            var __tmp__ = _cc._encodeHeaders(_req, _cs._requestedGzip, _trailers?.__copy__(), _contentLen), _hdrs:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _cc._encodeHeaders(_req, (@:checkr _cs ?? throw "null pointer dereference")._requestedGzip, _trailers?.__copy__(), _contentLen), _hdrs:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
             var _endStream = (!_hasBody && !_hasTrailers : Bool);
-            _cs._sentHeaders = true;
-            _err = _cc._writeHeaders(_cs.id, _endStream, (_cc._maxFrameSize : stdgo.GoInt), _hdrs);
-            stdgo._internal.net.http.Http__http2traceWroteHeaders._http2traceWroteHeaders(_cs._trace);
+            (@:checkr _cs ?? throw "null pointer dereference")._sentHeaders = true;
+            _err = @:check2r _cc._writeHeaders((@:checkr _cs ?? throw "null pointer dereference").iD, _endStream, ((@:checkr _cc ?? throw "null pointer dereference")._maxFrameSize : stdgo.GoInt), _hdrs);
+            stdgo._internal.net.http.Http__http2traceWroteHeaders._http2traceWroteHeaders((@:checkr _cs ?? throw "null pointer dereference")._trace);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -588,6 +620,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -595,35 +628,36 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _writeRequest( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Error {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            var _cc = _cs._cc;
-            var _ctx = (_cs._ctx : stdgo._internal.context.Context_Context.Context);
+            var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+            var _ctx = ((@:checkr _cs ?? throw "null pointer dereference")._ctx : stdgo._internal.context.Context_Context.Context);
             {
                 var _err = (stdgo._internal.net.http.Http__http2checkConnHeaders._http2checkConnHeaders(_req) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
-            if (_cc._reqHeaderMu == null) {
+            if ((@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu == null) {
                 throw stdgo.Go.toInterface(("RoundTrip on uninitialized ClientConn" : stdgo.GoString));
             };
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_cc._reqHeaderMu != null && _cc._reqHeaderMu.__isSend__()) {
+                    if ((@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu != null && (@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu.__isSend__()) {
                         __select__ = false;
                         {
-                            _cc._reqHeaderMu.__send__((new stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError() : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError));
+                            (@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu.__send__((new stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError() : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError));
                             {};
                         };
-                    } else if (_cs._reqCancel != null && _cs._reqCancel.__isGet__()) {
+                    } else if ((@:checkr _cs ?? throw "null pointer dereference")._reqCancel != null && (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__isGet__()) {
                         __select__ = false;
                         {
-                            _cs._reqCancel.__get__();
+                            (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__get__();
                             {
                                 return _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
                             };
@@ -641,72 +675,72 @@ package stdgo._internal.net.http;
                     stdgo._internal.internal.Async.tick();
                 };
             };
-            _cc._mu.lock();
-            if ((_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__))) {
-                _cc._idleTimer.stop();
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
+            if (((@:checkr _cc ?? throw "null pointer dereference")._idleTimer != null && (((@:checkr _cc ?? throw "null pointer dereference")._idleTimer : Dynamic).__nil__ == null || !((@:checkr _cc ?? throw "null pointer dereference")._idleTimer : Dynamic).__nil__))) {
+                @:check2r (@:checkr _cc ?? throw "null pointer dereference")._idleTimer.stop();
             };
-            _cc._decrStreamReservationsLocked();
+            @:check2r _cc._decrStreamReservationsLocked();
             {
-                var _err = (_cc._awaitOpenSlotForStreamLocked(_cs) : stdgo.Error);
+                var _err = (@:check2r _cc._awaitOpenSlotForStreamLocked(_cs) : stdgo.Error);
                 if (_err != null) {
-                    _cc._mu.unlock();
-                    _cc._reqHeaderMu.__get__();
+                    @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
+                    (@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu.__get__();
                     return _err;
                 };
             };
-            _cc._addStreamLocked(_cs);
+            @:check2r _cc._addStreamLocked(_cs);
             if (stdgo._internal.net.http.Http__http2isConnectionCloseRequest._http2isConnectionCloseRequest(_req)) {
-                _cc._doNotReuse = true;
+                (@:checkr _cc ?? throw "null pointer dereference")._doNotReuse = true;
             };
-            _cc._mu.unlock();
-            if ((((!_cc._t._disableCompression() && _req.header.get(("Accept-Encoding" : stdgo.GoString)) == (stdgo.Go.str()) : Bool) && _req.header.get(("Range" : stdgo.GoString)) == (stdgo.Go.str()) : Bool) && !_cs._isHead : Bool)) {
-                _cs._requestedGzip = true;
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
+            if ((((!@:check2r (@:checkr _cc ?? throw "null pointer dereference")._t._disableCompression() && (@:checkr _req ?? throw "null pointer dereference").header.get(("Accept-Encoding" : stdgo.GoString)) == (stdgo.Go.str()) : Bool) && (@:checkr _req ?? throw "null pointer dereference").header.get(("Range" : stdgo.GoString)) == (stdgo.Go.str()) : Bool) && !(@:checkr _cs ?? throw "null pointer dereference")._isHead : Bool)) {
+                (@:checkr _cs ?? throw "null pointer dereference")._requestedGzip = true;
             };
-            var _continueTimeout = (_cc._t._expectContinueTimeout() : stdgo._internal.time.Time_Duration.Duration);
+            var _continueTimeout = (@:check2r (@:checkr _cc ?? throw "null pointer dereference")._t._expectContinueTimeout() : stdgo._internal.time.Time_Duration.Duration);
             if (_continueTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
-                if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_headerValuesContainsToken.headerValuesContainsToken((_req.header[("Expect" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("100-continue" : stdgo.GoString))) {
+                if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_headerValuesContainsToken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Expect" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("100-continue" : stdgo.GoString))) {
                     _continueTimeout = (0i64 : stdgo._internal.time.Time_Duration.Duration);
                 } else {
-                    _cs._on100 = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
+                    (@:checkr _cs ?? throw "null pointer dereference")._on100 = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
                 };
             };
-            _err = _cs._encodeAndWriteHeaders(_req);
-            _cc._reqHeaderMu.__get__();
+            _err = @:check2r _cs._encodeAndWriteHeaders(_req);
+            (@:checkr _cc ?? throw "null pointer dereference")._reqHeaderMu.__get__();
             if (_err != null) {
                 return _err;
             };
-            var _hasBody = (_cs._reqBodyContentLength != ((0i64 : stdgo.GoInt64)) : Bool);
+            var _hasBody = ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyContentLength != ((0i64 : stdgo.GoInt64)) : Bool);
             if (!_hasBody) {
-                _cs._sentEndStream = true;
+                (@:checkr _cs ?? throw "null pointer dereference")._sentEndStream = true;
             } else {
                 if (_continueTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
-                    stdgo._internal.net.http.Http__http2traceWait100Continue._http2traceWait100Continue(_cs._trace);
+                    stdgo._internal.net.http.Http__http2traceWait100Continue._http2traceWait100Continue((@:checkr _cs ?? throw "null pointer dereference")._trace);
                     var _timer = stdgo._internal.time.Time_newTimer.newTimer(_continueTimeout);
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (_timer.c != null && _timer.c.__isGet__()) {
+                            if ((@:checkr _timer ?? throw "null pointer dereference").c != null && (@:checkr _timer ?? throw "null pointer dereference").c.__isGet__()) {
                                 __select__ = false;
                                 {
-                                    _timer.c.__get__();
+                                    (@:checkr _timer ?? throw "null pointer dereference").c.__get__();
                                     {
                                         _err = (null : stdgo.Error);
                                     };
                                 };
-                            } else if (_cs._on100 != null && _cs._on100.__isGet__()) {
+                            } else if ((@:checkr _cs ?? throw "null pointer dereference")._on100 != null && (@:checkr _cs ?? throw "null pointer dereference")._on100.__isGet__()) {
                                 __select__ = false;
                                 {
-                                    _cs._on100.__get__();
+                                    (@:checkr _cs ?? throw "null pointer dereference")._on100.__get__();
                                     {
                                         _err = (null : stdgo.Error);
                                     };
                                 };
-                            } else if (_cs._abort != null && _cs._abort.__isGet__()) {
+                            } else if ((@:checkr _cs ?? throw "null pointer dereference")._abort != null && (@:checkr _cs ?? throw "null pointer dereference")._abort.__isGet__()) {
                                 __select__ = false;
                                 {
-                                    _cs._abort.__get__();
+                                    (@:checkr _cs ?? throw "null pointer dereference")._abort.__get__();
                                     {
-                                        _err = _cs._abortErr;
+                                        _err = (@:checkr _cs ?? throw "null pointer dereference")._abortErr;
                                     };
                                 };
                             } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
@@ -717,10 +751,10 @@ package stdgo._internal.net.http;
                                         _err = _ctx.err();
                                     };
                                 };
-                            } else if (_cs._reqCancel != null && _cs._reqCancel.__isGet__()) {
+                            } else if ((@:checkr _cs ?? throw "null pointer dereference")._reqCancel != null && (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__isGet__()) {
                                 __select__ = false;
                                 {
-                                    _cs._reqCancel.__get__();
+                                    (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__get__();
                                     {
                                         _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
                                     };
@@ -730,51 +764,52 @@ package stdgo._internal.net.http;
                             stdgo._internal.internal.Async.tick();
                         };
                     };
-                    _timer.stop();
+                    @:check2r _timer.stop();
                     if (_err != null) {
-                        stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest(_cs._trace, _err);
+                        stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest((@:checkr _cs ?? throw "null pointer dereference")._trace, _err);
                         return _err;
                     };
                 };
                 {
-                    _err = _cs._writeRequestBody(_req);
+                    _err = @:check2r _cs._writeRequestBody(_req);
                     if (_err != null) {
                         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite))) {
-                            stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest(_cs._trace, _err);
+                            stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest((@:checkr _cs ?? throw "null pointer dereference")._trace, _err);
                             return _err;
                         };
                     } else {
-                        _cs._sentEndStream = true;
+                        (@:checkr _cs ?? throw "null pointer dereference")._sentEndStream = true;
                     };
                 };
             };
-            stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest(_cs._trace, _err);
+            stdgo._internal.net.http.Http__http2traceWroteRequest._http2traceWroteRequest((@:checkr _cs ?? throw "null pointer dereference")._trace, _err);
             var _respHeaderTimer:stdgo.Chan<stdgo._internal.time.Time_Time.Time> = (null : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
             var _respHeaderRecv:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
             {
-                var _d = (_cc._responseHeaderTimeout() : stdgo._internal.time.Time_Duration.Duration);
+                var _d = (@:check2r _cc._responseHeaderTimeout() : stdgo._internal.time.Time_Duration.Duration);
                 if (_d != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                     var _timer = stdgo._internal.time.Time_newTimer.newTimer(_d);
                     {
-                        final __f__ = _timer.stop;
+                        final __f__ = @:check2r _timer.stop;
                         __deferstack__.unshift(() -> __f__());
                     };
-                    _respHeaderTimer = _timer.c;
-                    _respHeaderRecv = _cs._respHeaderRecv;
+                    _respHeaderTimer = (@:checkr _timer ?? throw "null pointer dereference").c;
+                    _respHeaderRecv = (@:checkr _cs ?? throw "null pointer dereference")._respHeaderRecv;
                 };
             };
             while (true) {
                 {
                     var __select__ = true;
                     while (__select__) {
-                        if (_cs._peerClosed != null && _cs._peerClosed.__isGet__()) {
+                        if ((@:checkr _cs ?? throw "null pointer dereference")._peerClosed != null && (@:checkr _cs ?? throw "null pointer dereference")._peerClosed.__isGet__()) {
                             __select__ = false;
                             {
-                                _cs._peerClosed.__get__();
+                                (@:checkr _cs ?? throw "null pointer dereference")._peerClosed.__get__();
                                 {
                                     {
                                         final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -789,6 +824,7 @@ package stdgo._internal.net.http;
                                     {
                                         final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errTimeout._http2errTimeout;
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -804,14 +840,15 @@ package stdgo._internal.net.http;
                                     _respHeaderTimer = (null : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
                                 };
                             };
-                        } else if (_cs._abort != null && _cs._abort.__isGet__()) {
+                        } else if ((@:checkr _cs ?? throw "null pointer dereference")._abort != null && (@:checkr _cs ?? throw "null pointer dereference")._abort.__isGet__()) {
                             __select__ = false;
                             {
-                                _cs._abort.__get__();
+                                (@:checkr _cs ?? throw "null pointer dereference")._abort.__get__();
                                 {
                                     {
-                                        final __ret__:stdgo.Error = _err = _cs._abortErr;
+                                        final __ret__:stdgo.Error = _err = (@:checkr _cs ?? throw "null pointer dereference")._abortErr;
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -826,20 +863,22 @@ package stdgo._internal.net.http;
                                     {
                                         final __ret__:stdgo.Error = _err = _ctx.err();
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
                                     };
                                 };
                             };
-                        } else if (_cs._reqCancel != null && _cs._reqCancel.__isGet__()) {
+                        } else if ((@:checkr _cs ?? throw "null pointer dereference")._reqCancel != null && (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__isGet__()) {
                             __select__ = false;
                             {
-                                _cs._reqCancel.__get__();
+                                (@:checkr _cs ?? throw "null pointer dereference")._reqCancel.__get__();
                                 {
                                     {
                                         final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return __ret__;
@@ -854,6 +893,7 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -868,6 +908,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -875,44 +916,48 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _doRequest( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
-        var _err = (_cs._writeRequest(_req) : stdgo.Error);
-        _cs._cleanupWriteRequest(_err);
+        var _err = (@:check2r _cs._writeRequest(_req) : stdgo.Error);
+        @:check2r _cs._cleanupWriteRequest(_err);
     }
     @:keep
+    @:tdfield
     static public function _closeReqBodyLocked( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
-        if (_cs._reqBodyClosed != null) {
+        if ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed != null) {
             return;
         };
-        _cs._reqBodyClosed = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-        var _reqBodyClosed = _cs._reqBodyClosed;
+        (@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
+        var _reqBodyClosed = (@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed;
         stdgo.Go.routine(() -> ({
             var a = function():Void {
-                _cs._reqBody.close();
+                (@:checkr _cs ?? throw "null pointer dereference")._reqBody.close();
                 if (_reqBodyClosed != null) _reqBodyClosed.__close__();
             };
             a();
         }));
     }
     @:keep
+    @:tdfield
     static public function _abortRequestBodyWrite( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _cc = _cs._cc;
-            _cc._mu.lock();
+            var _cc = (@:checkr _cs ?? throw "null pointer dereference")._cc;
+            @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _cc._mu.unlock;
+                final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (((_cs._reqBody != null) && (_cs._reqBodyClosed == null) : Bool)) {
-                _cs._closeReqBodyLocked();
-                _cc._cond.broadcast();
+            if ((((@:checkr _cs ?? throw "null pointer dereference")._reqBody != null) && ((@:checkr _cs ?? throw "null pointer dereference")._reqBodyClosed == null) : Bool)) {
+                @:check2r _cs._closeReqBodyLocked();
+                @:check2r (@:checkr _cc ?? throw "null pointer dereference")._cond.broadcast();
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -927,6 +972,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -934,32 +980,35 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _abortStreamLocked( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _err:stdgo.Error):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
-        _cs._abortOnce.do_(function():Void {
-            _cs._abortErr = _err;
-            if (_cs._abort != null) _cs._abort.__close__();
+        @:check2 (@:checkr _cs ?? throw "null pointer dereference")._abortOnce.do_(function():Void {
+            (@:checkr _cs ?? throw "null pointer dereference")._abortErr = _err;
+            if ((@:checkr _cs ?? throw "null pointer dereference")._abort != null) (@:checkr _cs ?? throw "null pointer dereference")._abort.__close__();
         });
-        if (_cs._reqBody != null) {
-            _cs._closeReqBodyLocked();
+        if ((@:checkr _cs ?? throw "null pointer dereference")._reqBody != null) {
+            @:check2r _cs._closeReqBodyLocked();
         };
-        if ((_cs._cc._cond != null && ((_cs._cc._cond : Dynamic).__nil__ == null || !(_cs._cc._cond : Dynamic).__nil__))) {
-            _cs._cc._cond.broadcast();
+        if (((@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._cond != null && (((@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._cond : Dynamic).__nil__ == null || !((@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._cond : Dynamic).__nil__))) {
+            @:check2r (@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._cond.broadcast();
         };
     }
     @:keep
+    @:tdfield
     static public function _abortStream( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>, _err:stdgo.Error):Void {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _cs._cc._mu.lock();
+            @:check2 (@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _cs._cc._mu.unlock;
+                final __f__ = @:check2 (@:checkr (@:checkr _cs ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            _cs._abortStreamLocked(_err);
+            @:check2r _cs._abortStreamLocked(_err);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -974,6 +1023,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -981,6 +1031,7 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _get1xxTraceFunc( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):(stdgo.GoInt, stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) -> stdgo.Error {
         @:recv var _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> = _cs;
         {
@@ -989,6 +1040,6 @@ package stdgo._internal.net.http;
                 return _fn;
             };
         };
-        return stdgo._internal.net.http.Http__http2traceGot1xxResponseFunc._http2traceGot1xxResponseFunc(_cs._trace);
+        return stdgo._internal.net.http.Http__http2traceGot1xxResponseFunc._http2traceGot1xxResponseFunc((@:checkr _cs ?? throw "null pointer dereference")._trace);
     }
 }

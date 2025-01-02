@@ -28,5 +28,6 @@ typedef RoundTripper = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function roundTrip(_0:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; };
 };

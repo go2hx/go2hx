@@ -12,7 +12,7 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
                 __deferstack__.unshift(() -> __f__());
             };
             for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
-                if (_h._want(_n)) {
+                if (@:check2r _h._want(_n)) {
                     {
                         var __select__ = true;
                         while (__select__) {
@@ -33,7 +33,7 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
                 };
             };
             for (__0 => _d in stdgo._internal.os.signal.Signal__handlers._handlers._stopping) {
-                if (_d._h._want(_n)) {
+                if (@:check2r _d._h._want(_n)) {
                     {
                         var __select__ = true;
                         while (__select__) {
@@ -55,6 +55,7 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -69,6 +70,7 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

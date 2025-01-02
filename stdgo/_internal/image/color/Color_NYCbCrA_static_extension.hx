@@ -1,11 +1,12 @@
 package stdgo._internal.image.color;
 @:keep @:allow(stdgo._internal.image.color.Color.NYCbCrA_asInterface) class NYCbCrA_static_extension {
     @:keep
-    static public function rgba( _c:stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
+    @:tdfield
+    static public function rGBA( _c:stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA = _c?.__copy__();
-        var _yy1 = ((_c.ycbCr.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
-        var _cb1 = ((_c.ycbCr.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
-        var _cr1 = ((_c.ycbCr.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _yy1 = ((_c.yCbCr.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cb1 = ((_c.yCbCr.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _cr1 = ((_c.yCbCr.cr : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);
         var _r = (_yy1 + ((91881 : stdgo.GoInt32) * _cr1 : stdgo.GoInt32) : stdgo.GoInt32);
         if (((_r : stdgo.GoUInt32) & (-16777216u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((0u32 : stdgo.GoUInt32))) {
             _r = (_r >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt32);

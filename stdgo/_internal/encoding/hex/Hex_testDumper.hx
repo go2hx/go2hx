@@ -19,8 +19,8 @@ while ((_done < (_in.length) : Bool)) {
                     _done = _todo;
                 };
 _dumper.close();
-if (!stdgo._internal.bytes.Bytes_equal.equal(_out.bytes(), stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump)) {
-                    _t.errorf(("stride: %d failed. got:\n%s\nwant:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_stride), stdgo.Go.toInterface(_out.bytes()), stdgo.Go.toInterface(stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump));
+if (!stdgo._internal.bytes.Bytes_equal.equal(@:check2 _out.bytes(), stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump)) {
+                    @:check2r _t.errorf(("stride: %d failed. got:\n%s\nwant:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_stride), stdgo.Go.toInterface(@:check2 _out.bytes()), stdgo.Go.toInterface(stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump));
                 };
                 _stride++;
             };

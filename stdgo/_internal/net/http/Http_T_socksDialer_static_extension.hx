@@ -1,10 +1,11 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_socksDialer_asInterface) class T_socksDialer_static_extension {
     @:keep
+    @:tdfield
     static public function _pathAddrs( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _address:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo._internal.net.Net_Addr.Addr; var _2 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         var _proxy = (null : stdgo._internal.net.Net_Addr.Addr), _dst = (null : stdgo._internal.net.Net_Addr.Addr), _err = (null : stdgo.Error);
-        for (_i => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[_d._proxyAddress?.__copy__(), _address?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+        for (_i => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[(@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__(), _address?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             var __tmp__ = stdgo._internal.net.http.Http__sockssplitHostPort._sockssplitHostPort(_s?.__copy__()), _host:stdgo.GoString = __tmp__._0, _port:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return {
@@ -16,9 +17,9 @@ package stdgo._internal.net.http;
                 };
             };
             var _a = (stdgo.Go.setRef(({ port : _port } : stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>);
-            _a.ip = stdgo._internal.net.Net_parseIP.parseIP(_host?.__copy__());
-            if (_a.ip == null) {
-                _a.name = _host?.__copy__();
+            (@:checkr _a ?? throw "null pointer dereference").iP = stdgo._internal.net.Net_parseIP.parseIP(_host?.__copy__());
+            if ((@:checkr _a ?? throw "null pointer dereference").iP == null) {
+                (@:checkr _a ?? throw "null pointer dereference").name = _host?.__copy__();
             };
             if (_i == ((0 : stdgo.GoInt))) {
                 _proxy = stdgo.Go.asInterface(_a);
@@ -29,6 +30,7 @@ package stdgo._internal.net.http;
         return { _0 : _proxy, _1 : _dst, _2 : _err };
     }
     @:keep
+    @:tdfield
     static public function _validateTarget( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _network:stdgo.GoString, _address:stdgo.GoString):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         {
@@ -38,7 +40,7 @@ package stdgo._internal.net.http;
             };
         };
         {
-            final __value__ = _d._cmd;
+            final __value__ = (@:checkr _d ?? throw "null pointer dereference")._cmd;
             if (__value__ == ((1 : stdgo._internal.net.http.Http_T_socksCommand.T_socksCommand)) || __value__ == ((2 : stdgo._internal.net.http.Http_T_socksCommand.T_socksCommand))) {} else {
                 return stdgo._internal.errors.Errors_new_.new_(("command not implemented" : stdgo.GoString));
             };
@@ -46,36 +48,37 @@ package stdgo._internal.net.http;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function dial( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _network:stdgo.GoString, _address:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         {
-            var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
+            var _err = (@:check2r _d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-                return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+                var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+                return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         var _c:stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
-        if (_d.proxyDial != null) {
+        if ((@:checkr _d ?? throw "null pointer dereference").proxyDial != null) {
             {
-                var __tmp__ = _d.proxyDial(stdgo._internal.context.Context_background.background(), _d._proxyNetwork?.__copy__(), _d._proxyAddress?.__copy__());
+                var __tmp__ = (@:checkr _d ?? throw "null pointer dereference").proxyDial(stdgo._internal.context.Context_background.background(), (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
                 _c = __tmp__._0;
                 _err = __tmp__._1;
             };
         } else {
             {
-                var __tmp__ = stdgo._internal.net.Net_dial.dial(_d._proxyNetwork?.__copy__(), _d._proxyAddress?.__copy__());
+                var __tmp__ = stdgo._internal.net.Net_dial.dial((@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
                 _c = __tmp__._0;
                 _err = __tmp__._1;
             };
         };
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         {
-            var __tmp__ = _d.dialWithConn(stdgo._internal.context.Context_background.background(), _c, _network?.__copy__(), _address?.__copy__()), __35172:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _d.dialWithConn(stdgo._internal.context.Context_background.background(), _c, _network?.__copy__(), _address?.__copy__()), __35177:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _c.close();
                 return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : _err };
@@ -84,69 +87,72 @@ package stdgo._internal.net.http;
         return { _0 : _c, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function dialWithConn( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _ctx:stdgo._internal.context.Context_Context.Context, _c:stdgo._internal.net.Net_Conn.Conn, _network:stdgo.GoString, _address:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         {
-            var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
+            var _err = (@:check2r _d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-                return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+                var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+                return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
         if (_ctx == null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
-        var __tmp__ = _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         return { _0 : _a, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function dialContext( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _ctx:stdgo._internal.context.Context_Context.Context, _network:stdgo.GoString, _address:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         {
-            var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
+            var _err = (@:check2r _d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-                return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+                var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+                return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
         if (_ctx == null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         var _c:stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
-        if (_d.proxyDial != null) {
+        if ((@:checkr _d ?? throw "null pointer dereference").proxyDial != null) {
             {
-                var __tmp__ = _d.proxyDial(_ctx, _d._proxyNetwork?.__copy__(), _d._proxyAddress?.__copy__());
+                var __tmp__ = (@:checkr _d ?? throw "null pointer dereference").proxyDial(_ctx, (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
                 _c = __tmp__._0;
                 _err = __tmp__._1;
             };
         } else {
             var _dd:stdgo._internal.net.Net_Dialer.Dialer = ({} : stdgo._internal.net.Net_Dialer.Dialer);
             {
-                var __tmp__ = _dd.dialContext(_ctx, _d._proxyNetwork?.__copy__(), _d._proxyAddress?.__copy__());
+                var __tmp__ = @:check2 _dd.dialContext(_ctx, (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
                 _c = __tmp__._0;
                 _err = __tmp__._1;
             };
         };
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
-        var __tmp__ = _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _c.close();
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
-            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
+            var __tmp__ = @:check2r _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35177:stdgo.Error = __tmp__._2;
+            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ((@:checkr _d ?? throw "null pointer dereference")._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ conn : _c, _boundAddr : _a } : stdgo._internal.net.http.Http_T_socksConn.T_socksConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksConn.T_socksConn>)), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function _connect( _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer>, _ctx:stdgo._internal.context.Context_Context.Context, _c:stdgo._internal.net.Net_Conn.Conn, _address:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.net.http.Http_T_socksDialer.T_socksDialer> = _d;
         var __deferstack__:Array<Void -> Void> = [];
@@ -219,10 +225,10 @@ package stdgo._internal.net.http;
             };
             var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((6 : stdgo.GoInt) + (_host.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _b = (_b.__append__((5 : stdgo.GoUInt8)));
-            if (((_d.authMethods.length == (0 : stdgo.GoInt)) || (_d.authenticate == null) : Bool)) {
+            if ((((@:checkr _d ?? throw "null pointer dereference").authMethods.length == (0 : stdgo.GoInt)) || ((@:checkr _d ?? throw "null pointer dereference").authenticate == null) : Bool)) {
                 _b = (_b.__append__((1 : stdgo.GoUInt8), ((0 : stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod) : stdgo.GoUInt8)));
             } else {
-                var _ams = _d.authMethods;
+                var _ams = (@:checkr _d ?? throw "null pointer dereference").authMethods;
                 if (((_ams.length) > (255 : stdgo.GoInt) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = {
@@ -232,13 +238,14 @@ package stdgo._internal.net.http;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
                     };
                 };
                 _b = (_b.__append__((_ams.length : stdgo.GoUInt8)));
-                for (__35172 => _am in _ams) {
+                for (__35177 => _am in _ams) {
                     _b = (_b.__append__((_am : stdgo.GoUInt8)));
                 };
             };
@@ -250,6 +257,7 @@ package stdgo._internal.net.http;
                 if (_ctxErr != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return { _0 : _0, _1 : _ctxErr };
@@ -264,6 +272,7 @@ package stdgo._internal.net.http;
                 if (_ctxErr != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return { _0 : _0, _1 : _ctxErr };
@@ -279,6 +288,7 @@ package stdgo._internal.net.http;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -294,17 +304,19 @@ package stdgo._internal.net.http;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            if (_d.authenticate != null) {
+            if ((@:checkr _d ?? throw "null pointer dereference").authenticate != null) {
                 {
-                    _ctxErr = _d.authenticate(_ctx, _c, _am);
+                    _ctxErr = (@:checkr _d ?? throw "null pointer dereference").authenticate(_ctx, _c, _am);
                     if (_ctxErr != null) {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return { _0 : _0, _1 : _ctxErr };
@@ -313,7 +325,7 @@ package stdgo._internal.net.http;
                 };
             };
             _b = (_b.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            _b = (_b.__append__((5 : stdgo.GoUInt8), (_d._cmd : stdgo.GoUInt8), (0 : stdgo.GoUInt8)));
+            _b = (_b.__append__((5 : stdgo.GoUInt8), ((@:checkr _d ?? throw "null pointer dereference")._cmd : stdgo.GoUInt8), (0 : stdgo.GoUInt8)));
             {
                 var _ip = (stdgo._internal.net.Net_parseIP.parseIP(_host?.__copy__()) : stdgo._internal.net.Net_IP.IP);
                 if (_ip != null) {
@@ -336,6 +348,7 @@ package stdgo._internal.net.http;
                                         __tmp__;
                                     };
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return __ret__;
@@ -353,6 +366,7 @@ package stdgo._internal.net.http;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -372,6 +386,7 @@ package stdgo._internal.net.http;
                 if (_ctxErr != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return { _0 : _0, _1 : _ctxErr };
@@ -386,6 +401,7 @@ package stdgo._internal.net.http;
                 if (_ctxErr != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return { _0 : _0, _1 : _ctxErr };
@@ -401,6 +417,7 @@ package stdgo._internal.net.http;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -417,6 +434,7 @@ package stdgo._internal.net.http;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -432,6 +450,7 @@ package stdgo._internal.net.http;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -443,13 +462,13 @@ package stdgo._internal.net.http;
                 final __value__ = _b[(3 : stdgo.GoInt)];
                 if (__value__ == ((1 : stdgo.GoUInt8))) {
                     _l = (_l + ((4 : stdgo.GoInt)) : stdgo.GoInt);
-                    _a.ip = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.net.Net_IP.IP);
+                    _a.iP = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.net.Net_IP.IP);
                 } else if (__value__ == ((4 : stdgo.GoUInt8))) {
                     _l = (_l + ((16 : stdgo.GoInt)) : stdgo.GoInt);
-                    _a.ip = (new stdgo.Slice<stdgo.GoUInt8>((16 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.net.Net_IP.IP);
+                    _a.iP = (new stdgo.Slice<stdgo.GoUInt8>((16 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.net.Net_IP.IP);
                 } else if (__value__ == ((3 : stdgo.GoUInt8))) {
                     {
-                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35172:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35177:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = {
@@ -459,6 +478,7 @@ package stdgo._internal.net.http;
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return __ret__;
@@ -475,6 +495,7 @@ package stdgo._internal.net.http;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -494,14 +515,15 @@ package stdgo._internal.net.http;
                 if (_ctxErr != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
-            if (_a.ip != null) {
-                _a.ip.__copyTo__(_b);
+            if (_a.iP != null) {
+                _a.iP.__copyTo__(_b);
             } else {
                 _a.name = ((_b.__slice__(0, ((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
             };
@@ -514,12 +536,14 @@ package stdgo._internal.net.http;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -534,6 +558,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

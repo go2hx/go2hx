@@ -7,18 +7,21 @@ typedef Hash = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function sum(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8>;
     /**
         Reset resets the Hash to its initial state.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function reset():Void;
     /**
         Size returns the number of bytes Sum will return.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function size():stdgo.GoInt;
     /**
         BlockSize returns the hash's underlying block size.
@@ -28,5 +31,6 @@ typedef Hash = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function blockSize():stdgo.GoInt;
 };

@@ -5,17 +5,17 @@ function signPSS(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdg
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
-            return stdgo._internal.crypto.internal.boring.Boring_signRSAPSS.signRSAPSS(_bkey, _hash, _digest, _opts._saltLength());
+            return stdgo._internal.crypto.internal.boring.Boring_signRSAPSS.signRSAPSS(_bkey, _hash, _digest, @:check2r _opts._saltLength());
         };
         stdgo._internal.crypto.internal.boring.Boring_unreachableExceptTests.unreachableExceptTests();
-        if (((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__)) && (_opts.hash != (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) : Bool)) {
-            _hash = _opts.hash;
+        if (((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__)) && ((@:checkr _opts ?? throw "null pointer dereference").hash != (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) : Bool)) {
+            _hash = (@:checkr _opts ?? throw "null pointer dereference").hash;
         };
-        var _saltLength = (_opts._saltLength() : stdgo.GoInt);
+        var _saltLength = (@:check2r _opts._saltLength() : stdgo.GoInt);
         {
             final __value__ = _saltLength;
             if (__value__ == ((0 : stdgo.GoInt))) {
-                _saltLength = ((((((_priv.publicKey.n.bitLen() - (1 : stdgo.GoInt) : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt) - _hash.size() : stdgo.GoInt);
+                _saltLength = ((((((@:check2r (@:checkr _priv ?? throw "null pointer dereference").publicKey.n.bitLen() - (1 : stdgo.GoInt) : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt) - _hash.size() : stdgo.GoInt);
                 if ((_saltLength < (0 : stdgo.GoInt) : Bool)) {
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errMessageTooLong.errMessageTooLong };
                 };

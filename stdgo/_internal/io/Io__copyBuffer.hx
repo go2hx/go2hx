@@ -39,11 +39,11 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._inter
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.io.Io_LimitedReader.LimitedReader>), _1 : false };
                 }, _l = __tmp__._0, _ok = __tmp__._1;
-                if ((_ok && ((_size : stdgo.GoInt64) > _l.n : Bool) : Bool)) {
-                    if ((_l.n < (1i64 : stdgo.GoInt64) : Bool)) {
+                if ((_ok && ((_size : stdgo.GoInt64) > (@:checkr _l ?? throw "null pointer dereference").n : Bool) : Bool)) {
+                    if (((@:checkr _l ?? throw "null pointer dereference").n < (1i64 : stdgo.GoInt64) : Bool)) {
                         _size = (1 : stdgo.GoInt);
                     } else {
-                        _size = (_l.n : stdgo.GoInt);
+                        _size = ((@:checkr _l ?? throw "null pointer dereference").n : stdgo.GoInt);
                     };
                 };
             };
@@ -70,7 +70,7 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._inter
                 };
             };
             if (_er != null) {
-                if (stdgo.Go.toInterface(_er) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                if (stdgo.Go.toInterface(_er) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     _err = _er;
                 };
                 break;

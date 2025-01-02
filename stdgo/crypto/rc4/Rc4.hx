@@ -23,16 +23,18 @@ package stdgo.crypto.rc4;
     public function __copy__() return this.__copy__();
 }
 typedef KeySizeError = stdgo._internal.crypto.rc4.Rc4_KeySizeError.KeySizeError;
+typedef CipherPointer = stdgo._internal.crypto.rc4.Rc4_CipherPointer.CipherPointer;
 class Cipher_static_extension {
-    static public function xorkeyStream(_c:Cipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(_c:Cipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.rc4.Rc4_Cipher_static_extension.Cipher_static_extension.xorkeyStream(_c, _dst, _src);
+        stdgo._internal.crypto.rc4.Rc4_Cipher_static_extension.Cipher_static_extension.xORKeyStream(_c, _dst, _src);
     }
     static public function reset(_c:Cipher):Void {
         stdgo._internal.crypto.rc4.Rc4_Cipher_static_extension.Cipher_static_extension.reset(_c);
     }
 }
+typedef KeySizeErrorPointer = stdgo._internal.crypto.rc4.Rc4_KeySizeErrorPointer.KeySizeErrorPointer;
 class KeySizeError_static_extension {
     static public function error(_k:KeySizeError):String {
         return stdgo._internal.crypto.rc4.Rc4_KeySizeError_static_extension.KeySizeError_static_extension.error(_k);

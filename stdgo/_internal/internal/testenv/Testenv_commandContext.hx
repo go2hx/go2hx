@@ -49,20 +49,20 @@ var _gracePeriod = __1, _cancelCtx = __0;
             };
         };
         var _cmd = stdgo._internal.os.exec.Exec_commandContext.commandContext(_ctx, _name?.__copy__(), ...(_args : Array<stdgo.GoString>));
-        _cmd.cancel = function():stdgo.Error {
+        (@:checkr _cmd ?? throw "null pointer dereference").cancel = function():stdgo.Error {
             if (((_cancelCtx != null) && (stdgo.Go.toInterface(_ctx.err()) == stdgo.Go.toInterface(stdgo._internal.context.Context_deadlineExceeded.deadlineExceeded)) : Bool)) {
                 _t.errorf(("test timed out while running command: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             } else {
                 _t.logf(("%v: terminating command: %v" : stdgo.GoString), stdgo.Go.toInterface(_ctx.err()), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
-            return _cmd.process.signal(stdgo._internal.internal.testenv.Testenv_sigquit.sigquit);
+            return @:check2r (@:checkr _cmd ?? throw "null pointer dereference").process.signal(stdgo._internal.internal.testenv.Testenv_sigquit.sigquit);
         };
-        _cmd.waitDelay = _gracePeriod;
+        (@:checkr _cmd ?? throw "null pointer dereference").waitDelay = _gracePeriod;
         _t.cleanup(function():Void {
             if (_cancelCtx != null) {
                 _cancelCtx();
             };
-            if (((_cmd.process != null && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null || (_cmd.processState : Dynamic).__nil__) : Bool)) {
+            if ((((@:checkr _cmd ?? throw "null pointer dereference").process != null && (((@:checkr _cmd ?? throw "null pointer dereference").process : Dynamic).__nil__ == null || !((@:checkr _cmd ?? throw "null pointer dereference").process : Dynamic).__nil__)) && ((@:checkr _cmd ?? throw "null pointer dereference").processState == null || ((@:checkr _cmd ?? throw "null pointer dereference").processState : Dynamic).__nil__) : Bool)) {
                 _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
         });

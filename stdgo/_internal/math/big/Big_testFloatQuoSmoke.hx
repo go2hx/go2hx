@@ -27,19 +27,19 @@ var _c = (_a / _b : stdgo.GoFloat64);
                                 {
                                     var _bd = (-3 : stdgo.GoInt);
                                     while ((_bd <= (3 : stdgo.GoInt) : Bool)) {
-                                        var a = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((((13 : stdgo.GoInt) + _ad : stdgo.GoInt) : stdgo.GoUInt)).setFloat64(_a);
-var b = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((((13 : stdgo.GoInt) + _bd : stdgo.GoInt) : stdgo.GoUInt)).setFloat64(_b);
-var c = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((53u32 : stdgo.GoUInt)).quo(a, b);
-var __tmp__ = c.float64(), _cc:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                                        var a = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((((13 : stdgo.GoInt) + _ad : stdgo.GoInt) : stdgo.GoUInt)).setFloat64(_a);
+var b = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((((13 : stdgo.GoInt) + _bd : stdgo.GoInt) : stdgo.GoUInt)).setFloat64(_b);
+var c = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((53u32 : stdgo.GoUInt)).quo(a, b);
+var __tmp__ = @:check2r c.float64(), _cc:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
 if (_cc != (_c)) {
-                                            _t.errorf(("%g/%g = %s; want %.5g\n" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(c.text((103 : stdgo.GoUInt8), (5 : stdgo.GoInt))), stdgo.Go.toInterface(_c));
+                                            @:check2r _t.errorf(("%g/%g = %s; want %.5g\n" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(@:check2r c.text((103 : stdgo.GoUInt8), (5 : stdgo.GoInt))), stdgo.Go.toInterface(_c));
                                             {
                                                 _bd++;
                                                 continue;
                                             };
                                         };
 if (_acc != ((0 : stdgo._internal.math.big.Big_Accuracy.Accuracy))) {
-                                            _t.errorf(("%g/%g got %s result; want exact result" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)));
+                                            @:check2r _t.errorf(("%g/%g got %s result; want exact result" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)));
                                         };
                                         _bd++;
                                     };

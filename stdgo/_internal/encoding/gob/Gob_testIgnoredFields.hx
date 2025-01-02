@@ -20,14 +20,14 @@ x.set(("two" : stdgo.GoString), (2 : stdgo.GoInt));
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_it0));
+        @:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_it0));
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _rt1:stdgo._internal.encoding.gob.Gob_RT1.RT1 = ({} : stdgo._internal.encoding.gob.Gob_RT1.RT1);
-        var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_rt1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_RT1.RT1>))) : stdgo.Error);
+        var _err = (@:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_rt1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_RT1.RT1>))) : stdgo.Error);
         if (_err != null) {
-            _t.error(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            @:check2r _t.error(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         if ((((_it0.a : stdgo.GoInt) != (_rt1.a) || _it0.b != (_rt1.b) : Bool) || (_it0.c != _rt1.c) : Bool)) {
-            _t.errorf(("rt0->rt1: expected %v; got %v" : stdgo.GoString), stdgo.Go.toInterface(_it0), stdgo.Go.toInterface(_rt1));
+            @:check2r _t.errorf(("rt0->rt1: expected %v; got %v" : stdgo.GoString), stdgo.Go.toInterface(_it0), stdgo.Go.toInterface(_rt1));
         };
     }

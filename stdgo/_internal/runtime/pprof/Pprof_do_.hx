@@ -12,6 +12,7 @@ function do_(_ctx:stdgo._internal.context.Context_Context.Context, _labels:stdgo
             _f(_ctx);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -26,6 +27,7 @@ function do_(_ctx:stdgo._internal.context.Context_Context.Context, _labels:stdgo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

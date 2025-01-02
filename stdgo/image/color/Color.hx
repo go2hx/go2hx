@@ -1,26 +1,26 @@
 package stdgo.image.color;
-var rgbamodel(get, set) : Model;
-private function get_rgbamodel():Model return stdgo._internal.image.color.Color_rgbamodel.rgbamodel;
-private function set_rgbamodel(v:Model):Model {
-        stdgo._internal.image.color.Color_rgbamodel.rgbamodel = v;
+var rGBAModel(get, set) : Model;
+private function get_rGBAModel():Model return stdgo._internal.image.color.Color_rGBAModel.rGBAModel;
+private function set_rGBAModel(v:Model):Model {
+        stdgo._internal.image.color.Color_rGBAModel.rGBAModel = v;
         return v;
     }
-var rgba64model(get, set) : Model;
-private function get_rgba64model():Model return stdgo._internal.image.color.Color_rgba64model.rgba64model;
-private function set_rgba64model(v:Model):Model {
-        stdgo._internal.image.color.Color_rgba64model.rgba64model = v;
+var rGBA64Model(get, set) : Model;
+private function get_rGBA64Model():Model return stdgo._internal.image.color.Color_rGBA64Model.rGBA64Model;
+private function set_rGBA64Model(v:Model):Model {
+        stdgo._internal.image.color.Color_rGBA64Model.rGBA64Model = v;
         return v;
     }
-var nrgbamodel(get, set) : Model;
-private function get_nrgbamodel():Model return stdgo._internal.image.color.Color_nrgbamodel.nrgbamodel;
-private function set_nrgbamodel(v:Model):Model {
-        stdgo._internal.image.color.Color_nrgbamodel.nrgbamodel = v;
+var nRGBAModel(get, set) : Model;
+private function get_nRGBAModel():Model return stdgo._internal.image.color.Color_nRGBAModel.nRGBAModel;
+private function set_nRGBAModel(v:Model):Model {
+        stdgo._internal.image.color.Color_nRGBAModel.nRGBAModel = v;
         return v;
     }
-var nrgba64model(get, set) : Model;
-private function get_nrgba64model():Model return stdgo._internal.image.color.Color_nrgba64model.nrgba64model;
-private function set_nrgba64model(v:Model):Model {
-        stdgo._internal.image.color.Color_nrgba64model.nrgba64model = v;
+var nRGBA64Model(get, set) : Model;
+private function get_nRGBA64Model():Model return stdgo._internal.image.color.Color_nRGBA64Model.nRGBA64Model;
+private function set_nRGBA64Model(v:Model):Model {
+        stdgo._internal.image.color.Color_nRGBA64Model.nRGBA64Model = v;
         return v;
     }
 var alphaModel(get, set) : Model;
@@ -71,28 +71,28 @@ private function set_opaque(v:Alpha16):Alpha16 {
         stdgo._internal.image.color.Color_opaque.opaque = v;
         return v;
     }
-var ycbCrModel(get, set) : Model;
-private function get_ycbCrModel():Model return stdgo._internal.image.color.Color_ycbCrModel.ycbCrModel;
-private function set_ycbCrModel(v:Model):Model {
-        stdgo._internal.image.color.Color_ycbCrModel.ycbCrModel = v;
+var yCbCrModel(get, set) : Model;
+private function get_yCbCrModel():Model return stdgo._internal.image.color.Color_yCbCrModel.yCbCrModel;
+private function set_yCbCrModel(v:Model):Model {
+        stdgo._internal.image.color.Color_yCbCrModel.yCbCrModel = v;
         return v;
     }
-var nycbCrAModel(get, set) : Model;
-private function get_nycbCrAModel():Model return stdgo._internal.image.color.Color_nycbCrAModel.nycbCrAModel;
-private function set_nycbCrAModel(v:Model):Model {
-        stdgo._internal.image.color.Color_nycbCrAModel.nycbCrAModel = v;
+var nYCbCrAModel(get, set) : Model;
+private function get_nYCbCrAModel():Model return stdgo._internal.image.color.Color_nYCbCrAModel.nYCbCrAModel;
+private function set_nYCbCrAModel(v:Model):Model {
+        stdgo._internal.image.color.Color_nYCbCrAModel.nYCbCrAModel = v;
         return v;
     }
-var cmykmodel(get, set) : Model;
-private function get_cmykmodel():Model return stdgo._internal.image.color.Color_cmykmodel.cmykmodel;
-private function set_cmykmodel(v:Model):Model {
-        stdgo._internal.image.color.Color_cmykmodel.cmykmodel = v;
+var cMYKModel(get, set) : Model;
+private function get_cMYKModel():Model return stdgo._internal.image.color.Color_cMYKModel.cMYKModel;
+private function set_cMYKModel(v:Model):Model {
+        stdgo._internal.image.color.Color_cMYKModel.cMYKModel = v;
         return v;
     }
 class Color_static_extension {
-    static public function rgba(t:stdgo._internal.image.color.Color_Color.Color):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(t:stdgo._internal.image.color.Color_Color.Color):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_Color_static_extension.Color_static_extension.rgba(t);
+            final obj = stdgo._internal.image.color.Color_Color_static_extension.Color_static_extension.rGBA(t);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -299,10 +299,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.image.color.Color.NYCbCrA_static_extension) abstract NYCbCrA(stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA) from stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA to stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA {
-    public var ycbCr(get, set) : YCbCr;
-    function get_ycbCr():YCbCr return this.ycbCr;
-    function set_ycbCr(v:YCbCr):YCbCr {
-        this.ycbCr = v;
+    public var yCbCr(get, set) : YCbCr;
+    function get_yCbCr():YCbCr return this.yCbCr;
+    function set_yCbCr(v:YCbCr):YCbCr {
+        this.yCbCr = v;
         return v;
     }
     public var a(get, set) : std.UInt;
@@ -311,7 +311,7 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
         this.a = v;
         return v;
     }
-    public function new(?ycbCr:YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA(ycbCr, a);
+    public function new(?yCbCr:YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA(yCbCr, a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -345,99 +345,112 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public function __copy__() return this.__copy__();
 }
 typedef Palette = stdgo._internal.image.color.Color_Palette.Palette;
+typedef RGBAPointer = stdgo._internal.image.color.Color_RGBAPointer.RGBAPointer;
 class RGBA_static_extension {
-    static public function rgba(_c:RGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:RGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_RGBA_static_extension.RGBA_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_RGBA_static_extension.RGBA_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef RGBA64Pointer = stdgo._internal.image.color.Color_RGBA64Pointer.RGBA64Pointer;
 class RGBA64_static_extension {
-    static public function rgba(_c:RGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:RGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_RGBA64_static_extension.RGBA64_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_RGBA64_static_extension.RGBA64_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef NRGBAPointer = stdgo._internal.image.color.Color_NRGBAPointer.NRGBAPointer;
 class NRGBA_static_extension {
-    static public function rgba(_c:NRGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:NRGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_NRGBA_static_extension.NRGBA_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_NRGBA_static_extension.NRGBA_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef NRGBA64Pointer = stdgo._internal.image.color.Color_NRGBA64Pointer.NRGBA64Pointer;
 class NRGBA64_static_extension {
-    static public function rgba(_c:NRGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:NRGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_NRGBA64_static_extension.NRGBA64_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_NRGBA64_static_extension.NRGBA64_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef AlphaPointer = stdgo._internal.image.color.Color_AlphaPointer.AlphaPointer;
 class Alpha_static_extension {
-    static public function rgba(_c:Alpha):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:Alpha):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_Alpha_static_extension.Alpha_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_Alpha_static_extension.Alpha_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef Alpha16Pointer = stdgo._internal.image.color.Color_Alpha16Pointer.Alpha16Pointer;
 class Alpha16_static_extension {
-    static public function rgba(_c:Alpha16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:Alpha16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_Alpha16_static_extension.Alpha16_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_Alpha16_static_extension.Alpha16_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef GrayPointer = stdgo._internal.image.color.Color_GrayPointer.GrayPointer;
 class Gray_static_extension {
-    static public function rgba(_c:Gray):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:Gray):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_Gray_static_extension.Gray_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_Gray_static_extension.Gray_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef Gray16Pointer = stdgo._internal.image.color.Color_Gray16Pointer.Gray16Pointer;
 class Gray16_static_extension {
-    static public function rgba(_c:Gray16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:Gray16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_Gray16_static_extension.Gray16_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_Gray16_static_extension.Gray16_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef T_modelFuncPointer = stdgo._internal.image.color.Color_T_modelFuncPointer.T_modelFuncPointer;
 class T_modelFunc_static_extension {
     static public function convert(_m:T_modelFunc, _c:Color_):Color_ {
         return stdgo._internal.image.color.Color_T_modelFunc_static_extension.T_modelFunc_static_extension.convert(_m, _c);
     }
 }
+typedef YCbCrPointer = stdgo._internal.image.color.Color_YCbCrPointer.YCbCrPointer;
 class YCbCr_static_extension {
-    static public function rgba(_c:YCbCr):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:YCbCr):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_YCbCr_static_extension.YCbCr_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_YCbCr_static_extension.YCbCr_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef NYCbCrAPointer = stdgo._internal.image.color.Color_NYCbCrAPointer.NYCbCrAPointer;
 class NYCbCrA_static_extension {
-    static public function rgba(_c:NYCbCrA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:NYCbCrA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_NYCbCrA_static_extension.NYCbCrA_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_NYCbCrA_static_extension.NYCbCrA_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef CMYKPointer = stdgo._internal.image.color.Color_CMYKPointer.CMYKPointer;
 class CMYK_static_extension {
-    static public function rgba(_c:CMYK):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(_c:CMYK):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_CMYK_static_extension.CMYK_static_extension.rgba(_c);
+            final obj = stdgo._internal.image.color.Color_CMYK_static_extension.CMYK_static_extension.rGBA(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
+typedef PalettePointer = stdgo._internal.image.color.Color_PalettePointer.PalettePointer;
 class Palette_static_extension {
     static public function index(_p:Palette, _c:Color_):StdTypes.Int {
         return stdgo._internal.image.color.Color_Palette_static_extension.Palette_static_extension.index(_p, _c);
@@ -463,36 +476,36 @@ class Color {
     /**
         RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
     **/
-    static public function rgbtoYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function rGBToYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_rgbtoYCbCr.rgbtoYCbCr(_r, _g, _b);
+            final obj = stdgo._internal.image.color.Color_rGBToYCbCr.rGBToYCbCr(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     /**
         YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
     **/
-    static public function ycbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function yCbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_ycbCrToRGB.ycbCrToRGB(_y, _cb, _cr);
+            final obj = stdgo._internal.image.color.Color_yCbCrToRGB.yCbCrToRGB(_y, _cb, _cr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     /**
         RGBToCMYK converts an RGB triple to a CMYK quadruple.
     **/
-    static public function rgbtoCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBToCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_rgbtoCMYK.rgbtoCMYK(_r, _g, _b);
+            final obj = stdgo._internal.image.color.Color_rGBToCMYK.rGBToCMYK(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
     /**
         CMYKToRGB converts a CMYK quadruple to an RGB triple.
     **/
-    static public function cmyktoRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function cMYKToRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color_cmyktoRGB.cmyktoRGB(_c, _m, _y, _k);
+            final obj = stdgo._internal.image.color.Color_cMYKToRGB.cMYKToRGB(_c, _m, _y, _k);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }

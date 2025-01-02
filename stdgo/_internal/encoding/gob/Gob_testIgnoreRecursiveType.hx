@@ -40,8 +40,8 @@ function testIgnoreRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_data)));
-        var _err = (_dec.decode((null : stdgo.AnyInterface)) : stdgo.Error);
+        var _err = (@:check2r _dec.decode((null : stdgo.AnyInterface)) : stdgo.Error);
         if (_err != null) {
-            _t.fatal(stdgo.Go.toInterface(_err));
+            @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
     }

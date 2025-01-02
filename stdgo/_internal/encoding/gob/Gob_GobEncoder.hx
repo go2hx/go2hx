@@ -7,5 +7,6 @@ typedef GobEncoder = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function gobEncode():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
 };

@@ -6,5 +6,6 @@ typedef RuneScanner = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function unreadRune():stdgo.Error;
 };

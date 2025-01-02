@@ -1,17 +1,19 @@
 package stdgo._internal.crypto.cipher;
 @:keep @:allow(stdgo._internal.crypto.cipher.Cipher.T_cbcDecrypter_asInterface) class T_cbcDecrypter_static_extension {
     @:keep
+    @:tdfield
     static public function setIV( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>, _iv:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter> = _x;
-        if ((_iv.length) != ((_x._iv.length))) {
+        if ((_iv.length) != (((@:checkr _x ?? throw "null pointer dereference")._iv.length))) {
             throw stdgo.Go.toInterface(("cipher: incorrect length IV" : stdgo.GoString));
         };
-        _x._iv.__copyTo__(_iv);
+        (@:checkr _x ?? throw "null pointer dereference")._iv.__copyTo__(_iv);
     }
     @:keep
+    @:tdfield
     static public function cryptBlocks( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter> = _x;
-        if (((_src.length) % _x._blockSize : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+        if (((_src.length) % (@:checkr _x ?? throw "null pointer dereference")._blockSize : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("crypto/cipher: input not full blocks" : stdgo.GoString));
         };
         if (((_dst.length) < (_src.length) : Bool)) {
@@ -24,28 +26,29 @@ package stdgo._internal.crypto.cipher;
             return;
         };
         var _end = (_src.length : stdgo.GoInt);
-        var _start = (_end - _x._blockSize : stdgo.GoInt);
-        var _prev = (_start - _x._blockSize : stdgo.GoInt);
-        _x._tmp.__copyTo__((_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
+        var _start = (_end - (@:checkr _x ?? throw "null pointer dereference")._blockSize : stdgo.GoInt);
+        var _prev = (_start - (@:checkr _x ?? throw "null pointer dereference")._blockSize : stdgo.GoInt);
+        (@:checkr _x ?? throw "null pointer dereference")._tmp.__copyTo__((_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
         while ((_start > (0 : stdgo.GoInt) : Bool)) {
-            _x._b.decrypt((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo._internal.crypto.subtle.Subtle_xorbytes.xorbytes((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_prev, _start) : stdgo.Slice<stdgo.GoUInt8>));
+            (@:checkr _x ?? throw "null pointer dereference")._b.decrypt((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
+            stdgo._internal.crypto.subtle.Subtle_xORBytes.xORBytes((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_prev, _start) : stdgo.Slice<stdgo.GoUInt8>));
             _end = _start;
             _start = _prev;
-            _prev = (_prev - (_x._blockSize) : stdgo.GoInt);
+            _prev = (_prev - ((@:checkr _x ?? throw "null pointer dereference")._blockSize) : stdgo.GoInt);
         };
-        _x._b.decrypt((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo._internal.crypto.subtle.Subtle_xorbytes.xorbytes((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), _x._iv);
+        (@:checkr _x ?? throw "null pointer dereference")._b.decrypt((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
+        stdgo._internal.crypto.subtle.Subtle_xORBytes.xORBytes((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _x ?? throw "null pointer dereference")._iv);
         {
-            final __tmp__0 = _x._tmp;
-            final __tmp__1 = _x._iv;
-            _x._iv = __tmp__0;
-            _x._tmp = __tmp__1;
+            final __tmp__0 = (@:checkr _x ?? throw "null pointer dereference")._tmp;
+            final __tmp__1 = (@:checkr _x ?? throw "null pointer dereference")._iv;
+            (@:checkr _x ?? throw "null pointer dereference")._iv = __tmp__0;
+            (@:checkr _x ?? throw "null pointer dereference")._tmp = __tmp__1;
         };
     }
     @:keep
+    @:tdfield
     static public function blockSize( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>):stdgo.GoInt {
         @:recv var _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter> = _x;
-        return _x._blockSize;
+        return (@:checkr _x ?? throw "null pointer dereference")._blockSize;
     }
 }

@@ -27,7 +27,7 @@ function _decodeUintReader(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Sl
             _err = __tmp__._1;
         };
         if (_err != null) {
-            if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+            if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                 _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
             };
             return { _0 : _x, _1 : _width, _2 : _err };

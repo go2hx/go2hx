@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_htmlSig_asInterface) class T_htmlSig_static_extension {
     @:keep
+    @:tdfield
     static public function _match( _h:stdgo._internal.net.http.Http_T_htmlSig.T_htmlSig, _data:stdgo.Slice<stdgo.GoUInt8>, _firstNonWS:stdgo.GoInt):stdgo.GoString {
         @:recv var _h:stdgo._internal.net.http.Http_T_htmlSig.T_htmlSig = _h;
         _data = (_data.__slice__(_firstNonWS) : stdgo.Slice<stdgo.GoUInt8>);

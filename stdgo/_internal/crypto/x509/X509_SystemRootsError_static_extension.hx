@@ -1,11 +1,13 @@
 package stdgo._internal.crypto.x509;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.SystemRootsError_asInterface) class SystemRootsError_static_extension {
     @:keep
+    @:tdfield
     static public function unwrap( _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError):stdgo.Error {
         @:recv var _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError = _se?.__copy__();
         return _se.err;
     }
     @:keep
+    @:tdfield
     static public function error( _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError):stdgo.GoString {
         @:recv var _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError = _se?.__copy__();
         var _msg = ("x509: failed to load system roots and no roots provided" : stdgo.GoString);

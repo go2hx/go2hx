@@ -7,32 +7,33 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
                 _w.write((("{ \"foo\": \"bar\" }" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
             } : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
             {
-                final __f__ = _ts.close;
+                final __f__ = @:check2r _ts.close;
                 __deferstack__.unshift(() -> __f__());
             };
-            var __tmp__ = stdgo._internal.net.http.Http_get.get(_ts.url?.__copy__()), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.net.http.Http_get.get((@:checkr _ts ?? throw "null pointer dereference").uRL?.__copy__()), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 stdgo._internal.log.Log_fatalf.fatalf(("GET failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             {
-                final __f__ = _res.body.close;
+                final __f__ = (@:checkr _res ?? throw "null pointer dereference").body.close;
                 __deferstack__.unshift(() -> __f__());
             };
             var _foo = ({ foo : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44);
-            var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_res.body);
-            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
+            var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder((@:checkr _res ?? throw "null pointer dereference").body);
+            _err = @:check2r _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
             if (_err != null) {
-                _t.fatalf(("Decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("Decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             if (_foo.foo != (("bar" : stdgo.GoString))) {
-                _t.errorf(("decoded %q; want \"bar\"" : stdgo.GoString), stdgo.Go.toInterface(_foo.foo));
+                @:check2r _t.errorf(("decoded %q; want \"bar\"" : stdgo.GoString), stdgo.Go.toInterface(_foo.foo));
             };
-            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
-            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                _t.errorf(("err = %v; want io.EOF" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            _err = @:check2r _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
+            if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+                @:check2r _t.errorf(("err = %v; want io.EOF" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -47,6 +48,7 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

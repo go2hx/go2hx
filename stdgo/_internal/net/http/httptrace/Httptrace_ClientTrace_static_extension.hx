@@ -1,14 +1,16 @@
 package stdgo._internal.net.http.httptrace;
 @:keep @:allow(stdgo._internal.net.http.httptrace.Httptrace.ClientTrace_asInterface) class ClientTrace_static_extension {
     @:keep
+    @:tdfield
     static public function _hasNetHooks( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = _t;
         if ((_t == null || (_t : Dynamic).__nil__)) {
             return false;
         };
-        return (((_t.dnsstart != null || _t.dnsdone != null : Bool) || _t.connectStart != null : Bool) || (_t.connectDone != null) : Bool);
+        return ((((@:checkr _t ?? throw "null pointer dereference").dNSStart != null || (@:checkr _t ?? throw "null pointer dereference").dNSDone != null : Bool) || (@:checkr _t ?? throw "null pointer dereference").connectStart != null : Bool) || ((@:checkr _t ?? throw "null pointer dereference").connectDone != null) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _compose( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>, _old:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = _t;
         if ((_old == null || (_old : Dynamic).__nil__)) {

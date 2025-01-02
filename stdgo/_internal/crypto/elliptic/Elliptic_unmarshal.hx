@@ -34,9 +34,9 @@ function unmarshal(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, 
             };
         };
         var _p = _curve.params().p;
-        _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__(((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        if (((_x.cmp(_p) >= (0 : stdgo.GoInt) : Bool) || (_y.cmp(_p) >= (0 : stdgo.GoInt) : Bool) : Bool)) {
+        _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        _y = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__(((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        if (((@:check2r _x.cmp(_p) >= (0 : stdgo.GoInt) : Bool) || (@:check2r _y.cmp(_p) >= (0 : stdgo.GoInt) : Bool) : Bool)) {
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;

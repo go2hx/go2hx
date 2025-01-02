@@ -4,7 +4,7 @@ function sum(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoArray<stdgo.GoUInt8> {
             return stdgo._internal.crypto.sha1.Sha1__boringSHA1._boringSHA1(_data)?.__copy__();
         };
         var _d:stdgo._internal.crypto.sha1.Sha1_T_digest.T_digest = ({} : stdgo._internal.crypto.sha1.Sha1_T_digest.T_digest);
-        _d.reset();
-        _d.write(_data);
-        return _d._checkSum()?.__copy__();
+        @:check2 _d.reset();
+        @:check2 _d.write(_data);
+        return @:check2 _d._checkSum()?.__copy__();
     }

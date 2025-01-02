@@ -520,303 +520,373 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.math.big.Big_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.math.big.Big_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.math.big.Big_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.math.big.Big_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.math.big.Big_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
 typedef T__struct_2 = stdgo._internal.math.big.Big_T__struct_2.T__struct_2;
+typedef T__struct_3Pointer = stdgo._internal.math.big.Big_T__struct_3Pointer.T__struct_3Pointer;
 class T__struct_3_static_extension {
 
 }
 typedef T__struct_3 = stdgo._internal.math.big.Big_T__struct_3.T__struct_3;
+typedef T__struct_4Pointer = stdgo._internal.math.big.Big_T__struct_4Pointer.T__struct_4Pointer;
 class T__struct_4_static_extension {
 
 }
 typedef T__struct_4 = stdgo._internal.math.big.Big_T__struct_4.T__struct_4;
+typedef T__struct_5Pointer = stdgo._internal.math.big.Big_T__struct_5Pointer.T__struct_5Pointer;
 class T__struct_5_static_extension {
 
 }
 typedef T__struct_5 = stdgo._internal.math.big.Big_T__struct_5.T__struct_5;
+typedef T__struct_6Pointer = stdgo._internal.math.big.Big_T__struct_6Pointer.T__struct_6Pointer;
 class T__struct_6_static_extension {
 
 }
 typedef T__struct_6 = stdgo._internal.math.big.Big_T__struct_6.T__struct_6;
+typedef T__struct_7Pointer = stdgo._internal.math.big.Big_T__struct_7Pointer.T__struct_7Pointer;
 class T__struct_7_static_extension {
 
 }
 typedef T__struct_7 = stdgo._internal.math.big.Big_T__struct_7.T__struct_7;
+typedef T__struct_8Pointer = stdgo._internal.math.big.Big_T__struct_8Pointer.T__struct_8Pointer;
 class T__struct_8_static_extension {
 
 }
 typedef T__struct_8 = stdgo._internal.math.big.Big_T__struct_8.T__struct_8;
+typedef T__struct_9Pointer = stdgo._internal.math.big.Big_T__struct_9Pointer.T__struct_9Pointer;
 class T__struct_9_static_extension {
 
 }
 typedef T__struct_9 = stdgo._internal.math.big.Big_T__struct_9.T__struct_9;
+typedef T__struct_10Pointer = stdgo._internal.math.big.Big_T__struct_10Pointer.T__struct_10Pointer;
 class T__struct_10_static_extension {
 
 }
 typedef T__struct_10 = stdgo._internal.math.big.Big_T__struct_10.T__struct_10;
+typedef T__struct_11Pointer = stdgo._internal.math.big.Big_T__struct_11Pointer.T__struct_11Pointer;
 class T__struct_11_static_extension {
 
 }
 typedef T__struct_11 = stdgo._internal.math.big.Big_T__struct_11.T__struct_11;
+typedef T__struct_12Pointer = stdgo._internal.math.big.Big_T__struct_12Pointer.T__struct_12Pointer;
 class T__struct_12_static_extension {
 
 }
 typedef T__struct_12 = stdgo._internal.math.big.Big_T__struct_12.T__struct_12;
+typedef T__struct_13Pointer = stdgo._internal.math.big.Big_T__struct_13Pointer.T__struct_13Pointer;
 class T__struct_13_static_extension {
 
 }
 typedef T__struct_13 = stdgo._internal.math.big.Big_T__struct_13.T__struct_13;
+typedef T__struct_14Pointer = stdgo._internal.math.big.Big_T__struct_14Pointer.T__struct_14Pointer;
 class T__struct_14_static_extension {
 
 }
 typedef T__struct_14 = stdgo._internal.math.big.Big_T__struct_14.T__struct_14;
+typedef T__struct_15Pointer = stdgo._internal.math.big.Big_T__struct_15Pointer.T__struct_15Pointer;
 class T__struct_15_static_extension {
 
 }
 typedef T__struct_15 = stdgo._internal.math.big.Big_T__struct_15.T__struct_15;
+typedef T__struct_16Pointer = stdgo._internal.math.big.Big_T__struct_16Pointer.T__struct_16Pointer;
 class T__struct_16_static_extension {
 
 }
 typedef T__struct_16 = stdgo._internal.math.big.Big_T__struct_16.T__struct_16;
+typedef T__struct_17Pointer = stdgo._internal.math.big.Big_T__struct_17Pointer.T__struct_17Pointer;
 class T__struct_17_static_extension {
 
 }
 typedef T__struct_17 = stdgo._internal.math.big.Big_T__struct_17.T__struct_17;
+typedef T__struct_18Pointer = stdgo._internal.math.big.Big_T__struct_18Pointer.T__struct_18Pointer;
 class T__struct_18_static_extension {
 
 }
 typedef T__struct_18 = stdgo._internal.math.big.Big_T__struct_18.T__struct_18;
+typedef T__struct_19Pointer = stdgo._internal.math.big.Big_T__struct_19Pointer.T__struct_19Pointer;
 class T__struct_19_static_extension {
 
 }
 typedef T__struct_19 = stdgo._internal.math.big.Big_T__struct_19.T__struct_19;
+typedef T__struct_20Pointer = stdgo._internal.math.big.Big_T__struct_20Pointer.T__struct_20Pointer;
 class T__struct_20_static_extension {
 
 }
 typedef T__struct_20 = stdgo._internal.math.big.Big_T__struct_20.T__struct_20;
+typedef T__struct_21Pointer = stdgo._internal.math.big.Big_T__struct_21Pointer.T__struct_21Pointer;
 class T__struct_21_static_extension {
 
 }
 typedef T__struct_21 = stdgo._internal.math.big.Big_T__struct_21.T__struct_21;
+typedef T__struct_22Pointer = stdgo._internal.math.big.Big_T__struct_22Pointer.T__struct_22Pointer;
 class T__struct_22_static_extension {
 
 }
 typedef T__struct_22 = stdgo._internal.math.big.Big_T__struct_22.T__struct_22;
+typedef T__struct_23Pointer = stdgo._internal.math.big.Big_T__struct_23Pointer.T__struct_23Pointer;
 class T__struct_23_static_extension {
 
 }
 typedef T__struct_23 = stdgo._internal.math.big.Big_T__struct_23.T__struct_23;
+typedef T__struct_24Pointer = stdgo._internal.math.big.Big_T__struct_24Pointer.T__struct_24Pointer;
 class T__struct_24_static_extension {
 
 }
 typedef T__struct_24 = stdgo._internal.math.big.Big_T__struct_24.T__struct_24;
+typedef T__struct_25Pointer = stdgo._internal.math.big.Big_T__struct_25Pointer.T__struct_25Pointer;
 class T__struct_25_static_extension {
 
 }
 typedef T__struct_25 = stdgo._internal.math.big.Big_T__struct_25.T__struct_25;
+typedef T__struct_26Pointer = stdgo._internal.math.big.Big_T__struct_26Pointer.T__struct_26Pointer;
 class T__struct_26_static_extension {
 
 }
 typedef T__struct_26 = stdgo._internal.math.big.Big_T__struct_26.T__struct_26;
+typedef T__struct_27Pointer = stdgo._internal.math.big.Big_T__struct_27Pointer.T__struct_27Pointer;
 class T__struct_27_static_extension {
 
 }
 typedef T__struct_27 = stdgo._internal.math.big.Big_T__struct_27.T__struct_27;
+typedef T__struct_28Pointer = stdgo._internal.math.big.Big_T__struct_28Pointer.T__struct_28Pointer;
 class T__struct_28_static_extension {
 
 }
 typedef T__struct_28 = stdgo._internal.math.big.Big_T__struct_28.T__struct_28;
+typedef T__struct_29Pointer = stdgo._internal.math.big.Big_T__struct_29Pointer.T__struct_29Pointer;
 class T__struct_29_static_extension {
 
 }
 typedef T__struct_29 = stdgo._internal.math.big.Big_T__struct_29.T__struct_29;
+typedef T__struct_30Pointer = stdgo._internal.math.big.Big_T__struct_30Pointer.T__struct_30Pointer;
 class T__struct_30_static_extension {
 
 }
 typedef T__struct_30 = stdgo._internal.math.big.Big_T__struct_30.T__struct_30;
+typedef T__struct_31Pointer = stdgo._internal.math.big.Big_T__struct_31Pointer.T__struct_31Pointer;
 class T__struct_31_static_extension {
 
 }
 typedef T__struct_31 = stdgo._internal.math.big.Big_T__struct_31.T__struct_31;
+typedef T__struct_32Pointer = stdgo._internal.math.big.Big_T__struct_32Pointer.T__struct_32Pointer;
 class T__struct_32_static_extension {
 
 }
 typedef T__struct_32 = stdgo._internal.math.big.Big_T__struct_32.T__struct_32;
+typedef T__struct_33Pointer = stdgo._internal.math.big.Big_T__struct_33Pointer.T__struct_33Pointer;
 class T__struct_33_static_extension {
 
 }
 typedef T__struct_33 = stdgo._internal.math.big.Big_T__struct_33.T__struct_33;
+typedef T__struct_34Pointer = stdgo._internal.math.big.Big_T__struct_34Pointer.T__struct_34Pointer;
 class T__struct_34_static_extension {
 
 }
 typedef T__struct_34 = stdgo._internal.math.big.Big_T__struct_34.T__struct_34;
+typedef T__struct_35Pointer = stdgo._internal.math.big.Big_T__struct_35Pointer.T__struct_35Pointer;
 class T__struct_35_static_extension {
 
 }
 typedef T__struct_35 = stdgo._internal.math.big.Big_T__struct_35.T__struct_35;
+typedef T__struct_36Pointer = stdgo._internal.math.big.Big_T__struct_36Pointer.T__struct_36Pointer;
 class T__struct_36_static_extension {
 
 }
 typedef T__struct_36 = stdgo._internal.math.big.Big_T__struct_36.T__struct_36;
+typedef T__struct_37Pointer = stdgo._internal.math.big.Big_T__struct_37Pointer.T__struct_37Pointer;
 class T__struct_37_static_extension {
 
 }
 typedef T__struct_37 = stdgo._internal.math.big.Big_T__struct_37.T__struct_37;
+typedef T__struct_38Pointer = stdgo._internal.math.big.Big_T__struct_38Pointer.T__struct_38Pointer;
 class T__struct_38_static_extension {
 
 }
 typedef T__struct_38 = stdgo._internal.math.big.Big_T__struct_38.T__struct_38;
+typedef T__struct_39Pointer = stdgo._internal.math.big.Big_T__struct_39Pointer.T__struct_39Pointer;
 class T__struct_39_static_extension {
 
 }
 typedef T__struct_39 = stdgo._internal.math.big.Big_T__struct_39.T__struct_39;
+typedef T__struct_40Pointer = stdgo._internal.math.big.Big_T__struct_40Pointer.T__struct_40Pointer;
 class T__struct_40_static_extension {
 
 }
 typedef T__struct_40 = stdgo._internal.math.big.Big_T__struct_40.T__struct_40;
+typedef T__struct_41Pointer = stdgo._internal.math.big.Big_T__struct_41Pointer.T__struct_41Pointer;
 class T__struct_41_static_extension {
 
 }
 typedef T__struct_41 = stdgo._internal.math.big.Big_T__struct_41.T__struct_41;
+typedef T__struct_42Pointer = stdgo._internal.math.big.Big_T__struct_42Pointer.T__struct_42Pointer;
 class T__struct_42_static_extension {
 
 }
 typedef T__struct_42 = stdgo._internal.math.big.Big_T__struct_42.T__struct_42;
+typedef T__struct_43Pointer = stdgo._internal.math.big.Big_T__struct_43Pointer.T__struct_43Pointer;
 class T__struct_43_static_extension {
 
 }
 typedef T__struct_43 = stdgo._internal.math.big.Big_T__struct_43.T__struct_43;
+typedef T__struct_44Pointer = stdgo._internal.math.big.Big_T__struct_44Pointer.T__struct_44Pointer;
 class T__struct_44_static_extension {
 
 }
 typedef T__struct_44 = stdgo._internal.math.big.Big_T__struct_44.T__struct_44;
+typedef T__struct_45Pointer = stdgo._internal.math.big.Big_T__struct_45Pointer.T__struct_45Pointer;
 class T__struct_45_static_extension {
 
 }
 typedef T__struct_45 = stdgo._internal.math.big.Big_T__struct_45.T__struct_45;
+typedef T__struct_46Pointer = stdgo._internal.math.big.Big_T__struct_46Pointer.T__struct_46Pointer;
 class T__struct_46_static_extension {
 
 }
 typedef T__struct_46 = stdgo._internal.math.big.Big_T__struct_46.T__struct_46;
+typedef T__struct_47Pointer = stdgo._internal.math.big.Big_T__struct_47Pointer.T__struct_47Pointer;
 class T__struct_47_static_extension {
 
 }
 typedef T__struct_47 = stdgo._internal.math.big.Big_T__struct_47.T__struct_47;
+typedef T__struct_48Pointer = stdgo._internal.math.big.Big_T__struct_48Pointer.T__struct_48Pointer;
 class T__struct_48_static_extension {
 
 }
 typedef T__struct_48 = stdgo._internal.math.big.Big_T__struct_48.T__struct_48;
+typedef T__struct_49Pointer = stdgo._internal.math.big.Big_T__struct_49Pointer.T__struct_49Pointer;
 class T__struct_49_static_extension {
 
 }
 typedef T__struct_49 = stdgo._internal.math.big.Big_T__struct_49.T__struct_49;
+typedef T__struct_50Pointer = stdgo._internal.math.big.Big_T__struct_50Pointer.T__struct_50Pointer;
 class T__struct_50_static_extension {
 
 }
 typedef T__struct_50 = stdgo._internal.math.big.Big_T__struct_50.T__struct_50;
+typedef T__struct_51Pointer = stdgo._internal.math.big.Big_T__struct_51Pointer.T__struct_51Pointer;
 class T__struct_51_static_extension {
 
 }
 typedef T__struct_51 = stdgo._internal.math.big.Big_T__struct_51.T__struct_51;
+typedef T__struct_52Pointer = stdgo._internal.math.big.Big_T__struct_52Pointer.T__struct_52Pointer;
 class T__struct_52_static_extension {
 
 }
 typedef T__struct_52 = stdgo._internal.math.big.Big_T__struct_52.T__struct_52;
+typedef T__struct_53Pointer = stdgo._internal.math.big.Big_T__struct_53Pointer.T__struct_53Pointer;
 class T__struct_53_static_extension {
 
 }
 typedef T__struct_53 = stdgo._internal.math.big.Big_T__struct_53.T__struct_53;
+typedef T__struct_54Pointer = stdgo._internal.math.big.Big_T__struct_54Pointer.T__struct_54Pointer;
 class T__struct_54_static_extension {
 
 }
 typedef T__struct_54 = stdgo._internal.math.big.Big_T__struct_54.T__struct_54;
+typedef T__struct_55Pointer = stdgo._internal.math.big.Big_T__struct_55Pointer.T__struct_55Pointer;
 class T__struct_55_static_extension {
 
 }
 typedef T__struct_55 = stdgo._internal.math.big.Big_T__struct_55.T__struct_55;
+typedef T__struct_56Pointer = stdgo._internal.math.big.Big_T__struct_56Pointer.T__struct_56Pointer;
 class T__struct_56_static_extension {
 
 }
 typedef T__struct_56 = stdgo._internal.math.big.Big_T__struct_56.T__struct_56;
+typedef T__struct_57Pointer = stdgo._internal.math.big.Big_T__struct_57Pointer.T__struct_57Pointer;
 class T__struct_57_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57, __0:StdTypes.Int) {
-        stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension._unlockSlow(__self__, __0);
+    public static function _unlockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57, _0:StdTypes.Int):Void {
+        stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57) {
+    public static function _lockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57) {
+    public static function unlock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Bool {
         return stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57) {
+    public static function lock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.lock(__self__);
     }
 }
 typedef T__struct_57 = stdgo._internal.math.big.Big_T__struct_57.T__struct_57;
+typedef T__struct_58Pointer = stdgo._internal.math.big.Big_T__struct_58Pointer.T__struct_58Pointer;
 class T__struct_58_static_extension {
 
 }
 typedef T__struct_58 = stdgo._internal.math.big.Big_T__struct_58.T__struct_58;
+typedef T__struct_59Pointer = stdgo._internal.math.big.Big_T__struct_59Pointer.T__struct_59Pointer;
 class T__struct_59_static_extension {
 
 }
 typedef T__struct_59 = stdgo._internal.math.big.Big_T__struct_59.T__struct_59;
+typedef T__struct_60Pointer = stdgo._internal.math.big.Big_T__struct_60Pointer.T__struct_60Pointer;
 class T__struct_60_static_extension {
 
 }
 typedef T__struct_60 = stdgo._internal.math.big.Big_T__struct_60.T__struct_60;
+typedef T__struct_61Pointer = stdgo._internal.math.big.Big_T__struct_61Pointer.T__struct_61Pointer;
 class T__struct_61_static_extension {
 
 }
 typedef T__struct_61 = stdgo._internal.math.big.Big_T__struct_61.T__struct_61;
+typedef T__struct_62Pointer = stdgo._internal.math.big.Big_T__struct_62Pointer.T__struct_62Pointer;
 class T__struct_62_static_extension {
 
 }
 typedef T__struct_62 = stdgo._internal.math.big.Big_T__struct_62.T__struct_62;
+typedef T__struct_63Pointer = stdgo._internal.math.big.Big_T__struct_63Pointer.T__struct_63Pointer;
 class T__struct_63_static_extension {
 
 }
 typedef T__struct_63 = stdgo._internal.math.big.Big_T__struct_63.T__struct_63;
+typedef T__struct_64Pointer = stdgo._internal.math.big.Big_T__struct_64Pointer.T__struct_64Pointer;
 class T__struct_64_static_extension {
 
 }
 typedef T__struct_64 = stdgo._internal.math.big.Big_T__struct_64.T__struct_64;
+typedef T__struct_65Pointer = stdgo._internal.math.big.Big_T__struct_65Pointer.T__struct_65Pointer;
 class T__struct_65_static_extension {
 
 }
 typedef T__struct_65 = stdgo._internal.math.big.Big_T__struct_65.T__struct_65;
+typedef T__struct_66Pointer = stdgo._internal.math.big.Big_T__struct_66Pointer.T__struct_66Pointer;
 class T__struct_66_static_extension {
 
 }
 typedef T__struct_66 = stdgo._internal.math.big.Big_T__struct_66.T__struct_66;
+typedef T__struct_67Pointer = stdgo._internal.math.big.Big_T__struct_67Pointer.T__struct_67Pointer;
 class T__struct_67_static_extension {
-    public static function _doSlow(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension._doSlow(__self__, _f);
+    public static function _doSlow(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension._doSlow(__self__, _0);
     }
-    public static function do_(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension.do_(__self__, _f);
+    public static function do_(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension.do_(__self__, _0);
     }
 }
 typedef T__struct_67 = stdgo._internal.math.big.Big_T__struct_67.T__struct_67;
+typedef T__struct_68Pointer = stdgo._internal.math.big.Big_T__struct_68Pointer.T__struct_68Pointer;
 class T__struct_68_static_extension {
 
 }
 typedef T__struct_68 = stdgo._internal.math.big.Big_T__struct_68.T__struct_68;
+typedef T__struct_69Pointer = stdgo._internal.math.big.Big_T__struct_69Pointer.T__struct_69Pointer;
 class T__struct_69_static_extension {
 
 }
@@ -835,6 +905,7 @@ typedef T_bitFun = stdgo._internal.math.big.Big_T_bitFun.T_bitFun;
 typedef T_nat = stdgo._internal.math.big.Big_T_nat.T_nat;
 typedef T_funNN = stdgo._internal.math.big.Big_T_funNN.T_funNN;
 typedef T_ratBinFun = stdgo._internal.math.big.Big_T_ratBinFun.T_ratBinFun;
+typedef T_decimalPointer = stdgo._internal.math.big.Big_T_decimalPointer.T_decimalPointer;
 class T_decimal_static_extension {
     static public function _roundDown(_x:T_decimal, _n:StdTypes.Int):Void {
         stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._roundDown(_x, _n);
@@ -855,6 +926,7 @@ class T_decimal_static_extension {
         return stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._at(_d, _i);
     }
 }
+typedef Float_Pointer = stdgo._internal.math.big.Big_Float_Pointer.Float_Pointer;
 class Float__static_extension {
     static public function _sqrtInverse(_z:Float_, _x:Float_):Void {
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._sqrtInverse(_z, _x);
@@ -1088,11 +1160,13 @@ class Float__static_extension {
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setPrec(_z, _prec);
     }
 }
+typedef ErrNaNPointer = stdgo._internal.math.big.Big_ErrNaNPointer.ErrNaNPointer;
 class ErrNaN_static_extension {
     static public function error(_err:ErrNaN):String {
         return stdgo._internal.math.big.Big_ErrNaN_static_extension.ErrNaN_static_extension.error(_err);
     }
 }
+typedef T_matrixPointer = stdgo._internal.math.big.Big_T_matrixPointer.T_matrixPointer;
 class T_matrix_static_extension {
     static public function string(_a:T_matrix):String {
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension.string(_a);
@@ -1110,6 +1184,7 @@ class T_matrix_static_extension {
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension._at(_a, _i, _j);
     }
 }
+typedef Int_Pointer = stdgo._internal.math.big.Big_Int_Pointer.Int_Pointer;
 class Int__static_extension {
     static public function _scaleDenom(_z:Int_, _x:Int_, _f:T_nat):Void {
         stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._scaleDenom(_z, _x, _f);
@@ -1220,8 +1295,8 @@ class Int__static_extension {
     static public function _lehmerGCD(_z:Int_, _x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._lehmerGCD(_z, _x, _y, _a, _b);
     }
-    static public function gcd(_z:Int_, _x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
-        return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.gcd(_z, _x, _y, _a, _b);
+    static public function gCD(_z:Int_, _x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
+        return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.gCD(_z, _x, _y, _a, _b);
     }
     static public function _exp(_z:Int_, _x:Int_, _y:Int_, _m:Int_, _slow:Bool):Int_ {
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._exp(_z, _x, _y, _m, _slow);
@@ -1350,6 +1425,7 @@ class Int__static_extension {
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.sign(_x);
     }
 }
+typedef T_byteReaderPointer = stdgo._internal.math.big.Big_T_byteReaderPointer.T_byteReaderPointer;
 class T_byteReader_static_extension {
     static public function unreadByte(_r:T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.unreadByte(_r);
@@ -1369,14 +1445,14 @@ class T_byteReader_static_extension {
     public static function unreadRune(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.unreadRune(__self__);
     }
-    public static function token(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _f = _f;
+    public static function token(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _0:Bool, _1:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _1 = _1;
         return {
-            final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.token(__self__, _skipSpace, _f);
+            final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.token(__self__, _0, _1);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function skipSpace(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader) {
+    public static function skipSpace(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):Void {
         stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.skipSpace(__self__);
     }
     public static function readRune(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
@@ -1385,14 +1461,15 @@ class T_byteReader_static_extension {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function read(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.read(__self__, _buf);
+            final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef RatPointer = stdgo._internal.math.big.Big_RatPointer.RatPointer;
 class Rat_static_extension {
     static public function unmarshalText(_z:Rat, _text:Array<std.UInt>):stdgo.Error {
         final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1508,6 +1585,7 @@ class Rat_static_extension {
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setFloat64(_z, _f);
     }
 }
+typedef BitsPointer = stdgo._internal.math.big.Big_BitsPointer.BitsPointer;
 class Bits_static_extension {
     static public function float_(_bits:Bits):Float_ {
         return stdgo._internal.math.big.Big_Bits_static_extension.Bits_static_extension.float_(_bits);
@@ -1525,16 +1603,19 @@ class Bits_static_extension {
         return stdgo._internal.math.big.Big_Bits_static_extension.Bits_static_extension._add(_x, _y);
     }
 }
+typedef RoundingModePointer = stdgo._internal.math.big.Big_RoundingModePointer.RoundingModePointer;
 class RoundingMode_static_extension {
     static public function string(_i:RoundingMode):String {
         return stdgo._internal.math.big.Big_RoundingMode_static_extension.RoundingMode_static_extension.string(_i);
     }
 }
+typedef AccuracyPointer = stdgo._internal.math.big.Big_AccuracyPointer.AccuracyPointer;
 class Accuracy_static_extension {
     static public function string(_i:Accuracy):String {
         return stdgo._internal.math.big.Big_Accuracy_static_extension.Accuracy_static_extension.string(_i);
     }
 }
+typedef T_natPointer = stdgo._internal.math.big.Big_T_natPointer.T_natPointer;
 class T_nat_static_extension {
     static public function _probablyPrimeLucas(_n:T_nat):Bool {
         return stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._probablyPrimeLucas(_n);
@@ -1718,88 +1799,88 @@ class T_nat_static_extension {
 }
 /**
     /|*{
-    	nm1_4459370 = nat(nil).sub(n, natOne)
-    	k_4459444 = nm1_4459370.trailingZeroBits()
-    	q_4459473 = nat(nil).shr(nm1_4459370, k_4459444)
-    	nm3_4459501 = nat(nil).sub(nm1_4459370, natTwo)
-    	rand_4459535 = rand.New(rand.NewSource(int64(n[0])))
-    	nm3Len_4459607 = nm3_4459501.bitLen()
-    	gotoNext = 4459631
-    	_ = gotoNext == 4459631
-    	i_4459648 = 0
+    	nm1_4622038 = nat(nil).sub(n, natOne)
+    	k_4622112 = nm1_4622038.trailingZeroBits()
+    	q_4622141 = nat(nil).shr(nm1_4622038, k_4622112)
+    	nm3_4622169 = nat(nil).sub(nm1_4622038, natTwo)
+    	rand_4622203 = rand.New(rand.NewSource(int64(n[0])))
+    	nm3Len_4622275 = nm3_4622169.bitLen()
+    	gotoNext = 4622299
+    	_ = gotoNext == 4622299
+    	i_4622316 = 0
     	NextRandomBreak = false
-    	gotoNext = 4459644
-    	_ = gotoNext == 4459644
-    	if !NextRandomBreak && (i_4459648 < reps) {
-    		gotoNext = 4459670
-    		_ = gotoNext == 4459670
-    		if i_4459648 == reps-1 && force2 {
-    			gotoNext = 4459699
-    			_ = gotoNext == 4459699
-    			x_4459587 = x_4459587.set(natTwo)
-    			gotoNext = 4459798
+    	gotoNext = 4622312
+    	_ = gotoNext == 4622312
+    	if !NextRandomBreak && (i_4622316 < reps) {
+    		gotoNext = 4622338
+    		_ = gotoNext == 4622338
+    		if i_4622316 == reps-1 && force2 {
+    			gotoNext = 4622367
+    			_ = gotoNext == 4622367
+    			x_4622255 = x_4622255.set(natTwo)
+    			gotoNext = 4622466
     		} else {
-    			gotoNext = 4459731
-    			_ = gotoNext == 4459731
-    			gotoNext = 4459731
-    			_ = gotoNext == 4459731
-    			x_4459587 = x_4459587.random(rand_4459535, nm3_4459501, nm3Len_4459607)
-    			x_4459587 = x_4459587.add(x_4459587, natTwo)
+    			gotoNext = 4622399
+    			_ = gotoNext == 4622399
+    			gotoNext = 4622399
+    			_ = gotoNext == 4622399
+    			x_4622255 = x_4622255.random(rand_4622203, nm3_4622169, nm3Len_4622275)
+    			x_4622255 = x_4622255.add(x_4622255, natTwo)
     			_ = 0
-    			gotoNext = 4459798
+    			gotoNext = 4622466
     		}
-    		_ = gotoNext == 4459798
-    		y_4459590 = y_4459590.expNN(x_4459587, q_4459473, n, false)
-    		if y_4459590.cmp(natOne) == 0 || y_4459590.cmp(nm1_4459370) == 0 {
-    			gotoNext = 4459869
-    			_ = gotoNext == 4459869
-    			i_4459648++
-    			gotoNext = 4459644
-    			gotoNext = 4459889
+    		_ = gotoNext == 4622466
+    		y_4622258 = y_4622258.expNN(x_4622255, q_4622141, n, false)
+    		if y_4622258.cmp(natOne) == 0 || y_4622258.cmp(nm1_4622038) == 0 {
+    			gotoNext = 4622537
+    			_ = gotoNext == 4622537
+    			i_4622316++
+    			gotoNext = 4622312
+    			gotoNext = 4622557
     		} else {
-    			gotoNext = 4459889
+    			gotoNext = 4622557
     		}
-    		_ = gotoNext == 4459889
-    		j_4459893 = uint(1)
-    		gotoNext = 4459889
-    		_ = gotoNext == 4459889
-    		if j_4459893 < k_4459444 {
-    			gotoNext = 4459918
-    			_ = gotoNext == 4459918
-    			y_4459590 = y_4459590.sqr(y_4459590)
-    			quotient_4459593, y_4459590 = quotient_4459593.div(y_4459590, y_4459590, n)
-    			if y_4459590.cmp(nm1_4459370) == 0 {
-    				gotoNext = 4459997
-    				_ = gotoNext == 4459997
-    				i_4459648++
-    				gotoNext = 4459644
-    				gotoNext = 4460031
+    		_ = gotoNext == 4622557
+    		j_4622561 = uint(1)
+    		gotoNext = 4622557
+    		_ = gotoNext == 4622557
+    		if j_4622561 < k_4622112 {
+    			gotoNext = 4622586
+    			_ = gotoNext == 4622586
+    			y_4622258 = y_4622258.sqr(y_4622258)
+    			quotient_4622261, y_4622258 = quotient_4622261.div(y_4622258, y_4622258, n)
+    			if y_4622258.cmp(nm1_4622038) == 0 {
+    				gotoNext = 4622665
+    				_ = gotoNext == 4622665
+    				i_4622316++
+    				gotoNext = 4622312
+    				gotoNext = 4622699
     			} else {
-    				gotoNext = 4460031
+    				gotoNext = 4622699
     			}
-    			_ = gotoNext == 4460031
-    			if y_4459590.cmp(natOne) == 0 {
-    				gotoNext = 4460053
-    				_ = gotoNext == 4460053
+    			_ = gotoNext == 4622699
+    			if y_4622258.cmp(natOne) == 0 {
+    				gotoNext = 4622721
+    				_ = gotoNext == 4622721
     				return false
-    				gotoNext = 4459914
+    				gotoNext = 4622582
     			} else {
-    				gotoNext = 4459914
+    				gotoNext = 4622582
     			}
-    			_ = gotoNext == 4459914
-    			j_4459893++
-    			gotoNext = 4459889
+    			_ = gotoNext == 4622582
+    			j_4622561++
+    			gotoNext = 4622557
     		} else {
-    			gotoNext = 4460083
+    			gotoNext = 4622751
     		}
-    		_ = gotoNext == 4460083
+    		_ = gotoNext == 4622751
     		return false
-    		i_4459648++
-    		gotoNext = 4459644
+    		i_4622316++
+    		gotoNext = 4622312
     	} else {
-    		gotoNext = 4460101
+    		gotoNext = 4622769
     	}
-    	_ = gotoNext == 4460101
+    	_ = gotoNext == 4622769
     	return true
     	gotoNext = -1
     }*|/

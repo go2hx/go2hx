@@ -241,10 +241,12 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0;
+typedef FilePointer = stdgo._internal.debug.plan9obj.Plan9obj_FilePointer.FilePointer;
 class File_static_extension {
     static public function section(_f:File, _name:String):Section {
         return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.section(_f, _name);
@@ -259,6 +261,7 @@ class File_static_extension {
         return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.close(_f);
     }
 }
+typedef SectionPointer = stdgo._internal.debug.plan9obj.Plan9obj_SectionPointer.SectionPointer;
 class Section_static_extension {
     static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
         return stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.open(_s);
@@ -269,14 +272,15 @@ class Section_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.plan9obj.Plan9obj_Section.Section, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function readAt(__self__:stdgo._internal.debug.plan9obj.Plan9obj_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.readAt(__self__, _p, _off);
+            final obj = stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_T_formatErrorPointer.T_formatErrorPointer;
 class T_formatError_static_extension {
     static public function error(_e:T_formatError):String {
         return stdgo._internal.debug.plan9obj.Plan9obj_T_formatError_static_extension.T_formatError_static_extension.error(_e);

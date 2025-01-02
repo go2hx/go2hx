@@ -1,6 +1,7 @@
 package stdgo._internal.image.jpeg;
 @:keep @:allow(stdgo._internal.image.jpeg.Jpeg.T_huffmanLUT_asInterface) class T_huffmanLUT_static_extension {
     @:keep
+    @:tdfield
     static public function _init( _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT>, _s:stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec):Void {
         @:recv var _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT> = _h;
         var _maxValue = (0 : stdgo.GoInt);

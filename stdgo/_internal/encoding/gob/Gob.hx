@@ -46,7 +46,7 @@ var _uop = __1, _iop = __0;
             stdgo._internal.encoding.gob.Gob__idToTypeSlice._idToTypeSlice = (stdgo._internal.encoding.gob.Gob__idToTypeSlice._idToTypeSlice.__slice__(0, (64 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType>);
             stdgo._internal.encoding.gob.Gob__registerBasics._registerBasics();
             stdgo._internal.encoding.gob.Gob__wireTypeUserInfo._wireTypeUserInfo = stdgo._internal.encoding.gob.Gob__userType._userType(stdgo._internal.encoding.gob.Gob__wireTypeType._wireTypeType);
-            stdgo._internal.encoding.gob.Gob__typeInfoMap._typeInfoMap.store(stdgo.Go.toInterface(stdgo._internal.encoding.gob.Gob__typeInfoMapInit._typeInfoMapInit));
+            @:check2 stdgo._internal.encoding.gob.Gob__typeInfoMap._typeInfoMap.store(stdgo.Go.toInterface(stdgo._internal.encoding.gob.Gob__typeInfoMapInit._typeInfoMapInit));
             stdgo._internal.encoding.gob.Gob__typeInfoMapInit._typeInfoMapInit = (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>>);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

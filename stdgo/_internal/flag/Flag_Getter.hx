@@ -6,5 +6,6 @@ typedef Getter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function get():stdgo.AnyInterface;
 };

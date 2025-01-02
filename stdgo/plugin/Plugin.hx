@@ -28,11 +28,13 @@ package stdgo.plugin;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.plugin.Plugin_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.plugin.Plugin_T__struct_0.T__struct_0;
 typedef Symbol = stdgo._internal.plugin.Plugin_Symbol.Symbol;
+typedef PluginPointer = stdgo._internal.plugin.Plugin_PluginPointer.PluginPointer;
 class Plugin_static_extension {
     static public function lookup(_p:Plugin_, _symName:String):stdgo.Tuple<Symbol, stdgo.Error> {
         return {

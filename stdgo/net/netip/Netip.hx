@@ -90,6 +90,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef AddrPointer = stdgo._internal.net.netip.Netip_AddrPointer.AddrPointer;
 class Addr_static_extension {
     static public function unmarshalBinary(_ip:Addr, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -232,11 +233,13 @@ class Addr_static_extension {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._v4(_ip, _i);
     }
 }
+typedef T_parseAddrErrorPointer = stdgo._internal.net.netip.Netip_T_parseAddrErrorPointer.T_parseAddrErrorPointer;
 class T_parseAddrError_static_extension {
     static public function error(_err:T_parseAddrError):String {
         return stdgo._internal.net.netip.Netip_T_parseAddrError_static_extension.T_parseAddrError_static_extension.error(_err);
     }
 }
+typedef AddrPortPointer = stdgo._internal.net.netip.Netip_AddrPortPointer.AddrPortPointer;
 class AddrPort_static_extension {
     static public function unmarshalBinary(_p:AddrPort, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -275,6 +278,7 @@ class AddrPort_static_extension {
         return stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.addr(_p);
     }
 }
+typedef PrefixPointer = stdgo._internal.net.netip.Netip_PrefixPointer.PrefixPointer;
 class Prefix_static_extension {
     static public function string(_p:Prefix):String {
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.string(_p);
@@ -328,6 +332,7 @@ class Prefix_static_extension {
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.addr(_p);
     }
 }
+typedef T_uint128Pointer = stdgo._internal.net.netip.Netip_T_uint128Pointer.T_uint128Pointer;
 class T_uint128_static_extension {
     static public function _bitsClearedFrom(_u:T_uint128, _bit:std.UInt):T_uint128 {
         return stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._bitsClearedFrom(_u, _bit);
@@ -374,33 +379,33 @@ class Netip {
         IPv6LinkLocalAllNodes returns the IPv6 link-local all nodes multicast
         address ff02::1.
     **/
-    static public function ipv6LinkLocalAllNodes():Addr {
-        return stdgo._internal.net.netip.Netip_ipv6LinkLocalAllNodes.ipv6LinkLocalAllNodes();
+    static public function iPv6LinkLocalAllNodes():Addr {
+        return stdgo._internal.net.netip.Netip_iPv6LinkLocalAllNodes.iPv6LinkLocalAllNodes();
     }
     /**
         IPv6LinkLocalAllRouters returns the IPv6 link-local all routers multicast
         address ff02::2.
     **/
-    static public function ipv6LinkLocalAllRouters():Addr {
-        return stdgo._internal.net.netip.Netip_ipv6LinkLocalAllRouters.ipv6LinkLocalAllRouters();
+    static public function iPv6LinkLocalAllRouters():Addr {
+        return stdgo._internal.net.netip.Netip_iPv6LinkLocalAllRouters.iPv6LinkLocalAllRouters();
     }
     /**
         IPv6Loopback returns the IPv6 loopback address ::1.
     **/
-    static public function ipv6Loopback():Addr {
-        return stdgo._internal.net.netip.Netip_ipv6Loopback.ipv6Loopback();
+    static public function iPv6Loopback():Addr {
+        return stdgo._internal.net.netip.Netip_iPv6Loopback.iPv6Loopback();
     }
     /**
         IPv6Unspecified returns the IPv6 unspecified address "::".
     **/
-    static public function ipv6Unspecified():Addr {
-        return stdgo._internal.net.netip.Netip_ipv6Unspecified.ipv6Unspecified();
+    static public function iPv6Unspecified():Addr {
+        return stdgo._internal.net.netip.Netip_iPv6Unspecified.iPv6Unspecified();
     }
     /**
         IPv4Unspecified returns the IPv4 unspecified address "0.0.0.0".
     **/
-    static public function ipv4Unspecified():Addr {
-        return stdgo._internal.net.netip.Netip_ipv4Unspecified.ipv4Unspecified();
+    static public function iPv4Unspecified():Addr {
+        return stdgo._internal.net.netip.Netip_iPv4Unspecified.iPv4Unspecified();
     }
     /**
         AddrFrom4 returns the address of the IPv4 address given by the bytes in addr.

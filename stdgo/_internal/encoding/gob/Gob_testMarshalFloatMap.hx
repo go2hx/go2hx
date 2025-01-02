@@ -13,9 +13,9 @@ x.set(_nan2, ("c" : stdgo.GoString));
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
         {
-            var _err = (_enc.encode(stdgo.Go.toInterface(_in)) : stdgo.Error);
+            var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_in)) : stdgo.Error);
             if (_err != null) {
-                _t.errorf(("Encode : %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("Encode : %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         var _out = ({
@@ -26,9 +26,9 @@ x.set(_nan2, ("c" : stdgo.GoString));
         } : stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>);
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
         {
-            var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>))) : stdgo.Error);
+            var _err = (@:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>))) : stdgo.Error);
             if (_err != null) {
-                _t.fatalf(("Decode : %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("Decode : %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         {};
@@ -50,6 +50,6 @@ var _ej = __1, _ei = __0;
         var _got = _readMap(_out);
         var _want = _readMap(_in);
         if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want))) {
-            _t.fatalf(("\nEncode: %v\nDecode: %v" : stdgo.GoString), stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got));
+            @:check2r _t.fatalf(("\nEncode: %v\nDecode: %v" : stdgo.GoString), stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got));
         };
     }

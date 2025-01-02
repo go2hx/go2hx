@@ -20,16 +20,18 @@ function _http2registerHTTPSProtocol(_t:stdgo.Ref<stdgo._internal.net.http.Http_
                     a();
                 }));
             };
-            _t.registerProtocol(("https" : stdgo.GoString), stdgo.Go.asInterface(_rt));
+            @:check2r _t.registerProtocol(("https" : stdgo.GoString), stdgo.Go.asInterface(_rt));
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -44,6 +46,7 @@ function _http2registerHTTPSProtocol(_t:stdgo.Ref<stdgo._internal.net.http.Http_
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

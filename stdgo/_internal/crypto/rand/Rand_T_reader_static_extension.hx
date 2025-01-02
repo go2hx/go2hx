@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.rand;
 @:keep @:allow(stdgo._internal.crypto.rand.Rand.T_reader_asInterface) class T_reader_static_extension {
     @:keep
+    @:tdfield
     static public function read( _r:stdgo.Ref<stdgo._internal.crypto.rand.Rand_T_reader.T_reader>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.crypto.rand.Rand_T_reader.T_reader> = _r;
         {

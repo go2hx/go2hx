@@ -1,18 +1,19 @@
 package stdgo._internal.sync;
 @:keep @:allow(stdgo._internal.sync.Sync.Once_asInterface) class Once_static_extension {
     @:keep
+    @:tdfield
     static public function _doSlow( _o:stdgo.Ref<stdgo._internal.sync.Sync_Once.Once>, _f:() -> Void):Void {
         @:recv var _o:stdgo.Ref<stdgo._internal.sync.Sync_Once.Once> = _o;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _o._m.lock();
+            @:check2 (@:checkr _o ?? throw "null pointer dereference")._m.lock();
             {
-                final __f__ = _o._m.unlock;
+                final __f__ = @:check2 (@:checkr _o ?? throw "null pointer dereference")._m.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (_o._done == ((0u32 : stdgo.GoUInt32))) {
+            if ((@:checkr _o ?? throw "null pointer dereference")._done == ((0u32 : stdgo.GoUInt32))) {
                 {
-                    var _a0 = stdgo.Go.pointer(_o._done);
+                    var _a0 = stdgo.Go.pointer((@:checkr _o ?? throw "null pointer dereference")._done);
                     var _a1 = (1u32 : stdgo.GoUInt32);
                     final __f__ = stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32;
                     __deferstack__.unshift(() -> __f__(_a0, _a1));
@@ -21,6 +22,7 @@ package stdgo._internal.sync;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -35,6 +37,7 @@ package stdgo._internal.sync;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -42,6 +45,7 @@ package stdgo._internal.sync;
         };
     }
     @:keep
+    @:tdfield
     static public function do_( _o:stdgo.Ref<stdgo._internal.sync.Sync_Once.Once>, _f:() -> Void):Void {
         @:recv var _o:stdgo.Ref<stdgo._internal.sync.Sync_Once.Once> = _o;
         if (@:privateAccess _o._done == 1) return;

@@ -20,6 +20,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     stdgo._internal.math.big.Big__natOne._natOne._utoa((1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -34,6 +35,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     };
                     stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -43,22 +45,22 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             a();
         });
         if (_panicStr != (("invalid base" : stdgo.GoString))) {
-            _t.errorf(("expected panic for invalid base" : stdgo.GoString));
+            @:check2r _t.errorf(("expected panic for invalid base" : stdgo.GoString));
         };
         for (__8 => _a in stdgo._internal.math.big.Big__strTests._strTests) {
             var _s = ((_a._x._utoa(_a._b) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_s != (_a._s)) {
-                _t.errorf(("string%+v\n\tgot s = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_a._s));
+                @:check2r _t.errorf(("string%+v\n\tgot s = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_a._s));
             };
             var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._scan(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_a._s?.__copy__())), _a._b, false), _x:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _b:stdgo.GoInt = __tmp__._1, __9:stdgo.GoInt = __tmp__._2, _err:stdgo.Error = __tmp__._3;
             if (_x._cmp(_a._x) != ((0 : stdgo.GoInt))) {
-                _t.errorf(("scan%+v\n\tgot z = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a._x)));
+                @:check2r _t.errorf(("scan%+v\n\tgot z = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a._x)));
             };
             if (_b != (_a._b)) {
-                _t.errorf(("scan%+v\n\tgot b = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_a._b));
+                @:check2r _t.errorf(("scan%+v\n\tgot b = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_a._b));
             };
             if (_err != null) {
-                _t.errorf(("scan%+v\n\tgot error = %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("scan%+v\n\tgot error = %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
             };
         };
     }

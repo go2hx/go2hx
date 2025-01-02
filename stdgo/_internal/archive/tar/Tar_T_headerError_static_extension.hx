@@ -1,6 +1,7 @@
 package stdgo._internal.archive.tar;
 @:keep @:allow(stdgo._internal.archive.tar.Tar.T_headerError_asInterface) class T_headerError_static_extension {
     @:keep
+    @:tdfield
     static public function error( _he:stdgo._internal.archive.tar.Tar_T_headerError.T_headerError):stdgo.GoString {
         @:recv var _he:stdgo._internal.archive.tar.Tar_T_headerError.T_headerError = _he;
         {};

@@ -12,9 +12,9 @@ function _ryuDigits(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.
             _c0 = (_c0 && (_clo == (0u32 : stdgo.GoUInt32)) : Bool);
             _cup = (((_clo > (500000000u32 : stdgo.GoUInt32) : Bool)) || (((_clo == (500000000u32 : stdgo.GoUInt32)) && _cup : Bool)) : Bool);
             stdgo._internal.strconv.Strconv__ryuDigits32._ryuDigits32(_d, _lhi, _chi, _uhi, _c0, _cup, (8 : stdgo.GoInt));
-            _d._dp = (_d._dp + ((9 : stdgo.GoInt)) : stdgo.GoInt);
+            (@:checkr _d ?? throw "null pointer dereference")._dp = ((@:checkr _d ?? throw "null pointer dereference")._dp + ((9 : stdgo.GoInt)) : stdgo.GoInt);
         } else {
-            _d._nd = (0 : stdgo.GoInt);
+            (@:checkr _d ?? throw "null pointer dereference")._nd = (0 : stdgo.GoInt);
             var _n = ((9u32 : stdgo.GoUInt) : stdgo.GoUInt);
             {
                 var _v = (_chi : stdgo.GoUInt32);
@@ -23,19 +23,19 @@ function _ryuDigits(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.
 var _v2 = __1, _v1 = __0;
                     _v = _v1;
                     _n--;
-                    _d._d[(_n : stdgo.GoInt)] = ((_v2 + (48u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt8);
+                    (@:checkr _d ?? throw "null pointer dereference")._d[(_n : stdgo.GoInt)] = ((_v2 + (48u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt8);
                 };
             };
-            _d._d = (_d._d.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
-            _d._nd = (((9u32 : stdgo.GoUInt) - _n : stdgo.GoUInt) : stdgo.GoInt);
-            stdgo._internal.strconv.Strconv__ryuDigits32._ryuDigits32(_d, _llo, _clo, _ulo, _c0, _cup, (_d._nd + (8 : stdgo.GoInt) : stdgo.GoInt));
+            (@:checkr _d ?? throw "null pointer dereference")._d = ((@:checkr _d ?? throw "null pointer dereference")._d.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
+            (@:checkr _d ?? throw "null pointer dereference")._nd = (((9u32 : stdgo.GoUInt) - _n : stdgo.GoUInt) : stdgo.GoInt);
+            stdgo._internal.strconv.Strconv__ryuDigits32._ryuDigits32(_d, _llo, _clo, _ulo, _c0, _cup, ((@:checkr _d ?? throw "null pointer dereference")._nd + (8 : stdgo.GoInt) : stdgo.GoInt));
         };
-        while (((_d._nd > (0 : stdgo.GoInt) : Bool) && (_d._d[(_d._nd - (1 : stdgo.GoInt) : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
-            _d._nd--;
+        while ((((@:checkr _d ?? throw "null pointer dereference")._nd > (0 : stdgo.GoInt) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._d[((@:checkr _d ?? throw "null pointer dereference")._nd - (1 : stdgo.GoInt) : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
+            (@:checkr _d ?? throw "null pointer dereference")._nd--;
         };
-        while (((_d._nd > (0 : stdgo.GoInt) : Bool) && (_d._d[(0 : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
-            _d._nd--;
-            _d._dp--;
-            _d._d = (_d._d.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        while ((((@:checkr _d ?? throw "null pointer dereference")._nd > (0 : stdgo.GoInt) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._d[(0 : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
+            (@:checkr _d ?? throw "null pointer dereference")._nd--;
+            (@:checkr _d ?? throw "null pointer dereference")._dp--;
+            (@:checkr _d ?? throw "null pointer dereference")._d = ((@:checkr _d ?? throw "null pointer dereference")._d.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
     }

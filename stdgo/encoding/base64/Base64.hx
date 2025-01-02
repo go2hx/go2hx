@@ -7,10 +7,10 @@ private function set_stdEncoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding = v;
         return v;
     }
-var urlencoding(get, set) : Encoding;
-private function get_urlencoding():Encoding return stdgo._internal.encoding.base64.Base64_urlencoding.urlencoding;
-private function set_urlencoding(v:Encoding):Encoding {
-        stdgo._internal.encoding.base64.Base64_urlencoding.urlencoding = v;
+var uRLEncoding(get, set) : Encoding;
+private function get_uRLEncoding():Encoding return stdgo._internal.encoding.base64.Base64_uRLEncoding.uRLEncoding;
+private function set_uRLEncoding(v:Encoding):Encoding {
+        stdgo._internal.encoding.base64.Base64_uRLEncoding.uRLEncoding = v;
         return v;
     }
 var rawStdEncoding(get, set) : Encoding;
@@ -227,15 +227,18 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.encoding.base64.Base64_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.encoding.base64.Base64_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.encoding.base64.Base64_T__struct_1.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError;
+typedef EncodingPointer = stdgo._internal.encoding.base64.Base64_EncodingPointer.EncodingPointer;
 class Encoding_static_extension {
     static public function decodedLen(_enc:Encoding, _n:StdTypes.Int):StdTypes.Int {
         return stdgo._internal.encoding.base64.Base64_Encoding_static_extension.Encoding_static_extension.decodedLen(_enc, _n);
@@ -281,6 +284,7 @@ class Encoding_static_extension {
         return stdgo._internal.encoding.base64.Base64_Encoding_static_extension.Encoding_static_extension.withPadding(_enc, _padding);
     }
 }
+typedef T_encoderPointer = stdgo._internal.encoding.base64.Base64_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
         return stdgo._internal.encoding.base64.Base64_T_encoder_static_extension.T_encoder_static_extension.close(_e);
@@ -293,6 +297,7 @@ class T_encoder_static_extension {
         };
     }
 }
+typedef T_decoderPointer = stdgo._internal.encoding.base64.Base64_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -302,6 +307,7 @@ class T_decoder_static_extension {
         };
     }
 }
+typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base64.Base64_T_newlineFilteringReaderPointer.T_newlineFilteringReaderPointer;
 class T_newlineFilteringReader_static_extension {
     static public function read(_r:T_newlineFilteringReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -311,6 +317,7 @@ class T_newlineFilteringReader_static_extension {
         };
     }
 }
+typedef T_faultInjectReaderPointer = stdgo._internal.encoding.base64.Base64_T_faultInjectReaderPointer.T_faultInjectReaderPointer;
 class T_faultInjectReader_static_extension {
     static public function read(_r:T_faultInjectReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -320,6 +327,7 @@ class T_faultInjectReader_static_extension {
         };
     }
 }
+typedef CorruptInputErrorPointer = stdgo._internal.encoding.base64.Base64_CorruptInputErrorPointer.CorruptInputErrorPointer;
 class CorruptInputError_static_extension {
     static public function error(_e:CorruptInputError):String {
         return stdgo._internal.encoding.base64.Base64_CorruptInputError_static_extension.CorruptInputError_static_extension.error(_e);

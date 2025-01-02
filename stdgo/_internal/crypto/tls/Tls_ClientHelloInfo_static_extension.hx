@@ -1,23 +1,24 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.ClientHelloInfo_asInterface) class ClientHelloInfo_static_extension {
     @:keep
+    @:tdfield
     static public function supportsCertificate( _chi:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo>, _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>):stdgo.Error {
         @:recv var _chi:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo> = _chi;
-        var _config = _chi._config;
+        var _config = (@:checkr _chi ?? throw "null pointer dereference")._config;
         if ((_config == null || (_config : Dynamic).__nil__)) {
             _config = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_Config.Config() : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
         };
-        var __tmp__ = _config._mutualVersion(false, _chi.supportedVersions), _vers:stdgo.GoUInt16 = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = @:check2r _config._mutualVersion(false, (@:checkr _chi ?? throw "null pointer dereference").supportedVersions), _vers:stdgo.GoUInt16 = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return stdgo._internal.errors.Errors_new_.new_(("no mutually supported protocol versions" : stdgo.GoString));
         };
-        if (_chi.serverName != (stdgo.Go.str())) {
-            var __tmp__ = _c._leaf(), _x509Cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if ((@:checkr _chi ?? throw "null pointer dereference").serverName != (stdgo.Go.str())) {
+            var __tmp__ = @:check2r _c._leaf(), _x509Cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("failed to parse certificate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             {
-                var _err = (_x509Cert.verifyHostname(_chi.serverName?.__copy__()) : stdgo.Error);
+                var _err = (@:check2r _x509Cert.verifyHostname((@:checkr _chi ?? throw "null pointer dereference").serverName?.__copy__()) : stdgo.Error);
                 if (_err != null) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("certificate is not valid for requested server name: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
@@ -29,7 +30,7 @@ package stdgo._internal.crypto.tls;
             };
             {
                 var __tmp__ = try {
-                    { _0 : (stdgo.Go.typeAssert((_c.privateKey : stdgo._internal.crypto.Crypto_Decrypter.Decrypter)) : stdgo._internal.crypto.Crypto_Decrypter.Decrypter), _1 : true };
+                    { _0 : (stdgo.Go.typeAssert(((@:checkr _c ?? throw "null pointer dereference").privateKey : stdgo._internal.crypto.Crypto_Decrypter.Decrypter)) : stdgo._internal.crypto.Crypto_Decrypter.Decrypter), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo._internal.crypto.Crypto_Decrypter.Decrypter), _1 : false };
                 }, _priv = __tmp__._0, _ok = __tmp__._1;
@@ -48,11 +49,11 @@ package stdgo._internal.crypto.tls;
                     return _unsupported;
                 };
             };
-            var _rsaCipherSuite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite(_chi.cipherSuites, _config._cipherSuites(), function(_c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite>):Bool {
-                if ((_c._flags & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+            var _rsaCipherSuite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite((@:checkr _chi ?? throw "null pointer dereference").cipherSuites, @:check2r _config._cipherSuites(), function(_c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite>):Bool {
+                if (((@:checkr _c ?? throw "null pointer dereference")._flags & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     return false;
                 };
-                if (((_vers < (771 : stdgo.GoUInt16) : Bool) && ((_c._flags & (4 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
+                if (((_vers < (771 : stdgo.GoUInt16) : Bool) && (((@:checkr _c ?? throw "null pointer dereference")._flags & (4 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                     return false;
                 };
                 return true;
@@ -62,9 +63,9 @@ package stdgo._internal.crypto.tls;
             };
             return (null : stdgo.Error);
         } : stdgo.Error -> stdgo.Error);
-        if (((_chi.signatureSchemes.length) > (0 : stdgo.GoInt) : Bool)) {
+        if ((((@:checkr _chi ?? throw "null pointer dereference").signatureSchemes.length) > (0 : stdgo.GoInt) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.crypto.tls.Tls__selectSignatureScheme._selectSignatureScheme(_vers, _c, _chi.signatureSchemes), __89:stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.crypto.tls.Tls__selectSignatureScheme._selectSignatureScheme(_vers, _c, (@:checkr _chi ?? throw "null pointer dereference").signatureSchemes), __89:stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _supportsRSAFallback(_err);
                 };
@@ -73,13 +74,13 @@ package stdgo._internal.crypto.tls;
         if (_vers == ((772 : stdgo.GoUInt16))) {
             return (null : stdgo.Error);
         };
-        if (!stdgo._internal.crypto.tls.Tls__supportsECDHE._supportsECDHE(_config, _chi.supportedCurves, _chi.supportedPoints)) {
+        if (!stdgo._internal.crypto.tls.Tls__supportsECDHE._supportsECDHE(_config, (@:checkr _chi ?? throw "null pointer dereference").supportedCurves, (@:checkr _chi ?? throw "null pointer dereference").supportedPoints)) {
             return _supportsRSAFallback(stdgo._internal.errors.Errors_new_.new_(("client doesn\'t support ECDHE, can only use legacy RSA key exchange" : stdgo.GoString)));
         };
         var _ecdsaCipherSuite:Bool = false;
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((_c.privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
+                { _0 : (stdgo.Go.typeAssert(((@:checkr _c ?? throw "null pointer dereference").privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : false };
             }, _priv = __tmp__._0, _ok = __tmp__._1;
@@ -94,7 +95,7 @@ package stdgo._internal.crypto.tls;
                                 var _pub:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__.__underlying__().value;
                                 var _curve:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
                                 {
-                                    final __value__ = _pub.curve;
+                                    final __value__ = (@:checkr _pub ?? throw "null pointer dereference").curve;
                                     if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p256.p256()))) {
                                         _curve = (23 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
                                     } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p384.p384()))) {
@@ -106,8 +107,8 @@ package stdgo._internal.crypto.tls;
                                     };
                                 };
                                 var _curveOk:Bool = false;
-                                for (__97 => _c in _chi.supportedCurves) {
-                                    if (((_c == _curve) && _config._supportsCurve(_c) : Bool)) {
+                                for (__97 => _c in (@:checkr _chi ?? throw "null pointer dereference").supportedCurves) {
+                                    if (((_c == _curve) && @:check2r _config._supportsCurve(_c) : Bool)) {
                                         _curveOk = true;
                                         break;
                                     };
@@ -118,7 +119,7 @@ package stdgo._internal.crypto.tls;
                                 _ecdsaCipherSuite = true;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey))) {
                                 var _pub:stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey = __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey(0, 0) : __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey(0, 0) : __type__.__underlying__().value;
-                                if (((_vers < (771 : stdgo.GoUInt16) : Bool) || (_chi.signatureSchemes.length == (0 : stdgo.GoInt)) : Bool)) {
+                                if (((_vers < (771 : stdgo.GoUInt16) : Bool) || ((@:checkr _chi ?? throw "null pointer dereference").signatureSchemes.length == (0 : stdgo.GoInt)) : Bool)) {
                                     return stdgo._internal.errors.Errors_new_.new_(("connection doesn\'t support Ed25519" : stdgo.GoString));
                                 };
                                 _ecdsaCipherSuite = true;
@@ -136,11 +137,11 @@ package stdgo._internal.crypto.tls;
                 return _supportsRSAFallback(stdgo._internal.crypto.tls.Tls__unsupportedCertificateError._unsupportedCertificateError(_c));
             };
         };
-        var _cipherSuite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite(_chi.cipherSuites, _config._cipherSuites(), function(_c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite>):Bool {
-            if ((_c._flags & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
+        var _cipherSuite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite((@:checkr _chi ?? throw "null pointer dereference").cipherSuites, @:check2r _config._cipherSuites(), function(_c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite>):Bool {
+            if (((@:checkr _c ?? throw "null pointer dereference")._flags & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                 return false;
             };
-            if ((_c._flags & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+            if (((@:checkr _c ?? throw "null pointer dereference")._flags & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                 if (!_ecdsaCipherSuite) {
                     return false;
                 };
@@ -149,7 +150,7 @@ package stdgo._internal.crypto.tls;
                     return false;
                 };
             };
-            if (((_vers < (771 : stdgo.GoUInt16) : Bool) && ((_c._flags & (4 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
+            if (((_vers < (771 : stdgo.GoUInt16) : Bool) && (((@:checkr _c ?? throw "null pointer dereference")._flags & (4 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 return false;
             };
             return true;
@@ -160,8 +161,9 @@ package stdgo._internal.crypto.tls;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function context( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo>):stdgo._internal.context.Context_Context.Context {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo> = _c;
-        return _c._ctx;
+        return (@:checkr _c ?? throw "null pointer dereference")._ctx;
     }
 }

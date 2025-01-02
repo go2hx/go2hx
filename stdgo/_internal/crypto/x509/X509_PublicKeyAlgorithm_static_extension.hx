@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.x509;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.PublicKeyAlgorithm_asInterface) class PublicKeyAlgorithm_static_extension {
     @:keep
+    @:tdfield
     static public function string( _algo:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm):stdgo.GoString {
         @:recv var _algo:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm = _algo;
         if ((((0 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm) < _algo : Bool) && ((_algo : stdgo.GoInt) < (stdgo._internal.crypto.x509.X509__publicKeyAlgoName._publicKeyAlgoName.length) : Bool) : Bool)) {

@@ -8,14 +8,22 @@ package stdgo._internal.context;
         if (_stop != null) this._stop = _stop;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
-    public function deadline():{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return this.context.deadline();
+    @:embeddededffieldsffun
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check3 (this.context ?? throw "null pointer derefrence").deadline;
+    public var done(get, never) : () -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>;
     @:embedded
-    public function done():stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return this.context.done();
+    @:embeddededffieldsffun
+    public function get_done():() -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return @:check3 (this.context ?? throw "null pointer derefrence").done;
+    public var err(get, never) : () -> stdgo.Error;
     @:embedded
-    public function err():stdgo.Error return this.context.err();
+    @:embeddededffieldsffun
+    public function get_err():() -> stdgo.Error return @:check3 (this.context ?? throw "null pointer derefrence").err;
+    public var value(get, never) : stdgo.AnyInterface -> stdgo.AnyInterface;
     @:embedded
-    public function value(_key:stdgo.AnyInterface):stdgo.AnyInterface return this.context.value(_key);
+    @:embeddededffieldsffun
+    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check3 (this.context ?? throw "null pointer derefrence").value;
     public function __copy__() {
         return new T_stopCtx(context, _stop);
     }

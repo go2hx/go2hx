@@ -47,6 +47,7 @@ typedef T_marshalable = stdgo._internal.crypto.hmac.Hmac_T_marshalable.T_marshal
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_hmacPointer = stdgo._internal.crypto.hmac.Hmac_T_hmacPointer.T_hmacPointer;
 class T_hmac_static_extension {
     static public function reset(_h:T_hmac):Void {
         stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.reset(_h);

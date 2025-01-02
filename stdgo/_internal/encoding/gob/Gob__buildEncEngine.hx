@@ -5,12 +5,12 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             if (((_building != null) && (_building[_info] ?? false) : Bool)) {
                 return null;
             };
-            _info._encInit.lock();
+            @:check2 (@:checkr _info ?? throw "null pointer dereference")._encInit.lock();
             {
-                final __f__ = _info._encInit.unlock;
+                final __f__ = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encInit.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            var _enc = _info._encoder.load();
+            var _enc = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encoder.load();
             if ((_enc == null || (_enc : Dynamic).__nil__)) {
                 if (_building == null) {
                     _building = ({
@@ -21,16 +21,18 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
                 };
                 _building[_info] = true;
                 _enc = stdgo._internal.encoding.gob.Gob__compileEnc._compileEnc(_ut, _building);
-                _info._encoder.store(_enc);
+                @:check2 (@:checkr _info ?? throw "null pointer dereference")._encoder.store(_enc);
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _enc;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -45,6 +47,7 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

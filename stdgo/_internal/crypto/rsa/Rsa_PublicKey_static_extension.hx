@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.rsa;
 @:keep @:allow(stdgo._internal.crypto.rsa.Rsa.PublicKey_asInterface) class PublicKey_static_extension {
     @:keep
+    @:tdfield
     static public function equal( _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
         @:recv var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey> = _pub;
         var __tmp__ = try {
@@ -11,11 +12,12 @@ package stdgo._internal.crypto.rsa;
         if (!_ok) {
             return false;
         };
-        return (stdgo._internal.crypto.rsa.Rsa__bigIntEqual._bigIntEqual(_pub.n, _xx.n) && (_pub.e == _xx.e) : Bool);
+        return (stdgo._internal.crypto.rsa.Rsa__bigIntEqual._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").n, (@:checkr _xx ?? throw "null pointer dereference").n) && ((@:checkr _pub ?? throw "null pointer dereference").e == (@:checkr _xx ?? throw "null pointer dereference").e) : Bool);
     }
     @:keep
+    @:tdfield
     static public function size( _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>):stdgo.GoInt {
         @:recv var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey> = _pub;
-        return (((_pub.n.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
+        return (((@:check2r (@:checkr _pub ?? throw "null pointer dereference").n.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
     }
 }

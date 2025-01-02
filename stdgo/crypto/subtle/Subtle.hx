@@ -57,10 +57,10 @@ class Subtle {
         If dst does not have length at least n,
         XORBytes panics without writing anything to dst.
     **/
-    static public function xorbytes(_dst:Array<std.UInt>, _x:Array<std.UInt>, _y:Array<std.UInt>):StdTypes.Int {
+    static public function xORBytes(_dst:Array<std.UInt>, _x:Array<std.UInt>, _y:Array<std.UInt>):StdTypes.Int {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _y = ([for (i in _y) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.subtle.Subtle_xorbytes.xorbytes(_dst, _x, _y);
+        return stdgo._internal.crypto.subtle.Subtle_xORBytes.xORBytes(_dst, _x, _y);
     }
 }

@@ -6,12 +6,18 @@ package stdgo._internal.testing.fstest;
         if (file != null) this.file = file;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function close():stdgo.Error return this.file.close();
+    @:embeddededffieldsffun
+    public function get_close():() -> stdgo.Error return @:check3 (this.file ?? throw "null pointer derefrence").close;
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.file.read(__0);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").read;
+    public var stat(get, never) : () -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
     @:embedded
-    public function stat():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return this.file.stat();
+    @:embeddededffieldsffun
+    public function get_stat():() -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check3 (this.file ?? throw "null pointer derefrence").stat;
     public function __copy__() {
         return new T_shuffledFile(file);
     }

@@ -4,7 +4,7 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _got = stdgo._internal.slices.Slices_insert.insert(_s, (0 : stdgo.GoInt));
             if (!stdgo._internal.slices.Slices_equal.equal(_got, _s)) {
-                _t.errorf(("Insert(%v, 0) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_s));
+                @:check2r _t.errorf(("Insert(%v, 0) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_s));
             };
         };
         for (__0 => _test in stdgo._internal.slices.Slices__insertTests._insertTests) {
@@ -12,7 +12,7 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = stdgo._internal.slices.Slices_insert.insert(_copy, _test._i, ...(_test._add : Array<stdgo.GoInt>));
                 if (!stdgo._internal.slices.Slices_equal.equal(_got, _test._want)) {
-                    _t.errorf(("Insert(%v, %d, %v...) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._add), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("Insert(%v, %d, %v...) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._add), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };
@@ -29,7 +29,7 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 };
             }) : stdgo.GoFloat64);
             if ((_n > (25 : stdgo.GoFloat64) : Bool)) {
-                _t.errorf(("too many allocations inserting %d elements: got %v, want less than %d" : stdgo.GoString), stdgo.Go.toInterface((50 : stdgo.GoInt)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface((25 : stdgo.GoInt)));
+                @:check2r _t.errorf(("too many allocations inserting %d elements: got %v, want less than %d" : stdgo.GoString), stdgo.Go.toInterface((50 : stdgo.GoInt)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface((25 : stdgo.GoInt)));
             };
         };
     }

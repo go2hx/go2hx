@@ -5,7 +5,7 @@ function testSortFuncIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             return (_a - _b : stdgo.GoInt);
         });
         if (!stdgo._internal.slices.Slices_isSorted.isSorted(_data)) {
-            _t.errorf(("sorted %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.slices.Slices__ints._ints));
-            _t.errorf(("   got %v" : stdgo.GoString), stdgo.Go.toInterface(_data));
+            @:check2r _t.errorf(("sorted %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.slices.Slices__ints._ints));
+            @:check2r _t.errorf(("   got %v" : stdgo.GoString), stdgo.Go.toInterface(_data));
         };
     }

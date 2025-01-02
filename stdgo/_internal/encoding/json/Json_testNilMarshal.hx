@@ -17,7 +17,7 @@ function testNilMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         for (__4 => _tt in _testCases) {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._v), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || ((_out : stdgo.GoString) != _tt._want) : Bool)) {
-                _t.errorf(("Marshal(%#v) = %#q, %#v, want %#q, nil" : stdgo.GoString), _tt._v, stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._want));
+                @:check2r _t.errorf(("Marshal(%#v) = %#q, %#v, want %#q, nil" : stdgo.GoString), _tt._v, stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._want));
                 continue;
             };
         };

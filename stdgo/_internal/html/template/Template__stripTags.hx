@@ -25,7 +25,7 @@ var _allText = __3, _i = __2, _c = __1, _s = __0;
                             };
                         };
                     };
-                    _b.write((_s.__slice__(_i, _j) : stdgo.Slice<stdgo.GoUInt8>));
+                    @:check2 _b.write((_s.__slice__(_i, _j) : stdgo.Slice<stdgo.GoUInt8>));
                 } else {
                     _allText = false;
                 };
@@ -54,7 +54,7 @@ var _allText = __3, _i = __2, _c = __1, _s = __0;
         if (_allText) {
             return _html?.__copy__();
         } else if (((_c._state == (0 : stdgo._internal.html.template.Template_T_state.T_state)) || (_c._state == (6 : stdgo._internal.html.template.Template_T_state.T_state)) : Bool)) {
-            _b.write((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
+            @:check2 _b.write((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
         };
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

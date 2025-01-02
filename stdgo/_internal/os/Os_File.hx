@@ -12,8 +12,10 @@ package stdgo._internal.os;
         if (_output != null) this._output = _output;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function _close():stdgo.Error return this._file._close();
+    @:embeddededffieldsffun
+    public function get__close():() -> stdgo.Error return @:check3 (this._file ?? throw "null pointer derefrence")._close;
     public function __copy__() {
         return new File(_file, _input, _output);
     }

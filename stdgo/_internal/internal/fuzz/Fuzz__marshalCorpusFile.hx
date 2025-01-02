@@ -47,5 +47,5 @@ function _marshalCorpusFile(_vals:haxe.Rest<stdgo.AnyInterface>):stdgo.Slice<std
                 };
             };
         };
-        return _b.bytes();
+        return @:check2r _b.bytes();
     }

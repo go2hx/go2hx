@@ -1,6 +1,7 @@
 package stdgo._internal.runtime.pprof;
 @:keep @:allow(stdgo._internal.runtime.pprof.Pprof.T_labelMap_asInterface) class T_labelMap_static_extension {
     @:keep
+    @:tdfield
     static public function string( _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>):stdgo.GoString {
         @:recv var _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap> = _l;
         if ((_l == null || (_l : Dynamic).__nil__)) {

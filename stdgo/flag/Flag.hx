@@ -157,6 +157,7 @@ typedef T_durationValue = stdgo._internal.flag.Flag_T_durationValue.T_durationVa
 typedef T_funcValue = stdgo._internal.flag.Flag_T_funcValue.T_funcValue;
 typedef T_boolFuncValue = stdgo._internal.flag.Flag_T_boolFuncValue.T_boolFuncValue;
 typedef ErrorHandling = stdgo._internal.flag.Flag_ErrorHandling.ErrorHandling;
+typedef T_textValuePointer = stdgo._internal.flag.Flag_T_textValuePointer.T_textValuePointer;
 class T_textValue_static_extension {
     static public function string(_v:T_textValue):String {
         return stdgo._internal.flag.Flag_T_textValue_static_extension.T_textValue_static_extension.string(_v);
@@ -168,6 +169,7 @@ class T_textValue_static_extension {
         return stdgo._internal.flag.Flag_T_textValue_static_extension.T_textValue_static_extension.set(_v, _s);
     }
 }
+typedef FlagSetPointer = stdgo._internal.flag.Flag_FlagSetPointer.FlagSetPointer;
 class FlagSet_static_extension {
     static public function init(_f:FlagSet, _name:String, _errorHandling:ErrorHandling):Void {
         stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.init(_f, _name, _errorHandling);
@@ -259,14 +261,14 @@ class FlagSet_static_extension {
     static public function args(_f:FlagSet):Array<String> {
         return [for (i in stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.args(_f)) i];
     }
-    static public function narg(_f:FlagSet):StdTypes.Int {
-        return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.narg(_f);
+    static public function nArg(_f:FlagSet):StdTypes.Int {
+        return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.nArg(_f);
     }
     static public function arg(_f:FlagSet, _i:StdTypes.Int):String {
         return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.arg(_f, _i);
     }
-    static public function nflag(_f:FlagSet):StdTypes.Int {
-        return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.nflag(_f);
+    static public function nFlag(_f:FlagSet):StdTypes.Int {
+        return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.nFlag(_f);
     }
     static public function _defaultUsage(_f:FlagSet):Void {
         stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension._defaultUsage(_f);
@@ -304,97 +306,106 @@ class FlagSet_static_extension {
         return stdgo._internal.flag.Flag_FlagSet_static_extension.FlagSet_static_extension.output(_f);
     }
 }
+typedef T_boolValuePointer = stdgo._internal.flag.Flag_T_boolValuePointer.T_boolValuePointer;
 class T_boolValue_static_extension {
-    static public function isBoolFlag(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):Bool {
-        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.isBoolFlag(____, _b);
+    static public function isBoolFlag(_b:stdgo.Pointer<T_boolValue>):Bool {
+        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.isBoolFlag(_b);
     }
-    static public function string(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):String {
-        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.string(____, _b);
+    static public function string(_b:stdgo.Pointer<T_boolValue>):String {
+        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.string(_b);
     }
-    static public function get(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.get(____, _b);
+    static public function get(_b:stdgo.Pointer<T_boolValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.get(_b);
     }
-    static public function set(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.set(____, _b, _s);
+    static public function set(_b:stdgo.Pointer<T_boolValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_boolValue_static_extension.T_boolValue_static_extension.set(_b, _s);
     }
 }
+typedef T_intValuePointer = stdgo._internal.flag.Flag_T_intValuePointer.T_intValuePointer;
 class T_intValue_static_extension {
-    static public function string(____:T_intValue, _i:stdgo.Pointer<T_intValue>):String {
-        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.string(____, _i);
+    static public function string(_i:stdgo.Pointer<T_intValue>):String {
+        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.string(_i);
     }
-    static public function get(____:T_intValue, _i:stdgo.Pointer<T_intValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.get(____, _i);
+    static public function get(_i:stdgo.Pointer<T_intValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.get(_i);
     }
-    static public function set(____:T_intValue, _i:stdgo.Pointer<T_intValue>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.set(____, _i, _s);
+    static public function set(_i:stdgo.Pointer<T_intValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_intValue_static_extension.T_intValue_static_extension.set(_i, _s);
     }
 }
+typedef T_int64ValuePointer = stdgo._internal.flag.Flag_T_int64ValuePointer.T_int64ValuePointer;
 class T_int64Value_static_extension {
-    static public function string(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>):String {
-        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.string(____, _i);
+    static public function string(_i:stdgo.Pointer<T_int64Value>):String {
+        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.string(_i);
     }
-    static public function get(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.get(____, _i);
+    static public function get(_i:stdgo.Pointer<T_int64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.get(_i);
     }
-    static public function set(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.set(____, _i, _s);
+    static public function set(_i:stdgo.Pointer<T_int64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_int64Value_static_extension.T_int64Value_static_extension.set(_i, _s);
     }
 }
+typedef T_uintValuePointer = stdgo._internal.flag.Flag_T_uintValuePointer.T_uintValuePointer;
 class T_uintValue_static_extension {
-    static public function string(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>):String {
-        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.string(____, _i);
+    static public function string(_i:stdgo.Pointer<T_uintValue>):String {
+        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.string(_i);
     }
-    static public function get(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.get(____, _i);
+    static public function get(_i:stdgo.Pointer<T_uintValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.get(_i);
     }
-    static public function set(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.set(____, _i, _s);
+    static public function set(_i:stdgo.Pointer<T_uintValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_uintValue_static_extension.T_uintValue_static_extension.set(_i, _s);
     }
 }
+typedef T_uint64ValuePointer = stdgo._internal.flag.Flag_T_uint64ValuePointer.T_uint64ValuePointer;
 class T_uint64Value_static_extension {
-    static public function string(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>):String {
-        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.string(____, _i);
+    static public function string(_i:stdgo.Pointer<T_uint64Value>):String {
+        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.string(_i);
     }
-    static public function get(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.get(____, _i);
+    static public function get(_i:stdgo.Pointer<T_uint64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.get(_i);
     }
-    static public function set(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.set(____, _i, _s);
+    static public function set(_i:stdgo.Pointer<T_uint64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_uint64Value_static_extension.T_uint64Value_static_extension.set(_i, _s);
     }
 }
+typedef T_stringValuePointer = stdgo._internal.flag.Flag_T_stringValuePointer.T_stringValuePointer;
 class T_stringValue_static_extension {
-    static public function string(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>):String {
-        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.string(____, _s);
+    static public function string(_s:stdgo.Pointer<T_stringValue>):String {
+        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.string(_s);
     }
-    static public function get(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.get(____, _s);
+    static public function get(_s:stdgo.Pointer<T_stringValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.get(_s);
     }
-    static public function set(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>, _val:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.set(____, _s, _val);
+    static public function set(_s:stdgo.Pointer<T_stringValue>, _val:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_stringValue_static_extension.T_stringValue_static_extension.set(_s, _val);
     }
 }
+typedef T_float64ValuePointer = stdgo._internal.flag.Flag_T_float64ValuePointer.T_float64ValuePointer;
 class T_float64Value_static_extension {
-    static public function string(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>):String {
-        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.string(____, _f);
+    static public function string(_f:stdgo.Pointer<T_float64Value>):String {
+        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.string(_f);
     }
-    static public function get(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.get(____, _f);
+    static public function get(_f:stdgo.Pointer<T_float64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.get(_f);
     }
-    static public function set(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.set(____, _f, _s);
+    static public function set(_f:stdgo.Pointer<T_float64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_float64Value_static_extension.T_float64Value_static_extension.set(_f, _s);
     }
 }
+typedef T_durationValuePointer = stdgo._internal.flag.Flag_T_durationValuePointer.T_durationValuePointer;
 class T_durationValue_static_extension {
-    static public function string(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>):String {
-        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.string(____, _d);
+    static public function string(_d:stdgo.Pointer<T_durationValue>):String {
+        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.string(_d);
     }
-    static public function get(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.get(____, _d);
+    static public function get(_d:stdgo.Pointer<T_durationValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.get(_d);
     }
-    static public function set(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>, _s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.set(____, _d, _s);
+    static public function set(_d:stdgo.Pointer<T_durationValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag_T_durationValue_static_extension.T_durationValue_static_extension.set(_d, _s);
     }
 }
+typedef T_funcValuePointer = stdgo._internal.flag.Flag_T_funcValuePointer.T_funcValuePointer;
 class T_funcValue_static_extension {
     static public function string(_f:T_funcValue):String {
         return stdgo._internal.flag.Flag_T_funcValue_static_extension.T_funcValue_static_extension.string(_f);
@@ -403,6 +414,7 @@ class T_funcValue_static_extension {
         return stdgo._internal.flag.Flag_T_funcValue_static_extension.T_funcValue_static_extension.set(_f, _s);
     }
 }
+typedef T_boolFuncValuePointer = stdgo._internal.flag.Flag_T_boolFuncValuePointer.T_boolFuncValuePointer;
 class T_boolFuncValue_static_extension {
     static public function isBoolFlag(_f:T_boolFuncValue):Bool {
         return stdgo._internal.flag.Flag_T_boolFuncValue_static_extension.T_boolFuncValue_static_extension.isBoolFlag(_f);
@@ -580,8 +592,8 @@ class Flag {
     /**
         NFlag returns the number of command-line flags that have been set.
     **/
-    static public function nflag():StdTypes.Int {
-        return stdgo._internal.flag.Flag_nflag.nflag();
+    static public function nFlag():StdTypes.Int {
+        return stdgo._internal.flag.Flag_nFlag.nFlag();
     }
     /**
         Arg returns the i'th command-line argument. Arg(0) is the first remaining argument
@@ -594,8 +606,8 @@ class Flag {
     /**
         NArg is the number of arguments remaining after flags have been processed.
     **/
-    static public function narg():StdTypes.Int {
-        return stdgo._internal.flag.Flag_narg.narg();
+    static public function nArg():StdTypes.Int {
+        return stdgo._internal.flag.Flag_nArg.nArg();
     }
     /**
         Args returns the non-flag command-line arguments.

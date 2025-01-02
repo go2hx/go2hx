@@ -1,7 +1,7 @@
 package stdgo._internal.flag;
 function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _name = ("" : stdgo.GoString), _usage = ("" : stdgo.GoString);
-        _usage = _flag.usage?.__copy__();
+        _usage = (@:checkr _flag ?? throw "null pointer dereference").usage?.__copy__();
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_usage.length) : Bool)) {
@@ -29,7 +29,7 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>):{ va
         };
         _name = ("value" : stdgo.GoString);
         {
-            final __type__ = _flag.value;
+            final __type__ = (@:checkr _flag ?? throw "null pointer dereference").value;
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag))) {
                 var _fv:stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag = __type__ == null ? (null : stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag) : cast __type__;
                 if (_fv.isBoolFlag()) {

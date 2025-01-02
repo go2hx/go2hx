@@ -1,7 +1,7 @@
 package stdgo._internal.internal.buildcfg;
 function _goarm():stdgo.GoInt {
         var _def = ("7" : stdgo.GoString);
-        if (((stdgo._internal.internal.buildcfg.Buildcfg_goos.goos == ("android" : stdgo.GoString)) && (stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch == ("arm" : stdgo.GoString)) : Bool)) {
+        if (((stdgo._internal.internal.buildcfg.Buildcfg_gOOS.gOOS == ("android" : stdgo.GoString)) && (stdgo._internal.internal.buildcfg.Buildcfg_gOARCH.gOARCH == ("arm" : stdgo.GoString)) : Bool)) {
             _def = ("7" : stdgo.GoString);
         };
         {

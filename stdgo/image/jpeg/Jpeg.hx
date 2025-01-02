@@ -340,14 +340,17 @@ _eobRun,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.image.jpeg.Jpeg_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.image.jpeg.Jpeg_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.image.jpeg.Jpeg_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.image.jpeg.Jpeg_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.image.jpeg.Jpeg_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
@@ -358,6 +361,7 @@ typedef UnsupportedError = stdgo._internal.image.jpeg.Jpeg_UnsupportedError.Unsu
 typedef T_quantIndex = stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex;
 typedef T_huffIndex = stdgo._internal.image.jpeg.Jpeg_T_huffIndex.T_huffIndex;
 typedef T_huffmanLUT = stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT;
+typedef T_decoderPointer = stdgo._internal.image.jpeg.Jpeg_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _reconstructBlock(_d:T_decoder, _b:T_block, _bx:StdTypes.Int, _by:StdTypes.Int, _compIndex:StdTypes.Int):stdgo.Error {
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._reconstructBlock(_d, _b, _bx, _by, _compIndex);
@@ -472,6 +476,7 @@ class T_decoder_static_extension {
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._ensureNBits(_d, _n);
     }
 }
+typedef T_encoderPointer = stdgo._internal.image.jpeg.Jpeg_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _writeSOS(_e:T_encoder, _m:stdgo._internal.image.Image_Image.Image):Void {
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeSOS(_e, _m);
@@ -511,16 +516,19 @@ class T_encoder_static_extension {
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._flush(_e);
     }
 }
+typedef FormatErrorPointer = stdgo._internal.image.jpeg.Jpeg_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
         return stdgo._internal.image.jpeg.Jpeg_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
+typedef UnsupportedErrorPointer = stdgo._internal.image.jpeg.Jpeg_UnsupportedErrorPointer.UnsupportedErrorPointer;
 class UnsupportedError_static_extension {
     static public function error(_e:UnsupportedError):String {
         return stdgo._internal.image.jpeg.Jpeg_UnsupportedError_static_extension.UnsupportedError_static_extension.error(_e);
     }
 }
+typedef T_huffmanLUTPointer = stdgo._internal.image.jpeg.Jpeg_T_huffmanLUTPointer.T_huffmanLUTPointer;
 class T_huffmanLUT_static_extension {
     static public function _init(_h:T_huffmanLUT, _s:T_huffmanSpec):Void {
         stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT_static_extension.T_huffmanLUT_static_extension._init(_h, _s);

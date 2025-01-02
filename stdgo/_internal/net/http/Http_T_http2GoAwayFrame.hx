@@ -12,16 +12,26 @@ package stdgo._internal.net.http;
         if (_debugData != null) this._debugData = _debugData;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var header(get, never) : () -> stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader;
     @:embedded
-    public function header():stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return this._http2FrameHeader.header();
+    @:embeddededffieldsffun
+    public function get_header():() -> stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence").header;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this._http2FrameHeader.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence").string;
+    public var _checkValid(get, never) : () -> Void;
     @:embedded
-    public function _checkValid() this._http2FrameHeader._checkValid();
+    @:embeddededffieldsffun
+    public function get__checkValid():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._checkValid;
+    public var _invalidate(get, never) : () -> Void;
     @:embedded
-    public function _invalidate() this._http2FrameHeader._invalidate();
+    @:embeddededffieldsffun
+    public function get__invalidate():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._invalidate;
+    public var _writeDebug(get, never) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void;
     @:embedded
-    public function _writeDebug(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>) this._http2FrameHeader._writeDebug(_buf);
+    @:embeddededffieldsffun
+    public function get__writeDebug():stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._writeDebug;
     public function __copy__() {
         return new T_http2GoAwayFrame(_http2FrameHeader, lastStreamID, errCode, _debugData);
     }

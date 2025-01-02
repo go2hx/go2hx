@@ -6,5 +6,6 @@ typedef RowsColumnTypeDatabaseTypeName = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columnTypeDatabaseTypeName(_index:stdgo.GoInt):stdgo.GoString;
 };

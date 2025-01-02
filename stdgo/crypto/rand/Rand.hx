@@ -10,6 +10,7 @@ private function set_reader(v:stdgo._internal.io.Io_Reader.Reader):stdgo._intern
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_readerPointer = stdgo._internal.crypto.rand.Rand_T_readerPointer.T_readerPointer;
 class T_reader_static_extension {
     static public function read(_r:T_reader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);

@@ -9,8 +9,8 @@ function _encUintSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encod
             return false;
         };
         for (__8 => _x in _slice) {
-            if (((_x != (0u32 : stdgo.GoUInt)) || _state._sendZero : Bool)) {
-                _state._encodeUint((_x : stdgo.GoUInt64));
+            if (((_x != (0u32 : stdgo.GoUInt)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
+                @:check2r _state._encodeUint((_x : stdgo.GoUInt64));
             };
         };
         return true;

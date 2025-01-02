@@ -124,11 +124,11 @@ function read(_r:stdgo._internal.io.Io_Reader.Reader, _order:stdgo._internal.enc
         };
         var _d = (stdgo.Go.setRef(({ _order : _order, _buf : (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.binary.Binary_T_decoder.T_decoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_decoder.T_decoder>);
         {
-            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, _d._buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (@:checkr _d ?? throw "null pointer dereference")._buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
         };
-        _d._value(_v?.__copy__());
+        @:check2r _d._value(_v?.__copy__());
         return (null : stdgo.Error);
     }

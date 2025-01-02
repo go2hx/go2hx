@@ -1,11 +1,11 @@
 package stdgo._internal.internal.diff;
 function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo._internal.internal.diff.Diff_T_pair.T_pair> {
-        var _m = ({
+        var _m = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         for (__0 => _s in _x) {
             {
                 var _c = (_m[_s] ?? (0 : stdgo.GoInt) : stdgo.GoInt);

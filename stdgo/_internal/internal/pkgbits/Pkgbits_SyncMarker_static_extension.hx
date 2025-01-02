@@ -1,6 +1,7 @@
 package stdgo._internal.internal.pkgbits;
 @:keep @:allow(stdgo._internal.internal.pkgbits.Pkgbits.SyncMarker_asInterface) class SyncMarker_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker):stdgo.GoString {
         @:recv var _i:stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker = _i;
         _i = (_i - ((1 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker)) : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker);

@@ -45,6 +45,7 @@ package stdgo.encoding.pem;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_lineBreakerPointer = stdgo._internal.encoding.pem.Pem_T_lineBreakerPointer.T_lineBreakerPointer;
 class T_lineBreaker_static_extension {
     static public function close(_l:T_lineBreaker):stdgo.Error {
         return stdgo._internal.encoding.pem.Pem_T_lineBreaker_static_extension.T_lineBreaker_static_extension.close(_l);

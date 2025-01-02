@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql;
 @:keep @:allow(stdgo._internal.database.sql.Sql.IsolationLevel_asInterface) class IsolationLevel_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.database.sql.Sql_IsolationLevel.IsolationLevel):stdgo.GoString {
         @:recv var _i:stdgo._internal.database.sql.Sql_IsolationLevel.IsolationLevel = _i;
         {

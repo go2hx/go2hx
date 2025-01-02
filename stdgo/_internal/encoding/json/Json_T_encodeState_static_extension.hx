@@ -1,16 +1,19 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_encodeState_asInterface) class T_encodeState_static_extension {
     @:keep
+    @:tdfield
     static public function _reflectValue( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState> = _e;
         stdgo._internal.encoding.json.Json__valueEncoder._valueEncoder(_v?.__copy__())(_e, _v?.__copy__(), _opts?.__copy__());
     }
     @:keep
+    @:tdfield
     static public function _error( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _err:stdgo.Error):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState> = _e;
         throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError(_err) : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError)));
     }
     @:keep
+    @:tdfield
     static public function _marshal( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo.AnyInterface, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):stdgo.Error {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState> = _e;
         var __deferstack__:Array<Void -> Void> = [];
@@ -44,16 +47,18 @@ package stdgo._internal.encoding.json;
                     a();
                 }));
             };
-            _e._reflectValue(stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__(), _opts?.__copy__());
+            @:check2r _e._reflectValue(stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__(), _opts?.__copy__());
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -68,6 +73,7 @@ package stdgo._internal.encoding.json;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -75,57 +81,84 @@ package stdgo._internal.encoding.json;
         };
     }
     @:embedded
-    public static function _tryGrowByReslice( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _n:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } return __self__._tryGrowByReslice(_n);
+    @:embeddededffieldsffun
+    public static function _tryGrowByReslice( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } return @:_5 __self__._tryGrowByReslice(_0);
     @:embedded
-    public static function _readSlice( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__._readSlice(__0);
+    @:embeddededffieldsffun
+    public static function _readSlice( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:_5 __self__._readSlice(_0);
     @:embedded
-    public static function _grow( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _n:stdgo.GoInt):stdgo.GoInt return __self__._grow(_n);
+    @:embeddededffieldsffun
+    public static function _grow( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt):stdgo.GoInt return @:_5 __self__._grow(_0);
     @:embedded
-    public static function _empty( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):Bool return __self__._empty();
+    @:embeddededffieldsffun
+    public static function _empty( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):Bool return @:_5 __self__._empty();
     @:embedded
-    public static function writeTo( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.writeTo(_w);
+    @:embeddededffieldsffun
+    public static function writeTo( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_5 __self__.writeTo(_0);
     @:embedded
-    public static function writeString( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeString(__0);
+    @:embeddededffieldsffun
+    public static function writeString( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeString(_0);
     @:embedded
-    public static function writeRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeRune(__0);
+    @:embeddededffieldsffun
+    public static function writeRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeRune(_0);
     @:embedded
-    public static function writeByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoUInt8):stdgo.Error return __self__.writeByte(__0);
+    @:embeddededffieldsffun
+    public static function writeByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoUInt8):stdgo.Error return @:_5 __self__.writeByte(_0);
     @:embedded
-    public static function write( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(_b);
+    @:embeddededffieldsffun
+    public static function write( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.write(_0);
     @:embedded
-    public static function unreadRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Error return __self__.unreadRune();
+    @:embeddededffieldsffun
+    public static function unreadRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Error return @:_5 __self__.unreadRune();
     @:embedded
-    public static function unreadByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Error return __self__.unreadByte();
+    @:embeddededffieldsffun
+    public static function unreadByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Error return @:_5 __self__.unreadByte();
     @:embedded
-    public static function truncate( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _n:stdgo.GoInt) __self__.truncate(_n);
+    @:embeddededffieldsffun
+    public static function truncate( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt):Void return @:_5 __self__.truncate(_0);
     @:embedded
-    public static function string( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoString return __self__.string();
+    @:embeddededffieldsffun
+    public static function string( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoString return @:_5 __self__.string();
     @:embedded
-    public static function reset( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState) __self__.reset();
+    @:embeddededffieldsffun
+    public static function reset( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):Void return @:_5 __self__.reset();
     @:embedded
-    public static function readString( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } return __self__.readString(__0);
+    @:embeddededffieldsffun
+    public static function readString( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } return @:_5 __self__.readString(_0);
     @:embedded
-    public static function readRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return __self__.readRune();
+    @:embeddededffieldsffun
+    public static function readRune( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return @:_5 __self__.readRune();
     @:embedded
-    public static function readFrom( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.readFrom(_r);
+    @:embeddededffieldsffun
+    public static function readFrom( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_5 __self__.readFrom(_0);
     @:embedded
-    public static function readBytes( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, __0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.readBytes(__0);
+    @:embeddededffieldsffun
+    public static function readBytes( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:_5 __self__.readBytes(_0);
     @:embedded
-    public static function readByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return __self__.readByte();
+    @:embeddededffieldsffun
+    public static function readByte( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return @:_5 __self__.readByte();
     @:embedded
-    public static function read( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.read(_b);
+    @:embeddededffieldsffun
+    public static function read( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.read(_0);
     @:embedded
-    public static function next( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> return __self__.next(_n);
+    @:embeddededffieldsffun
+    public static function next( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__.next(_0);
     @:embedded
-    public static function len( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return __self__.len();
+    @:embeddededffieldsffun
+    public static function len( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return @:_5 __self__.len();
     @:embedded
-    public static function grow( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _n:stdgo.GoInt) __self__.grow(_n);
+    @:embeddededffieldsffun
+    public static function grow( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:stdgo.GoInt):Void return @:_5 __self__.grow(_0);
     @:embedded
-    public static function cap( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return __self__.cap();
+    @:embeddededffieldsffun
+    public static function cap( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return @:_5 __self__.cap();
     @:embedded
-    public static function bytes( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Slice<stdgo.GoUInt8> return __self__.bytes();
+    @:embeddededffieldsffun
+    public static function bytes( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__.bytes();
     @:embedded
-    public static function availableBuffer( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Slice<stdgo.GoUInt8> return __self__.availableBuffer();
+    @:embeddededffieldsffun
+    public static function availableBuffer( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__.availableBuffer();
     @:embedded
-    public static function available( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return __self__.available();
+    @:embeddededffieldsffun
+    public static function available( __self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):stdgo.GoInt return @:_5 __self__.available();
 }

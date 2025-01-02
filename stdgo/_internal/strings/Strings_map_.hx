@@ -19,26 +19,26 @@ function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:stdgo.GoString):stdgo.
             } else {
                 _width = stdgo._internal.unicode.utf8.Utf8_runeLen.runeLen(_c);
             };
-            _b.grow(((_s.length) + (4 : stdgo.GoInt) : stdgo.GoInt));
-            _b.writeString((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__());
+            @:check2 _b.grow(((_s.length) + (4 : stdgo.GoInt) : stdgo.GoInt));
+            @:check2 _b.writeString((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__());
             if ((_r >= (0 : stdgo.GoInt32) : Bool)) {
-                _b.writeRune(_r);
+                @:check2 _b.writeRune(_r);
             };
             _s = (_s.__slice__((_i + _width : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             break;
         };
-        if (_b.cap() == ((0 : stdgo.GoInt))) {
+        if (@:check2 _b.cap() == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();
         };
         for (__0 => _c in _s) {
             var _r = (_mapping(_c) : stdgo.GoInt32);
             if ((_r >= (0 : stdgo.GoInt32) : Bool)) {
                 if ((_r < (128 : stdgo.GoInt32) : Bool)) {
-                    _b.writeByte((_r : stdgo.GoUInt8));
+                    @:check2 _b.writeByte((_r : stdgo.GoUInt8));
                 } else {
-                    _b.writeRune(_r);
+                    @:check2 _b.writeRune(_r);
                 };
             };
         };
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

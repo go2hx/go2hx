@@ -267,6 +267,7 @@ typedef FormatError = stdgo._internal.image.png.Png_FormatError.FormatError;
 typedef UnsupportedError = stdgo._internal.image.png.Png_UnsupportedError.UnsupportedError;
 typedef EncoderBuffer = stdgo._internal.image.png.Png_EncoderBuffer.EncoderBuffer;
 typedef CompressionLevel = stdgo._internal.image.png.Png_CompressionLevel.CompressionLevel;
+typedef T_decoderPointer = stdgo._internal.image.png.Png_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _checkHeader(_d:T_decoder):stdgo.Error {
         return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._checkHeader(_d);
@@ -315,11 +316,13 @@ class T_decoder_static_extension {
         return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parseIHDR(_d, _length);
     }
 }
+typedef EncoderPointer = stdgo._internal.image.png.Png_EncoderPointer.EncoderPointer;
 class Encoder_static_extension {
     static public function encode(_enc:Encoder, _w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image):stdgo.Error {
         return stdgo._internal.image.png.Png_Encoder_static_extension.Encoder_static_extension.encode(_enc, _w, _m);
     }
 }
+typedef T_encoderPointer = stdgo._internal.image.png.Png_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _writeIEND(_e:T_encoder):Void {
         stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeIEND(_e);
@@ -348,11 +351,13 @@ class T_encoder_static_extension {
         stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeChunk(_e, _b, _name);
     }
 }
+typedef FormatErrorPointer = stdgo._internal.image.png.Png_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
         return stdgo._internal.image.png.Png_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
+typedef UnsupportedErrorPointer = stdgo._internal.image.png.Png_UnsupportedErrorPointer.UnsupportedErrorPointer;
 class UnsupportedError_static_extension {
     static public function error(_e:UnsupportedError):String {
         return stdgo._internal.image.png.Png_UnsupportedError_static_extension.UnsupportedError_static_extension.error(_e);

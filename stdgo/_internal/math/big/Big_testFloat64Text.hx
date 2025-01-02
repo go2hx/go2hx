@@ -108,10 +108,10 @@ function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-10 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-11 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (-12 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29)].concat([for (i in 107 ... (107 > 107 ? 107 : 107 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoFloat64), _format : (0 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_29.T__struct_29>)) {
-            var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(stdgo._internal.math.big.Big__actualPrec._actualPrec(_test._x)).setFloat64(_test._x);
-            var _got = (_f.text(_test._format, _test._prec)?.__copy__() : stdgo.GoString);
+            var _f = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(stdgo._internal.math.big.Big__actualPrec._actualPrec(_test._x)).setFloat64(_test._x);
+            var _got = (@:check2r _f.text(_test._format, _test._prec)?.__copy__() : stdgo.GoString);
             if (_got != (_test._want)) {
-                _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                @:check2r _t.errorf(("%v: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 continue;
             };
             if (((_test._format == (98 : stdgo.GoUInt8)) && (_test._x == (0 : stdgo.GoFloat64)) : Bool)) {
@@ -122,7 +122,7 @@ function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             };
             var _want = (stdgo._internal.strconv.Strconv_formatFloat.formatFloat(_test._x, _test._format, _test._prec, (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             if (_got != (_want)) {
-                _t.errorf(("%v: got %s; want %s (strconv)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("%v: got %s; want %s (strconv)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

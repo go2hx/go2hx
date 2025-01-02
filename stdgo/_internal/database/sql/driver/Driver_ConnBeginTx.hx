@@ -16,5 +16,6 @@ typedef ConnBeginTx = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function beginTx(_ctx:stdgo._internal.context.Context_Context.Context, _opts:stdgo._internal.database.sql.driver.Driver_TxOptions.TxOptions):{ var _0 : stdgo._internal.database.sql.driver.Driver_Tx.Tx; var _1 : stdgo.Error; };
 };

@@ -6,17 +6,17 @@ function testLargeByteSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         };
         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_s0)), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.fatalf(("Marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatalf(("Marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         var _s1:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_s1) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) : stdgo.Error);
             if (_err != null) {
-                _t.fatalf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         if (!stdgo._internal.bytes.Bytes_equal.equal(_s0, _s1)) {
-            _t.errorf(("Marshal large byte slice" : stdgo.GoString));
+            @:check2r _t.errorf(("Marshal large byte slice" : stdgo.GoString));
             stdgo._internal.encoding.json.Json__diff._diff(_t, _s0, _s1);
         };
     }

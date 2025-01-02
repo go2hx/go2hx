@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.md5;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
-        var __0 = (_dig._s[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = (_dig._s[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = (_dig._s[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = (_dig._s[(3 : stdgo.GoInt)] : stdgo.GoUInt32);
+        var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(3 : stdgo.GoInt)] : stdgo.GoUInt32);
 var _d = __3, _c = __2, _b = __1, _a = __0;
         {
             var _i = (0 : stdgo.GoInt);
@@ -101,13 +101,13 @@ _d = (_d + (_dd) : stdgo.GoUInt32);
             final __tmp__1 = _b;
             final __tmp__2 = _c;
             final __tmp__3 = _d;
-            final __tmp__4 = _dig._s;
+            final __tmp__4 = (@:checkr _dig ?? throw "null pointer dereference")._s;
             final __tmp__5 = (0 : stdgo.GoInt);
-            final __tmp__6 = _dig._s;
+            final __tmp__6 = (@:checkr _dig ?? throw "null pointer dereference")._s;
             final __tmp__7 = (1 : stdgo.GoInt);
-            final __tmp__8 = _dig._s;
+            final __tmp__8 = (@:checkr _dig ?? throw "null pointer dereference")._s;
             final __tmp__9 = (2 : stdgo.GoInt);
-            final __tmp__10 = _dig._s;
+            final __tmp__10 = (@:checkr _dig ?? throw "null pointer dereference")._s;
             final __tmp__11 = (3 : stdgo.GoInt);
             __tmp__4[__tmp__5] = __tmp__0;
             __tmp__6[__tmp__7] = __tmp__1;

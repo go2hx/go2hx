@@ -6,30 +6,54 @@ package stdgo._internal.crypto.tls;
         if (map_ != null) this.map_ = map_;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var compareAndDelete(get, never) : (stdgo.AnyInterface, stdgo.AnyInterface) -> Bool;
     @:embedded
-    public function compareAndDelete(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):Bool return this.map_.compareAndDelete(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public function get_compareAndDelete():(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool return @:check3 (this.map_ ?? throw "null pointer derefrence").compareAndDelete;
+    public var compareAndSwap(get, never) : (stdgo.AnyInterface, stdgo.AnyInterface, stdgo.AnyInterface) -> Bool;
     @:embedded
-    public function compareAndSwap(_key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return this.map_.compareAndSwap(_key, _old, _new);
+    @:embeddededffieldsffun
+    public function get_compareAndSwap():(stdgo.AnyInterface, stdgo.AnyInterface, stdgo.AnyInterface) -> Bool return @:check3 (this.map_ ?? throw "null pointer derefrence").compareAndSwap;
+    public var delete(get, never) : stdgo.AnyInterface -> Void;
     @:embedded
-    public function delete(_key:stdgo.AnyInterface) this.map_.delete(_key);
+    @:embeddededffieldsffun
+    public function get_delete():stdgo.AnyInterface -> Void return @:check3 (this.map_ ?? throw "null pointer derefrence").delete;
+    public var load(get, never) : stdgo.AnyInterface -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function load(_key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this.map_.load(_key);
+    @:embeddededffieldsffun
+    public function get_load():stdgo.AnyInterface -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this.map_ ?? throw "null pointer derefrence").load;
+    public var loadAndDelete(get, never) : stdgo.AnyInterface -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function loadAndDelete(_key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this.map_.loadAndDelete(_key);
+    @:embeddededffieldsffun
+    public function get_loadAndDelete():stdgo.AnyInterface -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this.map_ ?? throw "null pointer derefrence").loadAndDelete;
+    public var loadOrStore(get, never) : (stdgo.AnyInterface, stdgo.AnyInterface) -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function loadOrStore(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this.map_.loadOrStore(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public function get_loadOrStore():(stdgo.AnyInterface, stdgo.AnyInterface) -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this.map_ ?? throw "null pointer derefrence").loadOrStore;
+    public var range(get, never) : ((stdgo.AnyInterface, stdgo.AnyInterface) -> Bool) -> Void;
     @:embedded
-    public function range(_f:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool) this.map_.range(_f);
+    @:embeddededffieldsffun
+    public function get_range():((stdgo.AnyInterface, stdgo.AnyInterface) -> Bool) -> Void return @:check3 (this.map_ ?? throw "null pointer derefrence").range;
+    public var store(get, never) : (stdgo.AnyInterface, stdgo.AnyInterface) -> Void;
     @:embedded
-    public function store(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface) this.map_.store(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public function get_store():(stdgo.AnyInterface, stdgo.AnyInterface) -> Void return @:check3 (this.map_ ?? throw "null pointer derefrence").store;
+    public var swap(get, never) : (stdgo.AnyInterface, stdgo.AnyInterface) -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
-    public function swap(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return this.map_.swap(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public function get_swap():(stdgo.AnyInterface, stdgo.AnyInterface) -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 (this.map_ ?? throw "null pointer derefrence").swap;
+    public var _dirtyLocked(get, never) : () -> Void;
     @:embedded
-    public function _dirtyLocked() this.map_._dirtyLocked();
+    @:embeddededffieldsffun
+    public function get__dirtyLocked():() -> Void return @:check3 (this.map_ ?? throw "null pointer derefrence")._dirtyLocked;
+    public var _loadReadOnly(get, never) : () -> stdgo._internal.sync.Sync_T_readOnly.T_readOnly;
     @:embedded
-    public function _loadReadOnly():stdgo._internal.sync.Sync_T_readOnly.T_readOnly return this.map_._loadReadOnly();
+    @:embeddededffieldsffun
+    public function get__loadReadOnly():() -> stdgo._internal.sync.Sync_T_readOnly.T_readOnly return @:check3 (this.map_ ?? throw "null pointer derefrence")._loadReadOnly;
+    public var _missLocked(get, never) : () -> Void;
     @:embedded
-    public function _missLocked() this.map_._missLocked();
+    @:embeddededffieldsffun
+    public function get__missLocked():() -> Void return @:check3 (this.map_ ?? throw "null pointer derefrence")._missLocked;
     public function __copy__() {
         return new T_certCache(map_);
     }

@@ -5,7 +5,7 @@ function newWriterSize(_w:stdgo._internal.io.Io_Writer.Writer, _size:stdgo.GoInt
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _1 : false };
         }, _b = __tmp__._0, _ok = __tmp__._1;
-        if ((_ok && ((_b._buf.length) >= _size : Bool) : Bool)) {
+        if ((_ok && (((@:checkr _b ?? throw "null pointer dereference")._buf.length) >= _size : Bool) : Bool)) {
             return _b;
         };
         if ((_size <= (0 : stdgo.GoInt) : Bool)) {

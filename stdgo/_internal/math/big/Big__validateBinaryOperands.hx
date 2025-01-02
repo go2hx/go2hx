@@ -3,10 +3,10 @@ function _validateBinaryOperands(_x:stdgo.Ref<stdgo._internal.math.big.Big_Float
         if (true) {
             throw stdgo.Go.toInterface(("validateBinaryOperands called but debugFloat is not set" : stdgo.GoString));
         };
-        if ((_x._mant.length) == ((0 : stdgo.GoInt))) {
+        if (((@:checkr _x ?? throw "null pointer dereference")._mant.length) == ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("empty mantissa for x" : stdgo.GoString));
         };
-        if ((_y._mant.length) == ((0 : stdgo.GoInt))) {
+        if (((@:checkr _y ?? throw "null pointer dereference")._mant.length) == ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("empty mantissa for y" : stdgo.GoString));
         };
     }

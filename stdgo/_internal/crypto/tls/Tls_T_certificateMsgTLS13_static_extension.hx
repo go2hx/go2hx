@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_certificateMsgTLS13_asInterface) class T_certificateMsgTLS13_static_extension {
     @:keep
+    @:tdfield
     static public function _unmarshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13>, _data:stdgo.Slice<stdgo.GoUInt8>):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13> = _m;
         {
@@ -13,38 +14,39 @@ package stdgo._internal.crypto.tls;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _context:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-        if (((((!_s.skip((4 : stdgo.GoInt)) || !_s.readUint8LengthPrefixed((stdgo.Go.setRef(_context) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool) || !_context.empty() : Bool) || !stdgo._internal.crypto.tls.Tls__unmarshalCertificate._unmarshalCertificate((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._certificate) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>)) : Bool) || !_s.empty() : Bool)) {
+        if (((((!@:check2 _s.skip((4 : stdgo.GoInt)) || !@:check2 _s.readUint8LengthPrefixed((stdgo.Go.setRef(_context) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool) || !_context.empty() : Bool) || !stdgo._internal.crypto.tls.Tls__unmarshalCertificate._unmarshalCertificate((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._certificate) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>)) : Bool) || !_s.empty() : Bool)) {
             return false;
         };
-        _m._scts = _m._certificate.signedCertificateTimestamps != null;
-        _m._ocspStapling = _m._certificate.ocspstaple != null;
+        (@:checkr _m ?? throw "null pointer dereference")._scts = (@:checkr _m ?? throw "null pointer dereference")._certificate.signedCertificateTimestamps != null;
+        (@:checkr _m ?? throw "null pointer dereference")._ocspStapling = (@:checkr _m ?? throw "null pointer dereference")._certificate.oCSPStaple != null;
         return true;
     }
     @:keep
+    @:tdfield
     static public function _marshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13> = _m;
-        if (_m._raw != null) {
-            return { _0 : _m._raw, _1 : (null : stdgo.Error) };
+        if ((@:checkr _m ?? throw "null pointer dereference")._raw != null) {
+            return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : (null : stdgo.Error) };
         };
         var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder);
-        _b.addUint8((11 : stdgo.GoUInt8));
-        _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
-            _b.addUint8((0 : stdgo.GoUInt8));
-            var _certificate = (_m._certificate?.__copy__() : stdgo._internal.crypto.tls.Tls_Certificate.Certificate);
-            if (!_m._ocspStapling) {
-                _certificate.ocspstaple = (null : stdgo.Slice<stdgo.GoUInt8>);
+        @:check2 _b.addUint8((11 : stdgo.GoUInt8));
+        @:check2 _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
+            @:check2r _b.addUint8((0 : stdgo.GoUInt8));
+            var _certificate = ((@:checkr _m ?? throw "null pointer dereference")._certificate?.__copy__() : stdgo._internal.crypto.tls.Tls_Certificate.Certificate);
+            if (!(@:checkr _m ?? throw "null pointer dereference")._ocspStapling) {
+                _certificate.oCSPStaple = (null : stdgo.Slice<stdgo.GoUInt8>);
             };
-            if (!_m._scts) {
+            if (!(@:checkr _m ?? throw "null pointer dereference")._scts) {
                 _certificate.signedCertificateTimestamps = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
             };
             stdgo._internal.crypto.tls.Tls__marshalCertificate._marshalCertificate(_b, _certificate?.__copy__());
         });
         var _err:stdgo.Error = (null : stdgo.Error);
         {
-            var __tmp__ = _b.bytes();
-            _m._raw = __tmp__._0;
+            var __tmp__ = @:check2 _b.bytes();
+            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
             _err = __tmp__._1;
         };
-        return { _0 : _m._raw, _1 : _err };
+        return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }
 }

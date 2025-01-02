@@ -18,8 +18,8 @@ package stdgo._internal.net.http;
     public var dial : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = null;
     public var dialTLSContext : (stdgo._internal.context.Context_Context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = null;
     public var dialTLS : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = null;
-    public var tlsclientConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
-    public var tlshandshakeTimeout : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
+    public var tLSClientConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
+    public var tLSHandshakeTimeout : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
     public var disableKeepAlives : Bool = false;
     public var disableCompression : Bool = false;
     public var maxIdleConns : stdgo.GoInt = 0;
@@ -28,7 +28,7 @@ package stdgo._internal.net.http;
     public var idleConnTimeout : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
     public var responseHeaderTimeout : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
     public var expectContinueTimeout : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
-    public var tlsnextProto : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper> = (null : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper>);
+    public var tLSNextProto : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper> = (null : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper>);
     public var proxyConnectHeader : stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
     public var getProxyConnectHeader : (stdgo._internal.context.Context_Context.Context, stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_Header.Header; var _1 : stdgo.Error; } = null;
     public var maxResponseHeaderBytes : stdgo.GoInt64 = 0;
@@ -38,7 +38,7 @@ package stdgo._internal.net.http;
     public var _h2transport : stdgo._internal.net.http.Http_T_h2Transport.T_h2Transport = (null : stdgo._internal.net.http.Http_T_h2Transport.T_h2Transport);
     public var _tlsNextProtoWasNil : Bool = false;
     public var forceAttemptHTTP2 : Bool = false;
-    public function new(?_idleMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_closeIdle:Bool, ?_idleConn:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>>, ?_idleConnWait:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo._internal.net.http.Http_T_wantConnQueue.T_wantConnQueue>, ?_idleLRU:stdgo._internal.net.http.Http_T_connLRU.T_connLRU, ?_reqMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_reqCanceler:stdgo.GoMap<stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, stdgo.Error -> Void>, ?_altMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_altProto:stdgo._internal.sync.atomic_.Atomic__Value.Value, ?_connsPerHostMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_connsPerHost:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.GoInt>, ?_connsPerHostWait:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo._internal.net.http.Http_T_wantConnQueue.T_wantConnQueue>, ?proxy:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : stdgo.Error; }, ?onProxyConnectResponse:(stdgo._internal.context.Context_Context.Context, stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) -> stdgo.Error, ?dialContext:(stdgo._internal.context.Context_Context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dial:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dialTLSContext:(stdgo._internal.context.Context_Context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dialTLS:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?tlsclientConfig:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>, ?tlshandshakeTimeout:stdgo._internal.time.Time_Duration.Duration, ?disableKeepAlives:Bool, ?disableCompression:Bool, ?maxIdleConns:stdgo.GoInt, ?maxIdleConnsPerHost:stdgo.GoInt, ?maxConnsPerHost:stdgo.GoInt, ?idleConnTimeout:stdgo._internal.time.Time_Duration.Duration, ?responseHeaderTimeout:stdgo._internal.time.Time_Duration.Duration, ?expectContinueTimeout:stdgo._internal.time.Time_Duration.Duration, ?tlsnextProto:stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper>, ?proxyConnectHeader:stdgo._internal.net.http.Http_Header.Header, ?getProxyConnectHeader:(stdgo._internal.context.Context_Context.Context, stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_Header.Header; var _1 : stdgo.Error; }, ?maxResponseHeaderBytes:stdgo.GoInt64, ?writeBufferSize:stdgo.GoInt, ?readBufferSize:stdgo.GoInt, ?_nextProtoOnce:stdgo._internal.sync.Sync_Once.Once, ?_h2transport:stdgo._internal.net.http.Http_T_h2Transport.T_h2Transport, ?_tlsNextProtoWasNil:Bool, ?forceAttemptHTTP2:Bool) {
+    public function new(?_idleMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_closeIdle:Bool, ?_idleConn:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>>, ?_idleConnWait:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo._internal.net.http.Http_T_wantConnQueue.T_wantConnQueue>, ?_idleLRU:stdgo._internal.net.http.Http_T_connLRU.T_connLRU, ?_reqMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_reqCanceler:stdgo.GoMap<stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, stdgo.Error -> Void>, ?_altMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_altProto:stdgo._internal.sync.atomic_.Atomic__Value.Value, ?_connsPerHostMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_connsPerHost:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.GoInt>, ?_connsPerHostWait:stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo._internal.net.http.Http_T_wantConnQueue.T_wantConnQueue>, ?proxy:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : stdgo.Error; }, ?onProxyConnectResponse:(stdgo._internal.context.Context_Context.Context, stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) -> stdgo.Error, ?dialContext:(stdgo._internal.context.Context_Context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dial:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dialTLSContext:(stdgo._internal.context.Context_Context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?dialTLS:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; }, ?tLSClientConfig:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>, ?tLSHandshakeTimeout:stdgo._internal.time.Time_Duration.Duration, ?disableKeepAlives:Bool, ?disableCompression:Bool, ?maxIdleConns:stdgo.GoInt, ?maxIdleConnsPerHost:stdgo.GoInt, ?maxConnsPerHost:stdgo.GoInt, ?idleConnTimeout:stdgo._internal.time.Time_Duration.Duration, ?responseHeaderTimeout:stdgo._internal.time.Time_Duration.Duration, ?expectContinueTimeout:stdgo._internal.time.Time_Duration.Duration, ?tLSNextProto:stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper>, ?proxyConnectHeader:stdgo._internal.net.http.Http_Header.Header, ?getProxyConnectHeader:(stdgo._internal.context.Context_Context.Context, stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_Header.Header; var _1 : stdgo.Error; }, ?maxResponseHeaderBytes:stdgo.GoInt64, ?writeBufferSize:stdgo.GoInt, ?readBufferSize:stdgo.GoInt, ?_nextProtoOnce:stdgo._internal.sync.Sync_Once.Once, ?_h2transport:stdgo._internal.net.http.Http_T_h2Transport.T_h2Transport, ?_tlsNextProtoWasNil:Bool, ?forceAttemptHTTP2:Bool) {
         if (_idleMu != null) this._idleMu = _idleMu;
         if (_closeIdle != null) this._closeIdle = _closeIdle;
         if (_idleConn != null) this._idleConn = _idleConn;
@@ -57,8 +57,8 @@ package stdgo._internal.net.http;
         if (dial != null) this.dial = dial;
         if (dialTLSContext != null) this.dialTLSContext = dialTLSContext;
         if (dialTLS != null) this.dialTLS = dialTLS;
-        if (tlsclientConfig != null) this.tlsclientConfig = tlsclientConfig;
-        if (tlshandshakeTimeout != null) this.tlshandshakeTimeout = tlshandshakeTimeout;
+        if (tLSClientConfig != null) this.tLSClientConfig = tLSClientConfig;
+        if (tLSHandshakeTimeout != null) this.tLSHandshakeTimeout = tLSHandshakeTimeout;
         if (disableKeepAlives != null) this.disableKeepAlives = disableKeepAlives;
         if (disableCompression != null) this.disableCompression = disableCompression;
         if (maxIdleConns != null) this.maxIdleConns = maxIdleConns;
@@ -67,7 +67,7 @@ package stdgo._internal.net.http;
         if (idleConnTimeout != null) this.idleConnTimeout = idleConnTimeout;
         if (responseHeaderTimeout != null) this.responseHeaderTimeout = responseHeaderTimeout;
         if (expectContinueTimeout != null) this.expectContinueTimeout = expectContinueTimeout;
-        if (tlsnextProto != null) this.tlsnextProto = tlsnextProto;
+        if (tLSNextProto != null) this.tLSNextProto = tLSNextProto;
         if (proxyConnectHeader != null) this.proxyConnectHeader = proxyConnectHeader;
         if (getProxyConnectHeader != null) this.getProxyConnectHeader = getProxyConnectHeader;
         if (maxResponseHeaderBytes != null) this.maxResponseHeaderBytes = maxResponseHeaderBytes;
@@ -99,8 +99,8 @@ dialContext,
 dial,
 dialTLSContext,
 dialTLS,
-tlsclientConfig,
-tlshandshakeTimeout,
+tLSClientConfig,
+tLSHandshakeTimeout,
 disableKeepAlives,
 disableCompression,
 maxIdleConns,
@@ -109,7 +109,7 @@ maxConnsPerHost,
 idleConnTimeout,
 responseHeaderTimeout,
 expectContinueTimeout,
-tlsnextProto,
+tLSNextProto,
 proxyConnectHeader,
 getProxyConnectHeader,
 maxResponseHeaderBytes,

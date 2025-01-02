@@ -1,6 +1,7 @@
 package stdgo._internal.math.big;
 @:keep @:allow(stdgo._internal.math.big.Big.T_nat_asInterface) class T_nat_static_extension {
     @:keep
+    @:tdfield
     static public function _probablyPrimeLucas( _n:stdgo._internal.math.big.Big_T_nat.T_nat):Bool {
         @:recv var _n:stdgo._internal.math.big.Big_T_nat.T_nat = _n;
         if (((_n.length == (0 : stdgo.GoInt)) || (_n._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) : Bool)) {
@@ -16,7 +17,7 @@ package stdgo._internal.math.big;
         var _intN = (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         while (true) {
             if ((_p > (10000u32 : stdgo._internal.math.big.Big_Word.Word) : Bool)) {
-                throw stdgo.Go.toInterface((("math/big: internal error: cannot find (D/n) = -1 for " : stdgo.GoString) + (_intN.string() : stdgo.GoString).__copy__() : stdgo.GoString));
+                throw stdgo.Go.toInterface((("math/big: internal error: cannot find (D/n) = -1 for " : stdgo.GoString) + (@:check2r _intN.string() : stdgo.GoString).__copy__() : stdgo.GoString));
             };
 _d[(0 : stdgo.GoInt)] = ((_p * _p : stdgo._internal.math.big.Big_Word.Word) - (4u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
 var _j = (stdgo._internal.math.big.Big_jacobi.jacobi(_intD, _intN) : stdgo.GoInt);
@@ -128,108 +129,109 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
         return false;
     }
     @:keep
+    @:tdfield
     static public function _probablyPrimeMillerRabin( _n:stdgo._internal.math.big.Big_T_nat.T_nat, _reps:stdgo.GoInt, _force2:Bool):Bool {
         @:recv var _n:stdgo._internal.math.big.Big_T_nat.T_nat = _n;
-        var _nm3_4459501:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _q_4459473:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _k_4459444:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _nm1_4459370:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _j_4459893:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _i_4459648:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _rand_4459535:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
-        var _nm3Len_4459607:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _quotient_4459593:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _y_4459590:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _x_4459587:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _j_4622561:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _y_4622258:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _q_4622141:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
         var nextRandomBreak = false;
+        var _quotient_4622261:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _x_4622255:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _rand_4622203:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        var _nm3_4622169:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _k_4622112:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _nm1_4622038:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _i_4622316:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nm3Len_4622275:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _nm1_4459370 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_n, stdgo._internal.math.big.Big__natOne._natOne);
-                    _k_4459444 = _nm1_4459370._trailingZeroBits();
-                    _q_4459473 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shr(_nm1_4459370, _k_4459444);
-                    _nm3_4459501 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_nm1_4459370, stdgo._internal.math.big.Big__natTwo._natTwo);
-                    _rand_4459535 = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((_n[(0 : stdgo.GoInt)] : stdgo.GoInt64)));
-                    _nm3Len_4459607 = _nm3_4459501._bitLen();
-                    _gotoNext = 4459631i32;
-                } else if (__value__ == (4459631i32)) {
-                    _i_4459648 = (0 : stdgo.GoInt);
+                    _nm1_4622038 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_n, stdgo._internal.math.big.Big__natOne._natOne);
+                    _k_4622112 = _nm1_4622038._trailingZeroBits();
+                    _q_4622141 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shr(_nm1_4622038, _k_4622112);
+                    _nm3_4622169 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_nm1_4622038, stdgo._internal.math.big.Big__natTwo._natTwo);
+                    _rand_4622203 = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((_n[(0 : stdgo.GoInt)] : stdgo.GoInt64)));
+                    _nm3Len_4622275 = _nm3_4622169._bitLen();
+                    _gotoNext = 4622299i32;
+                } else if (__value__ == (4622299i32)) {
+                    _i_4622316 = (0 : stdgo.GoInt);
                     nextRandomBreak = false;
-                    _gotoNext = 4459644i32;
-                } else if (__value__ == (4459644i32)) {
-                    if (!nextRandomBreak && ((_i_4459648 < _reps : Bool))) {
-                        _gotoNext = 4459670i32;
+                    _gotoNext = 4622312i32;
+                } else if (__value__ == (4622312i32)) {
+                    if (!nextRandomBreak && ((_i_4622316 < _reps : Bool))) {
+                        _gotoNext = 4622338i32;
                     } else {
-                        _gotoNext = 4460101i32;
+                        _gotoNext = 4622769i32;
                     };
-                } else if (__value__ == (4459670i32)) {
-                    if (((_i_4459648 == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
-                        _gotoNext = 4459699i32;
+                } else if (__value__ == (4622338i32)) {
+                    if (((_i_4622316 == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
+                        _gotoNext = 4622367i32;
                     } else {
-                        _gotoNext = 4459731i32;
+                        _gotoNext = 4622399i32;
                     };
-                } else if (__value__ == (4459699i32)) {
-                    _x_4459587 = _x_4459587._set(stdgo._internal.math.big.Big__natTwo._natTwo);
-                    _gotoNext = 4459798i32;
-                } else if (__value__ == (4459731i32)) {
-                    _gotoNext = 4459731i32;
-                    _x_4459587 = _x_4459587._random(_rand_4459535, _nm3_4459501, _nm3Len_4459607);
-                    _x_4459587 = _x_4459587._add(_x_4459587, stdgo._internal.math.big.Big__natTwo._natTwo);
+                } else if (__value__ == (4622367i32)) {
+                    _x_4622255 = _x_4622255._set(stdgo._internal.math.big.Big__natTwo._natTwo);
+                    _gotoNext = 4622466i32;
+                } else if (__value__ == (4622399i32)) {
+                    _gotoNext = 4622399i32;
+                    _x_4622255 = _x_4622255._random(_rand_4622203, _nm3_4622169, _nm3Len_4622275);
+                    _x_4622255 = _x_4622255._add(_x_4622255, stdgo._internal.math.big.Big__natTwo._natTwo);
                     var __blank__ = 0i32;
-                    _gotoNext = 4459798i32;
-                } else if (__value__ == (4459798i32)) {
-                    _y_4459590 = _y_4459590._expNN(_x_4459587, _q_4459473, _n, false);
-                    if (((_y_4459590._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y_4459590._cmp(_nm1_4459370) == (0 : stdgo.GoInt)) : Bool)) {
-                        _gotoNext = 4459869i32;
+                    _gotoNext = 4622466i32;
+                } else if (__value__ == (4622466i32)) {
+                    _y_4622258 = _y_4622258._expNN(_x_4622255, _q_4622141, _n, false);
+                    if (((_y_4622258._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y_4622258._cmp(_nm1_4622038) == (0 : stdgo.GoInt)) : Bool)) {
+                        _gotoNext = 4622537i32;
                     } else {
-                        _gotoNext = 4459889i32;
+                        _gotoNext = 4622557i32;
                     };
-                } else if (__value__ == (4459869i32)) {
-                    _i_4459648++;
-                    _gotoNext = 4459644i32;
-                } else if (__value__ == (4459889i32)) {
-                    _j_4459893 = (1u32 : stdgo.GoUInt);
-                    _gotoNext = 4459889i32;
-                    if ((_j_4459893 < _k_4459444 : Bool)) {
-                        _gotoNext = 4459918i32;
+                } else if (__value__ == (4622537i32)) {
+                    _i_4622316++;
+                    _gotoNext = 4622312i32;
+                } else if (__value__ == (4622557i32)) {
+                    _j_4622561 = (1u32 : stdgo.GoUInt);
+                    _gotoNext = 4622557i32;
+                    if ((_j_4622561 < _k_4622112 : Bool)) {
+                        _gotoNext = 4622586i32;
                     } else {
-                        _gotoNext = 4460083i32;
+                        _gotoNext = 4622751i32;
                     };
-                } else if (__value__ == (4459914i32)) {
-                    _j_4459893++;
-                    _gotoNext = 4459889i32;
-                } else if (__value__ == (4459918i32)) {
-                    _y_4459590 = _y_4459590._sqr(_y_4459590);
+                } else if (__value__ == (4622582i32)) {
+                    _j_4622561++;
+                    _gotoNext = 4622557i32;
+                } else if (__value__ == (4622586i32)) {
+                    _y_4622258 = _y_4622258._sqr(_y_4622258);
                     {
-                        var __tmp__ = _quotient_4459593._div(_y_4459590, _y_4459590, _n);
-                        _quotient_4459593 = __tmp__._0;
-                        _y_4459590 = __tmp__._1;
+                        var __tmp__ = _quotient_4622261._div(_y_4622258, _y_4622258, _n);
+                        _quotient_4622261 = __tmp__._0;
+                        _y_4622258 = __tmp__._1;
                     };
-                    if (_y_4459590._cmp(_nm1_4459370) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4459997i32;
+                    if (_y_4622258._cmp(_nm1_4622038) == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4622665i32;
                     } else {
-                        _gotoNext = 4460031i32;
+                        _gotoNext = 4622699i32;
                     };
-                } else if (__value__ == (4459997i32)) {
-                    _i_4459648++;
-                    _gotoNext = 4459644i32;
-                } else if (__value__ == (4460031i32)) {
-                    if (_y_4459590._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4460053i32;
+                } else if (__value__ == (4622665i32)) {
+                    _i_4622316++;
+                    _gotoNext = 4622312i32;
+                } else if (__value__ == (4622699i32)) {
+                    if (_y_4622258._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4622721i32;
                     } else {
-                        _gotoNext = 4459914i32;
+                        _gotoNext = 4622582i32;
                     };
-                } else if (__value__ == (4460053i32)) {
+                } else if (__value__ == (4622721i32)) {
                     return false;
-                    _gotoNext = 4459914i32;
-                } else if (__value__ == (4460083i32)) {
+                    _gotoNext = 4622582i32;
+                } else if (__value__ == (4622751i32)) {
                     return false;
-                    _i_4459648++;
-                    _gotoNext = 4459644i32;
-                } else if (__value__ == (4460101i32)) {
+                    _i_4622316++;
+                    _gotoNext = 4622312i32;
+                } else if (__value__ == (4622769i32)) {
                     return true;
                     _gotoNext = -1i32;
                 };
@@ -238,6 +240,7 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
         throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _divRecursiveStep( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _v:stdgo._internal.math.big.Big_T_nat.T_nat, _depth:stdgo.GoInt, _tmp:stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>, _temps:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>>):Void {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         _u = _u._norm();
@@ -259,7 +262,7 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
         if ((_temps[(_depth : stdgo.GoInt)] == null || (_temps[(_depth : stdgo.GoInt)] : Dynamic).__nil__)) {
             _temps[(_depth : stdgo.GoInt)] = stdgo._internal.math.big.Big__getNat._getNat(_n);
         } else {
-            (_temps[(_depth : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_temps[(_depth : stdgo.GoInt)]._make((b + (1 : stdgo.GoInt) : stdgo.GoInt)));
+            (_temps[(_depth : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _temps[(_depth : stdgo.GoInt)] ?? throw "null pointer dereference")._make((b + (1 : stdgo.GoInt) : stdgo.GoInt)));
         };
         var _j = (_m : stdgo.GoInt);
         while ((_j > b : Bool)) {
@@ -269,7 +272,7 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
             _qhat._clear();
             _qhat._divRecursiveStep((_uu.__slice__(_s, (b + _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_depth + (1 : stdgo.GoInt) : stdgo.GoInt), _tmp, _temps);
             _qhat = _qhat._norm();
-            var _qhatv = (_tmp._make(((3 : stdgo.GoInt) * _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
+            var _qhatv = ((@:checkr _tmp ?? throw "null pointer dereference")._make(((3 : stdgo.GoInt) * _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
             _qhatv._clear();
             _qhatv = _qhatv._mul(_qhat, (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat));
             {
@@ -303,7 +306,7 @@ stdgo._internal.math.big.Big__addAt._addAt((_uu.__slice__(_s) : stdgo._internal.
         _qhat._clear();
         _qhat._divRecursiveStep((_u.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat)._norm(), (_v.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_depth + (1 : stdgo.GoInt) : stdgo.GoInt), _tmp, _temps);
         _qhat = _qhat._norm();
-        var _qhatv = (_tmp._make(((3 : stdgo.GoInt) * _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
+        var _qhatv = ((@:checkr _tmp ?? throw "null pointer dereference")._make(((3 : stdgo.GoInt) * _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
         _qhatv._clear();
         _qhatv = _qhatv._mul(_qhat, (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat));
         {
@@ -336,6 +339,7 @@ stdgo._internal.math.big.Big__addAt._addAt((_uu.__slice__(_s) : stdgo._internal.
         stdgo._internal.math.big.Big__addAt._addAt(_z, _qhat._norm(), (0 : stdgo.GoInt));
     }
     @:keep
+    @:tdfield
     static public function _divRecursive( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _v:stdgo._internal.math.big.Big_T_nat.T_nat):Void {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _recDepth = ((2 : stdgo.GoInt) * stdgo._internal.math.bits.Bits_len.len((_v.length : stdgo.GoUInt)) : stdgo.GoInt);
@@ -351,6 +355,7 @@ stdgo._internal.math.big.Big__addAt._addAt((_uu.__slice__(_s) : stdgo._internal.
         stdgo._internal.math.big.Big__putNat._putNat(_tmp);
     }
     @:keep
+    @:tdfield
     static public function _divBasic( _q:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _v:stdgo._internal.math.big.Big_T_nat.T_nat):Void {
         @:recv var _q:stdgo._internal.math.big.Big_T_nat.T_nat = _q;
         var _n = (_v.length : stdgo.GoInt);
@@ -417,6 +422,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
         stdgo._internal.math.big.Big__putNat._putNat(_qhatvp);
     }
     @:keep
+    @:tdfield
     static public function _divLarge( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _uIn:stdgo._internal.math.big.Big_T_nat.T_nat, _vIn:stdgo._internal.math.big.Big_T_nat.T_nat):{ var _0 : stdgo._internal.math.big.Big_T_nat.T_nat; var _1 : stdgo._internal.math.big.Big_T_nat.T_nat; } {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _q = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0), _r = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
@@ -449,6 +455,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
         };
     }
     @:keep
+    @:tdfield
     static public function _modW( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _d:stdgo._internal.math.big.Big_Word.Word):stdgo._internal.math.big.Big_Word.Word {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         var _r = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
@@ -457,6 +464,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
         return _r = stdgo._internal.math.big.Big__divWVW._divWVW(_q, (0u32 : stdgo._internal.math.big.Big_Word.Word), _x, _d);
     }
     @:keep
+    @:tdfield
     static public function _divW( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_Word.Word):{ var _0 : stdgo._internal.math.big.Big_T_nat.T_nat; var _1 : stdgo._internal.math.big.Big_Word.Word; } {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _q = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0), _r = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
@@ -476,6 +484,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
         return { _0 : _q, _1 : _r };
     }
     @:keep
+    @:tdfield
     static public function _div( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _z2:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _v:stdgo._internal.math.big.Big_T_nat.T_nat):{ var _0 : stdgo._internal.math.big.Big_T_nat.T_nat; var _1 : stdgo._internal.math.big.Big_T_nat.T_nat; } {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _q = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0), _r = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
@@ -505,6 +514,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
         return { _0 : _q, _1 : _r };
     }
     @:keep
+    @:tdfield
     static public function _rem( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _u:stdgo._internal.math.big.Big_T_nat.T_nat, _v:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _r = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
@@ -512,17 +522,19 @@ _q[(_j : stdgo.GoInt)] = _qhat;
             _z = null;
         };
         var _qp = stdgo._internal.math.big.Big__getNat._getNat((0 : stdgo.GoInt));
-        var __tmp__ = _qp._div(_z, _u, _v), _q:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
+        var __tmp__ = (@:checkr _qp ?? throw "null pointer dereference")._div(_z, _u, _v), _q:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
         (_qp : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_q);
         stdgo._internal.math.big.Big__putNat._putNat(_qp);
         return _r;
     }
     @:keep
+    @:tdfield
     static public function _expWW( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_Word.Word, _y:stdgo._internal.math.big.Big_Word.Word):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         return _z._expNN((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setWord(_x), (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setWord(_y), null, false);
     }
     @:keep
+    @:tdfield
     static public function _convertWords( _q:stdgo._internal.math.big.Big_T_nat.T_nat, _s:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo._internal.math.big.Big_Word.Word, _ndigits:stdgo.GoInt, _bb:stdgo._internal.math.big.Big_Word.Word, _table:stdgo.Slice<stdgo._internal.math.big.Big_T_divisor.T_divisor>):Void {
         @:recv var _q:stdgo._internal.math.big.Big_T_nat.T_nat = _q;
         if (_table != null) {
@@ -594,6 +606,7 @@ _r = (_r / (_b) : stdgo._internal.math.big.Big_Word.Word);
         };
     }
     @:keep
+    @:tdfield
     static public function _itoa( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _neg:Bool, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         if (((_base < (2 : stdgo.GoInt) : Bool) || (_base > (62 : stdgo.GoInt) : Bool) : Bool)) {
@@ -659,11 +672,13 @@ if (_nbits == ((0u32 : stdgo.GoUInt))) {
         return (_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
+    @:tdfield
     static public function _utoa( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         return _x._itoa(false, _base);
     }
     @:keep
+    @:tdfield
     static public function _scan( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:stdgo.GoInt, _fracOk:Bool):{ var _0 : stdgo._internal.math.big.Big_T_nat.T_nat; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _res = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0), _b = (0 : stdgo.GoInt), _count = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
@@ -788,7 +803,7 @@ var _prefix = __1, _b = __0;
                 _err = __tmp__._1;
             };
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
             _err = (null : stdgo.Error);
         };
         if (((_err == null) && ((_invalSep || (_prev == (95 : stdgo.GoInt32)) : Bool)) : Bool)) {
@@ -817,6 +832,7 @@ var _prefix = __1, _b = __0;
         return { _0 : _res, _1 : _b, _2 : _count, _3 : _err };
     }
     @:keep
+    @:tdfield
     static public function _subMod2N( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _n:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (((_x._bitLen() : stdgo.GoUInt) > _n : Bool)) {
@@ -847,6 +863,7 @@ var _prefix = __1, _b = __0;
         return _z._add(_z, stdgo._internal.math.big.Big__natOne._natOne);
     }
     @:keep
+    @:tdfield
     static public function _sqrt( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if ((_x._cmp(stdgo._internal.math.big.Big__natOne._natOne) <= (0 : stdgo.GoInt) : Bool)) {
@@ -886,6 +903,7 @@ if ((_z2._cmp(_z1) >= (0 : stdgo.GoInt) : Bool)) {
         };
     }
     @:keep
+    @:tdfield
     static public function _setBytes( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         _z = _z._make((((((_buf.length) + (4 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (4 : stdgo.GoInt) : stdgo.GoInt));
@@ -913,6 +931,7 @@ _i--;
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _bytes( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _i = (0 : stdgo.GoInt);
@@ -941,6 +960,7 @@ _d = (_d >> ((8i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _i;
     }
     @:keep
+    @:tdfield
     static public function _expNNMontgomery( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _m:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _numWords = (_m.length : stdgo.GoInt);
@@ -966,23 +986,23 @@ _k0 = (_k0 * ((_t + (1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._int
             };
         };
         _k0 = -_k0;
-        var rr = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setWord((1u32 : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_T_nat.T_nat);
-        var _zz = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shl(rr, ((((2 : stdgo.GoInt) * _numWords : stdgo.GoInt) * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
+        var rR = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setWord((1u32 : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_T_nat.T_nat);
+        var _zz = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shl(rR, ((((2 : stdgo.GoInt) * _numWords : stdgo.GoInt) * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
         {
-            var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(rr, _zz, _m);
-            rr = __tmp__._1;
+            var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(rR, _zz, _m);
+            rR = __tmp__._1;
         };
-        if (((rr.length) < _numWords : Bool)) {
+        if (((rR.length) < _numWords : Bool)) {
             _zz = _zz._make(_numWords);
-            _zz.__copyTo__(rr);
-            rr = _zz;
+            _zz.__copyTo__(rR);
+            rR = _zz;
         };
         var _one = (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>((_numWords : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat);
         _one[(0 : stdgo.GoInt)] = (1u32 : stdgo._internal.math.big.Big_Word.Word);
         {};
         var _powers:stdgo.GoArray<stdgo._internal.math.big.Big_T_nat.T_nat> = new stdgo.GoArray<stdgo._internal.math.big.Big_T_nat.T_nat>(16, 16, ...[for (i in 0 ... 16) new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0)]);
-        _powers[(0 : stdgo.GoInt)] = _powers[(0 : stdgo.GoInt)]._montgomery(_one, rr, _m, _k0, _numWords);
-        _powers[(1 : stdgo.GoInt)] = _powers[(1 : stdgo.GoInt)]._montgomery(_x, rr, _m, _k0, _numWords);
+        _powers[(0 : stdgo.GoInt)] = _powers[(0 : stdgo.GoInt)]._montgomery(_one, rR, _m, _k0, _numWords);
+        _powers[(1 : stdgo.GoInt)] = _powers[(1 : stdgo.GoInt)]._montgomery(_x, rR, _m, _k0, _numWords);
         {
             var _i = (2 : stdgo.GoInt);
             while ((_i < (16 : stdgo.GoInt) : Bool)) {
@@ -1033,6 +1053,7 @@ _yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word
         return _zz._norm();
     }
     @:keep
+    @:tdfield
     static public function _expNNWindowed( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _logM:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (((_y.length) <= (1 : stdgo.GoInt) : Bool)) {
@@ -1052,17 +1073,17 @@ _yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word
         for (_i => _ in _powers) {
             _powers[(_i : stdgo.GoInt)] = stdgo._internal.math.big.Big__getNat._getNat(_w);
         };
-        (_powers[(0 : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_powers[(0 : stdgo.GoInt)]._set(stdgo._internal.math.big.Big__natOne._natOne));
-        (_powers[(1 : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_powers[(1 : stdgo.GoInt)]._trunc(_x, _logM));
+        (_powers[(0 : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _powers[(0 : stdgo.GoInt)] ?? throw "null pointer dereference")._set(stdgo._internal.math.big.Big__natOne._natOne));
+        (_powers[(1 : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _powers[(1 : stdgo.GoInt)] ?? throw "null pointer dereference")._trunc(_x, _logM));
         {
             var _i = (2 : stdgo.GoInt);
             while ((_i < (16 : stdgo.GoInt) : Bool)) {
                 var __0 = _powers[(_i / (2 : stdgo.GoInt) : stdgo.GoInt)], __1 = _powers[(_i : stdgo.GoInt)], __2 = _powers[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)];
 var _p1 = __2, _p = __1, _p2 = __0;
-(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._sqr((_p2 : stdgo._internal.math.big.Big_T_nat.T_nat)));
-(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._trunc((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
-(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._mul((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _x));
-(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._trunc((_p1 : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
+(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _p ?? throw "null pointer dereference")._sqr((_p2 : stdgo._internal.math.big.Big_T_nat.T_nat)));
+(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _p ?? throw "null pointer dereference")._trunc((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
+(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _p1 ?? throw "null pointer dereference")._mul((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _x));
+(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__((@:checkr _p1 ?? throw "null pointer dereference")._trunc((_p1 : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
                 _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
@@ -1145,6 +1166,7 @@ _advance = true;
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _expNNMontgomeryEven( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _m:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _n = (_m._trailingZeroBits() : stdgo.GoUInt);
@@ -1161,6 +1183,7 @@ _advance = true;
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _expNN( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _m:stdgo._internal.math.big.Big_T_nat.T_nat, _slow:Bool):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if ((stdgo._internal.math.big.Big__alias._alias(_z, _x) || stdgo._internal.math.big.Big__alias._alias(_z, _y) : Bool)) {
@@ -1298,6 +1321,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _random( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _rand:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _limit:stdgo._internal.math.big.Big_T_nat.T_nat, _n:stdgo.GoInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (stdgo._internal.math.big.Big__alias._alias(_z, _limit)) {
@@ -1314,11 +1338,11 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
                 final __value__ = (32 : stdgo.GoInt);
                 if (__value__ == ((32 : stdgo.GoInt))) {
                     for (_i => _ in _z) {
-                        _z[(_i : stdgo.GoInt)] = (_rand.uint32() : stdgo._internal.math.big.Big_Word.Word);
+                        _z[(_i : stdgo.GoInt)] = (@:check2r _rand.uint32() : stdgo._internal.math.big.Big_Word.Word);
                     };
                 } else if (__value__ == ((64 : stdgo.GoInt))) {
                     for (_i => _ in _z) {
-                        _z[(_i : stdgo.GoInt)] = ((_rand.uint32() : stdgo._internal.math.big.Big_Word.Word) | ((_rand.uint32() : stdgo._internal.math.big.Big_Word.Word) << (32i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
+                        _z[(_i : stdgo.GoInt)] = ((@:check2r _rand.uint32() : stdgo._internal.math.big.Big_Word.Word) | ((@:check2r _rand.uint32() : stdgo._internal.math.big.Big_Word.Word) << (32i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
                     };
                 } else {
                     throw stdgo.Go.toInterface(("unknown word size" : stdgo.GoString));
@@ -1332,6 +1356,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _xor( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1358,6 +1383,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _or( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1384,6 +1410,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _andNot( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1403,6 +1430,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _trunc( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _n:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _w = ((((_n + (32u32 : stdgo.GoUInt) : stdgo.GoUInt) - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) / (32u32 : stdgo.GoUInt) : stdgo.GoUInt);
@@ -1417,6 +1445,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _and( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1435,6 +1464,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _sticky( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _i:stdgo.GoUInt):stdgo.GoUInt {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         var _j = (_i / (32u32 : stdgo.GoUInt) : stdgo.GoUInt);
@@ -1455,6 +1485,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return (0u32 : stdgo.GoUInt);
     }
     @:keep
+    @:tdfield
     static public function _bit( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _i:stdgo.GoUInt):stdgo.GoUInt {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         var _j = (_i / (32u32 : stdgo.GoUInt) : stdgo.GoUInt);
@@ -1464,6 +1495,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return (((_x[(_j : stdgo.GoInt)] >> ((_i % (32u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word) & (1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoUInt);
     }
     @:keep
+    @:tdfield
     static public function _setBit( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _i:stdgo.GoUInt, _b:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _j = ((_i / (32u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt);
@@ -1494,6 +1526,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         throw stdgo.Go.toInterface(("set bit is not 0 or 1" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _shr( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _s:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (_s == ((0u32 : stdgo.GoUInt))) {
@@ -1514,6 +1547,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _shl( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _s:stdgo.GoUInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (_s == ((0u32 : stdgo.GoUInt))) {
@@ -1535,6 +1569,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _isPow2( _x:stdgo._internal.math.big.Big_T_nat.T_nat):{ var _0 : stdgo.GoUInt; var _1 : Bool; } {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         var _i:stdgo.GoUInt = (0 : stdgo.GoUInt);
@@ -1547,6 +1582,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return { _0 : (0u32 : stdgo.GoUInt), _1 : false };
     }
     @:keep
+    @:tdfield
     static public function _trailingZeroBits( _x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoUInt {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         if ((_x.length) == ((0 : stdgo.GoInt))) {
@@ -1559,6 +1595,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return ((_i * (32u32 : stdgo.GoUInt) : stdgo.GoUInt) + (stdgo._internal.math.bits.Bits_trailingZeros.trailingZeros((_x[(_i : stdgo.GoInt)] : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoUInt);
     }
     @:keep
+    @:tdfield
     static public function _bitLen( _x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoInt {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         {
@@ -1577,6 +1614,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return (0 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function _mulRange( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _a:stdgo.GoUInt64, _b:stdgo.GoUInt64):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (_a == ((0i64 : stdgo.GoUInt64))) {
@@ -1592,6 +1630,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._mul((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._mulRange(_a, _m), (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._mulRange((_m + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64), _b));
     }
     @:keep
+    @:tdfield
     static public function _sqr( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _n = (_x.length : stdgo.GoInt);
@@ -1641,6 +1680,7 @@ _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _mul( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1695,6 +1735,7 @@ stdgo._internal.math.big.Big__addAt._addAt(_z, _t, (_i + _k : stdgo.GoInt));
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _montgomery( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat, _m:stdgo._internal.math.big.Big_T_nat.T_nat, _k:stdgo._internal.math.big.Big_Word.Word, _n:stdgo.GoInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if ((((_x.length) != (_n) || (_y.length) != (_n) : Bool) || (_m.length != _n) : Bool)) {
@@ -1729,6 +1770,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return (_z.__slice__(0, _n) : stdgo._internal.math.big.Big_T_nat.T_nat);
     }
     @:keep
+    @:tdfield
     static public function _mulAddWW( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_Word.Word, _r:stdgo._internal.math.big.Big_Word.Word):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1740,6 +1782,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _cmp( _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoInt {
         @:recv var _x:stdgo._internal.math.big.Big_T_nat.T_nat = _x;
         var _r = (0 : stdgo.GoInt);
@@ -1765,6 +1808,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _r;
     }
     @:keep
+    @:tdfield
     static public function _sub( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1787,6 +1831,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _add( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat, _y:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _m = (_x.length : stdgo.GoInt);
@@ -1807,6 +1852,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z._norm();
     }
     @:keep
+    @:tdfield
     static public function _set( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         _z = _z._make((_x.length));
@@ -1814,6 +1860,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _setUint64( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo.GoUInt64):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         {
@@ -1828,6 +1875,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _setWord( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _x:stdgo._internal.math.big.Big_Word.Word):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if (_x == ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
@@ -1838,6 +1886,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _make( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _n:stdgo.GoInt):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         if ((_n <= _z.capacity : Bool)) {
@@ -1850,6 +1899,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>((_n : stdgo.GoInt).toBasic(), (_n + (4 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat);
     }
     @:keep
+    @:tdfield
     static public function _norm( _z:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _i = (_z.length : stdgo.GoInt);
@@ -1859,6 +1909,7 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         return (_z.__slice__((0 : stdgo.GoInt), _i) : stdgo._internal.math.big.Big_T_nat.T_nat);
     }
     @:keep
+    @:tdfield
     static public function _clear( _z:stdgo._internal.math.big.Big_T_nat.T_nat):Void {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         for (_i => _ in _z) {
@@ -1866,13 +1917,15 @@ if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
         };
     }
     @:keep
+    @:tdfield
     static public function string( _z:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoString {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         return (("0x" : stdgo.GoString) + (_z._itoa(false, (16 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _modInverse( _z:stdgo._internal.math.big.Big_T_nat.T_nat, _g:stdgo._internal.math.big.Big_T_nat.T_nat, _n:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo._internal.math.big.Big_T_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
-        return (stdgo.Go.setRef(({ _abs : _z } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse((stdgo.Go.setRef(({ _abs : _g } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))._abs;
+        return @:check2r (stdgo.Go.setRef(({ _abs : _z } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse((stdgo.Go.setRef(({ _abs : _g } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))._abs;
     }
 }

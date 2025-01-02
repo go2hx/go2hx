@@ -1,101 +1,101 @@
 package stdgo.debug.pe;
-final image_FILE_MACHINE_UNKNOWN : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_UNKNOWN.image_FILE_MACHINE_UNKNOWN;
-final image_FILE_MACHINE_AM33 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_AM33.image_FILE_MACHINE_AM33;
-final image_FILE_MACHINE_AMD64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_AMD64.image_FILE_MACHINE_AMD64;
-final image_FILE_MACHINE_ARM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_ARM.image_FILE_MACHINE_ARM;
-final image_FILE_MACHINE_ARMNT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_ARMNT.image_FILE_MACHINE_ARMNT;
-final image_FILE_MACHINE_ARM64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_ARM64.image_FILE_MACHINE_ARM64;
-final image_FILE_MACHINE_EBC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_EBC.image_FILE_MACHINE_EBC;
-final image_FILE_MACHINE_I386 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_I386.image_FILE_MACHINE_I386;
-final image_FILE_MACHINE_IA64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_IA64.image_FILE_MACHINE_IA64;
-final image_FILE_MACHINE_LOONGARCH32 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_LOONGARCH32.image_FILE_MACHINE_LOONGARCH32;
-final image_FILE_MACHINE_LOONGARCH64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_LOONGARCH64.image_FILE_MACHINE_LOONGARCH64;
-final image_FILE_MACHINE_M32R : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_M32R.image_FILE_MACHINE_M32R;
-final image_FILE_MACHINE_MIPS16 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_MIPS16.image_FILE_MACHINE_MIPS16;
-final image_FILE_MACHINE_MIPSFPU : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_MIPSFPU.image_FILE_MACHINE_MIPSFPU;
-final image_FILE_MACHINE_MIPSFPU16 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_MIPSFPU16.image_FILE_MACHINE_MIPSFPU16;
-final image_FILE_MACHINE_POWERPC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_POWERPC.image_FILE_MACHINE_POWERPC;
-final image_FILE_MACHINE_POWERPCFP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_POWERPCFP.image_FILE_MACHINE_POWERPCFP;
-final image_FILE_MACHINE_R4000 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_R4000.image_FILE_MACHINE_R4000;
-final image_FILE_MACHINE_SH3 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_SH3.image_FILE_MACHINE_SH3;
-final image_FILE_MACHINE_SH3DSP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_SH3DSP.image_FILE_MACHINE_SH3DSP;
-final image_FILE_MACHINE_SH4 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_SH4.image_FILE_MACHINE_SH4;
-final image_FILE_MACHINE_SH5 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_SH5.image_FILE_MACHINE_SH5;
-final image_FILE_MACHINE_THUMB : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_THUMB.image_FILE_MACHINE_THUMB;
-final image_FILE_MACHINE_WCEMIPSV2 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_WCEMIPSV2.image_FILE_MACHINE_WCEMIPSV2;
-final image_FILE_MACHINE_RISCV32 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_RISCV32.image_FILE_MACHINE_RISCV32;
-final image_FILE_MACHINE_RISCV64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_RISCV64.image_FILE_MACHINE_RISCV64;
-final image_FILE_MACHINE_RISCV128 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_MACHINE_RISCV128.image_FILE_MACHINE_RISCV128;
-final image_DIRECTORY_ENTRY_EXPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_EXPORT.image_DIRECTORY_ENTRY_EXPORT;
-final image_DIRECTORY_ENTRY_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_IMPORT.image_DIRECTORY_ENTRY_IMPORT;
-final image_DIRECTORY_ENTRY_RESOURCE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_RESOURCE.image_DIRECTORY_ENTRY_RESOURCE;
-final image_DIRECTORY_ENTRY_EXCEPTION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_EXCEPTION.image_DIRECTORY_ENTRY_EXCEPTION;
-final image_DIRECTORY_ENTRY_SECURITY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_SECURITY.image_DIRECTORY_ENTRY_SECURITY;
-final image_DIRECTORY_ENTRY_BASERELOC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_BASERELOC.image_DIRECTORY_ENTRY_BASERELOC;
-final image_DIRECTORY_ENTRY_DEBUG : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_DEBUG.image_DIRECTORY_ENTRY_DEBUG;
-final image_DIRECTORY_ENTRY_ARCHITECTURE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_ARCHITECTURE.image_DIRECTORY_ENTRY_ARCHITECTURE;
-final image_DIRECTORY_ENTRY_GLOBALPTR : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_GLOBALPTR.image_DIRECTORY_ENTRY_GLOBALPTR;
-final image_DIRECTORY_ENTRY_TLS : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_TLS.image_DIRECTORY_ENTRY_TLS;
-final image_DIRECTORY_ENTRY_LOAD_CONFIG : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_LOAD_CONFIG.image_DIRECTORY_ENTRY_LOAD_CONFIG;
-final image_DIRECTORY_ENTRY_BOUND_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_BOUND_IMPORT.image_DIRECTORY_ENTRY_BOUND_IMPORT;
-final image_DIRECTORY_ENTRY_IAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_IAT.image_DIRECTORY_ENTRY_IAT;
-final image_DIRECTORY_ENTRY_DELAY_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_DELAY_IMPORT.image_DIRECTORY_ENTRY_DELAY_IMPORT;
-final image_DIRECTORY_ENTRY_COM_DESCRIPTOR : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DIRECTORY_ENTRY_COM_DESCRIPTOR.image_DIRECTORY_ENTRY_COM_DESCRIPTOR;
-final image_FILE_RELOCS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_RELOCS_STRIPPED.image_FILE_RELOCS_STRIPPED;
-final image_FILE_EXECUTABLE_IMAGE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_EXECUTABLE_IMAGE.image_FILE_EXECUTABLE_IMAGE;
-final image_FILE_LINE_NUMS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_LINE_NUMS_STRIPPED.image_FILE_LINE_NUMS_STRIPPED;
-final image_FILE_LOCAL_SYMS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_LOCAL_SYMS_STRIPPED.image_FILE_LOCAL_SYMS_STRIPPED;
-final image_FILE_AGGRESIVE_WS_TRIM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_AGGRESIVE_WS_TRIM.image_FILE_AGGRESIVE_WS_TRIM;
-final image_FILE_LARGE_ADDRESS_AWARE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_LARGE_ADDRESS_AWARE.image_FILE_LARGE_ADDRESS_AWARE;
-final image_FILE_BYTES_REVERSED_LO : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_BYTES_REVERSED_LO.image_FILE_BYTES_REVERSED_LO;
-final image_FILE_32BIT_MACHINE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_32BIT_MACHINE.image_FILE_32BIT_MACHINE;
-final image_FILE_DEBUG_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_DEBUG_STRIPPED.image_FILE_DEBUG_STRIPPED;
-final image_FILE_REMOVABLE_RUN_FROM_SWAP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_REMOVABLE_RUN_FROM_SWAP.image_FILE_REMOVABLE_RUN_FROM_SWAP;
-final image_FILE_NET_RUN_FROM_SWAP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_NET_RUN_FROM_SWAP.image_FILE_NET_RUN_FROM_SWAP;
-final image_FILE_SYSTEM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_SYSTEM.image_FILE_SYSTEM;
-final image_FILE_DLL : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_DLL.image_FILE_DLL;
-final image_FILE_UP_SYSTEM_ONLY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_UP_SYSTEM_ONLY.image_FILE_UP_SYSTEM_ONLY;
-final image_FILE_BYTES_REVERSED_HI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_FILE_BYTES_REVERSED_HI.image_FILE_BYTES_REVERSED_HI;
-final image_SUBSYSTEM_UNKNOWN : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_UNKNOWN.image_SUBSYSTEM_UNKNOWN;
-final image_SUBSYSTEM_NATIVE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_NATIVE.image_SUBSYSTEM_NATIVE;
-final image_SUBSYSTEM_WINDOWS_GUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_WINDOWS_GUI.image_SUBSYSTEM_WINDOWS_GUI;
-final image_SUBSYSTEM_WINDOWS_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_WINDOWS_CUI.image_SUBSYSTEM_WINDOWS_CUI;
-final image_SUBSYSTEM_OS2_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_OS2_CUI.image_SUBSYSTEM_OS2_CUI;
-final image_SUBSYSTEM_POSIX_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_POSIX_CUI.image_SUBSYSTEM_POSIX_CUI;
-final image_SUBSYSTEM_NATIVE_WINDOWS : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_NATIVE_WINDOWS.image_SUBSYSTEM_NATIVE_WINDOWS;
-final image_SUBSYSTEM_WINDOWS_CE_GUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_WINDOWS_CE_GUI.image_SUBSYSTEM_WINDOWS_CE_GUI;
-final image_SUBSYSTEM_EFI_APPLICATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_EFI_APPLICATION.image_SUBSYSTEM_EFI_APPLICATION;
-final image_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER.image_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER;
-final image_SUBSYSTEM_EFI_RUNTIME_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_EFI_RUNTIME_DRIVER.image_SUBSYSTEM_EFI_RUNTIME_DRIVER;
-final image_SUBSYSTEM_EFI_ROM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_EFI_ROM.image_SUBSYSTEM_EFI_ROM;
-final image_SUBSYSTEM_XBOX : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_XBOX.image_SUBSYSTEM_XBOX;
-final image_SUBSYSTEM_WINDOWS_BOOT_APPLICATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SUBSYSTEM_WINDOWS_BOOT_APPLICATION.image_SUBSYSTEM_WINDOWS_BOOT_APPLICATION;
-final image_DLLCHARACTERISTICS_HIGH_ENTROPY_VA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_HIGH_ENTROPY_VA.image_DLLCHARACTERISTICS_HIGH_ENTROPY_VA;
-final image_DLLCHARACTERISTICS_DYNAMIC_BASE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_DYNAMIC_BASE.image_DLLCHARACTERISTICS_DYNAMIC_BASE;
-final image_DLLCHARACTERISTICS_FORCE_INTEGRITY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_FORCE_INTEGRITY.image_DLLCHARACTERISTICS_FORCE_INTEGRITY;
-final image_DLLCHARACTERISTICS_NX_COMPAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_NX_COMPAT.image_DLLCHARACTERISTICS_NX_COMPAT;
-final image_DLLCHARACTERISTICS_NO_ISOLATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_NO_ISOLATION.image_DLLCHARACTERISTICS_NO_ISOLATION;
-final image_DLLCHARACTERISTICS_NO_SEH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_NO_SEH.image_DLLCHARACTERISTICS_NO_SEH;
-final image_DLLCHARACTERISTICS_NO_BIND : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_NO_BIND.image_DLLCHARACTERISTICS_NO_BIND;
-final image_DLLCHARACTERISTICS_APPCONTAINER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_APPCONTAINER.image_DLLCHARACTERISTICS_APPCONTAINER;
-final image_DLLCHARACTERISTICS_WDM_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_WDM_DRIVER.image_DLLCHARACTERISTICS_WDM_DRIVER;
-final image_DLLCHARACTERISTICS_GUARD_CF : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_GUARD_CF.image_DLLCHARACTERISTICS_GUARD_CF;
-final image_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE.image_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE;
-final image_SCN_CNT_CODE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_CNT_CODE.image_SCN_CNT_CODE;
-final image_SCN_CNT_INITIALIZED_DATA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_CNT_INITIALIZED_DATA.image_SCN_CNT_INITIALIZED_DATA;
-final image_SCN_CNT_UNINITIALIZED_DATA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_CNT_UNINITIALIZED_DATA.image_SCN_CNT_UNINITIALIZED_DATA;
-final image_SCN_LNK_COMDAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_LNK_COMDAT.image_SCN_LNK_COMDAT;
-final image_SCN_MEM_DISCARDABLE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_MEM_DISCARDABLE.image_SCN_MEM_DISCARDABLE;
-final image_SCN_MEM_EXECUTE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_MEM_EXECUTE.image_SCN_MEM_EXECUTE;
-final image_SCN_MEM_READ : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_MEM_READ.image_SCN_MEM_READ;
-final image_SCN_MEM_WRITE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_SCN_MEM_WRITE.image_SCN_MEM_WRITE;
-final coffsymbolSize : haxe.UInt64 = stdgo._internal.debug.pe.Pe_coffsymbolSize.coffsymbolSize;
-final image_COMDAT_SELECT_NODUPLICATES : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_NODUPLICATES.image_COMDAT_SELECT_NODUPLICATES;
-final image_COMDAT_SELECT_ANY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_ANY.image_COMDAT_SELECT_ANY;
-final image_COMDAT_SELECT_SAME_SIZE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_SAME_SIZE.image_COMDAT_SELECT_SAME_SIZE;
-final image_COMDAT_SELECT_EXACT_MATCH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_EXACT_MATCH.image_COMDAT_SELECT_EXACT_MATCH;
-final image_COMDAT_SELECT_ASSOCIATIVE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_ASSOCIATIVE.image_COMDAT_SELECT_ASSOCIATIVE;
-final image_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_COMDAT_SELECT_LARGEST.image_COMDAT_SELECT_LARGEST;
+final iMAGE_FILE_MACHINE_UNKNOWN : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_UNKNOWN.iMAGE_FILE_MACHINE_UNKNOWN;
+final iMAGE_FILE_MACHINE_AM33 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_AM33.iMAGE_FILE_MACHINE_AM33;
+final iMAGE_FILE_MACHINE_AMD64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_AMD64.iMAGE_FILE_MACHINE_AMD64;
+final iMAGE_FILE_MACHINE_ARM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_ARM.iMAGE_FILE_MACHINE_ARM;
+final iMAGE_FILE_MACHINE_ARMNT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_ARMNT.iMAGE_FILE_MACHINE_ARMNT;
+final iMAGE_FILE_MACHINE_ARM64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_ARM64.iMAGE_FILE_MACHINE_ARM64;
+final iMAGE_FILE_MACHINE_EBC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_EBC.iMAGE_FILE_MACHINE_EBC;
+final iMAGE_FILE_MACHINE_I386 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_I386.iMAGE_FILE_MACHINE_I386;
+final iMAGE_FILE_MACHINE_IA64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_IA64.iMAGE_FILE_MACHINE_IA64;
+final iMAGE_FILE_MACHINE_LOONGARCH32 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_LOONGARCH32.iMAGE_FILE_MACHINE_LOONGARCH32;
+final iMAGE_FILE_MACHINE_LOONGARCH64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_LOONGARCH64.iMAGE_FILE_MACHINE_LOONGARCH64;
+final iMAGE_FILE_MACHINE_M32R : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_M32R.iMAGE_FILE_MACHINE_M32R;
+final iMAGE_FILE_MACHINE_MIPS16 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_MIPS16.iMAGE_FILE_MACHINE_MIPS16;
+final iMAGE_FILE_MACHINE_MIPSFPU : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_MIPSFPU.iMAGE_FILE_MACHINE_MIPSFPU;
+final iMAGE_FILE_MACHINE_MIPSFPU16 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_MIPSFPU16.iMAGE_FILE_MACHINE_MIPSFPU16;
+final iMAGE_FILE_MACHINE_POWERPC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_POWERPC.iMAGE_FILE_MACHINE_POWERPC;
+final iMAGE_FILE_MACHINE_POWERPCFP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_POWERPCFP.iMAGE_FILE_MACHINE_POWERPCFP;
+final iMAGE_FILE_MACHINE_R4000 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_R4000.iMAGE_FILE_MACHINE_R4000;
+final iMAGE_FILE_MACHINE_SH3 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_SH3.iMAGE_FILE_MACHINE_SH3;
+final iMAGE_FILE_MACHINE_SH3DSP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_SH3DSP.iMAGE_FILE_MACHINE_SH3DSP;
+final iMAGE_FILE_MACHINE_SH4 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_SH4.iMAGE_FILE_MACHINE_SH4;
+final iMAGE_FILE_MACHINE_SH5 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_SH5.iMAGE_FILE_MACHINE_SH5;
+final iMAGE_FILE_MACHINE_THUMB : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_THUMB.iMAGE_FILE_MACHINE_THUMB;
+final iMAGE_FILE_MACHINE_WCEMIPSV2 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_WCEMIPSV2.iMAGE_FILE_MACHINE_WCEMIPSV2;
+final iMAGE_FILE_MACHINE_RISCV32 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_RISCV32.iMAGE_FILE_MACHINE_RISCV32;
+final iMAGE_FILE_MACHINE_RISCV64 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_RISCV64.iMAGE_FILE_MACHINE_RISCV64;
+final iMAGE_FILE_MACHINE_RISCV128 : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_MACHINE_RISCV128.iMAGE_FILE_MACHINE_RISCV128;
+final iMAGE_DIRECTORY_ENTRY_EXPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_EXPORT.iMAGE_DIRECTORY_ENTRY_EXPORT;
+final iMAGE_DIRECTORY_ENTRY_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_IMPORT.iMAGE_DIRECTORY_ENTRY_IMPORT;
+final iMAGE_DIRECTORY_ENTRY_RESOURCE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_RESOURCE.iMAGE_DIRECTORY_ENTRY_RESOURCE;
+final iMAGE_DIRECTORY_ENTRY_EXCEPTION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_EXCEPTION.iMAGE_DIRECTORY_ENTRY_EXCEPTION;
+final iMAGE_DIRECTORY_ENTRY_SECURITY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_SECURITY.iMAGE_DIRECTORY_ENTRY_SECURITY;
+final iMAGE_DIRECTORY_ENTRY_BASERELOC : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_BASERELOC.iMAGE_DIRECTORY_ENTRY_BASERELOC;
+final iMAGE_DIRECTORY_ENTRY_DEBUG : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_DEBUG.iMAGE_DIRECTORY_ENTRY_DEBUG;
+final iMAGE_DIRECTORY_ENTRY_ARCHITECTURE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_ARCHITECTURE.iMAGE_DIRECTORY_ENTRY_ARCHITECTURE;
+final iMAGE_DIRECTORY_ENTRY_GLOBALPTR : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_GLOBALPTR.iMAGE_DIRECTORY_ENTRY_GLOBALPTR;
+final iMAGE_DIRECTORY_ENTRY_TLS : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_TLS.iMAGE_DIRECTORY_ENTRY_TLS;
+final iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG.iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG;
+final iMAGE_DIRECTORY_ENTRY_BOUND_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_BOUND_IMPORT.iMAGE_DIRECTORY_ENTRY_BOUND_IMPORT;
+final iMAGE_DIRECTORY_ENTRY_IAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_IAT.iMAGE_DIRECTORY_ENTRY_IAT;
+final iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT.iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT;
+final iMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR.iMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR;
+final iMAGE_FILE_RELOCS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_RELOCS_STRIPPED.iMAGE_FILE_RELOCS_STRIPPED;
+final iMAGE_FILE_EXECUTABLE_IMAGE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_EXECUTABLE_IMAGE.iMAGE_FILE_EXECUTABLE_IMAGE;
+final iMAGE_FILE_LINE_NUMS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_LINE_NUMS_STRIPPED.iMAGE_FILE_LINE_NUMS_STRIPPED;
+final iMAGE_FILE_LOCAL_SYMS_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_LOCAL_SYMS_STRIPPED.iMAGE_FILE_LOCAL_SYMS_STRIPPED;
+final iMAGE_FILE_AGGRESIVE_WS_TRIM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_AGGRESIVE_WS_TRIM.iMAGE_FILE_AGGRESIVE_WS_TRIM;
+final iMAGE_FILE_LARGE_ADDRESS_AWARE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_LARGE_ADDRESS_AWARE.iMAGE_FILE_LARGE_ADDRESS_AWARE;
+final iMAGE_FILE_BYTES_REVERSED_LO : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_BYTES_REVERSED_LO.iMAGE_FILE_BYTES_REVERSED_LO;
+final iMAGE_FILE_32BIT_MACHINE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_32BIT_MACHINE.iMAGE_FILE_32BIT_MACHINE;
+final iMAGE_FILE_DEBUG_STRIPPED : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_DEBUG_STRIPPED.iMAGE_FILE_DEBUG_STRIPPED;
+final iMAGE_FILE_REMOVABLE_RUN_FROM_SWAP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_REMOVABLE_RUN_FROM_SWAP.iMAGE_FILE_REMOVABLE_RUN_FROM_SWAP;
+final iMAGE_FILE_NET_RUN_FROM_SWAP : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_NET_RUN_FROM_SWAP.iMAGE_FILE_NET_RUN_FROM_SWAP;
+final iMAGE_FILE_SYSTEM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_SYSTEM.iMAGE_FILE_SYSTEM;
+final iMAGE_FILE_DLL : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_DLL.iMAGE_FILE_DLL;
+final iMAGE_FILE_UP_SYSTEM_ONLY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_UP_SYSTEM_ONLY.iMAGE_FILE_UP_SYSTEM_ONLY;
+final iMAGE_FILE_BYTES_REVERSED_HI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_FILE_BYTES_REVERSED_HI.iMAGE_FILE_BYTES_REVERSED_HI;
+final iMAGE_SUBSYSTEM_UNKNOWN : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_UNKNOWN.iMAGE_SUBSYSTEM_UNKNOWN;
+final iMAGE_SUBSYSTEM_NATIVE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_NATIVE.iMAGE_SUBSYSTEM_NATIVE;
+final iMAGE_SUBSYSTEM_WINDOWS_GUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_WINDOWS_GUI.iMAGE_SUBSYSTEM_WINDOWS_GUI;
+final iMAGE_SUBSYSTEM_WINDOWS_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_WINDOWS_CUI.iMAGE_SUBSYSTEM_WINDOWS_CUI;
+final iMAGE_SUBSYSTEM_OS2_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_OS2_CUI.iMAGE_SUBSYSTEM_OS2_CUI;
+final iMAGE_SUBSYSTEM_POSIX_CUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_POSIX_CUI.iMAGE_SUBSYSTEM_POSIX_CUI;
+final iMAGE_SUBSYSTEM_NATIVE_WINDOWS : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_NATIVE_WINDOWS.iMAGE_SUBSYSTEM_NATIVE_WINDOWS;
+final iMAGE_SUBSYSTEM_WINDOWS_CE_GUI : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_WINDOWS_CE_GUI.iMAGE_SUBSYSTEM_WINDOWS_CE_GUI;
+final iMAGE_SUBSYSTEM_EFI_APPLICATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_EFI_APPLICATION.iMAGE_SUBSYSTEM_EFI_APPLICATION;
+final iMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER.iMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER;
+final iMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER.iMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER;
+final iMAGE_SUBSYSTEM_EFI_ROM : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_EFI_ROM.iMAGE_SUBSYSTEM_EFI_ROM;
+final iMAGE_SUBSYSTEM_XBOX : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_XBOX.iMAGE_SUBSYSTEM_XBOX;
+final iMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION.iMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION;
+final iMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA.iMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA;
+final iMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE.iMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE;
+final iMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY.iMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY;
+final iMAGE_DLLCHARACTERISTICS_NX_COMPAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_NX_COMPAT.iMAGE_DLLCHARACTERISTICS_NX_COMPAT;
+final iMAGE_DLLCHARACTERISTICS_NO_ISOLATION : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_NO_ISOLATION.iMAGE_DLLCHARACTERISTICS_NO_ISOLATION;
+final iMAGE_DLLCHARACTERISTICS_NO_SEH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_NO_SEH.iMAGE_DLLCHARACTERISTICS_NO_SEH;
+final iMAGE_DLLCHARACTERISTICS_NO_BIND : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_NO_BIND.iMAGE_DLLCHARACTERISTICS_NO_BIND;
+final iMAGE_DLLCHARACTERISTICS_APPCONTAINER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_APPCONTAINER.iMAGE_DLLCHARACTERISTICS_APPCONTAINER;
+final iMAGE_DLLCHARACTERISTICS_WDM_DRIVER : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_WDM_DRIVER.iMAGE_DLLCHARACTERISTICS_WDM_DRIVER;
+final iMAGE_DLLCHARACTERISTICS_GUARD_CF : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_GUARD_CF.iMAGE_DLLCHARACTERISTICS_GUARD_CF;
+final iMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE.iMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE;
+final iMAGE_SCN_CNT_CODE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_CNT_CODE.iMAGE_SCN_CNT_CODE;
+final iMAGE_SCN_CNT_INITIALIZED_DATA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_CNT_INITIALIZED_DATA.iMAGE_SCN_CNT_INITIALIZED_DATA;
+final iMAGE_SCN_CNT_UNINITIALIZED_DATA : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_CNT_UNINITIALIZED_DATA.iMAGE_SCN_CNT_UNINITIALIZED_DATA;
+final iMAGE_SCN_LNK_COMDAT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_LNK_COMDAT.iMAGE_SCN_LNK_COMDAT;
+final iMAGE_SCN_MEM_DISCARDABLE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_MEM_DISCARDABLE.iMAGE_SCN_MEM_DISCARDABLE;
+final iMAGE_SCN_MEM_EXECUTE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_MEM_EXECUTE.iMAGE_SCN_MEM_EXECUTE;
+final iMAGE_SCN_MEM_READ : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_MEM_READ.iMAGE_SCN_MEM_READ;
+final iMAGE_SCN_MEM_WRITE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_SCN_MEM_WRITE.iMAGE_SCN_MEM_WRITE;
+final cOFFSymbolSize : haxe.UInt64 = stdgo._internal.debug.pe.Pe_cOFFSymbolSize.cOFFSymbolSize;
+final iMAGE_COMDAT_SELECT_NODUPLICATES : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_NODUPLICATES.iMAGE_COMDAT_SELECT_NODUPLICATES;
+final iMAGE_COMDAT_SELECT_ANY : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_ANY.iMAGE_COMDAT_SELECT_ANY;
+final iMAGE_COMDAT_SELECT_SAME_SIZE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_SAME_SIZE.iMAGE_COMDAT_SELECT_SAME_SIZE;
+final iMAGE_COMDAT_SELECT_EXACT_MATCH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_EXACT_MATCH.iMAGE_COMDAT_SELECT_EXACT_MATCH;
+final iMAGE_COMDAT_SELECT_ASSOCIATIVE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_ASSOCIATIVE.iMAGE_COMDAT_SELECT_ASSOCIATIVE;
+final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_COMDAT_SELECT_LARGEST.iMAGE_COMDAT_SELECT_LARGEST;
 @:structInit @:using(stdgo.debug.pe.Pe.File_static_extension) abstract File(stdgo._internal.debug.pe.Pe_File.File) from stdgo._internal.debug.pe.Pe_File.File to stdgo._internal.debug.pe.Pe_File.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
@@ -121,10 +121,10 @@ final image_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
         this.symbols = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>);
         return v;
     }
-    public var coffsymbols(get, set) : Array<COFFSymbol>;
-    function get_coffsymbols():Array<COFFSymbol> return [for (i in this.coffsymbols) i];
-    function set_coffsymbols(v:Array<COFFSymbol>):Array<COFFSymbol> {
-        this.coffsymbols = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>);
+    public var cOFFSymbols(get, set) : Array<COFFSymbol>;
+    function get_cOFFSymbols():Array<COFFSymbol> return [for (i in this.cOFFSymbols) i];
+    function set_cOFFSymbols(v:Array<COFFSymbol>):Array<COFFSymbol> {
+        this.cOFFSymbols = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>);
         return v;
     }
     public var stringTable(get, set) : StringTable;
@@ -139,7 +139,7 @@ final image_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?optionalHeader:stdgo.AnyInterface, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?coffsymbols:Array<COFFSymbol>, ?stringTable:StringTable, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.pe.Pe_File.File(fileHeader, optionalHeader, ([for (i in sections) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>), ([for (i in symbols) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>), ([for (i in coffsymbols) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), stringTable, _closer);
+    public function new(?fileHeader:FileHeader, ?optionalHeader:stdgo.AnyInterface, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?cOFFSymbols:Array<COFFSymbol>, ?stringTable:StringTable, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.pe.Pe_File.File(fileHeader, optionalHeader, ([for (i in sections) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>), ([for (i in symbols) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>), ([for (i in cOFFSymbols) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), stringTable, _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1001,10 +1001,11 @@ numberOfRvaAndSizes,
     public function __copy__() return this.__copy__();
 }
 typedef StringTable = stdgo._internal.debug.pe.Pe_StringTable.StringTable;
+typedef FilePointer = stdgo._internal.debug.pe.Pe_FilePointer.FilePointer;
 class File_static_extension {
-    static public function coffsymbolReadSectionDefAux(_f:File, _idx:StdTypes.Int):stdgo.Tuple<COFFSymbolAuxFormat5, stdgo.Error> {
+    static public function cOFFSymbolReadSectionDefAux(_f:File, _idx:StdTypes.Int):stdgo.Tuple<COFFSymbolAuxFormat5, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.coffsymbolReadSectionDefAux(_f, _idx);
+            final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.cOFFSymbolReadSectionDefAux(_f, _idx);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1020,9 +1021,9 @@ class File_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dwarf(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.dwarf(_f);
+            final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1033,6 +1034,7 @@ class File_static_extension {
         return stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.close(_f);
     }
 }
+typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.pe.Pe_T_nobitsSectionReaderPointer.T_nobitsSectionReaderPointer;
 class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1042,11 +1044,13 @@ class T_nobitsSectionReader_static_extension {
         };
     }
 }
+typedef FormatErrorPointer = stdgo._internal.debug.pe.Pe_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
         return stdgo._internal.debug.pe.Pe_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
+typedef SectionHeader32Pointer = stdgo._internal.debug.pe.Pe_SectionHeader32Pointer.SectionHeader32Pointer;
 class SectionHeader32_static_extension {
     static public function _fullName(_sh:SectionHeader32, _st:StringTable):stdgo.Tuple<String, stdgo.Error> {
         return {
@@ -1055,6 +1059,7 @@ class SectionHeader32_static_extension {
         };
     }
 }
+typedef SectionPointer = stdgo._internal.debug.pe.Pe_SectionPointer.SectionPointer;
 class Section_static_extension {
     static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
         return stdgo._internal.debug.pe.Pe_Section_static_extension.Section_static_extension.open(_s);
@@ -1065,14 +1070,15 @@ class Section_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.pe.Pe_Section.Section, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function readAt(__self__:stdgo._internal.debug.pe.Pe_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.debug.pe.Pe_Section_static_extension.Section_static_extension.readAt(__self__, _p, _off);
+            final obj = stdgo._internal.debug.pe.Pe_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef COFFSymbolPointer = stdgo._internal.debug.pe.Pe_COFFSymbolPointer.COFFSymbolPointer;
 class COFFSymbol_static_extension {
     static public function fullName(_sym:COFFSymbol, _st:StringTable):stdgo.Tuple<String, stdgo.Error> {
         return {
@@ -1081,6 +1087,7 @@ class COFFSymbol_static_extension {
         };
     }
 }
+typedef StringTablePointer = stdgo._internal.debug.pe.Pe_StringTablePointer.StringTablePointer;
 class StringTable_static_extension {
     static public function string(_st:StringTable, _start:std.UInt):stdgo.Tuple<String, stdgo.Error> {
         return {

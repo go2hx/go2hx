@@ -1,27 +1,30 @@
 package stdgo._internal.strings;
 @:keep @:allow(stdgo._internal.strings.Strings.Replacer_asInterface) class Replacer_static_extension {
     @:keep
+    @:tdfield
     static public function writeString( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>, _w:stdgo._internal.io.Io_Writer.Writer, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        _r._once.do_(_r._buildOnce);
+        @:check2 (@:checkr _r ?? throw "null pointer dereference")._once.do_(@:check2r _r._buildOnce);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _r._r.writeString(_w, _s?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = (@:checkr _r ?? throw "null pointer dereference")._r.writeString(_w, _s?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
         };
     }
     @:keep
+    @:tdfield
     static public function replace( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>, _s:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
-        _r._once.do_(_r._buildOnce);
-        return _r._r.replace(_s?.__copy__())?.__copy__();
+        @:check2 (@:checkr _r ?? throw "null pointer dereference")._once.do_(@:check2r _r._buildOnce);
+        return (@:checkr _r ?? throw "null pointer dereference")._r.replace(_s?.__copy__())?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _build( _b:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>):stdgo._internal.strings.Strings_T_replacer.T_replacer {
         @:recv var _b:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _b;
-        var _oldnew = _b._oldnew;
+        var _oldnew = (@:checkr _b ?? throw "null pointer dereference")._oldnew;
         if (((_oldnew.length == (2 : stdgo.GoInt)) && ((_oldnew[(0 : stdgo.GoInt)].length) > (1 : stdgo.GoInt) : Bool) : Bool)) {
             return stdgo.Go.asInterface(stdgo._internal.strings.Strings__makeSingleStringReplacer._makeSingleStringReplacer(_oldnew[(0 : stdgo.GoInt)]?.__copy__(), _oldnew[(1 : stdgo.GoInt)]?.__copy__()));
         };
@@ -70,22 +73,25 @@ _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>));
     }
     @:keep
+    @:tdfield
     static public function _buildOnce( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
-        _r._r = _r._build();
-        _r._oldnew = (null : stdgo.Slice<stdgo.GoString>);
+        (@:checkr _r ?? throw "null pointer dereference")._r = @:check2r _r._build();
+        (@:checkr _r ?? throw "null pointer dereference")._oldnew = (null : stdgo.Slice<stdgo.GoString>);
     }
     @:keep
+    @:tdfield
     static public function printTrie( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
-        _r._once.do_(_r._buildOnce);
-        var _gen = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r._r) : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>)) : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
-        return _gen._printNode((stdgo.Go.setRef(_gen._root) : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>), (0 : stdgo.GoInt))?.__copy__();
+        @:check2 (@:checkr _r ?? throw "null pointer dereference")._once.do_(@:check2r _r._buildOnce);
+        var _gen = (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference")._r) : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>)) : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
+        return @:check2r _gen._printNode((stdgo.Go.setRef((@:checkr _gen ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>), (0 : stdgo.GoInt))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function replacer( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>):stdgo.AnyInterface {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
-        _r._once.do_(_r._buildOnce);
-        return stdgo.Go.toInterface(_r._r);
+        @:check2 (@:checkr _r ?? throw "null pointer dereference")._once.do_(@:check2r _r._buildOnce);
+        return stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference")._r);
     }
 }

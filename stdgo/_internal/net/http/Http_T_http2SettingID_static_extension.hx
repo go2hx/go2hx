@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2SettingID_asInterface) class T_http2SettingID_static_extension {
     @:keep
+    @:tdfield
     static public function string( _s:stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID):stdgo.GoString {
         @:recv var _s:stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID = _s;
         {

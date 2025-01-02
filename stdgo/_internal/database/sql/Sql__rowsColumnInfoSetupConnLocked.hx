@@ -12,9 +12,9 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                     { _0 : (null : stdgo._internal.database.sql.driver.Driver_RowsColumnTypeScanType.RowsColumnTypeScanType), _1 : false };
                 }, _prop = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _ci._scanType = _prop.columnTypeScanType(_i);
+                    (@:checkr _ci ?? throw "null pointer dereference")._scanType = _prop.columnTypeScanType(_i);
                 } else {
-                    _ci._scanType = stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>))).elem();
+                    (@:checkr _ci ?? throw "null pointer dereference")._scanType = stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>))).elem();
                 };
             };
             {
@@ -24,7 +24,7 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                     { _0 : (null : stdgo._internal.database.sql.driver.Driver_RowsColumnTypeDatabaseTypeName.RowsColumnTypeDatabaseTypeName), _1 : false };
                 }, _prop = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _ci._databaseType = _prop.columnTypeDatabaseTypeName(_i)?.__copy__();
+                    (@:checkr _ci ?? throw "null pointer dereference")._databaseType = _prop.columnTypeDatabaseTypeName(_i)?.__copy__();
                 };
             };
             {
@@ -36,8 +36,8 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypeLength(_i);
-                        _ci._length = __tmp__._0;
-                        _ci._hasLength = __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._length = __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasLength = __tmp__._1;
                     };
                 };
             };
@@ -50,8 +50,8 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypeNullable(_i);
-                        _ci._nullable = __tmp__._0;
-                        _ci._hasNullable = __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._nullable = __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasNullable = __tmp__._1;
                     };
                 };
             };
@@ -64,9 +64,9 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypePrecisionScale(_i);
-                        _ci._precision = __tmp__._0;
-                        _ci._scale = __tmp__._1;
-                        _ci._hasPrecisionScale = __tmp__._2;
+                        (@:checkr _ci ?? throw "null pointer dereference")._precision = __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._scale = __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasPrecisionScale = __tmp__._2;
                     };
                 };
             };

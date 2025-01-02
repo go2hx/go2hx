@@ -6,5 +6,6 @@ typedef Generator = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function generate(_rand:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _size:stdgo.GoInt):stdgo._internal.reflect.Reflect_Value.Value;
 };

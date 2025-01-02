@@ -1,7 +1,8 @@
 package stdgo._internal.image.color;
 @:keep @:allow(stdgo._internal.image.color.Color.YCbCr_asInterface) class YCbCr_static_extension {
     @:keep
-    static public function rgba( _c:stdgo._internal.image.color.Color_YCbCr.YCbCr):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
+    @:tdfield
+    static public function rGBA( _c:stdgo._internal.image.color.Color_YCbCr.YCbCr):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:stdgo._internal.image.color.Color_YCbCr.YCbCr = _c?.__copy__();
         var _yy1 = ((_c.y : stdgo.GoInt32) * (65793 : stdgo.GoInt32) : stdgo.GoInt32);
         var _cb1 = ((_c.cb : stdgo.GoInt32) - (128 : stdgo.GoInt32) : stdgo.GoInt32);

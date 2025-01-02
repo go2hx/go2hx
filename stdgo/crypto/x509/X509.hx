@@ -1,40 +1,40 @@
 package stdgo.crypto.x509;
-final pemcipherDES = stdgo._internal.crypto.x509.X509_pemcipherDES.pemcipherDES;
-final pemcipher3DES = stdgo._internal.crypto.x509.X509_pemcipher3DES.pemcipher3DES;
-final pemcipherAES128 = stdgo._internal.crypto.x509.X509_pemcipherAES128.pemcipherAES128;
-final pemcipherAES192 = stdgo._internal.crypto.x509.X509_pemcipherAES192.pemcipherAES192;
-final pemcipherAES256 = stdgo._internal.crypto.x509.X509_pemcipherAES256.pemcipherAES256;
+final pEMCipherDES = stdgo._internal.crypto.x509.X509_pEMCipherDES.pEMCipherDES;
+final pEMCipher3DES = stdgo._internal.crypto.x509.X509_pEMCipher3DES.pEMCipher3DES;
+final pEMCipherAES128 = stdgo._internal.crypto.x509.X509_pEMCipherAES128.pEMCipherAES128;
+final pEMCipherAES192 = stdgo._internal.crypto.x509.X509_pEMCipherAES192.pEMCipherAES192;
+final pEMCipherAES256 = stdgo._internal.crypto.x509.X509_pEMCipherAES256.pEMCipherAES256;
 final notAuthorizedToSign : InvalidReason = stdgo._internal.crypto.x509.X509_notAuthorizedToSign.notAuthorizedToSign;
 final expired = stdgo._internal.crypto.x509.X509_expired.expired;
-final canotAuthorizedForThisName = stdgo._internal.crypto.x509.X509_canotAuthorizedForThisName.canotAuthorizedForThisName;
+final cANotAuthorizedForThisName = stdgo._internal.crypto.x509.X509_cANotAuthorizedForThisName.cANotAuthorizedForThisName;
 final tooManyIntermediates = stdgo._internal.crypto.x509.X509_tooManyIntermediates.tooManyIntermediates;
 final incompatibleUsage = stdgo._internal.crypto.x509.X509_incompatibleUsage.incompatibleUsage;
 final nameMismatch = stdgo._internal.crypto.x509.X509_nameMismatch.nameMismatch;
 final nameConstraintsWithoutSANs = stdgo._internal.crypto.x509.X509_nameConstraintsWithoutSANs.nameConstraintsWithoutSANs;
 final unconstrainedName = stdgo._internal.crypto.x509.X509_unconstrainedName.unconstrainedName;
 final tooManyConstraints = stdgo._internal.crypto.x509.X509_tooManyConstraints.tooManyConstraints;
-final canotAuthorizedForExtKeyUsage = stdgo._internal.crypto.x509.X509_canotAuthorizedForExtKeyUsage.canotAuthorizedForExtKeyUsage;
+final cANotAuthorizedForExtKeyUsage = stdgo._internal.crypto.x509.X509_cANotAuthorizedForExtKeyUsage.cANotAuthorizedForExtKeyUsage;
 final unknownSignatureAlgorithm : SignatureAlgorithm = stdgo._internal.crypto.x509.X509_unknownSignatureAlgorithm.unknownSignatureAlgorithm;
-final md2withRSA = stdgo._internal.crypto.x509.X509_md2withRSA.md2withRSA;
-final md5withRSA = stdgo._internal.crypto.x509.X509_md5withRSA.md5withRSA;
-final sha1withRSA = stdgo._internal.crypto.x509.X509_sha1withRSA.sha1withRSA;
-final sha256withRSA = stdgo._internal.crypto.x509.X509_sha256withRSA.sha256withRSA;
-final sha384withRSA = stdgo._internal.crypto.x509.X509_sha384withRSA.sha384withRSA;
-final sha512withRSA = stdgo._internal.crypto.x509.X509_sha512withRSA.sha512withRSA;
-final dsawithSHA1 = stdgo._internal.crypto.x509.X509_dsawithSHA1.dsawithSHA1;
-final dsawithSHA256 = stdgo._internal.crypto.x509.X509_dsawithSHA256.dsawithSHA256;
-final ecdsawithSHA1 = stdgo._internal.crypto.x509.X509_ecdsawithSHA1.ecdsawithSHA1;
-final ecdsawithSHA256 = stdgo._internal.crypto.x509.X509_ecdsawithSHA256.ecdsawithSHA256;
-final ecdsawithSHA384 = stdgo._internal.crypto.x509.X509_ecdsawithSHA384.ecdsawithSHA384;
-final ecdsawithSHA512 = stdgo._internal.crypto.x509.X509_ecdsawithSHA512.ecdsawithSHA512;
-final sha256withRSAPSS = stdgo._internal.crypto.x509.X509_sha256withRSAPSS.sha256withRSAPSS;
-final sha384withRSAPSS = stdgo._internal.crypto.x509.X509_sha384withRSAPSS.sha384withRSAPSS;
-final sha512withRSAPSS = stdgo._internal.crypto.x509.X509_sha512withRSAPSS.sha512withRSAPSS;
+final mD2WithRSA = stdgo._internal.crypto.x509.X509_mD2WithRSA.mD2WithRSA;
+final mD5WithRSA = stdgo._internal.crypto.x509.X509_mD5WithRSA.mD5WithRSA;
+final sHA1WithRSA = stdgo._internal.crypto.x509.X509_sHA1WithRSA.sHA1WithRSA;
+final sHA256WithRSA = stdgo._internal.crypto.x509.X509_sHA256WithRSA.sHA256WithRSA;
+final sHA384WithRSA = stdgo._internal.crypto.x509.X509_sHA384WithRSA.sHA384WithRSA;
+final sHA512WithRSA = stdgo._internal.crypto.x509.X509_sHA512WithRSA.sHA512WithRSA;
+final dSAWithSHA1 = stdgo._internal.crypto.x509.X509_dSAWithSHA1.dSAWithSHA1;
+final dSAWithSHA256 = stdgo._internal.crypto.x509.X509_dSAWithSHA256.dSAWithSHA256;
+final eCDSAWithSHA1 = stdgo._internal.crypto.x509.X509_eCDSAWithSHA1.eCDSAWithSHA1;
+final eCDSAWithSHA256 = stdgo._internal.crypto.x509.X509_eCDSAWithSHA256.eCDSAWithSHA256;
+final eCDSAWithSHA384 = stdgo._internal.crypto.x509.X509_eCDSAWithSHA384.eCDSAWithSHA384;
+final eCDSAWithSHA512 = stdgo._internal.crypto.x509.X509_eCDSAWithSHA512.eCDSAWithSHA512;
+final sHA256WithRSAPSS = stdgo._internal.crypto.x509.X509_sHA256WithRSAPSS.sHA256WithRSAPSS;
+final sHA384WithRSAPSS = stdgo._internal.crypto.x509.X509_sHA384WithRSAPSS.sHA384WithRSAPSS;
+final sHA512WithRSAPSS = stdgo._internal.crypto.x509.X509_sHA512WithRSAPSS.sHA512WithRSAPSS;
 final pureEd25519 = stdgo._internal.crypto.x509.X509_pureEd25519.pureEd25519;
 final unknownPublicKeyAlgorithm : PublicKeyAlgorithm = stdgo._internal.crypto.x509.X509_unknownPublicKeyAlgorithm.unknownPublicKeyAlgorithm;
-final rsa = stdgo._internal.crypto.x509.X509_rsa.rsa;
-final dsa = stdgo._internal.crypto.x509.X509_dsa.dsa;
-final ecdsa = stdgo._internal.crypto.x509.X509_ecdsa.ecdsa;
+final rSA = stdgo._internal.crypto.x509.X509_rSA.rSA;
+final dSA = stdgo._internal.crypto.x509.X509_dSA.dSA;
+final eCDSA = stdgo._internal.crypto.x509.X509_eCDSA.eCDSA;
 final ed25519 = stdgo._internal.crypto.x509.X509_ed25519.ed25519;
 final keyUsageDigitalSignature : KeyUsage = stdgo._internal.crypto.x509.X509_keyUsageDigitalSignature.keyUsageDigitalSignature;
 final keyUsageContentCommitment = stdgo._internal.crypto.x509.X509_keyUsageContentCommitment.keyUsageContentCommitment;
@@ -384,10 +384,10 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract VerifyOptions(stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions) from stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions to stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions {
-    public var dnsname(get, set) : String;
-    function get_dnsname():String return this.dnsname;
-    function set_dnsname(v:String):String {
-        this.dnsname = v;
+    public var dNSName(get, set) : String;
+    function get_dNSName():String return this.dNSName;
+    function set_dNSName(v:String):String {
+        this.dNSName = v;
         return v;
     }
     public var intermediates(get, set) : CertPool;
@@ -420,7 +420,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this.maxConstraintComparisions = v;
         return v;
     }
-    public function new(?dnsname:String, ?intermediates:CertPool, ?roots:CertPool, ?currentTime:stdgo._internal.time.Time_Time.Time, ?keyUsages:Array<ExtKeyUsage>, ?maxConstraintComparisions:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions(dnsname, intermediates, roots, currentTime, ([for (i in keyUsages) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>), maxConstraintComparisions);
+    public function new(?dNSName:String, ?intermediates:CertPool, ?roots:CertPool, ?currentTime:stdgo._internal.time.Time_Time.Time, ?keyUsages:Array<ExtKeyUsage>, ?maxConstraintComparisions:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions(dNSName, intermediates, roots, currentTime, ([for (i in keyUsages) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>), maxConstraintComparisions);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -459,10 +459,10 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract T_certificate(stdgo._internal.crypto.x509.X509_T_certificate.T_certificate) from stdgo._internal.crypto.x509.X509_T_certificate.T_certificate to stdgo._internal.crypto.x509.X509_T_certificate.T_certificate {
-    public var tbscertificate(get, set) : T_tbsCertificate;
-    function get_tbscertificate():T_tbsCertificate return this.tbscertificate;
-    function set_tbscertificate(v:T_tbsCertificate):T_tbsCertificate {
-        this.tbscertificate = v;
+    public var tBSCertificate(get, set) : T_tbsCertificate;
+    function get_tBSCertificate():T_tbsCertificate return this.tBSCertificate;
+    function set_tBSCertificate(v:T_tbsCertificate):T_tbsCertificate {
+        this.tBSCertificate = v;
         return v;
     }
     public var signatureAlgorithm(get, set) : AlgorithmIdentifier;
@@ -477,7 +477,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this.signatureValue = v;
         return v;
     }
-    public function new(?tbscertificate:T_tbsCertificate, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificate.T_certificate(tbscertificate, signatureAlgorithm, signatureValue);
+    public function new(?tBSCertificate:T_tbsCertificate, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificate.T_certificate(tBSCertificate, signatureAlgorithm, signatureValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -644,10 +644,10 @@ subjectUniqueId,
         this.hash = v;
         return v;
     }
-    public var mgf(get, set) : AlgorithmIdentifier;
-    function get_mgf():AlgorithmIdentifier return this.mgf;
-    function set_mgf(v:AlgorithmIdentifier):AlgorithmIdentifier {
-        this.mgf = v;
+    public var mGF(get, set) : AlgorithmIdentifier;
+    function get_mGF():AlgorithmIdentifier return this.mGF;
+    function set_mGF(v:AlgorithmIdentifier):AlgorithmIdentifier {
+        this.mGF = v;
         return v;
     }
     public var saltLength(get, set) : StdTypes.Int;
@@ -662,7 +662,7 @@ subjectUniqueId,
         this.trailerField = v;
         return v;
     }
-    public function new(?hash:AlgorithmIdentifier, ?mgf:AlgorithmIdentifier, ?saltLength:StdTypes.Int, ?trailerField:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters(hash, mgf, saltLength, trailerField);
+    public function new(?hash:AlgorithmIdentifier, ?mGF:AlgorithmIdentifier, ?saltLength:StdTypes.Int, ?trailerField:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters(hash, mGF, saltLength, trailerField);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -829,10 +829,10 @@ subjectUniqueId,
         this.authorityKeyId = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var ocspserver(get, set) : Array<String>;
-    function get_ocspserver():Array<String> return [for (i in this.ocspserver) i];
-    function set_ocspserver(v:Array<String>):Array<String> {
-        this.ocspserver = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+    public var oCSPServer(get, set) : Array<String>;
+    function get_oCSPServer():Array<String> return [for (i in this.oCSPServer) i];
+    function set_oCSPServer(v:Array<String>):Array<String> {
+        this.oCSPServer = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var issuingCertificateURL(get, set) : Array<String>;
@@ -841,10 +841,10 @@ subjectUniqueId,
         this.issuingCertificateURL = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var dnsnames(get, set) : Array<String>;
-    function get_dnsnames():Array<String> return [for (i in this.dnsnames) i];
-    function set_dnsnames(v:Array<String>):Array<String> {
-        this.dnsnames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+    public var dNSNames(get, set) : Array<String>;
+    function get_dNSNames():Array<String> return [for (i in this.dNSNames) i];
+    function set_dNSNames(v:Array<String>):Array<String> {
+        this.dNSNames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var emailAddresses(get, set) : Array<String>;
@@ -853,16 +853,16 @@ subjectUniqueId,
         this.emailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var ipaddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
-    function get_ipaddresses():Array<stdgo._internal.net.Net_IP.IP> return [for (i in this.ipaddresses) i];
-    function set_ipaddresses(v:Array<stdgo._internal.net.Net_IP.IP>):Array<stdgo._internal.net.Net_IP.IP> {
-        this.ipaddresses = ([for (i in v) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
+    public var iPAddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
+    function get_iPAddresses():Array<stdgo._internal.net.Net_IP.IP> return [for (i in this.iPAddresses) i];
+    function set_iPAddresses(v:Array<stdgo._internal.net.Net_IP.IP>):Array<stdgo._internal.net.Net_IP.IP> {
+        this.iPAddresses = ([for (i in v) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
         return v;
     }
-    public var uris(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
-    function get_uris():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uris) i];
-    function set_uris(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
-        this.uris = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+    public var uRIs(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
+    function get_uRIs():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uRIs) i];
+    function set_uRIs(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
+        this.uRIs = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
         return v;
     }
     public var permittedDNSDomainsCritical(get, set) : Bool;
@@ -919,10 +919,10 @@ subjectUniqueId,
         this.excludedURIDomains = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var crldistributionPoints(get, set) : Array<String>;
-    function get_crldistributionPoints():Array<String> return [for (i in this.crldistributionPoints) i];
-    function set_crldistributionPoints(v:Array<String>):Array<String> {
-        this.crldistributionPoints = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+    public var cRLDistributionPoints(get, set) : Array<String>;
+    function get_cRLDistributionPoints():Array<String> return [for (i in this.cRLDistributionPoints) i];
+    function set_cRLDistributionPoints(v:Array<String>):Array<String> {
+        this.cRLDistributionPoints = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var policyIdentifiers(get, set) : Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>;
@@ -931,7 +931,7 @@ subjectUniqueId,
         this.policyIdentifiers = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>);
         return v;
     }
-    public function new(?raw:Array<std.UInt>, ?rawTBSCertificate:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?rawIssuer:Array<std.UInt>, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?version:StdTypes.Int, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?issuer:Name, ?subject:Name, ?notBefore:stdgo._internal.time.Time_Time.Time, ?notAfter:stdgo._internal.time.Time_Time.Time, ?keyUsage:KeyUsage, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?unhandledCriticalExtensions:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?extKeyUsage:Array<ExtKeyUsage>, ?unknownExtKeyUsage:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?basicConstraintsValid:Bool, ?isCA:Bool, ?maxPathLen:StdTypes.Int, ?maxPathLenZero:Bool, ?subjectKeyId:Array<std.UInt>, ?authorityKeyId:Array<std.UInt>, ?ocspserver:Array<String>, ?issuingCertificateURL:Array<String>, ?dnsnames:Array<String>, ?emailAddresses:Array<String>, ?ipaddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uris:Array<stdgo._internal.net.url.Url_URL.URL>, ?permittedDNSDomainsCritical:Bool, ?permittedDNSDomains:Array<String>, ?excludedDNSDomains:Array<String>, ?permittedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?excludedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?permittedEmailAddresses:Array<String>, ?excludedEmailAddresses:Array<String>, ?permittedURIDomains:Array<String>, ?excludedURIDomains:Array<String>, ?crldistributionPoints:Array<String>, ?policyIdentifiers:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) this = new stdgo._internal.crypto.x509.X509_Certificate.Certificate(
+    public function new(?raw:Array<std.UInt>, ?rawTBSCertificate:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?rawIssuer:Array<std.UInt>, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?version:StdTypes.Int, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?issuer:Name, ?subject:Name, ?notBefore:stdgo._internal.time.Time_Time.Time, ?notAfter:stdgo._internal.time.Time_Time.Time, ?keyUsage:KeyUsage, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?unhandledCriticalExtensions:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?extKeyUsage:Array<ExtKeyUsage>, ?unknownExtKeyUsage:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?basicConstraintsValid:Bool, ?isCA:Bool, ?maxPathLen:StdTypes.Int, ?maxPathLenZero:Bool, ?subjectKeyId:Array<std.UInt>, ?authorityKeyId:Array<std.UInt>, ?oCSPServer:Array<String>, ?issuingCertificateURL:Array<String>, ?dNSNames:Array<String>, ?emailAddresses:Array<String>, ?iPAddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uRIs:Array<stdgo._internal.net.url.Url_URL.URL>, ?permittedDNSDomainsCritical:Bool, ?permittedDNSDomains:Array<String>, ?excludedDNSDomains:Array<String>, ?permittedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?excludedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?permittedEmailAddresses:Array<String>, ?excludedEmailAddresses:Array<String>, ?permittedURIDomains:Array<String>, ?excludedURIDomains:Array<String>, ?cRLDistributionPoints:Array<String>, ?policyIdentifiers:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) this = new stdgo._internal.crypto.x509.X509_Certificate.Certificate(
 ([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in rawTBSCertificate) i] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in rawSubjectPublicKeyInfo) i] : stdgo.Slice<stdgo.GoUInt8>),
@@ -959,12 +959,12 @@ maxPathLen,
 maxPathLenZero,
 ([for (i in subjectKeyId) i] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in authorityKeyId) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in ocspserver) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in oCSPServer) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in issuingCertificateURL) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in dnsnames) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in dNSNames) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in emailAddresses) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in ipaddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
-([for (i in uris) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>),
+([for (i in iPAddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
+([for (i in uRIs) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>),
 permittedDNSDomainsCritical,
 ([for (i in permittedDNSDomains) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in excludedDNSDomains) i] : stdgo.Slice<stdgo.GoString>),
@@ -974,7 +974,7 @@ permittedDNSDomainsCritical,
 ([for (i in excludedEmailAddresses) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in permittedURIDomains) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in excludedURIDomains) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in crldistributionPoints) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in cRLDistributionPoints) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in policyIdentifiers) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -1047,13 +1047,13 @@ permittedDNSDomainsCritical,
         this.reason = v;
         return v;
     }
-    public var crlissuer(get, set) : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue;
-    function get_crlissuer():stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue return this.crlissuer;
-    function set_crlissuer(v:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue):stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue {
-        this.crlissuer = v;
+    public var cRLIssuer(get, set) : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue;
+    function get_cRLIssuer():stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue return this.cRLIssuer;
+    function set_cRLIssuer(v:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue):stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue {
+        this.cRLIssuer = v;
         return v;
     }
-    public function new(?distributionPoint:T_distributionPointName, ?reason:stdgo._internal.encoding.asn1.Asn1_BitString.BitString, ?crlissuer:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue) this = new stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint(distributionPoint, reason, crlissuer);
+    public function new(?distributionPoint:T_distributionPointName, ?reason:stdgo._internal.encoding.asn1.Asn1_BitString.BitString, ?cRLIssuer:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue) this = new stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint(distributionPoint, reason, cRLIssuer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1153,10 +1153,10 @@ permittedDNSDomainsCritical,
         this.extraExtensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
         return v;
     }
-    public var dnsnames(get, set) : Array<String>;
-    function get_dnsnames():Array<String> return [for (i in this.dnsnames) i];
-    function set_dnsnames(v:Array<String>):Array<String> {
-        this.dnsnames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+    public var dNSNames(get, set) : Array<String>;
+    function get_dNSNames():Array<String> return [for (i in this.dNSNames) i];
+    function set_dNSNames(v:Array<String>):Array<String> {
+        this.dNSNames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var emailAddresses(get, set) : Array<String>;
@@ -1165,19 +1165,19 @@ permittedDNSDomainsCritical,
         this.emailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var ipaddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
-    function get_ipaddresses():Array<stdgo._internal.net.Net_IP.IP> return [for (i in this.ipaddresses) i];
-    function set_ipaddresses(v:Array<stdgo._internal.net.Net_IP.IP>):Array<stdgo._internal.net.Net_IP.IP> {
-        this.ipaddresses = ([for (i in v) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
+    public var iPAddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
+    function get_iPAddresses():Array<stdgo._internal.net.Net_IP.IP> return [for (i in this.iPAddresses) i];
+    function set_iPAddresses(v:Array<stdgo._internal.net.Net_IP.IP>):Array<stdgo._internal.net.Net_IP.IP> {
+        this.iPAddresses = ([for (i in v) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
         return v;
     }
-    public var uris(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
-    function get_uris():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uris) i];
-    function set_uris(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
-        this.uris = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+    public var uRIs(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
+    function get_uRIs():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uRIs) i];
+    function set_uRIs(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
+        this.uRIs = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
         return v;
     }
-    public function new(?raw:Array<std.UInt>, ?rawTBSCertificateRequest:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?version:StdTypes.Int, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?subject:Name, ?attributes:Array<AttributeTypeAndValueSET>, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?dnsnames:Array<String>, ?emailAddresses:Array<String>, ?ipaddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uris:Array<stdgo._internal.net.url.Url_URL.URL>) this = new stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest(
+    public function new(?raw:Array<std.UInt>, ?rawTBSCertificateRequest:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?version:StdTypes.Int, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?subject:Name, ?attributes:Array<AttributeTypeAndValueSET>, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?dNSNames:Array<String>, ?emailAddresses:Array<String>, ?iPAddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uRIs:Array<stdgo._internal.net.url.Url_URL.URL>) this = new stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest(
 ([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in rawTBSCertificateRequest) i] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in rawSubjectPublicKeyInfo) i] : stdgo.Slice<stdgo.GoUInt8>),
@@ -1191,10 +1191,10 @@ subject,
 ([for (i in attributes) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>),
 ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>),
 ([for (i in extraExtensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>),
-([for (i in dnsnames) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in dNSNames) i] : stdgo.Slice<stdgo.GoString>),
 ([for (i in emailAddresses) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in ipaddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
-([for (i in uris) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>));
+([for (i in iPAddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
+([for (i in uRIs) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1240,10 +1240,10 @@ subject,
         this.raw = v;
         return v;
     }
-    public var tbscsr(get, set) : T_tbsCertificateRequest;
-    function get_tbscsr():T_tbsCertificateRequest return this.tbscsr;
-    function set_tbscsr(v:T_tbsCertificateRequest):T_tbsCertificateRequest {
-        this.tbscsr = v;
+    public var tBSCSR(get, set) : T_tbsCertificateRequest;
+    function get_tBSCSR():T_tbsCertificateRequest return this.tBSCSR;
+    function set_tBSCSR(v:T_tbsCertificateRequest):T_tbsCertificateRequest {
+        this.tBSCSR = v;
         return v;
     }
     public var signatureAlgorithm(get, set) : AlgorithmIdentifier;
@@ -1258,7 +1258,7 @@ subject,
         this.signatureValue = v;
         return v;
     }
-    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?tbscsr:T_tbsCertificateRequest, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest(raw, tbscsr, signatureAlgorithm, signatureValue);
+    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?tBSCSR:T_tbsCertificateRequest, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest(raw, tBSCSR, signatureAlgorithm, signatureValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1407,10 +1407,10 @@ nextUpdate,
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract T_certificateList(stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList) from stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList to stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList {
-    public var tbscertList(get, set) : T_tbsCertificateList;
-    function get_tbscertList():T_tbsCertificateList return this.tbscertList;
-    function set_tbscertList(v:T_tbsCertificateList):T_tbsCertificateList {
-        this.tbscertList = v;
+    public var tBSCertList(get, set) : T_tbsCertificateList;
+    function get_tBSCertList():T_tbsCertificateList return this.tBSCertList;
+    function set_tBSCertList(v:T_tbsCertificateList):T_tbsCertificateList {
+        this.tBSCertList = v;
         return v;
     }
     public var signatureAlgorithm(get, set) : AlgorithmIdentifier;
@@ -1425,7 +1425,7 @@ nextUpdate,
         this.signatureValue = v;
         return v;
     }
-    public function new(?tbscertList:T_tbsCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList(tbscertList, signatureAlgorithm, signatureValue);
+    public function new(?tBSCertList:T_tbsCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList(tBSCertList, signatureAlgorithm, signatureValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1482,25 +1482,29 @@ nextUpdate,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.crypto.x509.X509_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function _doSlow(__self__:stdgo._internal.crypto.x509.X509_T__struct_0.T__struct_0, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.crypto.x509.X509_T__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _f);
+    public static function _doSlow(__self__:stdgo._internal.crypto.x509.X509_T__struct_0.T__struct_0, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.crypto.x509.X509_T__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _0);
     }
-    public static function do_(__self__:stdgo._internal.crypto.x509.X509_T__struct_0.T__struct_0, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.crypto.x509.X509_T__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _f);
+    public static function do_(__self__:stdgo._internal.crypto.x509.X509_T__struct_0.T__struct_0, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.crypto.x509.X509_T__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _0);
     }
 }
 typedef T__struct_0 = stdgo._internal.crypto.x509.X509_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.crypto.x509.X509_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.crypto.x509.X509_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
 typedef T__struct_2 = stdgo._internal.crypto.x509.X509_T__struct_2.T__struct_2;
+typedef T__struct_3Pointer = stdgo._internal.crypto.x509.X509_T__struct_3Pointer.T__struct_3Pointer;
 class T__struct_3_static_extension {
 
 }
@@ -1542,6 +1546,7 @@ typedef T_createCertificate___localname___privateKey_54152 = stdgo._internal.cry
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef CertPoolPointer = stdgo._internal.crypto.x509.X509_CertPoolPointer.CertPoolPointer;
 class CertPool_static_extension {
     static public function equal(_s:CertPool, _other:CertPool):Bool {
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.equal(_s, _other);
@@ -1579,6 +1584,7 @@ class CertPool_static_extension {
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._len(_s);
     }
 }
+typedef T_rfc1423AlgoPointer = stdgo._internal.crypto.x509.X509_T_rfc1423AlgoPointer.T_rfc1423AlgoPointer;
 class T_rfc1423Algo_static_extension {
     static public function _deriveKey(_c:T_rfc1423Algo, _password:Array<std.UInt>, _salt:Array<std.UInt>):Array<std.UInt> {
         final _password = ([for (i in _password) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1586,21 +1592,25 @@ class T_rfc1423Algo_static_extension {
         return [for (i in stdgo._internal.crypto.x509.X509_T_rfc1423Algo_static_extension.T_rfc1423Algo_static_extension._deriveKey(_c, _password, _salt)) i];
     }
 }
+typedef CertificateInvalidErrorPointer = stdgo._internal.crypto.x509.X509_CertificateInvalidErrorPointer.CertificateInvalidErrorPointer;
 class CertificateInvalidError_static_extension {
     static public function error(_e:CertificateInvalidError):String {
         return stdgo._internal.crypto.x509.X509_CertificateInvalidError_static_extension.CertificateInvalidError_static_extension.error(_e);
     }
 }
+typedef HostnameErrorPointer = stdgo._internal.crypto.x509.X509_HostnameErrorPointer.HostnameErrorPointer;
 class HostnameError_static_extension {
     static public function error(_h:HostnameError):String {
         return stdgo._internal.crypto.x509.X509_HostnameError_static_extension.HostnameError_static_extension.error(_h);
     }
 }
+typedef UnknownAuthorityErrorPointer = stdgo._internal.crypto.x509.X509_UnknownAuthorityErrorPointer.UnknownAuthorityErrorPointer;
 class UnknownAuthorityError_static_extension {
     static public function error(_e:UnknownAuthorityError):String {
         return stdgo._internal.crypto.x509.X509_UnknownAuthorityError_static_extension.UnknownAuthorityError_static_extension.error(_e);
     }
 }
+typedef SystemRootsErrorPointer = stdgo._internal.crypto.x509.X509_SystemRootsErrorPointer.SystemRootsErrorPointer;
 class SystemRootsError_static_extension {
     static public function unwrap(_se:SystemRootsError):stdgo.Error {
         return stdgo._internal.crypto.x509.X509_SystemRootsError_static_extension.SystemRootsError_static_extension.unwrap(_se);
@@ -1609,6 +1619,7 @@ class SystemRootsError_static_extension {
         return stdgo._internal.crypto.x509.X509_SystemRootsError_static_extension.SystemRootsError_static_extension.error(_se);
     }
 }
+typedef CertificatePointer = stdgo._internal.crypto.x509.X509_CertificatePointer.CertificatePointer;
 class Certificate_static_extension {
     static public function createCRL(_c:Certificate, _rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.AnyInterface, _revokedCerts:Array<RevokedCertificate>, _now:stdgo._internal.time.Time_Time.Time, _expiry:stdgo._internal.time.Time_Time.Time):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _revokedCerts = ([for (i in _revokedCerts) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>);
@@ -1671,26 +1682,31 @@ class Certificate_static_extension {
         };
     }
 }
+typedef ConstraintViolationErrorPointer = stdgo._internal.crypto.x509.X509_ConstraintViolationErrorPointer.ConstraintViolationErrorPointer;
 class ConstraintViolationError_static_extension {
     static public function error(_:ConstraintViolationError):String {
         return stdgo._internal.crypto.x509.X509_ConstraintViolationError_static_extension.ConstraintViolationError_static_extension.error(_);
     }
 }
+typedef UnhandledCriticalExtensionPointer = stdgo._internal.crypto.x509.X509_UnhandledCriticalExtensionPointer.UnhandledCriticalExtensionPointer;
 class UnhandledCriticalExtension_static_extension {
     static public function error(_h:UnhandledCriticalExtension):String {
         return stdgo._internal.crypto.x509.X509_UnhandledCriticalExtension_static_extension.UnhandledCriticalExtension_static_extension.error(_h);
     }
 }
+typedef CertificateRequestPointer = stdgo._internal.crypto.x509.X509_CertificateRequestPointer.CertificateRequestPointer;
 class CertificateRequest_static_extension {
     static public function checkSignature(_c:CertificateRequest):stdgo.Error {
         return stdgo._internal.crypto.x509.X509_CertificateRequest_static_extension.CertificateRequest_static_extension.checkSignature(_c);
     }
 }
+typedef RevocationListPointer = stdgo._internal.crypto.x509.X509_RevocationListPointer.RevocationListPointer;
 class RevocationList_static_extension {
     static public function checkSignatureFrom(_rl:RevocationList, _parent:Certificate):stdgo.Error {
         return stdgo._internal.crypto.x509.X509_RevocationList_static_extension.RevocationList_static_extension.checkSignatureFrom(_rl, _parent);
     }
 }
+typedef SignatureAlgorithmPointer = stdgo._internal.crypto.x509.X509_SignatureAlgorithmPointer.SignatureAlgorithmPointer;
 class SignatureAlgorithm_static_extension {
     static public function string(_algo:SignatureAlgorithm):String {
         return stdgo._internal.crypto.x509.X509_SignatureAlgorithm_static_extension.SignatureAlgorithm_static_extension.string(_algo);
@@ -1699,11 +1715,13 @@ class SignatureAlgorithm_static_extension {
         return stdgo._internal.crypto.x509.X509_SignatureAlgorithm_static_extension.SignatureAlgorithm_static_extension._isRSAPSS(_algo);
     }
 }
+typedef PublicKeyAlgorithmPointer = stdgo._internal.crypto.x509.X509_PublicKeyAlgorithmPointer.PublicKeyAlgorithmPointer;
 class PublicKeyAlgorithm_static_extension {
     static public function string(_algo:PublicKeyAlgorithm):String {
         return stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm_static_extension.PublicKeyAlgorithm_static_extension.string(_algo);
     }
 }
+typedef InsecureAlgorithmErrorPointer = stdgo._internal.crypto.x509.X509_InsecureAlgorithmErrorPointer.InsecureAlgorithmErrorPointer;
 class InsecureAlgorithmError_static_extension {
     static public function error(_e:InsecureAlgorithmError):String {
         return stdgo._internal.crypto.x509.X509_InsecureAlgorithmError_static_extension.InsecureAlgorithmError_static_extension.error(_e);
@@ -1711,148 +1729,148 @@ class InsecureAlgorithmError_static_extension {
 }
 /**
     /|*{
-    	usages_5620215 = make([]ExtKeyUsage, len(keyUsages))
-    	copy(usages_5620215, keyUsages)
+    	usages_5544403 = make([]ExtKeyUsage, len(keyUsages))
+    	copy(usages_5544403, keyUsages)
     	if len(chain) == 0 {
-    		gotoNext = 5620307
-    		_ = gotoNext == 5620307
+    		gotoNext = 5544495
+    		_ = gotoNext == 5544495
     		return false
-    		gotoNext = 5620329
+    		gotoNext = 5544517
     	} else {
-    		gotoNext = 5620329
+    		gotoNext = 5544517
     	}
-    	_ = gotoNext == 5620329
-    	usagesRemaining_5620329 = len(usages_5620215)
-    	gotoNext = 5620528
-    	_ = gotoNext == 5620528
-    	i_5620543 = len(chain) - 1
+    	_ = gotoNext == 5544517
+    	usagesRemaining_5544517 = len(usages_5544403)
+    	gotoNext = 5544716
+    	_ = gotoNext == 5544716
+    	i_5544731 = len(chain) - 1
     	NextCertBreak = false
-    	gotoNext = 5620539
-    	_ = gotoNext == 5620539
-    	if !NextCertBreak && (i_5620543 >= 0) {
-    		gotoNext = 5620576
-    		_ = gotoNext == 5620576
-    		cert_5620580 = chain[i_5620543]
-    		if len(cert_5620580.ExtKeyUsage) == 0 && len(cert_5620580.UnknownExtKeyUsage) == 0 {
-    			gotoNext = 5620666
-    			_ = gotoNext == 5620666
-    			i_5620543--
-    			gotoNext = 5620539
-    			gotoNext = 5620756
+    	gotoNext = 5544727
+    	_ = gotoNext == 5544727
+    	if !NextCertBreak && (i_5544731 >= 0) {
+    		gotoNext = 5544764
+    		_ = gotoNext == 5544764
+    		cert_5544768 = chain[i_5544731]
+    		if len(cert_5544768.ExtKeyUsage) == 0 && len(cert_5544768.UnknownExtKeyUsage) == 0 {
+    			gotoNext = 5544854
+    			_ = gotoNext == 5544854
+    			i_5544731--
+    			gotoNext = 5544727
+    			gotoNext = 5544944
     		} else {
-    			gotoNext = 5620756
+    			gotoNext = 5544944
     		}
-    		_ = gotoNext == 5620756
-    		if 0 < len(cert_5620580.ExtKeyUsage) {
-    			gotoNext = 5620914
-    			_ = gotoNext == 5620914
-    			i_5620772_0, usage_5620763 = 0, cert_5620580.ExtKeyUsage[0]
-    			gotoNext = 5620915
-    			_ = gotoNext == 5620915
-    			if i_5620772_0 < len(cert_5620580.ExtKeyUsage) {
-    				gotoNext = 5620795
-    				_ = gotoNext == 5620795
-    				usage_5620763 = cert_5620580.ExtKeyUsage[i_5620772_0]
-    				if usage_5620763 == 0 {
-    					gotoNext = 5620827
-    					_ = gotoNext == 5620827
-    					i_5620543--
-    					gotoNext = 5620539
-    					gotoNext = 5620760
+    		_ = gotoNext == 5544944
+    		if 0 < len(cert_5544768.ExtKeyUsage) {
+    			gotoNext = 5545102
+    			_ = gotoNext == 5545102
+    			i_5544960_0, usage_5544951 = 0, cert_5544768.ExtKeyUsage[0]
+    			gotoNext = 5545103
+    			_ = gotoNext == 5545103
+    			if i_5544960_0 < len(cert_5544768.ExtKeyUsage) {
+    				gotoNext = 5544983
+    				_ = gotoNext == 5544983
+    				usage_5544951 = cert_5544768.ExtKeyUsage[i_5544960_0]
+    				if usage_5544951 == 0 {
+    					gotoNext = 5545015
+    					_ = gotoNext == 5545015
+    					i_5544731--
+    					gotoNext = 5544727
+    					gotoNext = 5544948
     				} else {
-    					gotoNext = 5620760
+    					gotoNext = 5544948
     				}
-    				_ = gotoNext == 5620760
-    				i_5620772_0++
-    				gotoNext = 5620915
+    				_ = gotoNext == 5544948
+    				i_5544960_0++
+    				gotoNext = 5545103
     			} else {
-    				gotoNext = 5620920
+    				gotoNext = 5545108
     			}
-    			gotoNext = 5620920
+    			gotoNext = 5545108
     		} else {
-    			gotoNext = 5620920
+    			gotoNext = 5545108
     		}
-    		_ = gotoNext == 5620920
-    		invalidUsage_5620926 = -1
-    		gotoNext = 5620958
-    		_ = gotoNext == 5620958
-    		if 0 < len(usages_5620215) {
-    			gotoNext = 5621301
-    			_ = gotoNext == 5621301
-    			i_5620984, requestedUsage_5620987 = 0, usages_5620215[0]
-    			gotoNext = 5621302
-    			_ = gotoNext == 5621302
-    			if i_5620984 < len(usages_5620215) {
-    				gotoNext = 5621018
-    				_ = gotoNext == 5621018
-    				requestedUsage_5620987 = usages_5620215[i_5620984]
-    				if requestedUsage_5620987 == -1 {
-    					gotoNext = 5621057
-    					_ = gotoNext == 5621057
-    					i_5620984++
-    					gotoNext = 5621302
-    					gotoNext = 5621081
+    		_ = gotoNext == 5545108
+    		invalidUsage_5545114 = -1
+    		gotoNext = 5545146
+    		_ = gotoNext == 5545146
+    		if 0 < len(usages_5544403) {
+    			gotoNext = 5545489
+    			_ = gotoNext == 5545489
+    			i_5545172, requestedUsage_5545175 = 0, usages_5544403[0]
+    			gotoNext = 5545490
+    			_ = gotoNext == 5545490
+    			if i_5545172 < len(usages_5544403) {
+    				gotoNext = 5545206
+    				_ = gotoNext == 5545206
+    				requestedUsage_5545175 = usages_5544403[i_5545172]
+    				if requestedUsage_5545175 == -1 {
+    					gotoNext = 5545245
+    					_ = gotoNext == 5545245
+    					i_5545172++
+    					gotoNext = 5545490
+    					gotoNext = 5545269
     				} else {
-    					gotoNext = 5621081
+    					gotoNext = 5545269
     				}
-    				_ = gotoNext == 5621081
-    				if 0 < len(cert_5620580.ExtKeyUsage) {
-    					gotoNext = 5621196
-    					_ = gotoNext == 5621196
-    					i_5621097_0, usage_5621088 = 0, cert_5620580.ExtKeyUsage[0]
-    					gotoNext = 5621197
-    					_ = gotoNext == 5621197
-    					if i_5621097_0 < len(cert_5620580.ExtKeyUsage) {
-    						gotoNext = 5621120
-    						_ = gotoNext == 5621120
-    						usage_5621088 = cert_5620580.ExtKeyUsage[i_5621097_0]
-    						if requestedUsage_5620987 == usage_5621088 {
-    							gotoNext = 5621153
-    							_ = gotoNext == 5621153
-    							i_5620984++
-    							gotoNext = 5621302
-    							gotoNext = 5621085
+    				_ = gotoNext == 5545269
+    				if 0 < len(cert_5544768.ExtKeyUsage) {
+    					gotoNext = 5545384
+    					_ = gotoNext == 5545384
+    					i_5545285_0, usage_5545276 = 0, cert_5544768.ExtKeyUsage[0]
+    					gotoNext = 5545385
+    					_ = gotoNext == 5545385
+    					if i_5545285_0 < len(cert_5544768.ExtKeyUsage) {
+    						gotoNext = 5545308
+    						_ = gotoNext == 5545308
+    						usage_5545276 = cert_5544768.ExtKeyUsage[i_5545285_0]
+    						if requestedUsage_5545175 == usage_5545276 {
+    							gotoNext = 5545341
+    							_ = gotoNext == 5545341
+    							i_5545172++
+    							gotoNext = 5545490
+    							gotoNext = 5545273
     						} else {
-    							gotoNext = 5621085
+    							gotoNext = 5545273
     						}
-    						_ = gotoNext == 5621085
-    						i_5621097_0++
-    						gotoNext = 5621197
+    						_ = gotoNext == 5545273
+    						i_5545285_0++
+    						gotoNext = 5545385
     					} else {
-    						gotoNext = 5621203
+    						gotoNext = 5545391
     					}
-    					gotoNext = 5621203
+    					gotoNext = 5545391
     				} else {
-    					gotoNext = 5621203
+    					gotoNext = 5545391
     				}
-    				_ = gotoNext == 5621203
-    				usages_5620215[i_5620984] = -1
-    				usagesRemaining_5620329--
-    				if usagesRemaining_5620329 == 0 {
-    					gotoNext = 5621276
-    					_ = gotoNext == 5621276
+    				_ = gotoNext == 5545391
+    				usages_5544403[i_5545172] = -1
+    				usagesRemaining_5544517--
+    				if usagesRemaining_5544517 == 0 {
+    					gotoNext = 5545464
+    					_ = gotoNext == 5545464
     					return false
-    					gotoNext = 5620984
+    					gotoNext = 5545172
     				} else {
-    					gotoNext = 5620984
+    					gotoNext = 5545172
     				}
-    				_ = gotoNext == 5620984
-    				i_5620984++
-    				gotoNext = 5621302
+    				_ = gotoNext == 5545172
+    				i_5545172++
+    				gotoNext = 5545490
     			} else {
-    				gotoNext = 5620572
+    				gotoNext = 5544760
     			}
-    			gotoNext = 5620572
+    			gotoNext = 5544760
     		} else {
-    			gotoNext = 5620572
+    			gotoNext = 5544760
     		}
-    		_ = gotoNext == 5620572
-    		i_5620543--
-    		gotoNext = 5620539
+    		_ = gotoNext == 5544760
+    		i_5544731--
+    		gotoNext = 5544727
     	} else {
-    		gotoNext = 5621309
+    		gotoNext = 5545497
     	}
-    	_ = gotoNext == 5621309
+    	_ = gotoNext == 5545497
     	return true
     	gotoNext = -1
     }*|/

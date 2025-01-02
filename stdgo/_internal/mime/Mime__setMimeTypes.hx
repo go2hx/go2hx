@@ -6,14 +6,14 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
             stdgo._internal.mime.Mime__clearSyncMap._clearSyncMap((stdgo.Go.setRef(stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower) : stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>));
             stdgo._internal.mime.Mime__clearSyncMap._clearSyncMap((stdgo.Go.setRef(stdgo._internal.mime.Mime__extensions._extensions) : stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>));
             for (_k => _v in _lowerExt) {
-                stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.store(stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
+                @:check2 stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.store(stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
             };
             for (_k => _v in _mixExt) {
-                stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
+                @:check2 stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
             };
-            stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
+            @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
             {
-                final __f__ = stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
+                final __f__ = @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             for (_k => _v in _lowerExt) {
@@ -23,15 +23,16 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
                 };
                 var _exts:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 {
-                    var __tmp__ = stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _ei:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _ei:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         _exts = (stdgo.Go.typeAssert((_ei : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                     };
                 };
-                stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_k?.__copy__()))));
+                @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_k?.__copy__()))));
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -46,6 +47,7 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

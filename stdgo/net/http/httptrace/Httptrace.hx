@@ -41,16 +41,16 @@ package stdgo.net.http.httptrace;
         this.got1xxResponse = v;
         return v;
     }
-    public var dnsstart(get, set) : stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void;
-    function get_dnsstart():stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void return _0 -> this.dnsstart(_0);
-    function set_dnsstart(v:stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void):stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void {
-        this.dnsstart = v;
+    public var dNSStart(get, set) : stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void;
+    function get_dNSStart():stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void return _0 -> this.dNSStart(_0);
+    function set_dNSStart(v:stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void):stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void {
+        this.dNSStart = v;
         return v;
     }
-    public var dnsdone(get, set) : stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void;
-    function get_dnsdone():stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void return _0 -> this.dnsdone(_0);
-    function set_dnsdone(v:stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void):stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void {
-        this.dnsdone = v;
+    public var dNSDone(get, set) : stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void;
+    function get_dNSDone():stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void return _0 -> this.dNSDone(_0);
+    function set_dNSDone(v:stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void):stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void {
+        this.dNSDone = v;
         return v;
     }
     public var connectStart(get, set) : (stdgo.GoString, stdgo.GoString) -> Void;
@@ -65,16 +65,16 @@ package stdgo.net.http.httptrace;
         this.connectDone = v;
         return v;
     }
-    public var tlshandshakeStart(get, set) : () -> Void;
-    function get_tlshandshakeStart():() -> Void return () -> this.tlshandshakeStart();
-    function set_tlshandshakeStart(v:() -> Void):() -> Void {
-        this.tlshandshakeStart = v;
+    public var tLSHandshakeStart(get, set) : () -> Void;
+    function get_tLSHandshakeStart():() -> Void return () -> this.tLSHandshakeStart();
+    function set_tLSHandshakeStart(v:() -> Void):() -> Void {
+        this.tLSHandshakeStart = v;
         return v;
     }
-    public var tlshandshakeDone(get, set) : (stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void;
-    function get_tlshandshakeDone():(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void return (_0, _1) -> this.tlshandshakeDone(_0, _1);
-    function set_tlshandshakeDone(v:(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void):(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void {
-        this.tlshandshakeDone = v;
+    public var tLSHandshakeDone(get, set) : (stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void;
+    function get_tLSHandshakeDone():(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void return (_0, _1) -> this.tLSHandshakeDone(_0, _1);
+    function set_tLSHandshakeDone(v:(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void):(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void {
+        this.tLSHandshakeDone = v;
         return v;
     }
     public var wroteHeaderField(get, set) : (stdgo.GoString, stdgo.Slice<stdgo.GoString>) -> Void;
@@ -101,19 +101,19 @@ package stdgo.net.http.httptrace;
         this.wroteRequest = v;
         return v;
     }
-    public function new(?getConn:stdgo.GoString -> Void, ?gotConn:stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo.GotConnInfo -> Void, ?putIdleConn:stdgo.Error -> Void, ?gotFirstResponseByte:() -> Void, ?got100Continue:() -> Void, ?got1xxResponse:(stdgo.GoInt, stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) -> stdgo.Error, ?dnsstart:stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void, ?dnsdone:stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void, ?connectStart:(stdgo.GoString, stdgo.GoString) -> Void, ?connectDone:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void, ?tlshandshakeStart:() -> Void, ?tlshandshakeDone:(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void, ?wroteHeaderField:(stdgo.GoString, stdgo.Slice<stdgo.GoString>) -> Void, ?wroteHeaders:() -> Void, ?wait100Continue:() -> Void, ?wroteRequest:stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo -> Void) this = new stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace(
+    public function new(?getConn:stdgo.GoString -> Void, ?gotConn:stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo.GotConnInfo -> Void, ?putIdleConn:stdgo.Error -> Void, ?gotFirstResponseByte:() -> Void, ?got100Continue:() -> Void, ?got1xxResponse:(stdgo.GoInt, stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) -> stdgo.Error, ?dNSStart:stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo -> Void, ?dNSDone:stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo -> Void, ?connectStart:(stdgo.GoString, stdgo.GoString) -> Void, ?connectDone:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void, ?tLSHandshakeStart:() -> Void, ?tLSHandshakeDone:(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState, stdgo.Error) -> Void, ?wroteHeaderField:(stdgo.GoString, stdgo.Slice<stdgo.GoString>) -> Void, ?wroteHeaders:() -> Void, ?wait100Continue:() -> Void, ?wroteRequest:stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo -> Void) this = new stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace(
 getConn,
 gotConn,
 putIdleConn,
 gotFirstResponseByte,
 got100Continue,
 got1xxResponse,
-dnsstart,
-dnsdone,
+dNSStart,
+dNSDone,
 connectStart,
 connectDone,
-tlshandshakeStart,
-tlshandshakeDone,
+tLSHandshakeStart,
+tLSHandshakeDone,
 wroteHeaderField,
 wroteHeaders,
 wait100Continue,
@@ -195,6 +195,7 @@ wroteRequest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ClientTracePointer = stdgo._internal.net.http.httptrace.Httptrace_ClientTracePointer.ClientTracePointer;
 class ClientTrace_static_extension {
     static public function _hasNetHooks(_t:ClientTrace):Bool {
         return stdgo._internal.net.http.httptrace.Httptrace_ClientTrace_static_extension.ClientTrace_static_extension._hasNetHooks(_t);

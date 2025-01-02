@@ -12,7 +12,7 @@ function prime(_rand:stdgo._internal.io.Io_Reader.Reader, _bits:stdgo.GoInt):{ v
         var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         while (true) {
             {
-                var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _bytes), __12:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _bytes), __14:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -27,8 +27,8 @@ function prime(_rand:stdgo._internal.io.Io_Reader.Reader, _bits:stdgo.GoInt):{ v
                 };
             };
             _bytes[((_bytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_bytes[((_bytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-            _p.setBytes(_bytes);
-            if (_p.probablyPrime((20 : stdgo.GoInt))) {
+            @:check2r _p.setBytes(_bytes);
+            if (@:check2r _p.probablyPrime((20 : stdgo.GoInt))) {
                 return { _0 : _p, _1 : (null : stdgo.Error) };
             };
         };

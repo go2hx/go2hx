@@ -124,16 +124,16 @@ var _rawText = __2, _rawEmpty = __1, _rawNil = __0;
                 var _ok = (_err == null : Bool);
                 if (_ok != (_tt._ok)) {
                     if (_err != null) {
-                        _t.errorf(("test %d, unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("test %d, unexpected failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     } else {
-                        _t.errorf(("test %d, unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                        @:check2r _t.errorf(("test %d, unexpected success" : stdgo.GoString), stdgo.Go.toInterface(_i));
                     };
                 };
             };
             {
                 var _got = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_tt._want)) {
-                    _t.errorf(("test %d, Marshal(%#v) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._in, stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                    @:check2r _t.errorf(("test %d, Marshal(%#v) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._in, stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                 };
             };
         };

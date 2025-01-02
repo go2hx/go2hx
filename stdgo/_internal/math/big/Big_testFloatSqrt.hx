@@ -27,21 +27,21 @@ function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
 (600u32 : stdgo.GoUInt),
 (800u32 : stdgo.GoUInt),
 (1000u32 : stdgo.GoUInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt>)) {
-                var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec);
-                _x.parse(_test._x?.__copy__(), (10 : stdgo.GoInt));
-                var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).sqrt(_x);
-                var _want = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec);
-                _want.parse(_test._want?.__copy__(), (10 : stdgo.GoInt));
-                if (_got.cmp(_want) != ((0 : stdgo.GoInt))) {
-                    _t.errorf(("prec = %d, Sqrt(%v) =\ngot  %g;\nwant %g" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
+                var _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec);
+                @:check2r _x.parse(_test._x?.__copy__(), (10 : stdgo.GoInt));
+                var _got = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).sqrt(_x);
+                var _want = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec);
+                @:check2r _want.parse(_test._want?.__copy__(), (10 : stdgo.GoInt));
+                if (@:check2r _got.cmp(_want) != ((0 : stdgo.GoInt))) {
+                    @:check2r _t.errorf(("prec = %d, Sqrt(%v) =\ngot  %g;\nwant %g" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
                 };
-                var _sq = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((_prec + (32u32 : stdgo.GoUInt) : stdgo.GoUInt)).mul(_got, _got);
-                var _diff = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).sub(_sq, _x);
-                var _err = _diff.abs(_diff).setPrec(_prec);
-                var _one = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setInt64((1i64 : stdgo.GoInt64));
-                var _maxErr = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).mul((stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMantExp(_one, (-(_prec : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)), _got);
-                if ((_err.cmp(_maxErr) >= (0 : stdgo.GoInt) : Bool)) {
-                    _t.errorf(("prec = %d, Sqrt(%v) =\ngot err  %g;\nwant maxErr %g" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_err)), stdgo.Go.toInterface(stdgo.Go.asInterface(_maxErr)));
+                var _sq = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((_prec + (32u32 : stdgo.GoUInt) : stdgo.GoUInt)).mul(_got, _got);
+                var _diff = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).sub(_sq, _x);
+                var _err = @:check2r @:check2r _diff.abs(_diff).setPrec(_prec);
+                var _one = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setInt64((1i64 : stdgo.GoInt64));
+                var _maxErr = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).mul(@:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMantExp(_one, (-(_prec : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)), _got);
+                if ((@:check2r _err.cmp(_maxErr) >= (0 : stdgo.GoInt) : Bool)) {
+                    @:check2r _t.errorf(("prec = %d, Sqrt(%v) =\ngot err  %g;\nwant maxErr %g" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_err)), stdgo.Go.toInterface(stdgo.Go.asInterface(_maxErr)));
                 };
             };
         };

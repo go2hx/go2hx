@@ -32,9 +32,9 @@ function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing_
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8),
 (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _msg : ("Float.GobDecode: nonzero finite number with empty mantissa" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_33.T__struct_33)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _buf : (null : stdgo.Slice<stdgo.GoUInt8>), _msg : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_33.T__struct_33)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_33.T__struct_33>)) {
-            var _err = (stdgo._internal.math.big.Big_newFloat.newFloat((0 : stdgo.GoFloat64)).gobDecode(_tc._buf) : stdgo.Error);
+            var _err = (@:check2r stdgo._internal.math.big.Big_newFloat.newFloat((0 : stdgo.GoFloat64)).gobDecode(_tc._buf) : stdgo.Error);
             if (((_err == null) || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_err.error()?.__copy__(), _tc._msg?.__copy__()) : Bool)) {
-                _t.errorf(("expected GobDecode error prefix: %s, got: %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._msg), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("expected GobDecode error prefix: %s, got: %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._msg), stdgo.Go.toInterface(_err));
             };
         };
     }

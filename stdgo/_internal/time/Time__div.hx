@@ -2,8 +2,8 @@ package stdgo._internal.time;
 function _div(_t:stdgo._internal.time.Time_Time.Time, _d:stdgo._internal.time.Time_Duration.Duration):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Duration.Duration; } {
         var _qmod2 = (0 : stdgo.GoInt), _r = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
         var _neg = (false : Bool);
-        var _nsec = (_t._nsec() : stdgo.GoInt32);
-        var _sec = (_t._sec() : stdgo.GoInt64);
+        var _nsec = (@:check2 _t._nsec() : stdgo.GoInt32);
+        var _sec = (@:check2 _t._sec() : stdgo.GoInt64);
         if ((_sec < (0i64 : stdgo.GoInt64) : Bool)) {
             _neg = true;
             _sec = -_sec;

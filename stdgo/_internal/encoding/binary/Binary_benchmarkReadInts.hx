@@ -3,12 +3,12 @@ function benchmarkReadInts(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Vo
         var _ls:stdgo._internal.encoding.binary.Binary_Struct.Struct = ({} : stdgo._internal.encoding.binary.Binary_Struct.Struct);
         var _bsr = (stdgo.Go.setRef((new stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader() : stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader>);
         var _r:stdgo._internal.io.Io_Reader.Reader = stdgo.Go.asInterface(_bsr);
-        _b.setBytes((30i64 : stdgo.GoInt64));
-        _b.resetTimer();
+        @:check2r _b.setBytes((30i64 : stdgo.GoInt64));
+        @:check2r _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            while ((_i < _b.n : Bool)) {
-                _bsr._remain = stdgo._internal.encoding.binary.Binary__big._big;
+            while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                (@:checkr _bsr ?? throw "null pointer dereference")._remain = stdgo._internal.encoding.binary.Binary__big._big;
 stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_ls.int8)));
 stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_ls.int16)));
 stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_ls.int32)));
@@ -20,7 +20,7 @@ stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo.
                 _i++;
             };
         };
-        _b.stopTimer();
+        @:check2r _b.stopTimer();
         var _want = (stdgo._internal.encoding.binary.Binary__s._s?.__copy__() : stdgo._internal.encoding.binary.Binary_Struct.Struct);
         _want.float32 = (0 : stdgo.GoFloat64);
         _want.float64 = (0 : stdgo.GoFloat64);
@@ -29,7 +29,7 @@ stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo.
         _want.array = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__();
         _want.bool_ = false;
         _want.boolArray = (new stdgo.GoArray<Bool>(4, 4, ...[false, false, false, false]) : stdgo.GoArray<Bool>);
-        if (((_b.n > (0 : stdgo.GoInt) : Bool) && !stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_ls), stdgo.Go.toInterface(_want)) : Bool)) {
-            _b.fatalf(("struct doesn\'t match:\ngot  %v;\nwant %v" : stdgo.GoString), stdgo.Go.toInterface(_ls), stdgo.Go.toInterface(_want));
+        if ((((@:checkr _b ?? throw "null pointer dereference").n > (0 : stdgo.GoInt) : Bool) && !stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_ls), stdgo.Go.toInterface(_want)) : Bool)) {
+            @:check2r _b.fatalf(("struct doesn\'t match:\ngot  %v;\nwant %v" : stdgo.GoString), stdgo.Go.toInterface(_ls), stdgo.Go.toInterface(_want));
         };
     }

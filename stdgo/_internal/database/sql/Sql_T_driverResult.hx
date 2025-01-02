@@ -8,10 +8,14 @@ package stdgo._internal.database.sql;
         if (_resi != null) this._resi = _resi;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var lock(get, never) : () -> Void;
     @:embedded
-    public function lock() this.locker.lock();
+    @:embeddededffieldsffun
+    public function get_lock():() -> Void return @:check3 (this.locker ?? throw "null pointer derefrence").lock;
+    public var unlock(get, never) : () -> Void;
     @:embedded
-    public function unlock() this.locker.unlock();
+    @:embeddededffieldsffun
+    public function get_unlock():() -> Void return @:check3 (this.locker ?? throw "null pointer derefrence").unlock;
     public function __copy__() {
         return new T_driverResult(locker, _resi);
     }

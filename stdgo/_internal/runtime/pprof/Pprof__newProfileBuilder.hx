@@ -17,6 +17,6 @@ function _newProfileBuilder(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Ref<st
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>) } : stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
-        _b._readMapping();
+        @:check2r _b._readMapping();
         return _b;
     }

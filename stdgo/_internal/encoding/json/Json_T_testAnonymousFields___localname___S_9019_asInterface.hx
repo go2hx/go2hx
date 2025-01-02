@@ -5,6 +5,6 @@ class T_testAnonymousFields___localname___S_9019_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9019.T_testAnonymousFields___localname___S_9019>;
+    var __self__ : stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9019Pointer.T_testAnonymousFields___localname___S_9019Pointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

@@ -9,56 +9,106 @@ package stdgo._internal.bufio;
         if (writer != null) this.writer = writer;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var available(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function available():stdgo.GoInt return this.writer.available();
+    @:embeddededffieldsffun
+    public function get_available():() -> stdgo.GoInt return @:check3 (this.writer ?? throw "null pointer derefrence").available;
+    public var availableBuffer(get, never) : () -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
-    public function availableBuffer():stdgo.Slice<stdgo.GoUInt8> return this.writer.availableBuffer();
+    @:embeddededffieldsffun
+    public function get_availableBuffer():() -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this.writer ?? throw "null pointer derefrence").availableBuffer;
+    public var discard(get, never) : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function discard(__0:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.reader.discard(__0);
+    @:embeddededffieldsffun
+    public function get_discard():stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").discard;
+    public var flush(get, never) : () -> stdgo.Error;
     @:embedded
-    public function flush():stdgo.Error return this.writer.flush();
+    @:embeddededffieldsffun
+    public function get_flush():() -> stdgo.Error return @:check3 (this.writer ?? throw "null pointer derefrence").flush;
+    public var peek(get, never) : stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     @:embedded
-    public function peek(__0:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return this.reader.peek(__0);
+    @:embeddededffieldsffun
+    public function get_peek():stdgo.GoInt -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").peek;
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.reader.read(_p);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").read;
+    public var readByte(get, never) : () -> { var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; };
     @:embedded
-    public function readByte():{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return this.reader.readByte();
+    @:embeddededffieldsffun
+    public function get_readByte():() -> { var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readByte;
+    public var readBytes(get, never) : stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     @:embedded
-    public function readBytes(_delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return this.reader.readBytes(_delim);
+    @:embeddededffieldsffun
+    public function get_readBytes():stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readBytes;
+    public var readFrom(get, never) : stdgo._internal.io.Io_Reader.Reader -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function readFrom(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.writer.readFrom(_r);
+    @:embeddededffieldsffun
+    public function get_readFrom():stdgo._internal.io.Io_Reader.Reader -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.writer ?? throw "null pointer derefrence").readFrom;
+    public var readLine(get, never) : () -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; };
     @:embedded
-    public function readLine():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; } return this.reader.readLine();
+    @:embeddededffieldsffun
+    public function get_readLine():() -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readLine;
+    public var readRune(get, never) : () -> { var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; };
     @:embedded
-    public function readRune():{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return this.reader.readRune();
+    @:embeddededffieldsffun
+    public function get_readRune():() -> { var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readRune;
+    public var readSlice(get, never) : stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     @:embedded
-    public function readSlice(_delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return this.reader.readSlice(_delim);
+    @:embeddededffieldsffun
+    public function get_readSlice():stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readSlice;
+    public var readString(get, never) : stdgo.GoUInt8 -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; };
     @:embedded
-    public function readString(_delim:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } return this.reader.readString(_delim);
+    @:embeddededffieldsffun
+    public function get_readString():stdgo.GoUInt8 -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").readString;
+    public var unreadByte(get, never) : () -> stdgo.Error;
     @:embedded
-    public function unreadByte():stdgo.Error return this.reader.unreadByte();
+    @:embeddededffieldsffun
+    public function get_unreadByte():() -> stdgo.Error return @:check3 (this.reader ?? throw "null pointer derefrence").unreadByte;
+    public var unreadRune(get, never) : () -> stdgo.Error;
     @:embedded
-    public function unreadRune():stdgo.Error return this.reader.unreadRune();
+    @:embeddededffieldsffun
+    public function get_unreadRune():() -> stdgo.Error return @:check3 (this.reader ?? throw "null pointer derefrence").unreadRune;
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.writer.write(_p);
+    @:embeddededffieldsffun
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.writer ?? throw "null pointer derefrence").write;
+    public var writeByte(get, never) : stdgo.GoUInt8 -> stdgo.Error;
     @:embedded
-    public function writeByte(_delim:stdgo.GoUInt8):stdgo.Error return this.writer.writeByte(_delim);
+    @:embeddededffieldsffun
+    public function get_writeByte():stdgo.GoUInt8 -> stdgo.Error return @:check3 (this.writer ?? throw "null pointer derefrence").writeByte;
+    public var writeRune(get, never) : stdgo.GoInt32 -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function writeRune(_r:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.writer.writeRune(_r);
+    @:embeddededffieldsffun
+    public function get_writeRune():stdgo.GoInt32 -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.writer ?? throw "null pointer derefrence").writeRune;
+    public var writeString(get, never) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function writeString(_text:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.writer.writeString(_text);
+    @:embeddededffieldsffun
+    public function get_writeString():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.writer ?? throw "null pointer derefrence").writeString;
+    public var writeTo(get, never) : stdgo._internal.io.Io_Writer.Writer -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function writeTo(_w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.reader.writeTo(_w);
+    @:embeddededffieldsffun
+    public function get_writeTo():stdgo._internal.io.Io_Writer.Writer -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").writeTo;
+    public var _collectFragments(get, never) : stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; };
     @:embedded
-    public function _collectFragments(_delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } return this.reader._collectFragments(_delim);
+    @:embeddededffieldsffun
+    public function get__collectFragments():stdgo.GoUInt8 -> { var _0 : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence")._collectFragments;
+    public var _fill(get, never) : () -> Void;
     @:embedded
-    public function _fill() this.reader._fill();
+    @:embeddededffieldsffun
+    public function get__fill():() -> Void return @:check3 (this.reader ?? throw "null pointer derefrence")._fill;
+    public var _readErr(get, never) : () -> stdgo.Error;
     @:embedded
-    public function _readErr():stdgo.Error return this.reader._readErr();
+    @:embeddededffieldsffun
+    public function get__readErr():() -> stdgo.Error return @:check3 (this.reader ?? throw "null pointer derefrence")._readErr;
+    public var _reset(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.io.Io_Reader.Reader) -> Void;
     @:embedded
-    public function _reset(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo._internal.io.Io_Reader.Reader) this.reader._reset(_buf, _r);
+    @:embeddededffieldsffun
+    public function get__reset():(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.io.Io_Reader.Reader) -> Void return @:check3 (this.reader ?? throw "null pointer derefrence")._reset;
+    public var _writeBuf(get, never) : stdgo._internal.io.Io_Writer.Writer -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function _writeBuf(_w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.reader._writeBuf(_w);
+    @:embeddededffieldsffun
+    public function get__writeBuf():stdgo._internal.io.Io_Writer.Writer -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence")._writeBuf;
     public function __copy__() {
         return new ReadWriter(reader, writer);
     }

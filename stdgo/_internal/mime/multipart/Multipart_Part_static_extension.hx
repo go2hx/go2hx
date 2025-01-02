@@ -1,29 +1,32 @@
 package stdgo._internal.mime.multipart;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.Part_asInterface) class Part_static_extension {
     @:keep
+    @:tdfield
     static public function close( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
         stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, stdgo.Go.asInterface(_p));
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function read( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>, _d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _p._r.read(_d);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = (@:checkr _p ?? throw "null pointer dereference")._r.read(_d);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
         };
     }
     @:keep
+    @:tdfield
     static public function _populateHeaders( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>, _maxMIMEHeaderSize:stdgo.GoInt64, _maxMIMEHeaders:stdgo.GoInt64):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
-        var _r = stdgo._internal.net.textproto.Textproto_newReader.newReader(_p._mr._bufReader);
+        var _r = stdgo._internal.net.textproto.Textproto_newReader.newReader((@:checkr (@:checkr _p ?? throw "null pointer dereference")._mr ?? throw "null pointer dereference")._bufReader);
         var __tmp__ = stdgo._internal.mime.multipart.Multipart__readMIMEHeader._readMIMEHeader(_r, _maxMIMEHeaderSize, _maxMIMEHeaders), _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
-            _p.header = _header;
+            (@:checkr _p ?? throw "null pointer dereference").header = _header;
         };
         if (((_err != null) && (_err.error() == ("message too large" : stdgo.GoString)) : Bool)) {
             _err = stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge;
@@ -31,41 +34,44 @@ package stdgo._internal.mime.multipart;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function _parseContentDisposition( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
-        var _v = (_p.header.get(("Content-Disposition" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _v = ((@:checkr _p ?? throw "null pointer dereference").header.get(("Content-Disposition" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v?.__copy__());
-            _p._disposition = __tmp__._0?.__copy__();
-            _p._dispositionParams = __tmp__._1;
+            (@:checkr _p ?? throw "null pointer dereference")._disposition = __tmp__._0?.__copy__();
+            (@:checkr _p ?? throw "null pointer dereference")._dispositionParams = __tmp__._1;
             _err = __tmp__._2;
         };
         if (_err != null) {
-            _p._dispositionParams = stdgo._internal.mime.multipart.Multipart__emptyParams._emptyParams;
+            (@:checkr _p ?? throw "null pointer dereference")._dispositionParams = stdgo._internal.mime.multipart.Multipart__emptyParams._emptyParams;
         };
     }
     @:keep
+    @:tdfield
     static public function fileName( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>):stdgo.GoString {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
-        if (_p._dispositionParams == null) {
-            _p._parseContentDisposition();
+        if ((@:checkr _p ?? throw "null pointer dereference")._dispositionParams == null) {
+            @:check2r _p._parseContentDisposition();
         };
-        var _filename = ((_p._dispositionParams[("filename" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _filename = (((@:checkr _p ?? throw "null pointer dereference")._dispositionParams[("filename" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_filename == (stdgo.Go.str())) {
             return stdgo.Go.str()?.__copy__();
         };
         return stdgo._internal.path.filepath.Filepath_base.base(_filename?.__copy__())?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function formName( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>):stdgo.GoString {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
-        if (_p._dispositionParams == null) {
-            _p._parseContentDisposition();
+        if ((@:checkr _p ?? throw "null pointer dereference")._dispositionParams == null) {
+            @:check2r _p._parseContentDisposition();
         };
-        if (_p._disposition != (("form-data" : stdgo.GoString))) {
+        if ((@:checkr _p ?? throw "null pointer dereference")._disposition != (("form-data" : stdgo.GoString))) {
             return stdgo.Go.str()?.__copy__();
         };
-        return (_p._dispositionParams[("name" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
+        return ((@:checkr _p ?? throw "null pointer dereference")._dispositionParams[("name" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
     }
 }

@@ -1,6 +1,7 @@
 package stdgo._internal.net.rpc;
 @:keep @:allow(stdgo._internal.net.rpc.Rpc.T_methodArray_asInterface) class T_methodArray_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray = _m;
         {
@@ -15,11 +16,13 @@ package stdgo._internal.net.rpc;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray = _m;
         return (_m[(_i : stdgo.GoInt)].type._method.name < _m[(_j : stdgo.GoInt)].type._method.name : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray):stdgo.GoInt {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray = _m;
         return (_m.length);

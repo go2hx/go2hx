@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2FrameType_asInterface) class T_http2FrameType_static_extension {
     @:keep
+    @:tdfield
     static public function string( _t:stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType):stdgo.GoString {
         @:recv var _t:stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType = _t;
         {

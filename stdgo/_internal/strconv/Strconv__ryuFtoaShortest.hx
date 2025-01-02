@@ -4,8 +4,8 @@ function _ryuFtoaShortest(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (0 : stdgo.GoInt);
-                _d._nd = __tmp__0;
-                _d._dp = __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._nd = __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._dp = __tmp__1;
             };
             return;
         };
@@ -120,5 +120,5 @@ var _fracu = __1, _du = __0;
         };
         var _c0 = (_dc0 && (_fracc == (0i64 : stdgo.GoUInt64)) : Bool);
         stdgo._internal.strconv.Strconv__ryuDigits._ryuDigits(_d, _dl, _dc, _du, _c0, _cup);
-        _d._dp = (_d._dp - (_q) : stdgo.GoInt);
+        (@:checkr _d ?? throw "null pointer dereference")._dp = ((@:checkr _d ?? throw "null pointer dereference")._dp - (_q) : stdgo.GoInt);
     }

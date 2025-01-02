@@ -10,11 +10,11 @@ function newTokenDecoder(_t:stdgo._internal.encoding.xml.Xml_TokenReader.TokenRe
                 return _d;
             };
         };
-        var _d = (stdgo.Go.setRef(({ _ns : ({
+        var _d = (stdgo.Go.setRef(({ _ns : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _t : _t, _nextByte : (-1 : stdgo.GoInt), _line : (1 : stdgo.GoInt), strict : true } : stdgo._internal.encoding.xml.Xml_Decoder.Decoder)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_Decoder.Decoder>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _t : _t, _nextByte : (-1 : stdgo.GoInt), _line : (1 : stdgo.GoInt), strict : true } : stdgo._internal.encoding.xml.Xml_Decoder.Decoder)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_Decoder.Decoder>);
         return _d;
     }

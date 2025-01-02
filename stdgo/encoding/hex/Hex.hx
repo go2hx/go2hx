@@ -115,31 +115,35 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.encoding.hex.Hex_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.encoding.hex.Hex_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.encoding.hex.Hex_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
-    public static function read(__self__:stdgo._internal.encoding.hex.Hex_T__struct_1.T__struct_1, _src:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.encoding.hex.Hex_T__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.encoding.hex.Hex_T__struct_1_static_extension.T__struct_1_static_extension.read(__self__, _src);
+            final obj = stdgo._internal.encoding.hex.Hex_T__struct_1_static_extension.T__struct_1_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 typedef T__struct_1 = stdgo._internal.encoding.hex.Hex_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.encoding.hex.Hex_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
-    public static function write(__self__:stdgo._internal.encoding.hex.Hex_T__struct_2.T__struct_2, _src:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:stdgo._internal.encoding.hex.Hex_T__struct_2.T__struct_2, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.encoding.hex.Hex_T__struct_2_static_extension.T__struct_2_static_extension.write(__self__, _src);
+            final obj = stdgo._internal.encoding.hex.Hex_T__struct_2_static_extension.T__struct_2_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 typedef T__struct_2 = stdgo._internal.encoding.hex.Hex_T__struct_2.T__struct_2;
 typedef InvalidByteError = stdgo._internal.encoding.hex.Hex_InvalidByteError.InvalidByteError;
+typedef T_encoderPointer = stdgo._internal.encoding.hex.Hex_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function write(_e:T_encoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -149,6 +153,7 @@ class T_encoder_static_extension {
         };
     }
 }
+typedef T_decoderPointer = stdgo._internal.encoding.hex.Hex_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -158,6 +163,7 @@ class T_decoder_static_extension {
         };
     }
 }
+typedef T_dumperPointer = stdgo._internal.encoding.hex.Hex_T_dumperPointer.T_dumperPointer;
 class T_dumper_static_extension {
     static public function close(_h:T_dumper):stdgo.Error {
         return stdgo._internal.encoding.hex.Hex_T_dumper_static_extension.T_dumper_static_extension.close(_h);
@@ -170,6 +176,7 @@ class T_dumper_static_extension {
         };
     }
 }
+typedef InvalidByteErrorPointer = stdgo._internal.encoding.hex.Hex_InvalidByteErrorPointer.InvalidByteErrorPointer;
 class InvalidByteError_static_extension {
     static public function error(_e:InvalidByteError):String {
         return stdgo._internal.encoding.hex.Hex_InvalidByteError_static_extension.InvalidByteError_static_extension.error(_e);

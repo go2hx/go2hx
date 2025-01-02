@@ -22,8 +22,10 @@ package stdgo._internal.internal.poll;
         if (_isFile != null) this._isFile = _isFile;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _init(get, never) : () -> Void;
     @:embedded
-    public function _init() this.sysFile._init();
+    @:embeddededffieldsffun
+    public function get__init():() -> Void return @:check3 (this.sysFile ?? throw "null pointer derefrence")._init;
     public function __copy__() {
         return new FD(_fdmu, sysfd, sysFile, _pd, _csema, _isBlocking, isStream, zeroReadIsEOF, _isFile);
     }

@@ -79,6 +79,7 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
     public function __copy__() return this.__copy__();
 }
 typedef Func = stdgo._internal.expvar.Expvar_Func.Func;
+typedef Int_Pointer = stdgo._internal.expvar.Expvar_Int_Pointer.Int_Pointer;
 class Int__static_extension {
     static public function set(_v:Int_, _value:haxe.Int64):Void {
         stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.set(_v, _value);
@@ -93,6 +94,7 @@ class Int__static_extension {
         return stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.value(_v);
     }
 }
+typedef Float_Pointer = stdgo._internal.expvar.Expvar_Float_Pointer.Float_Pointer;
 class Float__static_extension {
     static public function set(_v:Float_, _value:StdTypes.Float):Void {
         stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.set(_v, _value);
@@ -107,6 +109,7 @@ class Float__static_extension {
         return stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.value(_v);
     }
 }
+typedef Map_Pointer = stdgo._internal.expvar.Expvar_Map_Pointer.Map_Pointer;
 class Map__static_extension {
     static public function do_(_v:Map_, _f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
         final _f = _f;
@@ -137,6 +140,7 @@ class Map__static_extension {
         return stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.string(_v);
     }
 }
+typedef String_Pointer = stdgo._internal.expvar.Expvar_String_Pointer.String_Pointer;
 class String__static_extension {
     static public function set(_v:String_, _value:String):Void {
         stdgo._internal.expvar.Expvar_String__static_extension.String__static_extension.set(_v, _value);
@@ -148,6 +152,7 @@ class String__static_extension {
         return stdgo._internal.expvar.Expvar_String__static_extension.String__static_extension.value(_v);
     }
 }
+typedef FuncPointer = stdgo._internal.expvar.Expvar_FuncPointer.FuncPointer;
 class Func_static_extension {
     static public function string(_f:Func):String {
         return stdgo._internal.expvar.Expvar_Func_static_extension.Func_static_extension.string(_f);

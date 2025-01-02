@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.Dir_asInterface) class Dir_static_extension {
     @:keep
+    @:tdfield
     static public function open( _d:stdgo._internal.net.http.Http_Dir.Dir, _name:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_File.File; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo._internal.net.http.Http_Dir.Dir = _d;
         var __tmp__ = stdgo._internal.internal.safefilepath.Safefilepath_fromFS.fromFS(stdgo._internal.path.Path_clean.clean((("/" : stdgo.GoString) + _name?.__copy__() : stdgo.GoString)?.__copy__())?.__copy__()), _path:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;

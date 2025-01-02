@@ -6,5 +6,6 @@ typedef Valuer = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function value():{ var _0 : stdgo._internal.database.sql.driver.Driver_Value.Value; var _1 : stdgo.Error; };
 };

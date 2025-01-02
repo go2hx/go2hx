@@ -4,16 +4,16 @@ final ruleDOY : RuleKind = stdgo._internal.time.Time_ruleDOY.ruleDOY;
 final ruleMonthWeekDay : RuleKind = stdgo._internal.time.Time_ruleMonthWeekDay.ruleMonthWeekDay;
 final unixToInternal : haxe.Int64 = stdgo._internal.time.Time_unixToInternal.unixToInternal;
 final layout : String = stdgo._internal.time.Time_layout.layout;
-final ansic : String = stdgo._internal.time.Time_ansic.ansic;
+final aNSIC : String = stdgo._internal.time.Time_aNSIC.aNSIC;
 final unixDate : String = stdgo._internal.time.Time_unixDate.unixDate;
 final rubyDate : String = stdgo._internal.time.Time_rubyDate.rubyDate;
-final rfc822 : String = stdgo._internal.time.Time_rfc822.rfc822;
-final rfc822z : String = stdgo._internal.time.Time_rfc822z.rfc822z;
-final rfc850 : String = stdgo._internal.time.Time_rfc850.rfc850;
-final rfc1123 : String = stdgo._internal.time.Time_rfc1123.rfc1123;
-final rfc1123z : String = stdgo._internal.time.Time_rfc1123z.rfc1123z;
-final rfc3339 : String = stdgo._internal.time.Time_rfc3339.rfc3339;
-final rfc3339nano : String = stdgo._internal.time.Time_rfc3339nano.rfc3339nano;
+final rFC822 : String = stdgo._internal.time.Time_rFC822.rFC822;
+final rFC822Z : String = stdgo._internal.time.Time_rFC822Z.rFC822Z;
+final rFC850 : String = stdgo._internal.time.Time_rFC850.rFC850;
+final rFC1123 : String = stdgo._internal.time.Time_rFC1123.rFC1123;
+final rFC1123Z : String = stdgo._internal.time.Time_rFC1123Z.rFC1123Z;
+final rFC3339 : String = stdgo._internal.time.Time_rFC3339.rFC3339;
+final rFC3339Nano : String = stdgo._internal.time.Time_rFC3339Nano.rFC3339Nano;
 final kitchen : String = stdgo._internal.time.Time_kitchen.kitchen;
 final stamp : String = stdgo._internal.time.Time_stamp.stamp;
 final stampMilli : String = stdgo._internal.time.Time_stampMilli.stampMilli;
@@ -47,10 +47,10 @@ final millisecond : Duration = stdgo._internal.time.Time_millisecond.millisecond
 final second : Duration = stdgo._internal.time.Time_second.second;
 final minute : Duration = stdgo._internal.time.Time_minute.minute;
 final hour : Duration = stdgo._internal.time.Time_hour.hour;
-var utc(get, set) : Location;
-private function get_utc():Location return stdgo._internal.time.Time_utc.utc;
-private function set_utc(v:Location):Location {
-        stdgo._internal.time.Time_utc.utc = v;
+var uTC(get, set) : Location;
+private function get_uTC():Location return stdgo._internal.time.Time_uTC.uTC;
+private function set_uTC(v:Location):Location {
+        stdgo._internal.time.Time_uTC.uTC = v;
         return v;
     }
 var local(get, set) : Location;
@@ -540,11 +540,13 @@ typedef Weekday = stdgo._internal.time.Time_Weekday.Weekday;
 typedef Duration = stdgo._internal.time.Time_Duration.Duration;
 typedef T_ruleKind = stdgo._internal.time.Time_T_ruleKind.T_ruleKind;
 typedef T_fileSizeError = stdgo._internal.time.Time_T_fileSizeError.T_fileSizeError;
+typedef ParseErrorPointer = stdgo._internal.time.Time_ParseErrorPointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function error(_e:ParseError):String {
         return stdgo._internal.time.Time_ParseError_static_extension.ParseError_static_extension.error(_e);
     }
 }
+typedef TimerPointer = stdgo._internal.time.Time_TimerPointer.TimerPointer;
 class Timer_static_extension {
     static public function reset(_t:Timer, _d:Duration):Bool {
         return stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension.reset(_t, _d);
@@ -553,6 +555,7 @@ class Timer_static_extension {
         return stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension.stop(_t);
     }
 }
+typedef TickerPointer = stdgo._internal.time.Time_TickerPointer.TickerPointer;
 class Ticker_static_extension {
     static public function reset(_t:Ticker, _d:Duration):Void {
         stdgo._internal.time.Time_Ticker_static_extension.Ticker_static_extension.reset(_t, _d);
@@ -561,6 +564,7 @@ class Ticker_static_extension {
         stdgo._internal.time.Time_Ticker_static_extension.Ticker_static_extension.stop(_t);
     }
 }
+typedef TimePointer = stdgo._internal.time.Time_TimePointer.TimePointer;
 class Time_static_extension {
     static public function round(_t:Time_, _d:Duration):Time_ {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.round(_t, _d);
@@ -644,8 +648,8 @@ class Time_static_extension {
     static public function local(_t:Time_):Time_ {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.local(_t);
     }
-    static public function utc(_t:Time_):Time_ {
-        return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.utc(_t);
+    static public function uTC(_t:Time_):Time_ {
+        return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.uTC(_t);
     }
     static public function _date(_t:Time_, _full:Bool):stdgo.Tuple.Tuple4<StdTypes.Int, Month, StdTypes.Int, StdTypes.Int> {
         return {
@@ -683,9 +687,9 @@ class Time_static_extension {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function isoweek(_t:Time_):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function iSOWeek(_t:Time_):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.time.Time_Time_static_extension.Time_static_extension.isoweek(_t);
+            final obj = stdgo._internal.time.Time_Time_static_extension.Time_static_extension.iSOWeek(_t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -784,6 +788,7 @@ class Time_static_extension {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.string(_t);
     }
 }
+typedef LocationPointer = stdgo._internal.time.Time_LocationPointer.LocationPointer;
 class Location_static_extension {
     static public function _lookupName(_l:Location, _name:String, _unix:haxe.Int64):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
@@ -810,6 +815,7 @@ class Location_static_extension {
         return stdgo._internal.time.Time_Location_static_extension.Location_static_extension._get(_l);
     }
 }
+typedef T_dataIOPointer = stdgo._internal.time.Time_T_dataIOPointer.T_dataIOPointer;
 class T_dataIO_static_extension {
     static public function _rest(_d:T_dataIO):Array<std.UInt> {
         return [for (i in stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._rest(_d)) i];
@@ -836,16 +842,19 @@ class T_dataIO_static_extension {
         return [for (i in stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._read(_d, _n)) i];
     }
 }
+typedef MonthPointer = stdgo._internal.time.Time_MonthPointer.MonthPointer;
 class Month_static_extension {
     static public function string(_m:Month):String {
         return stdgo._internal.time.Time_Month_static_extension.Month_static_extension.string(_m);
     }
 }
+typedef WeekdayPointer = stdgo._internal.time.Time_WeekdayPointer.WeekdayPointer;
 class Weekday_static_extension {
     static public function string(_d:Weekday):String {
         return stdgo._internal.time.Time_Weekday_static_extension.Weekday_static_extension.string(_d);
     }
 }
+typedef DurationPointer = stdgo._internal.time.Time_DurationPointer.DurationPointer;
 class Duration_static_extension {
     static public function abs(_d:Duration):Duration {
         return stdgo._internal.time.Time_Duration_static_extension.Duration_static_extension.abs(_d);
@@ -878,6 +887,7 @@ class Duration_static_extension {
         return stdgo._internal.time.Time_Duration_static_extension.Duration_static_extension.string(_d);
     }
 }
+typedef T_fileSizeErrorPointer = stdgo._internal.time.Time_T_fileSizeErrorPointer.T_fileSizeErrorPointer;
 class T_fileSizeError_static_extension {
     static public function error(_f:T_fileSizeError):String {
         return stdgo._internal.time.Time_T_fileSizeError_static_extension.T_fileSizeError_static_extension.error(_f);

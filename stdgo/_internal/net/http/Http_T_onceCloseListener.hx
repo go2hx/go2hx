@@ -10,10 +10,14 @@ package stdgo._internal.net.http;
         if (_closeErr != null) this._closeErr = _closeErr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var accept(get, never) : () -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; };
     @:embedded
-    public function accept():{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } return this.listener.accept();
+    @:embeddededffieldsffun
+    public function get_accept():() -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } return @:check3 (this.listener ?? throw "null pointer derefrence").accept;
+    public var addr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function addr():stdgo._internal.net.Net_Addr.Addr return this.listener.addr();
+    @:embeddededffieldsffun
+    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.listener ?? throw "null pointer derefrence").addr;
     public function __copy__() {
         return new T_onceCloseListener(listener, _once, _closeErr);
     }

@@ -6,5 +6,6 @@ typedef Validator = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function isValid():Bool;
 };

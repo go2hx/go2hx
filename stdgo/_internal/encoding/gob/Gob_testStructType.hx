@@ -4,6 +4,6 @@ function testStructType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var _str = (_sstruct._string()?.__copy__() : stdgo.GoString);
         var _expected = ("Foo = struct { A int; B int; C string; D bytes; E float; F float; G Bar = struct { X string; }; H Bar; I Foo; }" : stdgo.GoString);
         if (_str != (_expected)) {
-            _t.errorf(("struct printed as %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_str), stdgo.Go.toInterface(_expected));
+            @:check2r _t.errorf(("struct printed as %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_str), stdgo.Go.toInterface(_expected));
         };
     }

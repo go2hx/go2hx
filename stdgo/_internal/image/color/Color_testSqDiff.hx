@@ -28,7 +28,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     var __0 = (stdgo._internal.image.color.Color__sqDiff._sqDiff(_x, _y) : stdgo.GoUInt32), __1 = (_orig(_x, _y) : stdgo.GoUInt32);
 var _want = __1, _got = __0;
                     if (_got != (_want)) {
-                        _t.fatalf(("sqDiff(%#x, %#x): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                        @:check2r _t.fatalf(("sqDiff(%#x, %#x): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
                 };
             };
@@ -36,7 +36,7 @@ var _want = __1, _got = __0;
         {
             var _err = (stdgo._internal.testing.quick.Quick_checkEqual.checkEqual(stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(stdgo._internal.image.color.Color__sqDiff._sqDiff), (stdgo.Go.setRef(({ maxCountScale : (10 : stdgo.GoFloat64) } : stdgo._internal.testing.quick.Quick_Config.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick_Config.Config>)) : stdgo.Error);
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
     }

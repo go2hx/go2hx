@@ -1,6 +1,7 @@
 package stdgo._internal.flag;
 @:keep @:allow(stdgo._internal.flag.Flag.T_textValue_asInterface) class T_textValue_static_extension {
     @:keep
+    @:tdfield
     static public function string( _v:stdgo._internal.flag.Flag_T_textValue.T_textValue):stdgo.GoString {
         @:recv var _v:stdgo._internal.flag.Flag_T_textValue.T_textValue = _v?.__copy__();
         {
@@ -21,11 +22,13 @@ package stdgo._internal.flag;
         return stdgo.Go.str()?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function get( _v:stdgo._internal.flag.Flag_T_textValue.T_textValue):stdgo.AnyInterface {
         @:recv var _v:stdgo._internal.flag.Flag_T_textValue.T_textValue = _v?.__copy__();
         return stdgo.Go.toInterface(_v._p);
     }
     @:keep
+    @:tdfield
     static public function set( _v:stdgo._internal.flag.Flag_T_textValue.T_textValue, _s:stdgo.GoString):stdgo.Error {
         @:recv var _v:stdgo._internal.flag.Flag_T_textValue.T_textValue = _v?.__copy__();
         return _v._p.unmarshalText((_s : stdgo.Slice<stdgo.GoUInt8>));

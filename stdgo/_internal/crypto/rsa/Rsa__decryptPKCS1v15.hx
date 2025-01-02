@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.rsa;
 function _decryptPKCS1v15(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>, _ciphertext:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } {
         var _valid = (0 : stdgo.GoInt), _em = (null : stdgo.Slice<stdgo.GoUInt8>), _index = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _k = (_priv.size() : stdgo.GoInt);
+        var _k = (@:check2r _priv.size() : stdgo.GoInt);
         if ((_k < (11 : stdgo.GoInt) : Bool)) {
             _err = stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption;
             return { _0 : _valid, _1 : _em, _2 : _index, _3 : _err };

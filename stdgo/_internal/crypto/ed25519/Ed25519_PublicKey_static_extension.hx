@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.ed25519;
 @:keep @:allow(stdgo._internal.crypto.ed25519.Ed25519.PublicKey_asInterface) class PublicKey_static_extension {
     @:keep
+    @:tdfield
     static public function equal( _pub:stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
         @:recv var _pub:stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey = _pub;
         var __tmp__ = try {

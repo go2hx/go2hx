@@ -37,6 +37,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -50,12 +51,14 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -70,6 +73,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

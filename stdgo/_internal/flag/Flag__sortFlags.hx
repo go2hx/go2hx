@@ -7,7 +7,7 @@ function _sortFlags(_flags:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal
             _i++;
         };
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_result), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-            return (_result[(_i : stdgo.GoInt)].name < _result[(_j : stdgo.GoInt)].name : Bool);
+            return ((@:checkr _result[(_i : stdgo.GoInt)] ?? throw "null pointer dereference").name < (@:checkr _result[(_j : stdgo.GoInt)] ?? throw "null pointer dereference").name : Bool);
         });
         return _result;
     }

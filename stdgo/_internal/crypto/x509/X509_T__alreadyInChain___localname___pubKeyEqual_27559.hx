@@ -5,5 +5,6 @@ typedef T__alreadyInChain___localname___pubKeyEqual_27559 = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function equal(_0:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool;
 };

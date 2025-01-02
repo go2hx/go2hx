@@ -1,6 +1,7 @@
 package stdgo._internal.regexp;
 @:keep @:allow(stdgo._internal.regexp.Regexp.T_runeSlice_asInterface) class T_runeSlice_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice = _p;
         {
@@ -15,11 +16,13 @@ package stdgo._internal.regexp;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice = _p;
         return (_p[(_i : stdgo.GoInt)] < _p[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice):stdgo.GoInt {
         @:recv var _p:stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice = _p;
         return (_p.length);

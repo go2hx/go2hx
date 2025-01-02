@@ -4,8 +4,8 @@ function benchmarkRatCmp(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void
 var _y = __1, _x = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            while ((_i < _b.n : Bool)) {
-                _x.cmp(_y);
+            while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                @:check2r _x.cmp(_y);
                 _i++;
             };
         };

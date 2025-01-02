@@ -6,5 +6,6 @@ typedef Hash32 = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function sum32():stdgo.GoUInt32;
 };

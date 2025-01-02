@@ -2,9 +2,9 @@ package stdgo._internal.internal.intern;
 function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            stdgo._internal.internal.intern.Intern__mu._mu.lock();
+            @:check2 stdgo._internal.internal.intern.Intern__mu._mu.lock();
             {
-                final __f__ = stdgo._internal.internal.intern.Intern__mu._mu.unlock;
+                final __f__ = @:check2 stdgo._internal.internal.intern.Intern__mu._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             var _v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
@@ -14,12 +14,13 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                 var __tmp__ = (stdgo._internal.internal.intern.Intern__valMap._valMap != null && stdgo._internal.internal.intern.Intern__valMap._valMap.exists(_k?.__copy__()) ? { _0 : stdgo._internal.internal.intern.Intern__valMap._valMap[_k?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUIntptr), _1 : false }), _addr:stdgo.GoUIntptr = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _v = ((stdgo.Go.toInterface(_addr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.internal.intern.Intern_Value.Value", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__11", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.signature(false, { get : () -> [] }, { get : () -> [] }, { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.invalidType }) }, 0) }, optional : false }, { name : "_cmpVal", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "_resurrected", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(bool_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
-                    _v._resurrected = true;
+                    (@:checkr _v ?? throw "null pointer dereference")._resurrected = true;
                 };
             };
             if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _v;
@@ -34,12 +35,14 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _v;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -54,6 +57,7 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -5,6 +5,7 @@ typedef BlockMode = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function blockSize():stdgo.GoInt;
     /**
         CryptBlocks encrypts or decrypts a number of blocks. The length of
@@ -21,5 +22,6 @@ typedef BlockMode = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function cryptBlocks(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void;
 };

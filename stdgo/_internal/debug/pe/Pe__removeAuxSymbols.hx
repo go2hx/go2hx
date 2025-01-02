@@ -10,7 +10,7 @@ function _removeAuxSymbols(_allsyms:stdgo.Slice<stdgo._internal.debug.pe.Pe_COFF
                 _aux--;
                 continue;
             };
-            var __tmp__ = _sym.fullName(_st), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2 _sym.fullName(_st), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>), _1 : _err };
             };

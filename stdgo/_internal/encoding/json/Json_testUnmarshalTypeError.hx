@@ -9,7 +9,7 @@ function testUnmarshalTypeError(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                     { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>), _1 : false };
                 }, __5 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
-                    _t.errorf(("expected type error for Unmarshal(%q, type %T): got %T" : stdgo.GoString), stdgo.Go.toInterface(_item._src), _item._dest, stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("expected type error for Unmarshal(%q, type %T): got %T" : stdgo.GoString), stdgo.Go.toInterface(_item._src), _item._dest, stdgo.Go.toInterface(_err));
                 };
             };
         };

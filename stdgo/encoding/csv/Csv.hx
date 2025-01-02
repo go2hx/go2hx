@@ -202,6 +202,7 @@ _offset,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ParseErrorPointer = stdgo._internal.encoding.csv.Csv_ParseErrorPointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function unwrap(_e:ParseError):stdgo.Error {
         return stdgo._internal.encoding.csv.Csv_ParseError_static_extension.ParseError_static_extension.unwrap(_e);
@@ -210,6 +211,7 @@ class ParseError_static_extension {
         return stdgo._internal.encoding.csv.Csv_ParseError_static_extension.ParseError_static_extension.error(_e);
     }
 }
+typedef ReaderPointer = stdgo._internal.encoding.csv.Csv_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function _readRecord(_r:Reader, _dst:Array<String>):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoString>);
@@ -246,6 +248,7 @@ class Reader_static_extension {
         };
     }
 }
+typedef WriterPointer = stdgo._internal.encoding.csv.Csv_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function _fieldNeedsQuotes(_w:Writer, _field:String):Bool {
         return stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension._fieldNeedsQuotes(_w, _field);

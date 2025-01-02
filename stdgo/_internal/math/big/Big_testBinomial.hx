@@ -22,9 +22,9 @@ function testBinomial(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
 ({ _n : (1000i64 : stdgo.GoInt64), _k : (10i64 : stdgo.GoInt64), _want : ("263409560461970212832400" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35),
 ({ _n : (1000i64 : stdgo.GoInt64), _k : (990i64 : stdgo.GoInt64), _want : ("263409560461970212832400" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35)].concat([for (i in 19 ... (19 > 19 ? 19 : 19 : stdgo.GoInt).toBasic()) ({ _n : (0 : stdgo.GoInt64), _k : (0 : stdgo.GoInt64), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_35.T__struct_35>)) {
             {
-                var _got = ((_z.binomial(_test._n, _test._k).string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                var _got = ((@:check2r @:check2 _z.binomial(_test._n, _test._k).string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_got != (_test._want)) {
-                    _t.errorf(("Binomial(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_test._k), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("Binomial(%d, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._n), stdgo.Go.toInterface(_test._k), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

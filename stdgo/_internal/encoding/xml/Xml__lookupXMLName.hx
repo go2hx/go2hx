@@ -19,7 +19,7 @@ if (_f.name != (("XMLName" : stdgo.GoString))) {
                     };
                 };
 var __tmp__ = stdgo._internal.encoding.xml.Xml__structFieldInfo._structFieldInfo(_typ, (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>)), _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-if (((_err == null) && (_finfo._name != stdgo.Go.str()) : Bool)) {
+if (((_err == null) && ((@:checkr _finfo ?? throw "null pointer dereference")._name != stdgo.Go.str()) : Bool)) {
                     return _xmlname = _finfo;
                 };
 break;

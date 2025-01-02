@@ -1117,10 +1117,12 @@ _tempDirSeq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.testing.Testing_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.testing.Testing_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.testing.Testing_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
@@ -1130,6 +1132,7 @@ typedef T_simpleMatch = stdgo._internal.testing.Testing_T_simpleMatch.T_simpleMa
 typedef T_alternationMatch = stdgo._internal.testing.Testing_T_alternationMatch.T_alternationMatch;
 typedef T_panicHandling = stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling;
 typedef T_matchStringOnly = stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly;
+typedef T_durationOrCountFlagPointer = stdgo._internal.testing.Testing_T_durationOrCountFlagPointer.T_durationOrCountFlagPointer;
 class T_durationOrCountFlag_static_extension {
     static public function set(_f:T_durationOrCountFlag, _s:String):stdgo.Error {
         return stdgo._internal.testing.Testing_T_durationOrCountFlag_static_extension.T_durationOrCountFlag_static_extension.set(_f, _s);
@@ -1138,6 +1141,7 @@ class T_durationOrCountFlag_static_extension {
         return stdgo._internal.testing.Testing_T_durationOrCountFlag_static_extension.T_durationOrCountFlag_static_extension.string(_f);
     }
 }
+typedef BPointer = stdgo._internal.testing.Testing_BPointer.BPointer;
 class B_static_extension {
     static public function setParallelism(_b:B, _p:StdTypes.Int):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.setParallelism(_b, _p);
@@ -1192,32 +1196,32 @@ class B_static_extension {
     static public function startTimer(_b:B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.startTimer(_b);
     }
-    public static function _setRan(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function _setRan(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension._setRan(__self__);
     }
-    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_B.B, _ph:T_panicHandling):stdgo.AnyInterface {
-        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._runCleanup(__self__, _ph);
+    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_B.B, _0:T_panicHandling):stdgo.AnyInterface {
+        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._runCleanup(__self__, _0);
     }
-    public static function _private(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function _private(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension._private(__self__);
     }
-    public static function _logDepth(__self__:stdgo._internal.testing.Testing_B.B, _s:String, _skip:StdTypes.Int) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._logDepth(__self__, _s, _skip);
+    public static function _logDepth(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:StdTypes.Int):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._logDepth(__self__, _0, _1);
     }
-    public static function _log(__self__:stdgo._internal.testing.Testing_B.B, _s:String) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._log(__self__, _s);
+    public static function _log(__self__:stdgo._internal.testing.Testing_B.B, _0:String):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._log(__self__, _0);
     }
-    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_B.B, _skip:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
-        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._frameSkip(__self__, _skip);
+    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_B.B, _0:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
+        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._frameSkip(__self__, _0);
     }
-    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_B.B, _testName:String, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._flushToParent(__self__, _testName, _format, ...[for (i in _args) i]);
+    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:String, _2:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._flushToParent(__self__, _0, _1, ...[for (i in _2) i]);
     }
-    public static function _decorate(__self__:stdgo._internal.testing.Testing_B.B, _s:String, _skip:StdTypes.Int):String {
-        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._decorate(__self__, _s, _skip);
+    public static function _decorate(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:StdTypes.Int):String {
+        return stdgo._internal.testing.Testing_B_static_extension.B_static_extension._decorate(__self__, _0, _1);
     }
-    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_B.B, _s:String) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._checkFuzzFn(__self__, _s);
+    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_B.B, _0:String):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension._checkFuzzFn(__self__, _0);
     }
     public static function tempDir(__self__:stdgo._internal.testing.Testing_B.B):String {
         return stdgo._internal.testing.Testing_B_static_extension.B_static_extension.tempDir(__self__);
@@ -1225,56 +1229,57 @@ class B_static_extension {
     public static function skipped(__self__:stdgo._internal.testing.Testing_B.B):Bool {
         return stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skipped(__self__);
     }
-    public static function skipf(__self__:stdgo._internal.testing.Testing_B.B, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skipf(__self__, _format, ...[for (i in _args) i]);
+    public static function skipf(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skipf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function skipNow(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function skipNow(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skipNow(__self__);
     }
-    public static function skip(__self__:stdgo._internal.testing.Testing_B.B, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skip(__self__, ...[for (i in _args) i]);
+    public static function skip(__self__:stdgo._internal.testing.Testing_B.B, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.skip(__self__, ...[for (i in _0) i]);
     }
-    public static function setenv(__self__:stdgo._internal.testing.Testing_B.B, _key:String, _value:String) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.setenv(__self__, _key, _value);
+    public static function setenv(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:String):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.setenv(__self__, _0, _1);
     }
     public static function name(__self__:stdgo._internal.testing.Testing_B.B):String {
         return stdgo._internal.testing.Testing_B_static_extension.B_static_extension.name(__self__);
     }
-    public static function logf(__self__:stdgo._internal.testing.Testing_B.B, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.logf(__self__, _format, ...[for (i in _args) i]);
+    public static function logf(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.logf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function log(__self__:stdgo._internal.testing.Testing_B.B, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.log(__self__, ...[for (i in _args) i]);
+    public static function log(__self__:stdgo._internal.testing.Testing_B.B, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.log(__self__, ...[for (i in _0) i]);
     }
-    public static function helper(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function helper(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.helper(__self__);
     }
-    public static function fatalf(__self__:stdgo._internal.testing.Testing_B.B, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.fatalf(__self__, _format, ...[for (i in _args) i]);
+    public static function fatalf(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.fatalf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function fatal(__self__:stdgo._internal.testing.Testing_B.B, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.fatal(__self__, ...[for (i in _args) i]);
+    public static function fatal(__self__:stdgo._internal.testing.Testing_B.B, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.fatal(__self__, ...[for (i in _0) i]);
     }
     public static function failed(__self__:stdgo._internal.testing.Testing_B.B):Bool {
         return stdgo._internal.testing.Testing_B_static_extension.B_static_extension.failed(__self__);
     }
-    public static function failNow(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function failNow(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.failNow(__self__);
     }
-    public static function fail(__self__:stdgo._internal.testing.Testing_B.B) {
+    public static function fail(__self__:stdgo._internal.testing.Testing_B.B):Void {
         stdgo._internal.testing.Testing_B_static_extension.B_static_extension.fail(__self__);
     }
-    public static function errorf(__self__:stdgo._internal.testing.Testing_B.B, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.errorf(__self__, _format, ...[for (i in _args) i]);
+    public static function errorf(__self__:stdgo._internal.testing.Testing_B.B, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.errorf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function error(__self__:stdgo._internal.testing.Testing_B.B, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.error(__self__, ...[for (i in _args) i]);
+    public static function error(__self__:stdgo._internal.testing.Testing_B.B, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.error(__self__, ...[for (i in _0) i]);
     }
-    public static function cleanup(__self__:stdgo._internal.testing.Testing_B.B, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.cleanup(__self__, _f);
+    public static function cleanup(__self__:stdgo._internal.testing.Testing_B.B, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.testing.Testing_B_static_extension.B_static_extension.cleanup(__self__, _0);
     }
 }
+typedef BenchmarkResultPointer = stdgo._internal.testing.Testing_BenchmarkResultPointer.BenchmarkResultPointer;
 class BenchmarkResult_static_extension {
     static public function memString(_r:BenchmarkResult):String {
         return stdgo._internal.testing.Testing_BenchmarkResult_static_extension.BenchmarkResult_static_extension.memString(_r);
@@ -1295,16 +1300,19 @@ class BenchmarkResult_static_extension {
         return stdgo._internal.testing.Testing_BenchmarkResult_static_extension.BenchmarkResult_static_extension.nsPerOp(_r);
     }
 }
+typedef T_benchContextPointer = stdgo._internal.testing.Testing_T_benchContextPointer.T_benchContextPointer;
 class T_benchContext_static_extension {
     static public function _processBench(_ctx:T_benchContext, _b:B):Void {
         stdgo._internal.testing.Testing_T_benchContext_static_extension.T_benchContext_static_extension._processBench(_ctx, _b);
     }
 }
+typedef PBPointer = stdgo._internal.testing.Testing_PBPointer.PBPointer;
 class PB_static_extension {
     static public function next(_pb:PB):Bool {
         return stdgo._internal.testing.Testing_PB_static_extension.PB_static_extension.next(_pb);
     }
 }
+typedef T_discardPointer = stdgo._internal.testing.Testing_T_discardPointer.T_discardPointer;
 class T_discard_static_extension {
     static public function write(_:T_discard, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1314,11 +1322,13 @@ class T_discard_static_extension {
         };
     }
 }
+typedef InternalExamplePointer = stdgo._internal.testing.Testing_InternalExamplePointer.InternalExamplePointer;
 class InternalExample_static_extension {
     static public function _processRunResult(_eg:InternalExample, _stdout:String, _timeSpent:stdgo._internal.time.Time_Duration.Duration, _finished:Bool, _recovered:stdgo.AnyInterface):Bool {
         return stdgo._internal.testing.Testing_InternalExample_static_extension.InternalExample_static_extension._processRunResult(_eg, _stdout, _timeSpent, _finished, _recovered);
     }
 }
+typedef FPointer = stdgo._internal.testing.Testing_FPointer.FPointer;
 class F_static_extension {
     static public function _report(_f:F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension._report(_f);
@@ -1338,85 +1348,87 @@ class F_static_extension {
     static public function helper(_f:F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension.helper(_f);
     }
-    public static function _setRan(__self__:stdgo._internal.testing.Testing_F.F) {
+    public static function _setRan(__self__:stdgo._internal.testing.Testing_F.F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension._setRan(__self__);
     }
-    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_F.F, _ph:T_panicHandling):stdgo.AnyInterface {
-        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._runCleanup(__self__, _ph);
+    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_F.F, _0:T_panicHandling):stdgo.AnyInterface {
+        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._runCleanup(__self__, _0);
     }
-    public static function _private(__self__:stdgo._internal.testing.Testing_F.F) {
+    public static function _private(__self__:stdgo._internal.testing.Testing_F.F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension._private(__self__);
     }
-    public static function _logDepth(__self__:stdgo._internal.testing.Testing_F.F, _s:String, _skip:StdTypes.Int) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._logDepth(__self__, _s, _skip);
+    public static function _logDepth(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:StdTypes.Int):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._logDepth(__self__, _0, _1);
     }
-    public static function _log(__self__:stdgo._internal.testing.Testing_F.F, _s:String) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._log(__self__, _s);
+    public static function _log(__self__:stdgo._internal.testing.Testing_F.F, _0:String):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._log(__self__, _0);
     }
-    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_F.F, _skip:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
-        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._frameSkip(__self__, _skip);
+    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_F.F, _0:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
+        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._frameSkip(__self__, _0);
     }
-    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_F.F, _testName:String, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._flushToParent(__self__, _testName, _format, ...[for (i in _args) i]);
+    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:String, _2:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._flushToParent(__self__, _0, _1, ...[for (i in _2) i]);
     }
-    public static function _decorate(__self__:stdgo._internal.testing.Testing_F.F, _s:String, _skip:StdTypes.Int):String {
-        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._decorate(__self__, _s, _skip);
+    public static function _decorate(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:StdTypes.Int):String {
+        return stdgo._internal.testing.Testing_F_static_extension.F_static_extension._decorate(__self__, _0, _1);
     }
-    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_F.F, _s:String) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._checkFuzzFn(__self__, _s);
+    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_F.F, _0:String):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension._checkFuzzFn(__self__, _0);
     }
     public static function tempDir(__self__:stdgo._internal.testing.Testing_F.F):String {
         return stdgo._internal.testing.Testing_F_static_extension.F_static_extension.tempDir(__self__);
     }
-    public static function skipf(__self__:stdgo._internal.testing.Testing_F.F, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.skipf(__self__, _format, ...[for (i in _args) i]);
+    public static function skipf(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.skipf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function skipNow(__self__:stdgo._internal.testing.Testing_F.F) {
+    public static function skipNow(__self__:stdgo._internal.testing.Testing_F.F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension.skipNow(__self__);
     }
-    public static function skip(__self__:stdgo._internal.testing.Testing_F.F, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.skip(__self__, ...[for (i in _args) i]);
+    public static function skip(__self__:stdgo._internal.testing.Testing_F.F, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.skip(__self__, ...[for (i in _0) i]);
     }
-    public static function setenv(__self__:stdgo._internal.testing.Testing_F.F, _key:String, _value:String) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.setenv(__self__, _key, _value);
+    public static function setenv(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:String):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.setenv(__self__, _0, _1);
     }
     public static function name(__self__:stdgo._internal.testing.Testing_F.F):String {
         return stdgo._internal.testing.Testing_F_static_extension.F_static_extension.name(__self__);
     }
-    public static function logf(__self__:stdgo._internal.testing.Testing_F.F, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.logf(__self__, _format, ...[for (i in _args) i]);
+    public static function logf(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.logf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function log(__self__:stdgo._internal.testing.Testing_F.F, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.log(__self__, ...[for (i in _args) i]);
+    public static function log(__self__:stdgo._internal.testing.Testing_F.F, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.log(__self__, ...[for (i in _0) i]);
     }
-    public static function fatalf(__self__:stdgo._internal.testing.Testing_F.F, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.fatalf(__self__, _format, ...[for (i in _args) i]);
+    public static function fatalf(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.fatalf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function fatal(__self__:stdgo._internal.testing.Testing_F.F, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.fatal(__self__, ...[for (i in _args) i]);
+    public static function fatal(__self__:stdgo._internal.testing.Testing_F.F, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.fatal(__self__, ...[for (i in _0) i]);
     }
     public static function failed(__self__:stdgo._internal.testing.Testing_F.F):Bool {
         return stdgo._internal.testing.Testing_F_static_extension.F_static_extension.failed(__self__);
     }
-    public static function failNow(__self__:stdgo._internal.testing.Testing_F.F) {
+    public static function failNow(__self__:stdgo._internal.testing.Testing_F.F):Void {
         stdgo._internal.testing.Testing_F_static_extension.F_static_extension.failNow(__self__);
     }
-    public static function errorf(__self__:stdgo._internal.testing.Testing_F.F, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.errorf(__self__, _format, ...[for (i in _args) i]);
+    public static function errorf(__self__:stdgo._internal.testing.Testing_F.F, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.errorf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function error(__self__:stdgo._internal.testing.Testing_F.F, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.error(__self__, ...[for (i in _args) i]);
+    public static function error(__self__:stdgo._internal.testing.Testing_F.F, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.error(__self__, ...[for (i in _0) i]);
     }
-    public static function cleanup(__self__:stdgo._internal.testing.Testing_F.F, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.cleanup(__self__, _f);
+    public static function cleanup(__self__:stdgo._internal.testing.Testing_F.F, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.testing.Testing_F_static_extension.F_static_extension.cleanup(__self__, _0);
     }
 }
+typedef T_fuzzResultPointer = stdgo._internal.testing.Testing_T_fuzzResultPointer.T_fuzzResultPointer;
 class T_fuzzResult_static_extension {
     static public function string(_r:T_fuzzResult):String {
         return stdgo._internal.testing.Testing_T_fuzzResult_static_extension.T_fuzzResult_static_extension.string(_r);
     }
 }
+typedef T_matcherPointer = stdgo._internal.testing.Testing_T_matcherPointer.T_matcherPointer;
 class T_matcher_static_extension {
     static public function _unique(_m:T_matcher, _parent:String, _subname:String):String {
         return stdgo._internal.testing.Testing_T_matcher_static_extension.T_matcher_static_extension._unique(_m, _parent, _subname);
@@ -1431,6 +1443,7 @@ class T_matcher_static_extension {
         };
     }
 }
+typedef T_chattyFlagPointer = stdgo._internal.testing.Testing_T_chattyFlagPointer.T_chattyFlagPointer;
 class T_chattyFlag_static_extension {
     static public function _prefix(_f:T_chattyFlag):String {
         return stdgo._internal.testing.Testing_T_chattyFlag_static_extension.T_chattyFlag_static_extension._prefix(_f);
@@ -1448,6 +1461,7 @@ class T_chattyFlag_static_extension {
         return stdgo._internal.testing.Testing_T_chattyFlag_static_extension.T_chattyFlag_static_extension.isBoolFlag(_);
     }
 }
+typedef T_chattyPrinterPointer = stdgo._internal.testing.Testing_T_chattyPrinterPointer.T_chattyPrinterPointer;
 class T_chattyPrinter_static_extension {
     static public function printf(_p:T_chattyPrinter, _testName:String, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.testing.Testing_T_chattyPrinter_static_extension.T_chattyPrinter_static_extension.printf(_p, _testName, _format, ...[for (i in _args) i]);
@@ -1459,6 +1473,7 @@ class T_chattyPrinter_static_extension {
         return stdgo._internal.testing.Testing_T_chattyPrinter_static_extension.T_chattyPrinter_static_extension._prefix(_p);
     }
 }
+typedef T_commonPointer = stdgo._internal.testing.Testing_T_commonPointer.T_commonPointer;
 class T_common_static_extension {
     static public function _runCleanup(_c:T_common, _ph:T_panicHandling):stdgo.AnyInterface {
         return stdgo._internal.testing.Testing_T_common_static_extension.T_common_static_extension._runCleanup(_c, _ph);
@@ -1543,6 +1558,7 @@ class T_common_static_extension {
         stdgo._internal.testing.Testing_T_common_static_extension.T_common_static_extension._checkFuzzFn(_c, _name);
     }
 }
+typedef T_indenterPointer = stdgo._internal.testing.Testing_T_indenterPointer.T_indenterPointer;
 class T_indenter_static_extension {
     static public function write(_w:T_indenter, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1552,6 +1568,7 @@ class T_indenter_static_extension {
         };
     }
 }
+typedef T_Pointer = stdgo._internal.testing.Testing_T_Pointer.T_Pointer;
 class T__static_extension {
     static public function _report(_t:T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension._report(_t);
@@ -1572,32 +1589,32 @@ class T__static_extension {
     static public function parallel(_t:T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension.parallel(_t);
     }
-    public static function _setRan(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function _setRan(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension._setRan(__self__);
     }
-    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_T_.T_, _ph:T_panicHandling):stdgo.AnyInterface {
-        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._runCleanup(__self__, _ph);
+    public static function _runCleanup(__self__:stdgo._internal.testing.Testing_T_.T_, _0:T_panicHandling):stdgo.AnyInterface {
+        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._runCleanup(__self__, _0);
     }
-    public static function _private(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function _private(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension._private(__self__);
     }
-    public static function _logDepth(__self__:stdgo._internal.testing.Testing_T_.T_, _s:String, _skip:StdTypes.Int) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._logDepth(__self__, _s, _skip);
+    public static function _logDepth(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:StdTypes.Int):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._logDepth(__self__, _0, _1);
     }
-    public static function _log(__self__:stdgo._internal.testing.Testing_T_.T_, _s:String) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._log(__self__, _s);
+    public static function _log(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._log(__self__, _0);
     }
-    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_T_.T_, _skip:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
-        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._frameSkip(__self__, _skip);
+    public static function _frameSkip(__self__:stdgo._internal.testing.Testing_T_.T_, _0:StdTypes.Int):stdgo._internal.runtime.Runtime_Frame.Frame {
+        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._frameSkip(__self__, _0);
     }
-    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_T_.T_, _testName:String, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._flushToParent(__self__, _testName, _format, ...[for (i in _args) i]);
+    public static function _flushToParent(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:String, _2:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._flushToParent(__self__, _0, _1, ...[for (i in _2) i]);
     }
-    public static function _decorate(__self__:stdgo._internal.testing.Testing_T_.T_, _s:String, _skip:StdTypes.Int):String {
-        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._decorate(__self__, _s, _skip);
+    public static function _decorate(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:StdTypes.Int):String {
+        return stdgo._internal.testing.Testing_T__static_extension.T__static_extension._decorate(__self__, _0, _1);
     }
-    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_T_.T_, _s:String) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._checkFuzzFn(__self__, _s);
+    public static function _checkFuzzFn(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension._checkFuzzFn(__self__, _0);
     }
     public static function tempDir(__self__:stdgo._internal.testing.Testing_T_.T_):String {
         return stdgo._internal.testing.Testing_T__static_extension.T__static_extension.tempDir(__self__);
@@ -1605,53 +1622,54 @@ class T__static_extension {
     public static function skipped(__self__:stdgo._internal.testing.Testing_T_.T_):Bool {
         return stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skipped(__self__);
     }
-    public static function skipf(__self__:stdgo._internal.testing.Testing_T_.T_, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skipf(__self__, _format, ...[for (i in _args) i]);
+    public static function skipf(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skipf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function skipNow(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function skipNow(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skipNow(__self__);
     }
-    public static function skip(__self__:stdgo._internal.testing.Testing_T_.T_, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skip(__self__, ...[for (i in _args) i]);
+    public static function skip(__self__:stdgo._internal.testing.Testing_T_.T_, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.skip(__self__, ...[for (i in _0) i]);
     }
     public static function name(__self__:stdgo._internal.testing.Testing_T_.T_):String {
         return stdgo._internal.testing.Testing_T__static_extension.T__static_extension.name(__self__);
     }
-    public static function logf(__self__:stdgo._internal.testing.Testing_T_.T_, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.logf(__self__, _format, ...[for (i in _args) i]);
+    public static function logf(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.logf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function log(__self__:stdgo._internal.testing.Testing_T_.T_, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.log(__self__, ...[for (i in _args) i]);
+    public static function log(__self__:stdgo._internal.testing.Testing_T_.T_, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.log(__self__, ...[for (i in _0) i]);
     }
-    public static function helper(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function helper(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension.helper(__self__);
     }
-    public static function fatalf(__self__:stdgo._internal.testing.Testing_T_.T_, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.fatalf(__self__, _format, ...[for (i in _args) i]);
+    public static function fatalf(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.fatalf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function fatal(__self__:stdgo._internal.testing.Testing_T_.T_, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.fatal(__self__, ...[for (i in _args) i]);
+    public static function fatal(__self__:stdgo._internal.testing.Testing_T_.T_, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.fatal(__self__, ...[for (i in _0) i]);
     }
     public static function failed(__self__:stdgo._internal.testing.Testing_T_.T_):Bool {
         return stdgo._internal.testing.Testing_T__static_extension.T__static_extension.failed(__self__);
     }
-    public static function failNow(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function failNow(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension.failNow(__self__);
     }
-    public static function fail(__self__:stdgo._internal.testing.Testing_T_.T_) {
+    public static function fail(__self__:stdgo._internal.testing.Testing_T_.T_):Void {
         stdgo._internal.testing.Testing_T__static_extension.T__static_extension.fail(__self__);
     }
-    public static function errorf(__self__:stdgo._internal.testing.Testing_T_.T_, _format:String, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.errorf(__self__, _format, ...[for (i in _args) i]);
+    public static function errorf(__self__:stdgo._internal.testing.Testing_T_.T_, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.errorf(__self__, _0, ...[for (i in _1) i]);
     }
-    public static function error(__self__:stdgo._internal.testing.Testing_T_.T_, _args:haxe.Rest<stdgo.AnyInterface>) {
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.error(__self__, ...[for (i in _args) i]);
+    public static function error(__self__:stdgo._internal.testing.Testing_T_.T_, _0:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.error(__self__, ...[for (i in _0) i]);
     }
-    public static function cleanup(__self__:stdgo._internal.testing.Testing_T_.T_, _f:() -> Void) {
-        final _f = _f;
-        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.cleanup(__self__, _f);
+    public static function cleanup(__self__:stdgo._internal.testing.Testing_T_.T_, _0:() -> Void):Void {
+        final _0 = _0;
+        stdgo._internal.testing.Testing_T__static_extension.T__static_extension.cleanup(__self__, _0);
     }
 }
+typedef T_testContextPointer = stdgo._internal.testing.Testing_T_testContextPointer.T_testContextPointer;
 class T_testContext_static_extension {
     static public function _release(_c:T_testContext):Void {
         stdgo._internal.testing.Testing_T_testContext_static_extension.T_testContext_static_extension._release(_c);
@@ -1660,6 +1678,7 @@ class T_testContext_static_extension {
         stdgo._internal.testing.Testing_T_testContext_static_extension.T_testContext_static_extension._waitParallel(_c);
     }
 }
+typedef MPointer = stdgo._internal.testing.Testing_MPointer.MPointer;
 class M_static_extension {
     static public function _stopAlarm(_m:M):Void {
         stdgo._internal.testing.Testing_M_static_extension.M_static_extension._stopAlarm(_m);
@@ -1680,6 +1699,7 @@ class M_static_extension {
         return stdgo._internal.testing.Testing_M_static_extension.M_static_extension.run(_m);
     }
 }
+typedef T_simpleMatchPointer = stdgo._internal.testing.Testing_T_simpleMatchPointer.T_simpleMatchPointer;
 class T_simpleMatch_static_extension {
     static public function _verify(_m:T_simpleMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
         final _matchString = _matchString;
@@ -1694,6 +1714,7 @@ class T_simpleMatch_static_extension {
         };
     }
 }
+typedef T_alternationMatchPointer = stdgo._internal.testing.Testing_T_alternationMatchPointer.T_alternationMatchPointer;
 class T_alternationMatch_static_extension {
     static public function _verify(_m:T_alternationMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
         final _matchString = _matchString;
@@ -1708,6 +1729,7 @@ class T_alternationMatch_static_extension {
         };
     }
 }
+typedef T_matchStringOnlyPointer = stdgo._internal.testing.Testing_T_matchStringOnlyPointer.T_matchStringOnlyPointer;
 class T_matchStringOnly_static_extension {
     static public function snapshotCoverage(_f:T_matchStringOnly):Void {
         stdgo._internal.testing.Testing_T_matchStringOnly_static_extension.T_matchStringOnly_static_extension.snapshotCoverage(_f);

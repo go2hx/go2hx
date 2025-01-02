@@ -2,10 +2,14 @@ package stdgo._internal.runtime;
 @:structInit @:using(stdgo._internal.runtime.Runtime_PIController_static_extension.PIController_static_extension) class PIController {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _next(get, never) : (stdgo.GoFloat64, stdgo.GoFloat64, stdgo.GoFloat64) -> { var _0 : stdgo.GoFloat64; var _1 : Bool; };
     @:embedded
-    public function _next(_input:stdgo.GoFloat64, _setpoint:stdgo.GoFloat64, _period:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : Bool; } return this.new._next(_input, _setpoint, _period);
+    @:embeddededffieldsffun
+    public function get__next():(stdgo.GoFloat64, stdgo.GoFloat64, stdgo.GoFloat64) -> { var _0 : stdgo.GoFloat64; var _1 : Bool; } return @:check3 (this.new ?? throw "null pointer derefrence")._next;
+    public var _reset(get, never) : () -> Void;
     @:embedded
-    public function _reset() this.new._reset();
+    @:embeddededffieldsffun
+    public function get__reset():() -> Void return @:check3 (this.new ?? throw "null pointer derefrence")._reset;
     public function __copy__() {
         return new PIController();
     }

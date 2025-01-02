@@ -33,6 +33,7 @@ private function set_importPath(v:String):String {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef TestDepsPointer = stdgo._internal.testing.internal.testdeps.Testdeps_TestDepsPointer.TestDepsPointer;
 class TestDeps_static_extension {
     static public function snapshotCoverage(_:TestDeps):Void {
         stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.snapshotCoverage(_);
@@ -95,6 +96,7 @@ class TestDeps_static_extension {
         };
     }
 }
+typedef T_testLogPointer = stdgo._internal.testing.internal.testdeps.Testdeps_T_testLogPointer.T_testLogPointer;
 class T_testLog_static_extension {
     static public function _add(_l:T_testLog, _op:String, _name:String):Void {
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension._add(_l, _op, _name);

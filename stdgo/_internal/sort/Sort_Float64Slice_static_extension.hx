@@ -1,11 +1,13 @@
 package stdgo._internal.sort;
 @:keep @:allow(stdgo._internal.sort.Sort.Float64Slice_asInterface) class Float64Slice_static_extension {
     @:keep
+    @:tdfield
     static public function sort( _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice):Void {
         @:recv var _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice = _x;
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
+    @:tdfield
     static public function swap( _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice = _x;
         {
@@ -20,16 +22,19 @@ package stdgo._internal.sort;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice = _x;
         return ((_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool) || ((stdgo._internal.sort.Sort__isNaN._isNaN(_x[(_i : stdgo.GoInt)]) && !stdgo._internal.sort.Sort__isNaN._isNaN(_x[(_j : stdgo.GoInt)]) : Bool)) : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice):stdgo.GoInt {
         @:recv var _x:stdgo._internal.sort.Sort_Float64Slice.Float64Slice = _x;
         return (_x.length);
     }
     @:keep
+    @:tdfield
     static public function search( _p:stdgo._internal.sort.Sort_Float64Slice.Float64Slice, _x:stdgo.GoFloat64):stdgo.GoInt {
         @:recv var _p:stdgo._internal.sort.Sort_Float64Slice.Float64Slice = _p;
         return stdgo._internal.sort.Sort_searchFloat64s.searchFloat64s(_p, _x);

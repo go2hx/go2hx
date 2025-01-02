@@ -7,7 +7,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             {
                 var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>))) : stdgo.Error);
                 if (_err != null) {
-                    _t.fatal(stdgo.Go.toInterface(_err));
+                    @:check2r _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             {
@@ -18,7 +18,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                             stdgo.Go.recover_exception = null;
                             r;
                         }) == null) {
-                            _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
+                            @:check2r _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
                         };
                     };
                     a();
@@ -28,6 +28,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>)));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -42,6 +43,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

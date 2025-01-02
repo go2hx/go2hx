@@ -1,6 +1,7 @@
 package stdgo._internal.slices;
 @:keep @:allow(stdgo._internal.slices.Slices.T_intPairs_asInterface) class T_intPairs_static_extension {
     @:keep
+    @:tdfield
     static public function _inOrder( _d:stdgo._internal.slices.Slices_T_intPairs.T_intPairs):Bool {
         @:recv var _d:stdgo._internal.slices.Slices_T_intPairs.T_intPairs = _d;
         var __0 = (-1 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
@@ -26,6 +27,7 @@ _lastB = _d[(_i : stdgo.GoInt)]._b;
         return true;
     }
     @:keep
+    @:tdfield
     static public function _initB( _d:stdgo._internal.slices.Slices_T_intPairs.T_intPairs):Void {
         @:recv var _d:stdgo._internal.slices.Slices_T_intPairs.T_intPairs = _d;
         for (_i => _ in _d) {

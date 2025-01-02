@@ -2,9 +2,9 @@ package stdgo._internal.database.sql;
 function register(_name:stdgo.GoString, _driver:stdgo._internal.database.sql.driver.Driver_Driver.Driver):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            stdgo._internal.database.sql.Sql__driversMu._driversMu.lock();
+            @:check2 stdgo._internal.database.sql.Sql__driversMu._driversMu.lock();
             {
-                final __f__ = stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock;
+                final __f__ = @:check2 stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             if (_driver == null) {
@@ -19,6 +19,7 @@ function register(_name:stdgo.GoString, _driver:stdgo._internal.database.sql.dri
             stdgo._internal.database.sql.Sql__drivers._drivers[_name] = _driver;
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -33,6 +34,7 @@ function register(_name:stdgo.GoString, _driver:stdgo._internal.database.sql.dri
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

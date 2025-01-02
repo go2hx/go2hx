@@ -19,28 +19,28 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 return { _0 : null, _1 : _err };
             };
         };
-        var _f = (stdgo.Go.setRef(({ fileHeader : ({ magic : _ph.magic, bss : _ph.bss, entry : (_ph.entry : stdgo.GoUInt64), ptrSize : (4 : stdgo.GoInt), loadAddress : (4096i64 : stdgo.GoUInt64), hdrSize : (32i64 : stdgo.GoUInt64) } : stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader) } : stdgo._internal.debug.plan9obj.Plan9obj_File.File)) : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>);
-        if ((_ph.magic & (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
+        var _f = (stdgo.Go.setRef(({ fileHeader : ({ magic : (@:checkr _ph ?? throw "null pointer dereference").magic, bss : (@:checkr _ph ?? throw "null pointer dereference").bss, entry : ((@:checkr _ph ?? throw "null pointer dereference").entry : stdgo.GoUInt64), ptrSize : (4 : stdgo.GoInt), loadAddress : (4096i64 : stdgo.GoUInt64), hdrSize : (32i64 : stdgo.GoUInt64) } : stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader) } : stdgo._internal.debug.plan9obj.Plan9obj_File.File)) : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>);
+        if (((@:checkr _ph ?? throw "null pointer dereference").magic & (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
             {
-                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_f.fileHeader.entry))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer((@:checkr _f ?? throw "null pointer dereference").fileHeader.entry))) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
             };
-            _f.fileHeader.ptrSize = (8 : stdgo.GoInt);
-            _f.fileHeader.loadAddress = (2097152i64 : stdgo.GoUInt64);
-            _f.fileHeader.hdrSize = (_f.fileHeader.hdrSize + ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            (@:checkr _f ?? throw "null pointer dereference").fileHeader.ptrSize = (8 : stdgo.GoInt);
+            (@:checkr _f ?? throw "null pointer dereference").fileHeader.loadAddress = (2097152i64 : stdgo.GoUInt64);
+            (@:checkr _f ?? throw "null pointer dereference").fileHeader.hdrSize = ((@:checkr _f ?? throw "null pointer dereference").fileHeader.hdrSize + ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
-        var _sects = (new stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0>(5, 5, ...[({ _name : ("text" : stdgo.GoString), _size : _ph.text } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("data" : stdgo.GoString), _size : _ph.data } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("syms" : stdgo.GoString), _size : _ph.syms } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("spsz" : stdgo.GoString), _size : _ph.spsz } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("pcsz" : stdgo.GoString), _size : _ph.pcsz } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _size : (0 : stdgo.GoUInt32) } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0>);
-        _f.sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>((5 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>);
-        var _off = (_f.fileHeader.hdrSize : stdgo.GoUInt32);
+        var _sects = (new stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0>(5, 5, ...[({ _name : ("text" : stdgo.GoString), _size : (@:checkr _ph ?? throw "null pointer dereference").text } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("data" : stdgo.GoString), _size : (@:checkr _ph ?? throw "null pointer dereference").data } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("syms" : stdgo.GoString), _size : (@:checkr _ph ?? throw "null pointer dereference").syms } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("spsz" : stdgo.GoString), _size : (@:checkr _ph ?? throw "null pointer dereference").spsz } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0), ({ _name : ("pcsz" : stdgo.GoString), _size : (@:checkr _ph ?? throw "null pointer dereference").pcsz } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _size : (0 : stdgo.GoUInt32) } : stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0>);
+        (@:checkr _f ?? throw "null pointer dereference").sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>((5 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>);
+        var _off = ((@:checkr _f ?? throw "null pointer dereference").fileHeader.hdrSize : stdgo.GoUInt32);
         for (_i => _sect in _sects) {
             var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.plan9obj.Plan9obj_Section.Section)) : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>);
-            _s.sectionHeader = ({ name : _sect._name?.__copy__(), size : _sect._size, offset : _off } : stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader);
+            (@:checkr _s ?? throw "null pointer dereference").sectionHeader = ({ name : _sect._name?.__copy__(), size : _sect._size, offset : _off } : stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader);
             _off = (_off + (_sect._size) : stdgo.GoUInt32);
-            _s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_s.sectionHeader.offset : stdgo.GoInt64), (_s.sectionHeader.size : stdgo.GoInt64));
-            _s.readerAt = stdgo.Go.asInterface(_s._sr);
-            _f.sections[(_i : stdgo.GoInt)] = _s;
+            (@:checkr _s ?? throw "null pointer dereference")._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.offset : stdgo.GoInt64), ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.size : stdgo.GoInt64));
+            (@:checkr _s ?? throw "null pointer dereference").readerAt = stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr);
+            (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)] = _s;
         };
         return { _0 : _f, _1 : (null : stdgo.Error) };
     }

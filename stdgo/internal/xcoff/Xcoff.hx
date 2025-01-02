@@ -1,13 +1,13 @@
 package stdgo.internal.xcoff;
-final saiamag : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_saiamag.saiamag;
-final aiafmag : String = stdgo._internal.internal.xcoff.Xcoff_aiafmag.aiafmag;
-final aiamag : String = stdgo._internal.internal.xcoff.Xcoff_aiamag.aiamag;
-final aiamagbig : String = stdgo._internal.internal.xcoff.Xcoff_aiamagbig.aiamagbig;
-final fl_HSZ_BIG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_fl_HSZ_BIG.fl_HSZ_BIG;
-final ar_HSZ_BIG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ar_HSZ_BIG.ar_HSZ_BIG;
-final filhsz_32 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_filhsz_32.filhsz_32;
-final filhsz_64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_filhsz_64.filhsz_64;
-final u802tocmagic : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_u802tocmagic.u802tocmagic;
+final sAIAMAG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sAIAMAG.sAIAMAG;
+final aIAFMAG : String = stdgo._internal.internal.xcoff.Xcoff_aIAFMAG.aIAFMAG;
+final aIAMAG : String = stdgo._internal.internal.xcoff.Xcoff_aIAMAG.aIAMAG;
+final aIAMAGBIG : String = stdgo._internal.internal.xcoff.Xcoff_aIAMAGBIG.aIAMAGBIG;
+final fL_HSZ_BIG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_fL_HSZ_BIG.fL_HSZ_BIG;
+final aR_HSZ_BIG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_aR_HSZ_BIG.aR_HSZ_BIG;
+final fILHSZ_32 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_fILHSZ_32.fILHSZ_32;
+final fILHSZ_64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_fILHSZ_64.fILHSZ_64;
+final u802TOCMAGIC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_u802TOCMAGIC.u802TOCMAGIC;
 final u64_TOCMAGIC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_u64_TOCMAGIC.u64_TOCMAGIC;
 final f_RELFLG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_RELFLG.f_RELFLG;
 final f_EXEC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_EXEC.f_EXEC;
@@ -19,38 +19,38 @@ final f_VARPG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_VARPG.f_VAR
 final f_DYNLOAD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_DYNLOAD.f_DYNLOAD;
 final f_SHROBJ : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_SHROBJ.f_SHROBJ;
 final f_LOADONLY : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_f_LOADONLY.f_LOADONLY;
-final styp_DWARF : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_DWARF.styp_DWARF;
-final styp_TEXT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_TEXT.styp_TEXT;
-final styp_DATA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_DATA.styp_DATA;
-final styp_BSS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_BSS.styp_BSS;
-final styp_EXCEPT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_EXCEPT.styp_EXCEPT;
-final styp_INFO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_INFO.styp_INFO;
-final styp_TDATA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_TDATA.styp_TDATA;
-final styp_TBSS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_TBSS.styp_TBSS;
-final styp_LOADER : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_LOADER.styp_LOADER;
-final styp_DEBUG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_DEBUG.styp_DEBUG;
-final styp_TYPCHK : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_TYPCHK.styp_TYPCHK;
-final styp_OVRFLO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_styp_OVRFLO.styp_OVRFLO;
-final ssubtyp_DWINFO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWINFO.ssubtyp_DWINFO;
-final ssubtyp_DWLINE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWLINE.ssubtyp_DWLINE;
-final ssubtyp_DWPBNMS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWPBNMS.ssubtyp_DWPBNMS;
-final ssubtyp_DWPBTYP : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWPBTYP.ssubtyp_DWPBTYP;
-final ssubtyp_DWARNGE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWARNGE.ssubtyp_DWARNGE;
-final ssubtyp_DWABREV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWABREV.ssubtyp_DWABREV;
-final ssubtyp_DWSTR : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWSTR.ssubtyp_DWSTR;
-final ssubtyp_DWRNGES : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWRNGES.ssubtyp_DWRNGES;
-final ssubtyp_DWLOC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWLOC.ssubtyp_DWLOC;
-final ssubtyp_DWFRAME : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWFRAME.ssubtyp_DWFRAME;
-final ssubtyp_DWMAC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ssubtyp_DWMAC.ssubtyp_DWMAC;
-final symesz : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_symesz.symesz;
+final sTYP_DWARF : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_DWARF.sTYP_DWARF;
+final sTYP_TEXT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_TEXT.sTYP_TEXT;
+final sTYP_DATA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_DATA.sTYP_DATA;
+final sTYP_BSS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_BSS.sTYP_BSS;
+final sTYP_EXCEPT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_EXCEPT.sTYP_EXCEPT;
+final sTYP_INFO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_INFO.sTYP_INFO;
+final sTYP_TDATA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_TDATA.sTYP_TDATA;
+final sTYP_TBSS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_TBSS.sTYP_TBSS;
+final sTYP_LOADER : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_LOADER.sTYP_LOADER;
+final sTYP_DEBUG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_DEBUG.sTYP_DEBUG;
+final sTYP_TYPCHK : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_TYPCHK.sTYP_TYPCHK;
+final sTYP_OVRFLO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sTYP_OVRFLO.sTYP_OVRFLO;
+final sSUBTYP_DWINFO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWINFO.sSUBTYP_DWINFO;
+final sSUBTYP_DWLINE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWLINE.sSUBTYP_DWLINE;
+final sSUBTYP_DWPBNMS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWPBNMS.sSUBTYP_DWPBNMS;
+final sSUBTYP_DWPBTYP : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWPBTYP.sSUBTYP_DWPBTYP;
+final sSUBTYP_DWARNGE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWARNGE.sSUBTYP_DWARNGE;
+final sSUBTYP_DWABREV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWABREV.sSUBTYP_DWABREV;
+final sSUBTYP_DWSTR : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWSTR.sSUBTYP_DWSTR;
+final sSUBTYP_DWRNGES : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWRNGES.sSUBTYP_DWRNGES;
+final sSUBTYP_DWLOC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWLOC.sSUBTYP_DWLOC;
+final sSUBTYP_DWFRAME : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWFRAME.sSUBTYP_DWFRAME;
+final sSUBTYP_DWMAC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sSUBTYP_DWMAC.sSUBTYP_DWMAC;
+final sYMESZ : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYMESZ.sYMESZ;
 final n_DEBUG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_n_DEBUG.n_DEBUG;
 final n_ABS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_n_ABS.n_ABS;
 final n_UNDEF : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_n_UNDEF.n_UNDEF;
-final sym_V_INTERNAL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sym_V_INTERNAL.sym_V_INTERNAL;
-final sym_V_HIDDEN : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sym_V_HIDDEN.sym_V_HIDDEN;
-final sym_V_PROTECTED : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sym_V_PROTECTED.sym_V_PROTECTED;
-final sym_V_EXPORTED : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sym_V_EXPORTED.sym_V_EXPORTED;
-final sym_TYPE_FUNC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sym_TYPE_FUNC.sym_TYPE_FUNC;
+final sYM_V_INTERNAL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYM_V_INTERNAL.sYM_V_INTERNAL;
+final sYM_V_HIDDEN : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYM_V_HIDDEN.sYM_V_HIDDEN;
+final sYM_V_PROTECTED : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYM_V_PROTECTED.sYM_V_PROTECTED;
+final sYM_V_EXPORTED : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYM_V_EXPORTED.sYM_V_EXPORTED;
+final sYM_TYPE_FUNC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_sYM_TYPE_FUNC.sYM_TYPE_FUNC;
 final c_NULL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_NULL.c_NULL;
 final c_EXT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_EXT.c_EXT;
 final c_STAT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_STAT.c_STAT;
@@ -78,35 +78,35 @@ final c_BSTAT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_BSTAT.c_BST
 final c_ESTAT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_ESTAT.c_ESTAT;
 final c_GTLS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_GTLS.c_GTLS;
 final c_STTLS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_c_STTLS.c_STTLS;
-final xty_ER : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xty_ER.xty_ER;
-final xty_SD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xty_SD.xty_SD;
-final xty_LD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xty_LD.xty_LD;
-final xty_CM : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xty_CM.xty_CM;
-final xft_FN : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xft_FN.xft_FN;
-final xft_CT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xft_CT.xft_CT;
-final xft_CV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xft_CV.xft_CV;
-final xft_CD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xft_CD.xft_CD;
-final xmc_PR : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_PR.xmc_PR;
-final xmc_RO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_RO.xmc_RO;
-final xmc_DB : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_DB.xmc_DB;
-final xmc_TC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_TC.xmc_TC;
-final xmc_UA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_UA.xmc_UA;
-final xmc_RW : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_RW.xmc_RW;
-final xmc_GL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_GL.xmc_GL;
-final xmc_XO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_XO.xmc_XO;
-final xmc_SV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_SV.xmc_SV;
-final xmc_BS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_BS.xmc_BS;
-final xmc_DS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_DS.xmc_DS;
-final xmc_UC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_UC.xmc_UC;
-final xmc_TC0 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_TC0.xmc_TC0;
-final xmc_TD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_TD.xmc_TD;
-final xmc_SV64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_SV64.xmc_SV64;
-final xmc_SV3264 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_SV3264.xmc_SV3264;
-final xmc_TL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_TL.xmc_TL;
-final xmc_UL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_UL.xmc_UL;
-final xmc_TE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xmc_TE.xmc_TE;
-final ldhdrsz_32 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ldhdrsz_32.ldhdrsz_32;
-final ldhdrsz_64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_ldhdrsz_64.ldhdrsz_64;
+final xTY_ER : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xTY_ER.xTY_ER;
+final xTY_SD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xTY_SD.xTY_SD;
+final xTY_LD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xTY_LD.xTY_LD;
+final xTY_CM : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xTY_CM.xTY_CM;
+final xFT_FN : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xFT_FN.xFT_FN;
+final xFT_CT : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xFT_CT.xFT_CT;
+final xFT_CV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xFT_CV.xFT_CV;
+final xFT_CD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xFT_CD.xFT_CD;
+final xMC_PR : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_PR.xMC_PR;
+final xMC_RO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_RO.xMC_RO;
+final xMC_DB : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_DB.xMC_DB;
+final xMC_TC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_TC.xMC_TC;
+final xMC_UA : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_UA.xMC_UA;
+final xMC_RW : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_RW.xMC_RW;
+final xMC_GL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_GL.xMC_GL;
+final xMC_XO : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_XO.xMC_XO;
+final xMC_SV : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_SV.xMC_SV;
+final xMC_BS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_BS.xMC_BS;
+final xMC_DS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_DS.xMC_DS;
+final xMC_UC : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_UC.xMC_UC;
+final xMC_TC0 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_TC0.xMC_TC0;
+final xMC_TD : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_TD.xMC_TD;
+final xMC_SV64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_SV64.xMC_SV64;
+final xMC_SV3264 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_SV3264.xMC_SV3264;
+final xMC_TL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_TL.xMC_TL;
+final xMC_UL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_UL.xMC_UL;
+final xMC_TE : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_xMC_TE.xMC_TE;
+final lDHDRSZ_32 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_lDHDRSZ_32.lDHDRSZ_32;
+final lDHDRSZ_64 : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_lDHDRSZ_64.lDHDRSZ_64;
 final r_POS : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_POS.r_POS;
 final r_NEG : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_NEG.r_NEG;
 final r_REL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_REL.r_REL;
@@ -1373,6 +1373,7 @@ spad);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ArchivePointer = stdgo._internal.internal.xcoff.Xcoff_ArchivePointer.ArchivePointer;
 class Archive_static_extension {
     static public function getFile(_arch:Archive, _name:String):stdgo.Tuple<File, stdgo.Error> {
         return {
@@ -1384,9 +1385,11 @@ class Archive_static_extension {
         return stdgo._internal.internal.xcoff.Xcoff_Archive_static_extension.Archive_static_extension.close(_a);
     }
 }
+typedef MemberPointer = stdgo._internal.internal.xcoff.Xcoff_MemberPointer.MemberPointer;
 class Member_static_extension {
 
 }
+typedef SectionPointer = stdgo._internal.internal.xcoff.Xcoff_SectionPointer.SectionPointer;
 class Section_static_extension {
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -1394,14 +1397,15 @@ class Section_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.internal.xcoff.Xcoff_Section.Section, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function readAt(__self__:stdgo._internal.internal.xcoff.Xcoff_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.internal.xcoff.Xcoff_Section_static_extension.Section_static_extension.readAt(__self__, _p, _off);
+            final obj = stdgo._internal.internal.xcoff.Xcoff_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef FilePointer = stdgo._internal.internal.xcoff.Xcoff_FilePointer.FilePointer;
 class File_static_extension {
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
@@ -1421,14 +1425,14 @@ class File_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dwarf(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.dwarf(_f);
+            final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function csect(_f:File, _name:String):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.csect(_f, _name)) i];
+    static public function cSect(_f:File, _name:String):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.cSect(_f, _name)) i];
     }
     static public function sectionByType(_f:File, _typ:std.UInt):Section {
         return stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.sectionByType(_f, _typ);
@@ -1440,6 +1444,7 @@ class File_static_extension {
         return stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.close(_f);
     }
 }
+typedef T_zeroReaderAtPointer = stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAtPointer.T_zeroReaderAtPointer;
 class T_zeroReaderAt_static_extension {
     static public function readAt(_w:T_zeroReaderAt, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);

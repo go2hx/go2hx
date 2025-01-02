@@ -1,8 +1,8 @@
 package stdgo._internal.mime;
 function typeByExtension(_ext:stdgo.GoString):stdgo.GoString {
-        stdgo._internal.mime.Mime__once._once.do_(stdgo._internal.mime.Mime__initMime._initMime);
+        @:check2 stdgo._internal.mime.Mime__once._once.do_(stdgo._internal.mime.Mime__initMime._initMime);
         {
-            var __tmp__ = stdgo._internal.mime.Mime__mimeTypes._mimeTypes.load(stdgo.Go.toInterface(_ext)), _v:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimeTypes._mimeTypes.load(stdgo.Go.toInterface(_ext)), _v:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return (stdgo.Go.typeAssert((_v : stdgo.GoString)) : stdgo.GoString)?.__copy__();
             };
@@ -15,7 +15,7 @@ function typeByExtension(_ext:stdgo.GoString):stdgo.GoString {
             while ((_i < (_ext.length) : Bool)) {
                 var _c = (_ext[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
-                    var __tmp__ = stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.load(stdgo.Go.toInterface(stdgo._internal.strings.Strings_toLower.toLower(_ext.__copy__()))), _si:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.load(stdgo.Go.toInterface(stdgo._internal.strings.Strings_toLower.toLower(_ext.__copy__()))), _si:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((_si : stdgo.GoString)) : stdgo.GoString), _1 : true };
                     } catch(_) {
@@ -31,7 +31,7 @@ if ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) 
                 _i++;
             };
         };
-        var __tmp__ = stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.load(stdgo.Go.toInterface((_lower : stdgo.GoString))), _si:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.load(stdgo.Go.toInterface((_lower : stdgo.GoString))), _si:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_si : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {

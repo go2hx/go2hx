@@ -1,16 +1,22 @@
 package stdgo._internal.testing;
 @:keep @:allow(stdgo._internal.testing.Testing.M_asInterface) class M_static_extension {
     @:keep
+    @:tdfield
     static public function _stopAlarm( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):Void throw "M:testing._stopAlarm is not yet implemented";
     @:keep
+    @:tdfield
     static public function _startAlarm( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):stdgo._internal.time.Time_Time.Time throw "M:testing._startAlarm is not yet implemented";
     @:keep
+    @:tdfield
     static public function _writeProfiles( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):Void throw "M:testing._writeProfiles is not yet implemented";
     @:keep
+    @:tdfield
     static public function _after( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):Void throw "M:testing._after is not yet implemented";
     @:keep
+    @:tdfield
     static public function _before( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):Void throw "M:testing._before is not yet implemented";
     @:keep
+    @:tdfield
     static public function run( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):stdgo.GoInt {
         @:recv var _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M> = _m;
         final chatty = true;

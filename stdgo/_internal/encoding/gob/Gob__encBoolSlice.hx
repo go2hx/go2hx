@@ -9,11 +9,11 @@ function _encBoolSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encod
             return false;
         };
         for (__8 => _x in _slice) {
-            if (((_x != false) || _state._sendZero : Bool)) {
+            if (((_x != false) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 if (_x) {
-                    _state._encodeUint((1i64 : stdgo.GoUInt64));
+                    @:check2r _state._encodeUint((1i64 : stdgo.GoUInt64));
                 } else {
-                    _state._encodeUint((0i64 : stdgo.GoUInt64));
+                    @:check2r _state._encodeUint((0i64 : stdgo.GoUInt64));
                 };
             };
         };

@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     public var _ctx : stdgo._internal.context.Context_Context.Context = (null : stdgo._internal.context.Context_Context.Context);
     public var _reqCancel : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
     public var _trace : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = (null : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>);
-    public var id : stdgo.GoUInt32 = 0;
+    public var iD : stdgo.GoUInt32 = 0;
     public var _bufPipe : stdgo._internal.net.http.Http_T_http2pipe.T_http2pipe = ({} : stdgo._internal.net.http.Http_T_http2pipe.T_http2pipe);
     public var _requestedGzip : Bool = false;
     public var _isHead : Bool = false;
@@ -33,12 +33,12 @@ package stdgo._internal.net.http;
     public var _readAborted : Bool = false;
     public var _trailer : stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
     public var _resTrailer : stdgo.Ref<stdgo._internal.net.http.Http_Header.Header> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Header.Header>);
-    public function new(?_cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>, ?_ctx:stdgo._internal.context.Context_Context.Context, ?_reqCancel:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>, ?id:stdgo.GoUInt32, ?_bufPipe:stdgo._internal.net.http.Http_T_http2pipe.T_http2pipe, ?_requestedGzip:Bool, ?_isHead:Bool, ?_abortOnce:stdgo._internal.sync.Sync_Once.Once, ?_abort:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_abortErr:stdgo.Error, ?_peerClosed:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_donec:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_on100:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_respHeaderRecv:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>, ?_flow:stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow, ?_inflow:stdgo._internal.net.http.Http_T_http2inflow.T_http2inflow, ?_bytesRemain:stdgo.GoInt64, ?_readErr:stdgo.Error, ?_reqBody:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_reqBodyContentLength:stdgo.GoInt64, ?_reqBodyClosed:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_sentEndStream:Bool, ?_sentHeaders:Bool, ?_firstByte:Bool, ?_pastHeaders:Bool, ?_pastTrailers:Bool, ?_num1xx:stdgo.GoUInt8, ?_readClosed:Bool, ?_readAborted:Bool, ?_trailer:stdgo._internal.net.http.Http_Header.Header, ?_resTrailer:stdgo.Ref<stdgo._internal.net.http.Http_Header.Header>) {
+    public function new(?_cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>, ?_ctx:stdgo._internal.context.Context_Context.Context, ?_reqCancel:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>, ?iD:stdgo.GoUInt32, ?_bufPipe:stdgo._internal.net.http.Http_T_http2pipe.T_http2pipe, ?_requestedGzip:Bool, ?_isHead:Bool, ?_abortOnce:stdgo._internal.sync.Sync_Once.Once, ?_abort:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_abortErr:stdgo.Error, ?_peerClosed:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_donec:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_on100:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_respHeaderRecv:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>, ?_flow:stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow, ?_inflow:stdgo._internal.net.http.Http_T_http2inflow.T_http2inflow, ?_bytesRemain:stdgo.GoInt64, ?_readErr:stdgo.Error, ?_reqBody:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_reqBodyContentLength:stdgo.GoInt64, ?_reqBodyClosed:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?_sentEndStream:Bool, ?_sentHeaders:Bool, ?_firstByte:Bool, ?_pastHeaders:Bool, ?_pastTrailers:Bool, ?_num1xx:stdgo.GoUInt8, ?_readClosed:Bool, ?_readAborted:Bool, ?_trailer:stdgo._internal.net.http.Http_Header.Header, ?_resTrailer:stdgo.Ref<stdgo._internal.net.http.Http_Header.Header>) {
         if (_cc != null) this._cc = _cc;
         if (_ctx != null) this._ctx = _ctx;
         if (_reqCancel != null) this._reqCancel = _reqCancel;
         if (_trace != null) this._trace = _trace;
-        if (id != null) this.id = id;
+        if (iD != null) this.iD = iD;
         if (_bufPipe != null) this._bufPipe = _bufPipe;
         if (_requestedGzip != null) this._requestedGzip = _requestedGzip;
         if (_isHead != null) this._isHead = _isHead;
@@ -75,7 +75,7 @@ _cc,
 _ctx,
 _reqCancel,
 _trace,
-id,
+iD,
 _bufPipe,
 _requestedGzip,
 _isHead,

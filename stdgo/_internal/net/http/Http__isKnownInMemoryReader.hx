@@ -19,7 +19,7 @@ function _isKnownInMemoryReader(_r:stdgo._internal.io.Io_Reader.Reader):Bool {
                 { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_readTrackingBody.T_readTrackingBody>), _1 : false };
             }, _r = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return stdgo._internal.net.http.Http__isKnownInMemoryReader._isKnownInMemoryReader(_r.readCloser);
+                return stdgo._internal.net.http.Http__isKnownInMemoryReader._isKnownInMemoryReader((@:checkr _r ?? throw "null pointer dereference").readCloser);
             };
         };
         return false;

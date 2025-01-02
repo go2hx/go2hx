@@ -10,20 +10,34 @@ package stdgo._internal.archive.zip;
         if (_raw != null) this._raw = _raw;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var fileInfo(get, never) : () -> stdgo._internal.io.fs.Fs_FileInfo.FileInfo;
     @:embedded
-    public function fileInfo():stdgo._internal.io.fs.Fs_FileInfo.FileInfo return this.fileHeader.fileInfo();
+    @:embeddededffieldsffun
+    public function get_fileInfo():() -> stdgo._internal.io.fs.Fs_FileInfo.FileInfo return @:check3 (this.fileHeader ?? throw "null pointer derefrence").fileInfo;
+    public var modTime(get, never) : () -> stdgo._internal.time.Time_Time.Time;
     @:embedded
-    public function modTime():stdgo._internal.time.Time_Time.Time return this.fileHeader.modTime();
+    @:embeddededffieldsffun
+    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check3 (this.fileHeader ?? throw "null pointer derefrence").modTime;
+    public var mode(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
-    public function mode():stdgo._internal.io.fs.Fs_FileMode.FileMode return this.fileHeader.mode();
+    @:embeddededffieldsffun
+    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 (this.fileHeader ?? throw "null pointer derefrence").mode;
+    public var setModTime(get, never) : stdgo._internal.time.Time_Time.Time -> Void;
     @:embedded
-    public function setModTime(__0:stdgo._internal.time.Time_Time.Time) this.fileHeader.setModTime(__0);
+    @:embeddededffieldsffun
+    public function get_setModTime():stdgo._internal.time.Time_Time.Time -> Void return @:check3 (this.fileHeader ?? throw "null pointer derefrence").setModTime;
+    public var setMode(get, never) : stdgo._internal.io.fs.Fs_FileMode.FileMode -> Void;
     @:embedded
-    public function setMode(__0:stdgo._internal.io.fs.Fs_FileMode.FileMode) this.fileHeader.setMode(__0);
+    @:embeddededffieldsffun
+    public function get_setMode():stdgo._internal.io.fs.Fs_FileMode.FileMode -> Void return @:check3 (this.fileHeader ?? throw "null pointer derefrence").setMode;
+    public var _hasDataDescriptor(get, never) : () -> Bool;
     @:embedded
-    public function _hasDataDescriptor():Bool return this.fileHeader._hasDataDescriptor();
+    @:embeddededffieldsffun
+    public function get__hasDataDescriptor():() -> Bool return @:check3 (this.fileHeader ?? throw "null pointer derefrence")._hasDataDescriptor;
+    public var _isZip64(get, never) : () -> Bool;
     @:embedded
-    public function _isZip64():Bool return this.fileHeader._isZip64();
+    @:embeddededffieldsffun
+    public function get__isZip64():() -> Bool return @:check3 (this.fileHeader ?? throw "null pointer derefrence")._isZip64;
     public function __copy__() {
         return new T_header(fileHeader, _offset, _raw);
     }

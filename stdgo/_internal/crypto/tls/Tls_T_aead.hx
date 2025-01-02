@@ -8,5 +8,6 @@ typedef T_aead = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _explicitNonceLen():stdgo.GoInt;
 };

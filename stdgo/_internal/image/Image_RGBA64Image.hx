@@ -9,5 +9,6 @@ typedef RGBA64Image = stdgo.StructType & {
         
         
     **/
-    public dynamic function rgba64at(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color_RGBA64.RGBA64;
+    @:interfacetypeffun
+    public dynamic function rGBA64At(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color_RGBA64.RGBA64;
 };

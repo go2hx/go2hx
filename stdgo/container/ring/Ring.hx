@@ -22,6 +22,7 @@ package stdgo.container.ring;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef RingPointer = stdgo._internal.container.ring.Ring_RingPointer.RingPointer;
 class Ring_static_extension {
     static public function do_(_r:Ring_, _f:stdgo.AnyInterface -> Void):Void {
         final _f = _f;

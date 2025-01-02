@@ -7,5 +7,5 @@ function _http2getDataBufferChunk(_size:stdgo.GoInt64):stdgo.Slice<stdgo.GoUInt8
             };
             _i++;
         };
-        return (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2dataChunkPools._http2dataChunkPools[(_i : stdgo.GoInt)].get() : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
+        return (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__http2dataChunkPools._http2dataChunkPools[(_i : stdgo.GoInt)].get() : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Slice<stdgo.GoUInt8>);
     }

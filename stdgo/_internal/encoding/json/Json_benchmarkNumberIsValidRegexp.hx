@@ -4,8 +4,8 @@ function benchmarkNumberIsValidRegexp(_b:stdgo.Ref<stdgo._internal.testing.Testi
         var _s = ("-61657.61667E+61673" : stdgo.GoString);
         {
             var _i = (0 : stdgo.GoInt);
-            while ((_i < _b.n : Bool)) {
-                _jsonNumberRegexp.matchString(_s.__copy__());
+            while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                @:check2r _jsonNumberRegexp.matchString(_s.__copy__());
                 _i++;
             };
         };

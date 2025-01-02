@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.x509;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.CertificateInvalidError_asInterface) class CertificateInvalidError_static_extension {
     @:keep
+    @:tdfield
     static public function error( _e:stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError):stdgo.GoString {
         @:recv var _e:stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError = _e?.__copy__();
         {

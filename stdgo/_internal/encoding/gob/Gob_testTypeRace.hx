@@ -5,13 +5,13 @@ function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (2 : stdgo.GoInt) : Bool)) {
-                _wg.add((1 : stdgo.GoInt));
+                @:check2 _wg.add((1 : stdgo.GoInt));
 stdgo.Go.routine(() -> ({
                     var a = function(_i:stdgo.GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
                             {
-                                final __f__ = _wg.done;
+                                final __f__ = @:check2 _wg.done;
                                 __deferstack__.unshift(() -> __f__());
                             };
                             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
@@ -25,28 +25,30 @@ stdgo.Go.routine(() -> ({
                                 } else if (__value__ == ((1 : stdgo.GoInt))) {
                                     _x = stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_N2.N2() : stdgo._internal.encoding.gob.Gob_N2.N2)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_N2.N2>));
                                 } else {
-                                    _t.errorf(("bad i %d" : stdgo.GoString), stdgo.Go.toInterface(_i));
+                                    @:check2r _t.errorf(("bad i %d" : stdgo.GoString), stdgo.Go.toInterface(_i));
                                     {
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return;
                                     };
                                 };
                             };
-                            var _m = ({
+                            var _m = (({
                                 final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                                 x.__defaultValue__ = () -> ("" : stdgo.GoString);
                                 {};
                                 x;
-                            } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+                            } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
                             _c.__get__();
                             {
-                                var _err = (_enc.encode(_x) : stdgo.Error);
+                                var _err = (@:check2r _enc.encode(_x) : stdgo.Error);
                                 if (_err != null) {
-                                    _t.error(stdgo.Go.toInterface(_err));
+                                    @:check2r _t.error(stdgo.Go.toInterface(_err));
                                     {
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return;
@@ -54,11 +56,12 @@ stdgo.Go.routine(() -> ({
                                 };
                             };
                             {
-                                var _err = (_enc.encode(_x) : stdgo.Error);
+                                var _err = (@:check2r _enc.encode(_x) : stdgo.Error);
                                 if (_err != null) {
-                                    _t.error(stdgo.Go.toInterface(_err));
+                                    @:check2r _t.error(stdgo.Go.toInterface(_err));
                                     {
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return;
@@ -66,11 +69,12 @@ stdgo.Go.routine(() -> ({
                                 };
                             };
                             {
-                                var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>))) : stdgo.Error);
+                                var _err = (@:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>))) : stdgo.Error);
                                 if (_err == null) {
-                                    _t.error(stdgo.Go.toInterface(("decode unexpectedly succeeded" : stdgo.GoString)));
+                                    @:check2r _t.error(stdgo.Go.toInterface(("decode unexpectedly succeeded" : stdgo.GoString)));
                                     {
                                         for (defer in __deferstack__) {
+                                            __deferstack__.remove(defer);
                                             defer();
                                         };
                                         return;
@@ -79,6 +83,7 @@ stdgo.Go.routine(() -> ({
                             };
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -93,6 +98,7 @@ stdgo.Go.routine(() -> ({
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -105,5 +111,5 @@ stdgo.Go.routine(() -> ({
             };
         };
         if (_c != null) _c.__close__();
-        _wg.wait_();
+        @:check2 _wg.wait_();
     }

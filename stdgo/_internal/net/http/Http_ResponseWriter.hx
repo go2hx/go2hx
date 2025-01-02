@@ -24,6 +24,7 @@ typedef ResponseWriter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function header():stdgo._internal.net.http.Http_Header.Header;
     /**
         Write writes the data to the connection as part of an HTTP reply.
@@ -50,6 +51,7 @@ typedef ResponseWriter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function write(_0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     /**
         WriteHeader sends an HTTP response header with the provided
@@ -73,5 +75,6 @@ typedef ResponseWriter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function writeHeader(_statusCode:stdgo.GoInt):Void;
 };

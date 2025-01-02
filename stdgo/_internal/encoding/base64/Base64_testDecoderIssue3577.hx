@@ -23,7 +23,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
                         var _err = _errc.__get__();
                         {
                             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_wantErr))) {
-                                _t.errorf(("got error %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantErr));
+                                @:check2r _t.errorf(("got error %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantErr));
                             };
                         };
                     };
@@ -32,7 +32,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
                     {
                         stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)).__get__();
                         {
-                            _t.errorf(("timeout; Decoder blocked without returning an error" : stdgo.GoString));
+                            @:check2r _t.errorf(("timeout; Decoder blocked without returning an error" : stdgo.GoString));
                         };
                     };
                 };

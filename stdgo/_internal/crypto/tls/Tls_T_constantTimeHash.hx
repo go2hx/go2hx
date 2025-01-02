@@ -6,5 +6,6 @@ typedef T_constantTimeHash = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function constantTimeSum(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8>;
 };

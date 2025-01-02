@@ -3,32 +3,32 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
         var __deferstack__:Array<Void -> Void> = [];
         var _0 = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>), _err = (null : stdgo.Error);
         try {
-            var _n_3530106:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _max_3527999:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _after_3527796:stdgo.GoString = ("" : stdgo.GoString);
-            var _err_3526326:stdgo.Error = (null : stdgo.Error);
-            var _rest_3529050:stdgo.GoString = ("" : stdgo.GoString);
-            var _repeat_3526604:stdgo.GoString = ("" : stdgo.GoString);
-            var _t_3526580:stdgo.GoString = ("" : stdgo.GoString);
-            var _c_3526488:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _after_3555032:stdgo.GoString = ("" : stdgo.GoString);
+            var _max_3555027:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _repeat_3553632:stdgo.GoString = ("" : stdgo.GoString);
+            var _lit_3555995:stdgo.GoString = ("" : stdgo.GoString);
+            var _re_3556308:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>);
+            var _err_3556084:stdgo.Error = (null : stdgo.Error);
+            var _p_3553496:stdgo._internal.regexp.syntax.Syntax_T_parser.T_parser = ({} : stdgo._internal.regexp.syntax.Syntax_T_parser.T_parser);
             var bigSwitchBreak = false;
-            var _ok_3528011:Bool = false;
-            var _before_3527671:stdgo.GoString = ("" : stdgo.GoString);
-            var _err_3529451:stdgo.Error = (null : stdgo.Error);
-            var _rest_3529684:stdgo.GoString = ("" : stdgo.GoString);
-            var _err_3529056:stdgo.Error = (null : stdgo.Error);
-            var _op_3526506:stdgo._internal.regexp.syntax.Syntax_Op.Op = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-            var _re_3529280:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>);
-            var _lit_3528967:stdgo.GoString = ("" : stdgo.GoString);
-            var _min_3527994:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _r_3529442:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-            var _after_3528004:stdgo.GoString = ("" : stdgo.GoString);
-            var _before_3527979:stdgo.GoString = ("" : stdgo.GoString);
-            var _p_3526468:stdgo._internal.regexp.syntax.Syntax_T_parser.T_parser = ({} : stdgo._internal.regexp.syntax.Syntax_T_parser.T_parser);
-            var _r_3529681:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-            var _rest_3529445:stdgo.GoString = ("" : stdgo.GoString);
-            var _c_3529047:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-            var _lastRepeat_3526522:stdgo.GoString = ("" : stdgo.GoString);
+            var _after_3554824:stdgo.GoString = ("" : stdgo.GoString);
+            var _op_3553534:stdgo._internal.regexp.syntax.Syntax_Op.Op = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+            var _n_3557134:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _rest_3556078:stdgo.GoString = ("" : stdgo.GoString);
+            var _rest_3556473:stdgo.GoString = ("" : stdgo.GoString);
+            var _err_3553354:stdgo.Error = (null : stdgo.Error);
+            var _r_3556709:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+            var _t_3553608:stdgo.GoString = ("" : stdgo.GoString);
+            var _c_3556075:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _before_3555007:stdgo.GoString = ("" : stdgo.GoString);
+            var _lastRepeat_3553550:stdgo.GoString = ("" : stdgo.GoString);
+            var _rest_3556712:stdgo.GoString = ("" : stdgo.GoString);
+            var _err_3556479:stdgo.Error = (null : stdgo.Error);
+            var _min_3555022:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _before_3554699:stdgo.GoString = ("" : stdgo.GoString);
+            var _c_3553516:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _r_3556470:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+            var _ok_3555039:Bool = false;
             var _gotoNext = 0i32;
             var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
             while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -60,34 +60,35 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                             }));
                         };
                         if ((_flags & (2 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
-                            _gotoNext = 3526279i32;
+                            _gotoNext = 3553307i32;
                         } else {
-                            _gotoNext = 3526460i32;
+                            _gotoNext = 3553488i32;
                         };
-                    } else if (__value__ == (3526279i32)) {
+                    } else if (__value__ == (3553307i32)) {
                         {
-                            _err_3526326 = stdgo._internal.regexp.syntax.Syntax__checkUTF8._checkUTF8(_s?.__copy__());
-                            if (_err_3526326 != null) {
-                                _gotoNext = 3526358i32;
+                            _err_3553354 = stdgo._internal.regexp.syntax.Syntax__checkUTF8._checkUTF8(_s?.__copy__());
+                            if (_err_3553354 != null) {
+                                _gotoNext = 3553386i32;
                             } else {
-                                _gotoNext = 3526385i32;
+                                _gotoNext = 3553413i32;
                             };
                         };
-                    } else if (__value__ == (3526358i32)) {
+                    } else if (__value__ == (3553386i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3526326 };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3553354 };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3526385i32;
-                    } else if (__value__ == (3526385i32)) {
+                        _gotoNext = 3553413i32;
+                    } else if (__value__ == (3553413i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : stdgo._internal.regexp.syntax.Syntax__literalRegexp._literalRegexp(_s?.__copy__(), _flags), _1 : (null : stdgo.Error) };
@@ -96,75 +97,76 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3526460i32;
-                    } else if (__value__ == (3526460i32)) {
-                        _p_3526468._flags = _flags;
-                        _p_3526468._wholeRegexp = _s?.__copy__();
-                        _t_3526580 = _s?.__copy__();
+                        _gotoNext = 3553488i32;
+                    } else if (__value__ == (3553488i32)) {
+                        _p_3553496._flags = _flags;
+                        _p_3553496._wholeRegexp = _s?.__copy__();
+                        _t_3553608 = _s?.__copy__();
                         var __blank__ = 0i32;
-                        _gotoNext = 3526588i32;
-                    } else if (__value__ == (3526588i32)) {
-                        if (_t_3526580 != (stdgo.Go.str())) {
-                            _gotoNext = 3526600i32;
+                        _gotoNext = 3553616i32;
+                    } else if (__value__ == (3553616i32)) {
+                        if (_t_3553608 != (stdgo.Go.str())) {
+                            _gotoNext = 3553628i32;
                         } else {
-                            _gotoNext = 3529990i32;
+                            _gotoNext = 3557018i32;
                         };
-                    } else if (__value__ == (3526600i32)) {
-                        _repeat_3526604 = stdgo.Go.str()?.__copy__();
-                        _gotoNext = 3526618i32;
-                    } else if (__value__ == (3526618i32)) {
+                    } else if (__value__ == (3553628i32)) {
+                        _repeat_3553632 = stdgo.Go.str()?.__copy__();
+                        _gotoNext = 3553646i32;
+                    } else if (__value__ == (3553646i32)) {
                         bigSwitchBreak = false;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3526631i32)) {
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3553659i32)) {
                         if (!bigSwitchBreak) {
                             {
-                                final __value__ = _t_3526580[(0 : stdgo.GoInt)];
+                                final __value__ = _t_3553608[(0 : stdgo.GoInt)];
                                 if (__value__ == ((40 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3526744i32;
+                                    _gotoNext = 3553772i32;
                                 } else if (__value__ == ((124 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527014i32;
+                                    _gotoNext = 3554042i32;
                                 } else if (__value__ == ((41 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527111i32;
+                                    _gotoNext = 3554139i32;
                                 } else if (__value__ == ((94 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527207i32;
+                                    _gotoNext = 3554235i32;
                                 } else if (__value__ == ((36 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527322i32;
+                                    _gotoNext = 3554350i32;
                                 } else if (__value__ == ((46 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527452i32;
+                                    _gotoNext = 3554480i32;
                                 } else if (__value__ == ((91 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527566i32;
+                                    _gotoNext = 3554594i32;
                                 } else if (__value__ == ((42 : stdgo.GoUInt8)) || __value__ == ((43 : stdgo.GoUInt8)) || __value__ == ((63 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527648i32;
+                                    _gotoNext = 3554676i32;
                                 } else if (__value__ == ((123 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3527949i32;
+                                    _gotoNext = 3554977i32;
                                 } else if (__value__ == ((92 : stdgo.GoUInt8))) {
-                                    _gotoNext = 3528505i32;
+                                    _gotoNext = 3555533i32;
                                 } else {
-                                    _gotoNext = 3526647i32;
+                                    _gotoNext = 3553675i32;
                                 };
                             };
                         } else {
-                            _gotoNext = 3529965i32;
+                            _gotoNext = 3556993i32;
                         };
-                    } else if (__value__ == (3526647i32)) {
+                    } else if (__value__ == (3553675i32)) {
                         {
                             {
-                                var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextRune._nextRune(_t_3526580?.__copy__());
-                                _c_3526488 = __tmp__._0;
-                                _t_3526580 = __tmp__._1?.__copy__();
+                                var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextRune._nextRune(_t_3553608?.__copy__());
+                                _c_3553516 = __tmp__._0;
+                                _t_3553608 = __tmp__._1?.__copy__();
                                 _err = __tmp__._2;
                             };
                             if (_err != null) {
-                                _gotoNext = 3526698i32;
+                                _gotoNext = 3553726i32;
                             } else {
-                                _gotoNext = 3526728i32;
+                                _gotoNext = 3553756i32;
                             };
                         };
-                    } else if (__value__ == (3526698i32)) {
+                    } else if (__value__ == (3553726i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -173,34 +175,35 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3526728i32;
-                    } else if (__value__ == (3526728i32)) {
-                        _p_3526468._literal(_c_3526488);
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3526744i32)) {
-                        if ((((_p_3526468._flags & (64 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) && ((_t_3526580.length) >= (2 : stdgo.GoInt) : Bool) : Bool) && (_t_3526580[(1 : stdgo.GoInt)] == (63 : stdgo.GoUInt8)) : Bool)) {
-                            _gotoNext = 3526809i32;
+                        _gotoNext = 3553756i32;
+                    } else if (__value__ == (3553756i32)) {
+                        @:check2 _p_3553496._literal(_c_3553516);
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3553772i32)) {
+                        if ((((_p_3553496._flags & (64 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) && ((_t_3553608.length) >= (2 : stdgo.GoInt) : Bool) : Bool) && (_t_3553608[(1 : stdgo.GoInt)] == (63 : stdgo.GoUInt8)) : Bool)) {
+                            _gotoNext = 3553837i32;
                         } else {
-                            _gotoNext = 3526952i32;
+                            _gotoNext = 3553980i32;
                         };
-                    } else if (__value__ == (3526809i32)) {
+                    } else if (__value__ == (3553837i32)) {
                         {
                             {
-                                var __tmp__ = _p_3526468._parsePerlFlags(_t_3526580?.__copy__());
-                                _t_3526580 = __tmp__._0?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._parsePerlFlags(_t_3553608?.__copy__());
+                                _t_3553608 = __tmp__._0?.__copy__();
                                 _err = __tmp__._1;
                             };
                             if (_err != null) {
-                                _gotoNext = 3526905i32;
+                                _gotoNext = 3553933i32;
                             } else {
-                                _gotoNext = 3526938i32;
+                                _gotoNext = 3553966i32;
                             };
                         };
-                    } else if (__value__ == (3526905i32)) {
+                    } else if (__value__ == (3553933i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -209,28 +212,29 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3526938i32;
-                    } else if (__value__ == (3526938i32)) {
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3526952i32)) {
-                        _p_3526468._numCap++;
-                        _p_3526468._op((128 : stdgo._internal.regexp.syntax.Syntax_Op.Op)).cap = _p_3526468._numCap;
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527014i32)) {
+                        _gotoNext = 3553966i32;
+                    } else if (__value__ == (3553966i32)) {
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3553980i32)) {
+                        _p_3553496._numCap++;
+                        @:check2 _p_3553496._op((128 : stdgo._internal.regexp.syntax.Syntax_Op.Op)).cap = _p_3553496._numCap;
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554042i32)) {
                         {
-                            _err = _p_3526468._parseVerticalBar();
+                            _err = @:check2 _p_3553496._parseVerticalBar();
                             if (_err != null) {
-                                _gotoNext = 3527069i32;
+                                _gotoNext = 3554097i32;
                             } else {
-                                _gotoNext = 3527099i32;
+                                _gotoNext = 3554127i32;
                             };
                         };
-                    } else if (__value__ == (3527069i32)) {
+                    } else if (__value__ == (3554097i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -239,24 +243,25 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3527099i32;
-                    } else if (__value__ == (3527099i32)) {
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527111i32)) {
+                        _gotoNext = 3554127i32;
+                    } else if (__value__ == (3554127i32)) {
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554139i32)) {
                         {
-                            _err = _p_3526468._parseRightParen();
+                            _err = @:check2 _p_3553496._parseRightParen();
                             if (_err != null) {
-                                _gotoNext = 3527165i32;
+                                _gotoNext = 3554193i32;
                             } else {
-                                _gotoNext = 3527195i32;
+                                _gotoNext = 3554223i32;
                             };
                         };
-                    } else if (__value__ == (3527165i32)) {
+                    } else if (__value__ == (3554193i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -265,82 +270,83 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3527195i32;
-                    } else if (__value__ == (3527195i32)) {
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527207i32)) {
-                        if ((_p_3526468._flags & (16 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
-                            _gotoNext = 3527244i32;
+                        _gotoNext = 3554223i32;
+                    } else if (__value__ == (3554223i32)) {
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554235i32)) {
+                        if ((_p_3553496._flags & (16 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
+                            _gotoNext = 3554272i32;
                         } else {
-                            _gotoNext = 3527278i32;
+                            _gotoNext = 3554306i32;
                         };
-                    } else if (__value__ == (3527244i32)) {
-                        _p_3526468._op((9 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _gotoNext = 3527310i32;
-                    } else if (__value__ == (3527278i32)) {
-                        _gotoNext = 3527278i32;
-                        _p_3526468._op((7 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                    } else if (__value__ == (3554272i32)) {
+                        @:check2 _p_3553496._op((9 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _gotoNext = 3554338i32;
+                    } else if (__value__ == (3554306i32)) {
+                        _gotoNext = 3554306i32;
+                        @:check2 _p_3553496._op((7 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
                         var __blank__ = 0i32;
-                        _gotoNext = 3527310i32;
-                    } else if (__value__ == (3527310i32)) {
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527322i32)) {
-                        if ((_p_3526468._flags & (16 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
-                            _gotoNext = 3527359i32;
+                        _gotoNext = 3554338i32;
+                    } else if (__value__ == (3554338i32)) {
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554350i32)) {
+                        if ((_p_3553496._flags & (16 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
+                            _gotoNext = 3554387i32;
                         } else {
-                            _gotoNext = 3527410i32;
+                            _gotoNext = 3554438i32;
                         };
-                    } else if (__value__ == (3527359i32)) {
+                    } else if (__value__ == (3554387i32)) {
                         {
-                            final __t__ = _p_3526468._op((10 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                            final __t__ = @:check2 _p_3553496._op((10 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
                             __t__.flags = __t__.flags | ((256 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags));
                         };
-                        _gotoNext = 3527440i32;
-                    } else if (__value__ == (3527410i32)) {
-                        _gotoNext = 3527410i32;
-                        _p_3526468._op((8 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _gotoNext = 3554468i32;
+                    } else if (__value__ == (3554438i32)) {
+                        _gotoNext = 3554438i32;
+                        @:check2 _p_3553496._op((8 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
                         var __blank__ = 0i32;
-                        _gotoNext = 3527440i32;
-                    } else if (__value__ == (3527440i32)) {
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527452i32)) {
-                        if ((_p_3526468._flags & (8 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
-                            _gotoNext = 3527487i32;
+                        _gotoNext = 3554468i32;
+                    } else if (__value__ == (3554468i32)) {
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554480i32)) {
+                        if ((_p_3553496._flags & (8 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
+                            _gotoNext = 3554515i32;
                         } else {
-                            _gotoNext = 3527519i32;
+                            _gotoNext = 3554547i32;
                         };
-                    } else if (__value__ == (3527487i32)) {
-                        _p_3526468._op((6 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _gotoNext = 3527554i32;
-                    } else if (__value__ == (3527519i32)) {
-                        _gotoNext = 3527519i32;
-                        _p_3526468._op((5 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                    } else if (__value__ == (3554515i32)) {
+                        @:check2 _p_3553496._op((6 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _gotoNext = 3554582i32;
+                    } else if (__value__ == (3554547i32)) {
+                        _gotoNext = 3554547i32;
+                        @:check2 _p_3553496._op((5 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
                         var __blank__ = 0i32;
-                        _gotoNext = 3527554i32;
-                    } else if (__value__ == (3527554i32)) {
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527566i32)) {
+                        _gotoNext = 3554582i32;
+                    } else if (__value__ == (3554582i32)) {
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554594i32)) {
                         {
                             {
-                                var __tmp__ = _p_3526468._parseClass(_t_3526580?.__copy__());
-                                _t_3526580 = __tmp__._0?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._parseClass(_t_3553608?.__copy__());
+                                _t_3553608 = __tmp__._0?.__copy__();
                                 _err = __tmp__._1;
                             };
                             if (_err != null) {
-                                _gotoNext = 3527619i32;
+                                _gotoNext = 3554647i32;
                             } else {
-                                _gotoNext = 3529965i32;
+                                _gotoNext = 3556993i32;
                             };
                         };
-                    } else if (__value__ == (3527619i32)) {
+                    } else if (__value__ == (3554647i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -349,51 +355,52 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527648i32)) {
-                        _before_3527671 = _t_3526580?.__copy__();
-                        _gotoNext = 3527686i32;
-                    } else if (__value__ == (3527686i32)) {
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554676i32)) {
+                        _before_3554699 = _t_3553608?.__copy__();
+                        _gotoNext = 3554714i32;
+                    } else if (__value__ == (3554714i32)) {
                         {
-                            final __value__ = _t_3526580[(0 : stdgo.GoInt)];
+                            final __value__ = _t_3553608[(0 : stdgo.GoInt)];
                             if (__value__ == ((42 : stdgo.GoUInt8))) {
-                                _gotoNext = 3527703i32;
+                                _gotoNext = 3554731i32;
                             } else if (__value__ == ((43 : stdgo.GoUInt8))) {
-                                _gotoNext = 3527732i32;
+                                _gotoNext = 3554760i32;
                             } else if (__value__ == ((63 : stdgo.GoUInt8))) {
-                                _gotoNext = 3527761i32;
+                                _gotoNext = 3554789i32;
                             } else {
-                                _gotoNext = 3527796i32;
+                                _gotoNext = 3554824i32;
                             };
                         };
-                    } else if (__value__ == (3527703i32)) {
-                        _op_3526506 = (14 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-                        _gotoNext = 3527796i32;
-                    } else if (__value__ == (3527732i32)) {
-                        _op_3526506 = (15 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-                        _gotoNext = 3527796i32;
-                    } else if (__value__ == (3527761i32)) {
-                        _op_3526506 = (16 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-                        _gotoNext = 3527796i32;
-                    } else if (__value__ == (3527796i32)) {
-                        _after_3527796 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    } else if (__value__ == (3554731i32)) {
+                        _op_3553534 = (14 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                        _gotoNext = 3554824i32;
+                    } else if (__value__ == (3554760i32)) {
+                        _op_3553534 = (15 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                        _gotoNext = 3554824i32;
+                    } else if (__value__ == (3554789i32)) {
+                        _op_3553534 = (16 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                        _gotoNext = 3554824i32;
+                    } else if (__value__ == (3554824i32)) {
+                        _after_3554824 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         {
                             {
-                                var __tmp__ = _p_3526468._repeat(_op_3526506, (0 : stdgo.GoInt), (0 : stdgo.GoInt), _before_3527671?.__copy__(), _after_3527796?.__copy__(), _lastRepeat_3526522?.__copy__());
-                                _after_3527796 = __tmp__._0?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._repeat(_op_3553534, (0 : stdgo.GoInt), (0 : stdgo.GoInt), _before_3554699?.__copy__(), _after_3554824?.__copy__(), _lastRepeat_3553550?.__copy__());
+                                _after_3554824 = __tmp__._0?.__copy__();
                                 _err = __tmp__._1;
                             };
                             if (_err != null) {
-                                _gotoNext = 3527888i32;
+                                _gotoNext = 3554916i32;
                             } else {
-                                _gotoNext = 3527918i32;
+                                _gotoNext = 3554946i32;
                             };
                         };
-                    } else if (__value__ == (3527888i32)) {
+                    } else if (__value__ == (3554916i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -402,68 +409,70 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3527918i32;
-                    } else if (__value__ == (3527918i32)) {
-                        _repeat_3526604 = _before_3527671?.__copy__();
-                        _t_3526580 = _after_3527796?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3527949i32)) {
-                        _op_3526506 = (17 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
-                        _before_3527979 = _t_3526580?.__copy__();
+                        _gotoNext = 3554946i32;
+                    } else if (__value__ == (3554946i32)) {
+                        _repeat_3553632 = _before_3554699?.__copy__();
+                        _t_3553608 = _after_3554824?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3554977i32)) {
+                        _op_3553534 = (17 : stdgo._internal.regexp.syntax.Syntax_Op.Op);
+                        _before_3555007 = _t_3553608?.__copy__();
                         {
-                            var __tmp__ = _p_3526468._parseRepeat(_t_3526580?.__copy__());
-                            _min_3527994 = __tmp__._0;
-                            _max_3527999 = __tmp__._1;
-                            _after_3528004 = __tmp__._2?.__copy__();
-                            _ok_3528011 = __tmp__._3;
+                            var __tmp__ = @:check2 _p_3553496._parseRepeat(_t_3553608?.__copy__());
+                            _min_3555022 = __tmp__._0;
+                            _max_3555027 = __tmp__._1;
+                            _after_3555032 = __tmp__._2?.__copy__();
+                            _ok_3555039 = __tmp__._3;
                         };
-                        if (!_ok_3528011) {
-                            _gotoNext = 3528044i32;
+                        if (!_ok_3555039) {
+                            _gotoNext = 3555072i32;
                         } else {
-                            _gotoNext = 3528152i32;
+                            _gotoNext = 3555180i32;
                         };
-                    } else if (__value__ == (3528044i32)) {
-                        _p_3526468._literal((123 : stdgo.GoInt32));
-                        _t_3526580 = (_t_3526580.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3528152i32)) {
-                        if (((((_min_3527994 < (0 : stdgo.GoInt) : Bool) || (_min_3527994 > (1000 : stdgo.GoInt) : Bool) : Bool) || (_max_3527999 > (1000 : stdgo.GoInt) : Bool) : Bool) || ((_max_3527999 >= (0 : stdgo.GoInt) : Bool) && (_min_3527994 > _max_3527999 : Bool) : Bool) : Bool)) {
-                            _gotoNext = 3528216i32;
+                    } else if (__value__ == (3555072i32)) {
+                        @:check2 _p_3553496._literal((123 : stdgo.GoInt32));
+                        _t_3553608 = (_t_3553608.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3555180i32)) {
+                        if (((((_min_3555022 < (0 : stdgo.GoInt) : Bool) || (_min_3555022 > (1000 : stdgo.GoInt) : Bool) : Bool) || (_max_3555027 > (1000 : stdgo.GoInt) : Bool) : Bool) || ((_max_3555027 >= (0 : stdgo.GoInt) : Bool) && (_min_3555022 > _max_3555027 : Bool) : Bool) : Bool)) {
+                            _gotoNext = 3555244i32;
                         } else {
-                            _gotoNext = 3528366i32;
+                            _gotoNext = 3555394i32;
                         };
-                    } else if (__value__ == (3528216i32)) {
+                    } else if (__value__ == (3555244i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_Error.Error((("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_ErrorCode.ErrorCode), (_before_3527979.__slice__(0, ((_before_3527979.length) - (_after_3528004.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_Error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Error.Error>)) };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_Error.Error((("invalid repeat count" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_ErrorCode.ErrorCode), (_before_3555007.__slice__(0, ((_before_3555007.length) - (_after_3555032.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_Error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Error.Error>)) };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3528366i32;
-                    } else if (__value__ == (3528366i32)) {
+                        _gotoNext = 3555394i32;
+                    } else if (__value__ == (3555394i32)) {
                         {
                             {
-                                var __tmp__ = _p_3526468._repeat(_op_3526506, _min_3527994, _max_3527999, _before_3527979?.__copy__(), _after_3528004?.__copy__(), _lastRepeat_3526522?.__copy__());
-                                _after_3528004 = __tmp__._0?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._repeat(_op_3553534, _min_3555022, _max_3555027, _before_3555007?.__copy__(), _after_3555032?.__copy__(), _lastRepeat_3553550?.__copy__());
+                                _after_3555032 = __tmp__._0?.__copy__();
                                 _err = __tmp__._1;
                             };
                             if (_err != null) {
-                                _gotoNext = 3528444i32;
+                                _gotoNext = 3555472i32;
                             } else {
-                                _gotoNext = 3528474i32;
+                                _gotoNext = 3555502i32;
                             };
                         };
-                    } else if (__value__ == (3528444i32)) {
+                    } else if (__value__ == (3555472i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -472,204 +481,208 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3528474i32;
-                    } else if (__value__ == (3528474i32)) {
-                        _repeat_3526604 = _before_3527979?.__copy__();
-                        _t_3526580 = _after_3528004?.__copy__();
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3528505i32)) {
-                        if ((((_p_3526468._flags & (64 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != (0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) && ((_t_3526580.length) >= (2 : stdgo.GoInt) : Bool) : Bool)) {
-                            _gotoNext = 3528556i32;
+                        _gotoNext = 3555502i32;
+                    } else if (__value__ == (3555502i32)) {
+                        _repeat_3553632 = _before_3555007?.__copy__();
+                        _t_3553608 = _after_3555032?.__copy__();
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3555533i32)) {
+                        if ((((_p_3553496._flags & (64 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != (0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) && ((_t_3553608.length) >= (2 : stdgo.GoInt) : Bool) : Bool)) {
+                            _gotoNext = 3555584i32;
                         } else {
-                            _gotoNext = 3529280i32;
+                            _gotoNext = 3556308i32;
                         };
-                    } else if (__value__ == (3528556i32)) {
-                        _gotoNext = 3528562i32;
-                    } else if (__value__ == (3528562i32)) {
+                    } else if (__value__ == (3555584i32)) {
+                        _gotoNext = 3555590i32;
+                    } else if (__value__ == (3555590i32)) {
                         {
-                            final __value__ = _t_3526580[(1 : stdgo.GoInt)];
+                            final __value__ = _t_3553608[(1 : stdgo.GoInt)];
                             if (__value__ == ((65 : stdgo.GoUInt8))) {
-                                _gotoNext = 3528580i32;
+                                _gotoNext = 3555608i32;
                             } else if (__value__ == ((98 : stdgo.GoUInt8))) {
-                                _gotoNext = 3528653i32;
+                                _gotoNext = 3555681i32;
                             } else if (__value__ == ((66 : stdgo.GoUInt8))) {
-                                _gotoNext = 3528729i32;
+                                _gotoNext = 3555757i32;
                             } else if (__value__ == ((67 : stdgo.GoUInt8))) {
-                                _gotoNext = 3528807i32;
+                                _gotoNext = 3555835i32;
                             } else if (__value__ == ((81 : stdgo.GoUInt8))) {
-                                _gotoNext = 3528902i32;
+                                _gotoNext = 3555930i32;
                             } else if (__value__ == ((122 : stdgo.GoUInt8))) {
-                                _gotoNext = 3529198i32;
+                                _gotoNext = 3556226i32;
                             } else {
-                                _gotoNext = 3529280i32;
+                                _gotoNext = 3556308i32;
                             };
                         };
-                    } else if (__value__ == (3528580i32)) {
-                        _p_3526468._op((9 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _t_3526580 = (_t_3526580.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    } else if (__value__ == (3555608i32)) {
+                        @:check2 _p_3553496._op((9 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _t_3553608 = (_t_3553608.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3528653i32)) {
-                        _p_3526468._op((11 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _t_3526580 = (_t_3526580.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3555681i32)) {
+                        @:check2 _p_3553496._op((11 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _t_3553608 = (_t_3553608.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3528729i32)) {
-                        _p_3526468._op((12 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _t_3526580 = (_t_3526580.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3555757i32)) {
+                        @:check2 _p_3553496._op((12 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _t_3553608 = (_t_3553608.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3528807i32)) {
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3555835i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_Error.Error((("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_ErrorCode.ErrorCode), (_t_3526580.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_Error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Error.Error>)) };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_Error.Error((("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_ErrorCode.ErrorCode), (_t_3553608.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_Error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Error.Error>)) };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3529280i32;
-                    } else if (__value__ == (3528902i32)) {
+                        _gotoNext = 3556308i32;
+                    } else if (__value__ == (3555930i32)) {
                         {
-                            var __tmp__ = stdgo._internal.strings.Strings_cut.cut((_t_3526580.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), ("\\E" : stdgo.GoString));
-                            _lit_3528967 = __tmp__._0?.__copy__();
-                            _t_3526580 = __tmp__._1?.__copy__();
+                            var __tmp__ = stdgo._internal.strings.Strings_cut.cut((_t_3553608.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), ("\\E" : stdgo.GoString));
+                            _lit_3555995 = __tmp__._0?.__copy__();
+                            _t_3553608 = __tmp__._1?.__copy__();
                         };
                         var __blank__ = 0i32;
-                        _gotoNext = 3529025i32;
-                    } else if (__value__ == (3529025i32)) {
-                        if (_lit_3528967 != (stdgo.Go.str())) {
-                            _gotoNext = 3529039i32;
+                        _gotoNext = 3556053i32;
+                    } else if (__value__ == (3556053i32)) {
+                        if (_lit_3555995 != (stdgo.Go.str())) {
+                            _gotoNext = 3556067i32;
                         } else {
-                            _gotoNext = 3529178i32;
+                            _gotoNext = 3556206i32;
                         };
-                    } else if (__value__ == (3529039i32)) {
+                    } else if (__value__ == (3556067i32)) {
                         {
-                            var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextRune._nextRune(_lit_3528967?.__copy__());
-                            _c_3529047 = __tmp__._0;
-                            _rest_3529050 = __tmp__._1?.__copy__();
-                            _err_3529056 = __tmp__._2;
+                            var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextRune._nextRune(_lit_3555995?.__copy__());
+                            _c_3556075 = __tmp__._0;
+                            _rest_3556078 = __tmp__._1?.__copy__();
+                            _err_3556084 = __tmp__._2;
                         };
-                        if (_err_3529056 != null) {
-                            _gotoNext = 3529097i32;
+                        if (_err_3556084 != null) {
+                            _gotoNext = 3556125i32;
                         } else {
-                            _gotoNext = 3529136i32;
+                            _gotoNext = 3556164i32;
                         };
-                    } else if (__value__ == (3529097i32)) {
+                    } else if (__value__ == (3556125i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3529056 };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3556084 };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3529136i32;
-                    } else if (__value__ == (3529136i32)) {
-                        _p_3526468._literal(_c_3529047);
-                        _lit_3528967 = _rest_3529050?.__copy__();
-                        _gotoNext = 3529025i32;
-                    } else if (__value__ == (3529178i32)) {
+                        _gotoNext = 3556164i32;
+                    } else if (__value__ == (3556164i32)) {
+                        @:check2 _p_3553496._literal(_c_3556075);
+                        _lit_3555995 = _rest_3556078?.__copy__();
+                        _gotoNext = 3556053i32;
+                    } else if (__value__ == (3556206i32)) {
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3529198i32)) {
-                        _p_3526468._op((10 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _t_3526580 = (_t_3526580.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3556226i32)) {
+                        @:check2 _p_3553496._op((10 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        _t_3553608 = (_t_3553608.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3529280i32)) {
-                        _re_3529280 = _p_3526468._newRegexp((4 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
-                        _re_3529280.flags = _p_3526468._flags;
-                        if ((((_t_3526580.length) >= (2 : stdgo.GoInt) : Bool) && (((_t_3526580[(1 : stdgo.GoInt)] == (112 : stdgo.GoUInt8)) || (_t_3526580[(1 : stdgo.GoInt)] == (80 : stdgo.GoUInt8)) : Bool)) : Bool)) {
-                            _gotoNext = 3529436i32;
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3556308i32)) {
+                        _re_3556308 = @:check2 _p_3553496._newRegexp((4 : stdgo._internal.regexp.syntax.Syntax_Op.Op));
+                        (@:checkr _re_3556308 ?? throw "null pointer dereference").flags = _p_3553496._flags;
+                        if ((((_t_3553608.length) >= (2 : stdgo.GoInt) : Bool) && (((_t_3553608[(1 : stdgo.GoInt)] == (112 : stdgo.GoUInt8)) || (_t_3553608[(1 : stdgo.GoInt)] == (80 : stdgo.GoUInt8)) : Bool)) : Bool)) {
+                            _gotoNext = 3556464i32;
                         } else {
-                            _gotoNext = 3529678i32;
+                            _gotoNext = 3556706i32;
                         };
-                    } else if (__value__ == (3529436i32)) {
+                    } else if (__value__ == (3556464i32)) {
                         {
-                            var __tmp__ = _p_3526468._parseUnicodeClass(_t_3526580?.__copy__(), (_re_3529280.rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
-                            _r_3529442 = __tmp__._0;
-                            _rest_3529445 = __tmp__._1?.__copy__();
-                            _err_3529451 = __tmp__._2;
+                            var __tmp__ = @:check2 _p_3553496._parseUnicodeClass(_t_3553608?.__copy__(), ((@:checkr _re_3556308 ?? throw "null pointer dereference").rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
+                            _r_3556470 = __tmp__._0;
+                            _rest_3556473 = __tmp__._1?.__copy__();
+                            _err_3556479 = __tmp__._2;
                         };
-                        if (_err_3529451 != null) {
-                            _gotoNext = 3529513i32;
+                        if (_err_3556479 != null) {
+                            _gotoNext = 3556541i32;
                         } else {
-                            _gotoNext = 3529546i32;
+                            _gotoNext = 3556574i32;
                         };
-                    } else if (__value__ == (3529513i32)) {
+                    } else if (__value__ == (3556541i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3529451 };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err_3556479 };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3529546i32;
-                    } else if (__value__ == (3529546i32)) {
-                        if (_r_3529442 != null) {
-                            _gotoNext = 3529558i32;
+                        _gotoNext = 3556574i32;
+                    } else if (__value__ == (3556574i32)) {
+                        if (_r_3556470 != null) {
+                            _gotoNext = 3556586i32;
                         } else {
-                            _gotoNext = 3529678i32;
+                            _gotoNext = 3556706i32;
                         };
-                    } else if (__value__ == (3529558i32)) {
-                        _re_3529280.rune = _r_3529442;
-                        _t_3526580 = _rest_3529445?.__copy__();
-                        _p_3526468._push(_re_3529280);
+                    } else if (__value__ == (3556586i32)) {
+                        (@:checkr _re_3556308 ?? throw "null pointer dereference").rune = _r_3556470;
+                        _t_3553608 = _rest_3556473?.__copy__();
+                        @:check2 _p_3553496._push(_re_3556308);
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3529678i32)) {
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3556706i32)) {
                         {
                             {
-                                var __tmp__ = _p_3526468._parsePerlClassEscape(_t_3526580?.__copy__(), (_re_3529280.rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
-                                _r_3529681 = __tmp__._0;
-                                _rest_3529684 = __tmp__._1?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._parsePerlClassEscape(_t_3553608?.__copy__(), ((@:checkr _re_3556308 ?? throw "null pointer dereference").rune0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
+                                _r_3556709 = __tmp__._0;
+                                _rest_3556712 = __tmp__._1?.__copy__();
                             };
-                            if (_r_3529681 != null) {
-                                _gotoNext = 3529742i32;
+                            if (_r_3556709 != null) {
+                                _gotoNext = 3556770i32;
                             } else {
-                                _gotoNext = 3529816i32;
+                                _gotoNext = 3556844i32;
                             };
                         };
-                    } else if (__value__ == (3529742i32)) {
-                        _re_3529280.rune = _r_3529681;
-                        _t_3526580 = _rest_3529684?.__copy__();
-                        _p_3526468._push(_re_3529280);
+                    } else if (__value__ == (3556770i32)) {
+                        (@:checkr _re_3556308 ?? throw "null pointer dereference").rune = _r_3556709;
+                        _t_3553608 = _rest_3556712?.__copy__();
+                        @:check2 _p_3553496._push(_re_3556308);
                         bigSwitchBreak = true;
-                        _gotoNext = 3526631i32;
-                    } else if (__value__ == (3529816i32)) {
-                        _p_3526468._reuse(_re_3529280);
+                        _gotoNext = 3553659i32;
+                    } else if (__value__ == (3556844i32)) {
+                        @:check2 _p_3553496._reuse(_re_3556308);
                         {
                             {
-                                var __tmp__ = _p_3526468._parseEscape(_t_3526580?.__copy__());
-                                _c_3526488 = __tmp__._0;
-                                _t_3526580 = __tmp__._1?.__copy__();
+                                var __tmp__ = @:check2 _p_3553496._parseEscape(_t_3553608?.__copy__());
+                                _c_3553516 = __tmp__._0;
+                                _t_3553608 = __tmp__._1?.__copy__();
                                 _err = __tmp__._2;
                             };
                             if (_err != null) {
-                                _gotoNext = 3529916i32;
+                                _gotoNext = 3556944i32;
                             } else {
-                                _gotoNext = 3529946i32;
+                                _gotoNext = 3556974i32;
                             };
                         };
-                    } else if (__value__ == (3529916i32)) {
+                    } else if (__value__ == (3556944i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
@@ -678,36 +691,37 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3529946i32;
-                    } else if (__value__ == (3529946i32)) {
-                        _p_3526468._literal(_c_3526488);
-                        _gotoNext = 3529965i32;
-                    } else if (__value__ == (3529965i32)) {
-                        _lastRepeat_3526522 = _repeat_3526604?.__copy__();
-                        _gotoNext = 3526588i32;
-                    } else if (__value__ == (3529990i32)) {
-                        _p_3526468._concat();
-                        if (_p_3526468._swapVerticalBar()) {
-                            _gotoNext = 3530025i32;
+                        _gotoNext = 3556974i32;
+                    } else if (__value__ == (3556974i32)) {
+                        @:check2 _p_3553496._literal(_c_3553516);
+                        _gotoNext = 3556993i32;
+                    } else if (__value__ == (3556993i32)) {
+                        _lastRepeat_3553550 = _repeat_3553632?.__copy__();
+                        _gotoNext = 3553616i32;
+                    } else if (__value__ == (3557018i32)) {
+                        @:check2 _p_3553496._concat();
+                        if (@:check2 _p_3553496._swapVerticalBar()) {
+                            _gotoNext = 3557053i32;
                         } else {
-                            _gotoNext = 3530090i32;
+                            _gotoNext = 3557118i32;
                         };
-                    } else if (__value__ == (3530025i32)) {
-                        _p_3526468._stack = (_p_3526468._stack.__slice__(0, ((_p_3526468._stack.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>);
-                        _gotoNext = 3530090i32;
-                    } else if (__value__ == (3530090i32)) {
-                        _p_3526468._alternate();
-                        _n_3530106 = (_p_3526468._stack.length);
-                        if (_n_3530106 != ((1 : stdgo.GoInt))) {
-                            _gotoNext = 3530135i32;
+                    } else if (__value__ == (3557053i32)) {
+                        _p_3553496._stack = (_p_3553496._stack.__slice__(0, ((_p_3553496._stack.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>);
+                        _gotoNext = 3557118i32;
+                    } else if (__value__ == (3557118i32)) {
+                        @:check2 _p_3553496._alternate();
+                        _n_3557134 = (_p_3553496._stack.length);
+                        if (_n_3557134 != ((1 : stdgo.GoInt))) {
+                            _gotoNext = 3557163i32;
                         } else {
-                            _gotoNext = 3530182i32;
+                            _gotoNext = 3557210i32;
                         };
-                    } else if (__value__ == (3530135i32)) {
+                    } else if (__value__ == (3557163i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
                                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_Error.Error((("missing closing )" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_ErrorCode.ErrorCode), _s?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_Error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Error.Error>)) };
@@ -716,20 +730,22 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3530182i32;
-                    } else if (__value__ == (3530182i32)) {
+                        _gotoNext = 3557210i32;
+                    } else if (__value__ == (3557210i32)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : _p_3526468._stack[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : _p_3553496._stack[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -741,6 +757,7 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
             throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -755,6 +772,7 @@ function _parse(_s:stdgo.GoString, _flags:stdgo._internal.regexp.syntax.Syntax_F
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

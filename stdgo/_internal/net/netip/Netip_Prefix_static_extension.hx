@@ -1,6 +1,7 @@
 package stdgo._internal.net.netip;
 @:keep @:allow(stdgo._internal.net.netip.Netip.Prefix_asInterface) class Prefix_static_extension {
     @:keep
+    @:tdfield
     static public function string( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):stdgo.GoString {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         if (!_p.isValid()) {
@@ -9,13 +10,14 @@ package stdgo._internal.net.netip;
         return (((_p._ip.string() : stdgo.GoString) + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.internal.itoa.Itoa_itoa.itoa(_p.bits())?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function unmarshalBinary( _p:stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix> = _p;
         if (((_b.length) < (1 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("unexpected slice size" : stdgo.GoString));
         };
         var _addr:stdgo._internal.net.netip.Netip_Addr.Addr = ({} : stdgo._internal.net.netip.Netip_Addr.Addr);
-        var _err = (_addr.unmarshalBinary((_b.__slice__(0, ((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
+        var _err = (@:check2 _addr.unmarshalBinary((_b.__slice__(0, ((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
         if (_err != null) {
             return _err;
         };
@@ -28,6 +30,7 @@ package stdgo._internal.net.netip;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalBinary( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         var _b = _p.addr()._withoutZone()._marshalBinaryWithTrailingBytes((1 : stdgo.GoInt));
@@ -35,6 +38,7 @@ package stdgo._internal.net.netip;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function unmarshalText( _p:stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix> = _p;
         if ((_text.length) == ((0 : stdgo.GoInt))) {
@@ -57,6 +61,7 @@ package stdgo._internal.net.netip;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function marshalText( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         var _max:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -73,6 +78,7 @@ package stdgo._internal.net.netip;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function appendTo( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         if (_p._isZero()) {
@@ -96,6 +102,7 @@ package stdgo._internal.net.netip;
         return _b;
     }
     @:keep
+    @:tdfield
     static public function overlaps( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix, _o:stdgo._internal.net.netip.Netip_Prefix.Prefix):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         if ((!_p.isValid() || !_o.isValid() : Bool)) {
@@ -144,6 +151,7 @@ var _ob = __1, _pb = __0;
         return stdgo.Go.toInterface(_p._ip) == stdgo.Go.toInterface(_o._ip);
     }
     @:keep
+    @:tdfield
     static public function contains( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix, _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         if ((!_p.isValid() || _ip._hasZone() : Bool)) {
@@ -163,32 +171,38 @@ var _f2 = __1, _f1 = __0;
         };
     }
     @:keep
+    @:tdfield
     static public function masked( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):stdgo._internal.net.netip.Netip_Prefix.Prefix {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         var __tmp__ = _p._ip.prefix(_p.bits()), _m:stdgo._internal.net.netip.Netip_Prefix.Prefix = __tmp__._0, __24:stdgo.Error = __tmp__._1;
         return _m?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function isSingleIP( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         return (_p.isValid() && (_p.bits() == _p._ip.bitLen()) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _isZero( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         return stdgo.Go.toInterface(_p) == stdgo.Go.toInterface((new stdgo._internal.net.netip.Netip_Prefix.Prefix() : stdgo._internal.net.netip.Netip_Prefix.Prefix));
     }
     @:keep
+    @:tdfield
     static public function isValid( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         return (_p._bitsPlusOne > (0 : stdgo.GoUInt8) : Bool);
     }
     @:keep
+    @:tdfield
     static public function bits( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):stdgo.GoInt {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         return ((_p._bitsPlusOne : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function addr( _p:stdgo._internal.net.netip.Netip_Prefix.Prefix):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _p:stdgo._internal.net.netip.Netip_Prefix.Prefix = _p?.__copy__();
         return _p._ip?.__copy__();

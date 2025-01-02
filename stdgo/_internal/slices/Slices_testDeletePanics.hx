@@ -4,7 +4,7 @@ function testDeletePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             if (!stdgo._internal.slices.Slices__panics._panics(function():Void {
                 stdgo._internal.slices.Slices_delete.delete(_test._s, _test._i, _test._j);
             })) {
-                _t.errorf(("Delete %s: got no panic, want panic" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
+                @:check2r _t.errorf(("Delete %s: got no panic, want panic" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
             };
         };
     }

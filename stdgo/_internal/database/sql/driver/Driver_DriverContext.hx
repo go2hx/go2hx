@@ -6,5 +6,6 @@ typedef DriverContext = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function openConnector(_name:stdgo.GoString):{ var _0 : stdgo._internal.database.sql.driver.Driver_Connector.Connector; var _1 : stdgo.Error; };
 };

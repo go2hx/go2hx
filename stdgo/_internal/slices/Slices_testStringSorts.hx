@@ -6,7 +6,7 @@ function testStringSorts(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         stdgo._internal.slices.Slices_sort.sort(_ss2);
         for (_i => _ in _ss) {
             if (_ss[(_i : stdgo.GoInt)] != (_ss2[(_i : stdgo.GoInt)])) {
-                _t.fatalf(("ss2 mismatch at %d; %s != %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_ss[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_ss2[(_i : stdgo.GoInt)]));
+                @:check2r _t.fatalf(("ss2 mismatch at %d; %s != %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_ss[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_ss2[(_i : stdgo.GoInt)]));
             };
         };
     }

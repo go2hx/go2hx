@@ -4,8 +4,8 @@ function _readDirNames(_dirname:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoS
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
         };
-        var __tmp__ = _f.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _f.close();
+        var __tmp__ = @:check2r _f.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        @:check2r _f.close();
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
         };

@@ -124,6 +124,7 @@ typedef Generator = stdgo._internal.testing.quick.Quick_Generator.Generator;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.testing.quick.Quick_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
@@ -215,6 +216,7 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick_TestUintptrAlias.
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ConfigPointer = stdgo._internal.testing.quick.Quick_ConfigPointer.ConfigPointer;
 class Config_static_extension {
     static public function _getMaxCount(_c:Config):StdTypes.Int {
         return stdgo._internal.testing.quick.Quick_Config_static_extension.Config_static_extension._getMaxCount(_c);
@@ -223,21 +225,25 @@ class Config_static_extension {
         return stdgo._internal.testing.quick.Quick_Config_static_extension.Config_static_extension._getRand(_c);
     }
 }
+typedef CheckErrorPointer = stdgo._internal.testing.quick.Quick_CheckErrorPointer.CheckErrorPointer;
 class CheckError_static_extension {
     static public function error(_s:CheckError):String {
         return stdgo._internal.testing.quick.Quick_CheckError_static_extension.CheckError_static_extension.error(_s);
     }
 }
+typedef CheckEqualErrorPointer = stdgo._internal.testing.quick.Quick_CheckEqualErrorPointer.CheckEqualErrorPointer;
 class CheckEqualError_static_extension {
     static public function error(_s:CheckEqualError):String {
         return stdgo._internal.testing.quick.Quick_CheckEqualError_static_extension.CheckEqualError_static_extension.error(_s);
     }
 }
+typedef T_myStructPointer = stdgo._internal.testing.quick.Quick_T_myStructPointer.T_myStructPointer;
 class T_myStruct_static_extension {
     static public function generate(_m:T_myStruct, _r:stdgo._internal.math.rand.Rand_Rand.Rand, __0:StdTypes.Int):stdgo._internal.reflect.Reflect_Value.Value {
         return stdgo._internal.testing.quick.Quick_T_myStruct_static_extension.T_myStruct_static_extension.generate(_m, _r, __0);
     }
 }
+typedef SetupErrorPointer = stdgo._internal.testing.quick.Quick_SetupErrorPointer.SetupErrorPointer;
 class SetupError_static_extension {
     static public function error(_s:SetupError):String {
         return stdgo._internal.testing.quick.Quick_SetupError_static_extension.SetupError_static_extension.error(_s);

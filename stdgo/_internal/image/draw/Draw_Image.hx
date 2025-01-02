@@ -6,5 +6,6 @@ typedef Image = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function set(_x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color_Color.Color):Void;
 };

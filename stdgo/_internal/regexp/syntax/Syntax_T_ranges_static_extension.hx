@@ -1,6 +1,7 @@
 package stdgo._internal.regexp.syntax;
 @:keep @:allow(stdgo._internal.regexp.syntax.Syntax.T_ranges_asInterface) class T_ranges_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges = _ra?.__copy__();
         var _p = (_ra._p : stdgo.Slice<stdgo.GoInt32>);
@@ -26,11 +27,13 @@ package stdgo._internal.regexp.syntax;
         };
     }
     @:keep
+    @:tdfield
     static public function len( _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges):stdgo.GoInt {
         @:recv var _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges = _ra?.__copy__();
         return (((_ra._p : stdgo.Slice<stdgo.GoInt32>).length) / (2 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function less( _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _ra:stdgo._internal.regexp.syntax.Syntax_T_ranges.T_ranges = _ra?.__copy__();
         var _p = (_ra._p : stdgo.Slice<stdgo.GoInt32>);

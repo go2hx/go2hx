@@ -4,7 +4,7 @@ final ltime = stdgo._internal.log.Log_ltime.ltime;
 final lmicroseconds = stdgo._internal.log.Log_lmicroseconds.lmicroseconds;
 final llongfile = stdgo._internal.log.Log_llongfile.llongfile;
 final lshortfile = stdgo._internal.log.Log_lshortfile.lshortfile;
-final lutc = stdgo._internal.log.Log_lutc.lutc;
+final lUTC = stdgo._internal.log.Log_lUTC.lUTC;
 final lmsgprefix = stdgo._internal.log.Log_lmsgprefix.lmsgprefix;
 final lstdFlags : haxe.UInt64 = stdgo._internal.log.Log_lstdFlags.lstdFlags;
 final rdate : String = stdgo._internal.log.Log_rdate.rdate;
@@ -76,6 +76,7 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef LoggerPointer = stdgo._internal.log.Log_LoggerPointer.LoggerPointer;
 class Logger_static_extension {
     static public function writer(_l:Logger):stdgo._internal.io.Io_Writer.Writer {
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.writer(_l);
@@ -130,6 +131,7 @@ class Logger_static_extension {
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setOutput(_l, _w);
     }
 }
+typedef T_discardPointer = stdgo._internal.log.Log_T_discardPointer.T_discardPointer;
 class T_discard_static_extension {
     static public function write(_:T_discard, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);

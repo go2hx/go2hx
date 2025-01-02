@@ -17,6 +17,6 @@ if ((_b.capacity > _maxCap : Bool)) {
         };
         var _want = ((stdgo._internal.math.Math_log.log((1e+06 : stdgo.GoFloat64)) / stdgo._internal.math.Math_log.log((1.25 : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoInt);
         if ((_nGrow > _want : Bool)) {
-            _t.errorf(("too many grows. got:%d want:%d" : stdgo.GoString), stdgo.Go.toInterface(_nGrow), stdgo.Go.toInterface(_want));
+            @:check2r _t.errorf(("too many grows. got:%d want:%d" : stdgo.GoString), stdgo.Go.toInterface(_nGrow), stdgo.Go.toInterface(_want));
         };
     }

@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.sha512;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
         var _w:stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(80, 80, ...[for (i in 0 ... 80) (0 : stdgo.GoUInt64)]);
-        var __0 = (_dig._h[(0 : stdgo.GoInt)] : stdgo.GoUInt64), __1 = (_dig._h[(1 : stdgo.GoInt)] : stdgo.GoUInt64), __2 = (_dig._h[(2 : stdgo.GoInt)] : stdgo.GoUInt64), __3 = (_dig._h[(3 : stdgo.GoInt)] : stdgo.GoUInt64), __4 = (_dig._h[(4 : stdgo.GoInt)] : stdgo.GoUInt64), __5 = (_dig._h[(5 : stdgo.GoInt)] : stdgo.GoUInt64), __6 = (_dig._h[(6 : stdgo.GoInt)] : stdgo.GoUInt64), __7 = (_dig._h[(7 : stdgo.GoInt)] : stdgo.GoUInt64);
+        var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] : stdgo.GoUInt64), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] : stdgo.GoUInt64), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] : stdgo.GoUInt64), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] : stdgo.GoUInt64), __4 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] : stdgo.GoUInt64), __5 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] : stdgo.GoUInt64), __6 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] : stdgo.GoUInt64), __7 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] : stdgo.GoUInt64);
 var _h7 = __7, _h6 = __6, _h5 = __5, _h4 = __4, _h3 = __3, _h2 = __2, _h1 = __1, _h0 = __0;
         while (((_p.length) >= (128 : stdgo.GoInt) : Bool)) {
             {
@@ -60,21 +60,21 @@ _a = (_t1 + _t2 : stdgo.GoUInt64);
             final __tmp__5 = _h5;
             final __tmp__6 = _h6;
             final __tmp__7 = _h7;
-            final __tmp__8 = _dig._h;
+            final __tmp__8 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__9 = (0 : stdgo.GoInt);
-            final __tmp__10 = _dig._h;
+            final __tmp__10 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__11 = (1 : stdgo.GoInt);
-            final __tmp__12 = _dig._h;
+            final __tmp__12 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__13 = (2 : stdgo.GoInt);
-            final __tmp__14 = _dig._h;
+            final __tmp__14 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__15 = (3 : stdgo.GoInt);
-            final __tmp__16 = _dig._h;
+            final __tmp__16 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__17 = (4 : stdgo.GoInt);
-            final __tmp__18 = _dig._h;
+            final __tmp__18 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__19 = (5 : stdgo.GoInt);
-            final __tmp__20 = _dig._h;
+            final __tmp__20 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__21 = (6 : stdgo.GoInt);
-            final __tmp__22 = _dig._h;
+            final __tmp__22 = (@:checkr _dig ?? throw "null pointer dereference")._h;
             final __tmp__23 = (7 : stdgo.GoInt);
             __tmp__8[__tmp__9] = __tmp__0;
             __tmp__10[__tmp__11] = __tmp__1;

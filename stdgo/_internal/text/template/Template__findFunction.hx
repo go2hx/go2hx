@@ -3,14 +3,14 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         var __deferstack__:Array<Void -> Void> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_Value.Value), _isBuiltin = false, _ok = false;
         try {
-            if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && (_tmpl._common != null && ((_tmpl._common : Dynamic).__nil__ == null || !(_tmpl._common : Dynamic).__nil__)) : Bool)) {
-                _tmpl._common._muFuncs.rlock();
+            if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && ((@:checkr _tmpl ?? throw "null pointer dereference")._common != null && (((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__ == null || !((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__)) : Bool)) {
+                @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
                 {
-                    final __f__ = _tmpl._common._muFuncs.runlock;
+                    final __f__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
                     __deferstack__.unshift(() -> __f__());
                 };
                 {
-                    var _fn = ((_tmpl._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+                    var _fn = (((@:checkr _tmpl ?? throw "null pointer dereference")._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                     if (_fn.isValid()) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = {
@@ -21,6 +21,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -40,6 +41,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -55,12 +57,14 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -75,6 +79,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

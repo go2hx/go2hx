@@ -41,18 +41,18 @@ final funcID_systemstack = stdgo._internal.internal.abi.Abi_funcID_systemstack.f
 final funcID_systemstack_switch = stdgo._internal.internal.abi.Abi_funcID_systemstack_switch.funcID_systemstack_switch;
 final funcIDWrapper = stdgo._internal.internal.abi.Abi_funcIDWrapper.funcIDWrapper;
 final argsSizeUnknown : haxe.UInt64 = stdgo._internal.internal.abi.Abi_argsSizeUnknown.argsSizeUnknown;
-final pcdata_UnsafePoint : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pcdata_UnsafePoint.pcdata_UnsafePoint;
-final pcdata_StackMapIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pcdata_StackMapIndex.pcdata_StackMapIndex;
-final pcdata_InlTreeIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pcdata_InlTreeIndex.pcdata_InlTreeIndex;
-final pcdata_ArgLiveIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pcdata_ArgLiveIndex.pcdata_ArgLiveIndex;
-final funcdata_ArgsPointerMaps : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_ArgsPointerMaps.funcdata_ArgsPointerMaps;
-final funcdata_LocalsPointerMaps : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_LocalsPointerMaps.funcdata_LocalsPointerMaps;
-final funcdata_StackObjects : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_StackObjects.funcdata_StackObjects;
-final funcdata_InlTree : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_InlTree.funcdata_InlTree;
-final funcdata_OpenCodedDeferInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_OpenCodedDeferInfo.funcdata_OpenCodedDeferInfo;
-final funcdata_ArgInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_ArgInfo.funcdata_ArgInfo;
-final funcdata_ArgLiveInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_ArgLiveInfo.funcdata_ArgLiveInfo;
-final funcdata_WrapInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_funcdata_WrapInfo.funcdata_WrapInfo;
+final pCDATA_UnsafePoint : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pCDATA_UnsafePoint.pCDATA_UnsafePoint;
+final pCDATA_StackMapIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pCDATA_StackMapIndex.pCDATA_StackMapIndex;
+final pCDATA_InlTreeIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pCDATA_InlTreeIndex.pCDATA_InlTreeIndex;
+final pCDATA_ArgLiveIndex : haxe.UInt64 = stdgo._internal.internal.abi.Abi_pCDATA_ArgLiveIndex.pCDATA_ArgLiveIndex;
+final fUNCDATA_ArgsPointerMaps : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_ArgsPointerMaps.fUNCDATA_ArgsPointerMaps;
+final fUNCDATA_LocalsPointerMaps : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_LocalsPointerMaps.fUNCDATA_LocalsPointerMaps;
+final fUNCDATA_StackObjects : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_StackObjects.fUNCDATA_StackObjects;
+final fUNCDATA_InlTree : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_InlTree.fUNCDATA_InlTree;
+final fUNCDATA_OpenCodedDeferInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_OpenCodedDeferInfo.fUNCDATA_OpenCodedDeferInfo;
+final fUNCDATA_ArgInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_ArgInfo.fUNCDATA_ArgInfo;
+final fUNCDATA_ArgLiveInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_ArgLiveInfo.fUNCDATA_ArgLiveInfo;
+final fUNCDATA_WrapInfo : haxe.UInt64 = stdgo._internal.internal.abi.Abi_fUNCDATA_WrapInfo.fUNCDATA_WrapInfo;
 final unsafePointSafe : haxe.UInt64 = stdgo._internal.internal.abi.Abi_unsafePointSafe.unsafePointSafe;
 final unsafePointUnsafe : haxe.UInt64 = stdgo._internal.internal.abi.Abi_unsafePointUnsafe.unsafePointUnsafe;
 final unsafePointRestart1 : haxe.UInt64 = stdgo._internal.internal.abi.Abi_unsafePointRestart1.unsafePointRestart1;
@@ -88,10 +88,10 @@ final unsafePointer = stdgo._internal.internal.abi.Abi_unsafePointer.unsafePoint
 final kindDirectIface : haxe.UInt64 = stdgo._internal.internal.abi.Abi_kindDirectIface.kindDirectIface;
 final kindGCProg : haxe.UInt64 = stdgo._internal.internal.abi.Abi_kindGCProg.kindGCProg;
 final kindMask : haxe.UInt64 = stdgo._internal.internal.abi.Abi_kindMask.kindMask;
-final tflagUncommon : TFlag = stdgo._internal.internal.abi.Abi_tflagUncommon.tflagUncommon;
-final tflagExtraStar : TFlag = stdgo._internal.internal.abi.Abi_tflagExtraStar.tflagExtraStar;
-final tflagNamed : TFlag = stdgo._internal.internal.abi.Abi_tflagNamed.tflagNamed;
-final tflagRegularMemory : TFlag = stdgo._internal.internal.abi.Abi_tflagRegularMemory.tflagRegularMemory;
+final tFlagUncommon : TFlag = stdgo._internal.internal.abi.Abi_tFlagUncommon.tFlagUncommon;
+final tFlagExtraStar : TFlag = stdgo._internal.internal.abi.Abi_tFlagExtraStar.tFlagExtraStar;
+final tFlagNamed : TFlag = stdgo._internal.internal.abi.Abi_tFlagNamed.tFlagNamed;
+final tFlagRegularMemory : TFlag = stdgo._internal.internal.abi.Abi_tFlagRegularMemory.tFlagRegularMemory;
 final recvDir : ChanDir = stdgo._internal.internal.abi.Abi_recvDir.recvDir;
 final sendDir = stdgo._internal.internal.abi.Abi_sendDir.sendDir;
 final bothDir : ChanDir = stdgo._internal.internal.abi.Abi_bothDir.bothDir;
@@ -173,10 +173,10 @@ final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invalidDir.invalid
         this.hash = v;
         return v;
     }
-    public var tflag(get, set) : TFlag;
-    function get_tflag():TFlag return this.tflag;
-    function set_tflag(v:TFlag):TFlag {
-        this.tflag = v;
+    public var tFlag(get, set) : TFlag;
+    function get_tFlag():TFlag return this.tFlag;
+    function set_tFlag(v:TFlag):TFlag {
+        this.tFlag = v;
         return v;
     }
     public var align_(get, set) : std.UInt;
@@ -203,10 +203,10 @@ final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invalidDir.invalid
         this.equal = v;
         return v;
     }
-    public var gcdata(get, set) : stdgo.Pointer<std.UInt>;
-    function get_gcdata():stdgo.Pointer<std.UInt> return this.gcdata;
-    function set_gcdata(v:stdgo.Pointer<std.UInt>):stdgo.Pointer<std.UInt> {
-        this.gcdata = v;
+    public var gCData(get, set) : stdgo.Pointer<std.UInt>;
+    function get_gCData():stdgo.Pointer<std.UInt> return this.gCData;
+    function set_gCData(v:stdgo.Pointer<std.UInt>):stdgo.Pointer<std.UInt> {
+        this.gCData = v;
         return v;
     }
     public var str(get, set) : NameOff;
@@ -221,16 +221,16 @@ final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invalidDir.invalid
         this.ptrToThis = v;
         return v;
     }
-    public function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:std.UInt, ?tflag:TFlag, ?align_:std.UInt, ?fieldAlign_:std.UInt, ?kind_:std.UInt, ?equal:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer) -> Bool, ?gcdata:stdgo.Pointer<std.UInt>, ?str:NameOff, ?ptrToThis:TypeOff) this = new stdgo._internal.internal.abi.Abi_Type_.Type_(
+    public function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:std.UInt, ?tFlag:TFlag, ?align_:std.UInt, ?fieldAlign_:std.UInt, ?kind_:std.UInt, ?equal:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer) -> Bool, ?gCData:stdgo.Pointer<std.UInt>, ?str:NameOff, ?ptrToThis:TypeOff) this = new stdgo._internal.internal.abi.Abi_Type_.Type_(
 size_,
 ptrBytes,
 hash,
-tflag,
+tFlag,
 align_,
 fieldAlign_,
 kind_,
 equal,
-gcdata,
+gCData,
 str,
 ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -591,6 +591,7 @@ typedef NameOff = stdgo._internal.internal.abi.Abi_NameOff.NameOff;
 typedef TypeOff = stdgo._internal.internal.abi.Abi_TypeOff.TypeOff;
 typedef TextOff = stdgo._internal.internal.abi.Abi_TextOff.TextOff;
 typedef ChanDir = stdgo._internal.internal.abi.Abi_ChanDir.ChanDir;
+typedef RegArgsPointer = stdgo._internal.internal.abi.Abi_RegArgsPointer.RegArgsPointer;
 class RegArgs_static_extension {
     static public function intRegArgAddr(_r:RegArgs, _reg:StdTypes.Int, _argSize:stdgo.GoUIntptr):stdgo._internal.unsafe.Unsafe.UnsafePointer {
         return stdgo._internal.internal.abi.Abi_RegArgs_static_extension.RegArgs_static_extension.intRegArgAddr(_r, _reg, _argSize);
@@ -599,6 +600,7 @@ class RegArgs_static_extension {
         stdgo._internal.internal.abi.Abi_RegArgs_static_extension.RegArgs_static_extension.dump(_r);
     }
 }
+typedef OffsetPointer = stdgo._internal.internal.abi.Abi_OffsetPointer.OffsetPointer;
 class Offset_static_extension {
     static public function plusUncommon(_o:Offset):Offset {
         return stdgo._internal.internal.abi.Abi_Offset_static_extension.Offset_static_extension.plusUncommon(_o);
@@ -640,6 +642,7 @@ class Offset_static_extension {
         return stdgo._internal.internal.abi.Abi_Offset_static_extension.Offset_static_extension._align_(_o, _a);
     }
 }
+typedef Type_Pointer = stdgo._internal.internal.abi.Abi_Type_Pointer.Type_Pointer;
 class Type__static_extension {
     static public function key(_t:Type_):Type_ {
         return stdgo._internal.internal.abi.Abi_Type__static_extension.Type__static_extension.key(_t);
@@ -844,6 +847,7 @@ class Type__static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef UncommonTypePointer = stdgo._internal.internal.abi.Abi_UncommonTypePointer.UncommonTypePointer;
 class UncommonType_static_extension {
     static public function exportedMethods(_t:UncommonType):Array<Method> {
         return [for (i in stdgo._internal.internal.abi.Abi_UncommonType_static_extension.UncommonType_static_extension.exportedMethods(_t)) i];
@@ -852,6 +856,7 @@ class UncommonType_static_extension {
         return [for (i in stdgo._internal.internal.abi.Abi_UncommonType_static_extension.UncommonType_static_extension.methods(_t)) i];
     }
 }
+typedef ArrayTypePointer = stdgo._internal.internal.abi.Abi_ArrayTypePointer.ArrayTypePointer;
 class ArrayType_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_ArrayType.ArrayType):UncommonType {
         return stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.uncommon(__self__);
@@ -889,8 +894,8 @@ class ArrayType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_ArrayType.ArrayType):Bool {
         return stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_ArrayType.ArrayType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_ArrayType.ArrayType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_ArrayType.ArrayType):FuncType {
         return stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.funcType(__self__);
@@ -914,6 +919,7 @@ class ArrayType_static_extension {
         return stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension.align(__self__);
     }
 }
+typedef ChanTypePointer = stdgo._internal.internal.abi.Abi_ChanTypePointer.ChanTypePointer;
 class ChanType_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_ChanType.ChanType):UncommonType {
         return stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.uncommon(__self__);
@@ -954,8 +960,8 @@ class ChanType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_ChanType.ChanType):Bool {
         return stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_ChanType.ChanType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_ChanType.ChanType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_ChanType.ChanType):FuncType {
         return stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.funcType(__self__);
@@ -979,6 +985,7 @@ class ChanType_static_extension {
         return stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension.align(__self__);
     }
 }
+typedef T_structTypeUncommonPointer = stdgo._internal.internal.abi.Abi_T_structTypeUncommonPointer.T_structTypeUncommonPointer;
 class T_structTypeUncommon_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_T_structTypeUncommon.T_structTypeUncommon):UncommonType {
         return stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.uncommon(__self__);
@@ -1016,8 +1023,8 @@ class T_structTypeUncommon_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_T_structTypeUncommon.T_structTypeUncommon):Bool {
         return stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_T_structTypeUncommon.T_structTypeUncommon, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_T_structTypeUncommon.T_structTypeUncommon, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_T_structTypeUncommon.T_structTypeUncommon):FuncType {
         return stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.funcType(__self__);
@@ -1044,6 +1051,7 @@ class T_structTypeUncommon_static_extension {
         return stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension.align(__self__);
     }
 }
+typedef InterfaceTypePointer = stdgo._internal.internal.abi.Abi_InterfaceTypePointer.InterfaceTypePointer;
 class InterfaceType_static_extension {
     static public function numMethod(_t:InterfaceType):StdTypes.Int {
         return stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.numMethod(_t);
@@ -1084,8 +1092,8 @@ class InterfaceType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType):Bool {
         return stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType):FuncType {
         return stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.funcType(__self__);
@@ -1112,6 +1120,7 @@ class InterfaceType_static_extension {
         return stdgo._internal.internal.abi.Abi_InterfaceType_static_extension.InterfaceType_static_extension.align(__self__);
     }
 }
+typedef MapTypePointer = stdgo._internal.internal.abi.Abi_MapTypePointer.MapTypePointer;
 class MapType_static_extension {
     static public function hashMightPanic(_mt:MapType):Bool {
         return stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.hashMightPanic(_mt);
@@ -1164,8 +1173,8 @@ class MapType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_MapType.MapType):Bool {
         return stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_MapType.MapType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_MapType.MapType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_MapType.MapType):FuncType {
         return stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.funcType(__self__);
@@ -1189,6 +1198,7 @@ class MapType_static_extension {
         return stdgo._internal.internal.abi.Abi_MapType_static_extension.MapType_static_extension.align(__self__);
     }
 }
+typedef SliceTypePointer = stdgo._internal.internal.abi.Abi_SliceTypePointer.SliceTypePointer;
 class SliceType_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_SliceType.SliceType):UncommonType {
         return stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.uncommon(__self__);
@@ -1229,8 +1239,8 @@ class SliceType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_SliceType.SliceType):Bool {
         return stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_SliceType.SliceType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_SliceType.SliceType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_SliceType.SliceType):FuncType {
         return stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.funcType(__self__);
@@ -1254,6 +1264,7 @@ class SliceType_static_extension {
         return stdgo._internal.internal.abi.Abi_SliceType_static_extension.SliceType_static_extension.align(__self__);
     }
 }
+typedef FuncTypePointer = stdgo._internal.internal.abi.Abi_FuncTypePointer.FuncTypePointer;
 class FuncType_static_extension {
     static public function isVariadic(_t:FuncType):Bool {
         return stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.isVariadic(_t);
@@ -1315,8 +1326,8 @@ class FuncType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_FuncType.FuncType):Bool {
         return stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_FuncType.FuncType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_FuncType.FuncType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_FuncType.FuncType):FuncType {
         return stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.funcType(__self__);
@@ -1343,6 +1354,7 @@ class FuncType_static_extension {
         return stdgo._internal.internal.abi.Abi_FuncType_static_extension.FuncType_static_extension.align(__self__);
     }
 }
+typedef PtrTypePointer = stdgo._internal.internal.abi.Abi_PtrTypePointer.PtrTypePointer;
 class PtrType_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_PtrType.PtrType):UncommonType {
         return stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.uncommon(__self__);
@@ -1383,8 +1395,8 @@ class PtrType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_PtrType.PtrType):Bool {
         return stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_PtrType.PtrType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_PtrType.PtrType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_PtrType.PtrType):FuncType {
         return stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.funcType(__self__);
@@ -1408,11 +1420,13 @@ class PtrType_static_extension {
         return stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension.align(__self__);
     }
 }
+typedef StructFieldPointer = stdgo._internal.internal.abi.Abi_StructFieldPointer.StructFieldPointer;
 class StructField_static_extension {
     static public function embedded(_f:StructField):Bool {
         return stdgo._internal.internal.abi.Abi_StructField_static_extension.StructField_static_extension.embedded(_f);
     }
 }
+typedef StructTypePointer = stdgo._internal.internal.abi.Abi_StructTypePointer.StructTypePointer;
 class StructType_static_extension {
     public static function uncommon(__self__:stdgo._internal.internal.abi.Abi_StructType.StructType):UncommonType {
         return stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.uncommon(__self__);
@@ -1453,8 +1467,8 @@ class StructType_static_extension {
     public static function hasName(__self__:stdgo._internal.internal.abi.Abi_StructType.StructType):Bool {
         return stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_StructType.StructType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.gcSlice(__self__, _begin, _end)) i];
+    public static function gcSlice(__self__:stdgo._internal.internal.abi.Abi_StructType.StructType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
     public static function funcType(__self__:stdgo._internal.internal.abi.Abi_StructType.StructType):FuncType {
         return stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.funcType(__self__);
@@ -1481,6 +1495,7 @@ class StructType_static_extension {
         return stdgo._internal.internal.abi.Abi_StructType_static_extension.StructType_static_extension.align(__self__);
     }
 }
+typedef NamePointer = stdgo._internal.internal.abi.Abi_NamePointer.NamePointer;
 class Name_static_extension {
     static public function tag(_n:Name):String {
         return stdgo._internal.internal.abi.Abi_Name_static_extension.Name_static_extension.tag(_n);
@@ -1513,6 +1528,7 @@ class Name_static_extension {
         return stdgo._internal.internal.abi.Abi_Name_static_extension.Name_static_extension.dataChecked(_n, _off, _whySafe);
     }
 }
+typedef IntArgRegBitmapPointer = stdgo._internal.internal.abi.Abi_IntArgRegBitmapPointer.IntArgRegBitmapPointer;
 class IntArgRegBitmap_static_extension {
     static public function get(_b:IntArgRegBitmap, _i:StdTypes.Int):Bool {
         return stdgo._internal.internal.abi.Abi_IntArgRegBitmap_static_extension.IntArgRegBitmap_static_extension.get(_b, _i);
@@ -1521,6 +1537,7 @@ class IntArgRegBitmap_static_extension {
         stdgo._internal.internal.abi.Abi_IntArgRegBitmap_static_extension.IntArgRegBitmap_static_extension.set(_b, _i);
     }
 }
+typedef KindPointer = stdgo._internal.internal.abi.Abi_KindPointer.KindPointer;
 class Kind_static_extension {
     static public function string(_k:Kind):String {
         return stdgo._internal.internal.abi.Abi_Kind_static_extension.Kind_static_extension.string(_k);
@@ -1549,8 +1566,8 @@ class Abi {
     /**
         IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
     **/
-    static public function imethodSize(_ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi_imethodSize.imethodSize(_ptrSize);
+    static public function iMethodSize(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi_iMethodSize.iMethodSize(_ptrSize);
     }
     /**
         KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
@@ -1573,8 +1590,8 @@ class Abi {
     /**
         TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
     **/
-    static public function tflagOff(_ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi_tflagOff.tflagOff(_ptrSize);
+    static public function tFlagOff(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi_tFlagOff.tFlagOff(_ptrSize);
     }
     /**
         NewOffset returns a new Offset with offset 0 and alignment 1.

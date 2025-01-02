@@ -144,6 +144,7 @@ _seqNum);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef JarPointer = stdgo._internal.net.http.cookiejar.Cookiejar_JarPointer.JarPointer;
 class Jar_static_extension {
     static public function _domainAndType(_j:Jar, _host:String, _domain:String):stdgo.Tuple.Tuple3<String, Bool, stdgo.Error> {
         return {
@@ -172,6 +173,7 @@ class Jar_static_extension {
         return [for (i in stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension.cookies(_j, _u)) i];
     }
 }
+typedef T_entryPointer = stdgo._internal.net.http.cookiejar.Cookiejar_T_entryPointer.T_entryPointer;
 class T_entry_static_extension {
     static public function _pathMatch(_e:T_entry, _requestPath:String):Bool {
         return stdgo._internal.net.http.cookiejar.Cookiejar_T_entry_static_extension.T_entry_static_extension._pathMatch(_e, _requestPath);

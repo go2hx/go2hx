@@ -1,10 +1,11 @@
 package stdgo._internal.internal.fuzz;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_contextReader_asInterface) class T_contextReader_static_extension {
     @:keep
+    @:tdfield
     static public function read( _cr:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _cr:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader> = _cr;
         {
-            var _ctxErr = (_cr._ctx.err() : stdgo.Error);
+            var _ctxErr = ((@:checkr _cr ?? throw "null pointer dereference")._ctx.err() : stdgo.Error);
             if (_ctxErr != null) {
                 return { _0 : (0 : stdgo.GoInt), _1 : _ctxErr };
             };
@@ -15,7 +16,7 @@ package stdgo._internal.internal.fuzz;
         stdgo.Go.routine(() -> ({
             var a = function():Void {
                 {
-                    var __tmp__ = _cr._r.read(_b);
+                    var __tmp__ = (@:checkr _cr ?? throw "null pointer dereference")._r.read(_b);
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                 };
@@ -27,12 +28,12 @@ package stdgo._internal.internal.fuzz;
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_cr._ctx.done() != null && _cr._ctx.done().__isGet__()) {
+                    if ((@:checkr _cr ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _cr ?? throw "null pointer dereference")._ctx.done().__isGet__()) {
                         __select__ = false;
                         {
-                            _cr._ctx.done().__get__();
+                            (@:checkr _cr ?? throw "null pointer dereference")._ctx.done().__get__();
                             {
-                                return { _0 : (0 : stdgo.GoInt), _1 : _cr._ctx.err() };
+                                return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _cr ?? throw "null pointer dereference")._ctx.err() };
                             };
                         };
                     } else if (_done != null && _done.__isGet__()) {

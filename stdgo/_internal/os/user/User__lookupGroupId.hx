@@ -7,18 +7,20 @@ function _lookupGroupId(_id:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
                 return { _0 : null, _1 : _err };
             };
             {
-                final __f__ = _f.close;
+                final __f__ = @:check2r _f.close;
                 __deferstack__.unshift(() -> __f__());
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_Group.Group>; var _1 : stdgo.Error; } = stdgo._internal.os.user.User__findGroupId._findGroupId(_id?.__copy__(), stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -33,6 +35,7 @@ function _lookupGroupId(_id:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

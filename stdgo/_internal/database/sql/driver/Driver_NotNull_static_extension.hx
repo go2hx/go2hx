@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql.driver;
 @:keep @:allow(stdgo._internal.database.sql.driver.Driver.NotNull_asInterface) class NotNull_static_extension {
     @:keep
+    @:tdfield
     static public function convertValue( _n:stdgo._internal.database.sql.driver.Driver_NotNull.NotNull, _v:stdgo.AnyInterface):{ var _0 : stdgo._internal.database.sql.driver.Driver_Value.Value; var _1 : stdgo.Error; } {
         @:recv var _n:stdgo._internal.database.sql.driver.Driver_NotNull.NotNull = _n?.__copy__();
         if (_v == null) {

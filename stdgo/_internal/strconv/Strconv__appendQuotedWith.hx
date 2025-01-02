@@ -1,5 +1,5 @@
 package stdgo._internal.strconv;
-function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString, _quote:stdgo.GoUInt8, asciionly:Bool, _graphicOnly:Bool):stdgo.Slice<stdgo.GoUInt8> {
+function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString, _quote:stdgo.GoUInt8, aSCIIonly:Bool, _graphicOnly:Bool):stdgo.Slice<stdgo.GoUInt8> {
         if (((_buf.capacity - (_buf.length) : stdgo.GoInt) < (_s.length) : Bool)) {
             var _nBuf = (new stdgo.Slice<stdgo.GoUInt8>((_buf.length : stdgo.GoInt).toBasic(), ((((_buf.length) + (1 : stdgo.GoInt) : stdgo.GoInt) + (_s.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _nBuf.__copyTo__(_buf);
@@ -27,7 +27,7 @@ if (((_width == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
                         continue;
                     };
                 };
-_buf = stdgo._internal.strconv.Strconv__appendEscapedRune._appendEscapedRune(_buf, _r, _quote, asciionly, _graphicOnly);
+_buf = stdgo._internal.strconv.Strconv__appendEscapedRune._appendEscapedRune(_buf, _r, _quote, aSCIIonly, _graphicOnly);
                 _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__();
             };
         };

@@ -1,34 +1,46 @@
 package stdgo._internal.net.http.fcgi;
 class T_bufWriter_asInterface {
     @:keep
-    public dynamic function close():stdgo.Error return __self__.value.close();
+    @:tdfield
+    public dynamic function close():stdgo.Error return @:_0 __self__.value.close();
     @:embedded
-    public dynamic function writeString(__0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.writeString(__0);
+    @:embeddededffieldsffun
+    public dynamic function writeString(_0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.writeString(_0);
     @:embedded
-    public dynamic function writeRune(_new:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.writeRune(_new);
+    @:embeddededffieldsffun
+    public dynamic function writeRune(_0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.writeRune(_0);
     @:embedded
-    public dynamic function writeByte(_c:stdgo.GoUInt8):stdgo.Error return __self__.value.writeByte(_c);
+    @:embeddededffieldsffun
+    public dynamic function writeByte(_0:stdgo.GoUInt8):stdgo.Error return @:_0 __self__.value.writeByte(_0);
     @:embedded
-    public dynamic function write(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_data);
+    @:embeddededffieldsffun
+    public dynamic function write(_0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.write(_0);
     @:embedded
-    public dynamic function size():stdgo.GoInt return __self__.value.size();
+    @:embeddededffieldsffun
+    public dynamic function size():stdgo.GoInt return @:_0 __self__.value.size();
     @:embedded
-    public dynamic function reset(_w:stdgo._internal.io.Io_Writer.Writer):Void __self__.value.reset(_w);
+    @:embeddededffieldsffun
+    public dynamic function reset(_0:stdgo._internal.io.Io_Writer.Writer):Void @:_0 __self__.value.reset(_0);
     @:embedded
-    public dynamic function readFrom(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.value.readFrom(_r);
+    @:embeddededffieldsffun
+    public dynamic function readFrom(_0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_0 __self__.value.readFrom(_0);
     @:embedded
-    public dynamic function flush():stdgo.Error return __self__.value.flush();
+    @:embeddededffieldsffun
+    public dynamic function flush():stdgo.Error return @:_0 __self__.value.flush();
     @:embedded
-    public dynamic function buffered():stdgo.GoInt return __self__.value.buffered();
+    @:embeddededffieldsffun
+    public dynamic function buffered():stdgo.GoInt return @:_0 __self__.value.buffered();
     @:embedded
-    public dynamic function availableBuffer():stdgo.Slice<stdgo.GoUInt8> return __self__.value.availableBuffer();
+    @:embeddededffieldsffun
+    public dynamic function availableBuffer():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.availableBuffer();
     @:embedded
-    public dynamic function available():stdgo.GoInt return __self__.value.available();
+    @:embeddededffieldsffun
+    public dynamic function available():stdgo.GoInt return @:_0 __self__.value.available();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter>;
+    var __self__ : stdgo._internal.net.http.fcgi.Fcgi_T_bufWriterPointer.T_bufWriterPointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

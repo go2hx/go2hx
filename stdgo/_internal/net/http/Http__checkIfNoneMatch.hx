@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _checkIfNoneMatch(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo._internal.net.http.Http_T_condResult.T_condResult {
-        var _inm = (_r.header._get(("If-None-Match" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _inm = ((@:checkr _r ?? throw "null pointer dereference").header._get(("If-None-Match" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_inm == (stdgo.Go.str())) {
             return (0 : stdgo._internal.net.http.Http_T_condResult.T_condResult);
         };

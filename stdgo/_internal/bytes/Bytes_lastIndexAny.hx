@@ -10,7 +10,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdg
                     {
                         var _i = ((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
                         while ((_i >= (0 : stdgo.GoInt) : Bool)) {
-                            if (_as._contains(_s[(_i : stdgo.GoInt)])) {
+                            if (@:check2 _as._contains(_s[(_i : stdgo.GoInt)])) {
                                 return _i;
                             };
                             _i--;

@@ -1,17 +1,19 @@
 package stdgo._internal.regexp.syntax;
 @:keep @:allow(stdgo._internal.regexp.syntax.Syntax.Inst_asInterface) class Inst_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>):stdgo.GoString {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         stdgo._internal.regexp.syntax.Syntax__dumpInst._dumpInst((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _i);
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function matchEmptyWidth( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>, _before:stdgo.GoInt32, _after:stdgo.GoInt32):Bool {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
         {
-            final __value__ = (_i.arg : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            final __value__ = ((@:checkr _i ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
             if (__value__ == ((1 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
                 return ((_before == (10 : stdgo.GoInt32)) || (_before == (-1 : stdgo.GoInt32)) : Bool);
             } else if (__value__ == ((2 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
@@ -29,9 +31,10 @@ package stdgo._internal.regexp.syntax;
         throw stdgo.Go.toInterface(("unknown empty width arg" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function matchRunePos( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>, _r:stdgo.GoInt32):stdgo.GoInt {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
-        var _rune = _i.rune;
+        var _rune = (@:checkr _i ?? throw "null pointer dereference").rune;
         {
             final __value__ = (_rune.length);
             if (__value__ == ((0 : stdgo.GoInt))) {
@@ -41,7 +44,7 @@ package stdgo._internal.regexp.syntax;
                 if (_r == (_r0)) {
                     return (0 : stdgo.GoInt);
                 };
-                if (((_i.arg : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) & (1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
+                if ((((@:checkr _i ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) & (1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
                     {
                         var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
                         while (_r1 != (_r0)) {
@@ -93,14 +96,16 @@ if ((_r <= _rune[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool)) {
         return (-1 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function matchRune( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>, _r:stdgo.GoInt32):Bool {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
-        return _i.matchRunePos(_r) != ((-1 : stdgo.GoInt));
+        return @:check2r _i.matchRunePos(_r) != ((-1 : stdgo.GoInt));
     }
     @:keep
+    @:tdfield
     static public function _op( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>):stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
-        var _op = (_i.op : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp);
+        var _op = ((@:checkr _i ?? throw "null pointer dereference").op : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp);
         {
             final __value__ = _op;
             if (__value__ == ((8 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || __value__ == ((9 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || __value__ == ((10 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {

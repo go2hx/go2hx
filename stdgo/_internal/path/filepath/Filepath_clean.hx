@@ -15,7 +15,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _dotdot = __1, _r = __0;
         if (_rooted) {
-            _out._append((47 : stdgo.GoUInt8));
+            @:check2 _out._append((47 : stdgo.GoUInt8));
             {
                 final __tmp__0 = (1 : stdgo.GoInt);
                 final __tmp__1 = (1 : stdgo.GoInt);
@@ -32,29 +32,29 @@ var _dotdot = __1, _r = __0;
                 _r = (_r + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 if ((_out._w > _dotdot : Bool)) {
                     _out._w--;
-                    while (((_out._w > _dotdot : Bool) && !stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_out._index(_out._w)) : Bool)) {
+                    while (((_out._w > _dotdot : Bool) && !stdgo._internal.os.Os_isPathSeparator.isPathSeparator(@:check2 _out._index(_out._w)) : Bool)) {
                         _out._w--;
                     };
                 } else if (!_rooted) {
                     if ((_out._w > (0 : stdgo.GoInt) : Bool)) {
-                        _out._append((47 : stdgo.GoUInt8));
+                        @:check2 _out._append((47 : stdgo.GoUInt8));
                     };
-                    _out._append((46 : stdgo.GoUInt8));
-                    _out._append((46 : stdgo.GoUInt8));
+                    @:check2 _out._append((46 : stdgo.GoUInt8));
+                    @:check2 _out._append((46 : stdgo.GoUInt8));
                     _dotdot = _out._w;
                 };
             } else {
                 if (((_rooted && _out._w != ((1 : stdgo.GoInt)) : Bool) || (!_rooted && _out._w != ((0 : stdgo.GoInt)) : Bool) : Bool)) {
-                    _out._append((47 : stdgo.GoUInt8));
+                    @:check2 _out._append((47 : stdgo.GoUInt8));
                 };
                 while (((_r < _n : Bool) && !stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_path[(_r : stdgo.GoInt)]) : Bool)) {
-                    _out._append(_path[(_r : stdgo.GoInt)]);
+                    @:check2 _out._append(_path[(_r : stdgo.GoInt)]);
                     _r++;
                 };
             };
         };
         if (_out._w == ((0 : stdgo.GoInt))) {
-            _out._append((46 : stdgo.GoUInt8));
+            @:check2 _out._append((46 : stdgo.GoUInt8));
         };
         if (((false && _out._volLen == ((0 : stdgo.GoInt)) : Bool) && (_out._buf != null) : Bool)) {
             for (__0 => _c in _out._buf) {
@@ -62,10 +62,10 @@ var _dotdot = __1, _r = __0;
                     break;
                 };
                 if (_c == ((58 : stdgo.GoUInt8))) {
-                    _out._prepend((46 : stdgo.GoUInt8), (47 : stdgo.GoUInt8));
+                    @:check2 _out._prepend((46 : stdgo.GoUInt8), (47 : stdgo.GoUInt8));
                     break;
                 };
             };
         };
-        return stdgo._internal.path.filepath.Filepath_fromSlash.fromSlash(_out._string()?.__copy__())?.__copy__();
+        return stdgo._internal.path.filepath.Filepath_fromSlash.fromSlash(@:check2 _out._string()?.__copy__())?.__copy__();
     }

@@ -7,5 +7,6 @@ typedef SignerOpts = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function hashFunc():stdgo._internal.crypto.Crypto_Hash.Hash;
 };

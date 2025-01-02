@@ -1,6 +1,7 @@
 package stdgo._internal.time;
 @:keep @:allow(stdgo._internal.time.Time.Weekday_asInterface) class Weekday_static_extension {
     @:keep
+    @:tdfield
     static public function string( _d:stdgo._internal.time.Time_Weekday.Weekday):stdgo.GoString {
         @:recv var _d:stdgo._internal.time.Time_Weekday.Weekday = _d;
         if ((((0 : stdgo._internal.time.Time_Weekday.Weekday) <= _d : Bool) && (_d <= (6 : stdgo._internal.time.Time_Weekday.Weekday) : Bool) : Bool)) {

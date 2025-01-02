@@ -1,11 +1,12 @@
 package stdgo._internal.io;
 @:keep @:allow(stdgo._internal.io.Io.T_multiWriter_asInterface) class T_multiWriter_static_extension {
     @:keep
+    @:tdfield
     static public function writeString( _t:stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter> = _t;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _p:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        for (__3 => _w in _t._writers) {
+        for (__3 => _w in (@:checkr _t ?? throw "null pointer dereference")._writers) {
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.io.Io_StringWriter.StringWriter)) : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : true };
@@ -45,10 +46,11 @@ package stdgo._internal.io;
         };
     }
     @:keep
+    @:tdfield
     static public function write( _t:stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter> = _t;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        for (__3 => _w in _t._writers) {
+        for (__3 => _w in (@:checkr _t ?? throw "null pointer dereference")._writers) {
             {
                 var __tmp__ = _w.write(_p);
                 _n = __tmp__._0;

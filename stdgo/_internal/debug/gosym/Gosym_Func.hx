@@ -20,16 +20,26 @@ package stdgo._internal.debug.gosym;
         if (obj != null) this.obj = obj;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var baseName(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function baseName():stdgo.GoString return this.sym.baseName();
+    @:embeddededffieldsffun
+    public function get_baseName():() -> stdgo.GoString return @:check3 (this.sym ?? throw "null pointer derefrence").baseName;
+    public var packageName(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function packageName():stdgo.GoString return this.sym.packageName();
+    @:embeddededffieldsffun
+    public function get_packageName():() -> stdgo.GoString return @:check3 (this.sym ?? throw "null pointer derefrence").packageName;
+    public var receiverName(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function receiverName():stdgo.GoString return this.sym.receiverName();
+    @:embeddededffieldsffun
+    public function get_receiverName():() -> stdgo.GoString return @:check3 (this.sym ?? throw "null pointer derefrence").receiverName;
+    public var static_(get, never) : () -> Bool;
     @:embedded
-    public function static_():Bool return this.sym.static_();
+    @:embeddededffieldsffun
+    public function get_static_():() -> Bool return @:check3 (this.sym ?? throw "null pointer derefrence").static_;
+    public var _nameWithoutInst(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function _nameWithoutInst():stdgo.GoString return this.sym._nameWithoutInst();
+    @:embeddededffieldsffun
+    public function get__nameWithoutInst():() -> stdgo.GoString return @:check3 (this.sym ?? throw "null pointer derefrence")._nameWithoutInst;
     public function __copy__() {
         return new Func(entry, sym, end, params, locals, frameSize, lineTable, obj);
     }

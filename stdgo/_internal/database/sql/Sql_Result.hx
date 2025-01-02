@@ -9,6 +9,7 @@ typedef Result = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function lastInsertId():{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     /**
         RowsAffected returns the number of rows affected by an
@@ -17,5 +18,6 @@ typedef Result = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function rowsAffected():{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
 };

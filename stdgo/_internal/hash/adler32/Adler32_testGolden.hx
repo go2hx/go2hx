@@ -9,14 +9,14 @@ function testGolden(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (stdgo._internal.hash.adler32.Adler32__checksum._checksum(_p) : stdgo.GoUInt32);
                 if (_got != (_g._out)) {
-                    _t.errorf(("simple implementation: checksum(%q) = 0x%x want 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_in), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_g._out));
+                    @:check2r _t.errorf(("simple implementation: checksum(%q) = 0x%x want 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_in), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_g._out));
                     continue;
                 };
             };
             {
                 var _got = (stdgo._internal.hash.adler32.Adler32_checksum.checksum(_p) : stdgo.GoUInt32);
                 if (_got != (_g._out)) {
-                    _t.errorf(("optimized implementation: Checksum(%q) = 0x%x want 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_in), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_g._out));
+                    @:check2r _t.errorf(("optimized implementation: Checksum(%q) = 0x%x want 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_in), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_g._out));
                     continue;
                 };
             };

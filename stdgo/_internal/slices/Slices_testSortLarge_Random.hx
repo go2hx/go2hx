@@ -13,10 +13,10 @@ function testSortLarge_Random(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             };
         };
         if (stdgo._internal.slices.Slices_isSorted.isSorted(_data)) {
-            _t.fatalf(("terrible rand.rand" : stdgo.GoString));
+            @:check2r _t.fatalf(("terrible rand.rand" : stdgo.GoString));
         };
         stdgo._internal.slices.Slices_sort.sort(_data);
         if (!stdgo._internal.slices.Slices_isSorted.isSorted(_data)) {
-            _t.errorf(("sort didn\'t sort - 1M ints" : stdgo.GoString));
+            @:check2r _t.errorf(("sort didn\'t sort - 1M ints" : stdgo.GoString));
         };
     }

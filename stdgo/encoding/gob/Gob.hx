@@ -1205,10 +1205,10 @@ bytes);
         this.c = v;
         return v;
     }
-    public var cp(get, set) : stdgo.Chan<stdgo.GoInt>;
-    function get_cp():stdgo.Chan<stdgo.GoInt> return this.cp;
-    function set_cp(v:stdgo.Chan<stdgo.GoInt>):stdgo.Chan<stdgo.GoInt> {
-        this.cp = v;
+    public var cP(get, set) : stdgo.Chan<stdgo.GoInt>;
+    function get_cP():stdgo.Chan<stdgo.GoInt> return this.cP;
+    function set_cP(v:stdgo.Chan<stdgo.GoInt>):stdgo.Chan<stdgo.GoInt> {
+        this.cP = v;
         return v;
     }
     public var f(get, set) : () -> Void;
@@ -1217,13 +1217,13 @@ bytes);
         this.f = v;
         return v;
     }
-    public var fpp(get, set) : stdgo.Pointer<stdgo.Pointer<() -> Void>>;
-    function get_fpp():stdgo.Pointer<stdgo.Pointer<() -> Void>> return () -> this.fpp();
-    function set_fpp(v:stdgo.Pointer<stdgo.Pointer<() -> Void>>):stdgo.Pointer<stdgo.Pointer<() -> Void>> {
-        this.fpp = v;
+    public var fPP(get, set) : stdgo.Pointer<stdgo.Pointer<() -> Void>>;
+    function get_fPP():stdgo.Pointer<stdgo.Pointer<() -> Void>> return () -> this.fPP();
+    function set_fPP(v:stdgo.Pointer<stdgo.Pointer<() -> Void>>):stdgo.Pointer<stdgo.Pointer<() -> Void>> {
+        this.fPP = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fpp:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_Bug2.Bug2(a, c, cp, f, fpp);
+    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cP:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fPP:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_Bug2.Bug2(a, c, cP, f, fPP);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1437,19 +1437,19 @@ bytes);
         this.v = v;
         return v;
     }
-    public var bv(get, set) : BinaryValueGobber;
-    function get_bv():BinaryValueGobber return this.bv;
-    function set_bv(v:BinaryValueGobber):BinaryValueGobber {
-        this.bv = v;
+    public var bV(get, set) : BinaryValueGobber;
+    function get_bV():BinaryValueGobber return this.bV;
+    function set_bV(v:BinaryValueGobber):BinaryValueGobber {
+        this.bV = v;
         return v;
     }
-    public var tv(get, set) : TextValueGobber;
-    function get_tv():TextValueGobber return this.tv;
-    function set_tv(v:TextValueGobber):TextValueGobber {
-        this.tv = v;
+    public var tV(get, set) : TextValueGobber;
+    function get_tV():TextValueGobber return this.tV;
+    function set_tV(v:TextValueGobber):TextValueGobber {
+        this.tV = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?v:ValueGobber, ?bv:BinaryValueGobber, ?tv:TextValueGobber) this = new stdgo._internal.encoding.gob.Gob_GobTest4.GobTest4(x, v, bv, tv);
+    public function new(?x:StdTypes.Int, ?v:ValueGobber, ?bV:BinaryValueGobber, ?tV:TextValueGobber) this = new stdgo._internal.encoding.gob.Gob_GobTest4.GobTest4(x, v, bV, tV);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1466,19 +1466,19 @@ bytes);
         this.v = v;
         return v;
     }
-    public var bv(get, set) : stdgo.Pointer<BinaryValueGobber>;
-    function get_bv():stdgo.Pointer<BinaryValueGobber> return this.bv;
-    function set_bv(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
-        this.bv = v;
+    public var bV(get, set) : stdgo.Pointer<BinaryValueGobber>;
+    function get_bV():stdgo.Pointer<BinaryValueGobber> return this.bV;
+    function set_bV(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
+        this.bV = v;
         return v;
     }
-    public var tv(get, set) : stdgo.Pointer<TextValueGobber>;
-    function get_tv():stdgo.Pointer<TextValueGobber> return this.tv;
-    function set_tv(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
-        this.tv = v;
+    public var tV(get, set) : stdgo.Pointer<TextValueGobber>;
+    function get_tV():stdgo.Pointer<TextValueGobber> return this.tV;
+    function set_tV(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
+        this.tV = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<ValueGobber>, ?bv:stdgo.Pointer<BinaryValueGobber>, ?tv:stdgo.Pointer<TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob_GobTest5.GobTest5(x, v, bv, tv);
+    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<ValueGobber>, ?bV:stdgo.Pointer<BinaryValueGobber>, ?tV:stdgo.Pointer<TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob_GobTest5.GobTest5(x, v, bV, tV);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1501,31 +1501,31 @@ bytes);
         this.w = v;
         return v;
     }
-    public var bv(get, set) : BinaryValueGobber;
-    function get_bv():BinaryValueGobber return this.bv;
-    function set_bv(v:BinaryValueGobber):BinaryValueGobber {
-        this.bv = v;
+    public var bV(get, set) : BinaryValueGobber;
+    function get_bV():BinaryValueGobber return this.bV;
+    function set_bV(v:BinaryValueGobber):BinaryValueGobber {
+        this.bV = v;
         return v;
     }
-    public var bw(get, set) : stdgo.Pointer<BinaryValueGobber>;
-    function get_bw():stdgo.Pointer<BinaryValueGobber> return this.bw;
-    function set_bw(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
-        this.bw = v;
+    public var bW(get, set) : stdgo.Pointer<BinaryValueGobber>;
+    function get_bW():stdgo.Pointer<BinaryValueGobber> return this.bW;
+    function set_bW(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
+        this.bW = v;
         return v;
     }
-    public var tv(get, set) : TextValueGobber;
-    function get_tv():TextValueGobber return this.tv;
-    function set_tv(v:TextValueGobber):TextValueGobber {
-        this.tv = v;
+    public var tV(get, set) : TextValueGobber;
+    function get_tV():TextValueGobber return this.tV;
+    function set_tV(v:TextValueGobber):TextValueGobber {
+        this.tV = v;
         return v;
     }
-    public var tw(get, set) : stdgo.Pointer<TextValueGobber>;
-    function get_tw():stdgo.Pointer<TextValueGobber> return this.tw;
-    function set_tw(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
-        this.tw = v;
+    public var tW(get, set) : stdgo.Pointer<TextValueGobber>;
+    function get_tW():stdgo.Pointer<TextValueGobber> return this.tW;
+    function set_tW(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
+        this.tW = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?v:ValueGobber, ?w:stdgo.Pointer<ValueGobber>, ?bv:BinaryValueGobber, ?bw:stdgo.Pointer<BinaryValueGobber>, ?tv:TextValueGobber, ?tw:stdgo.Pointer<TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6(x, v, w, bv, bw, tv, tw);
+    public function new(?x:StdTypes.Int, ?v:ValueGobber, ?w:stdgo.Pointer<ValueGobber>, ?bV:BinaryValueGobber, ?bW:stdgo.Pointer<BinaryValueGobber>, ?tV:TextValueGobber, ?tW:stdgo.Pointer<TextValueGobber>) this = new stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6(x, v, w, bV, bW, tV, tW);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1548,31 +1548,31 @@ bytes);
         this.w = v;
         return v;
     }
-    public var bv(get, set) : stdgo.Pointer<BinaryValueGobber>;
-    function get_bv():stdgo.Pointer<BinaryValueGobber> return this.bv;
-    function set_bv(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
-        this.bv = v;
+    public var bV(get, set) : stdgo.Pointer<BinaryValueGobber>;
+    function get_bV():stdgo.Pointer<BinaryValueGobber> return this.bV;
+    function set_bV(v:stdgo.Pointer<BinaryValueGobber>):stdgo.Pointer<BinaryValueGobber> {
+        this.bV = v;
         return v;
     }
-    public var bw(get, set) : BinaryValueGobber;
-    function get_bw():BinaryValueGobber return this.bw;
-    function set_bw(v:BinaryValueGobber):BinaryValueGobber {
-        this.bw = v;
+    public var bW(get, set) : BinaryValueGobber;
+    function get_bW():BinaryValueGobber return this.bW;
+    function set_bW(v:BinaryValueGobber):BinaryValueGobber {
+        this.bW = v;
         return v;
     }
-    public var tv(get, set) : stdgo.Pointer<TextValueGobber>;
-    function get_tv():stdgo.Pointer<TextValueGobber> return this.tv;
-    function set_tv(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
-        this.tv = v;
+    public var tV(get, set) : stdgo.Pointer<TextValueGobber>;
+    function get_tV():stdgo.Pointer<TextValueGobber> return this.tV;
+    function set_tV(v:stdgo.Pointer<TextValueGobber>):stdgo.Pointer<TextValueGobber> {
+        this.tV = v;
         return v;
     }
-    public var tw(get, set) : TextValueGobber;
-    function get_tw():TextValueGobber return this.tw;
-    function set_tw(v:TextValueGobber):TextValueGobber {
-        this.tw = v;
+    public var tW(get, set) : TextValueGobber;
+    function get_tW():TextValueGobber return this.tW;
+    function set_tW(v:TextValueGobber):TextValueGobber {
+        this.tW = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<ValueGobber>, ?w:ValueGobber, ?bv:stdgo.Pointer<BinaryValueGobber>, ?bw:BinaryValueGobber, ?tv:stdgo.Pointer<TextValueGobber>, ?tw:TextValueGobber) this = new stdgo._internal.encoding.gob.Gob_GobTest7.GobTest7(x, v, w, bv, bw, tv, tw);
+    public function new(?x:StdTypes.Int, ?v:stdgo.Pointer<ValueGobber>, ?w:ValueGobber, ?bV:stdgo.Pointer<BinaryValueGobber>, ?bW:BinaryValueGobber, ?tV:stdgo.Pointer<TextValueGobber>, ?tW:TextValueGobber) this = new stdgo._internal.encoding.gob.Gob_GobTest7.GobTest7(x, v, w, bV, bW, tV, tW);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2109,54 +2109,67 @@ bytes);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.encoding.gob.Gob_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.encoding.gob.Gob_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.encoding.gob.Gob_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.encoding.gob.Gob_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.encoding.gob.Gob_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
 typedef T__struct_2 = stdgo._internal.encoding.gob.Gob_T__struct_2.T__struct_2;
+typedef T__struct_3Pointer = stdgo._internal.encoding.gob.Gob_T__struct_3Pointer.T__struct_3Pointer;
 class T__struct_3_static_extension {
 
 }
 typedef T__struct_3 = stdgo._internal.encoding.gob.Gob_T__struct_3.T__struct_3;
+typedef T__struct_4Pointer = stdgo._internal.encoding.gob.Gob_T__struct_4Pointer.T__struct_4Pointer;
 class T__struct_4_static_extension {
 
 }
 typedef T__struct_4 = stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4;
+typedef T__struct_5Pointer = stdgo._internal.encoding.gob.Gob_T__struct_5Pointer.T__struct_5Pointer;
 class T__struct_5_static_extension {
 
 }
 typedef T__struct_5 = stdgo._internal.encoding.gob.Gob_T__struct_5.T__struct_5;
+typedef T__struct_6Pointer = stdgo._internal.encoding.gob.Gob_T__struct_6Pointer.T__struct_6Pointer;
 class T__struct_6_static_extension {
 
 }
 typedef T__struct_6 = stdgo._internal.encoding.gob.Gob_T__struct_6.T__struct_6;
+typedef T__struct_7Pointer = stdgo._internal.encoding.gob.Gob_T__struct_7Pointer.T__struct_7Pointer;
 class T__struct_7_static_extension {
 
 }
 typedef T__struct_7 = stdgo._internal.encoding.gob.Gob_T__struct_7.T__struct_7;
+typedef T__struct_8Pointer = stdgo._internal.encoding.gob.Gob_T__struct_8Pointer.T__struct_8Pointer;
 class T__struct_8_static_extension {
 
 }
 typedef T__struct_8 = stdgo._internal.encoding.gob.Gob_T__struct_8.T__struct_8;
+typedef T__struct_9Pointer = stdgo._internal.encoding.gob.Gob_T__struct_9Pointer.T__struct_9Pointer;
 class T__struct_9_static_extension {
 
 }
 typedef T__struct_9 = stdgo._internal.encoding.gob.Gob_T__struct_9.T__struct_9;
+typedef T__struct_10Pointer = stdgo._internal.encoding.gob.Gob_T__struct_10Pointer.T__struct_10Pointer;
 class T__struct_10_static_extension {
 
 }
 typedef T__struct_10 = stdgo._internal.encoding.gob.Gob_T__struct_10.T__struct_10;
+typedef T__struct_11Pointer = stdgo._internal.encoding.gob.Gob_T__struct_11Pointer.T__struct_11Pointer;
 class T__struct_11_static_extension {
 
 }
 typedef T__struct_11 = stdgo._internal.encoding.gob.Gob_T__struct_11.T__struct_11;
+typedef T__struct_12Pointer = stdgo._internal.encoding.gob.Gob_T__struct_12Pointer.T__struct_12Pointer;
 class T__struct_12_static_extension {
 
 }
@@ -2285,10 +2298,10 @@ typedef T_typeId = stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId;
         this.int64s = v;
         return v;
     }
-    public var ri(get, set) : stdgo.GoComplex64;
-    function get_ri():stdgo.GoComplex64 return this.ri;
-    function set_ri(v:stdgo.GoComplex64):stdgo.GoComplex64 {
-        this.ri = v;
+    public var rI(get, set) : stdgo.GoComplex64;
+    function get_rI():stdgo.GoComplex64 return this.rI;
+    function set_rI(v:stdgo.GoComplex64):stdgo.GoComplex64 {
+        this.rI = v;
         return v;
     }
     public var s(get, set) : String;
@@ -2309,7 +2322,7 @@ typedef T_typeId = stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId;
         this.t = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?ri:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T_testEndToEnd___localname___T2_13762) this = new stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836(
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?rI:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T_testEndToEnd___localname___T2_13762) this = new stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836(
 a,
 b,
 c,
@@ -2323,7 +2336,7 @@ emptyMap,
 n,
 strs,
 int64s,
-ri,
+rI,
 s,
 ([for (i in y) i] : stdgo.Slice<stdgo.GoUInt8>),
 t);
@@ -2712,11 +2725,13 @@ typedef T_testStructNonStruct___localname___NonStruct_10341 = stdgo._internal.en
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef PointPointer = stdgo._internal.encoding.gob.Gob_PointPointer.PointPointer;
 class Point_static_extension {
     static public function square(_p:Point):StdTypes.Int {
         return stdgo._internal.encoding.gob.Gob_Point_static_extension.Point_static_extension.square(_p);
     }
 }
+typedef T_decoderStatePointer = stdgo._internal.encoding.gob.Gob_T_decoderStatePointer.T_decoderStatePointer;
 class T_decoderState_static_extension {
     static public function _getLength(_state:T_decoderState):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
@@ -2731,6 +2746,7 @@ class T_decoderState_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_decoderState_static_extension.T_decoderState_static_extension._decodeUint(_state);
     }
 }
+typedef T_decBufferPointer = stdgo._internal.encoding.gob.Gob_T_decBufferPointer.T_decBufferPointer;
 class T_decBuffer_static_extension {
     static public function reset(_d:T_decBuffer):Void {
         stdgo._internal.encoding.gob.Gob_T_decBuffer_static_extension.T_decBuffer_static_extension.reset(_d);
@@ -2762,6 +2778,7 @@ class T_decBuffer_static_extension {
         };
     }
 }
+typedef DecoderPointer = stdgo._internal.encoding.gob.Gob_DecoderPointer.DecoderPointer;
 class Decoder_static_extension {
     static public function decodeValue(_dec:Decoder, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension.decodeValue(_dec, _v);
@@ -2890,6 +2907,7 @@ class Decoder_static_extension {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension._newDecoderState(_dec, _buf);
     }
 }
+typedef T_encoderStatePointer = stdgo._internal.encoding.gob.Gob_T_encoderStatePointer.T_encoderStatePointer;
 class T_encoderState_static_extension {
     static public function _update(_state:T_encoderState, _instr:T_encInstr):Void {
         stdgo._internal.encoding.gob.Gob_T_encoderState_static_extension.T_encoderState_static_extension._update(_state, _instr);
@@ -2901,6 +2919,7 @@ class T_encoderState_static_extension {
         stdgo._internal.encoding.gob.Gob_T_encoderState_static_extension.T_encoderState_static_extension._encodeUint(_state, _x);
     }
 }
+typedef T_encBufferPointer = stdgo._internal.encoding.gob.Gob_T_encBufferPointer.T_encBufferPointer;
 class T_encBuffer_static_extension {
     static public function reset(_e:T_encBuffer):Void {
         stdgo._internal.encoding.gob.Gob_T_encBuffer_static_extension.T_encBuffer_static_extension.reset(_e);
@@ -2925,6 +2944,7 @@ class T_encBuffer_static_extension {
         stdgo._internal.encoding.gob.Gob_T_encBuffer_static_extension.T_encBuffer_static_extension._writeByte(_e, _c);
     }
 }
+typedef EncoderPointer = stdgo._internal.encoding.gob.Gob_EncoderPointer.EncoderPointer;
 class Encoder_static_extension {
     static public function encodeValue(_enc:Encoder, _value:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         return stdgo._internal.encoding.gob.Gob_Encoder_static_extension.Encoder_static_extension.encodeValue(_enc, _value);
@@ -2987,11 +3007,13 @@ class Encoder_static_extension {
         return stdgo._internal.encoding.gob.Gob_Encoder_static_extension.Encoder_static_extension._newEncoderState(_enc, _b);
     }
 }
+typedef T_interfaceIndirectTestTPointer = stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestTPointer.T_interfaceIndirectTestTPointer;
 class T_interfaceIndirectTestT_static_extension {
     static public function f(_this:T_interfaceIndirectTestT):Bool {
         return stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestT_static_extension.T_interfaceIndirectTestT_static_extension.f(_this);
     }
 }
+typedef ByteStructPointer = stdgo._internal.encoding.gob.Gob_ByteStructPointer.ByteStructPointer;
 class ByteStruct_static_extension {
     static public function gobDecode(_g:ByteStruct, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3004,6 +3026,7 @@ class ByteStruct_static_extension {
         };
     }
 }
+typedef StringStructPointer = stdgo._internal.encoding.gob.Gob_StringStructPointer.StringStructPointer;
 class StringStruct_static_extension {
     static public function gobDecode(_g:StringStruct, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3016,6 +3039,7 @@ class StringStruct_static_extension {
         };
     }
 }
+typedef ArrayStructPointer = stdgo._internal.encoding.gob.Gob_ArrayStructPointer.ArrayStructPointer;
 class ArrayStruct_static_extension {
     static public function gobDecode(_a:ArrayStruct, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3028,6 +3052,7 @@ class ArrayStruct_static_extension {
         };
     }
 }
+typedef T_gobDecoderBug0Pointer = stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0Pointer.T_gobDecoderBug0Pointer;
 class T_gobDecoderBug0_static_extension {
     static public function gobDecode(_br:T_gobDecoderBug0, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3043,6 +3068,7 @@ class T_gobDecoderBug0_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0_static_extension.T_gobDecoderBug0_static_extension.string(_br);
     }
 }
+typedef T_isZeroBugInterfacePointer = stdgo._internal.encoding.gob.Gob_T_isZeroBugInterfacePointer.T_isZeroBugInterfacePointer;
 class T_isZeroBugInterface_static_extension {
     static public function gobDecode(_i:T_isZeroBugInterface, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3055,6 +3081,7 @@ class T_isZeroBugInterface_static_extension {
         };
     }
 }
+typedef T_benchmarkBufPointer = stdgo._internal.encoding.gob.Gob_T_benchmarkBufPointer.T_benchmarkBufPointer;
 class T_benchmarkBuf_static_extension {
     static public function _reset(_b:T_benchmarkBuf):Void {
         stdgo._internal.encoding.gob.Gob_T_benchmarkBuf_static_extension.T_benchmarkBuf_static_extension._reset(_b);
@@ -3073,6 +3100,7 @@ class T_benchmarkBuf_static_extension {
         };
     }
 }
+typedef CommonTypePointer = stdgo._internal.encoding.gob.Gob_CommonTypePointer.CommonTypePointer;
 class CommonType_static_extension {
     static public function _name(_t:CommonType):String {
         return stdgo._internal.encoding.gob.Gob_CommonType_static_extension.CommonType_static_extension._name(_t);
@@ -3090,6 +3118,7 @@ class CommonType_static_extension {
         return stdgo._internal.encoding.gob.Gob_CommonType_static_extension.CommonType_static_extension._id(_t);
     }
 }
+typedef T_arrayTypePointer = stdgo._internal.encoding.gob.Gob_T_arrayTypePointer.T_arrayTypePointer;
 class T_arrayType_static_extension {
     static public function _string(_a:T_arrayType):String {
         return stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._string(_a);
@@ -3100,8 +3129,8 @@ class T_arrayType_static_extension {
     static public function _init(_a:T_arrayType, _elem:T_gobType, _len:StdTypes.Int):Void {
         stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._init(_a, _elem, _len);
     }
-    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_arrayType.T_arrayType, __0:T_typeId) {
-        stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._setId(__self__, __0);
+    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_arrayType.T_arrayType, _0:T_typeId):Void {
+        stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._setId(__self__, _0);
     }
     public static function _name(__self__:stdgo._internal.encoding.gob.Gob_T_arrayType.T_arrayType):String {
         return stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._name(__self__);
@@ -3110,6 +3139,7 @@ class T_arrayType_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_arrayType_static_extension.T_arrayType_static_extension._id(__self__);
     }
 }
+typedef T_gobEncoderTypePointer = stdgo._internal.encoding.gob.Gob_T_gobEncoderTypePointer.T_gobEncoderTypePointer;
 class T_gobEncoderType_static_extension {
     static public function _string(_g:T_gobEncoderType):String {
         return stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._string(_g);
@@ -3117,8 +3147,8 @@ class T_gobEncoderType_static_extension {
     static public function _safeString(_g:T_gobEncoderType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, Bool>):String {
         return stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._safeString(_g, _seen);
     }
-    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_gobEncoderType.T_gobEncoderType, __0:T_typeId) {
-        stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._setId(__self__, __0);
+    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_gobEncoderType.T_gobEncoderType, _0:T_typeId):Void {
+        stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._setId(__self__, _0);
     }
     public static function _name(__self__:stdgo._internal.encoding.gob.Gob_T_gobEncoderType.T_gobEncoderType):String {
         return stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._name(__self__);
@@ -3127,6 +3157,7 @@ class T_gobEncoderType_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_gobEncoderType_static_extension.T_gobEncoderType_static_extension._id(__self__);
     }
 }
+typedef T_mapTypePointer = stdgo._internal.encoding.gob.Gob_T_mapTypePointer.T_mapTypePointer;
 class T_mapType_static_extension {
     static public function _string(_m:T_mapType):String {
         return stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._string(_m);
@@ -3137,8 +3168,8 @@ class T_mapType_static_extension {
     static public function _init(_m:T_mapType, _key:T_gobType, _elem:T_gobType):Void {
         stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._init(_m, _key, _elem);
     }
-    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_mapType.T_mapType, __0:T_typeId) {
-        stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._setId(__self__, __0);
+    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_mapType.T_mapType, _0:T_typeId):Void {
+        stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._setId(__self__, _0);
     }
     public static function _name(__self__:stdgo._internal.encoding.gob.Gob_T_mapType.T_mapType):String {
         return stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._name(__self__);
@@ -3147,6 +3178,7 @@ class T_mapType_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_mapType_static_extension.T_mapType_static_extension._id(__self__);
     }
 }
+typedef T_sliceTypePointer = stdgo._internal.encoding.gob.Gob_T_sliceTypePointer.T_sliceTypePointer;
 class T_sliceType_static_extension {
     static public function _string(_s:T_sliceType):String {
         return stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._string(_s);
@@ -3157,8 +3189,8 @@ class T_sliceType_static_extension {
     static public function _init(_s:T_sliceType, _elem:T_gobType):Void {
         stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._init(_s, _elem);
     }
-    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_sliceType.T_sliceType, __0:T_typeId) {
-        stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._setId(__self__, __0);
+    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_sliceType.T_sliceType, _0:T_typeId):Void {
+        stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._setId(__self__, _0);
     }
     public static function _name(__self__:stdgo._internal.encoding.gob.Gob_T_sliceType.T_sliceType):String {
         return stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._name(__self__);
@@ -3167,6 +3199,7 @@ class T_sliceType_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_sliceType_static_extension.T_sliceType_static_extension._id(__self__);
     }
 }
+typedef T_structTypePointer = stdgo._internal.encoding.gob.Gob_T_structTypePointer.T_structTypePointer;
 class T_structType_static_extension {
     static public function _string(_s:T_structType):String {
         return stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._string(_s);
@@ -3174,8 +3207,8 @@ class T_structType_static_extension {
     static public function _safeString(_s:T_structType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, Bool>):String {
         return stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._safeString(_s, _seen);
     }
-    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_structType.T_structType, __0:T_typeId) {
-        stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._setId(__self__, __0);
+    public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_T_structType.T_structType, _0:T_typeId):Void {
+        stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._setId(__self__, _0);
     }
     public static function _name(__self__:stdgo._internal.encoding.gob.Gob_T_structType.T_structType):String {
         return stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._name(__self__);
@@ -3184,42 +3217,48 @@ class T_structType_static_extension {
         return stdgo._internal.encoding.gob.Gob_T_structType_static_extension.T_structType_static_extension._id(__self__);
     }
 }
+typedef T_wireTypePointer = stdgo._internal.encoding.gob.Gob_T_wireTypePointer.T_wireTypePointer;
 class T_wireType_static_extension {
     static public function _string(_w:T_wireType):String {
         return stdgo._internal.encoding.gob.Gob_T_wireType_static_extension.T_wireType_static_extension._string(_w);
     }
 }
+typedef Int_Pointer = stdgo._internal.encoding.gob.Gob_Int_Pointer.Int_Pointer;
 class Int__static_extension {
     static public function square(_i:Int_):StdTypes.Int {
         return stdgo._internal.encoding.gob.Gob_Int__static_extension.Int__static_extension.square(_i);
     }
 }
+typedef Float_Pointer = stdgo._internal.encoding.gob.Gob_Float_Pointer.Float_Pointer;
 class Float__static_extension {
     static public function square(_f:Float_):StdTypes.Int {
         return stdgo._internal.encoding.gob.Gob_Float__static_extension.Float__static_extension.square(_f);
     }
 }
+typedef VectorPointer = stdgo._internal.encoding.gob.Gob_VectorPointer.VectorPointer;
 class Vector_static_extension {
     static public function square(_v:Vector):StdTypes.Int {
         return stdgo._internal.encoding.gob.Gob_Vector_static_extension.Vector_static_extension.square(_v);
     }
 }
+typedef GobberPointer = stdgo._internal.encoding.gob.Gob_GobberPointer.GobberPointer;
 class Gobber_static_extension {
-    static public function gobDecode(____:Gobber, _g:stdgo.Pointer<Gobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function gobDecode(_g:stdgo.Pointer<Gobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_Gobber_static_extension.Gobber_static_extension.gobDecode(____, _g, _data);
+        return stdgo._internal.encoding.gob.Gob_Gobber_static_extension.Gobber_static_extension.gobDecode(_g, _data);
     }
-    static public function gobEncode(____:Gobber, _g:stdgo.Pointer<Gobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function gobEncode(_g:stdgo.Pointer<Gobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.gob.Gob_Gobber_static_extension.Gobber_static_extension.gobEncode(____, _g);
+            final obj = stdgo._internal.encoding.gob.Gob_Gobber_static_extension.Gobber_static_extension.gobEncode(_g);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
+typedef ValueGobberPointer = stdgo._internal.encoding.gob.Gob_ValueGobberPointer.ValueGobberPointer;
 class ValueGobber_static_extension {
-    static public function gobDecode(____:ValueGobber, _v:stdgo.Pointer<ValueGobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function gobDecode(_v:stdgo.Pointer<ValueGobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_ValueGobber_static_extension.ValueGobber_static_extension.gobDecode(____, _v, _data);
+        return stdgo._internal.encoding.gob.Gob_ValueGobber_static_extension.ValueGobber_static_extension.gobDecode(_v, _data);
     }
     static public function gobEncode(_v:ValueGobber):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -3228,22 +3267,24 @@ class ValueGobber_static_extension {
         };
     }
 }
+typedef BinaryGobberPointer = stdgo._internal.encoding.gob.Gob_BinaryGobberPointer.BinaryGobberPointer;
 class BinaryGobber_static_extension {
-    static public function unmarshalBinary(____:BinaryGobber, _g:stdgo.Pointer<BinaryGobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_g:stdgo.Pointer<BinaryGobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_BinaryGobber_static_extension.BinaryGobber_static_extension.unmarshalBinary(____, _g, _data);
+        return stdgo._internal.encoding.gob.Gob_BinaryGobber_static_extension.BinaryGobber_static_extension.unmarshalBinary(_g, _data);
     }
-    static public function marshalBinary(____:BinaryGobber, _g:stdgo.Pointer<BinaryGobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(_g:stdgo.Pointer<BinaryGobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.gob.Gob_BinaryGobber_static_extension.BinaryGobber_static_extension.marshalBinary(____, _g);
+            final obj = stdgo._internal.encoding.gob.Gob_BinaryGobber_static_extension.BinaryGobber_static_extension.marshalBinary(_g);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
+typedef BinaryValueGobberPointer = stdgo._internal.encoding.gob.Gob_BinaryValueGobberPointer.BinaryValueGobberPointer;
 class BinaryValueGobber_static_extension {
-    static public function unmarshalBinary(____:BinaryValueGobber, _v:stdgo.Pointer<BinaryValueGobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_v:stdgo.Pointer<BinaryValueGobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_BinaryValueGobber_static_extension.BinaryValueGobber_static_extension.unmarshalBinary(____, _v, _data);
+        return stdgo._internal.encoding.gob.Gob_BinaryValueGobber_static_extension.BinaryValueGobber_static_extension.unmarshalBinary(_v, _data);
     }
     static public function marshalBinary(_v:BinaryValueGobber):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -3252,22 +3293,24 @@ class BinaryValueGobber_static_extension {
         };
     }
 }
+typedef TextGobberPointer = stdgo._internal.encoding.gob.Gob_TextGobberPointer.TextGobberPointer;
 class TextGobber_static_extension {
-    static public function unmarshalText(____:TextGobber, _g:stdgo.Pointer<TextGobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalText(_g:stdgo.Pointer<TextGobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_TextGobber_static_extension.TextGobber_static_extension.unmarshalText(____, _g, _data);
+        return stdgo._internal.encoding.gob.Gob_TextGobber_static_extension.TextGobber_static_extension.unmarshalText(_g, _data);
     }
-    static public function marshalText(____:TextGobber, _g:stdgo.Pointer<TextGobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalText(_g:stdgo.Pointer<TextGobber>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.gob.Gob_TextGobber_static_extension.TextGobber_static_extension.marshalText(____, _g);
+            final obj = stdgo._internal.encoding.gob.Gob_TextGobber_static_extension.TextGobber_static_extension.marshalText(_g);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
+typedef TextValueGobberPointer = stdgo._internal.encoding.gob.Gob_TextValueGobberPointer.TextValueGobberPointer;
 class TextValueGobber_static_extension {
-    static public function unmarshalText(____:TextValueGobber, _v:stdgo.Pointer<TextValueGobber>, _data:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalText(_v:stdgo.Pointer<TextValueGobber>, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.gob.Gob_TextValueGobber_static_extension.TextValueGobber_static_extension.unmarshalText(____, _v, _data);
+        return stdgo._internal.encoding.gob.Gob_TextValueGobber_static_extension.TextValueGobber_static_extension.unmarshalText(_v, _data);
     }
     static public function marshalText(_v:TextValueGobber):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -3276,6 +3319,7 @@ class TextValueGobber_static_extension {
         };
     }
 }
+typedef T_isZeroBugArrayPointer = stdgo._internal.encoding.gob.Gob_T_isZeroBugArrayPointer.T_isZeroBugArrayPointer;
 class T_isZeroBugArray_static_extension {
     static public function gobDecode(_a:T_isZeroBugArray, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -3288,6 +3332,7 @@ class T_isZeroBugArray_static_extension {
         };
     }
 }
+typedef T_typeIdPointer = stdgo._internal.encoding.gob.Gob_T_typeIdPointer.T_typeIdPointer;
 class T_typeId_static_extension {
     static public function _name(_t:T_typeId):String {
         return stdgo._internal.encoding.gob.Gob_T_typeId_static_extension.T_typeId_static_extension._name(_t);

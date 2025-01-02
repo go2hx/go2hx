@@ -4,6 +4,6 @@ function newWriterLevel(_w:stdgo._internal.io.Io_Writer.Writer, _level:stdgo.GoI
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("gzip: invalid compression level: %d" : stdgo.GoString), stdgo.Go.toInterface(_level)) };
         };
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.compress.gzip.Gzip_Writer.Writer)) : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
-        _z._init(_w, _level);
+        @:check2r _z._init(_w, _level);
         return { _0 : _z, _1 : (null : stdgo.Error) };
     }

@@ -1,16 +1,19 @@
 package stdgo._internal.html.template;
 class T_context_asInterface {
     @:keep
-    public dynamic function _mangle(_templateName:stdgo.GoString):stdgo.GoString return __self__.value._mangle(_templateName);
+    @:tdfield
+    public dynamic function _mangle(_templateName:stdgo.GoString):stdgo.GoString return @:_0 __self__.value._mangle(_templateName);
     @:keep
-    public dynamic function _eq(_d:stdgo._internal.html.template.Template_T_context.T_context):Bool return __self__.value._eq(_d);
+    @:tdfield
+    public dynamic function _eq(_d:stdgo._internal.html.template.Template_T_context.T_context):Bool return @:_0 __self__.value._eq(_d);
     @:keep
-    public dynamic function string():stdgo.GoString return __self__.value.string();
+    @:tdfield
+    public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.html.template.Template_T_context.T_context>;
+    var __self__ : stdgo._internal.html.template.Template_T_contextPointer.T_contextPointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

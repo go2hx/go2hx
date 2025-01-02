@@ -25,7 +25,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                         } catch(_) {
                             { _0 : (null : stdgo.Error), _1 : false };
                         }, _eof = __tmp__._0, _ok = __tmp__._1;
-                        if ((_ok && (stdgo.Go.toInterface(_eof) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+                        if ((_ok && (stdgo.Go.toInterface(_eof) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                             {
                                 var __tmp__ = _eof;
                                 var x = (_errp : stdgo.Error);

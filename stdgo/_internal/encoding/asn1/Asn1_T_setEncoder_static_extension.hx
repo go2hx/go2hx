@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.asn1;
 @:keep @:allow(stdgo._internal.encoding.asn1.Asn1.T_setEncoder_asInterface) class T_setEncoder_static_extension {
     @:keep
+    @:tdfield
     static public function encode( _s:stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _s:stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder = _s;
         var _l = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>((_s.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
@@ -18,6 +19,7 @@ package stdgo._internal.encoding.asn1;
         };
     }
     @:keep
+    @:tdfield
     static public function len( _s:stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder):stdgo.GoInt {
         @:recv var _s:stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder = _s;
         var _size:stdgo.GoInt = (0 : stdgo.GoInt);

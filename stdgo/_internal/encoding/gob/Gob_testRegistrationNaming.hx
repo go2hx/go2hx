@@ -4,17 +4,17 @@ function testRegistrationNaming(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
         for (__8 => _tc in _testCases) {
             stdgo._internal.encoding.gob.Gob_register.register(_tc._t);
             var _tct = (stdgo._internal.reflect.Reflect_typeOf.typeOf(_tc._t) : stdgo._internal.reflect.Reflect_Type_.Type_);
-            var __tmp__ = stdgo._internal.encoding.gob.Gob__nameToConcreteType._nameToConcreteType.load(stdgo.Go.toInterface(_tc._name)), _ct:stdgo.AnyInterface = __tmp__._0, __13:Bool = __tmp__._1;
+            var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__nameToConcreteType._nameToConcreteType.load(stdgo.Go.toInterface(_tc._name)), _ct:stdgo.AnyInterface = __tmp__._0, __13:Bool = __tmp__._1;
             if (_ct != (stdgo.Go.toInterface(_tct))) {
-                _t.errorf(("nameToConcreteType[%q] = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), _ct, stdgo.Go.toInterface(_tct));
+                @:check2r _t.errorf(("nameToConcreteType[%q] = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), _ct, stdgo.Go.toInterface(_tct));
             };
             if (_tct.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 _tct = _tct.elem();
             };
             {
-                var __tmp__ = stdgo._internal.encoding.gob.Gob__concreteTypeToName._concreteTypeToName.load(stdgo.Go.toInterface(_tct)), _n:stdgo.AnyInterface = __tmp__._0, __18:Bool = __tmp__._1;
+                var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__concreteTypeToName._concreteTypeToName.load(stdgo.Go.toInterface(_tct)), _n:stdgo.AnyInterface = __tmp__._0, __18:Bool = __tmp__._1;
                 if (_n != (stdgo.Go.toInterface(_tc._name))) {
-                    _t.errorf(("concreteTypeToName[%v] got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tct), _n, stdgo.Go.toInterface(_tc._name));
+                    @:check2r _t.errorf(("concreteTypeToName[%v] got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tct), _n, stdgo.Go.toInterface(_tc._name));
                 };
             };
         };

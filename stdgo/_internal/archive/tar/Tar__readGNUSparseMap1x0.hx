@@ -10,7 +10,7 @@ var _blk = __2, _buf = __1, _cntNewline = __0;
                         return _err;
                     };
                 };
-                _buf.write((_blk.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+                @:check2 _buf.write((_blk.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                 for (__2 => _c in _blk) {
                     if (_c == ((10 : stdgo.GoUInt8))) {
                         _cntNewline++;
@@ -21,7 +21,7 @@ var _blk = __2, _buf = __1, _cntNewline = __0;
         } : stdgo.GoInt64 -> stdgo.Error);
         var _nextToken = (function():stdgo.GoString {
             _cntNewline--;
-            var __tmp__ = _buf.readString((10 : stdgo.GoUInt8)), _tok:stdgo.GoString = __tmp__._0, __1:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2 _buf.readString((10 : stdgo.GoUInt8)), _tok:stdgo.GoString = __tmp__._0, __1:stdgo.Error = __tmp__._1;
             return stdgo._internal.strings.Strings_trimRight.trimRight(_tok?.__copy__(), ("\n" : stdgo.GoString))?.__copy__();
         } : () -> stdgo.GoString);
         {

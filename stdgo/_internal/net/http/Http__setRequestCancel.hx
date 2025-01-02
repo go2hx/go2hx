@@ -10,8 +10,8 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
             };
         };
         var _knownTransport = (stdgo._internal.net.http.Http__knownRoundTripperImpl._knownRoundTripperImpl(_rt, _req) : Bool);
-        var _oldCtx = (_req.context() : stdgo._internal.context.Context_Context.Context);
-        if (((_req.cancel == null) && _knownTransport : Bool)) {
+        var _oldCtx = (@:check2r _req.context() : stdgo._internal.context.Context_Context.Context);
+        if ((((@:checkr _req ?? throw "null pointer dereference").cancel == null) && _knownTransport : Bool)) {
             if (!stdgo._internal.net.http.Http__timeBeforeContextDeadline._timeBeforeContextDeadline(_deadline?.__copy__(), _oldCtx)) {
                 return {
                     final __tmp__:{ var _0 : () -> Void; var _1 : () -> Bool; } = { _0 : stdgo._internal.net.http.Http__nop._nop, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse };
@@ -23,7 +23,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
             var _cancelCtx:() -> Void = null;
             {
                 var __tmp__ = stdgo._internal.context.Context_withDeadline.withDeadline(_oldCtx, _deadline?.__copy__());
-                _req._ctx = __tmp__._0;
+                (@:checkr _req ?? throw "null pointer dereference")._ctx = __tmp__._0;
                 _cancelCtx = __tmp__._1;
             };
             return {
@@ -35,17 +35,17 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
                 __tmp__;
             };
         };
-        var _initialReqCancel = _req.cancel;
+        var _initialReqCancel = (@:checkr _req ?? throw "null pointer dereference").cancel;
         var _cancelCtx:() -> Void = null;
         if (stdgo._internal.net.http.Http__timeBeforeContextDeadline._timeBeforeContextDeadline(_deadline?.__copy__(), _oldCtx)) {
             {
                 var __tmp__ = stdgo._internal.context.Context_withDeadline.withDeadline(_oldCtx, _deadline?.__copy__());
-                _req._ctx = __tmp__._0;
+                (@:checkr _req ?? throw "null pointer dereference")._ctx = __tmp__._0;
                 _cancelCtx = __tmp__._1;
             };
         };
         var _cancel = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-        _req.cancel = _cancel;
+        (@:checkr _req ?? throw "null pointer dereference").cancel = _cancel;
         var _doCancel = (function():Void {
             if (_cancel != null) _cancel.__close__();
             {};
@@ -63,7 +63,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
         var _stopTimerCh = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
         var _once:stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);
         _stopTimer = function():Void {
-            _once.do_(function():Void {
+            @:check2 _once.do_(function():Void {
                 if (_stopTimerCh != null) _stopTimerCh.__close__();
                 if (_cancelCtx != null) {
                     _cancelCtx();
@@ -83,15 +83,15 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
                                 _initialReqCancel.__get__();
                                 {
                                     _doCancel();
-                                    _timer.stop();
+                                    @:check2r _timer.stop();
                                 };
                             };
-                        } else if (_timer.c != null && _timer.c.__isGet__()) {
+                        } else if ((@:checkr _timer ?? throw "null pointer dereference").c != null && (@:checkr _timer ?? throw "null pointer dereference").c.__isGet__()) {
                             __select__ = false;
                             {
-                                _timer.c.__get__();
+                                (@:checkr _timer ?? throw "null pointer dereference").c.__get__();
                                 {
-                                    _timedOut.store(true);
+                                    @:check2 _timedOut.store(true);
                                     _doCancel();
                                 };
                             };
@@ -100,7 +100,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
                             {
                                 _stopTimerCh.__get__();
                                 {
-                                    _timer.stop();
+                                    @:check2r _timer.stop();
                                 };
                             };
                         };
@@ -112,7 +112,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
             a();
         }));
         return {
-            final __tmp__:{ var _0 : () -> Void; var _1 : () -> Bool; } = { _0 : _stopTimer, _1 : _timedOut.load };
+            final __tmp__:{ var _0 : () -> Void; var _1 : () -> Bool; } = { _0 : _stopTimer, _1 : @:check2 _timedOut.load };
             _stopTimer = __tmp__._0;
             _didTimeout = __tmp__._1;
             __tmp__;

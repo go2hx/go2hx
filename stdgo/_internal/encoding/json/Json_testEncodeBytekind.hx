@@ -17,13 +17,13 @@ function testEncodeBytekind(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         for (__4 => _d in _testdata) {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_d._data), _js:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
                 continue;
             };
             var __0 = ((_js : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (_d._want?.__copy__() : stdgo.GoString);
 var _want = __1, _got = __0;
             if (_got != (_want)) {
-                _t.errorf(("got %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("got %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

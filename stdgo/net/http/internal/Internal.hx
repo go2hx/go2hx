@@ -62,6 +62,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_chunkedReaderPointer = stdgo._internal.net.http.internal.Internal_T_chunkedReaderPointer.T_chunkedReaderPointer;
 class T_chunkedReader_static_extension {
     static public function read(_cr:T_chunkedReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -77,6 +78,7 @@ class T_chunkedReader_static_extension {
         stdgo._internal.net.http.internal.Internal_T_chunkedReader_static_extension.T_chunkedReader_static_extension._beginChunk(_cr);
     }
 }
+typedef T_chunkedWriterPointer = stdgo._internal.net.http.internal.Internal_T_chunkedWriterPointer.T_chunkedWriterPointer;
 class T_chunkedWriter_static_extension {
     static public function close(_cw:T_chunkedWriter):stdgo.Error {
         return stdgo._internal.net.http.internal.Internal_T_chunkedWriter_static_extension.T_chunkedWriter_static_extension.close(_cw);
@@ -89,38 +91,39 @@ class T_chunkedWriter_static_extension {
         };
     }
 }
+typedef FlushAfterChunkWriterPointer = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriterPointer.FlushAfterChunkWriterPointer;
 class FlushAfterChunkWriter_static_extension {
-    public static function writeString(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _text:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeString(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeString(__self__, _text);
+            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeString(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeRune(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeRune(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeRune(__self__, _r);
+            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeRune(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeByte(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _delim:std.UInt):stdgo.Error {
-        return stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeByte(__self__, _delim);
+    public static function writeByte(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:std.UInt):stdgo.Error {
+        return stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.writeByte(__self__, _0);
     }
-    public static function write(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.write(__self__, _p);
+            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function size(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):StdTypes.Int {
         return stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.size(__self__);
     }
-    public static function reset(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _w:stdgo._internal.io.Io_Writer.Writer) {
-        stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.reset(__self__, _w);
+    public static function reset(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo._internal.io.Io_Writer.Writer):Void {
+        stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.reset(__self__, _0);
     }
-    public static function readFrom(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function readFrom(__self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.readFrom(__self__, _r);
+            final obj = stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension.readFrom(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

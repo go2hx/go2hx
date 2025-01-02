@@ -1,5 +1,5 @@
 package stdgo.html.template;
-final ok : ErrorCode = stdgo._internal.html.template.Template_ok.ok;
+final oK : ErrorCode = stdgo._internal.html.template.Template_oK.oK;
 final errAmbigContext = stdgo._internal.html.template.Template_errAmbigContext.errAmbigContext;
 final errBadHTML = stdgo._internal.html.template.Template_errBadHTML.errBadHTML;
 final errBranchEnd = stdgo._internal.html.template.Template_errBranchEnd.errBranchEnd;
@@ -234,6 +234,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.html.template.Template_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
@@ -254,6 +255,7 @@ typedef T_element = stdgo._internal.html.template.Template_T_element.T_element;
 typedef T_attr = stdgo._internal.html.template.Template_T_attr.T_attr;
 typedef ErrorCode = stdgo._internal.html.template.Template_ErrorCode.ErrorCode;
 typedef FuncMap = stdgo._internal.html.template.Template_FuncMap.FuncMap;
+typedef T_contextPointer = stdgo._internal.html.template.Template_T_contextPointer.T_contextPointer;
 class T_context_static_extension {
     static public function _mangle(_c:T_context, _templateName:String):String {
         return stdgo._internal.html.template.Template_T_context_static_extension.T_context_static_extension._mangle(_c, _templateName);
@@ -265,11 +267,13 @@ class T_context_static_extension {
         return stdgo._internal.html.template.Template_T_context_static_extension.T_context_static_extension.string(_c);
     }
 }
+typedef ErrorPointer = stdgo._internal.html.template.Template_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function error(_e:Error):String {
         return stdgo._internal.html.template.Template_Error_static_extension.Error_static_extension.error(_e);
     }
 }
+typedef T_escaperPointer = stdgo._internal.html.template.Template_T_escaperPointer.T_escaperPointer;
 class T_escaper_static_extension {
     static public function _arbitraryTemplate(_e:T_escaper):Template_ {
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._arbitraryTemplate(_e);
@@ -332,6 +336,7 @@ class T_escaper_static_extension {
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escape(_e, _c, _n);
     }
 }
+typedef TemplatePointer = stdgo._internal.html.template.Template_TemplatePointer.TemplatePointer;
 class Template_static_extension {
     static public function parseFS(_t:Template_, _fs:stdgo._internal.io.fs.Fs_FS.FS, _patterns:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
         return {
@@ -415,31 +420,37 @@ class Template_static_extension {
         return [for (i in stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.templates(_t)) i];
     }
 }
+typedef T_statePointer = stdgo._internal.html.template.Template_T_statePointer.T_statePointer;
 class T_state_static_extension {
     static public function string(_i:T_state):String {
         return stdgo._internal.html.template.Template_T_state_static_extension.T_state_static_extension.string(_i);
     }
 }
+typedef T_delimPointer = stdgo._internal.html.template.Template_T_delimPointer.T_delimPointer;
 class T_delim_static_extension {
     static public function string(_i:T_delim):String {
         return stdgo._internal.html.template.Template_T_delim_static_extension.T_delim_static_extension.string(_i);
     }
 }
+typedef T_urlPartPointer = stdgo._internal.html.template.Template_T_urlPartPointer.T_urlPartPointer;
 class T_urlPart_static_extension {
     static public function string(_i:T_urlPart):String {
         return stdgo._internal.html.template.Template_T_urlPart_static_extension.T_urlPart_static_extension.string(_i);
     }
 }
+typedef T_jsCtxPointer = stdgo._internal.html.template.Template_T_jsCtxPointer.T_jsCtxPointer;
 class T_jsCtx_static_extension {
     static public function string(_i:T_jsCtx):String {
         return stdgo._internal.html.template.Template_T_jsCtx_static_extension.T_jsCtx_static_extension.string(_i);
     }
 }
+typedef T_elementPointer = stdgo._internal.html.template.Template_T_elementPointer.T_elementPointer;
 class T_element_static_extension {
     static public function string(_i:T_element):String {
         return stdgo._internal.html.template.Template_T_element_static_extension.T_element_static_extension.string(_i);
     }
 }
+typedef T_attrPointer = stdgo._internal.html.template.Template_T_attrPointer.T_attrPointer;
 class T_attr_static_extension {
     static public function string(_i:T_attr):String {
         return stdgo._internal.html.template.Template_T_attr_static_extension.T_attr_static_extension.string(_i);
@@ -688,49 +699,49 @@ class Template {
     /**
         HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
     **/
-    static public function htmlescape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
+    static public function hTMLEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.html.template.Template_htmlescape.htmlescape(_w, _b);
+        stdgo._internal.html.template.Template_hTMLEscape.hTMLEscape(_w, _b);
     }
     /**
         HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
     **/
-    static public function htmlescapeString(_s:String):String {
-        return stdgo._internal.html.template.Template_htmlescapeString.htmlescapeString(_s);
+    static public function hTMLEscapeString(_s:String):String {
+        return stdgo._internal.html.template.Template_hTMLEscapeString.hTMLEscapeString(_s);
     }
     /**
         HTMLEscaper returns the escaped HTML equivalent of the textual
         representation of its arguments.
     **/
-    static public function htmlescaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.html.template.Template_htmlescaper.htmlescaper(...[for (i in _args) i]);
+    static public function hTMLEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.html.template.Template_hTMLEscaper.hTMLEscaper(...[for (i in _args) i]);
     }
     /**
         JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
     **/
-    static public function jsescape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
+    static public function jSEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.html.template.Template_jsescape.jsescape(_w, _b);
+        stdgo._internal.html.template.Template_jSEscape.jSEscape(_w, _b);
     }
     /**
         JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
     **/
-    static public function jsescapeString(_s:String):String {
-        return stdgo._internal.html.template.Template_jsescapeString.jsescapeString(_s);
+    static public function jSEscapeString(_s:String):String {
+        return stdgo._internal.html.template.Template_jSEscapeString.jSEscapeString(_s);
     }
     /**
         JSEscaper returns the escaped JavaScript equivalent of the textual
         representation of its arguments.
     **/
-    static public function jsescaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.html.template.Template_jsescaper.jsescaper(...[for (i in _args) i]);
+    static public function jSEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.html.template.Template_jSEscaper.jSEscaper(...[for (i in _args) i]);
     }
     /**
         URLQueryEscaper returns the escaped value of the textual representation of
         its arguments in a form suitable for embedding in a URL query.
     **/
-    static public function urlqueryEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.html.template.Template_urlqueryEscaper.urlqueryEscaper(...[for (i in _args) i]);
+    static public function uRLQueryEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.html.template.Template_uRLQueryEscaper.uRLQueryEscaper(...[for (i in _args) i]);
     }
     /**
         New allocates a new HTML template with the given name.

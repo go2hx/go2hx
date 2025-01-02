@@ -26,12 +26,12 @@ function newFatFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
         if ((_narch < (1u32 : stdgo.GoUInt32) : Bool)) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("file contains no images" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
         };
-        var _seenArches = ({
+        var _seenArches = (({
             final x = new stdgo.GoMap.GoUInt64Map<Bool>();
             x.__defaultValue__ = () -> false;
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoUInt64, Bool>);
+        } : stdgo.GoMap<stdgo.GoUInt64, Bool>) : stdgo.GoMap<stdgo.GoUInt64, Bool>);
         var _machoType:stdgo._internal.debug.macho.Macho_Type_.Type_ = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.macho.Macho_Type_.Type_);
         var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatArch.FatArch>))), (_narch : stdgo.GoUInt64)) : stdgo.GoInt);
         if ((_c < (0 : stdgo.GoInt) : Bool)) {

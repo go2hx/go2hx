@@ -26,16 +26,16 @@ function fuzzEqualFold(_f:stdgo.Ref<stdgo._internal.testing.Testing_F.F>):Void {
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AESKey" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("DESKey" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AES Key" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__()].concat([for (i in 25 ... (25 > 25 ? 25 : 25 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoString>(2, 2, ...[for (i in 0 ... 2) ("" : stdgo.GoString)])])) : stdgo.Slice<stdgo.GoArray<stdgo.GoString>>)) {
-            _f.add(stdgo.Go.toInterface((_ss[(0 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)), stdgo.Go.toInterface((_ss[(1 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)));
+            @:check2r _f.add(stdgo.Go.toInterface((_ss[(0 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)), stdgo.Go.toInterface((_ss[(1 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)));
         };
         var _equalFold = function(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Bool {
             return (stdgo._internal.encoding.json.Json__foldName._foldName(_x) : stdgo.GoString) == ((stdgo._internal.encoding.json.Json__foldName._foldName(_y) : stdgo.GoString));
         };
-        _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Void {
+        @:check2r _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Void {
             var _got = (_equalFold(_x, _y) : Bool);
             var _want = (stdgo._internal.bytes.Bytes_equalFold.equalFold(_x, _y) : Bool);
             if (_got != (_want)) {
-                _t.errorf(("equalFold(%q, %q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("equalFold(%q, %q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         }));
     }

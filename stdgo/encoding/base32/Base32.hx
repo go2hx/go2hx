@@ -142,6 +142,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __copy__() return this.__copy__();
 }
 typedef CorruptInputError = stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError;
+typedef EncodingPointer = stdgo._internal.encoding.base32.Base32_EncodingPointer.EncodingPointer;
 class Encoding_static_extension {
     static public function decodedLen(_enc:Encoding, _n:StdTypes.Int):StdTypes.Int {
         return stdgo._internal.encoding.base32.Base32_Encoding_static_extension.Encoding_static_extension.decodedLen(_enc, _n);
@@ -184,6 +185,7 @@ class Encoding_static_extension {
         return stdgo._internal.encoding.base32.Base32_Encoding_static_extension.Encoding_static_extension.withPadding(_enc, _padding);
     }
 }
+typedef T_encoderPointer = stdgo._internal.encoding.base32.Base32_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
         return stdgo._internal.encoding.base32.Base32_T_encoder_static_extension.T_encoder_static_extension.close(_e);
@@ -196,6 +198,7 @@ class T_encoder_static_extension {
         };
     }
 }
+typedef T_decoderPointer = stdgo._internal.encoding.base32.Base32_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -205,6 +208,7 @@ class T_decoder_static_extension {
         };
     }
 }
+typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base32.Base32_T_newlineFilteringReaderPointer.T_newlineFilteringReaderPointer;
 class T_newlineFilteringReader_static_extension {
     static public function read(_r:T_newlineFilteringReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -214,6 +218,7 @@ class T_newlineFilteringReader_static_extension {
         };
     }
 }
+typedef CorruptInputErrorPointer = stdgo._internal.encoding.base32.Base32_CorruptInputErrorPointer.CorruptInputErrorPointer;
 class CorruptInputError_static_extension {
     static public function error(_e:CorruptInputError):String {
         return stdgo._internal.encoding.base32.Base32_CorruptInputError_static_extension.CorruptInputError_static_extension.error(_e);

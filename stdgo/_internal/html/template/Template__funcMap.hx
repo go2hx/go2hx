@@ -1,5 +1,5 @@
 package stdgo._internal.html.template;
-var _funcMap : stdgo._internal.text.template.Template_FuncMap.FuncMap = ({
+var _funcMap : stdgo._internal.text.template.Template_FuncMap.FuncMap = (({
         final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
         x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
         x.set(("_html_template_attrescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__attrEscaper._attrEscaper));
@@ -19,4 +19,4 @@ x.set(("_html_template_urlfilter" : stdgo.GoString), stdgo.Go.toInterface(stdgo.
 x.set(("_html_template_urlnormalizer" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__urlNormalizer._urlNormalizer));
 x.set(("_eval_args_" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__evalArgs._evalArgs));
         x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template_FuncMap.FuncMap);

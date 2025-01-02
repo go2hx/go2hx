@@ -1,12 +1,12 @@
 package stdgo._internal.regexp.syntax;
 function _repeatIsValid(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>, _n:stdgo.GoInt):Bool {
-        if (_re.op == ((17 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-            var _m = (_re.max : stdgo.GoInt);
+        if ((@:checkr _re ?? throw "null pointer dereference").op == ((17 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
+            var _m = ((@:checkr _re ?? throw "null pointer dereference").max : stdgo.GoInt);
             if (_m == ((0 : stdgo.GoInt))) {
                 return true;
             };
             if ((_m < (0 : stdgo.GoInt) : Bool)) {
-                _m = _re.min;
+                _m = (@:checkr _re ?? throw "null pointer dereference").min;
             };
             if ((_m > _n : Bool)) {
                 return false;
@@ -15,7 +15,7 @@ function _repeatIsValid(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regex
                 _n = (_n / (_m) : stdgo.GoInt);
             };
         };
-        for (__1 => _sub in _re.sub) {
+        for (__1 => _sub in (@:checkr _re ?? throw "null pointer dereference").sub) {
             if (!stdgo._internal.regexp.syntax.Syntax__repeatIsValid._repeatIsValid(_sub, _n)) {
                 return false;
             };

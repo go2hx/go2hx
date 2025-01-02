@@ -1,23 +1,23 @@
 package stdgo.crypto;
-final md4 : Hash = stdgo._internal.crypto.Crypto_md4.md4;
-final md5 = stdgo._internal.crypto.Crypto_md5.md5;
-final sha1 = stdgo._internal.crypto.Crypto_sha1.sha1;
-final sha224 = stdgo._internal.crypto.Crypto_sha224.sha224;
-final sha256 = stdgo._internal.crypto.Crypto_sha256.sha256;
-final sha384 = stdgo._internal.crypto.Crypto_sha384.sha384;
-final sha512 = stdgo._internal.crypto.Crypto_sha512.sha512;
-final md5sha1 = stdgo._internal.crypto.Crypto_md5sha1.md5sha1;
-final ripemd160 = stdgo._internal.crypto.Crypto_ripemd160.ripemd160;
-final sha3_224 = stdgo._internal.crypto.Crypto_sha3_224.sha3_224;
-final sha3_256 = stdgo._internal.crypto.Crypto_sha3_256.sha3_256;
-final sha3_384 = stdgo._internal.crypto.Crypto_sha3_384.sha3_384;
-final sha3_512 = stdgo._internal.crypto.Crypto_sha3_512.sha3_512;
-final sha512_224 = stdgo._internal.crypto.Crypto_sha512_224.sha512_224;
-final sha512_256 = stdgo._internal.crypto.Crypto_sha512_256.sha512_256;
-final blake2s_256 = stdgo._internal.crypto.Crypto_blake2s_256.blake2s_256;
-final blake2b_256 = stdgo._internal.crypto.Crypto_blake2b_256.blake2b_256;
-final blake2b_384 = stdgo._internal.crypto.Crypto_blake2b_384.blake2b_384;
-final blake2b_512 = stdgo._internal.crypto.Crypto_blake2b_512.blake2b_512;
+final mD4 : Hash = stdgo._internal.crypto.Crypto_mD4.mD4;
+final mD5 = stdgo._internal.crypto.Crypto_mD5.mD5;
+final sHA1 = stdgo._internal.crypto.Crypto_sHA1.sHA1;
+final sHA224 = stdgo._internal.crypto.Crypto_sHA224.sHA224;
+final sHA256 = stdgo._internal.crypto.Crypto_sHA256.sHA256;
+final sHA384 = stdgo._internal.crypto.Crypto_sHA384.sHA384;
+final sHA512 = stdgo._internal.crypto.Crypto_sHA512.sHA512;
+final mD5SHA1 = stdgo._internal.crypto.Crypto_mD5SHA1.mD5SHA1;
+final rIPEMD160 = stdgo._internal.crypto.Crypto_rIPEMD160.rIPEMD160;
+final sHA3_224 = stdgo._internal.crypto.Crypto_sHA3_224.sHA3_224;
+final sHA3_256 = stdgo._internal.crypto.Crypto_sHA3_256.sHA3_256;
+final sHA3_384 = stdgo._internal.crypto.Crypto_sHA3_384.sHA3_384;
+final sHA3_512 = stdgo._internal.crypto.Crypto_sHA3_512.sHA3_512;
+final sHA512_224 = stdgo._internal.crypto.Crypto_sHA512_224.sHA512_224;
+final sHA512_256 = stdgo._internal.crypto.Crypto_sHA512_256.sHA512_256;
+final bLAKE2s_256 = stdgo._internal.crypto.Crypto_bLAKE2s_256.bLAKE2s_256;
+final bLAKE2b_256 = stdgo._internal.crypto.Crypto_bLAKE2b_256.bLAKE2b_256;
+final bLAKE2b_384 = stdgo._internal.crypto.Crypto_bLAKE2b_384.bLAKE2b_384;
+final bLAKE2b_512 = stdgo._internal.crypto.Crypto_bLAKE2b_512.bLAKE2b_512;
 class Signer_static_extension {
     static public function sign(t:stdgo._internal.crypto.Crypto_Signer.Signer, _rand:stdgo._internal.io.Io_Reader.Reader, _digest:Array<std.UInt>, _opts:SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _digest = ([for (i in _digest) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -54,6 +54,7 @@ typedef Hash = stdgo._internal.crypto.Crypto_Hash.Hash;
 typedef PublicKey = stdgo._internal.crypto.Crypto_PublicKey.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto_PrivateKey.PrivateKey;
 typedef DecrypterOpts = stdgo._internal.crypto.Crypto_DecrypterOpts.DecrypterOpts;
+typedef HashPointer = stdgo._internal.crypto.Crypto_HashPointer.HashPointer;
 class Hash_static_extension {
     static public function available(_h:Hash):Bool {
         return stdgo._internal.crypto.Crypto_Hash_static_extension.Hash_static_extension.available(_h);

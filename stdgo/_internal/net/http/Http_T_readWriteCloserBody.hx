@@ -11,10 +11,14 @@ package stdgo._internal.net.http;
         if (readWriteCloser != null) this.readWriteCloser = readWriteCloser;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var close(get, never) : () -> stdgo.Error;
     @:embedded
-    public function close():stdgo.Error return this.readWriteCloser.close();
+    @:embeddededffieldsffun
+    public function get_close():() -> stdgo.Error return @:check3 (this.readWriteCloser ?? throw "null pointer derefrence").close;
+    public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.readWriteCloser.write(__0);
+    @:embeddededffieldsffun
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.readWriteCloser ?? throw "null pointer derefrence").write;
     public function __copy__() {
         return new T_readWriteCloserBody(__79, _br, readWriteCloser);
     }

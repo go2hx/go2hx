@@ -8,5 +8,5 @@ function parse(_layout:stdgo.GoString, _value:stdgo.GoString):{ var _0 : stdgo._
                 };
             };
         };
-        return stdgo._internal.time.Time__parse._parse(_layout?.__copy__(), _value?.__copy__(), stdgo._internal.time.Time_utc.utc, stdgo._internal.time.Time_local.local);
+        return stdgo._internal.time.Time__parse._parse(_layout?.__copy__(), _value?.__copy__(), stdgo._internal.time.Time_uTC.uTC, stdgo._internal.time.Time_local.local);
     }

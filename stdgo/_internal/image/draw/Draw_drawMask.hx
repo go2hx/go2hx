@@ -14,7 +14,7 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._in
                             final __type__ = _src;
                             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>))) {
                                 var _src0:stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__.__underlying__().value;
-                                var __tmp__ = _src0.rgba(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
+                                var __tmp__ = @:check2r _src0.rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
                                 if (_sa == ((65535u32 : stdgo.GoUInt32))) {
                                     stdgo._internal.image.draw.Draw__drawFillSrc._drawFillSrc(_dst0, _r?.__copy__(), _sr, _sg, _sb, _sa);
                                 } else {
@@ -79,14 +79,14 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._in
                             final __type__ = _src;
                             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>))) {
                                 var _src0:stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>) : __type__.__underlying__().value;
-                                var __tmp__ = _src0.rgba(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
+                                var __tmp__ = @:check2r _src0.rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
                                 stdgo._internal.image.draw.Draw__drawFillSrc._drawFillSrc(_dst0, _r?.__copy__(), _sr, _sg, _sb, _sa);
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>))) {
                                 var _src0:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__.__underlying__().value;
-                                var _d0 = (_dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
-                                var _s0 = (_src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
-                                stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc((_dst0.pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), _dst0.stride, _r?.__copy__(), (_src0.pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), _src0.stride, _sp?.__copy__(), ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
+                                var _d0 = (@:check2r _dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+                                var _s0 = (@:check2r _src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
+                                stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc(((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _dst0 ?? throw "null pointer dereference").stride, _r?.__copy__(), ((@:checkr _src0 ?? throw "null pointer dereference").pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _src0 ?? throw "null pointer dereference").stride, _sp?.__copy__(), ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
                                 return;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>))) {
                                 var _src0:stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__.__underlying__().value;
@@ -121,23 +121,23 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._in
                             { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>), _1 : false };
                         }, _src0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
-                            var _colorIndex = (_dst0.palette.index(_src0.c) : stdgo.GoUInt8);
-                            var _i0 = (_dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+                            var _colorIndex = ((@:checkr _dst0 ?? throw "null pointer dereference").palette.index((@:checkr _src0 ?? throw "null pointer dereference").c) : stdgo.GoUInt8);
+                            var _i0 = (@:check2r _dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
                             var _i1 = (_i0 + _r.dx() : stdgo.GoInt);
                             {
                                 var _i = (_i0 : stdgo.GoInt);
                                 while ((_i < _i1 : Bool)) {
-                                    _dst0.pix[(_i : stdgo.GoInt)] = _colorIndex;
+                                    (@:checkr _dst0 ?? throw "null pointer dereference").pix[(_i : stdgo.GoInt)] = _colorIndex;
                                     _i++;
                                 };
                             };
-                            var _firstRow = (_dst0.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>);
+                            var _firstRow = ((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>);
                             {
                                 var _y = (_r.min.y + (1 : stdgo.GoInt) : stdgo.GoInt);
                                 while ((_y < _r.max.y : Bool)) {
-                                    _i0 = (_i0 + (_dst0.stride) : stdgo.GoInt);
-_i1 = (_i1 + (_dst0.stride) : stdgo.GoInt);
-(_dst0.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
+                                    _i0 = (_i0 + ((@:checkr _dst0 ?? throw "null pointer dereference").stride) : stdgo.GoInt);
+_i1 = (_i1 + ((@:checkr _dst0 ?? throw "null pointer dereference").stride) : stdgo.GoInt);
+((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
                                     _y++;
                                 };
                             };
@@ -158,9 +158,9 @@ _i1 = (_i1 + (_dst0.stride) : stdgo.GoInt);
                             { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>), _1 : false };
                         }, _src0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
-                            var _d0 = (_dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
-                            var _s0 = (_src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
-                            stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc((_dst0.pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), _dst0.stride, _r?.__copy__(), (_src0.pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), _src0.stride, _sp?.__copy__(), ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
+                            var _d0 = (@:check2r _dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+                            var _s0 = (@:check2r _src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
+                            stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc(((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _dst0 ?? throw "null pointer dereference").stride, _r?.__copy__(), ((@:checkr _src0 ?? throw "null pointer dereference").pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _src0 ?? throw "null pointer dereference").stride, _sp?.__copy__(), ((4 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
                             return;
                         };
                     };
@@ -175,9 +175,9 @@ _i1 = (_i1 + (_dst0.stride) : stdgo.GoInt);
                             { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA64.NRGBA64>), _1 : false };
                         }, _src0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
-                            var _d0 = (_dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
-                            var _s0 = (_src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
-                            stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc((_dst0.pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), _dst0.stride, _r?.__copy__(), (_src0.pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), _src0.stride, _sp?.__copy__(), ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
+                            var _d0 = (@:check2r _dst0.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+                            var _s0 = (@:check2r _src0.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
+                            stdgo._internal.image.draw.Draw__drawCopySrc._drawCopySrc(((@:checkr _dst0 ?? throw "null pointer dereference").pix.__slice__(_d0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _dst0 ?? throw "null pointer dereference").stride, _r?.__copy__(), ((@:checkr _src0 ?? throw "null pointer dereference").pix.__slice__(_s0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _src0 ?? throw "null pointer dereference").stride, _sp?.__copy__(), ((8 : stdgo.GoInt) * _r.dx() : stdgo.GoInt));
                             return;
                         };
                     };
@@ -232,11 +232,11 @@ var _mx = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
                                         var _x = (_x0 : stdgo.GoInt);
                                         while (_x != (_x1)) {
                                             if (_op == ((1 : stdgo._internal.image.draw.Draw_Op.Op))) {
-                                                _dst0.setRGBA64(_x, _y, _src0.rgba64at(_sx, _sy).__copy__());
+                                                _dst0.setRGBA64(_x, _y, _src0.rGBA64At(_sx, _sy).__copy__());
                                             } else {
-                                                var _srgba = (_src0.rgba64at(_sx, _sy).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
+                                                var _srgba = (_src0.rGBA64At(_sx, _sy).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
                                                 var _a = ((65535u32 : stdgo.GoUInt32) - (_srgba.a : stdgo.GoUInt32) : stdgo.GoUInt32);
-                                                var _drgba = (_dst0.rgba64at(_x, _y).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
+                                                var _drgba = (_dst0.rGBA64At(_x, _y).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
                                                 _dst0.setRGBA64(_x, _y, ({ r : ((((((_drgba.r : stdgo.GoUInt32) * _a : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16) + _srgba.r : stdgo.GoUInt16), g : ((((((_drgba.g : stdgo.GoUInt32) * _a : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16) + _srgba.g : stdgo.GoUInt16), b : ((((((_drgba.b : stdgo.GoUInt32) * _a : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16) + _srgba.b : stdgo.GoUInt16), a : ((((((_drgba.a : stdgo.GoUInt32) * _a : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16) + _srgba.a : stdgo.GoUInt16) } : stdgo._internal.image.color.Color_RGBA64.RGBA64));
                                             };
                                             {
@@ -277,17 +277,17 @@ var _mx = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
 {
                                             var _x = (_x0 : stdgo.GoInt);
                                             while (_x != (_x1)) {
-                                                var _ma = (_mask0.rgba64at(_mx, _my).a : stdgo.GoUInt32);
+                                                var _ma = (_mask0.rGBA64At(_mx, _my).a : stdgo.GoUInt32);
 if (_ma == ((0u32 : stdgo.GoUInt32))) {
                                                     if (_op == ((0 : stdgo._internal.image.draw.Draw_Op.Op))) {} else {
                                                         _dst0.setRGBA64(_x, _y, (new stdgo._internal.image.color.Color_RGBA64.RGBA64() : stdgo._internal.image.color.Color_RGBA64.RGBA64));
                                                     };
                                                 } else if (((_ma == (65535u32 : stdgo.GoUInt32)) && (_op == (1 : stdgo._internal.image.draw.Draw_Op.Op)) : Bool)) {
-                                                    _dst0.setRGBA64(_x, _y, _src0.rgba64at(_sx, _sy).__copy__());
+                                                    _dst0.setRGBA64(_x, _y, _src0.rGBA64At(_sx, _sy).__copy__());
                                                 } else {
-                                                    var _srgba = (_src0.rgba64at(_sx, _sy).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
+                                                    var _srgba = (_src0.rGBA64At(_sx, _sy).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
                                                     if (_op == ((0 : stdgo._internal.image.draw.Draw_Op.Op))) {
-                                                        var _drgba = (_dst0.rgba64at(_x, _y).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
+                                                        var _drgba = (_dst0.rGBA64At(_x, _y).__copy__() : stdgo._internal.image.color.Color_RGBA64.RGBA64);
                                                         var _a = ((65535u32 : stdgo.GoUInt32) - ((((_srgba.a : stdgo.GoUInt32) * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                                                         _dst0.setRGBA64(_x, _y, ({ r : ((((((_drgba.r : stdgo.GoUInt32) * _a : stdgo.GoUInt32) + ((_srgba.r : stdgo.GoUInt32) * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16), g : ((((((_drgba.g : stdgo.GoUInt32) * _a : stdgo.GoUInt32) + ((_srgba.g : stdgo.GoUInt32) * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16), b : ((((((_drgba.b : stdgo.GoUInt32) * _a : stdgo.GoUInt32) + ((_srgba.b : stdgo.GoUInt32) * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16), a : ((((((_drgba.a : stdgo.GoUInt32) * _a : stdgo.GoUInt32) + ((_srgba.a : stdgo.GoUInt32) * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16) } : stdgo._internal.image.color.Color_RGBA64.RGBA64));
                                                     } else {
@@ -335,7 +335,7 @@ var _mx = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
                         var _ma = ((65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
 if (_mask != null) {
                             {
-                                var __tmp__ = _mask.at(_mx, _my).rgba();
+                                var __tmp__ = _mask.at(_mx, _my).rGBA();
                                 _ma = __tmp__._3;
                             };
                         };
@@ -346,9 +346,9 @@ if (_ma == ((0u32 : stdgo.GoUInt32))) {
                         } else if (((_ma == (65535u32 : stdgo.GoUInt32)) && (_op == (1 : stdgo._internal.image.draw.Draw_Op.Op)) : Bool)) {
                             _dst.set(_x, _y, _src.at(_sx, _sy));
                         } else {
-                            var __tmp__ = _src.at(_sx, _sy).rgba(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
+                            var __tmp__ = _src.at(_sx, _sy).rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
                             if (_op == ((0 : stdgo._internal.image.draw.Draw_Op.Op))) {
-                                var __tmp__ = _dst.at(_x, _y).rgba(), _dr:stdgo.GoUInt32 = __tmp__._0, _dg:stdgo.GoUInt32 = __tmp__._1, _db:stdgo.GoUInt32 = __tmp__._2, _da:stdgo.GoUInt32 = __tmp__._3;
+                                var __tmp__ = _dst.at(_x, _y).rGBA(), _dr:stdgo.GoUInt32 = __tmp__._0, _dg:stdgo.GoUInt32 = __tmp__._1, _db:stdgo.GoUInt32 = __tmp__._2, _da:stdgo.GoUInt32 = __tmp__._3;
                                 var _a = ((65535u32 : stdgo.GoUInt32) - (((_sa * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                                 _out.r = (((((_dr * _a : stdgo.GoUInt32) + (_sr * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16);
                                 _out.g = (((((_dg * _a : stdgo.GoUInt32) + (_sg * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16);

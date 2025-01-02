@@ -21,14 +21,15 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                 return _err;
             };
             {
-                final __f__ = _c.close;
+                final __f__ = @:check2r _c.close;
                 __deferstack__.unshift(() -> __f__());
             };
             {
-                _err = _c._hello();
+                _err = @:check2r _c._hello();
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -36,17 +37,18 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                 };
             };
             {
-                var __tmp__ = _c.extension(("STARTTLS" : stdgo.GoString)), _ok:Bool = __tmp__._0, __1:stdgo.GoString = __tmp__._1;
+                var __tmp__ = @:check2r _c.extension(("STARTTLS" : stdgo.GoString)), _ok:Bool = __tmp__._0, __1:stdgo.GoString = __tmp__._1;
                 if (_ok) {
-                    var _config = (stdgo.Go.setRef(({ serverName : _c._serverName?.__copy__() } : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
+                    var _config = (stdgo.Go.setRef(({ serverName : (@:checkr _c ?? throw "null pointer dereference")._serverName?.__copy__() } : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
                     if (stdgo._internal.net.smtp.Smtp__testHookStartTLS._testHookStartTLS != null) {
                         stdgo._internal.net.smtp.Smtp__testHookStartTLS._testHookStartTLS(_config);
                     };
                     {
-                        _err = _c.startTLS(_config);
+                        _err = @:check2r _c.startTLS(_config);
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return _err;
@@ -55,13 +57,14 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                     };
                 };
             };
-            if (((_a != null) && (_c._ext != null) : Bool)) {
+            if (((_a != null) && ((@:checkr _c ?? throw "null pointer dereference")._ext != null) : Bool)) {
                 {
-                    var __tmp__ = (_c._ext != null && _c._ext.exists(("AUTH" : stdgo.GoString)) ? { _0 : _c._ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __2:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(("AUTH" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __2:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         {
                             final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("smtp: server doesn\'t support AUTH" : stdgo.GoString));
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -69,10 +72,11 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                     };
                 };
                 {
-                    _err = _c.auth(_a);
+                    _err = @:check2r _c.auth(_a);
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return _err;
@@ -81,10 +85,11 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                 };
             };
             {
-                _err = _c.mail(_from?.__copy__());
+                _err = @:check2r _c.mail(_from?.__copy__());
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -93,10 +98,11 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             };
             for (__2 => _addr in _to) {
                 {
-                    _err = _c.rcpt(_addr?.__copy__());
+                    _err = @:check2r _c.rcpt(_addr?.__copy__());
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return _err;
@@ -104,10 +110,11 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
                     };
                 };
             };
-            var __tmp__ = _c.data(), _w:stdgo._internal.io.Io_WriteCloser.WriteCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _c.data(), _w:stdgo._internal.io.Io_WriteCloser.WriteCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -120,6 +127,7 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -129,20 +137,23 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
             {
-                final __ret__:stdgo.Error = _c.quit();
+                final __ret__:stdgo.Error = @:check2r _c.quit();
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -157,6 +168,7 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

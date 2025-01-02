@@ -417,6 +417,7 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.sync.Sync_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
@@ -424,6 +425,7 @@ typedef T__struct_0 = stdgo._internal.sync.Sync_T__struct_0.T__struct_0;
 typedef T_copyChecker = stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker;
 typedef T_dequeueNil = stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil;
 typedef T_rlocker = stdgo._internal.sync.Sync_T_rlocker.T_rlocker;
+typedef CondPointer = stdgo._internal.sync.Sync_CondPointer.CondPointer;
 class Cond_static_extension {
     static public function broadcast(_c:Cond):Void {
         stdgo._internal.sync.Sync_Cond_static_extension.Cond_static_extension.broadcast(_c);
@@ -435,6 +437,7 @@ class Cond_static_extension {
         stdgo._internal.sync.Sync_Cond_static_extension.Cond_static_extension.wait_(_c);
     }
 }
+typedef T_noCopyPointer = stdgo._internal.sync.Sync_T_noCopyPointer.T_noCopyPointer;
 class T_noCopy_static_extension {
     static public function unlock(_:T_noCopy):Void {
         stdgo._internal.sync.Sync_T_noCopy_static_extension.T_noCopy_static_extension.unlock(_);
@@ -443,6 +446,7 @@ class T_noCopy_static_extension {
         stdgo._internal.sync.Sync_T_noCopy_static_extension.T_noCopy_static_extension.lock(_);
     }
 }
+typedef Map_Pointer = stdgo._internal.sync.Sync_Map_Pointer.Map_Pointer;
 class Map__static_extension {
     static public function _dirtyLocked(_m:Map_):Void {
         stdgo._internal.sync.Sync_Map__static_extension.Map__static_extension._dirtyLocked(_m);
@@ -494,6 +498,7 @@ class Map__static_extension {
         return stdgo._internal.sync.Sync_Map__static_extension.Map__static_extension._loadReadOnly(_m);
     }
 }
+typedef T_entryPointer = stdgo._internal.sync.Sync_T_entryPointer.T_entryPointer;
 class T_entry_static_extension {
     static public function _tryExpungeLocked(_e:T_entry):Bool {
         return stdgo._internal.sync.Sync_T_entry_static_extension.T_entry_static_extension._tryExpungeLocked(_e);
@@ -532,6 +537,7 @@ class T_entry_static_extension {
         };
     }
 }
+typedef MutexPointer = stdgo._internal.sync.Sync_MutexPointer.MutexPointer;
 class Mutex_static_extension {
     static public function _unlockSlow(_m:Mutex, _new:StdTypes.Int):Void {
         stdgo._internal.sync.Sync_Mutex_static_extension.Mutex_static_extension._unlockSlow(_m, _new);
@@ -549,6 +555,7 @@ class Mutex_static_extension {
         stdgo._internal.sync.Sync_Mutex_static_extension.Mutex_static_extension.lock(_m);
     }
 }
+typedef OncePointer = stdgo._internal.sync.Sync_OncePointer.OncePointer;
 class Once_static_extension {
     static public function _doSlow(_o:Once, _f:() -> Void):Void {
         final _f = _f;
@@ -559,6 +566,7 @@ class Once_static_extension {
         stdgo._internal.sync.Sync_Once_static_extension.Once_static_extension.do_(_o, _f);
     }
 }
+typedef PoolPointer = stdgo._internal.sync.Sync_PoolPointer.PoolPointer;
 class Pool_static_extension {
     static public function _pinSlow(_p:Pool):stdgo.Tuple<T_poolLocal, StdTypes.Int> {
         return {
@@ -582,9 +590,11 @@ class Pool_static_extension {
         stdgo._internal.sync.Sync_Pool_static_extension.Pool_static_extension.put(_p, _x);
     }
 }
+typedef T_poolLocalPointer = stdgo._internal.sync.Sync_T_poolLocalPointer.T_poolLocalPointer;
 class T_poolLocal_static_extension {
 
 }
+typedef T_poolDequeuePointer = stdgo._internal.sync.Sync_T_poolDequeuePointer.T_poolDequeuePointer;
 class T_poolDequeue_static_extension {
     static public function _popTail(_d:T_poolDequeue):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
@@ -626,6 +636,7 @@ class T_poolDequeue_static_extension {
         return stdgo._internal.sync.Sync_T_poolDequeue_static_extension.T_poolDequeue_static_extension.pushHead(_d, _val);
     }
 }
+typedef T_poolChainPointer = stdgo._internal.sync.Sync_T_poolChainPointer.T_poolChainPointer;
 class T_poolChain_static_extension {
     static public function _popTail(_c:T_poolChain):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
@@ -658,15 +669,16 @@ class T_poolChain_static_extension {
         return stdgo._internal.sync.Sync_T_poolChain_static_extension.T_poolChain_static_extension.pushHead(_c, _val);
     }
 }
+typedef T_poolChainEltPointer = stdgo._internal.sync.Sync_T_poolChainEltPointer.T_poolChainEltPointer;
 class T_poolChainElt_static_extension {
-    public static function _unpack(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, __0:haxe.UInt64):stdgo.Tuple<std.UInt, std.UInt> {
+    public static function _unpack(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _0:haxe.UInt64):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._unpack(__self__, __0);
+            final obj = stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._unpack(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _pushHead(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _val:stdgo.AnyInterface):Bool {
-        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._pushHead(__self__, _val);
+    public static function _pushHead(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _0:stdgo.AnyInterface):Bool {
+        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._pushHead(__self__, _0);
     }
     public static function _popTail(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
@@ -680,11 +692,11 @@ class T_poolChainElt_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _pack(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _head:std.UInt, _tail:std.UInt):haxe.UInt64 {
-        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._pack(__self__, _head, _tail);
+    public static function _pack(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _0:std.UInt, _1:std.UInt):haxe.UInt64 {
+        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension._pack(__self__, _0, _1);
     }
-    public static function pushHead(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _val:stdgo.AnyInterface):Bool {
-        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension.pushHead(__self__, _val);
+    public static function pushHead(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt, _0:stdgo.AnyInterface):Bool {
+        return stdgo._internal.sync.Sync_T_poolChainElt_static_extension.T_poolChainElt_static_extension.pushHead(__self__, _0);
     }
     public static function popTail(__self__:stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         return {
@@ -699,9 +711,10 @@ class T_poolChainElt_static_extension {
         };
     }
 }
+typedef RWMutexPointer = stdgo._internal.sync.Sync_RWMutexPointer.RWMutexPointer;
 class RWMutex_static_extension {
-    static public function rlocker(_rw:RWMutex):Locker {
-        return stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.rlocker(_rw);
+    static public function rLocker(_rw:RWMutex):Locker {
+        return stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.rLocker(_rw);
     }
     static public function unlock(_rw:RWMutex):Void {
         stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.unlock(_rw);
@@ -715,16 +728,17 @@ class RWMutex_static_extension {
     static public function _rUnlockSlow(_rw:RWMutex, _r:StdTypes.Int):Void {
         stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension._rUnlockSlow(_rw, _r);
     }
-    static public function runlock(_rw:RWMutex):Void {
-        stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.runlock(_rw);
+    static public function rUnlock(_rw:RWMutex):Void {
+        stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.rUnlock(_rw);
     }
     static public function tryRLock(_rw:RWMutex):Bool {
         return stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.tryRLock(_rw);
     }
-    static public function rlock(_rw:RWMutex):Void {
-        stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.rlock(_rw);
+    static public function rLock(_rw:RWMutex):Void {
+        stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension.rLock(_rw);
     }
 }
+typedef WaitGroupPointer = stdgo._internal.sync.Sync_WaitGroupPointer.WaitGroupPointer;
 class WaitGroup_static_extension {
     static public function wait_(_wg:WaitGroup):Void {
         stdgo._internal.sync.Sync_WaitGroup_static_extension.WaitGroup_static_extension.wait_(_wg);
@@ -736,11 +750,13 @@ class WaitGroup_static_extension {
         stdgo._internal.sync.Sync_WaitGroup_static_extension.WaitGroup_static_extension.add(_wg, _delta);
     }
 }
+typedef T_copyCheckerPointer = stdgo._internal.sync.Sync_T_copyCheckerPointer.T_copyCheckerPointer;
 class T_copyChecker_static_extension {
-    static public function _check(____:T_copyChecker, _c:stdgo.Pointer<T_copyChecker>):Void {
-        stdgo._internal.sync.Sync_T_copyChecker_static_extension.T_copyChecker_static_extension._check(____, _c);
+    static public function _check(_c:stdgo.Pointer<T_copyChecker>):Void {
+        stdgo._internal.sync.Sync_T_copyChecker_static_extension.T_copyChecker_static_extension._check(_c);
     }
 }
+typedef T_rlockerPointer = stdgo._internal.sync.Sync_T_rlockerPointer.T_rlockerPointer;
 class T_rlocker_static_extension {
     static public function unlock(_r:T_rlocker):Void {
         stdgo._internal.sync.Sync_T_rlocker_static_extension.T_rlocker_static_extension.unlock(_r);

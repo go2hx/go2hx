@@ -1,27 +1,28 @@
 package stdgo._internal.mime;
 @:keep @:allow(stdgo._internal.mime.Mime.WordDecoder_asInterface) class WordDecoder_static_extension {
     @:keep
+    @:tdfield
     static public function _convert( _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder>, _buf:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _charset:stdgo.GoString, _content:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder> = _d;
         if (stdgo._internal.strings.Strings_equalFold.equalFold(("utf-8" : stdgo.GoString), _charset?.__copy__())) {
-            _buf.write(_content);
+            @:check2r _buf.write(_content);
         } else if (stdgo._internal.strings.Strings_equalFold.equalFold(("iso-8859-1" : stdgo.GoString), _charset?.__copy__())) {
             for (__0 => _c in _content) {
-                _buf.writeRune((_c : stdgo.GoInt32));
+                @:check2r _buf.writeRune((_c : stdgo.GoInt32));
             };
         } else if (stdgo._internal.strings.Strings_equalFold.equalFold(("us-ascii" : stdgo.GoString), _charset?.__copy__())) {
             for (__0 => _c in _content) {
                 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
-                    _buf.writeRune((65533 : stdgo.GoInt32));
+                    @:check2r _buf.writeRune((65533 : stdgo.GoInt32));
                 } else {
-                    _buf.writeByte(_c);
+                    @:check2r _buf.writeByte(_c);
                 };
             };
         } else {
-            if (_d.charsetReader == null) {
+            if ((@:checkr _d ?? throw "null pointer dereference").charsetReader == null) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("mime: unhandled charset %q" : stdgo.GoString), stdgo.Go.toInterface(_charset));
             };
-            var __tmp__ = _d.charsetReader(stdgo._internal.strings.Strings_toLower.toLower(_charset?.__copy__())?.__copy__(), stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_content))), _r:stdgo._internal.io.Io_Reader.Reader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _d ?? throw "null pointer dereference").charsetReader(stdgo._internal.strings.Strings_toLower.toLower(_charset?.__copy__())?.__copy__(), stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_content))), _r:stdgo._internal.io.Io_Reader.Reader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -38,6 +39,7 @@ package stdgo._internal.mime;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function decodeHeader( _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder>, _header:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder> = _d;
         var _i = (stdgo._internal.strings.Strings_index.index(_header?.__copy__(), ("=?" : stdgo.GoString)) : stdgo.GoInt);
@@ -45,7 +47,7 @@ package stdgo._internal.mime;
             return { _0 : _header?.__copy__(), _1 : (null : stdgo.Error) };
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _buf.writeString((_header.__slice__(0, _i) : stdgo.GoString)?.__copy__());
+        @:check2 _buf.writeString((_header.__slice__(0, _i) : stdgo.GoString)?.__copy__());
         _header = (_header.__slice__(_i) : stdgo.GoString)?.__copy__();
         var _betweenWords = (false : Bool);
         while (true) {
@@ -78,15 +80,15 @@ package stdgo._internal.mime;
             var __tmp__ = stdgo._internal.mime.Mime__decode._decode(_encoding, _text?.__copy__()), _content:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _betweenWords = false;
-                _buf.writeString((_header.__slice__(0, (_start + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
+                @:check2 _buf.writeString((_header.__slice__(0, (_start + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
                 _header = (_header.__slice__((_start + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 continue;
             };
             if (((_start > (0 : stdgo.GoInt) : Bool) && ((!_betweenWords || stdgo._internal.mime.Mime__hasNonWhitespace._hasNonWhitespace((_header.__slice__(0, _start) : stdgo.GoString)?.__copy__()) : Bool)) : Bool)) {
-                _buf.writeString((_header.__slice__(0, _start) : stdgo.GoString)?.__copy__());
+                @:check2 _buf.writeString((_header.__slice__(0, _start) : stdgo.GoString)?.__copy__());
             };
             {
-                var _err = (_d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
+                var _err = (@:check2r _d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
@@ -95,11 +97,12 @@ package stdgo._internal.mime;
             _betweenWords = true;
         };
         if (((_header.length) > (0 : stdgo.GoInt) : Bool)) {
-            _buf.writeString(_header?.__copy__());
+            @:check2 _buf.writeString(_header?.__copy__());
         };
-        return { _0 : (_buf.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+        return { _0 : (@:check2 _buf.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function decode( _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder>, _word:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder> = _d;
         if ((((((_word.length) < (8 : stdgo.GoInt) : Bool) || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_word?.__copy__(), ("=?" : stdgo.GoString)) : Bool) || !stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_word?.__copy__(), ("?=" : stdgo.GoString)) : Bool) || (stdgo._internal.strings.Strings_count.count(_word?.__copy__(), ("?" : stdgo.GoString)) != (4 : stdgo.GoInt)) : Bool)) {
@@ -120,11 +123,11 @@ package stdgo._internal.mime;
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         {
-            var _err = (_d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
+            var _err = (@:check2r _d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
             if (_err != null) {
                 return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
             };
         };
-        return { _0 : (_buf.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+        return { _0 : (@:check2 _buf.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
     }
 }

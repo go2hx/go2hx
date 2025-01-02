@@ -7,24 +7,24 @@ function newRequest(_method:stdgo.GoString, _target:stdgo.GoString, _body:stdgo.
         if (_err != null) {
             throw stdgo.Go.toInterface((("invalid NewRequest arguments; " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString));
         };
-        _req.proto = ("HTTP/1.1" : stdgo.GoString);
-        _req.protoMinor = (1 : stdgo.GoInt);
-        _req.close = false;
+        (@:checkr _req ?? throw "null pointer dereference").proto = ("HTTP/1.1" : stdgo.GoString);
+        (@:checkr _req ?? throw "null pointer dereference").protoMinor = (1 : stdgo.GoInt);
+        (@:checkr _req ?? throw "null pointer dereference").close = false;
         if (_body != null) {
             {
                 final __type__ = _body;
                 if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))) {
                     var _v:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>) : __type__.__underlying__().value;
-                    _req.contentLength = (_v.len() : stdgo.GoInt64);
+                    (@:checkr _req ?? throw "null pointer dereference").contentLength = (@:check2r _v.len() : stdgo.GoInt64);
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>))) {
                     var _v:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__.__underlying__().value;
-                    _req.contentLength = (_v.len() : stdgo.GoInt64);
+                    (@:checkr _req ?? throw "null pointer dereference").contentLength = (@:check2r _v.len() : stdgo.GoInt64);
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))) {
                     var _v:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__().value;
-                    _req.contentLength = (_v.len() : stdgo.GoInt64);
+                    (@:checkr _req ?? throw "null pointer dereference").contentLength = (@:check2r _v.len() : stdgo.GoInt64);
                 } else {
                     var _v:stdgo._internal.io.Io_Reader.Reader = __type__ == null ? (null : stdgo._internal.io.Io_Reader.Reader) : cast __type__;
-                    _req.contentLength = (-1i64 : stdgo.GoInt64);
+                    (@:checkr _req ?? throw "null pointer dereference").contentLength = (-1i64 : stdgo.GoInt64);
                 };
             };
             {
@@ -34,18 +34,18 @@ function newRequest(_method:stdgo.GoString, _target:stdgo.GoString, _body:stdgo.
                     { _0 : (null : stdgo._internal.io.Io_ReadCloser.ReadCloser), _1 : false };
                 }, _rc = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    _req.body = _rc;
+                    (@:checkr _req ?? throw "null pointer dereference").body = _rc;
                 } else {
-                    _req.body = stdgo._internal.io.Io_nopCloser.nopCloser(_body);
+                    (@:checkr _req ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopCloser.nopCloser(_body);
                 };
             };
         };
-        _req.remoteAddr = ("192.0.2.1:1234" : stdgo.GoString);
-        if (_req.host == (stdgo.Go.str())) {
-            _req.host = ("example.com" : stdgo.GoString);
+        (@:checkr _req ?? throw "null pointer dereference").remoteAddr = ("192.0.2.1:1234" : stdgo.GoString);
+        if ((@:checkr _req ?? throw "null pointer dereference").host == (stdgo.Go.str())) {
+            (@:checkr _req ?? throw "null pointer dereference").host = ("example.com" : stdgo.GoString);
         };
         if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_target?.__copy__(), ("https://" : stdgo.GoString))) {
-            _req.tls = (stdgo.Go.setRef(({ version : (771 : stdgo.GoUInt16), handshakeComplete : true, serverName : _req.host?.__copy__() } : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+            (@:checkr _req ?? throw "null pointer dereference").tLS = (stdgo.Go.setRef(({ version : (771 : stdgo.GoUInt16), handshakeComplete : true, serverName : (@:checkr _req ?? throw "null pointer dereference").host?.__copy__() } : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
         };
         return _req;
     }

@@ -11,7 +11,7 @@ function _parseBasicAuth(_auth:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
                 __tmp__;
             };
         };
-        var __tmp__ = stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString((_auth.__slice__((("Basic " : stdgo.GoString).length)) : stdgo.GoString)?.__copy__()), _c:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString((_auth.__slice__((("Basic " : stdgo.GoString).length)) : stdgo.GoString)?.__copy__()), _c:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };

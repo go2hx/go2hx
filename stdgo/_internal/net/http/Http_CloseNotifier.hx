@@ -22,5 +22,6 @@ typedef CloseNotifier = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function closeNotify():stdgo.Chan<Bool>;
 };

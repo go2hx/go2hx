@@ -26,6 +26,6 @@ function _aeadAESGCM(_key:stdgo.Slice<stdgo.GoUInt8>, _noncePrefix:stdgo.Slice<s
             throw stdgo.Go.toInterface(_err);
         };
         var _ret = (stdgo.Go.setRef(({ _aead : _aead } : stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD>);
-        (_ret._nonce.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_noncePrefix);
+        ((@:checkr _ret ?? throw "null pointer dereference")._nonce.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_noncePrefix);
         return stdgo.Go.asInterface(_ret);
     }

@@ -4,7 +4,7 @@ function parseCertificate(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        if ((_der.length) != ((_cert.raw.length))) {
+        if ((_der.length) != (((@:checkr _cert ?? throw "null pointer dereference").raw.length))) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: trailing data" : stdgo.GoString)) };
         };
         return { _0 : _cert, _1 : _err };

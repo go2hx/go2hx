@@ -1,9 +1,9 @@
 package stdgo._internal.image.gif;
 function encodeAll(_w:stdgo._internal.io.Io_Writer.Writer, _g:stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>):stdgo.Error {
-        if ((_g.image.length) == ((0 : stdgo.GoInt))) {
+        if (((@:checkr _g ?? throw "null pointer dereference").image.length) == ((0 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("gif: must provide at least one image" : stdgo.GoString));
         };
-        if ((_g.image.length) != ((_g.delay.length))) {
+        if (((@:checkr _g ?? throw "null pointer dereference").image.length) != (((@:checkr _g ?? throw "null pointer dereference").delay.length))) {
             return stdgo._internal.errors.Errors_new_.new_(("gif: mismatched image and delay lengths" : stdgo.GoString));
         };
         var _e = ({ _g : (_g : stdgo._internal.image.gif.Gif_GIF.GIF)?.__copy__() } : stdgo._internal.image.gif.Gif_T_encoder.T_encoder);
@@ -11,7 +11,7 @@ function encodeAll(_w:stdgo._internal.io.Io_Writer.Writer, _g:stdgo.Ref<stdgo._i
             return stdgo._internal.errors.Errors_new_.new_(("gif: mismatched image and disposal lengths" : stdgo.GoString));
         };
         if (stdgo.Go.toInterface(_e._g.config) == stdgo.Go.toInterface(((new stdgo._internal.image.Image_Config.Config() : stdgo._internal.image.Image_Config.Config)))) {
-            var _p = (_g.image[(0 : stdgo.GoInt)].bounds().max?.__copy__() : stdgo._internal.image.Image_Point.Point);
+            var _p = (@:check2r (@:checkr _g ?? throw "null pointer dereference").image[(0 : stdgo.GoInt)].bounds().max?.__copy__() : stdgo._internal.image.Image_Point.Point);
             _e._g.config.width = _p.x;
             _e._g.config.height = _p.y;
         } else if (_e._g.config.colorModel != null) {
@@ -38,15 +38,15 @@ function encodeAll(_w:stdgo._internal.io.Io_Writer.Writer, _g:stdgo.Ref<stdgo._i
                 _e._w = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newWriter.newWriter(_w));
             };
         };
-        _e._writeHeader();
-        for (_i => _pm in _g.image) {
+        @:check2 _e._writeHeader();
+        for (_i => _pm in (@:checkr _g ?? throw "null pointer dereference").image) {
             var _disposal = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            if (_g.disposal != null) {
-                _disposal = _g.disposal[(_i : stdgo.GoInt)];
+            if ((@:checkr _g ?? throw "null pointer dereference").disposal != null) {
+                _disposal = (@:checkr _g ?? throw "null pointer dereference").disposal[(_i : stdgo.GoInt)];
             };
-            _e._writeImageBlock(_pm, _g.delay[(_i : stdgo.GoInt)], _disposal);
+            @:check2 _e._writeImageBlock(_pm, (@:checkr _g ?? throw "null pointer dereference").delay[(_i : stdgo.GoInt)], _disposal);
         };
-        _e._writeByte((59 : stdgo.GoUInt8));
-        _e._flush();
+        @:check2 _e._writeByte((59 : stdgo.GoUInt8));
+        @:check2 _e._flush();
         return _e._err;
     }

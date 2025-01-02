@@ -2,10 +2,10 @@ package stdgo._internal.regexp;
 function benchmarkMatchParallelShared(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _x = (("this is a long line that contains foo bar baz" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _re = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("foo (ba+r)? baz" : stdgo.GoString));
-        _b.resetTimer();
-        _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
-            while (_pb.next()) {
-                _re.match(_x);
+        @:check2r _b.resetTimer();
+        @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
+            while (@:check2r _pb.next()) {
+                @:check2r _re.match(_x);
             };
         });
     }

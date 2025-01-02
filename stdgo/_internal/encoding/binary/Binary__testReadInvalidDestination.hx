@@ -5,7 +5,7 @@ function _testReadInvalidDestination(_t:stdgo.Ref<stdgo._internal.testing.Testin
             var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (6 : stdgo.GoUInt8), (7 : stdgo.GoUInt8), (8 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>))), _order, _dst) : stdgo.Error);
             var _want = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("binary.Read: invalid type %T" : stdgo.GoString), _dst)?.__copy__() : stdgo.GoString);
             if (((_err == null) || (_err.error() != _want) : Bool)) {
-                _t.fatalf(("for type %T: got %q; want %q" : stdgo.GoString), _dst, stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_want));
+                @:check2r _t.fatalf(("for type %T: got %q; want %q" : stdgo.GoString), _dst, stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_want));
             };
         };
     }

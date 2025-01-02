@@ -5,7 +5,7 @@ function signPKCS1v15(_random:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.R
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
         var _tLen = ((_prefix.length) + _hashLen : stdgo.GoInt);
-        var _k = (_priv.size() : stdgo.GoInt);
+        var _k = (@:check2r _priv.size() : stdgo.GoInt);
         if ((_k < (_tLen + (11 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errMessageTooLong.errMessageTooLong };
         };

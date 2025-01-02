@@ -1,7 +1,7 @@
 package stdgo._internal.strconv;
 function _computeBounds(_mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; var _2 : stdgo.GoUInt64; var _3 : stdgo.GoInt; } {
         var _lower = (0 : stdgo.GoUInt64), _central = (0 : stdgo.GoUInt64), _upper = (0 : stdgo.GoUInt64), _e2 = (0 : stdgo.GoInt);
-        if (((_mant != ((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) || (_exp == ((_flt._bias + (1 : stdgo.GoInt) : stdgo.GoInt) - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
+        if (((_mant != ((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64)) || (_exp == (((@:checkr _flt ?? throw "null pointer dereference")._bias + (1 : stdgo.GoInt) : stdgo.GoInt) - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
             {
                 final __tmp__0 = (((2i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                 final __tmp__1 = ((2i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64);

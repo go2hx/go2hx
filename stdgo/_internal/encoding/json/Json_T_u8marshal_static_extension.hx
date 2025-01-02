@@ -2,7 +2,8 @@ package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_u8marshal_asInterface) class T_u8marshal_static_extension {
     @:keep
     @:pointer
-    static public function unmarshalText(____:stdgo._internal.encoding.json.Json_T_u8marshal.T_u8marshal,  _u8:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_u8marshal.T_u8marshal>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
+    @:tdfield
+    static public function unmarshalText( _u8:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_u8marshal.T_u8marshal>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         if (!stdgo._internal.bytes.Bytes_hasPrefix.hasPrefix(_b, (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(117 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>))) {
             return stdgo._internal.encoding.json.Json__errMissingU8Prefix._errMissingU8Prefix;
         };
@@ -14,6 +15,7 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalText( _u8:stdgo._internal.encoding.json.Json_T_u8marshal.T_u8marshal):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _u8:stdgo._internal.encoding.json.Json_T_u8marshal.T_u8marshal = _u8;
         return { _0 : (stdgo._internal.fmt.Fmt_sprintf.sprintf(("u%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_u8))) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };

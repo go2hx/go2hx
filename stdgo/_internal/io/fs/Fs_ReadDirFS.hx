@@ -7,5 +7,6 @@ typedef ReadDirFS = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function readDir(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; };
 };

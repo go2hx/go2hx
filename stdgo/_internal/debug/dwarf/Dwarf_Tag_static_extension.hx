@@ -1,6 +1,7 @@
 package stdgo._internal.debug.dwarf;
 @:keep @:allow(stdgo._internal.debug.dwarf.Dwarf.Tag_asInterface) class Tag_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.debug.dwarf.Dwarf_Tag.Tag):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.dwarf.Dwarf_Tag.Tag = _i;
         if ((((1u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag) <= _i : Bool) && (_i <= (5u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag) : Bool) : Bool)) {
@@ -24,6 +25,7 @@ package stdgo._internal.debug.dwarf;
         };
     }
     @:keep
+    @:tdfield
     static public function goString( _t:stdgo._internal.debug.dwarf.Dwarf_Tag.Tag):stdgo.GoString {
         @:recv var _t:stdgo._internal.debug.dwarf.Dwarf_Tag.Tag = _t;
         if ((_t <= (67u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag) : Bool)) {

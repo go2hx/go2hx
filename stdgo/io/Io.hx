@@ -14,10 +14,10 @@ private function set_errShortBuffer(v:stdgo.Error):stdgo.Error {
         stdgo._internal.io.Io_errShortBuffer.errShortBuffer = v;
         return v;
     }
-var eof(get, set) : stdgo.Error;
-private function get_eof():stdgo.Error return stdgo._internal.io.Io_eof.eof;
-private function set_eof(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.io.Io_eof.eof = v;
+var eOF(get, set) : stdgo.Error;
+private function get_eOF():stdgo.Error return stdgo._internal.io.Io_eOF.eOF;
+private function set_eOF(v:stdgo.Error):stdgo.Error {
+        stdgo._internal.io.Io_eOF.eOF = v;
         return v;
     }
 var errUnexpectedEOF(get, set) : stdgo.Error;
@@ -438,10 +438,12 @@ typedef StringWriter = stdgo._internal.io.Io_StringWriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.io.Io_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.io.Io_T__struct_0.T__struct_0;
+typedef LimitedReaderPointer = stdgo._internal.io.Io_LimitedReaderPointer.LimitedReaderPointer;
 class LimitedReader_static_extension {
     static public function read(_l:LimitedReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -451,6 +453,7 @@ class LimitedReader_static_extension {
         };
     }
 }
+typedef SectionReaderPointer = stdgo._internal.io.Io_SectionReaderPointer.SectionReaderPointer;
 class SectionReader_static_extension {
     static public function size(_s:SectionReader):haxe.Int64 {
         return stdgo._internal.io.Io_SectionReader_static_extension.SectionReader_static_extension.size(_s);
@@ -476,6 +479,7 @@ class SectionReader_static_extension {
         };
     }
 }
+typedef OffsetWriterPointer = stdgo._internal.io.Io_OffsetWriterPointer.OffsetWriterPointer;
 class OffsetWriter_static_extension {
     static public function seek(_o:OffsetWriter, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -498,6 +502,7 @@ class OffsetWriter_static_extension {
         };
     }
 }
+typedef T_teeReaderPointer = stdgo._internal.io.Io_T_teeReaderPointer.T_teeReaderPointer;
 class T_teeReader_static_extension {
     static public function read(_t:T_teeReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -507,6 +512,7 @@ class T_teeReader_static_extension {
         };
     }
 }
+typedef T_discardPointer = stdgo._internal.io.Io_T_discardPointer.T_discardPointer;
 class T_discard_static_extension {
     static public function readFrom(_:T_discard, _r:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -528,18 +534,20 @@ class T_discard_static_extension {
         };
     }
 }
+typedef T_nopCloserPointer = stdgo._internal.io.Io_T_nopCloserPointer.T_nopCloserPointer;
 class T_nopCloser_static_extension {
     static public function close(_:T_nopCloser):stdgo.Error {
         return stdgo._internal.io.Io_T_nopCloser_static_extension.T_nopCloser_static_extension.close(_);
     }
-    public static function read(__self__:stdgo._internal.io.Io_T_nopCloser.T_nopCloser, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.io.Io_T_nopCloser.T_nopCloser, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.io.Io_T_nopCloser_static_extension.T_nopCloser_static_extension.read(__self__, _p);
+            final obj = stdgo._internal.io.Io_T_nopCloser_static_extension.T_nopCloser_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef T_nopCloserWriterToPointer = stdgo._internal.io.Io_T_nopCloserWriterToPointer.T_nopCloserWriterToPointer;
 class T_nopCloserWriterTo_static_extension {
     static public function writeTo(_c:T_nopCloserWriterTo, _w:Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -550,14 +558,15 @@ class T_nopCloserWriterTo_static_extension {
     static public function close(_:T_nopCloserWriterTo):stdgo.Error {
         return stdgo._internal.io.Io_T_nopCloserWriterTo_static_extension.T_nopCloserWriterTo_static_extension.close(_);
     }
-    public static function read(__self__:stdgo._internal.io.Io_T_nopCloserWriterTo.T_nopCloserWriterTo, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.io.Io_T_nopCloserWriterTo.T_nopCloserWriterTo, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.io.Io_T_nopCloserWriterTo_static_extension.T_nopCloserWriterTo_static_extension.read(__self__, _p);
+            final obj = stdgo._internal.io.Io_T_nopCloserWriterTo_static_extension.T_nopCloserWriterTo_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef T_eofReaderPointer = stdgo._internal.io.Io_T_eofReaderPointer.T_eofReaderPointer;
 class T_eofReader_static_extension {
     static public function read(_:T_eofReader, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -567,6 +576,7 @@ class T_eofReader_static_extension {
         };
     }
 }
+typedef T_multiReaderPointer = stdgo._internal.io.Io_T_multiReaderPointer.T_multiReaderPointer;
 class T_multiReader_static_extension {
     static public function _writeToWithBuffer(_mr:T_multiReader, _w:Writer, _buf:Array<std.UInt>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -589,6 +599,7 @@ class T_multiReader_static_extension {
         };
     }
 }
+typedef T_multiWriterPointer = stdgo._internal.io.Io_T_multiWriterPointer.T_multiWriterPointer;
 class T_multiWriter_static_extension {
     static public function writeString(_t:T_multiWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -604,6 +615,7 @@ class T_multiWriter_static_extension {
         };
     }
 }
+typedef T_onceErrorPointer = stdgo._internal.io.Io_T_onceErrorPointer.T_onceErrorPointer;
 class T_onceError_static_extension {
     static public function load(_a:T_onceError):stdgo.Error {
         return stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension.load(_a);
@@ -611,22 +623,23 @@ class T_onceError_static_extension {
     static public function store(_a:T_onceError, _err:stdgo.Error):Void {
         stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension.store(_a, _err);
     }
-    public static function _unlockSlow(__self__:stdgo._internal.io.Io_T_onceError.T_onceError, _new:StdTypes.Int) {
-        stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension._unlockSlow(__self__, _new);
+    public static function _unlockSlow(__self__:stdgo._internal.io.Io_T_onceError.T_onceError, _0:StdTypes.Int):Void {
+        stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.io.Io_T_onceError.T_onceError) {
+    public static function _lockSlow(__self__:stdgo._internal.io.Io_T_onceError.T_onceError):Void {
         stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.io.Io_T_onceError.T_onceError) {
+    public static function unlock(__self__:stdgo._internal.io.Io_T_onceError.T_onceError):Void {
         stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.io.Io_T_onceError.T_onceError):Bool {
         return stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.io.Io_T_onceError.T_onceError) {
+    public static function lock(__self__:stdgo._internal.io.Io_T_onceError.T_onceError):Void {
         stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension.lock(__self__);
     }
 }
+typedef T_pipePointer = stdgo._internal.io.Io_T_pipePointer.T_pipePointer;
 class T_pipe_static_extension {
     static public function _writeCloseError(_p:T_pipe):stdgo.Error {
         return stdgo._internal.io.Io_T_pipe_static_extension.T_pipe_static_extension._writeCloseError(_p);
@@ -655,6 +668,7 @@ class T_pipe_static_extension {
         };
     }
 }
+typedef PipeReaderPointer = stdgo._internal.io.Io_PipeReaderPointer.PipeReaderPointer;
 class PipeReader_static_extension {
     static public function closeWithError(_r:PipeReader, _err:stdgo.Error):stdgo.Error {
         return stdgo._internal.io.Io_PipeReader_static_extension.PipeReader_static_extension.closeWithError(_r, _err);
@@ -670,6 +684,7 @@ class PipeReader_static_extension {
         };
     }
 }
+typedef PipeWriterPointer = stdgo._internal.io.Io_PipeWriterPointer.PipeWriterPointer;
 class PipeWriter_static_extension {
     static public function closeWithError(_w:PipeWriter, _err:stdgo.Error):stdgo.Error {
         return stdgo._internal.io.Io_PipeWriter_static_extension.PipeWriter_static_extension.closeWithError(_w, _err);

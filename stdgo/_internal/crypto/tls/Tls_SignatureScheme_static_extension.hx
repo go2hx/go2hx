@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.SignatureScheme_asInterface) class SignatureScheme_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme):stdgo.GoString {
         @:recv var _i:stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme = _i;
         if (_i == ((513 : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme))) {

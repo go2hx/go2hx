@@ -3,7 +3,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.str()?.__copy__(), (0 : stdgo.GoInt));
         var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
-        _wg.add((100 : stdgo.GoInt));
+        @:check2 _wg.add((100 : stdgo.GoInt));
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (100 : stdgo.GoInt) : Bool)) {
@@ -12,13 +12,14 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
                             {
-                                final __f__ = _wg.done;
+                                final __f__ = @:check2 _wg.done;
                                 __deferstack__.unshift(() -> __f__());
                             };
-                            _l.setFlags((0 : stdgo.GoInt));
-                            _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
+                            @:check2r _l.setFlags((0 : stdgo.GoInt));
+                            @:check2r _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -33,6 +34,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -44,5 +46,5 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                 _i++;
             };
         };
-        _wg.wait_();
+        @:check2 _wg.wait_();
     }

@@ -1,6 +1,7 @@
 package stdgo._internal.net.netip;
 @:keep @:allow(stdgo._internal.net.netip.Netip.Addr_asInterface) class Addr_static_extension {
     @:keep
+    @:tdfield
     static public function unmarshalBinary( _ip:stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _ip:stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr> = _ip;
         var _n = (_b.length : stdgo.GoInt);
@@ -40,11 +41,13 @@ package stdgo._internal.net.netip;
         return stdgo._internal.errors.Errors_new_.new_(("unexpected slice size" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function marshalBinary( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return { _0 : _ip._marshalBinaryWithTrailingBytes((0 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function _marshalBinaryWithTrailingBytes( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _trailingBytes:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         var _b:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -66,6 +69,7 @@ package stdgo._internal.net.netip;
         return _b;
     }
     @:keep
+    @:tdfield
     static public function unmarshalText( _ip:stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _ip:stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr> = _ip;
         if ((_text.length) == ((0 : stdgo.GoInt))) {
@@ -88,6 +92,7 @@ package stdgo._internal.net.netip;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function marshalText( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -118,6 +123,7 @@ package stdgo._internal.net.netip;
         };
     }
     @:keep
+    @:tdfield
     static public function stringExpanded( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -145,6 +151,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHexPad._appendHexPad(_ret, _ip._v6
         return (_ret : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _appendTo6( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _ret:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         var __0 = ((255 : stdgo.GoUInt8) : stdgo.GoUInt8), __1 = ((255 : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -193,6 +200,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ret;
     }
     @:keep
+    @:tdfield
     static public function _string6( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {};
@@ -201,6 +209,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return (_ret : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _appendTo4( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _ret:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         _ret = stdgo._internal.net.netip.Netip__appendDecimal._appendDecimal(_ret, _ip._v4((0 : stdgo.GoUInt8)));
@@ -213,6 +222,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ret;
     }
     @:keep
+    @:tdfield
     static public function _string4( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {};
@@ -221,6 +231,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return (_ret : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function appendTo( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -247,6 +258,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         };
     }
     @:keep
+    @:tdfield
     static public function string( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -271,6 +283,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         };
     }
     @:keep
+    @:tdfield
     static public function prev( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -284,6 +297,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ip?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function next( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         _ip._addr = _ip._addr._addOne()?.__copy__();
@@ -299,6 +313,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ip?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function asSlice( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -318,6 +333,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         };
     }
     @:keep
+    @:tdfield
     static public function as4( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         var _a4 = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
@@ -331,6 +347,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         throw stdgo.Go.toInterface(("As4 called on IPv6 address" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function as16( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         var _a16 = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
@@ -339,6 +356,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _a16 = _a16?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function prefix( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _b:stdgo.GoInt):{ var _0 : stdgo._internal.net.netip.Netip_Prefix.Prefix; var _1 : stdgo.Error; } {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if ((_b < (0 : stdgo.GoInt) : Bool)) {
@@ -364,11 +382,13 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return { _0 : stdgo._internal.net.netip.Netip_prefixFrom.prefixFrom(_ip?.__copy__(), _b)?.__copy__(), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function isUnspecified( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
-        return ((stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_ipv4Unspecified.ipv4Unspecified())) || (stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_ipv6Unspecified.ipv6Unspecified())) : Bool);
+        return ((stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_iPv4Unspecified.iPv4Unspecified())) || (stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_iPv6Unspecified.iPv6Unspecified())) : Bool);
     }
     @:keep
+    @:tdfield
     static public function isPrivate( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -380,17 +400,19 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function isGlobalUnicast( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip._z == (stdgo._internal.net.netip.Netip__z0._z0)) {
             return false;
         };
-        if ((_ip.is4() && (((stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_ipv4Unspecified.ipv4Unspecified())) || (stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_addrFrom4.addrFrom4((new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__()))) : Bool)) : Bool)) {
+        if ((_ip.is4() && (((stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_iPv4Unspecified.iPv4Unspecified())) || (stdgo.Go.toInterface(_ip) == stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_addrFrom4.addrFrom4((new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__()))) : Bool)) : Bool)) {
             return false;
         };
-        return (((stdgo.Go.toInterface(_ip) != stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_ipv6Unspecified.ipv6Unspecified()) && !_ip.isLoopback() : Bool) && !_ip.isMulticast() : Bool) && !_ip.isLinkLocalUnicast() : Bool);
+        return (((stdgo.Go.toInterface(_ip) != stdgo.Go.toInterface(stdgo._internal.net.netip.Netip_iPv6Unspecified.iPv6Unspecified()) && !_ip.isLoopback() : Bool) && !_ip.isMulticast() : Bool) && !_ip.isLinkLocalUnicast() : Bool);
     }
     @:keep
+    @:tdfield
     static public function isLinkLocalMulticast( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -402,6 +424,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function isInterfaceLocalMulticast( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is6()) {
@@ -410,6 +433,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function isMulticast( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -421,6 +445,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function isLoopback( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -432,6 +457,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function isLinkLocalUnicast( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4()) {
@@ -443,11 +469,13 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return false;
     }
     @:keep
+    @:tdfield
     static public function _hasZone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return ((_ip._z != (stdgo._internal.net.netip.Netip__z0._z0) && _ip._z != (stdgo._internal.net.netip.Netip__z4._z4) : Bool) && (_ip._z != stdgo._internal.net.netip.Netip__z6noz._z6noz) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _withoutZone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (!_ip.is6()) {
@@ -457,6 +485,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ip?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function withZone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _zone:stdgo.GoString):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (!_ip.is6()) {
@@ -470,6 +499,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ip?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function unmap( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if (_ip.is4In6()) {
@@ -478,26 +508,31 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         return _ip?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function is6( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return ((_ip._z != stdgo._internal.net.netip.Netip__z0._z0) && (_ip._z != stdgo._internal.net.netip.Netip__z4._z4) : Bool);
     }
     @:keep
+    @:tdfield
     static public function is4In6( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return ((_ip.is6() && _ip._addr._hi == ((0i64 : stdgo.GoUInt64)) : Bool) && ((_ip._addr._lo >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (65535i64 : stdgo.GoUInt64)) : Bool);
     }
     @:keep
+    @:tdfield
     static public function is4( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return _ip._z == (stdgo._internal.net.netip.Netip__z4._z4);
     }
     @:keep
+    @:tdfield
     static public function less( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _ip2:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return _ip.compare(_ip2?.__copy__()) == ((-1 : stdgo.GoInt));
     }
     @:keep
+    @:tdfield
     static public function compare( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _ip2:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoInt {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         var __0 = (_ip.bitLen() : stdgo.GoInt), __1 = (_ip2.bitLen() : stdgo.GoInt);
@@ -537,19 +572,21 @@ var _zb = __1, _za = __0;
         return (0 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function zone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if ((_ip._z == null || (_ip._z : Dynamic).__nil__)) {
             return stdgo.Go.str()?.__copy__();
         };
         var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((_ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };
+            { _0 : (stdgo.Go.typeAssert((@:check2r _ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {
             { _0 : ("" : stdgo.GoString), _1 : false };
         }, _zone = __tmp__._0, __26 = __tmp__._1;
         return _zone?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function bitLen( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoInt {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         {
@@ -563,26 +600,31 @@ var _zb = __1, _za = __0;
         return (128 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function isValid( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return _ip._z != (stdgo._internal.net.netip.Netip__z0._z0);
     }
     @:keep
+    @:tdfield
     static public function _isZero( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):Bool {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return _ip._z == (stdgo._internal.net.netip.Netip__z0._z0);
     }
     @:keep
+    @:tdfield
     static public function _v6u16( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _i:stdgo.GoUInt8):stdgo.GoUInt16 {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
-        return (((_ip._addr._halves()[((((_i / (4 : stdgo.GoUInt8) : stdgo.GoUInt8)) % (2 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]).value >> (((((3 : stdgo.GoUInt8) - (_i % (4 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) * (16 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt64) : stdgo.GoUInt16);
+        return (((@:check2 _ip._addr._halves()[((((_i / (4 : stdgo.GoUInt8) : stdgo.GoUInt8)) % (2 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]).value >> (((((3 : stdgo.GoUInt8) - (_i % (4 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) * (16 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt64) : stdgo.GoUInt16);
     }
     @:keep
+    @:tdfield
     static public function _v6( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _i:stdgo.GoUInt8):stdgo.GoUInt8 {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
-        return (((_ip._addr._halves()[((((_i / (8 : stdgo.GoUInt8) : stdgo.GoUInt8)) % (2 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]).value >> (((((7 : stdgo.GoUInt8) - (_i % (8 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) * (8 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt64) : stdgo.GoUInt8);
+        return (((@:check2 _ip._addr._halves()[((((_i / (8 : stdgo.GoUInt8) : stdgo.GoUInt8)) % (2 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]).value >> (((((7 : stdgo.GoUInt8) - (_i % (8 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) * (8 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt64) : stdgo.GoUInt8);
     }
     @:keep
+    @:tdfield
     static public function _v4( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _i:stdgo.GoUInt8):stdgo.GoUInt8 {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         return ((_ip._addr._lo >> (((((3 : stdgo.GoUInt8) - _i : stdgo.GoUInt8)) * (8 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt64) : stdgo.GoUInt8);

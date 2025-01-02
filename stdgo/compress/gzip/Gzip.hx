@@ -41,13 +41,13 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this.name = v;
         return v;
     }
-    public var os(get, set) : std.UInt;
-    function get_os():std.UInt return this.os;
-    function set_os(v:std.UInt):std.UInt {
-        this.os = v;
+    public var oS(get, set) : std.UInt;
+    function get_oS():std.UInt return this.oS;
+    function set_oS(v:std.UInt):std.UInt {
+        this.oS = v;
         return v;
     }
-    public function new(?comment:String, ?extra:Array<std.UInt>, ?modTime:stdgo._internal.time.Time_Time.Time, ?name:String, ?os:std.UInt) this = new stdgo._internal.compress.gzip.Gzip_Header.Header(comment, ([for (i in extra) i] : stdgo.Slice<stdgo.GoUInt8>), modTime, name, os);
+    public function new(?comment:String, ?extra:Array<std.UInt>, ?modTime:stdgo._internal.time.Time_Time.Time, ?name:String, ?oS:std.UInt) this = new stdgo._internal.compress.gzip.Gzip_Header.Header(comment, ([for (i in extra) i] : stdgo.Slice<stdgo.GoUInt8>), modTime, name, oS);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -169,6 +169,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ReaderPointer = stdgo._internal.compress.gzip.Gzip_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function close(_z:Reader):stdgo.Error {
         return stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.close(_z);
@@ -199,6 +200,7 @@ class Reader_static_extension {
         return stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.reset(_z, _r);
     }
 }
+typedef WriterPointer = stdgo._internal.compress.gzip.Gzip_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function close(_z:Writer):stdgo.Error {
         return stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension.close(_z);

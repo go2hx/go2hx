@@ -28,37 +28,37 @@ x.set(("zeroArgs" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.text.t
             var _err:stdgo.Error = (null : stdgo.Error);
             if ((_template == null || (_template : Dynamic).__nil__)) {
                 {
-                    var __tmp__ = stdgo._internal.text.template.Template_new_.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
+                    var __tmp__ = @:check2r @:check2r stdgo._internal.text.template.Template_new_.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
                     _tmpl = __tmp__._0;
                     _err = __tmp__._1;
                 };
             } else {
                 {
-                    var __tmp__ = _template.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
+                    var __tmp__ = @:check2r @:check2r @:check2r _template.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
                     _tmpl = __tmp__._0;
                     _err = __tmp__._1;
                 };
             };
             if (_err != null) {
-                _t.errorf(("%s: parse error: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("%s: parse error: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_err));
                 continue;
             };
-            _b.reset();
-            _err = _tmpl.execute(stdgo.Go.asInterface(_b), _test._data);
+            @:check2r _b.reset();
+            _err = @:check2r _tmpl.execute(stdgo.Go.asInterface(_b), _test._data);
             if ((!_test._ok && (_err == null) : Bool)) {
-                _t.errorf(("%s: expected error; got none" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
+                @:check2r _t.errorf(("%s: expected error; got none" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
                 continue;
             } else if ((_test._ok && (_err != null) : Bool)) {
-                _t.errorf(("%s: unexpected execute error: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("%s: unexpected execute error: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_err));
                 continue;
             } else if ((!_test._ok && (_err != null) : Bool)) {
                 if (stdgo._internal.text.template.Template__debug._debug.value) {
                     stdgo._internal.fmt.Fmt_printf.printf(("%s: %s\n\t%s\n" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_test._input), stdgo.Go.toInterface(_err));
                 };
             };
-            var _result = ((_b.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            var _result = ((@:check2r _b.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_result != (_test._output)) {
-                _t.errorf(("%s: expected\n\t%q\ngot\n\t%q" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_test._output), stdgo.Go.toInterface(_result));
+                @:check2r _t.errorf(("%s: expected\n\t%q\ngot\n\t%q" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_test._output), stdgo.Go.toInterface(_result));
             };
         };
     }

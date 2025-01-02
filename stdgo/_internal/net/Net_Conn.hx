@@ -7,6 +7,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function read(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     /**
         Write writes data to the connection.
@@ -15,6 +16,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     /**
         Close closes the connection.
@@ -22,18 +24,21 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         LocalAddr returns the local network address, if known.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function localAddr():stdgo._internal.net.Net_Addr.Addr;
     /**
         RemoteAddr returns the remote network address, if known.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function remoteAddr():stdgo._internal.net.Net_Addr.Addr;
     /**
         SetDeadline sets the read and write deadlines associated
@@ -60,6 +65,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
     /**
         SetReadDeadline sets the deadline for future Read calls
@@ -68,6 +74,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setReadDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
     /**
         SetWriteDeadline sets the deadline for future Write calls
@@ -78,5 +85,6 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setWriteDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
 };

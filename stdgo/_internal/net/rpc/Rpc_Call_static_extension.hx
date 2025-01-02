@@ -1,15 +1,16 @@
 package stdgo._internal.net.rpc;
 @:keep @:allow(stdgo._internal.net.rpc.Rpc.Call_asInterface) class Call_static_extension {
     @:keep
+    @:tdfield
     static public function _done( _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>):Void {
         @:recv var _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call> = _call;
         {
             var __select__ = true;
             while (__select__) {
-                if (_call.done != null && _call.done.__isSend__()) {
+                if ((@:checkr _call ?? throw "null pointer dereference").done != null && (@:checkr _call ?? throw "null pointer dereference").done.__isSend__()) {
                     __select__ = false;
                     {
-                        _call.done.__send__(_call);
+                        (@:checkr _call ?? throw "null pointer dereference").done.__send__(_call);
                         {};
                     };
                 } else {

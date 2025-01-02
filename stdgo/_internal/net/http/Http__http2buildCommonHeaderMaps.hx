@@ -58,19 +58,19 @@ function _http2buildCommonHeaderMaps():Void {
 ("www-authenticate" : stdgo.GoString),
 ("x-forwarded-for" : stdgo.GoString),
 ("x-forwarded-proto" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-        stdgo._internal.net.http.Http__http2commonLowerHeader._http2commonLowerHeader = ({
+        stdgo._internal.net.http.Http__http2commonLowerHeader._http2commonLowerHeader = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        stdgo._internal.net.http.Http__http2commonCanonHeader._http2commonCanonHeader = ({
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        stdgo._internal.net.http.Http__http2commonCanonHeader._http2commonCanonHeader = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        for (__132 => _v in _common) {
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        for (__137 => _v in _common) {
             var _chk = (stdgo._internal.net.http.Http_canonicalHeaderKey.canonicalHeaderKey(_v?.__copy__())?.__copy__() : stdgo.GoString);
             stdgo._internal.net.http.Http__http2commonLowerHeader._http2commonLowerHeader[_chk] = _v?.__copy__();
             stdgo._internal.net.http.Http__http2commonCanonHeader._http2commonCanonHeader[_v] = _chk?.__copy__();

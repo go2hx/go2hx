@@ -9,10 +9,10 @@ package stdgo._internal.debug.dwarf;
     public var basicBlock : Bool = false;
     public var prologueEnd : Bool = false;
     public var epilogueBegin : Bool = false;
-    public var isa : stdgo.GoInt = 0;
+    public var iSA : stdgo.GoInt = 0;
     public var discriminator : stdgo.GoInt = 0;
     public var endSequence : Bool = false;
-    public function new(?address:stdgo.GoUInt64, ?opIndex:stdgo.GoInt, ?file:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineFile.LineFile>, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?isStmt:Bool, ?basicBlock:Bool, ?prologueEnd:Bool, ?epilogueBegin:Bool, ?isa:stdgo.GoInt, ?discriminator:stdgo.GoInt, ?endSequence:Bool) {
+    public function new(?address:stdgo.GoUInt64, ?opIndex:stdgo.GoInt, ?file:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineFile.LineFile>, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?isStmt:Bool, ?basicBlock:Bool, ?prologueEnd:Bool, ?epilogueBegin:Bool, ?iSA:stdgo.GoInt, ?discriminator:stdgo.GoInt, ?endSequence:Bool) {
         if (address != null) this.address = address;
         if (opIndex != null) this.opIndex = opIndex;
         if (file != null) this.file = file;
@@ -22,7 +22,7 @@ package stdgo._internal.debug.dwarf;
         if (basicBlock != null) this.basicBlock = basicBlock;
         if (prologueEnd != null) this.prologueEnd = prologueEnd;
         if (epilogueBegin != null) this.epilogueBegin = epilogueBegin;
-        if (isa != null) this.isa = isa;
+        if (iSA != null) this.iSA = iSA;
         if (discriminator != null) this.discriminator = discriminator;
         if (endSequence != null) this.endSequence = endSequence;
     }
@@ -38,7 +38,7 @@ isStmt,
 basicBlock,
 prologueEnd,
 epilogueBegin,
-isa,
+iSA,
 discriminator,
 endSequence);
     }

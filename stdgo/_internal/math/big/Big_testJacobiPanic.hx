@@ -14,7 +14,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                         if (((_msg == null) || (_msg == stdgo.Go.toInterface(("test failure" : stdgo.GoString))) : Bool)) {
                             throw stdgo.Go.toInterface(_msg);
                         };
-                        _t.log(_msg);
+                        @:check2r _t.log(_msg);
                     };
                     a();
                 }));
@@ -25,6 +25,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             throw stdgo.Go.toInterface(("test failure" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -39,6 +40,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

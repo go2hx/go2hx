@@ -1,15 +1,16 @@
 package stdgo._internal.net.textproto;
 @:keep @:allow(stdgo._internal.net.textproto.Textproto.Reader_asInterface) class Reader_static_extension {
     @:keep
+    @:tdfield
     static public function _upcomingHeaderKeys( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt);
-        _r.r.peek((1 : stdgo.GoInt));
-        var _s = (_r.r.buffered() : stdgo.GoInt);
+        @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek((1 : stdgo.GoInt));
+        var _s = (@:check2r (@:checkr _r ?? throw "null pointer dereference").r.buffered() : stdgo.GoInt);
         if (_s == ((0 : stdgo.GoInt))) {
             return _n;
         };
-        var __tmp__ = _r.r.peek(_s), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek(_s), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
         while ((((_peek.length) > (0 : stdgo.GoInt) : Bool) && (_n < (1000 : stdgo.GoInt) : Bool) : Bool)) {
             var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
@@ -28,11 +29,13 @@ package stdgo._internal.net.textproto;
         return _n;
     }
     @:keep
+    @:tdfield
     static public function readMIMEHeader( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         return stdgo._internal.net.textproto.Textproto__readMIMEHeader._readMIMEHeader(_r, (9223372036854775807i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
     }
     @:keep
+    @:tdfield
     static public function readDotLines( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _v:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
@@ -40,12 +43,12 @@ package stdgo._internal.net.textproto;
         while (true) {
             var _line:stdgo.GoString = ("" : stdgo.GoString);
             {
-                var __tmp__ = _r.readLine();
+                var __tmp__ = @:check2r _r.readLine();
                 _line = __tmp__._0?.__copy__();
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                 };
                 break;
@@ -61,36 +64,40 @@ package stdgo._internal.net.textproto;
         return { _0 : _v, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function readDotBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        return stdgo._internal.io.Io_readAll.readAll(_r.dotReader());
+        return stdgo._internal.io.Io_readAll.readAll(@:check2r _r.dotReader());
     }
     @:keep
+    @:tdfield
     static public function _closeDot( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        if ((_r._dot == null || (_r._dot : Dynamic).__nil__)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._dot == null || ((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__)) {
             return;
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        while ((_r._dot != null && ((_r._dot : Dynamic).__nil__ == null || !(_r._dot : Dynamic).__nil__))) {
-            _r._dot.read(_buf);
+        while (((@:checkr _r ?? throw "null pointer dereference")._dot != null && (((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__))) {
+            @:check2r (@:checkr _r ?? throw "null pointer dereference")._dot.read(_buf);
         };
     }
     @:keep
+    @:tdfield
     static public function dotReader( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):stdgo._internal.io.Io_Reader.Reader {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        _r._closeDot();
-        _r._dot = (stdgo.Go.setRef(({ _r : _r } : stdgo._internal.net.textproto.Textproto_T_dotReader.T_dotReader)) : stdgo.Ref<stdgo._internal.net.textproto.Textproto_T_dotReader.T_dotReader>);
-        return stdgo.Go.asInterface(_r._dot);
+        @:check2r _r._closeDot();
+        (@:checkr _r ?? throw "null pointer dereference")._dot = (stdgo.Go.setRef(({ _r : _r } : stdgo._internal.net.textproto.Textproto_T_dotReader.T_dotReader)) : stdgo.Ref<stdgo._internal.net.textproto.Textproto_T_dotReader.T_dotReader>);
+        return stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._dot);
     }
     @:keep
+    @:tdfield
     static public function readResponse( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+        var __tmp__ = @:check2r _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _multi = (_continued : Bool);
         while (_continued) {
-            var __tmp__ = _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
                     final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
@@ -122,20 +129,22 @@ package stdgo._internal.net.textproto;
         return { _0 : _code, _1 : _message, _2 : _err };
     }
     @:keep
+    @:tdfield
     static public function readCodeLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+        var __tmp__ = @:check2r _r._readCodeLine(_expectCode), _code:stdgo.GoInt = __tmp__._0, _continued:Bool = __tmp__._1, _message:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         if (((_err == null) && _continued : Bool)) {
             _err = stdgo.Go.asInterface(((("unexpected multi-line response: " : stdgo.GoString) + _message?.__copy__() : stdgo.GoString) : stdgo._internal.net.textproto.Textproto_ProtocolError.ProtocolError));
         };
         return { _0 : _code, _1 : _message, _2 : _err };
     }
     @:keep
+    @:tdfield
     static public function _readCodeLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _code = (0 : stdgo.GoInt), _continued = false, _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var __tmp__ = _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
@@ -149,16 +158,17 @@ package stdgo._internal.net.textproto;
         };
     }
     @:keep
+    @:tdfield
     static public function _skipSpace( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt);
         while (true) {
-            var __tmp__ = _r.r.readByte(), _c:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.readByte(), _c:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 break;
             };
             if (((_c != (32 : stdgo.GoUInt8)) && (_c != (9 : stdgo.GoUInt8)) : Bool)) {
-                _r.r.unreadByte();
+                @:check2r (@:checkr _r ?? throw "null pointer dereference").r.unreadByte();
                 break;
             };
             _n++;
@@ -166,12 +176,13 @@ package stdgo._internal.net.textproto;
         return _n;
     }
     @:keep
+    @:tdfield
     static public function _readContinuedLineSlice( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _validateFirstLine:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
         if (_validateFirstLine == null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("missing validateFirstLine func" : stdgo.GoString)) };
         };
-        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
@@ -184,45 +195,48 @@ package stdgo._internal.net.textproto;
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
-        if ((_r.r.buffered() > (1 : stdgo.GoInt) : Bool)) {
-            var __tmp__ = _r.r.peek((2 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        if ((@:check2r (@:checkr _r ?? throw "null pointer dereference").r.buffered() > (1 : stdgo.GoInt) : Bool)) {
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.peek((2 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             if (((((_peek.length) > (0 : stdgo.GoInt) : Bool) && ((stdgo._internal.net.textproto.Textproto__isASCIILetter._isASCIILetter(_peek[(0 : stdgo.GoInt)]) || (_peek[(0 : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) : Bool)) : Bool) || (((_peek.length) == ((2 : stdgo.GoInt)) && _peek[(0 : stdgo.GoInt)] == ((13 : stdgo.GoUInt8)) : Bool) && _peek[(1 : stdgo.GoInt)] == ((10 : stdgo.GoUInt8)) : Bool) : Bool)) {
                 return { _0 : stdgo._internal.net.textproto.Textproto__trim._trim(_line), _1 : (null : stdgo.Error) };
             };
         };
-        _r._buf = ((_r._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
-        while ((_r._skipSpace() > (0 : stdgo.GoInt) : Bool)) {
-            var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        (@:checkr _r ?? throw "null pointer dereference")._buf = (((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
+        while ((@:check2r _r._skipSpace() > (0 : stdgo.GoInt) : Bool)) {
+            var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 break;
             };
-            _r._buf = (_r._buf.__append__((32 : stdgo.GoUInt8)));
-            _r._buf = (_r._buf.__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
+            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__((32 : stdgo.GoUInt8)));
+            (@:checkr _r ?? throw "null pointer dereference")._buf = ((@:checkr _r ?? throw "null pointer dereference")._buf.__append__(...(stdgo._internal.net.textproto.Textproto__trim._trim(_line) : Array<stdgo.GoUInt8>)));
         };
-        return { _0 : _r._buf, _1 : (null : stdgo.Error) };
+        return { _0 : (@:checkr _r ?? throw "null pointer dereference")._buf, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function readContinuedLineBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        var __tmp__ = _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__noValidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__noValidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_line != null) {
             _line = stdgo._internal.bytes.Bytes_clone.clone(_line);
         };
         return { _0 : _line, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function readContinuedLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        var __tmp__ = _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__noValidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._readContinuedLineSlice(stdgo._internal.net.textproto.Textproto__noValidation._noValidation), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : (_line : stdgo.GoString)?.__copy__(), _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function _readLineSlice( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        _r._closeDot();
+        @:check2r _r._closeDot();
         var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         while (true) {
-            var __tmp__ = _r.r.readLine(), _l:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _more:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference").r.readLine(), _l:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _more:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
@@ -237,18 +251,20 @@ package stdgo._internal.net.textproto;
         return { _0 : _line, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function readLineBytes( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_line != null) {
             _line = stdgo._internal.bytes.Bytes_clone.clone(_line);
         };
         return { _0 : _line, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function readLine( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        var __tmp__ = _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._readLineSlice(), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : (_line : stdgo.GoString)?.__copy__(), _1 : _err };
     }
 }

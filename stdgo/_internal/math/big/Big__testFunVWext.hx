@@ -5,11 +5,11 @@ function _testFunVWext(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _msg
         var _c = (_f(_a._z, _a._x, _a._y) : stdgo._internal.math.big.Big_Word.Word);
         for (_i => _zi in _a._z) {
             if (_zi != (_z_g[(_i : stdgo.GoInt)])) {
-                _t.errorf(("%s\n\tgot z[%d] = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_zi), stdgo.Go.toInterface(_z_g[(_i : stdgo.GoInt)]));
+                @:check2r _t.errorf(("%s\n\tgot z[%d] = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_zi), stdgo.Go.toInterface(_z_g[(_i : stdgo.GoInt)]));
                 break;
             };
         };
         if (_c != (_c_g)) {
-            _t.errorf(("%s\n\tgot c = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c_g));
+            @:check2r _t.errorf(("%s\n\tgot c = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_msg), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c_g));
         };
     }

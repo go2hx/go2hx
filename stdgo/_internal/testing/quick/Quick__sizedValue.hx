@@ -22,7 +22,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
             {
                 final __value__ = _concrete.kind();
                 if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    _v.setBool((_rand.int_() & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt)));
+                    _v.setBool((@:check2r _rand.int_() & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt)));
                 } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     _v.setFloat((stdgo._internal.testing.quick.Quick__randFloat32._randFloat32(_rand) : stdgo.GoFloat64));
                 } else if (__value__ == ((14u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
@@ -54,7 +54,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                 } else if (__value__ == ((12u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     _v.setUint((stdgo._internal.testing.quick.Quick__randInt64._randInt64(_rand) : stdgo.GoUInt64));
                 } else if (__value__ == ((21u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    var _numElems = (_rand.intn(_size) : stdgo.GoInt);
+                    var _numElems = (@:check2r _rand.intn(_size) : stdgo.GoInt);
                     _v.set(stdgo._internal.reflect.Reflect_makeMap.makeMap(_concrete)?.__copy__());
                     {
                         var _i = (0 : stdgo.GoInt);
@@ -74,7 +74,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                         };
                     };
                 } else if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    if (_rand.intn(_size) == ((0 : stdgo.GoInt))) {
+                    if (@:check2r _rand.intn(_size) == ((0 : stdgo.GoInt))) {
                         _v.setZero();
                     } else {
                         var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -90,7 +90,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                         _v.elem().set(_elem?.__copy__());
                     };
                 } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    var _numElems = (_rand.intn(_size) : stdgo.GoInt);
+                    var _numElems = (@:check2r _rand.intn(_size) : stdgo.GoInt);
                     var _sizeLeft = (_size - _numElems : stdgo.GoInt);
                     _v.set(stdgo._internal.reflect.Reflect_makeSlice.makeSlice(_concrete, _numElems, _numElems)?.__copy__());
                     {
@@ -127,12 +127,12 @@ _v.index(_i).set(_elem.__copy__());
                         };
                     };
                 } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    var _numChars = (_rand.intn((50 : stdgo.GoInt)) : stdgo.GoInt);
+                    var _numChars = (@:check2r _rand.intn((50 : stdgo.GoInt)) : stdgo.GoInt);
                     var _codePoints = (new stdgo.Slice<stdgo.GoInt32>((_numChars : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < _numChars : Bool)) {
-                            _codePoints[(_i : stdgo.GoInt)] = (_rand.intn((1114111 : stdgo.GoInt)) : stdgo.GoInt32);
+                            _codePoints[(_i : stdgo.GoInt)] = (@:check2r _rand.intn((1114111 : stdgo.GoInt)) : stdgo.GoInt32);
                             _i++;
                         };
                     };

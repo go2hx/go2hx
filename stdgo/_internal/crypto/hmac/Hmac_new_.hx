@@ -7,8 +7,8 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
             };
         };
         var _hm = (stdgo.Go.setRef(({} : stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac)) : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
-        _hm._outer = _h();
-        _hm._inner = _h();
+        (@:checkr _hm ?? throw "null pointer dereference")._outer = _h();
+        (@:checkr _hm ?? throw "null pointer dereference")._inner = _h();
         var _unique = (true : Bool);
         ({
             var a = function():Void {
@@ -26,11 +26,12 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                             a();
                         }));
                     };
-                    if (stdgo.Go.toInterface(_hm._outer) == (stdgo.Go.toInterface(_hm._inner))) {
+                    if (stdgo.Go.toInterface((@:checkr _hm ?? throw "null pointer dereference")._outer) == (stdgo.Go.toInterface((@:checkr _hm ?? throw "null pointer dereference")._inner))) {
                         _unique = false;
                     };
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -45,6 +46,7 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                     };
                     stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -56,21 +58,21 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
         if (!_unique) {
             throw stdgo.Go.toInterface(("crypto/hmac: hash generation function does not produce unique values" : stdgo.GoString));
         };
-        var _blocksize = (_hm._inner.blockSize() : stdgo.GoInt);
-        _hm._ipad = (new stdgo.Slice<stdgo.GoUInt8>((_blocksize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _hm._opad = (new stdgo.Slice<stdgo.GoUInt8>((_blocksize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        var _blocksize = ((@:checkr _hm ?? throw "null pointer dereference")._inner.blockSize() : stdgo.GoInt);
+        (@:checkr _hm ?? throw "null pointer dereference")._ipad = (new stdgo.Slice<stdgo.GoUInt8>((_blocksize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        (@:checkr _hm ?? throw "null pointer dereference")._opad = (new stdgo.Slice<stdgo.GoUInt8>((_blocksize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         if (((_key.length) > _blocksize : Bool)) {
-            _hm._outer.write(_key);
-            _key = _hm._outer.sum((null : stdgo.Slice<stdgo.GoUInt8>));
+            (@:checkr _hm ?? throw "null pointer dereference")._outer.write(_key);
+            _key = (@:checkr _hm ?? throw "null pointer dereference")._outer.sum((null : stdgo.Slice<stdgo.GoUInt8>));
         };
-        _hm._ipad.__copyTo__(_key);
-        _hm._opad.__copyTo__(_key);
-        for (_i => _ in _hm._ipad) {
-            _hm._ipad[(_i : stdgo.GoInt)] = (_hm._ipad[(_i : stdgo.GoInt)] ^ ((54 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+        (@:checkr _hm ?? throw "null pointer dereference")._ipad.__copyTo__(_key);
+        (@:checkr _hm ?? throw "null pointer dereference")._opad.__copyTo__(_key);
+        for (_i => _ in (@:checkr _hm ?? throw "null pointer dereference")._ipad) {
+            (@:checkr _hm ?? throw "null pointer dereference")._ipad[(_i : stdgo.GoInt)] = ((@:checkr _hm ?? throw "null pointer dereference")._ipad[(_i : stdgo.GoInt)] ^ ((54 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
-        for (_i => _ in _hm._opad) {
-            _hm._opad[(_i : stdgo.GoInt)] = (_hm._opad[(_i : stdgo.GoInt)] ^ ((92 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+        for (_i => _ in (@:checkr _hm ?? throw "null pointer dereference")._opad) {
+            (@:checkr _hm ?? throw "null pointer dereference")._opad[(_i : stdgo.GoInt)] = ((@:checkr _hm ?? throw "null pointer dereference")._opad[(_i : stdgo.GoInt)] ^ ((92 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
-        _hm._inner.write(_hm._ipad);
+        (@:checkr _hm ?? throw "null pointer dereference")._inner.write((@:checkr _hm ?? throw "null pointer dereference")._ipad);
         return stdgo.Go.asInterface(_hm);
     }

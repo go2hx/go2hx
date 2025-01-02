@@ -10,7 +10,7 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (stdgo._internal.slices.Slices_compare.compare(_test._s1, _test._s2) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._want)) {
-                    _t.errorf(("Compare(%v, %v) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._want)));
+                    @:check2r _t.errorf(("Compare(%v, %v) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._want)));
                 };
             };
         };
@@ -18,7 +18,7 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (stdgo._internal.slices.Slices_compare.compare(_test._s1, _test._s2) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._wantEqualNaN)) {
-                    _t.errorf(("Compare(%v, %v) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._wantEqualNaN)));
+                    @:check2r _t.errorf(("Compare(%v, %v) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._wantEqualNaN)));
                 };
             };
         };
@@ -26,7 +26,7 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (stdgo._internal.slices.Slices_compare.compare(_test._s1, _test._s2) : stdgo.GoInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("Compare(%v, %v) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("Compare(%v, %v) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };
@@ -34,7 +34,7 @@ function testCompare(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (stdgo._internal.slices.Slices_compare.compare(_test._s1, _test._s2) : stdgo.GoInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("Compare(%v, %v) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("Compare(%v, %v) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

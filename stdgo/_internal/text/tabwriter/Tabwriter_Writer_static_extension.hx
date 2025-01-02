@@ -1,6 +1,7 @@
 package stdgo._internal.text.tabwriter;
 @:keep @:allow(stdgo._internal.text.tabwriter.Tabwriter.Writer_asInterface) class Writer_static_extension {
     @:keep
+    @:tdfield
     static public function write( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         var __deferstack__:Array<Void -> Void> = [];
@@ -9,67 +10,69 @@ package stdgo._internal.text.tabwriter;
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Write" : stdgo.GoString);
-                final __f__ = _b._handlePanic;
+                final __f__ = @:check2r _b._handlePanic;
                 __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
             };
             _n = (0 : stdgo.GoInt);
             for (_i => _ch in _buf) {
-                if (_b._endChar == ((0 : stdgo.GoUInt8))) {
+                if ((@:checkr _b ?? throw "null pointer dereference")._endChar == ((0 : stdgo.GoUInt8))) {
                     {
                         final __value__ = _ch;
                         if (__value__ == ((9 : stdgo.GoUInt8)) || __value__ == ((11 : stdgo.GoUInt8)) || __value__ == ((10 : stdgo.GoUInt8)) || __value__ == ((12 : stdgo.GoUInt8))) {
-                            _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                            _b._updateWidth();
+                            @:check2r _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
+                            @:check2r _b._updateWidth();
                             _n = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                            var _ncells = (_b._terminateCell(_ch == ((9 : stdgo.GoUInt8))) : stdgo.GoInt);
+                            var _ncells = (@:check2r _b._terminateCell(_ch == ((9 : stdgo.GoUInt8))) : stdgo.GoInt);
                             if (((_ch == (10 : stdgo.GoUInt8)) || (_ch == (12 : stdgo.GoUInt8)) : Bool)) {
-                                _b._addLine(_ch == ((12 : stdgo.GoUInt8)));
+                                @:check2r _b._addLine(_ch == ((12 : stdgo.GoUInt8)));
                                 if (((_ch == (12 : stdgo.GoUInt8)) || (_ncells == (1 : stdgo.GoInt)) : Bool)) {
-                                    _b._flushNoDefers();
-                                    if (((_ch == (12 : stdgo.GoUInt8)) && ((_b._flags & (32u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
-                                        _b._write0(stdgo._internal.text.tabwriter.Tabwriter__hbar._hbar);
+                                    @:check2r _b._flushNoDefers();
+                                    if (((_ch == (12 : stdgo.GoUInt8)) && (((@:checkr _b ?? throw "null pointer dereference")._flags & (32u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
+                                        @:check2r _b._write0(stdgo._internal.text.tabwriter.Tabwriter__hbar._hbar);
                                     };
                                 };
                             };
                         } else if (__value__ == ((255 : stdgo.GoUInt8))) {
-                            _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                            _b._updateWidth();
+                            @:check2r _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
+                            @:check2r _b._updateWidth();
                             _n = _i;
-                            if ((_b._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
+                            if (((@:checkr _b ?? throw "null pointer dereference")._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
                                 _n++;
                             };
-                            _b._startEscape((255 : stdgo.GoUInt8));
+                            @:check2r _b._startEscape((255 : stdgo.GoUInt8));
                         } else if (__value__ == ((60 : stdgo.GoUInt8)) || __value__ == ((38 : stdgo.GoUInt8))) {
-                            if ((_b._flags & (1u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
-                                _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                                _b._updateWidth();
+                            if (((@:checkr _b ?? throw "null pointer dereference")._flags & (1u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt))) {
+                                @:check2r _b._append((_buf.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>));
+                                @:check2r _b._updateWidth();
                                 _n = _i;
-                                _b._startEscape(_ch);
+                                @:check2r _b._startEscape(_ch);
                             };
                         };
                     };
                 } else {
-                    if (_ch == (_b._endChar)) {
+                    if (_ch == ((@:checkr _b ?? throw "null pointer dereference")._endChar)) {
                         var _j = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        if (((_ch == (255 : stdgo.GoUInt8)) && ((_b._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
+                        if (((_ch == (255 : stdgo.GoUInt8)) && (((@:checkr _b ?? throw "null pointer dereference")._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
                             _j = _i;
                         };
-                        _b._append((_buf.__slice__(_n, _j) : stdgo.Slice<stdgo.GoUInt8>));
+                        @:check2r _b._append((_buf.__slice__(_n, _j) : stdgo.Slice<stdgo.GoUInt8>));
                         _n = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _b._endEscape();
+                        @:check2r _b._endEscape();
                     };
                 };
             };
-            _b._append((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>));
+            @:check2r _b._append((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>));
             _n = (_buf.length);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _n, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -84,6 +87,7 @@ package stdgo._internal.text.tabwriter;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -91,18 +95,20 @@ package stdgo._internal.text.tabwriter;
         };
     }
     @:keep
+    @:tdfield
     static public function _flushNoDefers( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        if ((_b._cell._size > (0 : stdgo.GoInt) : Bool)) {
-            if (_b._endChar != ((0 : stdgo.GoUInt8))) {
-                _b._endEscape();
+        if (((@:checkr _b ?? throw "null pointer dereference")._cell._size > (0 : stdgo.GoInt) : Bool)) {
+            if ((@:checkr _b ?? throw "null pointer dereference")._endChar != ((0 : stdgo.GoUInt8))) {
+                @:check2r _b._endEscape();
             };
-            _b._terminateCell(false);
+            @:check2r _b._terminateCell(false);
         };
-        _b._format((0 : stdgo.GoInt), (0 : stdgo.GoInt), (_b._lines.length));
-        _b._reset();
+        @:check2r _b._format((0 : stdgo.GoInt), (0 : stdgo.GoInt), ((@:checkr _b ?? throw "null pointer dereference")._lines.length));
+        @:check2r _b._reset();
     }
     @:keep
+    @:tdfield
     static public function _flush( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         var __deferstack__:Array<Void -> Void> = [];
@@ -111,19 +117,21 @@ package stdgo._internal.text.tabwriter;
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Flush" : stdgo.GoString);
-                final __f__ = _b._handlePanic;
+                final __f__ = @:check2r _b._handlePanic;
                 __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
             };
-            _b._flushNoDefers();
+            @:check2r _b._flushNoDefers();
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -138,6 +146,7 @@ package stdgo._internal.text.tabwriter;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -145,11 +154,13 @@ package stdgo._internal.text.tabwriter;
         };
     }
     @:keep
+    @:tdfield
     static public function flush( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        return _b._flush();
+        return @:check2r _b._flush();
     }
     @:keep
+    @:tdfield
     static public function _handlePanic( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _err:stdgo.Ref<stdgo.Error>, _op:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         {
@@ -160,7 +171,7 @@ package stdgo._internal.text.tabwriter;
             } : stdgo.AnyInterface);
             if (_e != null) {
                 if (_op == (("Flush" : stdgo.GoString))) {
-                    _b._reset();
+                    @:check2r _b._reset();
                 };
                 {
                     var __tmp__ = try {
@@ -182,85 +193,91 @@ package stdgo._internal.text.tabwriter;
         };
     }
     @:keep
+    @:tdfield
     static public function _terminateCell( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _htab:Bool):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        _b._cell._htab = _htab;
-        var _line = (stdgo.Go.setRef(_b._lines[((_b._lines.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
-        (_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>).__setData__(((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>).__append__(_b._cell?.__copy__())));
-        _b._cell = (new stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell() : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
+        (@:checkr _b ?? throw "null pointer dereference")._cell._htab = _htab;
+        var _line = (stdgo.Go.setRef((@:checkr _b ?? throw "null pointer dereference")._lines[(((@:checkr _b ?? throw "null pointer dereference")._lines.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
+        (_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>).__setData__(((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>).__append__((@:checkr _b ?? throw "null pointer dereference")._cell?.__copy__())));
+        (@:checkr _b ?? throw "null pointer dereference")._cell = (new stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell() : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
         return ((_line : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>).length);
     }
     @:keep
+    @:tdfield
     static public function _endEscape( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         {
-            final __value__ = _b._endChar;
+            final __value__ = (@:checkr _b ?? throw "null pointer dereference")._endChar;
             if (__value__ == ((255 : stdgo.GoUInt8))) {
-                _b._updateWidth();
-                if ((_b._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) == ((0u32 : stdgo.GoUInt))) {
-                    _b._cell._width = (_b._cell._width - ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                @:check2r _b._updateWidth();
+                if (((@:checkr _b ?? throw "null pointer dereference")._flags & (2u32 : stdgo.GoUInt) : stdgo.GoUInt) == ((0u32 : stdgo.GoUInt))) {
+                    (@:checkr _b ?? throw "null pointer dereference")._cell._width = ((@:checkr _b ?? throw "null pointer dereference")._cell._width - ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 };
             } else if (__value__ == ((62 : stdgo.GoUInt8))) {} else if (__value__ == ((59 : stdgo.GoUInt8))) {
-                _b._cell._width++;
+                (@:checkr _b ?? throw "null pointer dereference")._cell._width++;
             };
         };
-        _b._pos = (_b._buf.length);
-        _b._endChar = (0 : stdgo.GoUInt8);
+        (@:checkr _b ?? throw "null pointer dereference")._pos = ((@:checkr _b ?? throw "null pointer dereference")._buf.length);
+        (@:checkr _b ?? throw "null pointer dereference")._endChar = (0 : stdgo.GoUInt8);
     }
     @:keep
+    @:tdfield
     static public function _startEscape( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _ch:stdgo.GoUInt8):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         {
             final __value__ = _ch;
             if (__value__ == ((255 : stdgo.GoUInt8))) {
-                _b._endChar = (255 : stdgo.GoUInt8);
+                (@:checkr _b ?? throw "null pointer dereference")._endChar = (255 : stdgo.GoUInt8);
             } else if (__value__ == ((60 : stdgo.GoUInt8))) {
-                _b._endChar = (62 : stdgo.GoUInt8);
+                (@:checkr _b ?? throw "null pointer dereference")._endChar = (62 : stdgo.GoUInt8);
             } else if (__value__ == ((38 : stdgo.GoUInt8))) {
-                _b._endChar = (59 : stdgo.GoUInt8);
+                (@:checkr _b ?? throw "null pointer dereference")._endChar = (59 : stdgo.GoUInt8);
             };
         };
     }
     @:keep
+    @:tdfield
     static public function _updateWidth( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        _b._cell._width = (_b._cell._width + (stdgo._internal.unicode.utf8.Utf8_runeCount.runeCount((_b._buf.__slice__(_b._pos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
-        _b._pos = (_b._buf.length);
+        (@:checkr _b ?? throw "null pointer dereference")._cell._width = ((@:checkr _b ?? throw "null pointer dereference")._cell._width + (stdgo._internal.unicode.utf8.Utf8_runeCount.runeCount(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._pos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._pos = ((@:checkr _b ?? throw "null pointer dereference")._buf.length);
     }
     @:keep
+    @:tdfield
     static public function _append( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _text:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        _b._buf = (_b._buf.__append__(...(_text : Array<stdgo.GoUInt8>)));
-        _b._cell._size = (_b._cell._size + ((_text.length)) : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__append__(...(_text : Array<stdgo.GoUInt8>)));
+        (@:checkr _b ?? throw "null pointer dereference")._cell._size = ((@:checkr _b ?? throw "null pointer dereference")._cell._size + ((_text.length)) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function _format( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _pos0:stdgo.GoInt, _line0:stdgo.GoInt, _line1:stdgo.GoInt):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         var _pos = (0 : stdgo.GoInt);
         _pos = _pos0;
-        var _column = (_b._widths.length : stdgo.GoInt);
+        var _column = ((@:checkr _b ?? throw "null pointer dereference")._widths.length : stdgo.GoInt);
         {
             var _this = (_line0 : stdgo.GoInt);
             while ((_this < _line1 : Bool)) {
-                var _line = _b._lines[(_this : stdgo.GoInt)];
+                var _line = (@:checkr _b ?? throw "null pointer dereference")._lines[(_this : stdgo.GoInt)];
 if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                     {
                         _this++;
                         continue;
                     };
                 };
-_pos = _b._writeLines(_pos, _line0, _this);
+_pos = @:check2r _b._writeLines(_pos, _line0, _this);
 _line0 = _this;
-var _width = (_b._minwidth : stdgo.GoInt);
+var _width = ((@:checkr _b ?? throw "null pointer dereference")._minwidth : stdgo.GoInt);
 var _discardable = (true : Bool);
 while ((_this < _line1 : Bool)) {
-                    _line = _b._lines[(_this : stdgo.GoInt)];
+                    _line = (@:checkr _b ?? throw "null pointer dereference")._lines[(_this : stdgo.GoInt)];
 if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                         break;
                     };
 var _c = (_line[(_column : stdgo.GoInt)] : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
 {
-                        var _w = (_c._width + _b._padding : stdgo.GoInt);
+                        var _w = (_c._width + (@:checkr _b ?? throw "null pointer dereference")._padding : stdgo.GoInt);
                         if ((_w > _width : Bool)) {
                             _width = _w;
                         };
@@ -270,19 +287,20 @@ if (((_c._width > (0 : stdgo.GoInt) : Bool) || _c._htab : Bool)) {
                     };
                     _this++;
                 };
-if ((_discardable && ((_b._flags & (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
+if ((_discardable && (((@:checkr _b ?? throw "null pointer dereference")._flags & (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
                     _width = (0 : stdgo.GoInt);
                 };
-_b._widths = (_b._widths.__append__(_width));
-_pos = _b._format(_pos, _line0, _this);
-_b._widths = (_b._widths.__slice__((0 : stdgo.GoInt), ((_b._widths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+(@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__append__(_width));
+_pos = @:check2r _b._format(_pos, _line0, _this);
+(@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__slice__((0 : stdgo.GoInt), (((@:checkr _b ?? throw "null pointer dereference")._widths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
 _line0 = _this;
                 _this++;
             };
         };
-        return _pos = _b._writeLines(_pos, _line0, _line1);
+        return _pos = @:check2r _b._writeLines(_pos, _line0, _line1);
     }
     @:keep
+    @:tdfield
     static public function _writeLines( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _pos0:stdgo.GoInt, _line0:stdgo.GoInt, _line1:stdgo.GoInt):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         var _pos = (0 : stdgo.GoInt);
@@ -290,38 +308,38 @@ _line0 = _this;
         {
             var _i = (_line0 : stdgo.GoInt);
             while ((_i < _line1 : Bool)) {
-                var _line = _b._lines[(_i : stdgo.GoInt)];
-var _useTabs = ((_b._flags & (16u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt)) : Bool);
+                var _line = (@:checkr _b ?? throw "null pointer dereference")._lines[(_i : stdgo.GoInt)];
+var _useTabs = (((@:checkr _b ?? throw "null pointer dereference")._flags & (16u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt)) : Bool);
 for (_j => _c in _line) {
-                    if (((_j > (0 : stdgo.GoInt) : Bool) && ((_b._flags & (32u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
-                        _b._write0(stdgo._internal.text.tabwriter.Tabwriter__vbar._vbar);
+                    if (((_j > (0 : stdgo.GoInt) : Bool) && (((@:checkr _b ?? throw "null pointer dereference")._flags & (32u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
+                        @:check2r _b._write0(stdgo._internal.text.tabwriter.Tabwriter__vbar._vbar);
                     };
                     if (_c._size == ((0 : stdgo.GoInt))) {
-                        if ((_j < (_b._widths.length) : Bool)) {
-                            _b._writePadding(_c._width, _b._widths[(_j : stdgo.GoInt)], _useTabs);
+                        if ((_j < ((@:checkr _b ?? throw "null pointer dereference")._widths.length) : Bool)) {
+                            @:check2r _b._writePadding(_c._width, (@:checkr _b ?? throw "null pointer dereference")._widths[(_j : stdgo.GoInt)], _useTabs);
                         };
                     } else {
                         _useTabs = false;
-                        if ((_b._flags & (4u32 : stdgo.GoUInt) : stdgo.GoUInt) == ((0u32 : stdgo.GoUInt))) {
-                            _b._write0((_b._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                        if (((@:checkr _b ?? throw "null pointer dereference")._flags & (4u32 : stdgo.GoUInt) : stdgo.GoUInt) == ((0u32 : stdgo.GoUInt))) {
+                            @:check2r _b._write0(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             _pos = (_pos + (_c._size) : stdgo.GoInt);
-                            if ((_j < (_b._widths.length) : Bool)) {
-                                _b._writePadding(_c._width, _b._widths[(_j : stdgo.GoInt)], false);
+                            if ((_j < ((@:checkr _b ?? throw "null pointer dereference")._widths.length) : Bool)) {
+                                @:check2r _b._writePadding(_c._width, (@:checkr _b ?? throw "null pointer dereference")._widths[(_j : stdgo.GoInt)], false);
                             };
                         } else {
-                            if ((_j < (_b._widths.length) : Bool)) {
-                                _b._writePadding(_c._width, _b._widths[(_j : stdgo.GoInt)], false);
+                            if ((_j < ((@:checkr _b ?? throw "null pointer dereference")._widths.length) : Bool)) {
+                                @:check2r _b._writePadding(_c._width, (@:checkr _b ?? throw "null pointer dereference")._widths[(_j : stdgo.GoInt)], false);
                             };
-                            _b._write0((_b._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                            @:check2r _b._write0(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             _pos = (_pos + (_c._size) : stdgo.GoInt);
                         };
                     };
                 };
-if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
-                    _b._write0((_b._buf.__slice__(_pos, (_pos + _b._cell._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _pos = (_pos + (_b._cell._size) : stdgo.GoInt);
+if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (((@:checkr _b ?? throw "null pointer dereference")._lines.length))) {
+                    @:check2r _b._write0(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_pos, (_pos + (@:checkr _b ?? throw "null pointer dereference")._cell._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                    _pos = (_pos + ((@:checkr _b ?? throw "null pointer dereference")._cell._size) : stdgo.GoInt);
                 } else {
-                    _b._write0(stdgo._internal.text.tabwriter.Tabwriter__newline._newline);
+                    @:check2r _b._write0(stdgo._internal.text.tabwriter.Tabwriter__newline._newline);
                 };
                 _i++;
             };
@@ -329,35 +347,38 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
         return _pos;
     }
     @:keep
+    @:tdfield
     static public function _writePadding( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _textw:stdgo.GoInt, _cellw:stdgo.GoInt, _useTabs:Bool):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        if (((_b._padbytes[(0 : stdgo.GoInt)] == (9 : stdgo.GoUInt8)) || _useTabs : Bool)) {
-            if (_b._tabwidth == ((0 : stdgo.GoInt))) {
+        if ((((@:checkr _b ?? throw "null pointer dereference")._padbytes[(0 : stdgo.GoInt)] == (9 : stdgo.GoUInt8)) || _useTabs : Bool)) {
+            if ((@:checkr _b ?? throw "null pointer dereference")._tabwidth == ((0 : stdgo.GoInt))) {
                 return;
             };
-            _cellw = (((((_cellw + _b._tabwidth : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / _b._tabwidth : stdgo.GoInt) * _b._tabwidth : stdgo.GoInt);
+            _cellw = (((((_cellw + (@:checkr _b ?? throw "null pointer dereference")._tabwidth : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (@:checkr _b ?? throw "null pointer dereference")._tabwidth : stdgo.GoInt) * (@:checkr _b ?? throw "null pointer dereference")._tabwidth : stdgo.GoInt);
             var _n = (_cellw - _textw : stdgo.GoInt);
             if ((_n < (0 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("internal error" : stdgo.GoString));
             };
-            _b._writeN(stdgo._internal.text.tabwriter.Tabwriter__tabs._tabs, ((((_n + _b._tabwidth : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / _b._tabwidth : stdgo.GoInt));
+            @:check2r _b._writeN(stdgo._internal.text.tabwriter.Tabwriter__tabs._tabs, ((((_n + (@:checkr _b ?? throw "null pointer dereference")._tabwidth : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (@:checkr _b ?? throw "null pointer dereference")._tabwidth : stdgo.GoInt));
             return;
         };
-        _b._writeN((_b._padbytes.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_cellw - _textw : stdgo.GoInt));
+        @:check2r _b._writeN(((@:checkr _b ?? throw "null pointer dereference")._padbytes.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_cellw - _textw : stdgo.GoInt));
     }
     @:keep
+    @:tdfield
     static public function _writeN( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _src:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         while ((_n > (_src.length) : Bool)) {
-            _b._write0(_src);
+            @:check2r _b._write0(_src);
             _n = (_n - ((_src.length)) : stdgo.GoInt);
         };
-        _b._write0((_src.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>));
+        @:check2r _b._write0((_src.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>));
     }
     @:keep
+    @:tdfield
     static public function _write0( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _buf:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        var __tmp__ = _b._output.write(_buf), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._output.write(_buf), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_n != (_buf.length)) && (_err == null) : Bool)) {
             _err = stdgo._internal.io.Io_errShortWrite.errShortWrite;
         };
@@ -366,13 +387,14 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
         };
     }
     @:keep
+    @:tdfield
     static public function _dump( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         var _pos = (0 : stdgo.GoInt);
-        for (_i => _line in _b._lines) {
+        for (_i => _line in (@:checkr _b ?? throw "null pointer dereference")._lines) {
             stdgo.Go.print(("(" : stdgo.GoString), _i, (") " : stdgo.GoString));
             for (__0 => _c in _line) {
-                stdgo.Go.print(("[" : stdgo.GoString), ((_b._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString), ("]" : stdgo.GoString));
+                stdgo.Go.print(("[" : stdgo.GoString), (((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_pos, (_pos + _c._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString), ("]" : stdgo.GoString));
                 _pos = (_pos + (_c._size) : stdgo.GoInt);
             };
             stdgo.Go.print(("\n" : stdgo.GoString));
@@ -380,56 +402,59 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
         stdgo.Go.print(("\n" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function init( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _output:stdgo._internal.io.Io_Writer.Writer, _minwidth:stdgo.GoInt, _tabwidth:stdgo.GoInt, _padding:stdgo.GoInt, _padchar:stdgo.GoUInt8, _flags:stdgo.GoUInt):stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         if ((((_minwidth < (0 : stdgo.GoInt) : Bool) || (_tabwidth < (0 : stdgo.GoInt) : Bool) : Bool) || (_padding < (0 : stdgo.GoInt) : Bool) : Bool)) {
             throw stdgo.Go.toInterface(("negative minwidth, tabwidth, or padding" : stdgo.GoString));
         };
-        _b._output = _output;
-        _b._minwidth = _minwidth;
-        _b._tabwidth = _tabwidth;
-        _b._padding = _padding;
-        for (_i => _ in _b._padbytes) {
-            _b._padbytes[(_i : stdgo.GoInt)] = _padchar;
+        (@:checkr _b ?? throw "null pointer dereference")._output = _output;
+        (@:checkr _b ?? throw "null pointer dereference")._minwidth = _minwidth;
+        (@:checkr _b ?? throw "null pointer dereference")._tabwidth = _tabwidth;
+        (@:checkr _b ?? throw "null pointer dereference")._padding = _padding;
+        for (_i => _ in (@:checkr _b ?? throw "null pointer dereference")._padbytes) {
+            (@:checkr _b ?? throw "null pointer dereference")._padbytes[(_i : stdgo.GoInt)] = _padchar;
         };
         if (_padchar == ((9 : stdgo.GoUInt8))) {
             _flags = (_flags & ((((4u32 : stdgo.GoUInt)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt)) : stdgo.GoUInt);
         };
-        _b._flags = _flags;
-        _b._reset();
+        (@:checkr _b ?? throw "null pointer dereference")._flags = _flags;
+        @:check2r _b._reset();
         return _b;
     }
     @:keep
+    @:tdfield
     static public function _reset( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        _b._buf = (_b._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        _b._pos = (0 : stdgo.GoInt);
-        _b._cell = (new stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell() : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
-        _b._endChar = (0 : stdgo.GoUInt8);
-        _b._lines = (_b._lines.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
-        _b._widths = (_b._widths.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-        _b._addLine(true);
+        (@:checkr _b ?? throw "null pointer dereference")._buf = ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        (@:checkr _b ?? throw "null pointer dereference")._pos = (0 : stdgo.GoInt);
+        (@:checkr _b ?? throw "null pointer dereference")._cell = (new stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell() : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
+        (@:checkr _b ?? throw "null pointer dereference")._endChar = (0 : stdgo.GoUInt8);
+        (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
+        (@:checkr _b ?? throw "null pointer dereference")._widths = ((@:checkr _b ?? throw "null pointer dereference")._widths.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+        @:check2r _b._addLine(true);
     }
     @:keep
+    @:tdfield
     static public function _addLine( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _flushed:Bool):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
         {
-            var _n = ((_b._lines.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
-            if ((_n <= _b._lines.capacity : Bool)) {
-                _b._lines = (_b._lines.__slice__(0, _n) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
-                _b._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)].__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>);
+            var _n = (((@:checkr _b ?? throw "null pointer dereference")._lines.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
+            if ((_n <= (@:checkr _b ?? throw "null pointer dereference")._lines.capacity : Bool)) {
+                (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__slice__(0, _n) : stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>>);
+                (@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)].__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>);
             } else {
-                _b._lines = (_b._lines.__append__((null : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>)));
+                (@:checkr _b ?? throw "null pointer dereference")._lines = ((@:checkr _b ?? throw "null pointer dereference")._lines.__append__((null : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>)));
             };
         };
         if (!_flushed) {
             {
-                var _n = (_b._lines.length : stdgo.GoInt);
+                var _n = ((@:checkr _b ?? throw "null pointer dereference")._lines.length : stdgo.GoInt);
                 if ((_n >= (2 : stdgo.GoInt) : Bool)) {
                     {
-                        var _prev = (_b._lines[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)].length : stdgo.GoInt);
-                        if ((_prev > _b._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)].capacity : Bool)) {
-                            _b._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = (new stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>((0 : stdgo.GoInt).toBasic(), _prev, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _prev ? (0 : stdgo.GoInt).toBasic() : _prev : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell)]) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>);
+                        var _prev = ((@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)].length : stdgo.GoInt);
+                        if ((_prev > (@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)].capacity : Bool)) {
+                            (@:checkr _b ?? throw "null pointer dereference")._lines[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = (new stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>((0 : stdgo.GoInt).toBasic(), _prev, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _prev ? (0 : stdgo.GoInt).toBasic() : _prev : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell)]) : stdgo.Slice<stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell>);
                         };
                     };
                 };

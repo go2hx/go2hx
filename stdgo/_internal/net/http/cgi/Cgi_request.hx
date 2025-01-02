@@ -4,8 +4,8 @@ function request():{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Re
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
-        if ((_r.contentLength > (0i64 : stdgo.GoInt64) : Bool)) {
-            _r.body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo._internal.io.Io_limitReader.limitReader(stdgo.Go.asInterface(stdgo._internal.os.Os_stdin.stdin), _r.contentLength));
+        if (((@:checkr _r ?? throw "null pointer dereference").contentLength > (0i64 : stdgo.GoInt64) : Bool)) {
+            (@:checkr _r ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo._internal.io.Io_limitReader.limitReader(stdgo.Go.asInterface(stdgo._internal.os.Os_stdin.stdin), (@:checkr _r ?? throw "null pointer dereference").contentLength));
         };
         return { _0 : _r, _1 : (null : stdgo.Error) };
     }

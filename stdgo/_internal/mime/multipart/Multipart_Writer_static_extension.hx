@@ -1,24 +1,26 @@
 package stdgo._internal.mime.multipart;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.Writer_asInterface) class Writer_static_extension {
     @:keep
+    @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
+        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
             {
-                var _err = (_w._lastpart._close() : stdgo.Error);
+                var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._lastpart._close() : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
             };
-            _w._lastpart = null;
+            (@:checkr _w ?? throw "null pointer dereference")._lastpart = null;
         };
-        var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w._w, ("\r\n--%s--\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _w ?? throw "null pointer dereference")._w, ("\r\n--%s--\r\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._boundary)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function writeField( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _fieldname:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        var __tmp__ = _w.createFormField(_fieldname?.__copy__()), _p:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _w.createFormField(_fieldname?.__copy__()), _p:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
@@ -29,46 +31,49 @@ package stdgo._internal.mime.multipart;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function createFormField( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _fieldname:stdgo.GoString):{ var _0 : stdgo._internal.io.Io_Writer.Writer; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        var _h = (({
+        var _h = ((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
         _h.set(("Content-Disposition" : stdgo.GoString), stdgo._internal.fmt.Fmt_sprintf.sprintf(("form-data; name=\"%s\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.mime.multipart.Multipart__escapeQuotes._escapeQuotes(_fieldname?.__copy__())))?.__copy__());
-        return _w.createPart(_h);
+        return @:check2r _w.createPart(_h);
     }
     @:keep
+    @:tdfield
     static public function createFormFile( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _fieldname:stdgo.GoString, _filename:stdgo.GoString):{ var _0 : stdgo._internal.io.Io_Writer.Writer; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        var _h = (({
+        var _h = ((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
         _h.set(("Content-Disposition" : stdgo.GoString), stdgo._internal.fmt.Fmt_sprintf.sprintf(("form-data; name=\"%s\"; filename=\"%s\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.mime.multipart.Multipart__escapeQuotes._escapeQuotes(_fieldname?.__copy__())), stdgo.Go.toInterface(stdgo._internal.mime.multipart.Multipart__escapeQuotes._escapeQuotes(_filename?.__copy__())))?.__copy__());
         _h.set(("Content-Type" : stdgo.GoString), ("application/octet-stream" : stdgo.GoString));
-        return _w.createPart(_h);
+        return @:check2r _w.createPart(_h);
     }
     @:keep
+    @:tdfield
     static public function createPart( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):{ var _0 : stdgo._internal.io.Io_Writer.Writer; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
+        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
             {
-                var _err = (_w._lastpart._close() : stdgo.Error);
+                var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._lastpart._close() : stdgo.Error);
                 if (_err != null) {
                     return { _0 : (null : stdgo._internal.io.Io_Writer.Writer), _1 : _err };
                 };
             };
         };
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
+        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._boundary));
         } else {
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._boundary));
         };
         var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_header.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in _header) {
@@ -81,27 +86,29 @@ package stdgo._internal.mime.multipart;
             };
         };
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n" : stdgo.GoString));
-        var __tmp__ = stdgo._internal.io.Io_copy.copy(_w._w, stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.Io_copy.copy((@:checkr _w ?? throw "null pointer dereference")._w, stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo._internal.io.Io_Writer.Writer), _1 : _err };
         };
         var _p = (stdgo.Go.setRef(({ _mw : _w } : stdgo._internal.mime.multipart.Multipart_T_part.T_part)) : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part>);
-        _w._lastpart = _p;
+        (@:checkr _w ?? throw "null pointer dereference")._lastpart = _p;
         return { _0 : stdgo.Go.asInterface(_p), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function formDataContentType( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>):stdgo.GoString {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        var _b = (_w._boundary?.__copy__() : stdgo.GoString);
+        var _b = ((@:checkr _w ?? throw "null pointer dereference")._boundary?.__copy__() : stdgo.GoString);
         if (stdgo._internal.strings.Strings_containsAny.containsAny(_b?.__copy__(), ("()<>@,;:\\\"/[]?= " : stdgo.GoString))) {
             _b = ((("\"" : stdgo.GoString) + _b?.__copy__() : stdgo.GoString) + ("\"" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
         };
         return (("multipart/form-data; boundary=" : stdgo.GoString) + _b?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function setBoundary( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _boundary:stdgo.GoString):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
+        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
             return stdgo._internal.errors.Errors_new_.new_(("mime: SetBoundary called after write" : stdgo.GoString));
         };
         if ((((_boundary.length) < (1 : stdgo.GoInt) : Bool) || ((_boundary.length) > (70 : stdgo.GoInt) : Bool) : Bool)) {
@@ -124,12 +131,13 @@ package stdgo._internal.mime.multipart;
             };
             return stdgo._internal.errors.Errors_new_.new_(("mime: invalid boundary character" : stdgo.GoString));
         };
-        _w._boundary = _boundary?.__copy__();
+        (@:checkr _w ?? throw "null pointer dereference")._boundary = _boundary?.__copy__();
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function boundary( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>):stdgo.GoString {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        return _w._boundary?.__copy__();
+        return (@:checkr _w ?? throw "null pointer dereference")._boundary?.__copy__();
     }
 }

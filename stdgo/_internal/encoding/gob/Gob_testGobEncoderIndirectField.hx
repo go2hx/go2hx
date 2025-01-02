@@ -4,17 +4,17 @@ function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testin
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
         var _s = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct(("HIJKL" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>);
         var _sp = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
-        var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec))) : stdgo.Error);
+        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec))) : stdgo.Error);
         if (_err != null) {
-            _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec>);
-        _err = _dec.decode(stdgo.Go.toInterface(_x));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(_x));
         if (_err != null) {
-            _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+            @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        if (((_x.g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)._s != (("HIJKL" : stdgo.GoString))) {
-            _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface(((_x.g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)._s));
+        if ((((@:checkr _x ?? throw "null pointer dereference").g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)._s != (("HIJKL" : stdgo.GoString))) {
+            @:check2r _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface((((@:checkr _x ?? throw "null pointer dereference").g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)._s));
         };
     }

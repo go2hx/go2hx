@@ -13,11 +13,11 @@ package stdgo._internal.encoding.gob;
     public var n : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoFloat64)]);
     public var strs : stdgo.Ref<stdgo.GoArray<stdgo.GoString>> = new stdgo.GoArray<stdgo.GoString>(2, 2, ...[for (i in 0 ... 2) ("" : stdgo.GoString)]);
     public var int64s : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
-    public var ri : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
+    public var rI : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
     public var s : stdgo.GoString = "";
     public var y : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var t : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T2_13762.T_testEndToEnd___localname___T2_13762> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T2_13762.T_testEndToEnd___localname___T2_13762>);
-    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt, ?c:stdgo.GoInt, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>, ?strs:stdgo.Ref<stdgo.GoArray<stdgo.GoString>>, ?int64s:stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>, ?ri:stdgo.GoComplex64, ?s:stdgo.GoString, ?y:stdgo.Slice<stdgo.GoUInt8>, ?t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T2_13762.T_testEndToEnd___localname___T2_13762>) {
+    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt, ?c:stdgo.GoInt, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>, ?strs:stdgo.Ref<stdgo.GoArray<stdgo.GoString>>, ?int64s:stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>, ?rI:stdgo.GoComplex64, ?s:stdgo.GoString, ?y:stdgo.Slice<stdgo.GoUInt8>, ?t:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T2_13762.T_testEndToEnd___localname___T2_13762>) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
@@ -31,7 +31,7 @@ package stdgo._internal.encoding.gob;
         if (n != null) this.n = n;
         if (strs != null) this.strs = strs;
         if (int64s != null) this.int64s = int64s;
-        if (ri != null) this.ri = ri;
+        if (rI != null) this.rI = rI;
         if (s != null) this.s = s;
         if (y != null) this.y = y;
         if (t != null) this.t = t;
@@ -52,7 +52,7 @@ emptyMap,
 n,
 strs,
 int64s,
-ri,
+rI,
 s,
 y,
 t);

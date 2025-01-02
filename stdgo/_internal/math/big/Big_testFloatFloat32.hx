@@ -70,18 +70,18 @@ if (_i != ((0 : stdgo.GoInt))) {
 {
                         var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_tx.__copy__(), (32 : stdgo.GoInt)), _f:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (((_err == null) && !stdgo._internal.math.big.Big__alike32._alike32((_f : stdgo.GoFloat32), _tout) : Bool)) {
-                            _t.errorf(("%s: got %g; want %g (incorrect test data)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_tout));
+                            @:check2r _t.errorf(("%s: got %g; want %g (incorrect test data)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_tout));
                         };
                     };
 var _x = stdgo._internal.math.big.Big__makeFloat._makeFloat(_tx.__copy__());
-var __tmp__ = _x.float32(), _out:stdgo.GoFloat32 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+var __tmp__ = @:check2r _x.float32(), _out:stdgo.GoFloat32 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
 if ((!stdgo._internal.math.big.Big__alike32._alike32(_out, _tout) || (_acc != _tacc) : Bool)) {
-                        _t.errorf(("%s: got %g (%#08x, %s); want %g (%#08x, %s)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_test._out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tacc)));
+                        @:check2r _t.errorf(("%s: got %g (%#08x, %s); want %g (%#08x, %s)" : stdgo.GoString), stdgo.Go.toInterface(_tx), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(stdgo._internal.math.Math_float32bits.float32bits(_test._out)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tacc)));
                     };
 var _x2:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
-var __tmp__ = _x2.setFloat64((_out : stdgo.GoFloat64)).float32(), _out2:stdgo.GoFloat32 = __tmp__._0, _acc2:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+var __tmp__ = @:check2r @:check2 _x2.setFloat64((_out : stdgo.GoFloat64)).float32(), _out2:stdgo.GoFloat32 = __tmp__._0, _acc2:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
 if ((!stdgo._internal.math.big.Big__alike32._alike32(_out2, _out) || (_acc2 != (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy)) : Bool)) {
-                        _t.errorf(("idempotency test: got %g (%s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_out2), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc2)), stdgo.Go.toInterface(_out));
+                        @:check2r _t.errorf(("idempotency test: got %g (%s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_out2), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc2)), stdgo.Go.toInterface(_out));
                     };
                     _i++;
                 };

@@ -14,5 +14,6 @@ typedef Stream = stdgo.StructType & {
         
         
     **/
-    public dynamic function xorkeyStream(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void;
+    @:interfacetypeffun
+    public dynamic function xORKeyStream(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void;
 };

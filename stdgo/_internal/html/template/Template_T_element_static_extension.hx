@@ -1,6 +1,7 @@
 package stdgo._internal.html.template;
 @:keep @:allow(stdgo._internal.html.template.Template.T_element_asInterface) class T_element_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.html.template.Template_T_element.T_element):stdgo.GoString {
         @:recv var _i:stdgo._internal.html.template.Template_T_element.T_element = _i;
         if ((_i >= ((5 : stdgo.GoInt) : stdgo._internal.html.template.Template_T_element.T_element) : Bool)) {

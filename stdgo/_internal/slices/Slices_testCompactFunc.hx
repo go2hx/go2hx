@@ -5,7 +5,7 @@ function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = stdgo._internal.slices.Slices_compactFunc.compactFunc(_copy, function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoInt), _0, _1));
                 if (!stdgo._internal.slices.Slices_equal.equal(_got, _test._want)) {
-                    _t.errorf(("CompactFunc(%v, equal[int]) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("CompactFunc(%v, equal[int]) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };
@@ -15,7 +15,7 @@ function testCompactFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _got = stdgo._internal.slices.Slices_compactFunc.compactFunc(_copy, stdgo._internal.strings.Strings_equalFold.equalFold);
             if (!stdgo._internal.slices.Slices_equal.equal(_got, _want)) {
-                _t.errorf(("CompactFunc(%v, strings.EqualFold) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("CompactFunc(%v, strings.EqualFold) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

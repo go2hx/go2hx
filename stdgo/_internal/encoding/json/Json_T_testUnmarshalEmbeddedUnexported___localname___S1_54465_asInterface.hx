@@ -5,6 +5,6 @@ class T_testUnmarshalEmbeddedUnexported___localname___S1_54465_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S1_54465.T_testUnmarshalEmbeddedUnexported___localname___S1_54465>;
+    var __self__ : stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S1_54465Pointer.T_testUnmarshalEmbeddedUnexported___localname___S1_54465Pointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

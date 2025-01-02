@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.tls;
 function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>):stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme> {
         var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((_cert.privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
+            { _0 : (stdgo.Go.typeAssert(((@:checkr _cert ?? throw "null pointer dereference").privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : false };
         }, _priv = __tmp__._0, _ok = __tmp__._1;
@@ -22,7 +22,7 @@ function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Re
                             break;
                         };
                         {
-                            final __value__ = _pub.curve;
+                            final __value__ = (@:checkr _pub ?? throw "null pointer dereference").curve;
                             if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p256.p256()))) {
                                 _sigAlgs = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>(1, 1, ...[(1027 : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme)]).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>);
                             } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p384.p384()))) {
@@ -35,7 +35,7 @@ function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Re
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>))) {
                         var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__.__underlying__().value;
-                        var _size = (_pub.size() : stdgo.GoInt);
+                        var _size = (@:check2r _pub.size() : stdgo.GoInt);
                         _sigAlgs = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.crypto.tls.Tls__rsaSignatureSchemes._rsaSignatureSchemes.length)).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>);
                         for (__65 => _candidate in stdgo._internal.crypto.tls.Tls__rsaSignatureSchemes._rsaSignatureSchemes) {
                             if (((_size >= _candidate._minModulusBytes : Bool) && (_version <= _candidate._maxVersion : Bool) : Bool)) {
@@ -53,10 +53,10 @@ function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Re
                 };
             };
         };
-        if (_cert.supportedSignatureAlgorithms != null) {
+        if ((@:checkr _cert ?? throw "null pointer dereference").supportedSignatureAlgorithms != null) {
             var _filteredSigAlgs:stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme> = (null : stdgo.Slice<stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme>);
             for (__65 => _sigAlg in _sigAlgs) {
-                if (stdgo._internal.crypto.tls.Tls__isSupportedSignatureAlgorithm._isSupportedSignatureAlgorithm(_sigAlg, _cert.supportedSignatureAlgorithms)) {
+                if (stdgo._internal.crypto.tls.Tls__isSupportedSignatureAlgorithm._isSupportedSignatureAlgorithm(_sigAlg, (@:checkr _cert ?? throw "null pointer dereference").supportedSignatureAlgorithms)) {
                     _filteredSigAlgs = (_filteredSigAlgs.__append__(_sigAlg));
                 };
             };

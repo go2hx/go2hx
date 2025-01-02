@@ -2,17 +2,18 @@ package stdgo._internal.expvar;
 function do_(_f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.rlock();
+            @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.rLock();
             {
-                final __f__ = stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.runlock;
+                final __f__ = @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.rUnlock;
                 __deferstack__.unshift(() -> __f__());
             };
             for (__12 => _k in stdgo._internal.expvar.Expvar__varKeys._varKeys) {
-                var __tmp__ = stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_k)), _val:stdgo.AnyInterface = __tmp__._0, __17:Bool = __tmp__._1;
+                var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_k)), _val:stdgo.AnyInterface = __tmp__._0, __17:Bool = __tmp__._1;
                 _f((new stdgo._internal.expvar.Expvar_KeyValue.KeyValue(_k?.__copy__(), (stdgo.Go.typeAssert((_val : stdgo._internal.expvar.Expvar_Var.Var)) : stdgo._internal.expvar.Expvar_Var.Var)) : stdgo._internal.expvar.Expvar_KeyValue.KeyValue));
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -27,6 +28,7 @@ function do_(_f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -14,18 +14,18 @@ function _http2isClosedConnError(_err:stdgo.Error):Bool {
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>), _1 : false };
                 }, _oe = __tmp__._0, _ok = __tmp__._1;
-                if ((_ok && (_oe.op == ("read" : stdgo.GoString)) : Bool)) {
+                if ((_ok && ((@:checkr _oe ?? throw "null pointer dereference").op == ("read" : stdgo.GoString)) : Bool)) {
                     {
                         var __tmp__ = try {
-                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_oe.err) : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>)) : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>), _1 : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _oe ?? throw "null pointer dereference").err) : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>)) : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>), _1 : false };
                         }, _se = __tmp__._0, _ok = __tmp__._1;
-                        if ((_ok && (_se.syscall == ("wsarecv" : stdgo.GoString)) : Bool)) {
+                        if ((_ok && ((@:checkr _se ?? throw "null pointer dereference").syscall == ("wsarecv" : stdgo.GoString)) : Bool)) {
                             {};
                             {};
                             {
-                                var _n = (stdgo._internal.net.http.Http__http2errno._http2errno(_se.err) : stdgo.GoUIntptr);
+                                var _n = (stdgo._internal.net.http.Http__http2errno._http2errno((@:checkr _se ?? throw "null pointer dereference").err) : stdgo.GoUIntptr);
                                 if (((_n == (10054 : stdgo.GoUIntptr)) || (_n == (10053 : stdgo.GoUIntptr)) : Bool)) {
                                     return true;
                                 };

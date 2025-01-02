@@ -7,12 +7,12 @@ function _loadMimeFile(_filename:stdgo.GoString):Void {
                 return;
             };
             {
-                final __f__ = _f.close;
+                final __f__ = @:check2r _f.close;
                 __deferstack__.unshift(() -> __f__());
             };
             var _scanner = stdgo._internal.bufio.Bufio_newScanner.newScanner(stdgo.Go.asInterface(_f));
-            while (_scanner.scan()) {
-                var _fields = stdgo._internal.strings.Strings_fields.fields(_scanner.text()?.__copy__());
+            while (@:check2r _scanner.scan()) {
+                var _fields = stdgo._internal.strings.Strings_fields.fields(@:check2r _scanner.text()?.__copy__());
                 if ((((_fields.length) <= (1 : stdgo.GoInt) : Bool) || (_fields[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == (35 : stdgo.GoUInt8)) : Bool)) {
                     continue;
                 };
@@ -25,13 +25,14 @@ function _loadMimeFile(_filename:stdgo.GoString):Void {
                 };
             };
             {
-                var _err = (_scanner.err() : stdgo.Error);
+                var _err = (@:check2r _scanner.err() : stdgo.Error);
                 if (_err != null) {
                     throw stdgo.Go.toInterface(_err);
                 };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -46,6 +47,7 @@ function _loadMimeFile(_filename:stdgo.GoString):Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

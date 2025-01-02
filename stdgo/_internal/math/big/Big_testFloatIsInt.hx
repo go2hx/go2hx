@@ -18,9 +18,9 @@ function testFloatIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             var _s = (stdgo._internal.strings.Strings_trimSuffix.trimSuffix(_test?.__copy__(), (" int" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _want = (_s != (_test) : Bool);
             {
-                var _got = (stdgo._internal.math.big.Big__makeFloat._makeFloat(_s?.__copy__()).isInt() : Bool);
+                var _got = (@:check2r stdgo._internal.math.big.Big__makeFloat._makeFloat(_s?.__copy__()).isInt() : Bool);
                 if (_got != (_want)) {
-                    _t.errorf(("%s.IsInt() == %t" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_got));
+                    @:check2r _t.errorf(("%s.IsInt() == %t" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_got));
                 };
             };
         };

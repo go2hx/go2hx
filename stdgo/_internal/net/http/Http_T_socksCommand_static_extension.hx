@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_socksCommand_asInterface) class T_socksCommand_static_extension {
     @:keep
+    @:tdfield
     static public function string( _cmd:stdgo._internal.net.http.Http_T_socksCommand.T_socksCommand):stdgo.GoString {
         @:recv var _cmd:stdgo._internal.net.http.Http_T_socksCommand.T_socksCommand = _cmd;
         {

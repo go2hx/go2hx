@@ -121,6 +121,7 @@ package stdgo.runtime.debug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef BuildInfoPointer = stdgo._internal.runtime.debug.Debug_BuildInfoPointer.BuildInfoPointer;
 class BuildInfo_static_extension {
     static public function string(_bi:BuildInfo):String {
         return stdgo._internal.runtime.debug.Debug_BuildInfo_static_extension.BuildInfo_static_extension.string(_bi);

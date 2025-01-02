@@ -6,11 +6,11 @@ function testCompactSeparators(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             {
                 var _err = (stdgo._internal.encoding.json.Json_compact.compact((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._in : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                 if (_err != null) {
-                    _t.errorf(("Compact(%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Compact(%q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_err));
                 } else {
-                    var _s = ((_buf.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                    var _s = ((@:check2 _buf.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     if (_s != (_tt._compact)) {
-                        _t.errorf(("Compact(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._compact));
+                        @:check2r _t.errorf(("Compact(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._compact));
                     };
                 };
             };

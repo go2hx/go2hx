@@ -1,30 +1,33 @@
 package stdgo._internal.math.rand;
 @:keep @:allow(stdgo._internal.math.rand.Rand.T_rngSource_asInterface) class T_rngSource_static_extension {
     @:keep
+    @:tdfield
     static public function uint64( _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>):stdgo.GoUInt64 {
         @:recv var _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource> = _rng;
-        _rng._tap--;
-        if ((_rng._tap < (0 : stdgo.GoInt) : Bool)) {
-            _rng._tap = (_rng._tap + ((607 : stdgo.GoInt)) : stdgo.GoInt);
+        (@:checkr _rng ?? throw "null pointer dereference")._tap--;
+        if (((@:checkr _rng ?? throw "null pointer dereference")._tap < (0 : stdgo.GoInt) : Bool)) {
+            (@:checkr _rng ?? throw "null pointer dereference")._tap = ((@:checkr _rng ?? throw "null pointer dereference")._tap + ((607 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        _rng._feed--;
-        if ((_rng._feed < (0 : stdgo.GoInt) : Bool)) {
-            _rng._feed = (_rng._feed + ((607 : stdgo.GoInt)) : stdgo.GoInt);
+        (@:checkr _rng ?? throw "null pointer dereference")._feed--;
+        if (((@:checkr _rng ?? throw "null pointer dereference")._feed < (0 : stdgo.GoInt) : Bool)) {
+            (@:checkr _rng ?? throw "null pointer dereference")._feed = ((@:checkr _rng ?? throw "null pointer dereference")._feed + ((607 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        var _x = (_rng._vec[(_rng._feed : stdgo.GoInt)] + _rng._vec[(_rng._tap : stdgo.GoInt)] : stdgo.GoInt64);
-        _rng._vec[(_rng._feed : stdgo.GoInt)] = _x;
+        var _x = ((@:checkr _rng ?? throw "null pointer dereference")._vec[((@:checkr _rng ?? throw "null pointer dereference")._feed : stdgo.GoInt)] + (@:checkr _rng ?? throw "null pointer dereference")._vec[((@:checkr _rng ?? throw "null pointer dereference")._tap : stdgo.GoInt)] : stdgo.GoInt64);
+        (@:checkr _rng ?? throw "null pointer dereference")._vec[((@:checkr _rng ?? throw "null pointer dereference")._feed : stdgo.GoInt)] = _x;
         return (_x : stdgo.GoUInt64);
     }
     @:keep
+    @:tdfield
     static public function int63( _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>):stdgo.GoInt64 {
         @:recv var _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource> = _rng;
-        return ((_rng.uint64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
+        return ((@:check2r _rng.uint64() & (9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function seed( _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource> = _rng;
-        _rng._tap = (0 : stdgo.GoInt);
-        _rng._feed = (334 : stdgo.GoInt);
+        (@:checkr _rng ?? throw "null pointer dereference")._tap = (0 : stdgo.GoInt);
+        (@:checkr _rng ?? throw "null pointer dereference")._feed = (334 : stdgo.GoInt);
         _seed = (_seed % (2147483647i64 : stdgo.GoInt64) : stdgo.GoInt64);
         if ((_seed < (0i64 : stdgo.GoInt64) : Bool)) {
             _seed = (_seed + ((2147483647i64 : stdgo.GoInt64)) : stdgo.GoInt64);
@@ -45,7 +48,7 @@ if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     _x = stdgo._internal.math.rand.Rand__seedrand._seedrand(_x);
                     _u = (_u ^ ((_x : stdgo.GoInt64)) : stdgo.GoInt64);
                     _u = (_u ^ (stdgo._internal.math.rand.Rand__rngCooked._rngCooked[(_i : stdgo.GoInt)]) : stdgo.GoInt64);
-                    _rng._vec[(_i : stdgo.GoInt)] = _u;
+                    (@:checkr _rng ?? throw "null pointer dereference")._vec[(_i : stdgo.GoInt)] = _u;
                 };
                 _i++;
             };

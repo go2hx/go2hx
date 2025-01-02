@@ -30,10 +30,10 @@ class Block_static_extension {
 }
 typedef Block = stdgo._internal.crypto.cipher.Cipher_Block.Block;
 class Stream_static_extension {
-    static public function xorkeyStream(t:stdgo._internal.crypto.cipher.Cipher_Stream.Stream, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(t:stdgo._internal.crypto.cipher.Cipher_Stream.Stream, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.cipher.Cipher_Stream_static_extension.Stream_static_extension.xorkeyStream(t, _dst, _src);
+        stdgo._internal.crypto.cipher.Cipher_Stream_static_extension.Stream_static_extension.xORKeyStream(t, _dst, _src);
     }
 }
 typedef Stream = stdgo._internal.crypto.cipher.Cipher_Stream.Stream;
@@ -300,23 +300,26 @@ typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble;
 }
 typedef T_cbcEncrypter = stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter;
 typedef T_cbcDecrypter = stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter;
+typedef T_cfbPointer = stdgo._internal.crypto.cipher.Cipher_T_cfbPointer.T_cfbPointer;
 class T_cfb_static_extension {
-    static public function xorkeyStream(_x:T_cfb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(_x:T_cfb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.cipher.Cipher_T_cfb_static_extension.T_cfb_static_extension.xorkeyStream(_x, _dst, _src);
+        stdgo._internal.crypto.cipher.Cipher_T_cfb_static_extension.T_cfb_static_extension.xORKeyStream(_x, _dst, _src);
     }
 }
+typedef T_ctrPointer = stdgo._internal.crypto.cipher.Cipher_T_ctrPointer.T_ctrPointer;
 class T_ctr_static_extension {
-    static public function xorkeyStream(_x:T_ctr, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(_x:T_ctr, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.cipher.Cipher_T_ctr_static_extension.T_ctr_static_extension.xorkeyStream(_x, _dst, _src);
+        stdgo._internal.crypto.cipher.Cipher_T_ctr_static_extension.T_ctr_static_extension.xORKeyStream(_x, _dst, _src);
     }
     static public function _refill(_x:T_ctr):Void {
         stdgo._internal.crypto.cipher.Cipher_T_ctr_static_extension.T_ctr_static_extension._refill(_x);
     }
 }
+typedef T_gcmPointer = stdgo._internal.crypto.cipher.Cipher_T_gcmPointer.T_gcmPointer;
 class T_gcm_static_extension {
     static public function _auth(_g:T_gcm, _out:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>, _tagMask:haxe.ds.Vector<std.UInt>):Void {
         final _out = ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -368,6 +371,7 @@ class T_gcm_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension.nonceSize(_g);
     }
 }
+typedef StreamReaderPointer = stdgo._internal.crypto.cipher.Cipher_StreamReaderPointer.StreamReaderPointer;
 class StreamReader_static_extension {
     static public function read(_r:StreamReader, _dst:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -377,6 +381,7 @@ class StreamReader_static_extension {
         };
     }
 }
+typedef StreamWriterPointer = stdgo._internal.crypto.cipher.Cipher_StreamWriterPointer.StreamWriterPointer;
 class StreamWriter_static_extension {
     static public function close(_w:StreamWriter):stdgo.Error {
         return stdgo._internal.crypto.cipher.Cipher_StreamWriter_static_extension.StreamWriter_static_extension.close(_w);
@@ -389,16 +394,18 @@ class StreamWriter_static_extension {
         };
     }
 }
+typedef T_ofbPointer = stdgo._internal.crypto.cipher.Cipher_T_ofbPointer.T_ofbPointer;
 class T_ofb_static_extension {
-    static public function xorkeyStream(_x:T_ofb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(_x:T_ofb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.cipher.Cipher_T_ofb_static_extension.T_ofb_static_extension.xorkeyStream(_x, _dst, _src);
+        stdgo._internal.crypto.cipher.Cipher_T_ofb_static_extension.T_ofb_static_extension.xORKeyStream(_x, _dst, _src);
     }
     static public function _refill(_x:T_ofb):Void {
         stdgo._internal.crypto.cipher.Cipher_T_ofb_static_extension.T_ofb_static_extension._refill(_x);
     }
 }
+typedef T_cbcEncrypterPointer = stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypterPointer.T_cbcEncrypterPointer;
 class T_cbcEncrypter_static_extension {
     static public function setIV(_x:T_cbcEncrypter, _iv:Array<std.UInt>):Void {
         final _iv = ([for (i in _iv) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -413,6 +420,7 @@ class T_cbcEncrypter_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter_static_extension.T_cbcEncrypter_static_extension.blockSize(_x);
     }
 }
+typedef T_cbcDecrypterPointer = stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypterPointer.T_cbcDecrypterPointer;
 class T_cbcDecrypter_static_extension {
     static public function setIV(_x:T_cbcDecrypter, _iv:Array<std.UInt>):Void {
         final _iv = ([for (i in _iv) i] : stdgo.Slice<stdgo.GoUInt8>);

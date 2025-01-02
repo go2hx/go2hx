@@ -1,15 +1,16 @@
 package stdgo._internal.debug.gosym;
 @:keep @:allow(stdgo._internal.debug.gosym.Gosym.Obj_asInterface) class Obj_static_extension {
     @:keep
+    @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
+        var _depth_3648250:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3648128:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3648125:stdgo.GoInt = (0 : stdgo.GoInt);
         var _val_3648351:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3648323:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3648328_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_3648267:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _depth_3648250:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -25,13 +26,13 @@ package stdgo._internal.debug.gosym;
                     return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_UnknownLineError.UnknownLineError(_path?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_UnknownLineError.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_UnknownLineError.UnknownLineError>)) };
                     _gotoNext = 3648121i32;
                 } else if (__value__ == (3648121i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_o.paths.length)) {
+                    if ((0i32 : stdgo.GoInt) < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
                         _gotoNext = 3648701i32;
                     } else {
                         _gotoNext = 3648705i32;
                     };
                 } else if (__value__ == (3648147i32)) {
-                    _s_3648128 = _o.paths[(_i_3648125 : stdgo.GoInt)];
+                    _s_3648128 = (@:checkr _o ?? throw "null pointer dereference").paths[(_i_3648125 : stdgo.GoInt)];
                     if (_s_3648128.name != (_path)) {
                         _gotoNext = 3648189i32;
                     } else {
@@ -45,7 +46,7 @@ package stdgo._internal.debug.gosym;
                     _line = (_line + ((_s_3648128.value : stdgo.GoInt)) : stdgo.GoInt);
                     _gotoNext = 3648304i32;
                 } else if (__value__ == (3648304i32)) {
-                    if ((0i32 : stdgo.GoInt) < ((_o.paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
+                    if ((0i32 : stdgo.GoInt) < (((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
                         _gotoNext = 3648656i32;
                     } else {
                         _gotoNext = 3648661i32;
@@ -54,7 +55,7 @@ package stdgo._internal.debug.gosym;
                     _i_3648328_0++;
                     _gotoNext = 3648657i32;
                 } else if (__value__ == (3648346i32)) {
-                    _s_3648323 = (_o.paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(_i_3648328_0 : stdgo.GoInt)];
+                    _s_3648323 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(_i_3648328_0 : stdgo.GoInt)];
                     _val_3648351 = (_s_3648323.value : stdgo.GoInt);
                     _gotoNext = 3648374i32;
                 } else if (__value__ == (3648374i32)) {
@@ -98,13 +99,13 @@ package stdgo._internal.debug.gosym;
                 } else if (__value__ == (3648656i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = (_o.paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(0i32 : stdgo.GoInt)];
+                        final __tmp__1 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(0i32 : stdgo.GoInt)];
                         _i_3648328_0 = __tmp__0;
                         _s_3648323 = __tmp__1;
                     };
                     _gotoNext = 3648657i32;
                 } else if (__value__ == (3648657i32)) {
-                    if (_i_3648328_0 < ((_o.paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
+                    if (_i_3648328_0 < (((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_3648125) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
                         _gotoNext = 3648346i32;
                     } else {
                         _gotoNext = 3648661i32;
@@ -116,13 +117,13 @@ package stdgo._internal.debug.gosym;
                 } else if (__value__ == (3648701i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _o.paths[(0i32 : stdgo.GoInt)];
+                        final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i32 : stdgo.GoInt)];
                         _i_3648125 = __tmp__0;
                         _s_3648128 = __tmp__1;
                     };
                     _gotoNext = 3648702i32;
                 } else if (__value__ == (3648702i32)) {
-                    if (_i_3648125 < (_o.paths.length)) {
+                    if (_i_3648125 < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
                         _gotoNext = 3648147i32;
                     } else {
                         _gotoNext = 3648705i32;
@@ -136,13 +137,14 @@ package stdgo._internal.debug.gosym;
         throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
+        var _val_3647518:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3647495:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3647500_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _tos_3647462:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _noPath_3647426:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
-        var _val_3647518:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3647495:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -154,7 +156,7 @@ package stdgo._internal.debug.gosym;
                     _tos_3647462 = _noPath_3647426;
                     _gotoNext = 3647477i32;
                 } else if (__value__ == (3647477i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_o.paths.length)) {
+                    if ((0i32 : stdgo.GoInt) < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
                         _gotoNext = 3647895i32;
                     } else {
                         _gotoNext = 3647900i32;
@@ -163,7 +165,7 @@ package stdgo._internal.debug.gosym;
                     _i_3647500_0++;
                     _gotoNext = 3647896i32;
                 } else if (__value__ == (3647514i32)) {
-                    _s_3647495 = _o.paths[(_i_3647500_0 : stdgo.GoInt)];
+                    _s_3647495 = (@:checkr _o ?? throw "null pointer dereference").paths[(_i_3647500_0 : stdgo.GoInt)];
                     _val_3647518 = (_s_3647495.value : stdgo.GoInt);
                     _gotoNext = 3647540i32;
                 } else if (__value__ == (3647540i32)) {
@@ -192,8 +194,8 @@ package stdgo._internal.debug.gosym;
                     return { _0 : ("<malformed symbol table>" : stdgo.GoString), _1 : (0 : stdgo.GoInt) };
                     _gotoNext = 3647775i32;
                 } else if (__value__ == (3647775i32)) {
-                    _tos_3647462._prev._offset = (_tos_3647462._prev._offset + ((_val_3647518 - _tos_3647462._start : stdgo.GoInt)) : stdgo.GoInt);
-                    _tos_3647462 = _tos_3647462._prev;
+                    (@:checkr (@:checkr _tos_3647462 ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._offset = ((@:checkr (@:checkr _tos_3647462 ?? throw "null pointer dereference")._prev ?? throw "null pointer dereference")._offset + ((_val_3647518 - (@:checkr _tos_3647462 ?? throw "null pointer dereference")._start : stdgo.GoInt)) : stdgo.GoInt);
+                    _tos_3647462 = (@:checkr _tos_3647462 ?? throw "null pointer dereference")._prev;
                     _gotoNext = 3647492i32;
                 } else if (__value__ == (3647831i32)) {
                     _tos_3647462 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt(_s_3647495.name?.__copy__(), _val_3647518, (0 : stdgo.GoInt), _tos_3647462) : stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
@@ -201,13 +203,13 @@ package stdgo._internal.debug.gosym;
                 } else if (__value__ == (3647895i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _o.paths[(0i32 : stdgo.GoInt)];
+                        final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i32 : stdgo.GoInt)];
                         _i_3647500_0 = __tmp__0;
                         _s_3647495 = __tmp__1;
                     };
                     _gotoNext = 3647896i32;
                 } else if (__value__ == (3647896i32)) {
-                    if (_i_3647500_0 < (_o.paths.length)) {
+                    if (_i_3647500_0 < ((@:checkr _o ?? throw "null pointer dereference").paths.length)) {
                         _gotoNext = 3647514i32;
                     } else {
                         _gotoNext = 3647900i32;
@@ -222,7 +224,7 @@ package stdgo._internal.debug.gosym;
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt) };
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647938i32)) {
-                    return { _0 : _tos_3647462._path?.__copy__(), _1 : (((_aline - _tos_3647462._start : stdgo.GoInt) - _tos_3647462._offset : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                    return { _0 : (@:checkr _tos_3647462 ?? throw "null pointer dereference")._path?.__copy__(), _1 : (((_aline - (@:checkr _tos_3647462 ?? throw "null pointer dereference")._start : stdgo.GoInt) - (@:checkr _tos_3647462 ?? throw "null pointer dereference")._offset : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     _gotoNext = -1i32;
                 };
             };

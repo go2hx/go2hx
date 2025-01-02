@@ -9,7 +9,7 @@ function _readDataDescriptor(_r:stdgo._internal.io.Io_Reader.Reader, _f:stdgo.Re
         };
         var _off = (0 : stdgo.GoInt);
         var _maybeSig = ((_buf.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
-        if (_maybeSig._uint32() != ((134695760u32 : stdgo.GoUInt32))) {
+        if (@:check2 _maybeSig._uint32() != ((134695760u32 : stdgo.GoUInt32))) {
             _off = (_off + ((4 : stdgo.GoInt)) : stdgo.GoInt);
         };
         {
@@ -19,7 +19,7 @@ function _readDataDescriptor(_r:stdgo._internal.io.Io_Reader.Reader, _f:stdgo.Re
             };
         };
         var _b = ((_buf.__slice__(0, (12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
-        if (_b._uint32() != (_f.fileHeader.crc32)) {
+        if (@:check2 _b._uint32() != ((@:checkr _f ?? throw "null pointer dereference").fileHeader.cRC32)) {
             return stdgo._internal.archive.zip.Zip_errChecksum.errChecksum;
         };
         return (null : stdgo.Error);

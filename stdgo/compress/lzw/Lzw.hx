@@ -1,6 +1,6 @@
 package stdgo.compress.lzw;
-final lsb : Order = stdgo._internal.compress.lzw.Lzw_lsb.lsb;
-final msb = stdgo._internal.compress.lzw.Lzw_msb.msb;
+final lSB : Order = stdgo._internal.compress.lzw.Lzw_lSB.lSB;
+final mSB = stdgo._internal.compress.lzw.Lzw_mSB.mSB;
 class T_writer_static_extension {
     static public function flush(t:stdgo._internal.compress.lzw.Lzw_T_writer.T_writer):stdgo.Error {
         return stdgo._internal.compress.lzw.Lzw_T_writer_static_extension.T_writer_static_extension.flush(t);
@@ -221,6 +221,7 @@ _err,
     public function __copy__() return this.__copy__();
 }
 typedef Order = stdgo._internal.compress.lzw.Lzw_Order.Order;
+typedef ReaderPointer = stdgo._internal.compress.lzw.Lzw_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function _init(_r:Reader, _src:stdgo._internal.io.Io_Reader.Reader, _order:Order, _litWidth:StdTypes.Int):Void {
         stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension._init(_r, _src, _order, _litWidth);
@@ -254,6 +255,7 @@ class Reader_static_extension {
         };
     }
 }
+typedef WriterPointer = stdgo._internal.compress.lzw.Lzw_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function _init(_w:Writer, _dst:stdgo._internal.io.Io_Writer.Writer, _order:Order, _litWidth:StdTypes.Int):Void {
         stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._init(_w, _dst, _order, _litWidth);

@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.internal.randutil;
 function maybeReadByte(_r:stdgo._internal.io.Io_Reader.Reader):Void {
-        stdgo._internal.crypto.internal.randutil.Randutil__closedChanOnce._closedChanOnce.do_(function():Void {
+        @:check2 stdgo._internal.crypto.internal.randutil.Randutil__closedChanOnce._closedChanOnce.do_(function():Void {
             stdgo._internal.crypto.internal.randutil.Randutil__closedChan._closedChan = (new stdgo.Chan<stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0.T__struct_0>(0, () -> ({  } : stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0.T__struct_0)) : stdgo.Chan<stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0.T__struct_0>);
             if (stdgo._internal.crypto.internal.randutil.Randutil__closedChan._closedChan != null) stdgo._internal.crypto.internal.randutil.Randutil__closedChan._closedChan.__close__();
         });

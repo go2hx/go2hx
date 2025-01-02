@@ -1,6 +1,7 @@
 package stdgo._internal.text.template.parse;
 @:keep @:allow(stdgo._internal.text.template.parse.Parse.T_item_asInterface) class T_item_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.text.template.parse.Parse_T_item.T_item):stdgo.GoString {
         @:recv var _i:stdgo._internal.text.template.parse.Parse_T_item.T_item = _i?.__copy__();
         if (_i._typ == ((8 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {

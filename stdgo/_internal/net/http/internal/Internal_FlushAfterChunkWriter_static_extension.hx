@@ -1,25 +1,36 @@
 package stdgo._internal.net.http.internal;
 @:keep @:allow(stdgo._internal.net.http.internal.Internal.FlushAfterChunkWriter_asInterface) class FlushAfterChunkWriter_static_extension {
     @:embedded
-    public static function writeString( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _text:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeString(_text);
+    @:embeddededffieldsffun
+    public static function writeString( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeString(_0);
     @:embedded
-    public static function writeRune( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _r:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.writeRune(_r);
+    @:embeddededffieldsffun
+    public static function writeRune( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.writeRune(_0);
     @:embedded
-    public static function writeByte( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _delim:stdgo.GoUInt8):stdgo.Error return __self__.writeByte(_delim);
+    @:embeddededffieldsffun
+    public static function writeByte( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo.GoUInt8):stdgo.Error return @:_5 __self__.writeByte(_0);
     @:embedded
-    public static function write( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(_p);
+    @:embeddededffieldsffun
+    public static function write( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_5 __self__.write(_0);
     @:embedded
-    public static function size( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return __self__.size();
+    @:embeddededffieldsffun
+    public static function size( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return @:_5 __self__.size();
     @:embedded
-    public static function reset( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _w:stdgo._internal.io.Io_Writer.Writer) __self__.reset(_w);
+    @:embeddededffieldsffun
+    public static function reset( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo._internal.io.Io_Writer.Writer):Void return @:_5 __self__.reset(_0);
     @:embedded
-    public static function readFrom( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.readFrom(_r);
+    @:embeddededffieldsffun
+    public static function readFrom( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter, _0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_5 __self__.readFrom(_0);
     @:embedded
-    public static function flush( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.Error return __self__.flush();
+    @:embeddededffieldsffun
+    public static function flush( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.Error return @:_5 __self__.flush();
     @:embedded
-    public static function buffered( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return __self__.buffered();
+    @:embeddededffieldsffun
+    public static function buffered( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return @:_5 __self__.buffered();
     @:embedded
-    public static function availableBuffer( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.Slice<stdgo.GoUInt8> return __self__.availableBuffer();
+    @:embeddededffieldsffun
+    public static function availableBuffer( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__.availableBuffer();
     @:embedded
-    public static function available( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return __self__.available();
+    @:embeddededffieldsffun
+    public static function available( __self__:stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter.FlushAfterChunkWriter):stdgo.GoInt return @:_5 __self__.available();
 }

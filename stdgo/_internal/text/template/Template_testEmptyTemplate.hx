@@ -7,24 +7,24 @@ function testEmptyTemplate(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
 var _err = __1, _m = __0;
             for (__8 => _d in _c._defn) {
                 {
-                    var __tmp__ = _root.new_(_c._in?.__copy__()).parse(_d?.__copy__());
+                    var __tmp__ = @:check2r @:check2r _root.new_(_c._in?.__copy__()).parse(_d?.__copy__());
                     _m = __tmp__._0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    _t.fatal(stdgo.Go.toInterface(_err));
+                    @:check2r _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
             var _buf = (stdgo.Go.setRef((new stdgo._internal.strings.Strings_Builder.Builder() : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
             {
-                var _err = (_m.execute(stdgo.Go.asInterface(_buf), stdgo.Go.toInterface(_c._in)) : stdgo.Error);
+                var _err = (@:check2r _m.execute(stdgo.Go.asInterface(_buf), stdgo.Go.toInterface(_c._in)) : stdgo.Error);
                 if (_err != null) {
-                    _t.error(stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                    @:check2r _t.error(stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     continue;
                 };
             };
-            if ((_buf.string() : stdgo.GoString) != (_c._want)) {
-                _t.errorf(("expected string %q: got %q" : stdgo.GoString), stdgo.Go.toInterface(_c._want), stdgo.Go.toInterface((_buf.string() : stdgo.GoString)));
+            if ((@:check2r _buf.string() : stdgo.GoString) != (_c._want)) {
+                @:check2r _t.errorf(("expected string %q: got %q" : stdgo.GoString), stdgo.Go.toInterface(_c._want), stdgo.Go.toInterface((@:check2r _buf.string() : stdgo.GoString)));
             };
         };
     }

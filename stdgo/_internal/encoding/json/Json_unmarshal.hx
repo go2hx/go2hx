@@ -5,6 +5,6 @@ function unmarshal(_data:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.AnyInterface):stdg
         if (_err != null) {
             return _err;
         };
-        _d._init(_data);
-        return _d._unmarshal(_v);
+        @:check2 _d._init(_data);
+        return @:check2 _d._unmarshal(_v);
     }

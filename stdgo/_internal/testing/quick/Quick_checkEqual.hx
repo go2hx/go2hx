@@ -15,8 +15,8 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
             return stdgo.Go.asInterface((("functions have different types" : stdgo.GoString) : stdgo._internal.testing.quick.Quick_SetupError.SetupError));
         };
         var _arguments = (new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>((_xType.numIn() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_xType.numIn() : stdgo.GoInt).toBasic() > 0 ? (_xType.numIn() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_Value.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
-        var _rand = _config._getRand();
-        var _maxCount = (_config._getMaxCount() : stdgo.GoInt);
+        var _rand = @:check2r _config._getRand();
+        var _maxCount = (@:check2r _config._getMaxCount() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _maxCount : Bool)) {

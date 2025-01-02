@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.ecdsa;
 @:keep @:allow(stdgo._internal.crypto.ecdsa.Ecdsa.PublicKey_asInterface) class PublicKey_static_extension {
     @:keep
+    @:tdfield
     static public function equal( _pub:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
         @:recv var _pub:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey> = _pub;
         var __tmp__ = try {
@@ -11,30 +12,37 @@ package stdgo._internal.crypto.ecdsa;
         if (!_ok) {
             return false;
         };
-        return ((stdgo._internal.crypto.ecdsa.Ecdsa__bigIntEqual._bigIntEqual(_pub.x, _xx.x) && stdgo._internal.crypto.ecdsa.Ecdsa__bigIntEqual._bigIntEqual(_pub.y, _xx.y) : Bool) && (stdgo.Go.toInterface(_pub.curve) == stdgo.Go.toInterface(_xx.curve)) : Bool);
+        return ((stdgo._internal.crypto.ecdsa.Ecdsa__bigIntEqual._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").x, (@:checkr _xx ?? throw "null pointer dereference").x) && stdgo._internal.crypto.ecdsa.Ecdsa__bigIntEqual._bigIntEqual((@:checkr _pub ?? throw "null pointer dereference").y, (@:checkr _xx ?? throw "null pointer dereference").y) : Bool) && (stdgo.Go.toInterface((@:checkr _pub ?? throw "null pointer dereference").curve) == stdgo.Go.toInterface((@:checkr _xx ?? throw "null pointer dereference").curve)) : Bool);
     }
     @:keep
-    static public function ecdh( _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>):{ var _0 : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>; var _1 : stdgo.Error; } {
+    @:tdfield
+    static public function eCDH( _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>):{ var _0 : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>; var _1 : stdgo.Error; } {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey> = _k;
-        var _c = (stdgo._internal.crypto.ecdsa.Ecdsa__curveToECDH._curveToECDH(_k.curve) : _internal.crypto.ecdh.Ecdh_Curve.Curve);
+        var _c = (stdgo._internal.crypto.ecdsa.Ecdsa__curveToECDH._curveToECDH((@:checkr _k ?? throw "null pointer dereference").curve) : _internal.crypto.ecdh.Ecdh_Curve.Curve);
         if (_c == null) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("ecdsa: unsupported curve by crypto/ecdh" : stdgo.GoString)) };
         };
-        if (!_k.curve.isOnCurve(_k.x, _k.y)) {
+        if (!(@:checkr _k ?? throw "null pointer dereference").curve.isOnCurve((@:checkr _k ?? throw "null pointer dereference").x, (@:checkr _k ?? throw "null pointer dereference").y)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("ecdsa: invalid public key" : stdgo.GoString)) };
         };
-        return _c.newPublicKey(stdgo._internal.crypto.elliptic.Elliptic_marshal.marshal(_k.curve, _k.x, _k.y));
+        return _c.newPublicKey(stdgo._internal.crypto.elliptic.Elliptic_marshal.marshal((@:checkr _k ?? throw "null pointer dereference").curve, (@:checkr _k ?? throw "null pointer dereference").x, (@:checkr _k ?? throw "null pointer dereference").y));
     }
     @:embedded
-    public static function scalarMult( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, bx:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, by:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _k:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.scalarMult(bx, by, _k);
+    @:embeddededffieldsffun
+    public static function scalarMult( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _2:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__.scalarMult(_0, _1, _2);
     @:embedded
-    public static function scalarBaseMult( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.scalarBaseMult(__0);
+    @:embeddededffieldsffun
+    public static function scalarBaseMult( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__.scalarBaseMult(_0);
     @:embedded
-    public static function params( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey):stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams> return __self__.params();
+    @:embeddededffieldsffun
+    public static function params( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey):stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams> return @:_5 __self__.params();
     @:embedded
-    public static function isOnCurve( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):Bool return __self__.isOnCurve(_x, _y);
+    @:embeddededffieldsffun
+    public static function isOnCurve( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):Bool return @:_5 __self__.isOnCurve(_0, _1);
     @:embedded
-    public static function double( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.double(_x, _y);
+    @:embeddededffieldsffun
+    public static function double( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__.double(_0, _1);
     @:embedded
-    public static function add( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _x1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _x2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.add(_x1, _y1, _x2, _y2);
+    @:embeddededffieldsffun
+    public static function add( __self__:stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _3:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__.add(_0, _1, _2, _3);
 }

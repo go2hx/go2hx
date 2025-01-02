@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.sha1;
 function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         if (false) {
-            _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
+            @:check2r _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
         };
         var _in = (("hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _out = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -12,6 +12,6 @@ function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             _out = _h.sum((_out.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         }) : stdgo.GoInt);
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
-            _t.errorf(("allocs = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_n));
+            @:check2r _t.errorf(("allocs = %d, want 0" : stdgo.GoString), stdgo.Go.toInterface(_n));
         };
     }

@@ -7,9 +7,9 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Ref<s
         var _key = (new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_Value.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
         var _value = (new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_Value.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
         var _iter = _mapValue.mapRange();
-        while (_iter.next()) {
-            _key = (_key.__append__(_iter.key()?.__copy__()));
-            _value = (_value.__append__(_iter.value()?.__copy__()));
+        while (@:check2r _iter.next()) {
+            _key = (_key.__append__(@:check2r _iter.key()?.__copy__()));
+            _value = (_value.__append__(@:check2r _iter.value()?.__copy__()));
         };
         var _sorted = (stdgo.Go.setRef(({ key : _key, value : _value } : stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap)) : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
         stdgo._internal.sort.Sort_stable.stable(stdgo.Go.asInterface(_sorted));

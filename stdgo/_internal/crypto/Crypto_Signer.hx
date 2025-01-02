@@ -6,6 +6,7 @@ typedef Signer = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function public_():stdgo._internal.crypto.Crypto_PublicKey.PublicKey;
     /**
         Sign signs digest with the private key, possibly using entropy from
@@ -24,5 +25,6 @@ typedef Signer = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function sign(_rand:stdgo._internal.io.Io_Reader.Reader, _digest:stdgo.Slice<stdgo.GoUInt8>, _opts:stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
 };

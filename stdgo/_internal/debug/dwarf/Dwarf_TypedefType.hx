@@ -8,8 +8,10 @@ package stdgo._internal.debug.dwarf;
         if (type != null) this.type = type;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var common(get, never) : () -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType>;
     @:embedded
-    public function common():stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return this.commonType.common();
+    @:embeddededffieldsffun
+    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 (this.commonType ?? throw "null pointer derefrence").common;
     public function __copy__() {
         return new TypedefType(commonType, type);
     }

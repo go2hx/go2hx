@@ -31,7 +31,7 @@ function indexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdgo.Go
                 var __tmp__ = stdgo._internal.bytes.Bytes__makeASCIISet._makeASCIISet(_chars?.__copy__()), _as:stdgo._internal.bytes.Bytes_T_asciiSet.T_asciiSet = __tmp__._0, _isASCII:Bool = __tmp__._1;
                 if (_isASCII) {
                     for (_i => _c in _s) {
-                        if (_as._contains(_c)) {
+                        if (@:check2 _as._contains(_c)) {
                             return _i;
                         };
                     };

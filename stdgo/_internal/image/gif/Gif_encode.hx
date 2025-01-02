@@ -34,7 +34,7 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
                             {
                                 var _x = (_b.min.x : stdgo.GoInt);
                                 while ((_x < _b.max.x : Bool)) {
-                                    _pm.set(_x, _y, _cp.convert(_m.at(_x, _y)));
+                                    @:check2r _pm.set(_x, _y, _cp.convert(_m.at(_x, _y)));
                                     _x++;
                                 };
                             };
@@ -44,17 +44,17 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
                 };
             };
         };
-        if (((_pm == null || (_pm : Dynamic).__nil__) || ((_pm.palette.length) > _opts.numColors : Bool) : Bool)) {
+        if (((_pm == null || (_pm : Dynamic).__nil__) || (((@:checkr _pm ?? throw "null pointer dereference").palette.length) > _opts.numColors : Bool) : Bool)) {
             _pm = stdgo._internal.image.Image_newPaletted.newPaletted(_b?.__copy__(), (stdgo._internal.image.color.palette.Palette_plan9.plan9.__slice__(0, _opts.numColors) : stdgo.Slice<stdgo._internal.image.color.Color_Color.Color>));
             if (_opts.quantizer != null) {
-                _pm.palette = _opts.quantizer.quantize((new stdgo.Slice<stdgo._internal.image.color.Color_Color.Color>((0 : stdgo.GoInt).toBasic(), _opts.numColors) : stdgo._internal.image.color.Color_Palette.Palette), _m);
+                (@:checkr _pm ?? throw "null pointer dereference").palette = _opts.quantizer.quantize((new stdgo.Slice<stdgo._internal.image.color.Color_Color.Color>((0 : stdgo.GoInt).toBasic(), _opts.numColors) : stdgo._internal.image.color.Color_Palette.Palette), _m);
             };
             _opts.drawer.draw(stdgo.Go.asInterface(_pm), _b?.__copy__(), _m, _b.min?.__copy__());
         };
-        if (stdgo.Go.toInterface(_pm.rect.min) != stdgo.Go.toInterface(((new stdgo._internal.image.Image_Point.Point() : stdgo._internal.image.Image_Point.Point)))) {
+        if (stdgo.Go.toInterface((@:checkr _pm ?? throw "null pointer dereference").rect.min) != stdgo.Go.toInterface(((new stdgo._internal.image.Image_Point.Point() : stdgo._internal.image.Image_Point.Point)))) {
             var _dup = ((_pm : stdgo._internal.image.Image_Paletted.Paletted)?.__copy__() : stdgo._internal.image.Image_Paletted.Paletted);
             _dup.rect = _dup.rect.sub(_dup.rect.min?.__copy__())?.__copy__();
             _pm = (stdgo.Go.setRef(_dup) : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>);
         };
-        return stdgo._internal.image.gif.Gif_encodeAll.encodeAll(_w, (stdgo.Go.setRef(({ image : (new stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>(1, 1, ...[_pm]) : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>), delay : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), config : ({ colorModel : stdgo.Go.asInterface(_pm.palette), width : _b.dx(), height : _b.dy() } : stdgo._internal.image.Image_Config.Config) } : stdgo._internal.image.gif.Gif_GIF.GIF)) : stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>));
+        return stdgo._internal.image.gif.Gif_encodeAll.encodeAll(_w, (stdgo.Go.setRef(({ image : (new stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>(1, 1, ...[_pm]) : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>), delay : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), config : ({ colorModel : stdgo.Go.asInterface((@:checkr _pm ?? throw "null pointer dereference").palette), width : _b.dx(), height : _b.dy() } : stdgo._internal.image.Image_Config.Config) } : stdgo._internal.image.gif.Gif_GIF.GIF)) : stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>));
     }

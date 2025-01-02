@@ -14,10 +14,14 @@ package stdgo._internal.debug.macho;
         if (_sr != null) this._sr = _sr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var raw(get, never) : () -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
-    public function raw():stdgo.Slice<stdgo.GoUInt8> return this.loadBytes.raw();
+    @:embeddededffieldsffun
+    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this.loadBytes ?? throw "null pointer derefrence").raw;
+    public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.readerAt.readAt(_p, _off);
+    @:embeddededffieldsffun
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.readerAt ?? throw "null pointer derefrence").readAt;
     public function __copy__() {
         return new Segment(loadBytes, segmentHeader, readerAt, _sr);
     }

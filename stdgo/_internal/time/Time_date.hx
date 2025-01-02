@@ -39,18 +39,18 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
         var _abs = (_d * (86400i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _abs = (_abs + (((((_hour * (3600 : stdgo.GoInt) : stdgo.GoInt) + (_min * (60 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + _sec : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         var _unix = ((_abs : stdgo.GoInt64) + (-9223372028715321600i64 : stdgo.GoInt64) : stdgo.GoInt64);
-        var __tmp__ = _loc._lookup(_unix), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _start:stdgo.GoInt64 = __tmp__._2, _end:stdgo.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
+        var __tmp__ = @:check2r _loc._lookup(_unix), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _start:stdgo.GoInt64 = __tmp__._2, _end:stdgo.GoInt64 = __tmp__._3, __2:Bool = __tmp__._4;
         if (_offset != ((0 : stdgo.GoInt))) {
             var _utc = (_unix - (_offset : stdgo.GoInt64) : stdgo.GoInt64);
             if (((_utc < _start : Bool) || (_utc >= _end : Bool) : Bool)) {
                 {
-                    var __tmp__ = _loc._lookup(_utc);
+                    var __tmp__ = @:check2r _loc._lookup(_utc);
                     _offset = __tmp__._1;
                 };
             };
             _unix = (_unix - ((_offset : stdgo.GoInt64)) : stdgo.GoInt64);
         };
         var _t = (stdgo._internal.time.Time__unixTime._unixTime(_unix, (_nsec : stdgo.GoInt32))?.__copy__() : stdgo._internal.time.Time_Time.Time);
-        _t._setLoc(_loc);
+        @:check2 _t._setLoc(_loc);
         return _t?.__copy__();
     }

@@ -1,6 +1,7 @@
 package stdgo._internal.text.template.parse;
 @:keep @:allow(stdgo._internal.text.template.parse.Parse.NumberNode_asInterface) class NumberNode_static_extension {
     @:keep
+    @:tdfield
     static public function copy( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):stdgo._internal.text.template.parse.Parse_Node.Node {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
         var _nn = (stdgo.Go.setRef(({} : stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
@@ -23,38 +24,44 @@ package stdgo._internal.text.template.parse;
         return stdgo.Go.asInterface(_nn);
     }
     @:keep
+    @:tdfield
     static public function _tree( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
-        return _n._tr;
+        return (@:checkr _n ?? throw "null pointer dereference")._tr;
     }
     @:keep
+    @:tdfield
     static public function _writeTo( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
-        _sb.writeString((_n.string() : stdgo.GoString)?.__copy__());
+        @:check2r _sb.writeString((@:check2r _n.string() : stdgo.GoString)?.__copy__());
     }
     @:keep
+    @:tdfield
     static public function string( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):stdgo.GoString {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
-        return _n.text?.__copy__();
+        return (@:checkr _n ?? throw "null pointer dereference").text?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _simplifyComplex( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
-        _n.isFloat = _n.complex128.imag == (0 : stdgo.GoFloat64);
-        if (_n.isFloat) {
-            _n.float64 = _n.complex128.real;
-            _n.isInt = ((_n.float64 : stdgo.GoInt64) : stdgo.GoFloat64) == (_n.float64);
-            if (_n.isInt) {
-                _n.int64 = (_n.float64 : stdgo.GoInt64);
+        (@:checkr _n ?? throw "null pointer dereference").isFloat = (@:checkr _n ?? throw "null pointer dereference").complex128.imag == (0 : stdgo.GoFloat64);
+        if ((@:checkr _n ?? throw "null pointer dereference").isFloat) {
+            (@:checkr _n ?? throw "null pointer dereference").float64 = (@:checkr _n ?? throw "null pointer dereference").complex128.real;
+            (@:checkr _n ?? throw "null pointer dereference").isInt = (((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64) : stdgo.GoFloat64) == ((@:checkr _n ?? throw "null pointer dereference").float64);
+            if ((@:checkr _n ?? throw "null pointer dereference").isInt) {
+                (@:checkr _n ?? throw "null pointer dereference").int64 = ((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64);
             };
-            _n.isUint = ((_n.float64 : stdgo.GoUInt64) : stdgo.GoFloat64) == (_n.float64);
-            if (_n.isUint) {
-                _n.uint64 = (_n.float64 : stdgo.GoUInt64);
+            (@:checkr _n ?? throw "null pointer dereference").isUint = (((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoUInt64) : stdgo.GoFloat64) == ((@:checkr _n ?? throw "null pointer dereference").float64);
+            if ((@:checkr _n ?? throw "null pointer dereference").isUint) {
+                (@:checkr _n ?? throw "null pointer dereference").uint64 = ((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoUInt64);
             };
         };
     }
     @:embedded
-    public static function type( __self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):stdgo._internal.text.template.parse.Parse_NodeType.NodeType return __self__.type();
+    @:embeddededffieldsffun
+    public static function type( __self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:_5 __self__.type();
     @:embedded
-    public static function position( __self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):stdgo._internal.text.template.parse.Parse_Pos.Pos return __self__.position();
+    @:embeddededffieldsffun
+    public static function position( __self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):stdgo._internal.text.template.parse.Parse_Pos.Pos return @:_5 __self__.position();
 }

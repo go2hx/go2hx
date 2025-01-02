@@ -2,20 +2,20 @@ package stdgo._internal.net.http.httputil;
 function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _body:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _save = (_req.body : stdgo._internal.io.Io_ReadCloser.ReadCloser);
+            var _save = ((@:checkr _req ?? throw "null pointer dereference").body : stdgo._internal.io.Io_ReadCloser.ReadCloser);
             var _dummyBody = (false : Bool);
             if (!_body) {
                 var _contentLength = (stdgo._internal.net.http.httputil.Httputil__outgoingLength._outgoingLength(_req) : stdgo.GoInt64);
                 if (_contentLength != ((0i64 : stdgo.GoInt64))) {
-                    _req.body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo._internal.io.Io_limitReader.limitReader(stdgo.Go.asInterface((120 : stdgo._internal.net.http.httputil.Httputil_T_neverEnding.T_neverEnding)), _contentLength));
+                    (@:checkr _req ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo._internal.io.Io_limitReader.limitReader(stdgo.Go.asInterface((120 : stdgo._internal.net.http.httputil.Httputil_T_neverEnding.T_neverEnding)), _contentLength));
                     _dummyBody = true;
                 };
             } else {
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
-                    var __tmp__ = stdgo._internal.net.http.httputil.Httputil__drainBody._drainBody(_req.body);
+                    var __tmp__ = stdgo._internal.net.http.httputil.Httputil__drainBody._drainBody((@:checkr _req ?? throw "null pointer dereference").body);
                     _save = __tmp__._0;
-                    _req.body = __tmp__._1;
+                    (@:checkr _req ?? throw "null pointer dereference").body = __tmp__._1;
                     _err = __tmp__._2;
                 };
                 if (_err != null) {
@@ -23,13 +23,13 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 };
             };
             var _reqSend = _req;
-            if (_req.url.scheme == (("https" : stdgo.GoString))) {
+            if ((@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme == (("https" : stdgo.GoString))) {
                 _reqSend = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_Request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
                 {
                     var __tmp__ = (_req : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
                     var x = (_reqSend : stdgo._internal.net.http.Http_Request.Request);
                     x.method = __tmp__.method;
-                    x.url = __tmp__.url;
+                    x.uRL = __tmp__.uRL;
                     x.proto = __tmp__.proto;
                     x.protoMajor = __tmp__.protoMajor;
                     x.protoMinor = __tmp__.protoMinor;
@@ -46,15 +46,15 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                     x.trailer = __tmp__.trailer;
                     x.remoteAddr = __tmp__.remoteAddr;
                     x.requestURI = __tmp__.requestURI;
-                    x.tls = __tmp__.tls;
+                    x.tLS = __tmp__.tLS;
                     x.cancel = __tmp__.cancel;
                     x.response = __tmp__.response;
                     x._ctx = __tmp__._ctx;
                 };
-                _reqSend.url = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+                (@:checkr _reqSend ?? throw "null pointer dereference").uRL = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
                 {
-                    var __tmp__ = (_req.url : stdgo._internal.net.url.Url_URL.URL)?.__copy__();
-                    var x = (_reqSend.url : stdgo._internal.net.url.Url_URL.URL);
+                    var __tmp__ = ((@:checkr _req ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_URL.URL)?.__copy__();
+                    var x = ((@:checkr _reqSend ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_URL.URL);
                     x.scheme = __tmp__.scheme;
                     x.opaque = __tmp__.opaque;
                     x.user = __tmp__.user;
@@ -67,16 +67,16 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                     x.fragment = __tmp__.fragment;
                     x.rawFragment = __tmp__.rawFragment;
                 };
-                _reqSend.url.scheme = ("http" : stdgo.GoString);
+                (@:checkr (@:checkr _reqSend ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme = ("http" : stdgo.GoString);
             };
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
             var __tmp__ = stdgo._internal.io.Io_pipe.pipe(), _pr:stdgo.Ref<stdgo._internal.io.Io_PipeReader.PipeReader> = __tmp__._0, _pw:stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter> = __tmp__._1;
             {
-                final __f__ = _pr.close;
+                final __f__ = @:check2r _pr.close;
                 __deferstack__.unshift(() -> __f__());
             };
             {
-                final __f__ = _pw.close;
+                final __f__ = @:check2r _pw.close;
                 __deferstack__.unshift(() -> __f__());
             };
             var _dr = (stdgo.Go.setRef(({ _c : (new stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>(0, () -> (null : stdgo._internal.io.Io_Reader.Reader)) : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>) } : stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader>);
@@ -84,7 +84,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(stdgo._internal.io.Io_multiWriter.multiWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>)), _1 : (null : stdgo.Error) };
             } } : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>);
             {
-                final __f__ = _t.closeIdleConnections;
+                final __f__ = @:check2r _t.closeIdleConnections;
                 __deferstack__.unshift(() -> __f__());
             };
             var _quitReadCh = (new stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>(0, () -> ({} : stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody)) : stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>);
@@ -92,16 +92,16 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 var a = function():Void {
                     var __tmp__ = stdgo._internal.net.http.Http_readRequest.readRequest(stdgo._internal.bufio.Bufio_newReader.newReader(stdgo.Go.asInterface(_pr))), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err == null) {
-                        stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, _req.body);
-                        _req.body.close();
+                        stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, (@:checkr _req ?? throw "null pointer dereference").body);
+                        (@:checkr _req ?? throw "null pointer dereference").body.close();
                     };
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (_dr._c != null && _dr._c.__isSend__()) {
+                            if ((@:checkr _dr ?? throw "null pointer dereference")._c != null && (@:checkr _dr ?? throw "null pointer dereference")._c.__isSend__()) {
                                 __select__ = false;
                                 {
-                                    _dr._c.__send__(stdgo._internal.strings.Strings_newReader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
+                                    (@:checkr _dr ?? throw "null pointer dereference")._c.__send__(stdgo._internal.strings.Strings_newReader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
                                     {};
                                 };
                             } else if (_quitReadCh != null && _quitReadCh.__isGet__()) {
@@ -109,7 +109,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                                 {
                                     _quitReadCh.__get__();
                                     {
-                                        if (_dr._c != null) _dr._c.__close__();
+                                        if ((@:checkr _dr ?? throw "null pointer dereference")._c != null) (@:checkr _dr ?? throw "null pointer dereference")._c.__close__();
                                     };
                                 };
                             };
@@ -120,21 +120,22 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 };
                 a();
             }));
-            var __tmp__ = _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            _req.body = _save;
+            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            (@:checkr _req ?? throw "null pointer dereference").body = _save;
             if (_err != null) {
-                _pw.close();
-                _dr._err = _err;
+                @:check2r _pw.close();
+                (@:checkr _dr ?? throw "null pointer dereference")._err = _err;
                 if (_quitReadCh != null) _quitReadCh.__close__();
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            var _dump = _buf.bytes();
+            var _dump = @:check2 _buf.bytes();
             if (_dummyBody) {
                 {
                     var _i = (stdgo._internal.bytes.Bytes_index.index(_dump, (("\r\n\r\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
@@ -146,12 +147,14 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dump, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -166,6 +169,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -12,13 +12,13 @@ var _regabiAlwaysOn = __1, _regabiSupported = __0;
         var _baseline = ({ regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
         var _flags = (stdgo.Go.setRef(({ flags : _baseline?.__copy__(), _baseline : _baseline?.__copy__() } : stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags)) : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
         if (_goexp != (stdgo.Go.str())) {
-            var _names = ({
+            var _names = (({
                 final x = new stdgo.GoMap.GoStringMap<Bool -> Void>();
                 x.__defaultValue__ = () -> null;
                 {};
                 x;
-            } : stdgo.GoMap<stdgo.GoString, Bool -> Void>);
-            var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_flags.flags) : stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Flags.Flags>))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+            } : stdgo.GoMap<stdgo.GoString, Bool -> Void>) : stdgo.GoMap<stdgo.GoString, Bool -> Void>);
+            var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef((@:checkr _flags ?? throw "null pointer dereference").flags) : stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Flags.Flags>))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _rt = (_rv.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
             {
                 var _i = (0 : stdgo.GoInt);
@@ -29,15 +29,15 @@ _names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy
                 };
             };
             _names[("regabi" : stdgo.GoString)] = function(_v:Bool):Void {
-                _flags.flags.regabiWrappers = _v;
-                _flags.flags.regabiArgs = _v;
+                (@:checkr _flags ?? throw "null pointer dereference").flags.regabiWrappers = _v;
+                (@:checkr _flags ?? throw "null pointer dereference").flags.regabiArgs = _v;
             };
             for (__0 => _f in stdgo._internal.strings.Strings_split.split(_goexp?.__copy__(), ("," : stdgo.GoString))) {
                 if (_f == (stdgo.Go.str())) {
                     continue;
                 };
                 if (_f == (("none" : stdgo.GoString))) {
-                    _flags.flags = (new _internal.internal.goexperiment.Goexperiment_Flags.Flags() : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
+                    (@:checkr _flags ?? throw "null pointer dereference").flags = (new _internal.internal.goexperiment.Goexperiment_Flags.Flags() : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
                     continue;
                 };
                 var _val = (true : Bool);
@@ -57,14 +57,14 @@ _names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy
             };
         };
         if (_regabiAlwaysOn) {
-            _flags.flags.regabiWrappers = true;
-            _flags.flags.regabiArgs = true;
+            (@:checkr _flags ?? throw "null pointer dereference").flags.regabiWrappers = true;
+            (@:checkr _flags ?? throw "null pointer dereference").flags.regabiArgs = true;
         };
         if (!_regabiSupported) {
-            _flags.flags.regabiWrappers = false;
-            _flags.flags.regabiArgs = false;
+            (@:checkr _flags ?? throw "null pointer dereference").flags.regabiWrappers = false;
+            (@:checkr _flags ?? throw "null pointer dereference").flags.regabiArgs = false;
         };
-        if ((_flags.flags.regabiArgs && !_flags.flags.regabiWrappers : Bool)) {
+        if (((@:checkr _flags ?? throw "null pointer dereference").flags.regabiArgs && !(@:checkr _flags ?? throw "null pointer dereference").flags.regabiWrappers : Bool)) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("GOEXPERIMENT regabiargs requires regabiwrappers" : stdgo.GoString)) };
         };
         return { _0 : _flags, _1 : (null : stdgo.Error) };

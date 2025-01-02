@@ -1,6 +1,6 @@
 package stdgo._internal.regexp.syntax;
 function _appendTable(_r:stdgo.Slice<stdgo.GoInt32>, _x:stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>):stdgo.Slice<stdgo.GoInt32> {
-        for (__1 => _xr in _x.r16) {
+        for (__1 => _xr in (@:checkr _x ?? throw "null pointer dereference").r16) {
             var __0 = (_xr.lo : stdgo.GoInt32), __1 = (_xr.hi : stdgo.GoInt32), __2 = (_xr.stride : stdgo.GoInt32);
 var _stride = __2, _hi = __1, _lo = __0;
             if (_stride == ((1 : stdgo.GoInt32))) {
@@ -15,7 +15,7 @@ var _stride = __2, _hi = __1, _lo = __0;
                 };
             };
         };
-        for (__2 => _xr in _x.r32) {
+        for (__2 => _xr in (@:checkr _x ?? throw "null pointer dereference").r32) {
             var __0 = (_xr.lo : stdgo.GoInt32), __1 = (_xr.hi : stdgo.GoInt32), __2 = (_xr.stride : stdgo.GoInt32);
 var _stride = __2, _hi = __1, _lo = __0;
             if (_stride == ((1 : stdgo.GoInt32))) {

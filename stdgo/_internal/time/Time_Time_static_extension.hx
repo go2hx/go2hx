@@ -1,9 +1,10 @@
 package stdgo._internal.time;
 @:keep @:allow(stdgo._internal.time.Time.Time_asInterface) class Time_static_extension {
     @:keep
+    @:tdfield
     static public function round( _t:stdgo._internal.time.Time_Time.Time, _d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        _t._stripMono();
+        @:check2 _t._stripMono();
         if ((_d <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
             return _t?.__copy__();
         };
@@ -14,9 +15,10 @@ package stdgo._internal.time;
         return _t.add((_d - _r : stdgo._internal.time.Time_Duration.Duration))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function truncate( _t:stdgo._internal.time.Time_Time.Time, _d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        _t._stripMono();
+        @:check2 _t._stripMono();
         if ((_d <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
             return _t?.__copy__();
         };
@@ -24,12 +26,14 @@ package stdgo._internal.time;
         return _t.add(-_r)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function isDST( _t:stdgo._internal.time.Time_Time.Time):Bool {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        var __tmp__ = _t._loc._lookup(_t.unix()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, __3:stdgo.GoInt64 = __tmp__._2, __4:stdgo.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4;
+        var __tmp__ = @:check2r _t._loc._lookup(_t.unix()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, __3:stdgo.GoInt64 = __tmp__._2, __4:stdgo.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4;
         return _isDST;
     }
     @:keep
+    @:tdfield
     static public function unmarshalText( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
         var _err:stdgo.Error = (null : stdgo.Error);
@@ -44,6 +48,7 @@ package stdgo._internal.time;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function marshalText( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString).length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -54,6 +59,7 @@ package stdgo._internal.time;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function unmarshalJSON( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
         if ((_data : stdgo.GoString) == (("null" : stdgo.GoString))) {
@@ -75,6 +81,7 @@ package stdgo._internal.time;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function marshalJSON( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (37 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -87,16 +94,19 @@ package stdgo._internal.time;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function gobDecode( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        return _t.unmarshalBinary(_data);
+        return @:check2r _t.unmarshalBinary(_data);
     }
     @:keep
+    @:tdfield
     static public function gobEncode( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         return _t.marshalBinary();
     }
     @:keep
+    @:tdfield
     static public function unmarshalBinary( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
         var _buf = _data;
@@ -130,27 +140,28 @@ package stdgo._internal.time;
             x._ext = __tmp__._ext;
             x._loc = __tmp__._loc;
         };
-        _t._wall = (_nsec : stdgo.GoUInt64);
-        _t._ext = _sec;
+        (@:checkr _t ?? throw "null pointer dereference")._wall = (_nsec : stdgo.GoUInt64);
+        (@:checkr _t ?? throw "null pointer dereference")._ext = _sec;
         if (_offset == ((-60 : stdgo.GoInt))) {
-            _t._setLoc((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>));
+            @:check2r _t._setLoc((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>));
         } else {
-            var __tmp__ = stdgo._internal.time.Time_local.local._lookup(_t._unixSec()), __1:stdgo.GoString = __tmp__._0, _localoff:stdgo.GoInt = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2, __3:stdgo.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
+            var __tmp__ = @:check2r stdgo._internal.time.Time_local.local._lookup(@:check2r _t._unixSec()), __1:stdgo.GoString = __tmp__._0, _localoff:stdgo.GoInt = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2, __3:stdgo.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
             if (_offset == (_localoff)) {
-                _t._setLoc(stdgo._internal.time.Time_local.local);
+                @:check2r _t._setLoc(stdgo._internal.time.Time_local.local);
             } else {
-                _t._setLoc(stdgo._internal.time.Time_fixedZone.fixedZone(stdgo.Go.str()?.__copy__(), _offset));
+                @:check2r _t._setLoc(stdgo._internal.time.Time_fixedZone.fixedZone(stdgo.Go.str()?.__copy__(), _offset));
             };
         };
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalBinary( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _offsetMin:stdgo.GoInt16 = (0 : stdgo.GoInt16);
         var _offsetSec:stdgo.GoInt8 = (0 : stdgo.GoInt8);
         var _version = (1 : stdgo.GoUInt8);
-        if (_t.location() == (stdgo._internal.time.Time_utc.utc)) {
+        if (_t.location() == (stdgo._internal.time.Time_uTC.uTC)) {
             _offsetMin = (-1 : stdgo.GoInt16);
         } else {
             var __tmp__ = _t.zone(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1;
@@ -164,8 +175,8 @@ package stdgo._internal.time;
             };
             _offsetMin = (_offset : stdgo.GoInt16);
         };
-        var _sec = (_t._sec() : stdgo.GoInt64);
-        var _nsec = (_t._nsec() : stdgo.GoInt32);
+        var _sec = (@:check2 _t._sec() : stdgo.GoInt64);
+        var _nsec = (@:check2 _t._nsec() : stdgo.GoInt32);
         var _enc = (new stdgo.Slice<stdgo.GoUInt8>(15, 15, ...[
 _version,
 ((_sec >> (56i64 : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoUInt8),
@@ -188,82 +199,93 @@ _version,
         return { _0 : _enc, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function unixNano( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt64 {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return (((_t._unixSec()) * (1000000000i64 : stdgo.GoInt64) : stdgo.GoInt64) + (_t._nsec() : stdgo.GoInt64) : stdgo.GoInt64);
+        return (((@:check2 _t._unixSec()) * (1000000000i64 : stdgo.GoInt64) : stdgo.GoInt64) + (@:check2 _t._nsec() : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function unixMicro( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt64 {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return ((_t._unixSec() * (1000000i64 : stdgo.GoInt64) : stdgo.GoInt64) + ((_t._nsec() : stdgo.GoInt64) / (1000i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
+        return ((@:check2 _t._unixSec() * (1000000i64 : stdgo.GoInt64) : stdgo.GoInt64) + ((@:check2 _t._nsec() : stdgo.GoInt64) / (1000i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function unixMilli( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt64 {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return ((_t._unixSec() * (1000i64 : stdgo.GoInt64) : stdgo.GoInt64) + ((_t._nsec() : stdgo.GoInt64) / (1000000i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
+        return ((@:check2 _t._unixSec() * (1000i64 : stdgo.GoInt64) : stdgo.GoInt64) + ((@:check2 _t._nsec() : stdgo.GoInt64) / (1000000i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function unix( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt64 {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return _t._unixSec();
+        return @:check2 _t._unixSec();
     }
     @:keep
+    @:tdfield
     static public function zoneBounds( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo._internal.time.Time_Time.Time; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _start = ({} : stdgo._internal.time.Time_Time.Time), _end = ({} : stdgo._internal.time.Time_Time.Time);
-        var __tmp__ = _t._loc._lookup(_t._unixSec()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, _startSec:stdgo.GoInt64 = __tmp__._2, _endSec:stdgo.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
+        var __tmp__ = @:check2r _t._loc._lookup(@:check2 _t._unixSec()), __1:stdgo.GoString = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, _startSec:stdgo.GoInt64 = __tmp__._2, _endSec:stdgo.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
         if (_startSec != ((-9223372036854775808i64 : stdgo.GoInt64))) {
             _start = stdgo._internal.time.Time__unixTime._unixTime(_startSec, (0 : stdgo.GoInt32))?.__copy__();
-            _start._setLoc(_t._loc);
+            @:check2 _start._setLoc(_t._loc);
         };
         if (_endSec != ((9223372036854775807i64 : stdgo.GoInt64))) {
             _end = stdgo._internal.time.Time__unixTime._unixTime(_endSec, (0 : stdgo.GoInt32))?.__copy__();
-            _end._setLoc(_t._loc);
+            @:check2 _end._setLoc(_t._loc);
         };
         return { _0 : _start, _1 : _end };
     }
     @:keep
+    @:tdfield
     static public function zone( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _name = ("" : stdgo.GoString), _offset = (0 : stdgo.GoInt);
         {
-            var __tmp__ = _t._loc._lookup(_t._unixSec());
+            var __tmp__ = @:check2r _t._loc._lookup(@:check2 _t._unixSec());
             _name = __tmp__._0?.__copy__();
             _offset = __tmp__._1;
         };
         return { _0 : _name, _1 : _offset };
     }
     @:keep
+    @:tdfield
     static public function location( _t:stdgo._internal.time.Time_Time.Time):stdgo.Ref<stdgo._internal.time.Time_Location.Location> {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _l = _t._loc;
         if ((_l == null || (_l : Dynamic).__nil__)) {
-            _l = stdgo._internal.time.Time_utc.utc;
+            _l = stdgo._internal.time.Time_uTC.uTC;
         };
         return _l;
     }
     @:keep
+    @:tdfield
     static public function in_( _t:stdgo._internal.time.Time_Time.Time, _loc:stdgo.Ref<stdgo._internal.time.Time_Location.Location>):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         if ((_loc == null || (_loc : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("time: missing Location in call to Time.In" : stdgo.GoString));
         };
-        _t._setLoc(_loc);
+        @:check2 _t._setLoc(_loc);
         return _t?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function local( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        _t._setLoc(stdgo._internal.time.Time_local.local);
+        @:check2 _t._setLoc(stdgo._internal.time.Time_local.local);
         return _t?.__copy__();
     }
     @:keep
-    static public function utc( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    @:tdfield
+    static public function uTC( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        _t._setLoc((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>));
+        @:check2 _t._setLoc((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>));
         return _t?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function _date( _t:stdgo._internal.time.Time_Time.Time, _full:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Month.Month; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_Month.Month), _day = (0 : stdgo.GoInt), _yday = (0 : stdgo.GoInt);
@@ -277,13 +299,15 @@ _version,
         };
     }
     @:keep
+    @:tdfield
     static public function addDate( _t:stdgo._internal.time.Time_Time.Time, _years:stdgo.GoInt, _months:stdgo.GoInt, _days:stdgo.GoInt):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t.date(), _year:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_Month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2;
         var __tmp__ = _t.clock(), _hour:stdgo.GoInt = __tmp__._0, _min:stdgo.GoInt = __tmp__._1, _sec:stdgo.GoInt = __tmp__._2;
-        return stdgo._internal.time.Time_date.date((_year + _years : stdgo.GoInt), (_month + (_months : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month), (_day + _days : stdgo.GoInt), _hour, _min, _sec, (_t._nsec() : stdgo.GoInt), _t.location())?.__copy__();
+        return stdgo._internal.time.Time_date.date((_year + _years : stdgo.GoInt), (_month + (_months : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month), (_day + _days : stdgo.GoInt), _hour, _min, _sec, (@:check2 _t._nsec() : stdgo.GoInt), _t.location())?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function sub( _t:stdgo._internal.time.Time_Time.Time, _u:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         if (((_t._wall & _u._wall : stdgo.GoUInt64) & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
@@ -298,7 +322,7 @@ _version,
             };
             return _d;
         };
-        var _d = ((((_t._sec() - _u._sec() : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) + ((_t._nsec() - _u._nsec() : stdgo.GoInt32) : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
+        var _d = ((((@:check2 _t._sec() - @:check2 _u._sec() : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) + ((@:check2 _t._nsec() - @:check2 _u._nsec() : stdgo.GoInt32) : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
         if (_u.add(_d).equal(_t?.__copy__())) {
             return _d;
         } else if (_t.before(_u?.__copy__())) {
@@ -308,10 +332,11 @@ _version,
         };
     }
     @:keep
+    @:tdfield
     static public function add( _t:stdgo._internal.time.Time_Time.Time, _d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Time.Time {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _dsec = ((_d / (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) : stdgo.GoInt64);
-        var _nsec = (_t._nsec() + ((_d % (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) : stdgo.GoInt32) : stdgo.GoInt32);
+        var _nsec = (@:check2 _t._nsec() + ((_d % (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) : stdgo.GoInt32) : stdgo.GoInt32);
         if ((_nsec >= (1000000000 : stdgo.GoInt32) : Bool)) {
             _dsec++;
             _nsec = (_nsec - ((1000000000 : stdgo.GoInt32)) : stdgo.GoInt32);
@@ -320,11 +345,11 @@ _version,
             _nsec = (_nsec + ((1000000000 : stdgo.GoInt32)) : stdgo.GoInt32);
         };
         _t._wall = ((_t._wall & (((1073741823i64 : stdgo.GoUInt64) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64) | (_nsec : stdgo.GoUInt64) : stdgo.GoUInt64);
-        _t._addSec(_dsec);
+        @:check2 _t._addSec(_dsec);
         if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
             var _te = (_t._ext + (_d : stdgo.GoInt64) : stdgo.GoInt64);
             if ((((_d < (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool) && (_te > _t._ext : Bool) : Bool) || ((_d > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool) && (_te < _t._ext : Bool) : Bool) : Bool)) {
-                _t._stripMono();
+                @:check2 _t._stripMono();
             } else {
                 _t._ext = _te;
             };
@@ -332,32 +357,38 @@ _version,
         return _t?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function yearDay( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._date(false), __1:stdgo.GoInt = __tmp__._0, __2:stdgo._internal.time.Time_Month.Month = __tmp__._1, __3:stdgo.GoInt = __tmp__._2, _yday:stdgo.GoInt = __tmp__._3;
         return (_yday + (1 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function nanosecond( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return (_t._nsec() : stdgo.GoInt);
+        return (@:check2 _t._nsec() : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function second( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         return ((_t._abs() % (60i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function minute( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         return (((_t._abs() % (3600i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt) / (60 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function hour( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         return (((_t._abs() % (86400i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt) / (3600 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function clock( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _hour = (0 : stdgo.GoInt), _min = (0 : stdgo.GoInt), _sec = (0 : stdgo.GoInt);
@@ -370,7 +401,8 @@ _version,
         };
     }
     @:keep
-    static public function isoweek( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
+    @:tdfield
+    static public function iSOWeek( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _week = (0 : stdgo.GoInt);
         var _abs = (_t._abs() : stdgo.GoUInt64);
@@ -388,29 +420,34 @@ _version,
         };
     }
     @:keep
+    @:tdfield
     static public function weekday( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Weekday.Weekday {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         return stdgo._internal.time.Time__absWeekday._absWeekday(_t._abs());
     }
     @:keep
+    @:tdfield
     static public function day( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._date(true), __1:stdgo.GoInt = __tmp__._0, __2:stdgo._internal.time.Time_Month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2, __3:stdgo.GoInt = __tmp__._3;
         return _day;
     }
     @:keep
+    @:tdfield
     static public function month( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Month.Month {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._date(true), __1:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_Month.Month = __tmp__._1, __2:stdgo.GoInt = __tmp__._2, __3:stdgo.GoInt = __tmp__._3;
         return _month;
     }
     @:keep
+    @:tdfield
     static public function year( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._date(false), _year:stdgo.GoInt = __tmp__._0, __1:stdgo._internal.time.Time_Month.Month = __tmp__._1, __2:stdgo.GoInt = __tmp__._2, __3:stdgo.GoInt = __tmp__._3;
         return _year;
     }
     @:keep
+    @:tdfield
     static public function date( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Month.Month; var _2 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_Month.Month), _day = (0 : stdgo.GoInt);
@@ -423,21 +460,22 @@ _version,
         return { _0 : _year, _1 : _month, _2 : _day };
     }
     @:keep
+    @:tdfield
     static public function _locabs( _t:stdgo._internal.time.Time_Time.Time):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoUInt64; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _name = ("" : stdgo.GoString), _offset = (0 : stdgo.GoInt), _abs = (0 : stdgo.GoUInt64);
         var _l = _t._loc;
         if (((_l == null || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localLoc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>)) : Bool)) {
-            _l = _l._get();
+            _l = @:check2r _l._get();
         };
-        var _sec = (_t._unixSec() : stdgo.GoInt64);
+        var _sec = (@:check2 _t._unixSec() : stdgo.GoInt64);
         if (_l != ((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>))) {
-            if ((((_l._cacheZone != null && ((_l._cacheZone : Dynamic).__nil__ == null || !(_l._cacheZone : Dynamic).__nil__)) && (_l._cacheStart <= _sec : Bool) : Bool) && (_sec < _l._cacheEnd : Bool) : Bool)) {
-                _name = _l._cacheZone._name?.__copy__();
-                _offset = _l._cacheZone._offset;
+            if (((((@:checkr _l ?? throw "null pointer dereference")._cacheZone != null && (((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+                _name = (@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._name?.__copy__();
+                _offset = (@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._offset;
             } else {
                 {
-                    var __tmp__ = _l._lookup(_sec);
+                    var __tmp__ = @:check2r _l._lookup(_sec);
                     _name = __tmp__._0?.__copy__();
                     _offset = __tmp__._1;
                 };
@@ -450,37 +488,41 @@ _version,
         return { _0 : _name, _1 : _offset, _2 : _abs };
     }
     @:keep
+    @:tdfield
     static public function _abs( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoUInt64 {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _l = _t._loc;
         if (((_l == null || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localLoc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>)) : Bool)) {
-            _l = _l._get();
+            _l = @:check2r _l._get();
         };
-        var _sec = (_t._unixSec() : stdgo.GoInt64);
+        var _sec = (@:check2 _t._unixSec() : stdgo.GoInt64);
         if (_l != ((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>))) {
-            if ((((_l._cacheZone != null && ((_l._cacheZone : Dynamic).__nil__ == null || !(_l._cacheZone : Dynamic).__nil__)) && (_l._cacheStart <= _sec : Bool) : Bool) && (_sec < _l._cacheEnd : Bool) : Bool)) {
-                _sec = (_sec + ((_l._cacheZone._offset : stdgo.GoInt64)) : stdgo.GoInt64);
+            if (((((@:checkr _l ?? throw "null pointer dereference")._cacheZone != null && (((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+                _sec = (_sec + (((@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._offset : stdgo.GoInt64)) : stdgo.GoInt64);
             } else {
-                var __tmp__ = _l._lookup(_sec), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2, __3:stdgo.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
+                var __tmp__ = @:check2r _l._lookup(_sec), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2, __3:stdgo.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
                 _sec = (_sec + ((_offset : stdgo.GoInt64)) : stdgo.GoInt64);
             };
         };
         return ((_sec + (9223372028715321600i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoUInt64);
     }
     @:keep
+    @:tdfield
     static public function isZero( _t:stdgo._internal.time.Time_Time.Time):Bool {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
-        return ((_t._sec() == (0i64 : stdgo.GoInt64)) && (_t._nsec() == (0 : stdgo.GoInt32)) : Bool);
+        return ((@:check2 _t._sec() == (0i64 : stdgo.GoInt64)) && (@:check2 _t._nsec() == (0 : stdgo.GoInt32)) : Bool);
     }
     @:keep
+    @:tdfield
     static public function equal( _t:stdgo._internal.time.Time_Time.Time, _u:stdgo._internal.time.Time_Time.Time):Bool {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         if (((_t._wall & _u._wall : stdgo.GoUInt64) & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
             return _t._ext == (_u._ext);
         };
-        return ((_t._sec() == _u._sec()) && (_t._nsec() == _u._nsec()) : Bool);
+        return ((@:check2 _t._sec() == @:check2 _u._sec()) && (@:check2 _t._nsec() == @:check2 _u._nsec()) : Bool);
     }
     @:keep
+    @:tdfield
     static public function compare( _t:stdgo._internal.time.Time_Time.Time, _u:stdgo._internal.time.Time_Time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
@@ -494,15 +536,15 @@ var _uc = __1, _tc = __0;
             };
         } else {
             {
-                final __tmp__0 = _t._sec();
-                final __tmp__1 = _u._sec();
+                final __tmp__0 = @:check2 _t._sec();
+                final __tmp__1 = @:check2 _u._sec();
                 _tc = __tmp__0;
                 _uc = __tmp__1;
             };
             if (_tc == (_uc)) {
                 {
-                    final __tmp__0 = (_t._nsec() : stdgo.GoInt64);
-                    final __tmp__1 = (_u._nsec() : stdgo.GoInt64);
+                    final __tmp__0 = (@:check2 _t._nsec() : stdgo.GoInt64);
+                    final __tmp__1 = (@:check2 _u._nsec() : stdgo.GoInt64);
                     _tc = __tmp__0;
                     _uc = __tmp__1;
                 };
@@ -516,102 +558,113 @@ var _uc = __1, _tc = __0;
         return (0 : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function before( _t:stdgo._internal.time.Time_Time.Time, _u:stdgo._internal.time.Time_Time.Time):Bool {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         if (((_t._wall & _u._wall : stdgo.GoUInt64) & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
             return (_t._ext < _u._ext : Bool);
         };
-        var _ts = (_t._sec() : stdgo.GoInt64);
-        var _us = (_u._sec() : stdgo.GoInt64);
-        return ((_ts < _us : Bool) || (_ts == (_us) && (_t._nsec() < _u._nsec() : Bool) : Bool) : Bool);
+        var _ts = (@:check2 _t._sec() : stdgo.GoInt64);
+        var _us = (@:check2 _u._sec() : stdgo.GoInt64);
+        return ((_ts < _us : Bool) || (_ts == (_us) && (@:check2 _t._nsec() < @:check2 _u._nsec() : Bool) : Bool) : Bool);
     }
     @:keep
+    @:tdfield
     static public function after( _t:stdgo._internal.time.Time_Time.Time, _u:stdgo._internal.time.Time_Time.Time):Bool {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         if (((_t._wall & _u._wall : stdgo.GoUInt64) & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
             return (_t._ext > _u._ext : Bool);
         };
-        var _ts = (_t._sec() : stdgo.GoInt64);
-        var _us = (_u._sec() : stdgo.GoInt64);
-        return ((_ts > _us : Bool) || (_ts == (_us) && (_t._nsec() > _u._nsec() : Bool) : Bool) : Bool);
+        var _ts = (@:check2 _t._sec() : stdgo.GoInt64);
+        var _us = (@:check2 _u._sec() : stdgo.GoInt64);
+        return ((_ts > _us : Bool) || (_ts == (_us) && (@:check2 _t._nsec() > @:check2 _u._nsec() : Bool) : Bool) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _mono( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>):stdgo.GoInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
+        if (((@:checkr _t ?? throw "null pointer dereference")._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
             return (0i64 : stdgo.GoInt64);
         };
-        return _t._ext;
+        return (@:checkr _t ?? throw "null pointer dereference")._ext;
     }
     @:keep
+    @:tdfield
     static public function _setMono( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _m:stdgo.GoInt64):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
-            var _sec = (_t._ext : stdgo.GoInt64);
+        if (((@:checkr _t ?? throw "null pointer dereference")._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
+            var _sec = ((@:checkr _t ?? throw "null pointer dereference")._ext : stdgo.GoInt64);
             if (((_sec < (59453308800i64 : stdgo.GoInt64) : Bool) || ((68043243391i64 : stdgo.GoInt64) < _sec : Bool) : Bool)) {
                 return;
             };
-            _t._wall = (_t._wall | (((-9223372036854775808i64 : stdgo.GoUInt64) | (((_sec - (59453308800i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoUInt64) << (30i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            (@:checkr _t ?? throw "null pointer dereference")._wall = ((@:checkr _t ?? throw "null pointer dereference")._wall | (((-9223372036854775808i64 : stdgo.GoUInt64) | (((_sec - (59453308800i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoUInt64) << (30i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
-        _t._ext = _m;
+        (@:checkr _t ?? throw "null pointer dereference")._ext = _m;
     }
     @:keep
+    @:tdfield
     static public function _stripMono( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
-            _t._ext = _t._sec();
-            _t._wall = (_t._wall & ((1073741823i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        if (((@:checkr _t ?? throw "null pointer dereference")._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
+            (@:checkr _t ?? throw "null pointer dereference")._ext = @:check2r _t._sec();
+            (@:checkr _t ?? throw "null pointer dereference")._wall = ((@:checkr _t ?? throw "null pointer dereference")._wall & ((1073741823i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
     }
     @:keep
+    @:tdfield
     static public function _setLoc( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _loc:stdgo.Ref<stdgo._internal.time.Time_Location.Location>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
         if (_loc == ((stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>))) {
             _loc = null;
         };
-        _t._stripMono();
-        _t._loc = _loc;
+        @:check2r _t._stripMono();
+        (@:checkr _t ?? throw "null pointer dereference")._loc = _loc;
     }
     @:keep
+    @:tdfield
     static public function _addSec( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>, _d:stdgo.GoInt64):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
-            var _sec = (((_t._wall << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
+        if (((@:checkr _t ?? throw "null pointer dereference")._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
+            var _sec = ((((@:checkr _t ?? throw "null pointer dereference")._wall << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64);
             var _dsec = (_sec + _d : stdgo.GoInt64);
             if ((((0i64 : stdgo.GoInt64) <= _dsec : Bool) && (_dsec <= (8589934591i64 : stdgo.GoInt64) : Bool) : Bool)) {
-                _t._wall = (((_t._wall & (1073741823i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_dsec : stdgo.GoUInt64) << (30i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+                (@:checkr _t ?? throw "null pointer dereference")._wall = ((((@:checkr _t ?? throw "null pointer dereference")._wall & (1073741823i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_dsec : stdgo.GoUInt64) << (30i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                 return;
             };
-            _t._stripMono();
+            @:check2r _t._stripMono();
         };
-        var _sum = (_t._ext + _d : stdgo.GoInt64);
-        if (((_sum > _t._ext : Bool)) == ((_d > (0i64 : stdgo.GoInt64) : Bool))) {
-            _t._ext = _sum;
+        var _sum = ((@:checkr _t ?? throw "null pointer dereference")._ext + _d : stdgo.GoInt64);
+        if (((_sum > (@:checkr _t ?? throw "null pointer dereference")._ext : Bool)) == ((_d > (0i64 : stdgo.GoInt64) : Bool))) {
+            (@:checkr _t ?? throw "null pointer dereference")._ext = _sum;
         } else if ((_d > (0i64 : stdgo.GoInt64) : Bool)) {
-            _t._ext = (9223372036854775807i64 : stdgo.GoInt64);
+            (@:checkr _t ?? throw "null pointer dereference")._ext = (9223372036854775807i64 : stdgo.GoInt64);
         } else {
-            _t._ext = (-9223372036854775807i64 : stdgo.GoInt64);
+            (@:checkr _t ?? throw "null pointer dereference")._ext = (-9223372036854775807i64 : stdgo.GoInt64);
         };
     }
     @:keep
+    @:tdfield
     static public function _unixSec( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>):stdgo.GoInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        return (_t._sec() + (-62135596800i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        return (@:check2r _t._sec() + (-62135596800i64 : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function _sec( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>):stdgo.GoInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
-            return ((59453308800i64 : stdgo.GoInt64) + (((_t._wall << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoInt64);
+        if (((@:checkr _t ?? throw "null pointer dereference")._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
+            return ((59453308800i64 : stdgo.GoInt64) + ((((@:checkr _t ?? throw "null pointer dereference")._wall << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoInt64);
         };
-        return _t._ext;
+        return (@:checkr _t ?? throw "null pointer dereference")._ext;
     }
     @:keep
+    @:tdfield
     static public function _nsec( _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time>):stdgo.GoInt32 {
         @:recv var _t:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = _t;
-        return ((_t._wall & (1073741823i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt32);
+        return (((@:checkr _t ?? throw "null pointer dereference")._wall & (1073741823i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt32);
     }
     @:keep
+    @:tdfield
     static public function _appendStrictRFC3339( _t:stdgo._internal.time.Time_Time.Time, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _n0 = (_b.length : stdgo.GoInt);
@@ -630,6 +683,7 @@ var _uc = __1, _tc = __0;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function _appendFormatRFC3339( _t:stdgo._internal.time.Time_Time.Time, _b:stdgo.Slice<stdgo.GoUInt8>, _nanos:Bool):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._locabs(), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _abs:stdgo.GoUInt64 = __tmp__._2;
@@ -666,6 +720,7 @@ var _uc = __1, _tc = __0;
         return _b;
     }
     @:keep
+    @:tdfield
     static public function _appendFormat( _t:stdgo._internal.time.Time_Time.Time, _b:stdgo.Slice<stdgo.GoUInt8>, _layout:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var __tmp__ = _t._locabs(), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _abs:stdgo.GoUInt64 = __tmp__._2;
@@ -857,6 +912,7 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
         return _b;
     }
     @:keep
+    @:tdfield
     static public function appendFormat( _t:stdgo._internal.time.Time_Time.Time, _b:stdgo.Slice<stdgo.GoUInt8>, _layout:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         {
@@ -871,6 +927,7 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
         };
     }
     @:keep
+    @:tdfield
     static public function format( _t:stdgo._internal.time.Time_Time.Time, _layout:stdgo.GoString):stdgo.GoString {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         {};
@@ -886,6 +943,7 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
         return (_b : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function goString( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoString {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _abs = (_t._abs() : stdgo.GoUInt64);
@@ -915,13 +973,13 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
             var _loc = _t.location();
             {
                 final __value__ = _loc;
-                if (__value__ == (stdgo._internal.time.Time_utc.utc) || (__value__ == null || (__value__ : Dynamic).__nil__)) {
+                if (__value__ == (stdgo._internal.time.Time_uTC.uTC) || (__value__ == null || (__value__ : Dynamic).__nil__)) {
                     _buf = (_buf.__append__(...(("time.UTC" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                 } else if (__value__ == (stdgo._internal.time.Time_local.local)) {
                     _buf = (_buf.__append__(...(("time.Local" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                 } else {
                     _buf = (_buf.__append__(...(("time.Location(" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-                    _buf = (_buf.__append__(...(stdgo._internal.time.Time__quote._quote(_loc._name?.__copy__()) : Array<stdgo.GoUInt8>)));
+                    _buf = (_buf.__append__(...(stdgo._internal.time.Time__quote._quote((@:checkr _loc ?? throw "null pointer dereference")._name?.__copy__()) : Array<stdgo.GoUInt8>)));
                     _buf = (_buf.__append__((41 : stdgo.GoUInt8)));
                 };
             };
@@ -930,6 +988,7 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
         return (_buf : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function string( _t:stdgo._internal.time.Time_Time.Time):stdgo.GoString {
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _s = (_t.format(("2006-01-02 15:04:05.999999999 -0700 MST" : stdgo.GoString))?.__copy__() : stdgo.GoString);

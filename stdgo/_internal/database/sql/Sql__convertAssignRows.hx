@@ -148,9 +148,9 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         if ((_rows == null || (_rows : Dynamic).__nil__)) {
                             return stdgo._internal.errors.Errors_new_.new_(("invalid context to convert cursor rows, missing parent *Rows" : stdgo.GoString));
                         };
-                        _rows._closemu.lock();
+                        @:check2 (@:checkr _rows ?? throw "null pointer dereference")._closemu.lock();
                         {
-                            var __tmp__ = ({ _dc : _rows._dc, _releaseConn : function(_0:stdgo.Error):Void {}, _rowsi : _s } : stdgo._internal.database.sql.Sql_Rows.Rows);
+                            var __tmp__ = ({ _dc : (@:checkr _rows ?? throw "null pointer dereference")._dc, _releaseConn : function(_0:stdgo.Error):Void {}, _rowsi : _s } : stdgo._internal.database.sql.Sql_Rows.Rows);
                             var x = (_d : stdgo._internal.database.sql.Sql_Rows.Rows);
                             x._dc = __tmp__._dc;
                             x._releaseConn = __tmp__._releaseConn;
@@ -165,14 +165,14 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                             x._closemuScanHold = __tmp__._closemuScanHold;
                             x._hitEOF = __tmp__._hitEOF;
                         };
-                        var _parentCancel = (_rows._cancel : () -> Void);
-                        _rows._cancel = function():Void {
-                            _d._close(_rows._lasterr);
+                        var _parentCancel = ((@:checkr _rows ?? throw "null pointer dereference")._cancel : () -> Void);
+                        (@:checkr _rows ?? throw "null pointer dereference")._cancel = function():Void {
+                            @:check2r _d._close((@:checkr _rows ?? throw "null pointer dereference")._lasterr);
                             if (_parentCancel != null) {
                                 _parentCancel();
                             };
                         };
-                        _rows._closemu.unlock();
+                        @:check2 (@:checkr _rows ?? throw "null pointer dereference")._closemu.unlock();
                         return (null : stdgo.Error);
                     };
                 };

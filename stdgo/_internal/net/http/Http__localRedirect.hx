@@ -1,7 +1,7 @@
 package stdgo._internal.net.http;
 function _localRedirect(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _newPath:stdgo.GoString):Void {
         {
-            var _q = (_r.url.rawQuery?.__copy__() : stdgo.GoString);
+            var _q = ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__() : stdgo.GoString);
             if (_q != (stdgo.Go.str())) {
                 _newPath = (_newPath + ((("?" : stdgo.GoString) + _q?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };

@@ -12,14 +12,14 @@ function testStressParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(_p));
                         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
                         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
-                        var _err = (_enc.encode(stdgo.Go.toInterface(_p)) : stdgo.Error);
+                        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_p)) : stdgo.Error);
                         if (_err != null) {
-                            _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                            @:check2r _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                         };
                         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
-                        _err = _dec.decode(stdgo.Go.toInterface(_p));
+                        _err = @:check2r _dec.decode(stdgo.Go.toInterface(_p));
                         if (_err != null) {
-                            _t.error(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                            @:check2r _t.error(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                         };
                         _c.__send__(true);
                     };

@@ -6,5 +6,6 @@ typedef PalettedImage = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function colorIndexAt(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoUInt8;
 };

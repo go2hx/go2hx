@@ -1,12 +1,13 @@
 package stdgo._internal.internal.bisect;
 class T_parseError_asInterface {
     @:keep
-    public dynamic function error():stdgo.GoString return __self__.value.error();
+    @:tdfield
+    public dynamic function error():stdgo.GoString return @:_0 __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.internal.bisect.Bisect_T_parseError.T_parseError>;
+    var __self__ : stdgo._internal.internal.bisect.Bisect_T_parseErrorPointer.T_parseErrorPointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

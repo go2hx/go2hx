@@ -161,20 +161,20 @@ if (_ok) {
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_fields : stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex)));
         for (_i => _ in _fields) {
             var _f = (stdgo.Go.setRef(_fields[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>);
-            _f._encoder = stdgo._internal.encoding.json.Json__typeEncoder._typeEncoder(stdgo._internal.encoding.json.Json__typeByIndex._typeByIndex(_t, _f._index));
+            (@:checkr _f ?? throw "null pointer dereference")._encoder = stdgo._internal.encoding.json.Json__typeEncoder._typeEncoder(stdgo._internal.encoding.json.Json__typeByIndex._typeByIndex(_t, (@:checkr _f ?? throw "null pointer dereference")._index));
         };
-        var _exactNameIndex = ({
+        var _exactNameIndex = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>();
             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
-        var _foldedNameIndex = ({
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
+        var _foldedNameIndex = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>();
             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
         for (_i => _field in _fields) {
             _exactNameIndex[_field._name] = (stdgo.Go.setRef(_fields[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>);
             {

@@ -44,22 +44,25 @@ typedef T_xorshift = stdgo._internal.sort.Sort_T_xorshift.T_xorshift;
 typedef IntSlice = stdgo._internal.sort.Sort_IntSlice.IntSlice;
 typedef Float64Slice = stdgo._internal.sort.Sort_Float64Slice.Float64Slice;
 typedef StringSlice = stdgo._internal.sort.Sort_StringSlice.StringSlice;
+typedef T_reversePointer = stdgo._internal.sort.Sort_T_reversePointer.T_reversePointer;
 class T_reverse_static_extension {
     static public function less(_r:T_reverse, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.less(_r, _i, _j);
     }
-    public static function swap(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse, _i:StdTypes.Int, _j:StdTypes.Int) {
-        stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.swap(__self__, _i, _j);
+    public static function swap(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse, _0:StdTypes.Int, _1:StdTypes.Int):Void {
+        stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.swap(__self__, _0, _1);
     }
     public static function len(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse):StdTypes.Int {
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.len(__self__);
     }
 }
+typedef T_xorshiftPointer = stdgo._internal.sort.Sort_T_xorshiftPointer.T_xorshiftPointer;
 class T_xorshift_static_extension {
-    static public function next(____:T_xorshift, _r:stdgo.Pointer<T_xorshift>):haxe.UInt64 {
-        return stdgo._internal.sort.Sort_T_xorshift_static_extension.T_xorshift_static_extension.next(____, _r);
+    static public function next(_r:stdgo.Pointer<T_xorshift>):haxe.UInt64 {
+        return stdgo._internal.sort.Sort_T_xorshift_static_extension.T_xorshift_static_extension.next(_r);
     }
 }
+typedef IntSlicePointer = stdgo._internal.sort.Sort_IntSlicePointer.IntSlicePointer;
 class IntSlice_static_extension {
     static public function sort(_x:IntSlice):Void {
         stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.sort(_x);
@@ -77,6 +80,7 @@ class IntSlice_static_extension {
         return stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.search(_p, _x);
     }
 }
+typedef Float64SlicePointer = stdgo._internal.sort.Sort_Float64SlicePointer.Float64SlicePointer;
 class Float64Slice_static_extension {
     static public function sort(_x:Float64Slice):Void {
         stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.sort(_x);
@@ -94,6 +98,7 @@ class Float64Slice_static_extension {
         return stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.search(_p, _x);
     }
 }
+typedef StringSlicePointer = stdgo._internal.sort.Sort_StringSlicePointer.StringSlicePointer;
 class StringSlice_static_extension {
     static public function sort(_x:StringSlice):Void {
         stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.sort(_x);

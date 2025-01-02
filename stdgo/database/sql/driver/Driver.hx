@@ -429,6 +429,7 @@ typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_T_decima
 typedef Value = stdgo._internal.database.sql.driver.Driver_Value.Value;
 typedef IsolationLevel = stdgo._internal.database.sql.driver.Driver_IsolationLevel.IsolationLevel;
 typedef RowsAffected = stdgo._internal.database.sql.driver.Driver_RowsAffected.RowsAffected;
+typedef T_noRowsPointer = stdgo._internal.database.sql.driver.Driver_T_noRowsPointer.T_noRowsPointer;
 class T_noRows_static_extension {
     static public function rowsAffected(_:T_noRows):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -443,6 +444,7 @@ class T_noRows_static_extension {
         };
     }
 }
+typedef T_boolTypePointer = stdgo._internal.database.sql.driver.Driver_T_boolTypePointer.T_boolTypePointer;
 class T_boolType_static_extension {
     static public function convertValue(_:T_boolType, _src:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -454,6 +456,7 @@ class T_boolType_static_extension {
         return stdgo._internal.database.sql.driver.Driver_T_boolType_static_extension.T_boolType_static_extension.string(_);
     }
 }
+typedef T_int32TypePointer = stdgo._internal.database.sql.driver.Driver_T_int32TypePointer.T_int32TypePointer;
 class T_int32Type_static_extension {
     static public function convertValue(_:T_int32Type, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -462,6 +465,7 @@ class T_int32Type_static_extension {
         };
     }
 }
+typedef T_stringTypePointer = stdgo._internal.database.sql.driver.Driver_T_stringTypePointer.T_stringTypePointer;
 class T_stringType_static_extension {
     static public function convertValue(_:T_stringType, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -470,6 +474,7 @@ class T_stringType_static_extension {
         };
     }
 }
+typedef Null_Pointer = stdgo._internal.database.sql.driver.Driver_Null_Pointer.Null_Pointer;
 class Null__static_extension {
     static public function convertValue(_n:Null_, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -478,6 +483,7 @@ class Null__static_extension {
         };
     }
 }
+typedef NotNullPointer = stdgo._internal.database.sql.driver.Driver_NotNullPointer.NotNullPointer;
 class NotNull_static_extension {
     static public function convertValue(_n:NotNull, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -486,6 +492,7 @@ class NotNull_static_extension {
         };
     }
 }
+typedef T_defaultConverterPointer = stdgo._internal.database.sql.driver.Driver_T_defaultConverterPointer.T_defaultConverterPointer;
 class T_defaultConverter_static_extension {
     static public function convertValue(_:T_defaultConverter, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -494,6 +501,7 @@ class T_defaultConverter_static_extension {
         };
     }
 }
+typedef RowsAffectedPointer = stdgo._internal.database.sql.driver.Driver_RowsAffectedPointer.RowsAffectedPointer;
 class RowsAffected_static_extension {
     static public function rowsAffected(_v:RowsAffected):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {

@@ -1,7 +1,7 @@
 package stdgo._internal.html.template;
 function _parseGlob(_t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>, _pattern:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } {
         {
-            var _err = (_t._checkCanParse() : stdgo.Error);
+            var _err = (@:check2r _t._checkCanParse() : stdgo.Error);
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };

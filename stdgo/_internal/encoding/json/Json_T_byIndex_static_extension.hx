@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_byIndex_asInterface) class T_byIndex_static_extension {
     @:keep
+    @:tdfield
     static public function less( _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex = _x;
         for (_k => _xik in _x[(_i : stdgo.GoInt)]._index) {
@@ -14,6 +15,7 @@ package stdgo._internal.encoding.json;
         return ((_x[(_i : stdgo.GoInt)]._index.length) < (_x[(_j : stdgo.GoInt)]._index.length) : Bool);
     }
     @:keep
+    @:tdfield
     static public function swap( _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex = _x;
         {
@@ -28,6 +30,7 @@ package stdgo._internal.encoding.json;
         };
     }
     @:keep
+    @:tdfield
     static public function len( _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex):stdgo.GoInt {
         @:recv var _x:stdgo._internal.encoding.json.Json_T_byIndex.T_byIndex = _x;
         return (_x.length);

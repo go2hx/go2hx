@@ -191,6 +191,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_RawMessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_clientCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientCodecPointer.T_clientCodecPointer;
 class T_clientCodec_static_extension {
     static public function close(_c:T_clientCodec):stdgo.Error {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientCodec_static_extension.T_clientCodec_static_extension.close(_c);
@@ -205,11 +206,13 @@ class T_clientCodec_static_extension {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientCodec_static_extension.T_clientCodec_static_extension.writeRequest(_c, _r, _param);
     }
 }
+typedef T_clientResponsePointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientResponsePointer.T_clientResponsePointer;
 class T_clientResponse_static_extension {
     static public function _reset(_r:T_clientResponse):Void {
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientResponse_static_extension.T_clientResponse_static_extension._reset(_r);
     }
 }
+typedef T_serverCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverCodecPointer.T_serverCodecPointer;
 class T_serverCodec_static_extension {
     static public function close(_c:T_serverCodec):stdgo.Error {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverCodec_static_extension.T_serverCodec_static_extension.close(_c);
@@ -224,6 +227,7 @@ class T_serverCodec_static_extension {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverCodec_static_extension.T_serverCodec_static_extension.readRequestHeader(_c, _r);
     }
 }
+typedef T_serverRequestPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverRequestPointer.T_serverRequestPointer;
 class T_serverRequest_static_extension {
     static public function _reset(_r:T_serverRequest):Void {
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverRequest_static_extension.T_serverRequest_static_extension._reset(_r);

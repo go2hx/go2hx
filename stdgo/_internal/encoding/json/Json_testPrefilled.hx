@@ -19,10 +19,10 @@ x.set(("Z" : stdgo.GoString), stdgo.Go.toInterface((1.5 : stdgo.GoFloat64)));
             var _ptrstr = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%v" : stdgo.GoString), _tt._ptr)?.__copy__() : stdgo.GoString);
             var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_tt._in : stdgo.Slice<stdgo.GoUInt8>), _tt._ptr) : stdgo.Error);
             if (_err != null) {
-                _t.errorf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_tt._ptr, _tt._out)) {
-                _t.errorf(("Unmarshal(%#q, %s): have %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_ptrstr), _tt._ptr, _tt._out);
+                @:check2r _t.errorf(("Unmarshal(%#q, %s): have %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_ptrstr), _tt._ptr, _tt._out);
             };
         };
     }

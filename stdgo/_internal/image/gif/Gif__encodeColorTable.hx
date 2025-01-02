@@ -25,7 +25,7 @@ var _b = __2, _g = __1, _r = __0;
                         _b = __tmp__2;
                     };
                 } else {
-                    var __tmp__ = _c.rgba(), _rr:stdgo.GoUInt32 = __tmp__._0, _gg:stdgo.GoUInt32 = __tmp__._1, _bb:stdgo.GoUInt32 = __tmp__._2, __0:stdgo.GoUInt32 = __tmp__._3;
+                    var __tmp__ = _c.rGBA(), _rr:stdgo.GoUInt32 = __tmp__._0, _gg:stdgo.GoUInt32 = __tmp__._1, _bb:stdgo.GoUInt32 = __tmp__._2, __0:stdgo.GoUInt32 = __tmp__._3;
                     {
                         final __tmp__0 = ((_rr >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
                         final __tmp__1 = ((_gg >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);

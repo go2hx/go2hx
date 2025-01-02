@@ -1305,10 +1305,10 @@ private function set_scripts(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._inte
         stdgo._internal.unicode.Unicode_scripts.scripts = v;
         return v;
     }
-var ascii_Hex_Digit(get, set) : RangeTable;
-private function get_ascii_Hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_ascii_Hex_Digit.ascii_Hex_Digit;
-private function set_ascii_Hex_Digit(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_ascii_Hex_Digit.ascii_Hex_Digit = v;
+var aSCII_Hex_Digit(get, set) : RangeTable;
+private function get_aSCII_Hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_aSCII_Hex_Digit.aSCII_Hex_Digit;
+private function set_aSCII_Hex_Digit(v:RangeTable):RangeTable {
+        stdgo._internal.unicode.Unicode_aSCII_Hex_Digit.aSCII_Hex_Digit = v;
         return v;
     }
 var bidi_Control(get, set) : RangeTable;
@@ -1353,16 +1353,16 @@ private function set_hyphen(v:RangeTable):RangeTable {
         stdgo._internal.unicode.Unicode_hyphen.hyphen = v;
         return v;
     }
-var ids_Binary_Operator(get, set) : RangeTable;
-private function get_ids_Binary_Operator():RangeTable return stdgo._internal.unicode.Unicode_ids_Binary_Operator.ids_Binary_Operator;
-private function set_ids_Binary_Operator(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_ids_Binary_Operator.ids_Binary_Operator = v;
+var iDS_Binary_Operator(get, set) : RangeTable;
+private function get_iDS_Binary_Operator():RangeTable return stdgo._internal.unicode.Unicode_iDS_Binary_Operator.iDS_Binary_Operator;
+private function set_iDS_Binary_Operator(v:RangeTable):RangeTable {
+        stdgo._internal.unicode.Unicode_iDS_Binary_Operator.iDS_Binary_Operator = v;
         return v;
     }
-var ids_Trinary_Operator(get, set) : RangeTable;
-private function get_ids_Trinary_Operator():RangeTable return stdgo._internal.unicode.Unicode_ids_Trinary_Operator.ids_Trinary_Operator;
-private function set_ids_Trinary_Operator(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_ids_Trinary_Operator.ids_Trinary_Operator = v;
+var iDS_Trinary_Operator(get, set) : RangeTable;
+private function get_iDS_Trinary_Operator():RangeTable return stdgo._internal.unicode.Unicode_iDS_Trinary_Operator.iDS_Trinary_Operator;
+private function set_iDS_Trinary_Operator(v:RangeTable):RangeTable {
+        stdgo._internal.unicode.Unicode_iDS_Trinary_Operator.iDS_Trinary_Operator = v;
         return v;
     }
 var ideographic(get, set) : RangeTable;
@@ -1473,10 +1473,10 @@ private function set_regional_Indicator(v:RangeTable):RangeTable {
         stdgo._internal.unicode.Unicode_regional_Indicator.regional_Indicator = v;
         return v;
     }
-var sterm(get, set) : RangeTable;
-private function get_sterm():RangeTable return stdgo._internal.unicode.Unicode_sterm.sterm;
-private function set_sterm(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_sterm.sterm = v;
+var sTerm(get, set) : RangeTable;
+private function get_sTerm():RangeTable return stdgo._internal.unicode.Unicode_sTerm.sTerm;
+private function set_sTerm(v:RangeTable):RangeTable {
+        stdgo._internal.unicode.Unicode_sTerm.sTerm = v;
         return v;
     }
 var sentence_Terminal(get, set) : RangeTable;
@@ -1650,6 +1650,7 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
 }
 typedef SpecialCase = stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase;
 typedef T_d = stdgo._internal.unicode.Unicode_T_d.T_d;
+typedef SpecialCasePointer = stdgo._internal.unicode.Unicode_SpecialCasePointer.SpecialCasePointer;
 class SpecialCase_static_extension {
     static public function toLower(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
         return stdgo._internal.unicode.Unicode_SpecialCase_static_extension.SpecialCase_static_extension.toLower(_special, _r);

@@ -13,8 +13,10 @@ package stdgo._internal.text.template.parse;
         if (line != null) this.line = line;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var position(get, never) : () -> stdgo._internal.text.template.parse.Parse_Pos.Pos;
     @:embedded
-    public function position():stdgo._internal.text.template.parse.Parse_Pos.Pos return this.pos.position();
+    @:embeddededffieldsffun
+    public function get_position():() -> stdgo._internal.text.template.parse.Parse_Pos.Pos return @:check3 (this.pos ?? throw "null pointer derefrence").position;
     public function __copy__() {
         return new T_elseNode(nodeType, pos, _tr, line);
     }

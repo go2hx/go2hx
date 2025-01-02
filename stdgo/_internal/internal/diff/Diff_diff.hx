@@ -62,7 +62,7 @@ var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
                 };
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("@@ -%d,%d +%d,%d @@\n" : stdgo.GoString), stdgo.Go.toInterface(_chunk._x), stdgo.Go.toInterface(_count._x), stdgo.Go.toInterface(_chunk._y), stdgo.Go.toInterface(_count._y));
                 for (__4 => _s in _ctext) {
-                    _out.writeString(_s?.__copy__());
+                    @:check2 _out.writeString(_s?.__copy__());
                 };
                 _count._x = (0 : stdgo.GoInt);
                 _count._y = (0 : stdgo.GoInt);
@@ -79,5 +79,5 @@ var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
             };
             _done = _end?.__copy__();
         };
-        return _out.bytes();
+        return @:check2 _out.bytes();
     }

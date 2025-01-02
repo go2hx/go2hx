@@ -1,6 +1,6 @@
 package stdgo._internal.expvar;
 function get(_name:stdgo.GoString):stdgo._internal.expvar.Expvar_Var.Var {
-        var __tmp__ = stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_name)), _i:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_name)), _i:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_i : stdgo._internal.expvar.Expvar_Var.Var)) : stdgo._internal.expvar.Expvar_Var.Var), _1 : true };
         } catch(_) {

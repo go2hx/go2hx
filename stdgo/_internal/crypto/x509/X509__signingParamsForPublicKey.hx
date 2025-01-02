@@ -14,7 +14,7 @@ function _signingParamsForPublicKey(_pub:stdgo.AnyInterface, _requestedSigAlgo:s
                 var _pub:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>) : __type__.__underlying__().value;
                 _pubType = (3 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm);
                 {
-                    final __value__ = _pub.curve;
+                    final __value__ = (@:checkr _pub ?? throw "null pointer dereference").curve;
                     if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p224.p224())) || stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.crypto.elliptic.Elliptic_p256.p256()))) {
                         _hashFunc = (5u32 : stdgo._internal.crypto.Crypto_Hash.Hash);
                         _sigAlgo.algorithm = stdgo._internal.crypto.x509.X509__oidSignatureECDSAWithSHA256._oidSignatureECDSAWithSHA256;

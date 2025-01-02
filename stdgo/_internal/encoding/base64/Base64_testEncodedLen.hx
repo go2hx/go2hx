@@ -13,9 +13,9 @@ function testEncodedLen(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
 ({ _enc : stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, _n : (4 : stdgo.GoInt), _want : (8 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_1.T__struct_1),
 ({ _enc : stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, _n : (7 : stdgo.GoInt), _want : (12 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_1.T__struct_1)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({ _enc : (null : stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>), _n : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_1.T__struct_1)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64_T__struct_1.T__struct_1>)) {
             {
-                var _got = (_tt._enc.encodedLen(_tt._n) : stdgo.GoInt);
+                var _got = (@:check2r _tt._enc.encodedLen(_tt._n) : stdgo.GoInt);
                 if (_got != (_tt._want)) {
-                    _t.errorf(("EncodedLen(%d): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tt._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
+                    @:check2r _t.errorf(("EncodedLen(%d): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tt._n), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                 };
             };
         };

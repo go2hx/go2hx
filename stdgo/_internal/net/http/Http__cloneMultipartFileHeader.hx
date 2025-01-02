@@ -15,6 +15,6 @@ function _cloneMultipartFileHeader(_fh:stdgo.Ref<stdgo._internal.mime.multipart.
             x._tmpoff = __tmp__._tmpoff;
             x._tmpshared = __tmp__._tmpshared;
         };
-        _fh2.header = ((_fh.header : stdgo._internal.net.http.Http_Header.Header).clone() : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
+        (@:checkr _fh2 ?? throw "null pointer dereference").header = (((@:checkr _fh ?? throw "null pointer dereference").header : stdgo._internal.net.http.Http_Header.Header).clone() : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
         return _fh2;
     }

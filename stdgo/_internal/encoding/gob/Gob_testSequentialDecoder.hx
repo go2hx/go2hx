@@ -8,9 +8,9 @@ function testSequentialDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             while ((_i < (10 : stdgo.GoInt) : Bool)) {
                 var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface(_i)).__copy__() : stdgo.GoString);
 {
-                    var _err = (_enc.encode(stdgo.Go.toInterface(_s)) : stdgo.Error);
+                    var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_s)) : stdgo.Error);
                     if (_err != null) {
-                        _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };
                 };
                 _i++;
@@ -26,13 +26,13 @@ var _s__pointer__ = stdgo.Go.pointer(_s);
 var _s__pointer__ = stdgo.Go.pointer(_s);
 var _s__pointer__ = stdgo.Go.pointer(_s);
 {
-                    var _err = (_dec.decode(stdgo.Go.toInterface(_s__pointer__)) : stdgo.Error);
+                    var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(_s__pointer__)) : stdgo.Error);
                     if (_err != null) {
-                        _t.fatal(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.fatal(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };
                 };
 if (_s != (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface(_i)))) {
-                    _t.fatalf(("decode expected %d got %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
+                    @:check2r _t.fatalf(("decode expected %d got %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
                 };
                 _i++;
             };

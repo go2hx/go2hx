@@ -1,7 +1,7 @@
 package stdgo._internal.net.http;
 function _http2commaSeparatedTrailers(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_req.trailer.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
-        for (_k => _ in _req.trailer) {
+        var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((@:checkr _req ?? throw "null pointer dereference").trailer.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
+        for (_k => _ in (@:checkr _req ?? throw "null pointer dereference").trailer) {
             _k = stdgo._internal.net.http.Http__http2canonicalHeader._http2canonicalHeader(_k?.__copy__())?.__copy__();
             {
                 final __value__ = _k;

@@ -90,6 +90,7 @@ final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindFloat64
     public function __copy__() return this.__copy__();
 }
 typedef ValueKind = stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind;
+typedef ValuePointer = stdgo._internal.runtime.metrics.Metrics_ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function float64Histogram(_v:Value):Float64Histogram {
         return stdgo._internal.runtime.metrics.Metrics_Value_static_extension.Value_static_extension.float64Histogram(_v);

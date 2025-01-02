@@ -117,6 +117,7 @@ typedef Resetter = stdgo._internal.compress.zlib.Zlib_Resetter.Resetter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_readerPointer = stdgo._internal.compress.zlib.Zlib_T_readerPointer.T_readerPointer;
 class T_reader_static_extension {
     static public function reset(_z:T_reader, _r:stdgo._internal.io.Io_Reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
         final _dict = ([for (i in _dict) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -133,6 +134,7 @@ class T_reader_static_extension {
         };
     }
 }
+typedef WriterPointer = stdgo._internal.compress.zlib.Zlib_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function close(_z:Writer):stdgo.Error {
         return stdgo._internal.compress.zlib.Zlib_Writer_static_extension.Writer_static_extension.close(_z);

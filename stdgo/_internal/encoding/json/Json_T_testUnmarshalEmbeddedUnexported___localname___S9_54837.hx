@@ -7,8 +7,10 @@ package stdgo._internal.encoding.json;
         if (_unexportedWithMethods != null) this._unexportedWithMethods = _unexportedWithMethods;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var f(get, never) : () -> Void;
     @:embedded
-    public function f() this._unexportedWithMethods.f();
+    @:embeddededffieldsffun
+    public function get_f():() -> Void return @:check3 (this._unexportedWithMethods ?? throw "null pointer derefrence").f;
     public function __copy__() {
         return new T_testUnmarshalEmbeddedUnexported___localname___S9_54837(_unexportedWithMethods);
     }

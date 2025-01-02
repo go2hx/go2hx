@@ -5,6 +5,7 @@ typedef Block = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function blockSize():stdgo.GoInt;
     /**
         Encrypt encrypts the first block in src into dst.
@@ -12,6 +13,7 @@ typedef Block = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function encrypt(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void;
     /**
         Decrypt decrypts the first block in src into dst.
@@ -19,5 +21,6 @@ typedef Block = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function decrypt(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void;
 };

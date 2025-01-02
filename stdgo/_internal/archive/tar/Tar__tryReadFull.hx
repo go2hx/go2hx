@@ -10,7 +10,7 @@ function _tryReadFull(_r:stdgo._internal.io.Io_Reader.Reader, _b:stdgo.Slice<std
             };
             _n = (_n + (_nn) : stdgo.GoInt);
         };
-        if (((_b.length == _n) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+        if (((_b.length == _n) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
             _err = (null : stdgo.Error);
         };
         return {

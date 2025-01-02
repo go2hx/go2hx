@@ -1042,11 +1042,13 @@ typedef T_stateFn = stdgo._internal.text.template.parse.Parse_T_stateFn.T_stateF
 typedef NodeType = stdgo._internal.text.template.parse.Parse_NodeType.NodeType;
 typedef Pos = stdgo._internal.text.template.parse.Parse_Pos.Pos;
 typedef Mode = stdgo._internal.text.template.parse.Parse_Mode.Mode;
+typedef T_itemPointer = stdgo._internal.text.template.parse.Parse_T_itemPointer.T_itemPointer;
 class T_item_static_extension {
     static public function string(_i:T_item):String {
         return stdgo._internal.text.template.parse.Parse_T_item_static_extension.T_item_static_extension.string(_i);
     }
 }
+typedef T_lexerPointer = stdgo._internal.text.template.parse.Parse_T_lexerPointer.T_lexerPointer;
 class T_lexer_static_extension {
     static public function _scanNumber(_l:T_lexer):Bool {
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._scanNumber(_l);
@@ -1094,6 +1096,7 @@ class T_lexer_static_extension {
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._next(_l);
     }
 }
+typedef ListNodePointer = stdgo._internal.text.template.parse.Parse_ListNodePointer.ListNodePointer;
 class ListNode_static_extension {
     static public function copy(_l:ListNode):Node {
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.copy(_l);
@@ -1120,6 +1123,7 @@ class ListNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.position(__self__);
     }
 }
+typedef TextNodePointer = stdgo._internal.text.template.parse.Parse_TextNodePointer.TextNodePointer;
 class TextNode_static_extension {
     static public function copy(_t:TextNode):Node {
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.copy(_t);
@@ -1140,6 +1144,7 @@ class TextNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.position(__self__);
     }
 }
+typedef CommentNodePointer = stdgo._internal.text.template.parse.Parse_CommentNodePointer.CommentNodePointer;
 class CommentNode_static_extension {
     static public function copy(_c:CommentNode):Node {
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.copy(_c);
@@ -1160,6 +1165,7 @@ class CommentNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.position(__self__);
     }
 }
+typedef PipeNodePointer = stdgo._internal.text.template.parse.Parse_PipeNodePointer.PipeNodePointer;
 class PipeNode_static_extension {
     static public function copy(_p:PipeNode):Node {
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.copy(_p);
@@ -1186,6 +1192,7 @@ class PipeNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.position(__self__);
     }
 }
+typedef ActionNodePointer = stdgo._internal.text.template.parse.Parse_ActionNodePointer.ActionNodePointer;
 class ActionNode_static_extension {
     static public function copy(_a:ActionNode):Node {
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.copy(_a);
@@ -1206,6 +1213,7 @@ class ActionNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.position(__self__);
     }
 }
+typedef CommandNodePointer = stdgo._internal.text.template.parse.Parse_CommandNodePointer.CommandNodePointer;
 class CommandNode_static_extension {
     static public function copy(_c:CommandNode):Node {
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.copy(_c);
@@ -1229,6 +1237,7 @@ class CommandNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.position(__self__);
     }
 }
+typedef IdentifierNodePointer = stdgo._internal.text.template.parse.Parse_IdentifierNodePointer.IdentifierNodePointer;
 class IdentifierNode_static_extension {
     static public function copy(_i:IdentifierNode):Node {
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.copy(_i);
@@ -1255,6 +1264,7 @@ class IdentifierNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.position(__self__);
     }
 }
+typedef VariableNodePointer = stdgo._internal.text.template.parse.Parse_VariableNodePointer.VariableNodePointer;
 class VariableNode_static_extension {
     static public function copy(_v:VariableNode):Node {
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.copy(_v);
@@ -1275,6 +1285,7 @@ class VariableNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.position(__self__);
     }
 }
+typedef DotNodePointer = stdgo._internal.text.template.parse.Parse_DotNodePointer.DotNodePointer;
 class DotNode_static_extension {
     static public function copy(_d:DotNode):Node {
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.copy(_d);
@@ -1295,6 +1306,7 @@ class DotNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.position(__self__);
     }
 }
+typedef NilNodePointer = stdgo._internal.text.template.parse.Parse_NilNodePointer.NilNodePointer;
 class NilNode_static_extension {
     static public function copy(_n:NilNode):Node {
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.copy(_n);
@@ -1315,6 +1327,7 @@ class NilNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.position(__self__);
     }
 }
+typedef FieldNodePointer = stdgo._internal.text.template.parse.Parse_FieldNodePointer.FieldNodePointer;
 class FieldNode_static_extension {
     static public function copy(_f:FieldNode):Node {
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.copy(_f);
@@ -1335,6 +1348,7 @@ class FieldNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.position(__self__);
     }
 }
+typedef ChainNodePointer = stdgo._internal.text.template.parse.Parse_ChainNodePointer.ChainNodePointer;
 class ChainNode_static_extension {
     static public function copy(_c:ChainNode):Node {
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.copy(_c);
@@ -1358,6 +1372,7 @@ class ChainNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.position(__self__);
     }
 }
+typedef BoolNodePointer = stdgo._internal.text.template.parse.Parse_BoolNodePointer.BoolNodePointer;
 class BoolNode_static_extension {
     static public function copy(_b:BoolNode):Node {
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.copy(_b);
@@ -1378,6 +1393,7 @@ class BoolNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.position(__self__);
     }
 }
+typedef NumberNodePointer = stdgo._internal.text.template.parse.Parse_NumberNodePointer.NumberNodePointer;
 class NumberNode_static_extension {
     static public function copy(_n:NumberNode):Node {
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.copy(_n);
@@ -1401,6 +1417,7 @@ class NumberNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.position(__self__);
     }
 }
+typedef StringNodePointer = stdgo._internal.text.template.parse.Parse_StringNodePointer.StringNodePointer;
 class StringNode_static_extension {
     static public function copy(_s:StringNode):Node {
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.copy(_s);
@@ -1421,6 +1438,7 @@ class StringNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.position(__self__);
     }
 }
+typedef T_endNodePointer = stdgo._internal.text.template.parse.Parse_T_endNodePointer.T_endNodePointer;
 class T_endNode_static_extension {
     static public function copy(_e:T_endNode):Node {
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.copy(_e);
@@ -1441,6 +1459,7 @@ class T_endNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.position(__self__);
     }
 }
+typedef T_elseNodePointer = stdgo._internal.text.template.parse.Parse_T_elseNodePointer.T_elseNodePointer;
 class T_elseNode_static_extension {
     static public function copy(_e:T_elseNode):Node {
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.copy(_e);
@@ -1461,6 +1480,7 @@ class T_elseNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.position(__self__);
     }
 }
+typedef BranchNodePointer = stdgo._internal.text.template.parse.Parse_BranchNodePointer.BranchNodePointer;
 class BranchNode_static_extension {
     static public function copy(_b:BranchNode):Node {
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.copy(_b);
@@ -1481,12 +1501,13 @@ class BranchNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.position(__self__);
     }
 }
+typedef IfNodePointer = stdgo._internal.text.template.parse.Parse_IfNodePointer.IfNodePointer;
 class IfNode_static_extension {
     static public function copy(_i:IfNode):Node {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.copy(_i);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode, _sb:stdgo._internal.strings.Strings_Builder.Builder) {
-        stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension._writeTo(__self__, _sb);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
+        stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension._writeTo(__self__, _0);
     }
     public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode):Tree {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension._tree(__self__);
@@ -1501,6 +1522,7 @@ class IfNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.position(__self__);
     }
 }
+typedef BreakNodePointer = stdgo._internal.text.template.parse.Parse_BreakNodePointer.BreakNodePointer;
 class BreakNode_static_extension {
     static public function _writeTo(_b:BreakNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
         stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension._writeTo(_b, _sb);
@@ -1521,6 +1543,7 @@ class BreakNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension.position(__self__);
     }
 }
+typedef ContinueNodePointer = stdgo._internal.text.template.parse.Parse_ContinueNodePointer.ContinueNodePointer;
 class ContinueNode_static_extension {
     static public function _writeTo(_c:ContinueNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
         stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension._writeTo(_c, _sb);
@@ -1541,12 +1564,13 @@ class ContinueNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension.position(__self__);
     }
 }
+typedef RangeNodePointer = stdgo._internal.text.template.parse.Parse_RangeNodePointer.RangeNodePointer;
 class RangeNode_static_extension {
     static public function copy(_r:RangeNode):Node {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.copy(_r);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode, _sb:stdgo._internal.strings.Strings_Builder.Builder) {
-        stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension._writeTo(__self__, _sb);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
+        stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension._writeTo(__self__, _0);
     }
     public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode):Tree {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension._tree(__self__);
@@ -1561,12 +1585,13 @@ class RangeNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.position(__self__);
     }
 }
+typedef WithNodePointer = stdgo._internal.text.template.parse.Parse_WithNodePointer.WithNodePointer;
 class WithNode_static_extension {
     static public function copy(_w:WithNode):Node {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.copy(_w);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode, _sb:stdgo._internal.strings.Strings_Builder.Builder) {
-        stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension._writeTo(__self__, _sb);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
+        stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension._writeTo(__self__, _0);
     }
     public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode):Tree {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension._tree(__self__);
@@ -1581,6 +1606,7 @@ class WithNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.position(__self__);
     }
 }
+typedef TemplateNodePointer = stdgo._internal.text.template.parse.Parse_TemplateNodePointer.TemplateNodePointer;
 class TemplateNode_static_extension {
     static public function copy(_t:TemplateNode):Node {
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.copy(_t);
@@ -1601,6 +1627,7 @@ class TemplateNode_static_extension {
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.position(__self__);
     }
 }
+typedef TreePointer = stdgo._internal.text.template.parse.Parse_TreePointer.TreePointer;
 class Tree_static_extension {
     static public function _useVar(_t:Tree, _pos:Pos, _name:String):Node {
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._useVar(_t, _pos, _name);
@@ -1818,11 +1845,13 @@ class Tree_static_extension {
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newList(_t, _pos);
     }
 }
+typedef NodeTypePointer = stdgo._internal.text.template.parse.Parse_NodeTypePointer.NodeTypePointer;
 class NodeType_static_extension {
     static public function type(_t:NodeType):NodeType {
         return stdgo._internal.text.template.parse.Parse_NodeType_static_extension.NodeType_static_extension.type(_t);
     }
 }
+typedef PosPointer = stdgo._internal.text.template.parse.Parse_PosPointer.PosPointer;
 class Pos_static_extension {
     static public function position(_p:Pos):Pos {
         return stdgo._internal.text.template.parse.Parse_Pos_static_extension.Pos_static_extension.position(_p);

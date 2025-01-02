@@ -9,10 +9,10 @@ function _sleep(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _d:
                         stdgo._internal.time.Time_after.after(_d).__get__();
                         {};
                     };
-                } else if (_r.context().done() != null && _r.context().done().__isGet__()) {
+                } else if (@:check2r _r.context().done() != null && @:check2r _r.context().done().__isGet__()) {
                     __select__ = false;
                     {
-                        _r.context().done().__get__();
+                        @:check2r _r.context().done().__get__();
                         {};
                     };
                 };

@@ -14,12 +14,12 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
                 throw stdgo.Go.toInterface(("strconv: illegal AppendFloat/FormatFloat bitSize" : stdgo.GoString));
             };
         };
-        var _neg = ((_bits >> ((_flt._expbits + _flt._mantbits : stdgo.GoUInt)) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64)) : Bool);
-        var _exp = (((_bits >> _flt._mantbits : stdgo.GoUInt64) : stdgo.GoInt) & ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-        var _mant = (_bits & ((((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        var _neg = ((_bits >> (((@:checkr _flt ?? throw "null pointer dereference")._expbits + (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt)) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64)) : Bool);
+        var _exp = (((_bits >> (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64) : stdgo.GoInt) & ((((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+        var _mant = (_bits & ((((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         {
             final __value__ = _exp;
-            if (__value__ == ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt))) {
+            if (__value__ == ((((1 : stdgo.GoInt) << (@:checkr _flt ?? throw "null pointer dereference")._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                 var _s:stdgo.GoString = ("" : stdgo.GoString);
                 if (_mant != ((0i64 : stdgo.GoUInt64))) {
                     _s = ("NaN" : stdgo.GoString);
@@ -32,10 +32,10 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
             } else if (__value__ == ((0 : stdgo.GoInt))) {
                 _exp++;
             } else {
-                _mant = (_mant | (((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                _mant = (_mant | (((1i64 : stdgo.GoUInt64) << (@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
             };
         };
-        _exp = (_exp + (_flt._bias) : stdgo.GoInt);
+        _exp = (_exp + ((@:checkr _flt ?? throw "null pointer dereference")._bias) : stdgo.GoInt);
         if (_fmt == ((98 : stdgo.GoUInt8))) {
             return stdgo._internal.strconv.Strconv__fmtB._fmtB(_dst, _neg, _mant, _exp, _flt);
         };
@@ -51,7 +51,7 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
         if (_shortest) {
             var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
             _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo._internal.strconv.Strconv__ryuFtoaShortest._ryuFtoaShortest((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _flt);
+            stdgo._internal.strconv.Strconv__ryuFtoaShortest._ryuFtoaShortest((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt), _flt);
             _ok = true;
             {
                 final __value__ = _fmt;
@@ -81,11 +81,11 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
             var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24, ...[for (i in 0 ... 24) (0 : stdgo.GoUInt8)]);
             if (((_bitSize == (32 : stdgo.GoInt)) && (_digits <= (9 : stdgo.GoInt) : Bool) : Bool)) {
                 _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo._internal.strconv.Strconv__ryuFtoaFixed32._ryuFtoaFixed32((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), (_mant : stdgo.GoUInt32), (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
+                stdgo._internal.strconv.Strconv__ryuFtoaFixed32._ryuFtoaFixed32((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), (_mant : stdgo.GoUInt32), (_exp - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
                 _ok = true;
             } else if ((_digits <= (18 : stdgo.GoInt) : Bool)) {
                 _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo._internal.strconv.Strconv__ryuFtoaFixed64._ryuFtoaFixed64((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
+                stdgo._internal.strconv.Strconv__ryuFtoaFixed64._ryuFtoaFixed64((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
                 _ok = true;
             };
         };

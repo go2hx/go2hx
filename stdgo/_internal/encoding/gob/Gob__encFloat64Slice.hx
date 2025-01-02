@@ -9,9 +9,9 @@ function _encFloat64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_en
             return false;
         };
         for (__8 => _x in _slice) {
-            if (((_x != (0 : stdgo.GoFloat64)) || _state._sendZero : Bool)) {
+            if (((_x != (0 : stdgo.GoFloat64)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 var _bits = (stdgo._internal.encoding.gob.Gob__floatBits._floatBits(_x) : stdgo.GoUInt64);
-                _state._encodeUint(_bits);
+                @:check2r _state._encodeUint(_bits);
             };
         };
         return true;

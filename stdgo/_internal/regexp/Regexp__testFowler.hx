@@ -2,39 +2,39 @@ package stdgo._internal.regexp;
 function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:stdgo.GoString):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _f_5015089:stdgo.GoString = ("" : stdgo.GoString);
             var _err_5010820:stdgo.Error = (null : stdgo.Error);
-            var _have_5016840:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-            var _c_5016001:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-            var _match_5016651:Bool = false;
-            var _i_5016265 = @:invalid_type null;
-            var _keys_5015994 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-            var _b_5010730:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
-            var _err_5016354:stdgo.Error = (null : stdgo.Error);
-            var _syn_5016045:stdgo._internal.regexp.syntax.Syntax_Flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
-            var _pattern_5016022:stdgo.GoString = ("" : stdgo.GoString);
-            var _i_5016006 = @:invalid_type null;
-            var _c_5016260:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-            var _values_5016253 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-            var _field_5011373:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-            var _line_5010814:stdgo.GoString = ("" : stdgo.GoString);
-            var _pos_5015708:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-            var _text_5015620:stdgo.GoString = ("" : stdgo.GoString);
-            var _flag_5014357:stdgo.GoString = ("" : stdgo.GoString);
-            var readingBreak = false;
-            var _lineno_5010755:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _values_5015994 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-            var _ok_5015676:Bool = false;
-            var _ok_5014580:Bool = false;
-            var _f_5011421:stdgo.GoString = ("" : stdgo.GoString);
-            var _i_5011418:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _err_5010647:stdgo.Error = (null : stdgo.Error);
             var _lastRegexp_5010768:stdgo.GoString = ("" : stdgo.GoString);
-            var _f_5010644:stdgo.Ref<stdgo._internal.os.Os_File.File> = (null : stdgo.Ref<stdgo._internal.os.Os_File.File>);
-            var _re_5016350:stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>);
-            var _keys_5016253 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+            var _have_5016840:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
+            var _c_5016260:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _pattern_5016022:stdgo.GoString = ("" : stdgo.GoString);
+            var _field_5011373:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             var _shouldMatch_5015695:Bool = false;
+            var _ok_5014580:Bool = false;
+            var _keys_5016253 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+            var _c_5016001:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _keys_5015994 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+            var _f_5011421:stdgo.GoString = ("" : stdgo.GoString);
+            var _err_5010647:stdgo.Error = (null : stdgo.Error);
+            var _err_5016354:stdgo.Error = (null : stdgo.Error);
+            var _values_5015994 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+            var _pos_5015708:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
+            var _b_5010730:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+            var _f_5010644:stdgo.Ref<stdgo._internal.os.Os_File.File> = (null : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+            var _match_5016651:Bool = false;
+            var _ok_5015676:Bool = false;
+            var _text_5015620:stdgo.GoString = ("" : stdgo.GoString);
+            var _line_5010814:stdgo.GoString = ("" : stdgo.GoString);
+            var _i_5011418:stdgo.GoInt = (0 : stdgo.GoInt);
+            var readingBreak = false;
+            var _syn_5016045:stdgo._internal.regexp.syntax.Syntax_Flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
+            var _i_5016006 = @:invalid_type null;
+            var _flag_5014357:stdgo.GoString = ("" : stdgo.GoString);
             var _shouldCompile_5015680:Bool = false;
+            var _f_5015089:stdgo.GoString = ("" : stdgo.GoString);
+            var _values_5016253 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+            var _re_5016350:stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>);
+            var _i_5016265 = @:invalid_type null;
+            var _lineno_5010755:stdgo.GoInt = (0 : stdgo.GoInt);
             var _gotoNext = 0i32;
             var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
             while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -52,12 +52,12 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5010713i32;
                         };
                     } else if (__value__ == (5010683i32)) {
-                        _t.error(stdgo.Go.toInterface(_err_5010647));
+                        @:check2r _t.error(stdgo.Go.toInterface(_err_5010647));
                         return;
                         _gotoNext = 5010713i32;
                     } else if (__value__ == (5010713i32)) {
                         {
-                            final __f__ = _f_5010644.close;
+                            final __f__ = @:check2r _f_5010644.close;
                             __deferstack__.unshift(() -> __f__());
                         };
                         _b_5010730 = stdgo._internal.bufio.Bufio_newReader.newReader(stdgo.Go.asInterface(_f_5010644));
@@ -77,7 +77,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                     } else if (__value__ == (5010799i32)) {
                         _lineno_5010755++;
                         {
-                            var __tmp__ = _b_5010730.readString((10 : stdgo.GoUInt8));
+                            var __tmp__ = @:check2r _b_5010730.readString((10 : stdgo.GoUInt8));
                             _line_5010814 = __tmp__._0?.__copy__();
                             _err_5010820 = __tmp__._1;
                         };
@@ -87,13 +87,13 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5011280i32;
                         };
                     } else if (__value__ == (5010862i32)) {
-                        if (stdgo.Go.toInterface(_err_5010820) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                        if (stdgo.Go.toInterface(_err_5010820) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                             _gotoNext = 5010884i32;
                         } else {
                             _gotoNext = 5010939i32;
                         };
                     } else if (__value__ == (5010884i32)) {
-                        _t.errorf(("%s:%d: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_err_5010820));
+                        @:check2r _t.errorf(("%s:%d: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_err_5010820));
                         _gotoNext = 5010939i32;
                     } else if (__value__ == (5010939i32)) {
                         readingBreak = true;
@@ -108,7 +108,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5011345i32)) {
                         _line_5010814 = (_line_5010814.__slice__(0, ((_line_5010814.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                        _field_5011373 = stdgo._internal.regexp.Regexp__notab._notab.findAllString(_line_5010814?.__copy__(), (-1 : stdgo.GoInt));
+                        _field_5011373 = @:check2r stdgo._internal.regexp.Regexp__notab._notab.findAllString(_line_5010814?.__copy__(), (-1 : stdgo.GoInt));
                         if ((0i32 : stdgo.GoInt) < (_field_5011373.length)) {
                             _gotoNext = 5011579i32;
                         } else {
@@ -134,7 +134,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5011418i32;
                         };
                     } else if (__value__ == (5011500i32)) {
-                        _t.logf(("%s:%d: skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_line_5010814));
+                        @:check2r _t.logf(("%s:%d: skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_line_5010814));
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5011579i32)) {
                         {
@@ -197,10 +197,10 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             };
                         };
                     } else if (__value__ == (5014640i32)) {
-                        _t.logf(("skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_line_5010814));
+                        @:check2r _t.logf(("skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_line_5010814));
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5014699i32)) {
-                        _t.logf(("skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_line_5010814));
+                        @:check2r _t.logf(("skip: %s" : stdgo.GoString), stdgo.Go.toInterface(_line_5010814));
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5014902i32)) {
                         if (((_field_5011373.length) < (4 : stdgo.GoInt) : Bool)) {
@@ -209,7 +209,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5015053i32;
                         };
                     } else if (__value__ == (5014920i32)) {
-                        _t.errorf(("%s:%d: too few fields: %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_line_5010814));
+                        @:check2r _t.errorf(("%s:%d: too few fields: %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_line_5010814));
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5015053i32)) {
                         if (stdgo._internal.strings.Strings_contains.contains(_flag_5014357?.__copy__(), ("$" : stdgo.GoString))) {
@@ -232,7 +232,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             };
                         };
                     } else if (__value__ == (5015168i32)) {
-                        _t.errorf(("%s:%d: cannot unquote %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_f_5015089));
+                        @:check2r _t.errorf(("%s:%d: cannot unquote %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_f_5015089));
                         _gotoNext = 5015236i32;
                     } else if (__value__ == (5015236i32)) {
                         _f_5015089 = ((("\"" : stdgo.GoString) + _field_5011373[(2 : stdgo.GoInt)]?.__copy__() : stdgo.GoString) + ("\"" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
@@ -249,7 +249,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             };
                         };
                     } else if (__value__ == (5015314i32)) {
-                        _t.errorf(("%s:%d: cannot unquote %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_f_5015089));
+                        @:check2r _t.errorf(("%s:%d: cannot unquote %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_f_5015089));
                         _gotoNext = 5015503i32;
                     } else if (__value__ == (5015503i32)) {
                         if (_field_5011373[(1 : stdgo.GoInt)] == (("SAME" : stdgo.GoString))) {
@@ -276,7 +276,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5015908i32;
                         };
                     } else if (__value__ == (5015752i32)) {
-                        _t.errorf(("%s:%d: cannot parse result %#q" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_field_5011373[(3 : stdgo.GoInt)]));
+                        @:check2r _t.errorf(("%s:%d: cannot parse result %#q" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_field_5011373[(3 : stdgo.GoInt)]));
                         _gotoNext = 5010795i32;
                     } else if (__value__ == (5015908i32)) {
                         _gotoNext = 5015908i32;
@@ -377,7 +377,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5016508i32;
                         };
                     } else if (__value__ == (5016429i32)) {
-                        _t.errorf(("%s:%d: %#q did not compile" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022));
+                        @:check2r _t.errorf(("%s:%d: %#q did not compile" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022));
                         _gotoNext = 5016508i32;
                     } else if (__value__ == (5016508i32)) {
                         _i_5016006++;
@@ -389,29 +389,29 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5016651i32;
                         };
                     } else if (__value__ == (5016551i32)) {
-                        _t.errorf(("%s:%d: %#q should not compile" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022));
+                        @:check2r _t.errorf(("%s:%d: %#q should not compile" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022));
                         _i_5016006++;
                         _gotoNext = 5017274i32;
                     } else if (__value__ == (5016651i32)) {
-                        _match_5016651 = _re_5016350.matchString(_text_5015620?.__copy__());
+                        _match_5016651 = @:check2r _re_5016350.matchString(_text_5015620?.__copy__());
                         if (_match_5016651 != (_shouldMatch_5015695)) {
                             _gotoNext = 5016708i32;
                         } else {
                             _gotoNext = 5016840i32;
                         };
                     } else if (__value__ == (5016708i32)) {
-                        _t.errorf(("%s:%d: %#q.Match(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_match_5016651), stdgo.Go.toInterface(_shouldMatch_5015695));
+                        @:check2r _t.errorf(("%s:%d: %#q.Match(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_match_5016651), stdgo.Go.toInterface(_shouldMatch_5015695));
                         _i_5016006++;
                         _gotoNext = 5017274i32;
                     } else if (__value__ == (5016840i32)) {
-                        _have_5016840 = _re_5016350.findStringSubmatchIndex(_text_5015620?.__copy__());
+                        _have_5016840 = @:check2r _re_5016350.findStringSubmatchIndex(_text_5015620?.__copy__());
                         if ((((_have_5016840.length) > (0 : stdgo.GoInt) : Bool)) != (_match_5016651)) {
                             _gotoNext = 5016912i32;
                         } else {
                             _gotoNext = 5017080i32;
                         };
                     } else if (__value__ == (5016912i32)) {
-                        _t.errorf(("%s:%d: %#q.Match(%#q) = %v, but %#q.FindSubmatchIndex(%#q) = %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_match_5016651), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_have_5016840));
+                        @:check2r _t.errorf(("%s:%d: %#q.Match(%#q) = %v, but %#q.FindSubmatchIndex(%#q) = %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_match_5016651), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_have_5016840));
                         _i_5016006++;
                         _gotoNext = 5017274i32;
                     } else if (__value__ == (5017080i32)) {
@@ -430,7 +430,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                             _gotoNext = 5016006i32;
                         };
                     } else if (__value__ == (5017161i32)) {
-                        _t.errorf(("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_have_5016840), stdgo.Go.toInterface(_pos_5015708));
+                        @:check2r _t.errorf(("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno_5010755), stdgo.Go.toInterface(_pattern_5016022), stdgo.Go.toInterface(_text_5015620), stdgo.Go.toInterface(_have_5016840), stdgo.Go.toInterface(_pos_5015708));
                         _gotoNext = 5016006i32;
                     } else if (__value__ == (5017273i32)) {
                         _i_5016006 = 0i32;
@@ -448,6 +448,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -462,6 +463,7 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

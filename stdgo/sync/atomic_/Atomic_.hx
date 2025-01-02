@@ -174,6 +174,7 @@ package stdgo.sync.atomic_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef Bool_Pointer = stdgo._internal.sync.atomic_.Atomic__Bool_Pointer.Bool_Pointer;
 class Bool__static_extension {
     static public function compareAndSwap(_x:Bool_, _old:Bool, _new:Bool):Bool {
         return stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.compareAndSwap(_x, _old, _new);
@@ -188,6 +189,7 @@ class Bool__static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.load(_x);
     }
 }
+typedef Pointer_Pointer = stdgo._internal.sync.atomic_.Atomic__Pointer_Pointer.Pointer_Pointer;
 class Pointer__static_extension {
     static public function compareAndSwap<Dynamic>(_x:Pointer_<Dynamic>, _old:Dynamic, _new:Dynamic):Bool {
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.compareAndSwap(_x, _old, _new);
@@ -202,6 +204,7 @@ class Pointer__static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.load(_x);
     }
 }
+typedef Int32Pointer = stdgo._internal.sync.atomic_.Atomic__Int32Pointer.Int32Pointer;
 class Int32_static_extension {
     static public function add(_x:Int32, _delta:StdTypes.Int):StdTypes.Int {
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.add(_x, _delta);
@@ -219,6 +222,7 @@ class Int32_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.load(_x);
     }
 }
+typedef Int64_Pointer = stdgo._internal.sync.atomic_.Atomic__Int64_Pointer.Int64_Pointer;
 class Int64__static_extension {
     static public function add(_x:Int64_, _delta:haxe.Int64):haxe.Int64 {
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.add(_x, _delta);
@@ -236,6 +240,7 @@ class Int64__static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.load(_x);
     }
 }
+typedef Uint32Pointer = stdgo._internal.sync.atomic_.Atomic__Uint32Pointer.Uint32Pointer;
 class Uint32_static_extension {
     static public function add(_x:Uint32, _delta:std.UInt):std.UInt {
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.add(_x, _delta);
@@ -253,6 +258,7 @@ class Uint32_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.load(_x);
     }
 }
+typedef Uint64Pointer = stdgo._internal.sync.atomic_.Atomic__Uint64Pointer.Uint64Pointer;
 class Uint64_static_extension {
     static public function add(_x:Uint64, _delta:haxe.UInt64):haxe.UInt64 {
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.add(_x, _delta);
@@ -270,6 +276,7 @@ class Uint64_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.load(_x);
     }
 }
+typedef UintptrPointer = stdgo._internal.sync.atomic_.Atomic__UintptrPointer.UintptrPointer;
 class Uintptr_static_extension {
     static public function add(_x:Uintptr, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.add(_x, _delta);
@@ -287,6 +294,7 @@ class Uintptr_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.load(_x);
     }
 }
+typedef T_noCopyPointer = stdgo._internal.sync.atomic_.Atomic__T_noCopyPointer.T_noCopyPointer;
 class T_noCopy_static_extension {
     static public function unlock(_:T_noCopy):Void {
         stdgo._internal.sync.atomic_.Atomic__T_noCopy_static_extension.T_noCopy_static_extension.unlock(_);
@@ -295,6 +303,7 @@ class T_noCopy_static_extension {
         stdgo._internal.sync.atomic_.Atomic__T_noCopy_static_extension.T_noCopy_static_extension.lock(_);
     }
 }
+typedef ValuePointer = stdgo._internal.sync.atomic_.Atomic__ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function compareAndSwap(_v:Value, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
         return stdgo._internal.sync.atomic_.Atomic__Value_static_extension.Value_static_extension.compareAndSwap(_v, _old, _new);

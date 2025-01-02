@@ -8,11 +8,13 @@ typedef File = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function readdir(_count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _1 : stdgo.Error; };
     /**
         
         
         
     **/
+    @:interfacetypeffun
     public dynamic function stat():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
 };

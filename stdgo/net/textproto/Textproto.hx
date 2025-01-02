@@ -171,12 +171,14 @@ package stdgo.net.textproto;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.net.textproto.Textproto_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.net.textproto.Textproto_T__struct_0.T__struct_0;
 typedef MIMEHeader = stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader;
 typedef ProtocolError = stdgo._internal.net.textproto.Textproto_ProtocolError.ProtocolError;
+typedef PipelinePointer = stdgo._internal.net.textproto.Textproto_PipelinePointer.PipelinePointer;
 class Pipeline_static_extension {
     static public function endResponse(_p:Pipeline, _id:std.UInt):Void {
         stdgo._internal.net.textproto.Textproto_Pipeline_static_extension.Pipeline_static_extension.endResponse(_p, _id);
@@ -194,6 +196,7 @@ class Pipeline_static_extension {
         return stdgo._internal.net.textproto.Textproto_Pipeline_static_extension.Pipeline_static_extension.next(_p);
     }
 }
+typedef T_sequencerPointer = stdgo._internal.net.textproto.Textproto_T_sequencerPointer.T_sequencerPointer;
 class T_sequencer_static_extension {
     static public function end(_s:T_sequencer, _id:std.UInt):Void {
         stdgo._internal.net.textproto.Textproto_T_sequencer_static_extension.T_sequencer_static_extension.end(_s, _id);
@@ -202,6 +205,7 @@ class T_sequencer_static_extension {
         stdgo._internal.net.textproto.Textproto_T_sequencer_static_extension.T_sequencer_static_extension.start(_s, _id);
     }
 }
+typedef ReaderPointer = stdgo._internal.net.textproto.Textproto_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function _upcomingHeaderKeys(_r:Reader):StdTypes.Int {
         return stdgo._internal.net.textproto.Textproto_Reader_static_extension.Reader_static_extension._upcomingHeaderKeys(_r);
@@ -289,6 +293,7 @@ class Reader_static_extension {
         };
     }
 }
+typedef T_dotReaderPointer = stdgo._internal.net.textproto.Textproto_T_dotReaderPointer.T_dotReaderPointer;
 class T_dotReader_static_extension {
     static public function read(_d:T_dotReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -298,11 +303,13 @@ class T_dotReader_static_extension {
         };
     }
 }
+typedef ErrorPointer = stdgo._internal.net.textproto.Textproto_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function error(_e:Error):String {
         return stdgo._internal.net.textproto.Textproto_Error_static_extension.Error_static_extension.error(_e);
     }
 }
+typedef ConnPointer = stdgo._internal.net.textproto.Textproto_ConnPointer.ConnPointer;
 class Conn_static_extension {
     static public function cmd(_c:Conn, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<std.UInt, stdgo.Error> {
         return {
@@ -325,28 +332,28 @@ class Conn_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function _readContinuedLineSlice(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _validateFirstLine:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _validateFirstLine = _validateFirstLine;
+    public static function _readContinuedLineSlice(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _0 = _0;
         return {
-            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension._readContinuedLineSlice(__self__, _validateFirstLine);
+            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension._readContinuedLineSlice(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function _readCodeLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _expectCode:StdTypes.Int):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
+    public static function _readCodeLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:StdTypes.Int):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension._readCodeLine(__self__, _expectCode);
+            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension._readCodeLine(__self__, _0);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
-    public static function startResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _id:std.UInt) {
-        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.startResponse(__self__, _id);
+    public static function startResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:std.UInt):Void {
+        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.startResponse(__self__, _0);
     }
-    public static function startRequest(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _id:std.UInt) {
-        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.startRequest(__self__, _id);
+    public static function startRequest(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:std.UInt):Void {
+        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.startRequest(__self__, _0);
     }
-    public static function readResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _expectCode:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    public static function readResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.readResponse(__self__, _expectCode);
+            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.readResponse(__self__, _0);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -392,23 +399,23 @@ class Conn_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readCodeLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _expectCode:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    public static function readCodeLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.readCodeLine(__self__, _expectCode);
+            final obj = stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.readCodeLine(__self__, _0);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function printfLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
-        return stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.printfLine(__self__, _format, ...[for (i in _a) i]);
+    public static function printfLine(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
+        return stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.printfLine(__self__, _0, ...[for (i in _1) i]);
     }
     public static function next(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn):std.UInt {
         return stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.next(__self__);
     }
-    public static function endResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _id:std.UInt) {
-        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.endResponse(__self__, _id);
+    public static function endResponse(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:std.UInt):Void {
+        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.endResponse(__self__, _0);
     }
-    public static function endRequest(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _id:std.UInt) {
-        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.endRequest(__self__, _id);
+    public static function endRequest(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn, _0:std.UInt):Void {
+        stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.endRequest(__self__, _0);
     }
     public static function dotWriter(__self__:stdgo._internal.net.textproto.Textproto_Conn.Conn):stdgo._internal.io.Io_WriteCloser.WriteCloser {
         return stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.dotWriter(__self__);
@@ -417,6 +424,7 @@ class Conn_static_extension {
         return stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension.dotReader(__self__);
     }
 }
+typedef WriterPointer = stdgo._internal.net.textproto.Textproto_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function _closeDot(_w:Writer):Void {
         stdgo._internal.net.textproto.Textproto_Writer_static_extension.Writer_static_extension._closeDot(_w);
@@ -428,6 +436,7 @@ class Writer_static_extension {
         return stdgo._internal.net.textproto.Textproto_Writer_static_extension.Writer_static_extension.printfLine(_w, _format, ...[for (i in _args) i]);
     }
 }
+typedef T_dotWriterPointer = stdgo._internal.net.textproto.Textproto_T_dotWriterPointer.T_dotWriterPointer;
 class T_dotWriter_static_extension {
     static public function close(_d:T_dotWriter):stdgo.Error {
         return stdgo._internal.net.textproto.Textproto_T_dotWriter_static_extension.T_dotWriter_static_extension.close(_d);
@@ -440,6 +449,7 @@ class T_dotWriter_static_extension {
         };
     }
 }
+typedef MIMEHeaderPointer = stdgo._internal.net.textproto.Textproto_MIMEHeaderPointer.MIMEHeaderPointer;
 class MIMEHeader_static_extension {
     static public function del(_h:MIMEHeader, _key:String):Void {
         stdgo._internal.net.textproto.Textproto_MIMEHeader_static_extension.MIMEHeader_static_extension.del(_h, _key);
@@ -457,6 +467,7 @@ class MIMEHeader_static_extension {
         stdgo._internal.net.textproto.Textproto_MIMEHeader_static_extension.MIMEHeader_static_extension.add(_h, _key, _value);
     }
 }
+typedef ProtocolErrorPointer = stdgo._internal.net.textproto.Textproto_ProtocolErrorPointer.ProtocolErrorPointer;
 class ProtocolError_static_extension {
     static public function error(_p:ProtocolError):String {
         return stdgo._internal.net.textproto.Textproto_ProtocolError_static_extension.ProtocolError_static_extension.error(_p);

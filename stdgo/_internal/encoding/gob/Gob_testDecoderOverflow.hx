@@ -26,8 +26,8 @@ function testDecoderOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
 (32 : stdgo.GoUInt8),
 (32 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>))));
         var _r:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _err = (_dec.decode(_r) : stdgo.Error);
+        var _err = (@:check2r _dec.decode(_r) : stdgo.Error);
         if (_err == null) {
-            _t.fatalf(("expected an error" : stdgo.GoString));
+            @:check2r _t.fatalf(("expected an error" : stdgo.GoString));
         };
     }

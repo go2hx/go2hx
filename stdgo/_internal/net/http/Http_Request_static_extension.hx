@@ -1,83 +1,91 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.Request_asInterface) class Request_static_extension {
     @:keep
+    @:tdfield
     static public function _requiresHTTP1( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return (stdgo._internal.net.http.Http__hasToken._hasToken(_r.header.get(("Connection" : stdgo.GoString))?.__copy__(), ("upgrade" : stdgo.GoString)) && stdgo._internal.net.http.internal.ascii.Ascii_equalFold.equalFold(_r.header.get(("Upgrade" : stdgo.GoString))?.__copy__(), ("websocket" : stdgo.GoString)) : Bool);
+        return (stdgo._internal.net.http.Http__hasToken._hasToken((@:checkr _r ?? throw "null pointer dereference").header.get(("Connection" : stdgo.GoString))?.__copy__(), ("upgrade" : stdgo.GoString)) && stdgo._internal.net.http.internal.ascii.Ascii_equalFold.equalFold((@:checkr _r ?? throw "null pointer dereference").header.get(("Upgrade" : stdgo.GoString))?.__copy__(), ("websocket" : stdgo.GoString)) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _outgoingLength( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.GoInt64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (((_r.body == null) || (stdgo.Go.toInterface(_r.body) == stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool)) {
+        if ((((@:checkr _r ?? throw "null pointer dereference").body == null) || (stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").body) == stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool)) {
             return (0i64 : stdgo.GoInt64);
         };
-        if (_r.contentLength != ((0i64 : stdgo.GoInt64))) {
-            return _r.contentLength;
+        if ((@:checkr _r ?? throw "null pointer dereference").contentLength != ((0i64 : stdgo.GoInt64))) {
+            return (@:checkr _r ?? throw "null pointer dereference").contentLength;
         };
         return (-1i64 : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function _isReplayable( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (((_r.body == null || stdgo.Go.toInterface(_r.body) == (stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool) || (_r.getBody != null) : Bool)) {
+        if ((((@:checkr _r ?? throw "null pointer dereference").body == null || stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").body) == (stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody))) : Bool) || ((@:checkr _r ?? throw "null pointer dereference").getBody != null) : Bool)) {
             {
-                final __value__ = stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault(_r.method?.__copy__(), ("GET" : stdgo.GoString));
+                final __value__ = stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault((@:checkr _r ?? throw "null pointer dereference").method?.__copy__(), ("GET" : stdgo.GoString));
                 if (__value__ == (("GET" : stdgo.GoString)) || __value__ == (("HEAD" : stdgo.GoString)) || __value__ == (("OPTIONS" : stdgo.GoString)) || __value__ == (("TRACE" : stdgo.GoString))) {
                     return true;
                 };
             };
-            if ((_r.header._has(("Idempotency-Key" : stdgo.GoString)) || _r.header._has(("X-Idempotency-Key" : stdgo.GoString)) : Bool)) {
+            if (((@:checkr _r ?? throw "null pointer dereference").header._has(("Idempotency-Key" : stdgo.GoString)) || (@:checkr _r ?? throw "null pointer dereference").header._has(("X-Idempotency-Key" : stdgo.GoString)) : Bool)) {
                 return true;
             };
         };
         return false;
     }
     @:keep
+    @:tdfield
     static public function _closeBody( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.body == null) {
+        if ((@:checkr _r ?? throw "null pointer dereference").body == null) {
             return (null : stdgo.Error);
         };
-        return _r.body.close();
+        return (@:checkr _r ?? throw "null pointer dereference").body.close();
     }
     @:keep
+    @:tdfield
     static public function _wantsClose( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.close) {
+        if ((@:checkr _r ?? throw "null pointer dereference").close) {
             return true;
         };
-        return stdgo._internal.net.http.Http__hasToken._hasToken(_r.header._get(("Connection" : stdgo.GoString))?.__copy__(), ("close" : stdgo.GoString));
+        return stdgo._internal.net.http.Http__hasToken._hasToken((@:checkr _r ?? throw "null pointer dereference").header._get(("Connection" : stdgo.GoString))?.__copy__(), ("close" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _wantsHttp10KeepAlive( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (((_r.protoMajor != (1 : stdgo.GoInt)) || (_r.protoMinor != (0 : stdgo.GoInt)) : Bool)) {
+        if ((((@:checkr _r ?? throw "null pointer dereference").protoMajor != (1 : stdgo.GoInt)) || ((@:checkr _r ?? throw "null pointer dereference").protoMinor != (0 : stdgo.GoInt)) : Bool)) {
             return false;
         };
-        return stdgo._internal.net.http.Http__hasToken._hasToken(_r.header._get(("Connection" : stdgo.GoString))?.__copy__(), ("keep-alive" : stdgo.GoString));
+        return stdgo._internal.net.http.Http__hasToken._hasToken((@:checkr _r ?? throw "null pointer dereference").header._get(("Connection" : stdgo.GoString))?.__copy__(), ("keep-alive" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function _expectsContinue( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return stdgo._internal.net.http.Http__hasToken._hasToken(_r.header._get(("Expect" : stdgo.GoString))?.__copy__(), ("100-continue" : stdgo.GoString));
+        return stdgo._internal.net.http.Http__hasToken._hasToken((@:checkr _r ?? throw "null pointer dereference").header._get(("Expect" : stdgo.GoString))?.__copy__(), ("100-continue" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function formFile( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _key:stdgo.GoString):{ var _0 : stdgo._internal.mime.multipart.Multipart_File.File; var _1 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
+        if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
             return { _0 : (null : stdgo._internal.mime.multipart.Multipart_File.File), _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("http: multipart handled by MultipartReader" : stdgo.GoString)) };
         };
-        if ((_r.multipartForm == null || (_r.multipartForm : Dynamic).__nil__)) {
-            var _err = (_r.parseMultipartForm((33554432i64 : stdgo.GoInt64)) : stdgo.Error);
+        if (((@:checkr _r ?? throw "null pointer dereference").multipartForm == null || ((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__)) {
+            var _err = (@:check2r _r.parseMultipartForm((33554432i64 : stdgo.GoInt64)) : stdgo.Error);
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.mime.multipart.Multipart_File.File), _1 : null, _2 : _err };
             };
         };
-        if (((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__)) && (_r.multipartForm.file != null) : Bool)) {
+        if ((((@:checkr _r ?? throw "null pointer dereference").multipartForm != null && (((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__)) && ((@:checkr (@:checkr _r ?? throw "null pointer dereference").multipartForm ?? throw "null pointer dereference").file != null) : Bool)) {
             {
-                var _fhs = (_r.multipartForm.file[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>));
+                var _fhs = ((@:checkr (@:checkr _r ?? throw "null pointer dereference").multipartForm ?? throw "null pointer dereference").file[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>));
                 if (((_fhs.length) > (0 : stdgo.GoInt) : Bool)) {
-                    var __tmp__ = _fhs[(0 : stdgo.GoInt)].open(), _f:stdgo._internal.mime.multipart.Multipart_File.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r _fhs[(0 : stdgo.GoInt)].open(), _f:stdgo._internal.mime.multipart.Multipart_File.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     return { _0 : _f, _1 : _fhs[(0 : stdgo.GoInt)], _2 : _err };
                 };
             };
@@ -85,13 +93,14 @@ package stdgo._internal.net.http;
         return { _0 : (null : stdgo._internal.mime.multipart.Multipart_File.File), _1 : null, _2 : stdgo._internal.net.http.Http_errMissingFile.errMissingFile };
     }
     @:keep
+    @:tdfield
     static public function postFormValue( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _key:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.postForm == null) {
-            _r.parseMultipartForm((33554432i64 : stdgo.GoInt64));
+        if ((@:checkr _r ?? throw "null pointer dereference").postForm == null) {
+            @:check2r _r.parseMultipartForm((33554432i64 : stdgo.GoInt64));
         };
         {
-            var _vs = (_r.postForm[_key] ?? (null : stdgo.Slice<stdgo.GoString>));
+            var _vs = ((@:checkr _r ?? throw "null pointer dereference").postForm[_key] ?? (null : stdgo.Slice<stdgo.GoString>));
             if (((_vs.length) > (0 : stdgo.GoInt) : Bool)) {
                 return _vs[(0 : stdgo.GoInt)]?.__copy__();
             };
@@ -99,13 +108,14 @@ package stdgo._internal.net.http;
         return stdgo.Go.str()?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function formValue( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _key:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.form == null) {
-            _r.parseMultipartForm((33554432i64 : stdgo.GoInt64));
+        if ((@:checkr _r ?? throw "null pointer dereference").form == null) {
+            @:check2r _r.parseMultipartForm((33554432i64 : stdgo.GoInt64));
         };
         {
-            var _vs = (_r.form[_key] ?? (null : stdgo.Slice<stdgo.GoString>));
+            var _vs = ((@:checkr _r ?? throw "null pointer dereference").form[_key] ?? (null : stdgo.Slice<stdgo.GoString>));
             if (((_vs.length) > (0 : stdgo.GoInt) : Bool)) {
                 return _vs[(0 : stdgo.GoInt)]?.__copy__();
             };
@@ -113,55 +123,57 @@ package stdgo._internal.net.http;
         return stdgo.Go.str()?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function parseMultipartForm( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _maxMemory:stdgo.GoInt64):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
+        if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
             return stdgo._internal.errors.Errors_new_.new_(("http: multipart handled by MultipartReader" : stdgo.GoString));
         };
         var _parseFormErr:stdgo.Error = (null : stdgo.Error);
-        if (_r.form == null) {
-            _parseFormErr = _r.parseForm();
+        if ((@:checkr _r ?? throw "null pointer dereference").form == null) {
+            _parseFormErr = @:check2r _r.parseForm();
         };
-        if ((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__))) {
+        if (((@:checkr _r ?? throw "null pointer dereference").multipartForm != null && (((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__))) {
             return (null : stdgo.Error);
         };
-        var __tmp__ = _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
-        var __tmp__ = _mr.readForm(_maxMemory), _f:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _mr.readForm(_maxMemory), _f:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
-        if (_r.postForm == null) {
-            _r.postForm = (({
+        if ((@:checkr _r ?? throw "null pointer dereference").postForm == null) {
+            (@:checkr _r ?? throw "null pointer dereference").postForm = (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
                 x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
                 {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.url.Url_Values.Values);
         };
-        for (_k => _v in _f.value) {
-            _r.form[_k] = ((_r.form[_k] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(...(_v : Array<stdgo.GoString>)));
-            _r.postForm[_k] = ((_r.postForm[_k] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(...(_v : Array<stdgo.GoString>)));
+        for (_k => _v in (@:checkr _f ?? throw "null pointer dereference").value) {
+            (@:checkr _r ?? throw "null pointer dereference").form[_k] = (((@:checkr _r ?? throw "null pointer dereference").form[_k] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(...(_v : Array<stdgo.GoString>)));
+            (@:checkr _r ?? throw "null pointer dereference").postForm[_k] = (((@:checkr _r ?? throw "null pointer dereference").postForm[_k] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(...(_v : Array<stdgo.GoString>)));
         };
-        _r.multipartForm = _f;
+        (@:checkr _r ?? throw "null pointer dereference").multipartForm = _f;
         return _parseFormErr;
     }
     @:keep
+    @:tdfield
     static public function parseForm( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         var _err:stdgo.Error = (null : stdgo.Error);
-        if (_r.postForm == null) {
-            if (((_r.method == (("POST" : stdgo.GoString)) || _r.method == (("PUT" : stdgo.GoString)) : Bool) || (_r.method == ("PATCH" : stdgo.GoString)) : Bool)) {
+        if ((@:checkr _r ?? throw "null pointer dereference").postForm == null) {
+            if ((((@:checkr _r ?? throw "null pointer dereference").method == (("POST" : stdgo.GoString)) || (@:checkr _r ?? throw "null pointer dereference").method == (("PUT" : stdgo.GoString)) : Bool) || ((@:checkr _r ?? throw "null pointer dereference").method == ("PATCH" : stdgo.GoString)) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__parsePostForm._parsePostForm(_r);
-                    _r.postForm = __tmp__._0;
+                    (@:checkr _r ?? throw "null pointer dereference").postForm = __tmp__._0;
                     _err = __tmp__._1;
                 };
             };
-            if (_r.postForm == null) {
-                _r.postForm = (({
+            if ((@:checkr _r ?? throw "null pointer dereference").postForm == null) {
+                (@:checkr _r ?? throw "null pointer dereference").postForm = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
                     x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
                     {};
@@ -169,21 +181,21 @@ package stdgo._internal.net.http;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.url.Url_Values.Values);
             };
         };
-        if (_r.form == null) {
-            if (((_r.postForm.length) > (0 : stdgo.GoInt) : Bool)) {
-                _r.form = (({
+        if ((@:checkr _r ?? throw "null pointer dereference").form == null) {
+            if ((((@:checkr _r ?? throw "null pointer dereference").postForm.length) > (0 : stdgo.GoInt) : Bool)) {
+                (@:checkr _r ?? throw "null pointer dereference").form = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
                     x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
                     {};
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.url.Url_Values.Values);
-                stdgo._internal.net.http.Http__copyValues._copyValues(_r.form, _r.postForm);
+                stdgo._internal.net.http.Http__copyValues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, (@:checkr _r ?? throw "null pointer dereference").postForm);
             };
             var _newValues:stdgo._internal.net.url.Url_Values.Values = (null : stdgo._internal.net.url.Url_Values.Values);
-            if ((_r.url != null && ((_r.url : Dynamic).__nil__ == null || !(_r.url : Dynamic).__nil__))) {
+            if (((@:checkr _r ?? throw "null pointer dereference").uRL != null && (((@:checkr _r ?? throw "null pointer dereference").uRL : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").uRL : Dynamic).__nil__))) {
                 var _e:stdgo.Error = (null : stdgo.Error);
                 {
-                    var __tmp__ = stdgo._internal.net.url.Url_parseQuery.parseQuery(_r.url.rawQuery?.__copy__());
+                    var __tmp__ = stdgo._internal.net.url.Url_parseQuery.parseQuery((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__());
                     _newValues = __tmp__._0;
                     _e = __tmp__._1;
                 };
@@ -199,24 +211,26 @@ package stdgo._internal.net.http;
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.url.Url_Values.Values);
             };
-            if (_r.form == null) {
-                _r.form = _newValues;
+            if ((@:checkr _r ?? throw "null pointer dereference").form == null) {
+                (@:checkr _r ?? throw "null pointer dereference").form = _newValues;
             } else {
-                stdgo._internal.net.http.Http__copyValues._copyValues(_r.form, _newValues);
+                stdgo._internal.net.http.Http__copyValues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, _newValues);
             };
         };
         return _err;
     }
     @:keep
+    @:tdfield
     static public function setBasicAuth( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _username:stdgo.GoString, _password:stdgo.GoString):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        _r.header.set(("Authorization" : stdgo.GoString), (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());
+        (@:checkr _r ?? throw "null pointer dereference").header.set(("Authorization" : stdgo.GoString), (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());
     }
     @:keep
+    @:tdfield
     static public function basicAuth( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         var _username = ("" : stdgo.GoString), _password = ("" : stdgo.GoString), _ok = false;
-        var _auth = (_r.header.get(("Authorization" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _auth = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Authorization" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_auth == (stdgo.Go.str())) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
@@ -235,17 +249,18 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _write( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _w:stdgo._internal.io.Io_Writer.Writer, _usingProxy:Bool, _extraHeaders:stdgo._internal.net.http.Http_Header.Header, _waitForContinue:() -> Bool):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_r.context());
-            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
+            var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(@:check2r _r.context());
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wroteRequest != null) : Bool)) {
                 {
                     __deferstack__.unshift(() -> ({
                         var a = function():Void {
-                            _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
+                            (@:checkr _trace ?? throw "null pointer dereference").wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
                         };
                         a();
                     }));
@@ -259,7 +274,7 @@ package stdgo._internal.net.http;
                             return;
                         };
                         {
-                            var _closeErr = (_r._closeBody() : stdgo.Error);
+                            var _closeErr = (@:check2r _r._closeBody() : stdgo.Error);
                             if (((_closeErr != null) && (_err == null) : Bool)) {
                                 _err = _closeErr;
                             };
@@ -268,18 +283,19 @@ package stdgo._internal.net.http;
                     a();
                 }));
             };
-            var _host = (_r.host?.__copy__() : stdgo.GoString);
+            var _host = ((@:checkr _r ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString);
             if (_host == (stdgo.Go.str())) {
-                if ((_r.url == null || (_r.url : Dynamic).__nil__)) {
+                if (((@:checkr _r ?? throw "null pointer dereference").uRL == null || ((@:checkr _r ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) {
                     {
                         final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__errMissingHost._errMissingHost;
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
                     };
                 };
-                _host = _r.url.host?.__copy__();
+                _host = (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").host?.__copy__();
             };
             {
                 var __tmp__ = _internal.golang_dot_org.x.net.http.httpguts.Httpguts_punycodeHostPort.punycodeHostPort(_host?.__copy__());
@@ -289,6 +305,7 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -301,6 +318,7 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("http: invalid Host header" : stdgo.GoString));
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -308,19 +326,20 @@ package stdgo._internal.net.http;
                 };
             };
             _host = stdgo._internal.net.http.Http__removeZone._removeZone(_host?.__copy__())?.__copy__();
-            var _ruri = (_r.url.requestURI()?.__copy__() : stdgo.GoString);
-            if (((_usingProxy && _r.url.scheme != (stdgo.Go.str()) : Bool) && (_r.url.opaque == stdgo.Go.str()) : Bool)) {
-                _ruri = (((_r.url.scheme + ("://" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _host?.__copy__() : stdgo.GoString) + _ruri?.__copy__() : stdgo.GoString)?.__copy__();
-            } else if (((_r.method == ("CONNECT" : stdgo.GoString)) && (_r.url.path == stdgo.Go.str()) : Bool)) {
+            var _ruri = (@:check2r (@:checkr _r ?? throw "null pointer dereference").uRL.requestURI()?.__copy__() : stdgo.GoString);
+            if (((_usingProxy && (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme != (stdgo.Go.str()) : Bool) && ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").opaque == stdgo.Go.str()) : Bool)) {
+                _ruri = ((((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").scheme + ("://" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _host?.__copy__() : stdgo.GoString) + _ruri?.__copy__() : stdgo.GoString)?.__copy__();
+            } else if ((((@:checkr _r ?? throw "null pointer dereference").method == ("CONNECT" : stdgo.GoString)) && ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path == stdgo.Go.str()) : Bool)) {
                 _ruri = _host?.__copy__();
-                if (_r.url.opaque != (stdgo.Go.str())) {
-                    _ruri = _r.url.opaque?.__copy__();
+                if ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").opaque != (stdgo.Go.str())) {
+                    _ruri = (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").opaque?.__copy__();
                 };
             };
             if (stdgo._internal.net.http.Http__stringContainsCTLByte._stringContainsCTLByte(_ruri?.__copy__())) {
                 {
                     final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("net/http: can\'t write control character in Request.URL" : stdgo.GoString));
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -332,19 +351,20 @@ package stdgo._internal.net.http;
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.io.Io_ByteWriter.ByteWriter)) : stdgo._internal.io.Io_ByteWriter.ByteWriter), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo._internal.io.Io_ByteWriter.ByteWriter), _1 : false };
-                }, __33772 = __tmp__._0, _ok = __tmp__._1;
+                }, __33777 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _bw = stdgo._internal.bufio.Bufio_newWriter.newWriter(_w);
                     _w = stdgo.Go.asInterface(_bw);
                 };
             };
             {
-                var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("%s %s HTTP/1.1\r\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault(_r.method?.__copy__(), ("GET" : stdgo.GoString))), stdgo.Go.toInterface(_ruri));
+                var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("%s %s HTTP/1.1\r\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault((@:checkr _r ?? throw "null pointer dereference").method?.__copy__(), ("GET" : stdgo.GoString))), stdgo.Go.toInterface(_ruri));
                 _err = __tmp__._1;
             };
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -357,17 +377,18 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
-                _trace.wroteHeaderField(("Host" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_host?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wroteHeaderField != null) : Bool)) {
+                (@:checkr _trace ?? throw "null pointer dereference").wroteHeaderField(("Host" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_host?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
             };
             var _userAgent = ("Go-http-client/1.1" : stdgo.GoString);
-            if (_r.header._has(("User-Agent" : stdgo.GoString))) {
-                _userAgent = _r.header.get(("User-Agent" : stdgo.GoString))?.__copy__();
+            if ((@:checkr _r ?? throw "null pointer dereference").header._has(("User-Agent" : stdgo.GoString))) {
+                _userAgent = (@:checkr _r ?? throw "null pointer dereference").header.get(("User-Agent" : stdgo.GoString))?.__copy__();
             };
             if (_userAgent != (stdgo.Go.str())) {
                 {
@@ -377,37 +398,41 @@ package stdgo._internal.net.http;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
                     };
                 };
-                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
-                    _trace.wroteHeaderField(("User-Agent" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_userAgent?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wroteHeaderField != null) : Bool)) {
+                    (@:checkr _trace ?? throw "null pointer dereference").wroteHeaderField(("User-Agent" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_userAgent?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
                 };
             };
             var __tmp__ = stdgo._internal.net.http.Http__newTransferWriter._newTransferWriter(stdgo.Go.toInterface(stdgo.Go.asInterface(_r))), _tw:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            _err = _tw._writeHeader(_w, _trace);
+            _err = @:check2r _tw._writeHeader(_w, _trace);
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            _err = _r.header._writeSubset(_w, stdgo._internal.net.http.Http__reqWriteExcludeHeader._reqWriteExcludeHeader, _trace);
+            _err = (@:checkr _r ?? throw "null pointer dereference").header._writeSubset(_w, stdgo._internal.net.http.Http__reqWriteExcludeHeader._reqWriteExcludeHeader, _trace);
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -418,6 +443,7 @@ package stdgo._internal.net.http;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
@@ -431,13 +457,14 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaders != null) : Bool)) {
-                _trace.wroteHeaders();
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wroteHeaders != null) : Bool)) {
+                (@:checkr _trace ?? throw "null pointer dereference").wroteHeaders();
             };
             if (_waitForContinue != null) {
                 {
@@ -447,10 +474,11 @@ package stdgo._internal.net.http;
                         { _0 : (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _1 : false };
                     }, _bw = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
-                        _err = _bw.flush();
+                        _err = @:check2r _bw.flush();
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return _err;
@@ -458,15 +486,16 @@ package stdgo._internal.net.http;
                         };
                     };
                 };
-                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wait100Continue != null) : Bool)) {
-                    _trace.wait100Continue();
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wait100Continue != null) : Bool)) {
+                    (@:checkr _trace ?? throw "null pointer dereference").wait100Continue();
                 };
                 if (!_waitForContinue()) {
                     _closed = true;
-                    _r._closeBody();
+                    @:check2r _r._closeBody();
                     {
                         final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -479,12 +508,13 @@ package stdgo._internal.net.http;
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _1 : false };
                 }, _bw = __tmp__._0, _ok = __tmp__._1;
-                if ((_ok && _tw.flushHeaders : Bool)) {
+                if ((_ok && (@:checkr _tw ?? throw "null pointer dereference").flushHeaders : Bool)) {
                     {
-                        var _err = (_bw.flush() : stdgo.Error);
+                        var _err = (@:check2r _bw.flush() : stdgo.Error);
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return _err;
@@ -494,13 +524,14 @@ package stdgo._internal.net.http;
                 };
             };
             _closed = true;
-            _err = _tw._writeBody(_w);
+            _err = @:check2r _tw._writeBody(_w);
             if (_err != null) {
-                if (stdgo.Go.toInterface(_tw._bodyReadError) == (stdgo.Go.toInterface(_err))) {
+                if (stdgo.Go.toInterface((@:checkr _tw ?? throw "null pointer dereference")._bodyReadError) == (stdgo.Go.toInterface(_err))) {
                     _err = stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_requestBodyReadError.T_requestBodyReadError(_err) : stdgo._internal.net.http.Http_T_requestBodyReadError.T_requestBodyReadError));
                 };
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
@@ -508,8 +539,9 @@ package stdgo._internal.net.http;
             };
             if ((_bw != null && ((_bw : Dynamic).__nil__ == null || !(_bw : Dynamic).__nil__))) {
                 {
-                    final __ret__:stdgo.Error = _err = _bw.flush();
+                    final __ret__:stdgo.Error = _err = @:check2r _bw.flush();
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -518,12 +550,14 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -538,6 +572,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -545,28 +580,32 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function writeProxy( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return _r._write(_w, true, null, null);
+        return @:check2r _r._write(_w, true, null, null);
     }
     @:keep
+    @:tdfield
     static public function write( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return _r._write(_w, false, null, null);
+        return @:check2r _r._write(_w, false, null, null);
     }
     @:keep
+    @:tdfield
     static public function _isH2Upgrade( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return (((_r.method == (("PRI" : stdgo.GoString)) && (_r.header.length) == ((0 : stdgo.GoInt)) : Bool) && _r.url.path == (("*" : stdgo.GoString)) : Bool) && (_r.proto == ("HTTP/2.0" : stdgo.GoString)) : Bool);
+        return ((((@:checkr _r ?? throw "null pointer dereference").method == (("PRI" : stdgo.GoString)) && ((@:checkr _r ?? throw "null pointer dereference").header.length) == ((0 : stdgo.GoInt)) : Bool) && (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path == (("*" : stdgo.GoString)) : Bool) && ((@:checkr _r ?? throw "null pointer dereference").proto == ("HTTP/2.0" : stdgo.GoString)) : Bool);
     }
     @:keep
+    @:tdfield
     static public function _multipartReader( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _allowMixed:Bool):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        var _v = (_r.header.get(("Content-Type" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _v = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Content-Type" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_v == (stdgo.Go.str())) {
             return { _0 : null, _1 : stdgo.Go.asInterface(stdgo._internal.net.http.Http_errNotMultipart.errNotMultipart) };
         };
-        if (_r.body == null) {
+        if ((@:checkr _r ?? throw "null pointer dereference").body == null) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("missing form body" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v?.__copy__()), _d:stdgo.GoString = __tmp__._0, _params:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -577,65 +616,73 @@ package stdgo._internal.net.http;
         if (!_ok) {
             return { _0 : null, _1 : stdgo.Go.asInterface(stdgo._internal.net.http.Http_errMissingBoundary.errMissingBoundary) };
         };
-        return { _0 : stdgo._internal.mime.multipart.Multipart_newReader.newReader(_r.body, _boundary?.__copy__()), _1 : (null : stdgo.Error) };
+        return { _0 : stdgo._internal.mime.multipart.Multipart_newReader.newReader((@:checkr _r ?? throw "null pointer dereference").body, _boundary?.__copy__()), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function multipartReader( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r.multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
+        if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("http: MultipartReader called twice" : stdgo.GoString)) };
         };
-        if ((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__))) {
+        if (((@:checkr _r ?? throw "null pointer dereference").multipartForm != null && (((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__))) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("http: multipart handled by ParseMultipartForm" : stdgo.GoString)) };
         };
-        _r.multipartForm = stdgo._internal.net.http.Http__multipartByReader._multipartByReader;
-        return _r._multipartReader(true);
+        (@:checkr _r ?? throw "null pointer dereference").multipartForm = stdgo._internal.net.http.Http__multipartByReader._multipartByReader;
+        return @:check2r _r._multipartReader(true);
     }
     @:keep
+    @:tdfield
     static public function referer( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return _r.header.get(("Referer" : stdgo.GoString))?.__copy__();
+        return (@:checkr _r ?? throw "null pointer dereference").header.get(("Referer" : stdgo.GoString))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function addCookie( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s=%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieName._sanitizeCookieName(_c.name?.__copy__())), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieValue._sanitizeCookieValue(_c.value?.__copy__())))?.__copy__() : stdgo.GoString);
+        var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s=%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieName._sanitizeCookieName((@:checkr _c ?? throw "null pointer dereference").name?.__copy__())), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieValue._sanitizeCookieValue((@:checkr _c ?? throw "null pointer dereference").value?.__copy__())))?.__copy__() : stdgo.GoString);
         {
-            var _c = (_r.header.get(("Cookie" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+            var _c = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Cookie" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_c != (stdgo.Go.str())) {
-                _r.header.set(("Cookie" : stdgo.GoString), ((_c + ("; " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__());
+                (@:checkr _r ?? throw "null pointer dereference").header.set(("Cookie" : stdgo.GoString), ((_c + ("; " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__());
             } else {
-                _r.header.set(("Cookie" : stdgo.GoString), _s?.__copy__());
+                (@:checkr _r ?? throw "null pointer dereference").header.set(("Cookie" : stdgo.GoString), _s?.__copy__());
             };
         };
     }
     @:keep
+    @:tdfield
     static public function cookie( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         if (_name == (stdgo.Go.str())) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoCookie.errNoCookie };
         };
-        for (__33772 => _c in stdgo._internal.net.http.Http__readCookies._readCookies(_r.header, _name?.__copy__())) {
+        for (__33777 => _c in stdgo._internal.net.http.Http__readCookies._readCookies((@:checkr _r ?? throw "null pointer dereference").header, _name?.__copy__())) {
             return { _0 : _c, _1 : (null : stdgo.Error) };
         };
         return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoCookie.errNoCookie };
     }
     @:keep
+    @:tdfield
     static public function cookies( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return stdgo._internal.net.http.Http__readCookies._readCookies(_r.header, stdgo.Go.str()?.__copy__());
+        return stdgo._internal.net.http.Http__readCookies._readCookies((@:checkr _r ?? throw "null pointer dereference").header, stdgo.Go.str()?.__copy__());
     }
     @:keep
+    @:tdfield
     static public function userAgent( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return _r.header.get(("User-Agent" : stdgo.GoString))?.__copy__();
+        return (@:checkr _r ?? throw "null pointer dereference").header.get(("User-Agent" : stdgo.GoString))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function protoAtLeast( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _major:stdgo.GoInt, _minor:stdgo.GoInt):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return ((_r.protoMajor > _major : Bool) || (_r.protoMajor == (_major) && (_r.protoMinor >= _minor : Bool) : Bool) : Bool);
+        return (((@:checkr _r ?? throw "null pointer dereference").protoMajor > _major : Bool) || ((@:checkr _r ?? throw "null pointer dereference").protoMajor == (_major) && ((@:checkr _r ?? throw "null pointer dereference").protoMinor >= _minor : Bool) : Bool) : Bool);
     }
     @:keep
+    @:tdfield
     static public function clone( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         if (_ctx == null) {
@@ -646,7 +693,7 @@ package stdgo._internal.net.http;
             var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_Request.Request);
             x.method = __tmp__.method;
-            x.url = __tmp__.url;
+            x.uRL = __tmp__.uRL;
             x.proto = __tmp__.proto;
             x.protoMajor = __tmp__.protoMajor;
             x.protoMinor = __tmp__.protoMinor;
@@ -663,33 +710,34 @@ package stdgo._internal.net.http;
             x.trailer = __tmp__.trailer;
             x.remoteAddr = __tmp__.remoteAddr;
             x.requestURI = __tmp__.requestURI;
-            x.tls = __tmp__.tls;
+            x.tLS = __tmp__.tLS;
             x.cancel = __tmp__.cancel;
             x.response = __tmp__.response;
             x._ctx = __tmp__._ctx;
         };
-        _r2._ctx = _ctx;
-        _r2.url = stdgo._internal.net.http.Http__cloneURL._cloneURL(_r.url);
-        if (_r.header != null) {
-            _r2.header = _r.header.clone();
+        (@:checkr _r2 ?? throw "null pointer dereference")._ctx = _ctx;
+        (@:checkr _r2 ?? throw "null pointer dereference").uRL = stdgo._internal.net.http.Http__cloneURL._cloneURL((@:checkr _r ?? throw "null pointer dereference").uRL);
+        if ((@:checkr _r ?? throw "null pointer dereference").header != null) {
+            (@:checkr _r2 ?? throw "null pointer dereference").header = (@:checkr _r ?? throw "null pointer dereference").header.clone();
         };
-        if (_r.trailer != null) {
-            _r2.trailer = _r.trailer.clone();
+        if ((@:checkr _r ?? throw "null pointer dereference").trailer != null) {
+            (@:checkr _r2 ?? throw "null pointer dereference").trailer = (@:checkr _r ?? throw "null pointer dereference").trailer.clone();
         };
         {
-            var _s = _r.transferEncoding;
+            var _s = (@:checkr _r ?? throw "null pointer dereference").transferEncoding;
             if (_s != null) {
                 var _s2 = (new stdgo.Slice<stdgo.GoString>((_s.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
                 _s2.__copyTo__(_s);
-                _r2.transferEncoding = _s2;
+                (@:checkr _r2 ?? throw "null pointer dereference").transferEncoding = _s2;
             };
         };
-        _r2.form = stdgo._internal.net.http.Http__cloneURLValues._cloneURLValues(_r.form);
-        _r2.postForm = stdgo._internal.net.http.Http__cloneURLValues._cloneURLValues(_r.postForm);
-        _r2.multipartForm = stdgo._internal.net.http.Http__cloneMultipartForm._cloneMultipartForm(_r.multipartForm);
+        (@:checkr _r2 ?? throw "null pointer dereference").form = stdgo._internal.net.http.Http__cloneURLValues._cloneURLValues((@:checkr _r ?? throw "null pointer dereference").form);
+        (@:checkr _r2 ?? throw "null pointer dereference").postForm = stdgo._internal.net.http.Http__cloneURLValues._cloneURLValues((@:checkr _r ?? throw "null pointer dereference").postForm);
+        (@:checkr _r2 ?? throw "null pointer dereference").multipartForm = stdgo._internal.net.http.Http__cloneMultipartForm._cloneMultipartForm((@:checkr _r ?? throw "null pointer dereference").multipartForm);
         return _r2;
     }
     @:keep
+    @:tdfield
     static public function withContext( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         if (_ctx == null) {
@@ -700,7 +748,7 @@ package stdgo._internal.net.http;
             var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_Request.Request);
             x.method = __tmp__.method;
-            x.url = __tmp__.url;
+            x.uRL = __tmp__.uRL;
             x.proto = __tmp__.proto;
             x.protoMajor = __tmp__.protoMajor;
             x.protoMinor = __tmp__.protoMinor;
@@ -717,19 +765,20 @@ package stdgo._internal.net.http;
             x.trailer = __tmp__.trailer;
             x.remoteAddr = __tmp__.remoteAddr;
             x.requestURI = __tmp__.requestURI;
-            x.tls = __tmp__.tls;
+            x.tLS = __tmp__.tLS;
             x.cancel = __tmp__.cancel;
             x.response = __tmp__.response;
             x._ctx = __tmp__._ctx;
         };
-        _r2._ctx = _ctx;
+        (@:checkr _r2 ?? throw "null pointer dereference")._ctx = _ctx;
         return _r2;
     }
     @:keep
+    @:tdfield
     static public function context( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo._internal.context.Context_Context.Context {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_r._ctx != null) {
-            return _r._ctx;
+        if ((@:checkr _r ?? throw "null pointer dereference")._ctx != null) {
+            return (@:checkr _r ?? throw "null pointer dereference")._ctx;
         };
         return stdgo._internal.context.Context_background.background();
     }

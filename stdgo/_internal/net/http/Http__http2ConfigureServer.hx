@@ -6,7 +6,7 @@ function _http2ConfigureServer(_s:stdgo.Ref<stdgo._internal.net.http.Http_Server
         if ((_conf == null || (_conf : Dynamic).__nil__)) {
             _conf = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_T_http2Server.T_http2Server)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>);
         };
-        _conf._state = (stdgo.Go.setRef(({ _activeConns : ({
+        (@:checkr _conf ?? throw "null pointer dereference")._state = (stdgo.Go.setRef(({ _activeConns : ({
             final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>, stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>();
             {};
             cast x;
@@ -14,20 +14,20 @@ function _http2ConfigureServer(_s:stdgo.Ref<stdgo._internal.net.http.Http_Server
         {
             var __0 = _s, __1 = _conf;
 var _h2 = __1, _h1 = __0;
-            if (_h2.idleTimeout == ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
-                if (_h1.idleTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
-                    _h2.idleTimeout = _h1.idleTimeout;
+            if ((@:checkr _h2 ?? throw "null pointer dereference").idleTimeout == ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
+                if ((@:checkr _h1 ?? throw "null pointer dereference").idleTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
+                    (@:checkr _h2 ?? throw "null pointer dereference").idleTimeout = (@:checkr _h1 ?? throw "null pointer dereference").idleTimeout;
                 } else {
-                    _h2.idleTimeout = _h1.readTimeout;
+                    (@:checkr _h2 ?? throw "null pointer dereference").idleTimeout = (@:checkr _h1 ?? throw "null pointer dereference").readTimeout;
                 };
             };
         };
-        _s.registerOnShutdown(_conf._state._startGracefulShutdown);
-        if ((_s.tlsconfig == null || (_s.tlsconfig : Dynamic).__nil__)) {
-            _s.tlsconfig = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
-        } else if (((_s.tlsconfig.cipherSuites != null) && (_s.tlsconfig.minVersion < (772 : stdgo.GoUInt16) : Bool) : Bool)) {
+        @:check2r _s.registerOnShutdown(@:check2r (@:checkr _conf ?? throw "null pointer dereference")._state._startGracefulShutdown);
+        if (((@:checkr _s ?? throw "null pointer dereference").tLSConfig == null || ((@:checkr _s ?? throw "null pointer dereference").tLSConfig : Dynamic).__nil__)) {
+            (@:checkr _s ?? throw "null pointer dereference").tLSConfig = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
+        } else if ((((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").cipherSuites != null) && ((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").minVersion < (772 : stdgo.GoUInt16) : Bool) : Bool)) {
             var _haveRequired = (false : Bool);
-            for (__264 => _cs in _s.tlsconfig.cipherSuites) {
+            for (__269 => _cs in (@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").cipherSuites) {
                 {
                     final __value__ = _cs;
                     if (__value__ == ((49199 : stdgo.GoUInt16)) || __value__ == ((49195 : stdgo.GoUInt16))) {
@@ -39,15 +39,15 @@ var _h2 = __1, _h1 = __0;
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("http2: TLSConfig.CipherSuites is missing an HTTP/2-required AES_128_GCM_SHA256 cipher (need at least one of TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 or TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256)" : stdgo.GoString));
             };
         };
-        _s.tlsconfig.preferServerCipherSuites = true;
-        if (!stdgo._internal.net.http.Http__http2strSliceContains._http2strSliceContains(_s.tlsconfig.nextProtos, ("h2" : stdgo.GoString))) {
-            _s.tlsconfig.nextProtos = (_s.tlsconfig.nextProtos.__append__(("h2" : stdgo.GoString)));
+        (@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").preferServerCipherSuites = true;
+        if (!stdgo._internal.net.http.Http__http2strSliceContains._http2strSliceContains((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos, ("h2" : stdgo.GoString))) {
+            (@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos = ((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos.__append__(("h2" : stdgo.GoString)));
         };
-        if (!stdgo._internal.net.http.Http__http2strSliceContains._http2strSliceContains(_s.tlsconfig.nextProtos, ("http/1.1" : stdgo.GoString))) {
-            _s.tlsconfig.nextProtos = (_s.tlsconfig.nextProtos.__append__(("http/1.1" : stdgo.GoString)));
+        if (!stdgo._internal.net.http.Http__http2strSliceContains._http2strSliceContains((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos, ("http/1.1" : stdgo.GoString))) {
+            (@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos = ((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLSConfig ?? throw "null pointer dereference").nextProtos.__append__(("http/1.1" : stdgo.GoString)));
         };
-        if (_s.tlsnextProto == null) {
-            _s.tlsnextProto = ({
+        if ((@:checkr _s ?? throw "null pointer dereference").tLSNextProto == null) {
+            (@:checkr _s ?? throw "null pointer dereference").tLSNextProto = ({
                 final x = new stdgo.GoMap.GoStringMap<(stdgo.Ref<stdgo._internal.net.http.Http_Server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, stdgo._internal.net.http.Http_Handler.Handler) -> Void>();
                 x.__defaultValue__ = () -> null;
                 {};
@@ -70,8 +70,8 @@ var _h2 = __1, _h1 = __0;
                     _ctx = _bc.baseContext();
                 };
             };
-            _conf.serveConn(stdgo.Go.asInterface(_c), (stdgo.Go.setRef(({ context : _ctx, handler : _h, baseConfig : _hs } : stdgo._internal.net.http.Http_T_http2ServeConnOpts.T_http2ServeConnOpts)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ServeConnOpts.T_http2ServeConnOpts>));
+            @:check2r _conf.serveConn(stdgo.Go.asInterface(_c), (stdgo.Go.setRef(({ context : _ctx, handler : _h, baseConfig : _hs } : stdgo._internal.net.http.Http_T_http2ServeConnOpts.T_http2ServeConnOpts)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ServeConnOpts.T_http2ServeConnOpts>));
         };
-        _s.tlsnextProto[("h2" : stdgo.GoString)] = _protoHandler;
+        (@:checkr _s ?? throw "null pointer dereference").tLSNextProto[("h2" : stdgo.GoString)] = _protoHandler;
         return (null : stdgo.Error);
     }

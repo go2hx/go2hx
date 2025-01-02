@@ -6,10 +6,14 @@ package stdgo._internal.sort;
         if (interface_ != null) this.interface_ = interface_;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var len(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function len():stdgo.GoInt return this.interface_.len();
+    @:embeddededffieldsffun
+    public function get_len():() -> stdgo.GoInt return @:check3 (this.interface_ ?? throw "null pointer derefrence").len;
+    public var swap(get, never) : (stdgo.GoInt, stdgo.GoInt) -> Void;
     @:embedded
-    public function swap(_i:stdgo.GoInt, _j:stdgo.GoInt) this.interface_.swap(_i, _j);
+    @:embeddededffieldsffun
+    public function get_swap():(stdgo.GoInt, stdgo.GoInt) -> Void return @:check3 (this.interface_ ?? throw "null pointer derefrence").swap;
     public function __copy__() {
         return new T_reverse(interface_);
     }

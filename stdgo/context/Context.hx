@@ -300,12 +300,14 @@ typedef T_testingT = stdgo._internal.context.Context_T_testingT.T_testingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.context.Context_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.context.Context_T__struct_0.T__struct_0;
 typedef CancelFunc = stdgo._internal.context.Context_CancelFunc.CancelFunc;
 typedef CancelCauseFunc = stdgo._internal.context.Context_CancelCauseFunc.CancelCauseFunc;
+typedef T_deadlineExceededErrorPointer = stdgo._internal.context.Context_T_deadlineExceededErrorPointer.T_deadlineExceededErrorPointer;
 class T_deadlineExceededError_static_extension {
     static public function temporary(_:T_deadlineExceededError):Bool {
         return stdgo._internal.context.Context_T_deadlineExceededError_static_extension.T_deadlineExceededError_static_extension.temporary(_);
@@ -317,6 +319,7 @@ class T_deadlineExceededError_static_extension {
         return stdgo._internal.context.Context_T_deadlineExceededError_static_extension.T_deadlineExceededError_static_extension.error(_);
     }
 }
+typedef T_emptyCtxPointer = stdgo._internal.context.Context_T_emptyCtxPointer.T_emptyCtxPointer;
 class T_emptyCtx_static_extension {
     static public function value(_:T_emptyCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
         return stdgo._internal.context.Context_T_emptyCtx_static_extension.T_emptyCtx_static_extension.value(_, _key);
@@ -334,12 +337,13 @@ class T_emptyCtx_static_extension {
         };
     }
 }
+typedef T_backgroundCtxPointer = stdgo._internal.context.Context_T_backgroundCtxPointer.T_backgroundCtxPointer;
 class T_backgroundCtx_static_extension {
     static public function string(_:T_backgroundCtx):String {
         return stdgo._internal.context.Context_T_backgroundCtx_static_extension.T_backgroundCtx_static_extension.string(_);
     }
-    public static function value(__self__:stdgo._internal.context.Context_T_backgroundCtx.T_backgroundCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_backgroundCtx_static_extension.T_backgroundCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_backgroundCtx.T_backgroundCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_backgroundCtx_static_extension.T_backgroundCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_backgroundCtx.T_backgroundCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_backgroundCtx_static_extension.T_backgroundCtx_static_extension.err(__self__);
@@ -354,12 +358,13 @@ class T_backgroundCtx_static_extension {
         };
     }
 }
+typedef T_todoCtxPointer = stdgo._internal.context.Context_T_todoCtxPointer.T_todoCtxPointer;
 class T_todoCtx_static_extension {
     static public function string(_:T_todoCtx):String {
         return stdgo._internal.context.Context_T_todoCtx_static_extension.T_todoCtx_static_extension.string(_);
     }
-    public static function value(__self__:stdgo._internal.context.Context_T_todoCtx.T_todoCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_todoCtx_static_extension.T_todoCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_todoCtx.T_todoCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_todoCtx_static_extension.T_todoCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_todoCtx.T_todoCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_todoCtx_static_extension.T_todoCtx_static_extension.err(__self__);
@@ -374,15 +379,16 @@ class T_todoCtx_static_extension {
         };
     }
 }
+typedef T_afterFuncCtxPointer = stdgo._internal.context.Context_T_afterFuncCtxPointer.T_afterFuncCtxPointer;
 class T_afterFuncCtx_static_extension {
     static public function _cancel(_a:T_afterFuncCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
         stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension._cancel(_a, _removeFromParent, _err, _cause);
     }
-    public static function _propagateCancel(__self__:stdgo._internal.context.Context_T_afterFuncCtx.T_afterFuncCtx, _parent:Context_, _child:T_canceler) {
-        stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension._propagateCancel(__self__, _parent, _child);
+    public static function _propagateCancel(__self__:stdgo._internal.context.Context_T_afterFuncCtx.T_afterFuncCtx, _0:Context_, _1:T_canceler):Void {
+        stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension._propagateCancel(__self__, _0, _1);
     }
-    public static function value(__self__:stdgo._internal.context.Context_T_afterFuncCtx.T_afterFuncCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_afterFuncCtx.T_afterFuncCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension.value(__self__, _0);
     }
     public static function string(__self__:stdgo._internal.context.Context_T_afterFuncCtx.T_afterFuncCtx):String {
         return stdgo._internal.context.Context_T_afterFuncCtx_static_extension.T_afterFuncCtx_static_extension.string(__self__);
@@ -400,9 +406,10 @@ class T_afterFuncCtx_static_extension {
         };
     }
 }
+typedef T_stopCtxPointer = stdgo._internal.context.Context_T_stopCtxPointer.T_stopCtxPointer;
 class T_stopCtx_static_extension {
-    public static function value(__self__:stdgo._internal.context.Context_T_stopCtx.T_stopCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_stopCtx_static_extension.T_stopCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_stopCtx.T_stopCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_stopCtx_static_extension.T_stopCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_stopCtx.T_stopCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_stopCtx_static_extension.T_stopCtx_static_extension.err(__self__);
@@ -417,6 +424,7 @@ class T_stopCtx_static_extension {
         };
     }
 }
+typedef T_cancelCtxPointer = stdgo._internal.context.Context_T_cancelCtxPointer.T_cancelCtxPointer;
 class T_cancelCtx_static_extension {
     static public function _cancel(_c:T_cancelCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
         stdgo._internal.context.Context_T_cancelCtx_static_extension.T_cancelCtx_static_extension._cancel(_c, _removeFromParent, _err, _cause);
@@ -443,6 +451,7 @@ class T_cancelCtx_static_extension {
         };
     }
 }
+typedef T_withoutCancelCtxPointer = stdgo._internal.context.Context_T_withoutCancelCtxPointer.T_withoutCancelCtxPointer;
 class T_withoutCancelCtx_static_extension {
     static public function string(_c:T_withoutCancelCtx):String {
         return stdgo._internal.context.Context_T_withoutCancelCtx_static_extension.T_withoutCancelCtx_static_extension.string(_c);
@@ -463,6 +472,7 @@ class T_withoutCancelCtx_static_extension {
         };
     }
 }
+typedef T_timerCtxPointer = stdgo._internal.context.Context_T_timerCtxPointer.T_timerCtxPointer;
 class T_timerCtx_static_extension {
     static public function _cancel(_c:T_timerCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
         stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension._cancel(_c, _removeFromParent, _err, _cause);
@@ -476,11 +486,11 @@ class T_timerCtx_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _propagateCancel(__self__:stdgo._internal.context.Context_T_timerCtx.T_timerCtx, _parent:Context_, _child:T_canceler) {
-        stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension._propagateCancel(__self__, _parent, _child);
+    public static function _propagateCancel(__self__:stdgo._internal.context.Context_T_timerCtx.T_timerCtx, _0:Context_, _1:T_canceler):Void {
+        stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension._propagateCancel(__self__, _0, _1);
     }
-    public static function value(__self__:stdgo._internal.context.Context_T_timerCtx.T_timerCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_timerCtx.T_timerCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_timerCtx.T_timerCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension.err(__self__);
@@ -489,6 +499,7 @@ class T_timerCtx_static_extension {
         return stdgo._internal.context.Context_T_timerCtx_static_extension.T_timerCtx_static_extension.done(__self__);
     }
 }
+typedef T_valueCtxPointer = stdgo._internal.context.Context_T_valueCtxPointer.T_valueCtxPointer;
 class T_valueCtx_static_extension {
     static public function value(_c:T_valueCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
         return stdgo._internal.context.Context_T_valueCtx_static_extension.T_valueCtx_static_extension.value(_c, _key);
@@ -509,9 +520,10 @@ class T_valueCtx_static_extension {
         };
     }
 }
+typedef T_myCtxPointer = stdgo._internal.context.Context_T_myCtxPointer.T_myCtxPointer;
 class T_myCtx_static_extension {
-    public static function value(__self__:stdgo._internal.context.Context_T_myCtx.T_myCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_myCtx_static_extension.T_myCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_myCtx.T_myCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_myCtx_static_extension.T_myCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_myCtx.T_myCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_myCtx_static_extension.T_myCtx_static_extension.err(__self__);
@@ -526,12 +538,13 @@ class T_myCtx_static_extension {
         };
     }
 }
+typedef T_myDoneCtxPointer = stdgo._internal.context.Context_T_myDoneCtxPointer.T_myDoneCtxPointer;
 class T_myDoneCtx_static_extension {
     static public function done(_d:T_myDoneCtx):stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> {
         return stdgo._internal.context.Context_T_myDoneCtx_static_extension.T_myDoneCtx_static_extension.done(_d);
     }
-    public static function value(__self__:stdgo._internal.context.Context_T_myDoneCtx.T_myDoneCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context_T_myDoneCtx_static_extension.T_myDoneCtx_static_extension.value(__self__, _key);
+    public static function value(__self__:stdgo._internal.context.Context_T_myDoneCtx.T_myDoneCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context_T_myDoneCtx_static_extension.T_myDoneCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.context.Context_T_myDoneCtx.T_myDoneCtx):stdgo.Error {
         return stdgo._internal.context.Context_T_myDoneCtx_static_extension.T_myDoneCtx_static_extension.err(__self__);
@@ -610,8 +623,8 @@ class Context {
         surrounding function has not yet been extended to accept a Context
         parameter).
     **/
-    static public function todo():Context_ {
-        return stdgo._internal.context.Context_todo.todo();
+    static public function tODO():Context_ {
+        return stdgo._internal.context.Context_tODO.tODO();
     }
     /**
         WithCancel returns a copy of parent with a new Done channel. The returned
@@ -764,16 +777,16 @@ class Context {
     static public function withValue(_parent:Context_, _key:stdgo.AnyInterface, _val:stdgo.AnyInterface):Context_ {
         return stdgo._internal.context.Context_withValue.withValue(_parent, _key, _val);
     }
-    static public function xtestParentFinishesChild(_t:T_testingT):Void {
-        stdgo._internal.context.Context_xtestParentFinishesChild.xtestParentFinishesChild(_t);
+    static public function xTestParentFinishesChild(_t:T_testingT):Void {
+        stdgo._internal.context.Context_xTestParentFinishesChild.xTestParentFinishesChild(_t);
     }
-    static public function xtestChildFinishesFirst(_t:T_testingT):Void {
-        stdgo._internal.context.Context_xtestChildFinishesFirst.xtestChildFinishesFirst(_t);
+    static public function xTestChildFinishesFirst(_t:T_testingT):Void {
+        stdgo._internal.context.Context_xTestChildFinishesFirst.xTestChildFinishesFirst(_t);
     }
-    static public function xtestCancelRemoves(_t:T_testingT):Void {
-        stdgo._internal.context.Context_xtestCancelRemoves.xtestCancelRemoves(_t);
+    static public function xTestCancelRemoves(_t:T_testingT):Void {
+        stdgo._internal.context.Context_xTestCancelRemoves.xTestCancelRemoves(_t);
     }
-    static public function xtestCustomContextGoroutines(_t:T_testingT):Void {
-        stdgo._internal.context.Context_xtestCustomContextGoroutines.xtestCustomContextGoroutines(_t);
+    static public function xTestCustomContextGoroutines(_t:T_testingT):Void {
+        stdgo._internal.context.Context_xTestCustomContextGoroutines.xTestCustomContextGoroutines(_t);
     }
 }

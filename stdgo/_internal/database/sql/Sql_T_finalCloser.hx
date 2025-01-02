@@ -6,5 +6,6 @@ typedef T_finalCloser = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function _finalClose():stdgo.Error;
 };

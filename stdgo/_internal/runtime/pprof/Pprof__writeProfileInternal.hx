@@ -30,17 +30,17 @@ function _writeProfileInternal(_w:stdgo._internal.io.Io_Writer.Writer, _debug:st
         };
         for (_i => _ in _p) {
             var _r = (stdgo.Go.setRef(_p[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.runtime.Runtime_BlockProfileRecord.BlockProfileRecord>);
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("%v %v @" : stdgo.GoString), stdgo.Go.toInterface(_r.cycles), stdgo.Go.toInterface(_r.count));
-            for (__0 => _pc in _r.stack()) {
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("%v %v @" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").cycles), stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").count));
+            for (__0 => _pc in @:check2r _r.stack()) {
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, (" %#x" : stdgo.GoString), stdgo.Go.toInterface(_pc));
             };
             stdgo._internal.fmt.Fmt_fprint.fprint(_w, stdgo.Go.toInterface(("\n" : stdgo.GoString)));
             if ((_debug > (0 : stdgo.GoInt) : Bool)) {
-                stdgo._internal.runtime.pprof.Pprof__printStackRecord._printStackRecord(_w, _r.stack(), true);
+                stdgo._internal.runtime.pprof.Pprof__printStackRecord._printStackRecord(_w, @:check2r _r.stack(), true);
             };
         };
         if ((_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__))) {
-            _tw.flush();
+            @:check2r _tw.flush();
         };
-        return _b.flush();
+        return @:check2r _b.flush();
     }

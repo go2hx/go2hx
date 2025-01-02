@@ -1,6 +1,7 @@
 package stdgo._internal.strings;
 @:keep @:allow(stdgo._internal.strings.Strings.T_byteReplacer_asInterface) class T_byteReplacer_static_extension {
     @:keep
+    @:tdfield
     static public function writeString( _r:stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>, _w:stdgo._internal.io.Io_Writer.Writer, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
@@ -62,6 +63,7 @@ if (_err != null) {
         };
     }
     @:keep
+    @:tdfield
     static public function replace( _r:stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>, _s:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer> = _r;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

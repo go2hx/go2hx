@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.RawMessage_asInterface) class RawMessage_static_extension {
     @:keep
+    @:tdfield
     static public function unmarshalJSON( _m:stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _m:stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage> = _m;
         if ((_m == null || (_m : Dynamic).__nil__)) {
@@ -10,6 +11,7 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalJSON( _m:stdgo._internal.encoding.json.Json_RawMessage.RawMessage):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo._internal.encoding.json.Json_RawMessage.RawMessage = _m;
         if (_m == null) {

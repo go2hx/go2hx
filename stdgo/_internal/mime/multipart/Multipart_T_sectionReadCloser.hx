@@ -9,14 +9,22 @@ package stdgo._internal.mime.multipart;
         if (closer != null) this.closer = closer;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(_d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.sectionReader.read(_d);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.sectionReader ?? throw "null pointer derefrence").read;
+    public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.sectionReader.readAt(_p, _off);
+    @:embeddededffieldsffun
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.sectionReader ?? throw "null pointer derefrence").readAt;
+    public var seek(get, never) : (stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
-    public function seek(_offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return this.sectionReader.seek(_offset, _whence);
+    @:embeddededffieldsffun
+    public function get_seek():(stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 (this.sectionReader ?? throw "null pointer derefrence").seek;
+    public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
-    public function size():stdgo.GoInt64 return this.sectionReader.size();
+    @:embeddededffieldsffun
+    public function get_size():() -> stdgo.GoInt64 return @:check3 (this.sectionReader ?? throw "null pointer derefrence").size;
     public function __copy__() {
         return new T_sectionReadCloser(sectionReader, closer);
     }

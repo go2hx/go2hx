@@ -15,7 +15,7 @@ var _vv = __1, _ss = __0;
             var _want = stdgo._internal.slices.Slices__naiveReplace._naiveReplace(_ss, _test._i, _test._j, ...(_vv : Array<stdgo.GoInt>));
             var _got = stdgo._internal.slices.Slices_replace.replace(_test._s, _test._i, _test._j, ...(_test._v : Array<stdgo.GoInt>));
             if (!stdgo._internal.slices.Slices_equal.equal(_got, _want)) {
-                _t.errorf(("Replace(%v, %v, %v, %v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._j), stdgo.Go.toInterface(_test._v), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("Replace(%v, %v, %v, %v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._j), stdgo.Go.toInterface(_test._v), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

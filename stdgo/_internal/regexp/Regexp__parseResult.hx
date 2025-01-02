@@ -29,7 +29,7 @@ function _parseResult(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file
                         var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_loStr.__copy__()), _lo:stdgo.GoInt = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
                         var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_hiStr.__copy__()), _hi:stdgo.GoInt = __tmp__._0, _err2:stdgo.Error = __tmp__._1;
                         if (((_err1 != null || _err2 != null : Bool) || (_lo > _hi : Bool) : Bool)) {
-                            _t.fatalf(("%s:%d: invalid pair %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_pair));
+                            @:check2r _t.fatalf(("%s:%d: invalid pair %s" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_pair));
                         };
                         _out[(_n : stdgo.GoInt)] = _lo;
                         _out[(_n + (1 : stdgo.GoInt) : stdgo.GoInt)] = _hi;

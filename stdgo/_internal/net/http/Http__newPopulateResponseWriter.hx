@@ -7,5 +7,5 @@ function _newPopulateResponseWriter():{ var _0 : stdgo.Ref<stdgo._internal.net.h
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header), close : true, body : stdgo.Go.asInterface(_pr) } : stdgo._internal.net.http.Http_Response.Response)) : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) } : stdgo._internal.net.http.Http_T_populateResponse.T_populateResponse)) : stdgo.Ref<stdgo._internal.net.http.Http_T_populateResponse.T_populateResponse>);
-        return { _0 : _rw, _1 : _rw._ch };
+        return { _0 : _rw, _1 : (@:checkr _rw ?? throw "null pointer dereference")._ch };
     }

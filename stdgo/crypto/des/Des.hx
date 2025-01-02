@@ -35,6 +35,7 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.des.Des_blockSize.blockSi
     public function __copy__() return this.__copy__();
 }
 typedef KeySizeError = stdgo._internal.crypto.des.Des_KeySizeError.KeySizeError;
+typedef T_desCipherPointer = stdgo._internal.crypto.des.Des_T_desCipherPointer.T_desCipherPointer;
 class T_desCipher_static_extension {
     static public function decrypt(_c:T_desCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -54,6 +55,7 @@ class T_desCipher_static_extension {
         stdgo._internal.crypto.des.Des_T_desCipher_static_extension.T_desCipher_static_extension._generateSubkeys(_c, _keyBytes);
     }
 }
+typedef T_tripleDESCipherPointer = stdgo._internal.crypto.des.Des_T_tripleDESCipherPointer.T_tripleDESCipherPointer;
 class T_tripleDESCipher_static_extension {
     static public function decrypt(_c:T_tripleDESCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -69,6 +71,7 @@ class T_tripleDESCipher_static_extension {
         return stdgo._internal.crypto.des.Des_T_tripleDESCipher_static_extension.T_tripleDESCipher_static_extension.blockSize(_c);
     }
 }
+typedef KeySizeErrorPointer = stdgo._internal.crypto.des.Des_KeySizeErrorPointer.KeySizeErrorPointer;
 class KeySizeError_static_extension {
     static public function error(_k:KeySizeError):String {
         return stdgo._internal.crypto.des.Des_KeySizeError_static_extension.KeySizeError_static_extension.error(_k);

@@ -17,16 +17,16 @@ if (((_r : stdgo.GoInt) < (_replacementTable.length) : Bool)) {
                         var _repl = (_replacementTable[(_r : stdgo.GoInt)].__copy__() : stdgo.GoString);
                         if ((_repl.length) != ((0 : stdgo.GoInt))) {
                             if (_written == ((0 : stdgo.GoInt))) {
-                                _b.grow((_s.length));
+                                @:check2r _b.grow((_s.length));
                             };
-                            _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
-                            _b.writeString(_repl.__copy__());
+                            @:check2r _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
+                            @:check2r _b.writeString(_repl.__copy__());
                             _written = (_i + _w : stdgo.GoInt);
                         };
                     };
                 } else if (_badRunes) {} else if (((((64976 : stdgo.GoInt32) <= _r : Bool) && (_r <= (65007 : stdgo.GoInt32) : Bool) : Bool) || (((65520 : stdgo.GoInt32) <= _r : Bool) && (_r <= (65535 : stdgo.GoInt32) : Bool) : Bool) : Bool)) {
                     if (_written == ((0 : stdgo.GoInt))) {
-                        _b.grow((_s.length));
+                        @:check2r _b.grow((_s.length));
                     };
                     stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%s&#x%x;" : stdgo.GoString), stdgo.Go.toInterface((_s.__slice__(_written, _i) : stdgo.GoString)), stdgo.Go.toInterface(_r));
                     _written = (_i + _w : stdgo.GoInt);
@@ -37,6 +37,6 @@ if (((_r : stdgo.GoInt) < (_replacementTable.length) : Bool)) {
         if (_written == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();
         };
-        _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        @:check2r _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
+        return (@:check2r _b.string() : stdgo.GoString)?.__copy__();
     }

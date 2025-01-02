@@ -103,22 +103,22 @@ function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                 final __type__ = _test._value;
                 if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat32))) {
                     var _v:stdgo.GoFloat32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
-                    _value.setPrec((24u32 : stdgo.GoUInt)).setFloat64((_v : stdgo.GoFloat64));
+                    @:check2r @:check2r _value.setPrec((24u32 : stdgo.GoUInt)).setFloat64((_v : stdgo.GoFloat64));
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoFloat64))) {
                     var _v:stdgo.GoFloat64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
-                    _value.setPrec((53u32 : stdgo.GoUInt)).setFloat64(_v);
+                    @:check2r @:check2r _value.setPrec((53u32 : stdgo.GoUInt)).setFloat64(_v);
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
                     var _v:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
-                    _value.setPrec((512u32 : stdgo.GoUInt)).parse(_v?.__copy__(), (0 : stdgo.GoInt));
+                    @:check2r @:check2r _value.setPrec((512u32 : stdgo.GoUInt)).parse(_v?.__copy__(), (0 : stdgo.GoInt));
                 } else {
                     var _v:stdgo.AnyInterface = __type__?.__underlying__();
-                    _t.fatalf(("unsupported test value: %v (%T)" : stdgo.GoString), _v, _v);
+                    @:check2r _t.fatalf(("unsupported test value: %v (%T)" : stdgo.GoString), _v, _v);
                 };
             };
             {
                 var _got = (stdgo._internal.fmt.Fmt_sprintf.sprintf(_test._format?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_value)))?.__copy__() : stdgo.GoString);
                 if (_got != (_test._want)) {
-                    _t.errorf(("%v: got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("%v: got %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
         };

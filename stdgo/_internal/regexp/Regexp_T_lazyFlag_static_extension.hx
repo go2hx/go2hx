@@ -1,6 +1,7 @@
 package stdgo._internal.regexp;
 @:keep @:allow(stdgo._internal.regexp.Regexp.T_lazyFlag_asInterface) class T_lazyFlag_static_extension {
     @:keep
+    @:tdfield
     static public function _match( _f:stdgo._internal.regexp.Regexp_T_lazyFlag.T_lazyFlag, _op:stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp):Bool {
         @:recv var _f:stdgo._internal.regexp.Regexp_T_lazyFlag.T_lazyFlag = _f;
         if (_op == ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {

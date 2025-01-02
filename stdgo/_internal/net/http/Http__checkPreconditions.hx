@@ -17,7 +17,7 @@ function _checkPreconditions(_w:stdgo._internal.net.http.Http_ResponseWriter.Res
         {
             final __value__ = stdgo._internal.net.http.Http__checkIfNoneMatch._checkIfNoneMatch(_w, _r);
             if (__value__ == ((2 : stdgo._internal.net.http.Http_T_condResult.T_condResult))) {
-                if (((_r.method == ("GET" : stdgo.GoString)) || (_r.method == ("HEAD" : stdgo.GoString)) : Bool)) {
+                if ((((@:checkr _r ?? throw "null pointer dereference").method == ("GET" : stdgo.GoString)) || ((@:checkr _r ?? throw "null pointer dereference").method == ("HEAD" : stdgo.GoString)) : Bool)) {
                     stdgo._internal.net.http.Http__writeNotModified._writeNotModified(_w);
                     return {
                         final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
@@ -46,7 +46,7 @@ function _checkPreconditions(_w:stdgo._internal.net.http.Http_ResponseWriter.Res
                 };
             };
         };
-        _rangeHeader = _r.header._get(("Range" : stdgo.GoString))?.__copy__();
+        _rangeHeader = (@:checkr _r ?? throw "null pointer dereference").header._get(("Range" : stdgo.GoString))?.__copy__();
         if (((_rangeHeader != stdgo.Go.str()) && (stdgo._internal.net.http.Http__checkIfRange._checkIfRange(_w, _r, _modtime?.__copy__()) == (2 : stdgo._internal.net.http.Http_T_condResult.T_condResult)) : Bool)) {
             _rangeHeader = stdgo.Go.str()?.__copy__();
         };

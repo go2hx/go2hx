@@ -1,12 +1,12 @@
 package stdgo._internal.encoding.gob;
 function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):{ var _0 : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>; var _1 : stdgo.GoInt; } {
-        var _rt = (_ut._user : stdgo._internal.reflect.Reflect_Type_.Type_);
-        if (_ut._encIndir == ((-1 : stdgo.GoInt8))) {
+        var _rt = ((@:checkr _ut ?? throw "null pointer dereference")._user : stdgo._internal.reflect.Reflect_Type_.Type_);
+        if ((@:checkr _ut ?? throw "null pointer dereference")._encIndir == ((-1 : stdgo.GoInt8))) {
             _rt = stdgo._internal.reflect.Reflect_pointerTo.pointerTo(_rt);
-        } else if ((_ut._encIndir > (0 : stdgo.GoInt8) : Bool)) {
+        } else if (((@:checkr _ut ?? throw "null pointer dereference")._encIndir > (0 : stdgo.GoInt8) : Bool)) {
             {
                 var _i = ((0 : stdgo.GoInt8) : stdgo.GoInt8);
-                while ((_i < _ut._encIndir : Bool)) {
+                while ((_i < (@:checkr _ut ?? throw "null pointer dereference")._encIndir : Bool)) {
                     _rt = _rt.elem();
                     _i++;
                 };
@@ -18,17 +18,17 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTy
         var _op__pointer__ = stdgo.Go.pointer(_op);
         var _op__pointer__ = stdgo.Go.pointer(_op);
         _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _v:stdgo._internal.reflect.Reflect_Value.Value):Void {
-            if (_ut._encIndir == ((-1 : stdgo.GoInt8))) {
+            if ((@:checkr _ut ?? throw "null pointer dereference")._encIndir == ((-1 : stdgo.GoInt8))) {
                 if (!_v.canAddr()) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("unaddressable value of type %s" : stdgo.GoString), stdgo.Go.toInterface(_rt));
                 };
                 _v = _v.addr()?.__copy__();
             };
-            if ((!_state._sendZero && _v.isZero() : Bool)) {
+            if ((!(@:checkr _state ?? throw "null pointer dereference")._sendZero && _v.isZero() : Bool)) {
                 return;
             };
-            _state._update(_i);
-            _state._enc._encodeGobEncoder(_state._b, _ut, _v?.__copy__());
+            @:check2r _state._update(_i);
+            @:check2r (@:checkr _state ?? throw "null pointer dereference")._enc._encodeGobEncoder((@:checkr _state ?? throw "null pointer dereference")._b, _ut, _v?.__copy__());
         };
-        return { _0 : _op__pointer__, _1 : (_ut._encIndir : stdgo.GoInt) };
+        return { _0 : _op__pointer__, _1 : ((@:checkr _ut ?? throw "null pointer dereference")._encIndir : stdgo.GoInt) };
     }

@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.asn1;
 @:keep @:allow(stdgo._internal.encoding.asn1.Asn1.T_int64Encoder_asInterface) class T_int64Encoder_static_extension {
     @:keep
+    @:tdfield
     static public function encode( _i:stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _i:stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder = _i;
         var _n = (_i.len() : stdgo.GoInt);
@@ -13,6 +14,7 @@ package stdgo._internal.encoding.asn1;
         };
     }
     @:keep
+    @:tdfield
     static public function len( _i:stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder):stdgo.GoInt {
         @:recv var _i:stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder = _i;
         var _n = (1 : stdgo.GoInt);

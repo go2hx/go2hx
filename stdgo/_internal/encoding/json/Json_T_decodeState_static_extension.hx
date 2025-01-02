@@ -1,11 +1,12 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_decodeState_asInterface) class T_decodeState_static_extension {
     @:keep
+    @:tdfield
     static public function _literalInterface( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.AnyInterface {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        var _start = (_d._readIndex() : stdgo.GoInt);
-        _d._rescanLiteral();
-        var _item = (_d._data.__slice__(_start, _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
+        var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+        @:check2r _d._rescanLiteral();
+        var _item = ((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, @:check2r _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _c = (_item[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
             {
@@ -24,9 +25,9 @@ package stdgo._internal.encoding.json;
                     if (((_c != (45 : stdgo.GoUInt8)) && (((_c < (48 : stdgo.GoUInt8) : Bool) || (_c > (57 : stdgo.GoUInt8) : Bool) : Bool)) : Bool)) {
                         throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
                     };
-                    var __tmp__ = _d._convertNumber((_item : stdgo.GoString)?.__copy__()), _n:stdgo.AnyInterface = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r _d._convertNumber((_item : stdgo.GoString)?.__copy__()), _n:stdgo.AnyInterface = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        _d._saveError(_err);
+                        @:check2r _d._saveError(_err);
                     };
                     return _n;
                 };
@@ -34,85 +35,88 @@ package stdgo._internal.encoding.json;
         };
     }
     @:keep
+    @:tdfield
     static public function _objectInterface( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        var _m = ({
+        var _m = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         while (true) {
-            _d._scanWhile((9 : stdgo.GoInt));
-            if (_d._opcode == ((5 : stdgo.GoInt))) {
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((5 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((1 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((1 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
-            var _start = (_d._readIndex() : stdgo.GoInt);
-            _d._rescanLiteral();
-            var _item = (_d._data.__slice__(_start, _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
+            var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+            @:check2r _d._rescanLiteral();
+            var _item = ((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, @:check2r _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = stdgo._internal.encoding.json.Json__unquote._unquote(_item), _key:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if (_d._opcode != ((3 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((3 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
-            _d._scanWhile((9 : stdgo.GoInt));
-            _m[_key] = _d._valueInterface();
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
+            _m[_key] = @:check2r _d._valueInterface();
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if (_d._opcode == ((5 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((5 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((4 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((4 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
         };
         return _m;
     }
     @:keep
+    @:tdfield
     static public function _arrayInterface( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.Slice<stdgo.AnyInterface> {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         var _v = (new stdgo.Slice<stdgo.AnyInterface>((0 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>);
         while (true) {
-            _d._scanWhile((9 : stdgo.GoInt));
-            if (_d._opcode == ((8 : stdgo.GoInt))) {
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
-            _v = (_v.__append__(_d._valueInterface()));
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            _v = (_v.__append__(@:check2r _d._valueInterface()));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if (_d._opcode == ((8 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((7 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((7 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
         };
         return _v;
     }
     @:keep
+    @:tdfield
     static public function _valueInterface( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.AnyInterface {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         var _val = (null : stdgo.AnyInterface);
         {
-            final __value__ = _d._opcode;
+            final __value__ = (@:checkr _d ?? throw "null pointer dereference")._opcode;
             if (__value__ == ((6 : stdgo.GoInt))) {
-                _val = stdgo.Go.toInterface(_d._arrayInterface());
-                _d._scanNext();
+                _val = stdgo.Go.toInterface(@:check2r _d._arrayInterface());
+                @:check2r _d._scanNext();
             } else if (__value__ == ((2 : stdgo.GoInt))) {
-                _val = stdgo.Go.toInterface(_d._objectInterface());
-                _d._scanNext();
+                _val = stdgo.Go.toInterface(@:check2r _d._objectInterface());
+                @:check2r _d._scanNext();
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                _val = _d._literalInterface();
+                _val = @:check2r _d._literalInterface();
             } else {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
@@ -120,10 +124,11 @@ package stdgo._internal.encoding.json;
         return _val;
     }
     @:keep
+    @:tdfield
     static public function _literalStore( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _item:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo._internal.reflect.Reflect_Value.Value, _fromQuoted:Bool):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         if ((_item.length) == ((0 : stdgo.GoInt))) {
-            _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
+            @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
             return (null : stdgo.Error);
         };
         var _isNull = (_item[(0 : stdgo.GoInt)] == ((110 : stdgo.GoUInt8)) : Bool);
@@ -134,7 +139,7 @@ package stdgo._internal.encoding.json;
         if (_ut != null) {
             if (_item[(0 : stdgo.GoInt)] != ((34 : stdgo.GoUInt8))) {
                 if (_fromQuoted) {
-                    _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
+                    @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
                     return (null : stdgo.Error);
                 };
                 var _val = ("number" : stdgo.GoString);
@@ -146,7 +151,7 @@ package stdgo._internal.encoding.json;
                         _val = ("bool" : stdgo.GoString);
                     };
                 };
-                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : _val?.__copy__(), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : _val?.__copy__(), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                 return (null : stdgo.Error);
             };
             var __tmp__ = stdgo._internal.encoding.json.Json__unquoteBytes._unquoteBytes(_item), _s:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -170,7 +175,7 @@ package stdgo._internal.encoding.json;
                         final __value__ = _c;
                         if (__value__ == ((110 : stdgo.GoUInt8))) {
                             if ((_fromQuoted && ((_item : stdgo.GoString) != ("null" : stdgo.GoString)) : Bool)) {
-                                _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
+                                @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
                                 break;
                             };
                             {
@@ -183,7 +188,7 @@ package stdgo._internal.encoding.json;
                         } else if (__value__ == ((116 : stdgo.GoUInt8)) || __value__ == ((102 : stdgo.GoUInt8))) {
                             var _value = (_item[(0 : stdgo.GoInt)] == ((116 : stdgo.GoUInt8)) : Bool);
                             if (((_fromQuoted && (_item : stdgo.GoString) != (("true" : stdgo.GoString)) : Bool) && ((_item : stdgo.GoString) != ("false" : stdgo.GoString)) : Bool)) {
-                                _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
+                                @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
                                 break;
                             };
                             {
@@ -194,13 +199,13 @@ package stdgo._internal.encoding.json;
                                     if (_v.numMethod() == ((0 : stdgo.GoInt))) {
                                         _v.set(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_value))?.__copy__());
                                     } else {
-                                        _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("bool" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                        @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("bool" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                     };
                                 } else {
                                     if (_fromQuoted) {
-                                        _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
+                                        @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type())));
                                     } else {
-                                        _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("bool" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                        @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("bool" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                     };
                                 };
                             };
@@ -222,13 +227,13 @@ package stdgo._internal.encoding.json;
                                         final __value__ = _v.kind();
                                         if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                                             if (_v.type().elem().kind() != ((8u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
-                                            var _b = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_s.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                                            var __tmp__ = stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode(_b, _s), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                            var _b = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_s.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                                            var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode(_b, _s), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (_err != null) {
-                                                _d._saveError(_err);
+                                                @:check2r _d._saveError(_err);
                                                 break;
                                             };
                                             _v.setBytes((_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
@@ -243,11 +248,11 @@ package stdgo._internal.encoding.json;
                                             if (_v.numMethod() == ((0 : stdgo.GoInt))) {
                                                 _v.set(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((_s : stdgo.GoString)))?.__copy__());
                                             } else {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                             };
                                             break;
                                         } else {
-                                            _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                            @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("string" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                         };
                                     };
                                     break;
@@ -270,13 +275,13 @@ package stdgo._internal.encoding.json;
                                     {
                                         final __value__ = _v.kind();
                                         if (__value__ == ((20u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                            var __tmp__ = _d._convertNumber(_s?.__copy__()), _n:stdgo.AnyInterface = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                            var __tmp__ = @:check2r _d._convertNumber(_s?.__copy__()), _n:stdgo.AnyInterface = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (_err != null) {
-                                                _d._saveError(_err);
+                                                @:check2r _d._saveError(_err);
                                                 break;
                                             };
                                             if (_v.numMethod() != ((0 : stdgo.GoInt))) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("number" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("number" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _v.set(stdgo._internal.reflect.Reflect_valueOf.valueOf(_n)?.__copy__());
@@ -284,7 +289,7 @@ package stdgo._internal.encoding.json;
                                         } else if (__value__ == ((2u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((3u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((4u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                                             var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_s?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (((_err != null) || _v.overflowInt(_n) : Bool)) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _v.setInt(_n);
@@ -292,7 +297,7 @@ package stdgo._internal.encoding.json;
                                         } else if (__value__ == ((7u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((8u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((9u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((10u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((11u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((12u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                                             var __tmp__ = stdgo._internal.strconv.Strconv_parseUint.parseUint(_s?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _n:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (((_err != null) || _v.overflowUint(_n) : Bool)) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _v.setUint(_n);
@@ -300,7 +305,7 @@ package stdgo._internal.encoding.json;
                                         } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((14u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                                             var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_s?.__copy__(), _v.type().bits()), _n:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (((_err != null) || _v.overflowFloat(_n) : Bool)) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _v.setFloat(_n);
@@ -313,7 +318,7 @@ package stdgo._internal.encoding.json;
                                             if (_fromQuoted) {
                                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal %q into %v" : stdgo.GoString), stdgo.Go.toInterface(_item), stdgo.Go.toInterface(_v.type()));
                                             };
-                                            _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("number" : stdgo.GoString), type : _v.type(), offset : (_d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                            @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("number" : stdgo.GoString), type : _v.type(), offset : (@:check2r _d._readIndex() : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                         };
                                     };
                                     break;
@@ -328,35 +333,37 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _convertNumber( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _s:stdgo.GoString):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        if (_d._useNumber) {
+        if ((@:checkr _d ?? throw "null pointer dereference")._useNumber) {
             return { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface((_s : stdgo._internal.encoding.json.Json_Number.Number))), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_s?.__copy__(), (64 : stdgo.GoInt)), _f:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((0 : stdgo.GoFloat64))), offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)) };
+            return { _0 : (null : stdgo.AnyInterface), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((0 : stdgo.GoFloat64))), offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)) };
         };
         return { _0 : stdgo.Go.toInterface(_f), _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function _object( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         var __tmp__ = stdgo._internal.encoding.json.Json__indirect._indirect(_v?.__copy__(), false), _u:stdgo._internal.encoding.json.Json_Unmarshaler.Unmarshaler = __tmp__._0, _ut:stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler = __tmp__._1, _pv:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._2;
         if (_u != null) {
-            var _start = (_d._readIndex() : stdgo.GoInt);
-            _d._skip();
-            return _u.unmarshalJSON((_d._data.__slice__(_start, _d._off) : stdgo.Slice<stdgo.GoUInt8>));
+            var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+            @:check2r _d._skip();
+            return _u.unmarshalJSON(((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, (@:checkr _d ?? throw "null pointer dereference")._off) : stdgo.Slice<stdgo.GoUInt8>));
         };
         if (_ut != null) {
-            _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _v.type(), offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
-            _d._skip();
+            @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _v.type(), offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+            @:check2r _d._skip();
             return (null : stdgo.Error);
         };
         _v = _pv?.__copy__();
         var _t = (_v.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
         if (((_v.kind() == (20u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && (_v.numMethod() == (0 : stdgo.GoInt)) : Bool)) {
-            var _oi = _d._objectInterface();
+            var _oi = @:check2r _d._objectInterface();
             _v.set(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_oi))?.__copy__());
             return (null : stdgo.Error);
         };
@@ -368,8 +375,8 @@ package stdgo._internal.encoding.json;
                     final __value__ = _t.key().kind();
                     if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((2u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((3u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((4u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((7u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((8u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((9u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((10u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((11u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((12u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {} else {
                         if (!stdgo._internal.reflect.Reflect_pointerTo.pointerTo(_t.key()).implements_(stdgo._internal.encoding.json.Json__textUnmarshalerType._textUnmarshalerType)) {
-                            _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _t, offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
-                            _d._skip();
+                            @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _t, offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                            @:check2r _d._skip();
                             return (null : stdgo.Error);
                         };
                     };
@@ -380,27 +387,27 @@ package stdgo._internal.encoding.json;
             } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 _fields = stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t)?.__copy__();
             } else {
-                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _t, offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
-                _d._skip();
+                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("object" : stdgo.GoString), type : _t, offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                @:check2r _d._skip();
                 return (null : stdgo.Error);
             };
         };
         var _mapElem:stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value);
         var _origErrorContext:stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext = ({} : stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext);
-        if ((_d._errorContext != null && ((_d._errorContext : Dynamic).__nil__ == null || !(_d._errorContext : Dynamic).__nil__))) {
-            _origErrorContext = (_d._errorContext : stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext)?.__copy__();
+        if (((@:checkr _d ?? throw "null pointer dereference")._errorContext != null && (((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__))) {
+            _origErrorContext = ((@:checkr _d ?? throw "null pointer dereference")._errorContext : stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext)?.__copy__();
         };
         while (true) {
-            _d._scanWhile((9 : stdgo.GoInt));
-            if (_d._opcode == ((5 : stdgo.GoInt))) {
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((5 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((1 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((1 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
-            var _start = (_d._readIndex() : stdgo.GoInt);
-            _d._rescanLiteral();
-            var _item = (_d._data.__slice__(_start, _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
+            var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+            @:check2r _d._rescanLiteral();
+            var _item = ((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, @:check2r _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = stdgo._internal.encoding.json.Json__unquoteBytes._unquoteBytes(_item), _key:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
@@ -422,12 +429,12 @@ package stdgo._internal.encoding.json;
                 };
                 if ((_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__))) {
                     _subv = _v?.__copy__();
-                    _destring = _f._quoted;
-                    for (__4 => _i in _f._index) {
+                    _destring = (@:checkr _f ?? throw "null pointer dereference")._quoted;
+                    for (__4 => _i in (@:checkr _f ?? throw "null pointer dereference")._index) {
                         if (_subv.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             if (_subv.isNil()) {
                                 if (!_subv.canSet()) {
-                                    _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: cannot set embedded pointer to unexported struct: %v" : stdgo.GoString), stdgo.Go.toInterface(_subv.type().elem())));
+                                    @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: cannot set embedded pointer to unexported struct: %v" : stdgo.GoString), stdgo.Go.toInterface(_subv.type().elem())));
                                     _subv = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value);
                                     _destring = false;
                                     break;
@@ -438,29 +445,29 @@ package stdgo._internal.encoding.json;
                         };
                         _subv = _subv.field(_i)?.__copy__();
                     };
-                    if ((_d._errorContext == null || (_d._errorContext : Dynamic).__nil__)) {
-                        _d._errorContext = (stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext>);
+                    if (((@:checkr _d ?? throw "null pointer dereference")._errorContext == null || ((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__)) {
+                        (@:checkr _d ?? throw "null pointer dereference")._errorContext = (stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext>);
                     };
-                    _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__append__(_f._name?.__copy__()));
-                    _d._errorContext.struct_ = _t;
-                } else if (_d._disallowUnknownFields) {
-                    _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: unknown field %q" : stdgo.GoString), stdgo.Go.toInterface(_key)));
+                    (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack.__append__((@:checkr _f ?? throw "null pointer dereference")._name?.__copy__()));
+                    (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").struct_ = _t;
+                } else if ((@:checkr _d ?? throw "null pointer dereference")._disallowUnknownFields) {
+                    @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: unknown field %q" : stdgo.GoString), stdgo.Go.toInterface(_key)));
                 };
             };
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if (_d._opcode != ((3 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((3 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
-            _d._scanWhile((9 : stdgo.GoInt));
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
             if (_destring) {
                 {
-                    final __type__ = _d._valueQuoted();
+                    final __type__ = @:check2r _d._valueQuoted();
                     if (__type__ == null) {
                         var _qv:stdgo.AnyInterface = __type__ == null ? (null : stdgo.AnyInterface) : __type__.__underlying__();
                         {
-                            var _err = (_d._literalStore(stdgo._internal.encoding.json.Json__nullLiteral._nullLiteral, _subv?.__copy__(), false) : stdgo.Error);
+                            var _err = (@:check2r _d._literalStore(stdgo._internal.encoding.json.Json__nullLiteral._nullLiteral, _subv?.__copy__(), false) : stdgo.Error);
                             if (_err != null) {
                                 return _err;
                             };
@@ -468,19 +475,19 @@ package stdgo._internal.encoding.json;
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
                         var _qv:stdgo.GoString = __type__ == null ? "" : __type__.__underlying__() == null ? "" : __type__ == null ? "" : __type__.__underlying__().value;
                         {
-                            var _err = (_d._literalStore((_qv : stdgo.Slice<stdgo.GoUInt8>), _subv?.__copy__(), true) : stdgo.Error);
+                            var _err = (@:check2r _d._literalStore((_qv : stdgo.Slice<stdgo.GoUInt8>), _subv?.__copy__(), true) : stdgo.Error);
                             if (_err != null) {
                                 return _err;
                             };
                         };
                     } else {
                         var _qv:stdgo.AnyInterface = __type__?.__underlying__();
-                        _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal unquoted value into %v" : stdgo.GoString), stdgo.Go.toInterface(_subv.type())));
+                        @:check2r _d._saveError(stdgo._internal.fmt.Fmt_errorf.errorf(("json: invalid use of ,string struct tag, trying to unmarshal unquoted value into %v" : stdgo.GoString), stdgo.Go.toInterface(_subv.type())));
                     };
                 };
             } else {
                 {
-                    var _err = (_d._value(_subv?.__copy__()) : stdgo.Error);
+                    var _err = (@:check2r _d._value(_subv?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -497,7 +504,7 @@ package stdgo._internal.encoding.json;
                         if (stdgo._internal.reflect.Reflect_pointerTo.pointerTo(_kt).implements_(stdgo._internal.encoding.json.Json__textUnmarshalerType._textUnmarshalerType)) {
                             _kv = stdgo._internal.reflect.Reflect_new_.new_(_kt)?.__copy__();
                             {
-                                var _err = (_d._literalStore(_item, _kv?.__copy__(), true) : stdgo.Error);
+                                var _err = (@:check2r _d._literalStore(_item, _kv?.__copy__(), true) : stdgo.Error);
                                 if (_err != null) {
                                     return _err;
                                 };
@@ -519,7 +526,7 @@ package stdgo._internal.encoding.json;
                                             var _s = ((_key : stdgo.GoString)?.__copy__() : stdgo.GoString);
                                             var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_s?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (((_err != null) || stdgo._internal.reflect.Reflect_zero.zero(_kt).overflowInt(_n) : Bool)) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _kt, offset : ((_start + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _kt, offset : ((_start + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _kv = stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_n)).convert(_kt)?.__copy__();
@@ -528,7 +535,7 @@ package stdgo._internal.encoding.json;
                                             var _s = ((_key : stdgo.GoString)?.__copy__() : stdgo.GoString);
                                             var __tmp__ = stdgo._internal.strconv.Strconv_parseUint.parseUint(_s?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _n:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                             if (((_err != null) || stdgo._internal.reflect.Reflect_zero.zero(_kt).overflowUint(_n) : Bool)) {
-                                                _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _kt, offset : ((_start + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                                                @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : (("number " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__(), type : _kt, offset : ((_start + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
                                                 break;
                                             };
                                             _kv = stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_n)).convert(_kt)?.__copy__();
@@ -548,34 +555,35 @@ package stdgo._internal.encoding.json;
                     _v.setMapIndex(_kv?.__copy__(), _subv?.__copy__());
                 };
             };
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if ((_d._errorContext != null && ((_d._errorContext : Dynamic).__nil__ == null || !(_d._errorContext : Dynamic).__nil__))) {
-                _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__slice__(0, (_origErrorContext.fieldStack.length)) : stdgo.Slice<stdgo.GoString>);
-                _d._errorContext.struct_ = _origErrorContext.struct_;
+            if (((@:checkr _d ?? throw "null pointer dereference")._errorContext != null && (((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__))) {
+                (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack.__slice__(0, (_origErrorContext.fieldStack.length)) : stdgo.Slice<stdgo.GoString>);
+                (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").struct_ = _origErrorContext.struct_;
             };
-            if (_d._opcode == ((5 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((5 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((4 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((4 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
         };
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _array( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         var __tmp__ = stdgo._internal.encoding.json.Json__indirect._indirect(_v?.__copy__(), false), _u:stdgo._internal.encoding.json.Json_Unmarshaler.Unmarshaler = __tmp__._0, _ut:stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler = __tmp__._1, _pv:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._2;
         if (_u != null) {
-            var _start = (_d._readIndex() : stdgo.GoInt);
-            _d._skip();
-            return _u.unmarshalJSON((_d._data.__slice__(_start, _d._off) : stdgo.Slice<stdgo.GoUInt8>));
+            var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+            @:check2r _d._skip();
+            return _u.unmarshalJSON(((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, (@:checkr _d ?? throw "null pointer dereference")._off) : stdgo.Slice<stdgo.GoUInt8>));
         };
         if (_ut != null) {
-            _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("array" : stdgo.GoString), type : _v.type(), offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
-            _d._skip();
+            @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("array" : stdgo.GoString), type : _v.type(), offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+            @:check2r _d._skip();
             return (null : stdgo.Error);
         };
         _v = _pv?.__copy__();
@@ -588,7 +596,7 @@ package stdgo._internal.encoding.json;
                     final __value__ = _v.kind();
                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (20u32 : stdgo._internal.reflect.Reflect_Kind.Kind)))) {
                         if (_v.numMethod() == ((0 : stdgo.GoInt))) {
-                            var _ai = _d._arrayInterface();
+                            var _ai = @:check2r _d._arrayInterface();
                             _v.set(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_ai))?.__copy__());
                             return (null : stdgo.Error);
                         };
@@ -603,8 +611,8 @@ package stdgo._internal.encoding.json;
                         break;
                         break;
                     } else {
-                        _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("array" : stdgo.GoString), type : _v.type(), offset : (_d._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
-                        _d._skip();
+                        @:check2r _d._saveError(stdgo.Go.asInterface((stdgo.Go.setRef(({ value : ("array" : stdgo.GoString), type : _v.type(), offset : ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt64) } : stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>)));
+                        @:check2r _d._skip();
                         return (null : stdgo.Error);
                         break;
                     };
@@ -614,8 +622,8 @@ package stdgo._internal.encoding.json;
         };
         var _i = (0 : stdgo.GoInt);
         while (true) {
-            _d._scanWhile((9 : stdgo.GoInt));
-            if (_d._opcode == ((8 : stdgo.GoInt))) {
+            @:check2r _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
             if (_v.kind() == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
@@ -628,27 +636,27 @@ package stdgo._internal.encoding.json;
             };
             if ((_i < _v.len() : Bool)) {
                 {
-                    var _err = (_d._value(_v.index(_i)?.__copy__()) : stdgo.Error);
+                    var _err = (@:check2r _d._value(_v.index(_i)?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
                 };
             } else {
                 {
-                    var _err = (_d._value((new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value)) : stdgo.Error);
+                    var _err = (@:check2r _d._value((new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value)) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
                 };
             };
             _i++;
-            if (_d._opcode == ((9 : stdgo.GoInt))) {
-                _d._scanWhile((9 : stdgo.GoInt));
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((9 : stdgo.GoInt))) {
+                @:check2r _d._scanWhile((9 : stdgo.GoInt));
             };
-            if (_d._opcode == ((8 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode == ((8 : stdgo.GoInt))) {
                 break;
             };
-            if (_d._opcode != ((7 : stdgo.GoInt))) {
+            if ((@:checkr _d ?? throw "null pointer dereference")._opcode != ((7 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("JSON decoder out of sync - data changing underfoot?" : stdgo.GoString));
             };
         };
@@ -668,15 +676,16 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _valueQuoted( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.AnyInterface {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         {
-            final __value__ = _d._opcode;
+            final __value__ = (@:checkr _d ?? throw "null pointer dereference")._opcode;
             if (__value__ == ((6 : stdgo.GoInt)) || __value__ == ((2 : stdgo.GoInt))) {
-                _d._skip();
-                _d._scanNext();
+                @:check2r _d._skip();
+                @:check2r _d._scanNext();
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                var _v = (_d._literalInterface() : stdgo.AnyInterface);
+                var _v = (@:check2r _d._literalInterface() : stdgo.AnyInterface);
                 {
                     final __type__ = _v;
                     if (__type__ == null || stdgo.Go.typeEquals((__type__ : stdgo.GoString))) {
@@ -690,40 +699,41 @@ package stdgo._internal.encoding.json;
         return stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue() : stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue));
     }
     @:keep
+    @:tdfield
     static public function _value( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         {
-            final __value__ = _d._opcode;
+            final __value__ = (@:checkr _d ?? throw "null pointer dereference")._opcode;
             if (__value__ == ((6 : stdgo.GoInt))) {
                 if (_v.isValid()) {
                     {
-                        var _err = (_d._array(_v?.__copy__()) : stdgo.Error);
+                        var _err = (@:check2r _d._array(_v?.__copy__()) : stdgo.Error);
                         if (_err != null) {
                             return _err;
                         };
                     };
                 } else {
-                    _d._skip();
+                    @:check2r _d._skip();
                 };
-                _d._scanNext();
+                @:check2r _d._scanNext();
             } else if (__value__ == ((2 : stdgo.GoInt))) {
                 if (_v.isValid()) {
                     {
-                        var _err = (_d._object(_v?.__copy__()) : stdgo.Error);
+                        var _err = (@:check2r _d._object(_v?.__copy__()) : stdgo.Error);
                         if (_err != null) {
                             return _err;
                         };
                     };
                 } else {
-                    _d._skip();
+                    @:check2r _d._skip();
                 };
-                _d._scanNext();
+                @:check2r _d._scanNext();
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                var _start = (_d._readIndex() : stdgo.GoInt);
-                _d._rescanLiteral();
+                var _start = (@:check2r _d._readIndex() : stdgo.GoInt);
+                @:check2r _d._rescanLiteral();
                 if (_v.isValid()) {
                     {
-                        var _err = (_d._literalStore((_d._data.__slice__(_start, _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>), _v?.__copy__(), false) : stdgo.Error);
+                        var _err = (@:check2r _d._literalStore(((@:checkr _d ?? throw "null pointer dereference")._data.__slice__(_start, @:check2r _d._readIndex()) : stdgo.Slice<stdgo.GoUInt8>), _v?.__copy__(), false) : stdgo.Error);
                         if (_err != null) {
                             return _err;
                         };
@@ -736,11 +746,12 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function _rescanLiteral( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        var _data_5400388:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var switchBreak = false;
-        var _i_5400394:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5381474:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _data_5381468:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -748,222 +759,230 @@ package stdgo._internal.encoding.json;
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     {
-                        final __tmp__0 = _d._data;
-                        final __tmp__1 = _d._off;
-                        _data_5400388 = __tmp__0;
-                        _i_5400394 = __tmp__1;
+                        final __tmp__0 = (@:checkr _d ?? throw "null pointer dereference")._data;
+                        final __tmp__1 = (@:checkr _d ?? throw "null pointer dereference")._off;
+                        _data_5381468 = __tmp__0;
+                        _i_5381474 = __tmp__1;
                     };
-                    _gotoNext = 5400413i32;
-                } else if (__value__ == (5400413i32)) {
+                    _gotoNext = 5381493i32;
+                } else if (__value__ == (5381493i32)) {
                     switchBreak = false;
-                    _gotoNext = 5400422i32;
-                } else if (__value__ == (5400422i32)) {
+                    _gotoNext = 5381502i32;
+                } else if (__value__ == (5381502i32)) {
                     if (!switchBreak) {
                         {
-                            final __value__ = _data_5400388[(_i_5400394 - (1 : stdgo.GoInt) : stdgo.GoInt)];
+                            final __value__ = _data_5381468[(_i_5381474 - (1 : stdgo.GoInt) : stdgo.GoInt)];
                             if (__value__ == ((34 : stdgo.GoUInt8))) {
-                                _gotoNext = 5400442i32;
+                                _gotoNext = 5381522i32;
                             } else if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((49 : stdgo.GoUInt8)) || __value__ == ((50 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((53 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((55 : stdgo.GoUInt8)) || __value__ == ((56 : stdgo.GoUInt8)) || __value__ == ((57 : stdgo.GoUInt8)) || __value__ == ((45 : stdgo.GoUInt8))) {
-                                _gotoNext = 5400631i32;
+                                _gotoNext = 5381711i32;
                             } else if (__value__ == ((116 : stdgo.GoUInt8))) {
-                                _gotoNext = 5400876i32;
+                                _gotoNext = 5381956i32;
                             } else if (__value__ == ((102 : stdgo.GoUInt8))) {
-                                _gotoNext = 5400913i32;
+                                _gotoNext = 5381993i32;
                             } else if (__value__ == ((110 : stdgo.GoUInt8))) {
-                                _gotoNext = 5400952i32;
+                                _gotoNext = 5382032i32;
                             } else {
-                                _gotoNext = 5400992i32;
+                                _gotoNext = 5382072i32;
                             };
                         };
                     } else {
-                        _gotoNext = 5400992i32;
+                        _gotoNext = 5382072i32;
                     };
-                } else if (__value__ == (5400442i32)) {
+                } else if (__value__ == (5381522i32)) {
                     var __blank__ = 0i32;
-                    _gotoNext = 5400464i32;
-                } else if (__value__ == (5400464i32)) {
-                    if ((_i_5400394 < (_data_5400388.length) : Bool)) {
-                        _gotoNext = 5400489i32;
+                    _gotoNext = 5381544i32;
+                } else if (__value__ == (5381544i32)) {
+                    if ((_i_5381474 < (_data_5381468.length) : Bool)) {
+                        _gotoNext = 5381569i32;
                     } else {
-                        _gotoNext = 5400992i32;
+                        _gotoNext = 5382072i32;
                     };
-                } else if (__value__ == (5400485i32)) {
-                    _i_5400394++;
-                    _gotoNext = 5400464i32;
-                } else if (__value__ == (5400489i32)) {
-                    _gotoNext = 5400494i32;
-                } else if (__value__ == (5400494i32)) {
+                } else if (__value__ == (5381565i32)) {
+                    _i_5381474++;
+                    _gotoNext = 5381544i32;
+                } else if (__value__ == (5381569i32)) {
+                    _gotoNext = 5381574i32;
+                } else if (__value__ == (5381574i32)) {
                     {
-                        final __value__ = _data_5400388[(_i_5400394 : stdgo.GoInt)];
+                        final __value__ = _data_5381468[(_i_5381474 : stdgo.GoInt)];
                         if (__value__ == ((92 : stdgo.GoUInt8))) {
-                            _gotoNext = 5400514i32;
+                            _gotoNext = 5381594i32;
                         } else if (__value__ == ((34 : stdgo.GoUInt8))) {
-                            _gotoNext = 5400552i32;
+                            _gotoNext = 5381632i32;
                         } else {
-                            _gotoNext = 5400485i32;
+                            _gotoNext = 5381565i32;
                         };
                     };
-                } else if (__value__ == (5400514i32)) {
-                    _i_5400394++;
-                    _gotoNext = 5400485i32;
-                } else if (__value__ == (5400552i32)) {
-                    _i_5400394++;
+                } else if (__value__ == (5381594i32)) {
+                    _i_5381474++;
+                    _gotoNext = 5381565i32;
+                } else if (__value__ == (5381632i32)) {
+                    _i_5381474++;
                     switchBreak = true;
-                    _gotoNext = 5400422i32;
-                } else if (__value__ == (5400631i32)) {
+                    _gotoNext = 5381502i32;
+                } else if (__value__ == (5381711i32)) {
                     var __blank__ = 0i32;
-                    _gotoNext = 5400703i32;
-                } else if (__value__ == (5400703i32)) {
-                    if ((_i_5400394 < (_data_5400388.length) : Bool)) {
-                        _gotoNext = 5400728i32;
+                    _gotoNext = 5381783i32;
+                } else if (__value__ == (5381783i32)) {
+                    if ((_i_5381474 < (_data_5381468.length) : Bool)) {
+                        _gotoNext = 5381808i32;
                     } else {
-                        _gotoNext = 5400992i32;
+                        _gotoNext = 5382072i32;
                     };
-                } else if (__value__ == (5400724i32)) {
-                    _i_5400394++;
-                    _gotoNext = 5400703i32;
-                } else if (__value__ == (5400728i32)) {
-                    _gotoNext = 5400733i32;
-                } else if (__value__ == (5400733i32)) {
+                } else if (__value__ == (5381804i32)) {
+                    _i_5381474++;
+                    _gotoNext = 5381783i32;
+                } else if (__value__ == (5381808i32)) {
+                    _gotoNext = 5381813i32;
+                } else if (__value__ == (5381813i32)) {
                     {
-                        final __value__ = _data_5400388[(_i_5400394 : stdgo.GoInt)];
+                        final __value__ = _data_5381468[(_i_5381474 : stdgo.GoInt)];
                         if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((49 : stdgo.GoUInt8)) || __value__ == ((50 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((53 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((55 : stdgo.GoUInt8)) || __value__ == ((56 : stdgo.GoUInt8)) || __value__ == ((57 : stdgo.GoUInt8)) || __value__ == ((46 : stdgo.GoUInt8)) || __value__ == ((101 : stdgo.GoUInt8)) || __value__ == ((69 : stdgo.GoUInt8)) || __value__ == ((43 : stdgo.GoUInt8)) || __value__ == ((45 : stdgo.GoUInt8))) {
-                            _gotoNext = 5400753i32;
+                            _gotoNext = 5381833i32;
                         } else {
-                            _gotoNext = 5400840i32;
+                            _gotoNext = 5381920i32;
                         };
                     };
-                } else if (__value__ == (5400753i32)) {
-                    _gotoNext = 5400724i32;
-                } else if (__value__ == (5400840i32)) {
+                } else if (__value__ == (5381833i32)) {
+                    _gotoNext = 5381804i32;
+                } else if (__value__ == (5381920i32)) {
                     switchBreak = true;
-                    _gotoNext = 5400422i32;
-                } else if (__value__ == (5400876i32)) {
-                    _i_5400394 = (_i_5400394 + ((("rue" : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5400992i32;
-                } else if (__value__ == (5400913i32)) {
-                    _i_5400394 = (_i_5400394 + ((("alse" : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5400992i32;
-                } else if (__value__ == (5400952i32)) {
-                    _i_5400394 = (_i_5400394 + ((("ull" : stdgo.GoString).length)) : stdgo.GoInt);
-                    _gotoNext = 5400992i32;
-                } else if (__value__ == (5400992i32)) {
-                    if ((_i_5400394 < (_data_5400388.length) : Bool)) {
-                        _gotoNext = 5401009i32;
+                    _gotoNext = 5381502i32;
+                } else if (__value__ == (5381956i32)) {
+                    _i_5381474 = (_i_5381474 + ((("rue" : stdgo.GoString).length)) : stdgo.GoInt);
+                    _gotoNext = 5382072i32;
+                } else if (__value__ == (5381993i32)) {
+                    _i_5381474 = (_i_5381474 + ((("alse" : stdgo.GoString).length)) : stdgo.GoInt);
+                    _gotoNext = 5382072i32;
+                } else if (__value__ == (5382032i32)) {
+                    _i_5381474 = (_i_5381474 + ((("ull" : stdgo.GoString).length)) : stdgo.GoInt);
+                    _gotoNext = 5382072i32;
+                } else if (__value__ == (5382072i32)) {
+                    if ((_i_5381474 < (_data_5381468.length) : Bool)) {
+                        _gotoNext = 5382089i32;
                     } else {
-                        _gotoNext = 5401064i32;
+                        _gotoNext = 5382144i32;
                     };
-                } else if (__value__ == (5401009i32)) {
-                    _d._opcode = stdgo._internal.encoding.json.Json__stateEndValue._stateEndValue((stdgo.Go.setRef(_d._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), _data_5400388[(_i_5400394 : stdgo.GoInt)]);
-                    _gotoNext = 5401091i32;
-                } else if (__value__ == (5401064i32)) {
-                    _gotoNext = 5401064i32;
-                    _d._opcode = (10 : stdgo.GoInt);
+                } else if (__value__ == (5382089i32)) {
+                    (@:checkr _d ?? throw "null pointer dereference")._opcode = stdgo._internal.encoding.json.Json__stateEndValue._stateEndValue((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), _data_5381468[(_i_5381474 : stdgo.GoInt)]);
+                    _gotoNext = 5382171i32;
+                } else if (__value__ == (5382144i32)) {
+                    _gotoNext = 5382144i32;
+                    (@:checkr _d ?? throw "null pointer dereference")._opcode = (10 : stdgo.GoInt);
                     var __blank__ = 0i32;
-                    _gotoNext = 5401091i32;
-                } else if (__value__ == (5401091i32)) {
-                    _d._off = (_i_5400394 + (1 : stdgo.GoInt) : stdgo.GoInt);
+                    _gotoNext = 5382171i32;
+                } else if (__value__ == (5382171i32)) {
+                    (@:checkr _d ?? throw "null pointer dereference")._off = (_i_5381474 + (1 : stdgo.GoInt) : stdgo.GoInt);
                     _gotoNext = -1i32;
                 };
             };
         };
     }
     @:keep
+    @:tdfield
     static public function _scanWhile( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _op:stdgo.GoInt):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        var __0 = (stdgo.Go.setRef(_d._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), __1 = _d._data, __2 = (_d._off : stdgo.GoInt);
+        var __0 = (stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), __1 = (@:checkr _d ?? throw "null pointer dereference")._data, __2 = ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt);
 var _i = __2, _data = __1, _s = __0;
         while ((_i < (_data.length) : Bool)) {
-            var _newOp = (_s._step(_s, _data[(_i : stdgo.GoInt)]) : stdgo.GoInt);
+            var _newOp = ((@:checkr _s ?? throw "null pointer dereference")._step(_s, _data[(_i : stdgo.GoInt)]) : stdgo.GoInt);
             _i++;
             if (_newOp != (_op)) {
-                _d._opcode = _newOp;
-                _d._off = _i;
+                (@:checkr _d ?? throw "null pointer dereference")._opcode = _newOp;
+                (@:checkr _d ?? throw "null pointer dereference")._off = _i;
                 return;
             };
         };
-        _d._off = ((_data.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
-        _d._opcode = _d._scan._eof();
+        (@:checkr _d ?? throw "null pointer dereference")._off = ((_data.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
+        (@:checkr _d ?? throw "null pointer dereference")._opcode = @:check2 (@:checkr _d ?? throw "null pointer dereference")._scan._eof();
     }
     @:keep
+    @:tdfield
     static public function _scanNext( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        if ((_d._off < (_d._data.length) : Bool)) {
-            _d._opcode = _d._scan._step((stdgo.Go.setRef(_d._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), _d._data[(_d._off : stdgo.GoInt)]);
-            _d._off++;
+        if (((@:checkr _d ?? throw "null pointer dereference")._off < ((@:checkr _d ?? throw "null pointer dereference")._data.length) : Bool)) {
+            (@:checkr _d ?? throw "null pointer dereference")._opcode = (@:checkr _d ?? throw "null pointer dereference")._scan._step((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), (@:checkr _d ?? throw "null pointer dereference")._data[((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt)]);
+            (@:checkr _d ?? throw "null pointer dereference")._off++;
         } else {
-            _d._opcode = _d._scan._eof();
-            _d._off = ((_d._data.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
+            (@:checkr _d ?? throw "null pointer dereference")._opcode = @:check2 (@:checkr _d ?? throw "null pointer dereference")._scan._eof();
+            (@:checkr _d ?? throw "null pointer dereference")._off = (((@:checkr _d ?? throw "null pointer dereference")._data.length) + (1 : stdgo.GoInt) : stdgo.GoInt);
         };
     }
     @:keep
+    @:tdfield
     static public function _skip( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        var __0 = (stdgo.Go.setRef(_d._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), __1 = _d._data, __2 = (_d._off : stdgo.GoInt);
+        var __0 = (stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), __1 = (@:checkr _d ?? throw "null pointer dereference")._data, __2 = ((@:checkr _d ?? throw "null pointer dereference")._off : stdgo.GoInt);
 var _i = __2, _data = __1, _s = __0;
-        var _depth = (_s._parseState.length : stdgo.GoInt);
+        var _depth = ((@:checkr _s ?? throw "null pointer dereference")._parseState.length : stdgo.GoInt);
         while (true) {
-            var _op = (_s._step(_s, _data[(_i : stdgo.GoInt)]) : stdgo.GoInt);
+            var _op = ((@:checkr _s ?? throw "null pointer dereference")._step(_s, _data[(_i : stdgo.GoInt)]) : stdgo.GoInt);
             _i++;
-            if (((_s._parseState.length) < _depth : Bool)) {
-                _d._off = _i;
-                _d._opcode = _op;
+            if ((((@:checkr _s ?? throw "null pointer dereference")._parseState.length) < _depth : Bool)) {
+                (@:checkr _d ?? throw "null pointer dereference")._off = _i;
+                (@:checkr _d ?? throw "null pointer dereference")._opcode = _op;
                 return;
             };
         };
     }
     @:keep
+    @:tdfield
     static public function _addErrorContext( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _err:stdgo.Error):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        if (((_d._errorContext != null && ((_d._errorContext : Dynamic).__nil__ == null || !(_d._errorContext : Dynamic).__nil__)) && ((!((_d._errorContext.struct_.string() : String) == (null.string() : String)) || ((_d._errorContext.fieldStack.length) > (0 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
+        if ((((@:checkr _d ?? throw "null pointer dereference")._errorContext != null && (((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__)) && ((!(((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").struct_.string() : String) == (null.string() : String)) || (((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack.length) > (0 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
             {
                 final __type__ = _err;
                 if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>))) {
                     var _err:stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>) : __type__.__underlying__().value;
-                    _err.struct_ = _d._errorContext.struct_.name()?.__copy__();
-                    _err.field = stdgo._internal.strings.Strings_join.join(_d._errorContext.fieldStack, ("." : stdgo.GoString))?.__copy__();
+                    (@:checkr _err ?? throw "null pointer dereference").struct_ = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").struct_.name()?.__copy__();
+                    (@:checkr _err ?? throw "null pointer dereference").field = stdgo._internal.strings.Strings_join.join((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack, ("." : stdgo.GoString))?.__copy__();
                 };
             };
         };
         return _err;
     }
     @:keep
+    @:tdfield
     static public function _saveError( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _err:stdgo.Error):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        if (_d._savedError == null) {
-            _d._savedError = _d._addErrorContext(_err);
+        if ((@:checkr _d ?? throw "null pointer dereference")._savedError == null) {
+            (@:checkr _d ?? throw "null pointer dereference")._savedError = @:check2r _d._addErrorContext(_err);
         };
     }
     @:keep
+    @:tdfield
     static public function _init( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        _d._data = _data;
-        _d._off = (0 : stdgo.GoInt);
-        _d._savedError = (null : stdgo.Error);
-        if ((_d._errorContext != null && ((_d._errorContext : Dynamic).__nil__ == null || !(_d._errorContext : Dynamic).__nil__))) {
-            _d._errorContext.struct_ = (null : stdgo._internal.reflect.Reflect_Type_.Type_);
-            _d._errorContext.fieldStack = (_d._errorContext.fieldStack.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
+        (@:checkr _d ?? throw "null pointer dereference")._data = _data;
+        (@:checkr _d ?? throw "null pointer dereference")._off = (0 : stdgo.GoInt);
+        (@:checkr _d ?? throw "null pointer dereference")._savedError = (null : stdgo.Error);
+        if (((@:checkr _d ?? throw "null pointer dereference")._errorContext != null && (((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._errorContext : Dynamic).__nil__))) {
+            (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").struct_ = (null : stdgo._internal.reflect.Reflect_Type_.Type_);
+            (@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._errorContext ?? throw "null pointer dereference").fieldStack.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
         };
         return _d;
     }
     @:keep
+    @:tdfield
     static public function _readIndex( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>):stdgo.GoInt {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
-        return (_d._off - (1 : stdgo.GoInt) : stdgo.GoInt);
+        return ((@:checkr _d ?? throw "null pointer dereference")._off - (1 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function _unmarshal( _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>, _v:stdgo.AnyInterface):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState> = _d;
         var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         if (((_rv.kind() != (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || _rv.isNil() : Bool)) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_InvalidUnmarshalError.InvalidUnmarshalError(stdgo._internal.reflect.Reflect_typeOf.typeOf(_v)) : stdgo._internal.encoding.json.Json_InvalidUnmarshalError.InvalidUnmarshalError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_InvalidUnmarshalError.InvalidUnmarshalError>));
         };
-        _d._scan._reset();
-        _d._scanWhile((9 : stdgo.GoInt));
-        var _err = (_d._value(_rv?.__copy__()) : stdgo.Error);
+        @:check2 (@:checkr _d ?? throw "null pointer dereference")._scan._reset();
+        @:check2r _d._scanWhile((9 : stdgo.GoInt));
+        var _err = (@:check2r _d._value(_rv?.__copy__()) : stdgo.Error);
         if (_err != null) {
-            return _d._addErrorContext(_err);
+            return @:check2r _d._addErrorContext(_err);
         };
-        return _d._savedError;
+        return (@:checkr _d ?? throw "null pointer dereference")._savedError;
     }
 }

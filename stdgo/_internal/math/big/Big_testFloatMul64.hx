@@ -20,24 +20,24 @@ var _y0 = __1, _x0 = __0;
                 };
                 var _x = stdgo._internal.math.big.Big_newFloat.newFloat(_x0);
                 var _y = stdgo._internal.math.big.Big_newFloat.newFloat(_y0);
-                var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((53u32 : stdgo.GoUInt));
-                _z.mul(_x, _y);
-                var __tmp__ = _z.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __9:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                var _z = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((53u32 : stdgo.GoUInt));
+                @:check2r _z.mul(_x, _y);
+                var __tmp__ = @:check2r _z.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __9:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
                 var _want = (_x0 * _y0 : stdgo.GoFloat64);
                 if (_got != (_want)) {
-                    _t.errorf(("%g * %g = %g; want %g" : stdgo.GoString), stdgo.Go.toInterface(_x0), stdgo.Go.toInterface(_y0), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    @:check2r _t.errorf(("%g * %g = %g; want %g" : stdgo.GoString), stdgo.Go.toInterface(_x0), stdgo.Go.toInterface(_y0), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
                 if (_y0 == (0 : stdgo.GoFloat64)) {
                     continue;
                 };
-                _z.quo(_z, _y);
+                @:check2r _z.quo(_z, _y);
                 {
-                    var __tmp__ = _z.float64();
+                    var __tmp__ = @:check2r _z.float64();
                     _got = __tmp__._0;
                 };
                 _want = (_want / (_y0) : stdgo.GoFloat64);
                 if (_got != (_want)) {
-                    _t.errorf(("%g / %g = %g; want %g" : stdgo.GoString), stdgo.Go.toInterface((_x0 * _y0 : stdgo.GoFloat64)), stdgo.Go.toInterface(_y0), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    @:check2r _t.errorf(("%g / %g = %g; want %g" : stdgo.GoString), stdgo.Go.toInterface((_x0 * _y0 : stdgo.GoFloat64)), stdgo.Go.toInterface(_y0), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             };
         };

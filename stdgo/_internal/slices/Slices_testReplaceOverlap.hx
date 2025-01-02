@@ -31,7 +31,7 @@ _want = (_want.__append__(...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) 
 _want = (_want.__append__(...((_a.__slice__(_j, _n) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>)));
 var _got = stdgo._internal.slices.Slices_replace.replace((_a.__slice__(0, _n) : stdgo.Slice<stdgo.GoInt>), _i, _j, ...((_a.__slice__(_x, _y) : stdgo.Slice<stdgo.GoInt>) : Array<stdgo.GoInt>));
 if (!stdgo._internal.slices.Slices_equal.equal(_got, _want)) {
-                                                    _t.errorf(("Insert with overlap failed n=%d i=%d j=%d x=%d y=%d, got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                                                    @:check2r _t.errorf(("Insert with overlap failed n=%d i=%d j=%d x=%d y=%d, got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                                                 };
                                                 _y++;
                                             };

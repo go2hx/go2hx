@@ -1,7 +1,7 @@
 package stdgo._internal.internal.fuzz;
 function _byteSliceInsertRandomBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mutator.T_mutator>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
-        var _pos = (_m._rand(((_b.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-        var _n = (_m._chooseLen((1024 : stdgo.GoInt)) : stdgo.GoInt);
+        var _pos = (@:check2r _m._rand(((_b.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+        var _n = (@:check2r _m._chooseLen((1024 : stdgo.GoInt)) : stdgo.GoInt);
         if ((((_b.length) + _n : stdgo.GoInt) >= _b.capacity : Bool)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
@@ -10,7 +10,7 @@ function _byteSliceInsertRandomBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _n : Bool)) {
-                _b[(_pos + _i : stdgo.GoInt)] = (_m._rand((256 : stdgo.GoInt)) : stdgo.GoUInt8);
+                _b[(_pos + _i : stdgo.GoInt)] = (@:check2r _m._rand((256 : stdgo.GoInt)) : stdgo.GoUInt8);
                 _i++;
             };
         };

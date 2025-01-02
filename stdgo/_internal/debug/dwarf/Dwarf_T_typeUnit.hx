@@ -12,12 +12,18 @@ package stdgo._internal.debug.dwarf;
         if (_cache != null) this._cache = _cache;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _addrsize(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function _addrsize():stdgo.GoInt return this._unit._addrsize();
+    @:embeddededffieldsffun
+    public function get__addrsize():() -> stdgo.GoInt return @:check3 (this._unit ?? throw "null pointer derefrence")._addrsize;
+    public var _dwarf64(get, never) : () -> { var _0 : Bool; var _1 : Bool; };
     @:embedded
-    public function _dwarf64():{ var _0 : Bool; var _1 : Bool; } return this._unit._dwarf64();
+    @:embeddededffieldsffun
+    public function get__dwarf64():() -> { var _0 : Bool; var _1 : Bool; } return @:check3 (this._unit ?? throw "null pointer derefrence")._dwarf64;
+    public var _version(get, never) : () -> stdgo.GoInt;
     @:embedded
-    public function _version():stdgo.GoInt return this._unit._version();
+    @:embeddededffieldsffun
+    public function get__version():() -> stdgo.GoInt return @:check3 (this._unit ?? throw "null pointer derefrence")._version;
     public function __copy__() {
         return new T_typeUnit(_unit, _toff, _name, _cache);
     }

@@ -1,35 +1,35 @@
 package stdgo._internal.image.draw;
 function _clip(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo.Ref<stdgo._internal.image.Image_Rectangle.Rectangle>, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo.Ref<stdgo._internal.image.Image_Point.Point>, _mask:stdgo._internal.image.Image_Image.Image, _mp:stdgo.Ref<stdgo._internal.image.Image_Point.Point>):Void {
-        var _orig = (_r.min?.__copy__() : stdgo._internal.image.Image_Point.Point);
+        var _orig = ((@:checkr _r ?? throw "null pointer dereference").min?.__copy__() : stdgo._internal.image.Image_Point.Point);
         {
-            var __tmp__ = _r.intersect(_dst.bounds()?.__copy__())?.__copy__();
+            var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").intersect(_dst.bounds()?.__copy__())?.__copy__();
             var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
             x.min = __tmp__.min;
             x.max = __tmp__.max;
         };
         {
-            var __tmp__ = _r.intersect(_src.bounds().add(_orig.sub((_sp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
+            var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").intersect(_src.bounds().add(_orig.sub((_sp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
             var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
             x.min = __tmp__.min;
             x.max = __tmp__.max;
         };
         if (_mask != null) {
             {
-                var __tmp__ = _r.intersect(_mask.bounds().add(_orig.sub((_mp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
+                var __tmp__ = (@:checkr _r ?? throw "null pointer dereference").intersect(_mask.bounds().add(_orig.sub((_mp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
                 var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
                 x.min = __tmp__.min;
                 x.max = __tmp__.max;
             };
         };
-        var _dx = (_r.min.x - _orig.x : stdgo.GoInt);
-        var _dy = (_r.min.y - _orig.y : stdgo.GoInt);
+        var _dx = ((@:checkr _r ?? throw "null pointer dereference").min.x - _orig.x : stdgo.GoInt);
+        var _dy = ((@:checkr _r ?? throw "null pointer dereference").min.y - _orig.y : stdgo.GoInt);
         if (((_dx == (0 : stdgo.GoInt)) && (_dy == (0 : stdgo.GoInt)) : Bool)) {
             return;
         };
-        _sp.x = (_sp.x + (_dx) : stdgo.GoInt);
-        _sp.y = (_sp.y + (_dy) : stdgo.GoInt);
+        (@:checkr _sp ?? throw "null pointer dereference").x = ((@:checkr _sp ?? throw "null pointer dereference").x + (_dx) : stdgo.GoInt);
+        (@:checkr _sp ?? throw "null pointer dereference").y = ((@:checkr _sp ?? throw "null pointer dereference").y + (_dy) : stdgo.GoInt);
         if ((_mp != null && ((_mp : Dynamic).__nil__ == null || !(_mp : Dynamic).__nil__))) {
-            _mp.x = (_mp.x + (_dx) : stdgo.GoInt);
-            _mp.y = (_mp.y + (_dy) : stdgo.GoInt);
+            (@:checkr _mp ?? throw "null pointer dereference").x = ((@:checkr _mp ?? throw "null pointer dereference").x + (_dx) : stdgo.GoInt);
+            (@:checkr _mp ?? throw "null pointer dereference").y = ((@:checkr _mp ?? throw "null pointer dereference").y + (_dy) : stdgo.GoInt);
         };
     }

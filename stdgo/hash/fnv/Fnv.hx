@@ -5,146 +5,151 @@ typedef T_sum64 = stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64;
 typedef T_sum64a = stdgo._internal.hash.fnv.Fnv_T_sum64a.T_sum64a;
 typedef T_sum128 = stdgo._internal.hash.fnv.Fnv_T_sum128.T_sum128;
 typedef T_sum128a = stdgo._internal.hash.fnv.Fnv_T_sum128a.T_sum128a;
+typedef T_sum32Pointer = stdgo._internal.hash.fnv.Fnv_T_sum32Pointer.T_sum32Pointer;
 class T_sum32_static_extension {
-    static public function unmarshalBinary(____:T_sum32, _s:stdgo.Pointer<T_sum32>, _b:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_s:stdgo.Pointer<T_sum32>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.unmarshalBinary(____, _s, _b);
+        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.unmarshalBinary(_s, _b);
     }
-    static public function marshalBinary(____:T_sum32, _s:stdgo.Pointer<T_sum32>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(_s:stdgo.Pointer<T_sum32>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.marshalBinary(____, _s);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.marshalBinary(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function sum(____:T_sum32, _s:stdgo.Pointer<T_sum32>, _in:Array<std.UInt>):Array<std.UInt> {
+    static public function sum(_s:stdgo.Pointer<T_sum32>, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.sum(____, _s, _in)) i];
+        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.sum(_s, _in)) i];
     }
-    static public function blockSize(____:T_sum32, _s:stdgo.Pointer<T_sum32>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.blockSize(____, _s);
+    static public function blockSize(_s:stdgo.Pointer<T_sum32>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.blockSize(_s);
     }
-    static public function size(____:T_sum32, _s:stdgo.Pointer<T_sum32>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.size(____, _s);
+    static public function size(_s:stdgo.Pointer<T_sum32>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.size(_s);
     }
-    static public function write(____:T_sum32, _s:stdgo.Pointer<T_sum32>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function write(_s:stdgo.Pointer<T_sum32>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.write(____, _s, _data);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.write(_s, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function sum32(____:T_sum32, _s:stdgo.Pointer<T_sum32>):std.UInt {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.sum32(____, _s);
+    static public function sum32(_s:stdgo.Pointer<T_sum32>):std.UInt {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.sum32(_s);
     }
-    static public function reset(____:T_sum32, _s:stdgo.Pointer<T_sum32>):Void {
-        stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.reset(____, _s);
+    static public function reset(_s:stdgo.Pointer<T_sum32>):Void {
+        stdgo._internal.hash.fnv.Fnv_T_sum32_static_extension.T_sum32_static_extension.reset(_s);
     }
 }
+typedef T_sum32aPointer = stdgo._internal.hash.fnv.Fnv_T_sum32aPointer.T_sum32aPointer;
 class T_sum32a_static_extension {
-    static public function unmarshalBinary(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>, _b:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_s:stdgo.Pointer<T_sum32a>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.unmarshalBinary(____, _s, _b);
+        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.unmarshalBinary(_s, _b);
     }
-    static public function marshalBinary(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(_s:stdgo.Pointer<T_sum32a>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.marshalBinary(____, _s);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.marshalBinary(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function sum(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>, _in:Array<std.UInt>):Array<std.UInt> {
+    static public function sum(_s:stdgo.Pointer<T_sum32a>, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.sum(____, _s, _in)) i];
+        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.sum(_s, _in)) i];
     }
-    static public function blockSize(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.blockSize(____, _s);
+    static public function blockSize(_s:stdgo.Pointer<T_sum32a>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.blockSize(_s);
     }
-    static public function size(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.size(____, _s);
+    static public function size(_s:stdgo.Pointer<T_sum32a>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.size(_s);
     }
-    static public function write(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function write(_s:stdgo.Pointer<T_sum32a>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.write(____, _s, _data);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.write(_s, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function sum32(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>):std.UInt {
-        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.sum32(____, _s);
+    static public function sum32(_s:stdgo.Pointer<T_sum32a>):std.UInt {
+        return stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.sum32(_s);
     }
-    static public function reset(____:T_sum32a, _s:stdgo.Pointer<T_sum32a>):Void {
-        stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.reset(____, _s);
+    static public function reset(_s:stdgo.Pointer<T_sum32a>):Void {
+        stdgo._internal.hash.fnv.Fnv_T_sum32a_static_extension.T_sum32a_static_extension.reset(_s);
     }
 }
+typedef T_sum64Pointer = stdgo._internal.hash.fnv.Fnv_T_sum64Pointer.T_sum64Pointer;
 class T_sum64_static_extension {
-    static public function unmarshalBinary(____:T_sum64, _s:stdgo.Pointer<T_sum64>, _b:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_s:stdgo.Pointer<T_sum64>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.unmarshalBinary(____, _s, _b);
+        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.unmarshalBinary(_s, _b);
     }
-    static public function marshalBinary(____:T_sum64, _s:stdgo.Pointer<T_sum64>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(_s:stdgo.Pointer<T_sum64>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.marshalBinary(____, _s);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.marshalBinary(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function sum(____:T_sum64, _s:stdgo.Pointer<T_sum64>, _in:Array<std.UInt>):Array<std.UInt> {
+    static public function sum(_s:stdgo.Pointer<T_sum64>, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.sum(____, _s, _in)) i];
+        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.sum(_s, _in)) i];
     }
-    static public function blockSize(____:T_sum64, _s:stdgo.Pointer<T_sum64>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.blockSize(____, _s);
+    static public function blockSize(_s:stdgo.Pointer<T_sum64>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.blockSize(_s);
     }
-    static public function size(____:T_sum64, _s:stdgo.Pointer<T_sum64>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.size(____, _s);
+    static public function size(_s:stdgo.Pointer<T_sum64>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.size(_s);
     }
-    static public function write(____:T_sum64, _s:stdgo.Pointer<T_sum64>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function write(_s:stdgo.Pointer<T_sum64>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.write(____, _s, _data);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.write(_s, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function sum64(____:T_sum64, _s:stdgo.Pointer<T_sum64>):haxe.UInt64 {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.sum64(____, _s);
+    static public function sum64(_s:stdgo.Pointer<T_sum64>):haxe.UInt64 {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.sum64(_s);
     }
-    static public function reset(____:T_sum64, _s:stdgo.Pointer<T_sum64>):Void {
-        stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.reset(____, _s);
+    static public function reset(_s:stdgo.Pointer<T_sum64>):Void {
+        stdgo._internal.hash.fnv.Fnv_T_sum64_static_extension.T_sum64_static_extension.reset(_s);
     }
 }
+typedef T_sum64aPointer = stdgo._internal.hash.fnv.Fnv_T_sum64aPointer.T_sum64aPointer;
 class T_sum64a_static_extension {
-    static public function unmarshalBinary(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>, _b:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(_s:stdgo.Pointer<T_sum64a>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.unmarshalBinary(____, _s, _b);
+        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.unmarshalBinary(_s, _b);
     }
-    static public function marshalBinary(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(_s:stdgo.Pointer<T_sum64a>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.marshalBinary(____, _s);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.marshalBinary(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function sum(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>, _in:Array<std.UInt>):Array<std.UInt> {
+    static public function sum(_s:stdgo.Pointer<T_sum64a>, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.sum(____, _s, _in)) i];
+        return [for (i in stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.sum(_s, _in)) i];
     }
-    static public function blockSize(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.blockSize(____, _s);
+    static public function blockSize(_s:stdgo.Pointer<T_sum64a>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.blockSize(_s);
     }
-    static public function size(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>):StdTypes.Int {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.size(____, _s);
+    static public function size(_s:stdgo.Pointer<T_sum64a>):StdTypes.Int {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.size(_s);
     }
-    static public function write(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function write(_s:stdgo.Pointer<T_sum64a>, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.write(____, _s, _data);
+            final obj = stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.write(_s, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function sum64(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>):haxe.UInt64 {
-        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.sum64(____, _s);
+    static public function sum64(_s:stdgo.Pointer<T_sum64a>):haxe.UInt64 {
+        return stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.sum64(_s);
     }
-    static public function reset(____:T_sum64a, _s:stdgo.Pointer<T_sum64a>):Void {
-        stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.reset(____, _s);
+    static public function reset(_s:stdgo.Pointer<T_sum64a>):Void {
+        stdgo._internal.hash.fnv.Fnv_T_sum64a_static_extension.T_sum64a_static_extension.reset(_s);
     }
 }
+typedef T_sum128Pointer = stdgo._internal.hash.fnv.Fnv_T_sum128Pointer.T_sum128Pointer;
 class T_sum128_static_extension {
     static public function unmarshalBinary(_s:T_sum128, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -177,6 +182,7 @@ class T_sum128_static_extension {
         stdgo._internal.hash.fnv.Fnv_T_sum128_static_extension.T_sum128_static_extension.reset(_s);
     }
 }
+typedef T_sum128aPointer = stdgo._internal.hash.fnv.Fnv_T_sum128aPointer.T_sum128aPointer;
 class T_sum128a_static_extension {
     static public function unmarshalBinary(_s:T_sum128a, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);

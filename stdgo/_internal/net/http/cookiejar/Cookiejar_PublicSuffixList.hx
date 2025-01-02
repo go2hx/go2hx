@@ -9,6 +9,7 @@ typedef PublicSuffixList = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function publicSuffix(_domain:stdgo.GoString):stdgo.GoString;
     /**
         String returns a description of the source of this public suffix
@@ -17,5 +18,6 @@ typedef PublicSuffixList = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function string():stdgo.GoString;
 };

@@ -1,6 +1,7 @@
 package stdgo._internal.internal.intern;
 @:keep @:allow(stdgo._internal.internal.intern.Intern.T_key_asInterface) class T_key_static_extension {
     @:keep
+    @:tdfield
     static public function value( _k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> {
         @:recv var _k:stdgo._internal.internal.intern.Intern_T_key.T_key = _k?.__copy__();
         if (_k._isString) {

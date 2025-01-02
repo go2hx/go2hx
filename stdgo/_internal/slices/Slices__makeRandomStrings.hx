@@ -11,11 +11,11 @@ var _slen = ((2 : stdgo.GoInt) + stdgo._internal.math.rand.Rand_intn.intn((50 : 
 {
                     var _j = (0 : stdgo.GoInt);
                     while ((_j < _slen : Bool)) {
-                        _sb.writeRune(_letters[(stdgo._internal.math.rand.Rand_intn.intn((_letters.length)) : stdgo.GoInt)]);
+                        @:check2 _sb.writeRune(_letters[(stdgo._internal.math.rand.Rand_intn.intn((_letters.length)) : stdgo.GoInt)]);
                         _j++;
                     };
                 };
-_ss[(_i : stdgo.GoInt)] = (_sb.string() : stdgo.GoString).__copy__();
+_ss[(_i : stdgo.GoInt)] = (@:check2 _sb.string() : stdgo.GoString).__copy__();
                 _i++;
             };
         };

@@ -11,8 +11,10 @@ package stdgo._internal.debug.plan9obj;
         if (_sr != null) this._sr = _sr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.readerAt.readAt(_p, _off);
+    @:embeddededffieldsffun
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.readerAt ?? throw "null pointer derefrence").readAt;
     public function __copy__() {
         return new Section(sectionHeader, readerAt, _sr);
     }

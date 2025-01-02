@@ -2,7 +2,7 @@ package stdgo.unicode.utf8;
 final runeError : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_runeError.runeError;
 final runeSelf : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_runeSelf.runeSelf;
 final maxRune : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_maxRune.maxRune;
-final utfmax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_utfmax.utfmax;
+final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_uTFMax.uTFMax;
 @:structInit abstract T_acceptRange(stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange) from stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange to stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange {
     public var _lo(get, set) : std.UInt;
     function get__lo():std.UInt return this._lo;

@@ -5,29 +5,32 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; v
             var _e = stdgo._internal.encoding.json.Json__newEncodeState._newEncodeState();
             {
                 var _a0 = _e;
-                final __f__ = stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
+                final __f__ = @:check2 stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
                 __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
             };
-            var _err = (_e._marshal(_v, ({ _escapeHTML : true } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
+            var _err = (@:check2r _e._marshal(_v, ({ _escapeHTML : true } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
             };
-            var _buf = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_e.bytes() : Array<stdgo.GoUInt8>)));
+            var _buf = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...(@:check2r _e.bytes() : Array<stdgo.GoUInt8>)));
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _buf, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -42,6 +45,7 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; v
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

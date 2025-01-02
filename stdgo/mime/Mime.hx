@@ -1,6 +1,6 @@
 package stdgo.mime;
-final bencoding : WordEncoder = stdgo._internal.mime.Mime_bencoding.bencoding;
-final qencoding : WordEncoder = stdgo._internal.mime.Mime_qencoding.qencoding;
+final bEncoding : WordEncoder = stdgo._internal.mime.Mime_bEncoding.bEncoding;
+final qEncoding : WordEncoder = stdgo._internal.mime.Mime_qEncoding.qEncoding;
 var errInvalidMediaParameter(get, set) : stdgo.Error;
 private function get_errInvalidMediaParameter():stdgo.Error return stdgo._internal.mime.Mime_errInvalidMediaParameter.errInvalidMediaParameter;
 private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
@@ -19,6 +19,7 @@ private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 typedef WordEncoder = stdgo._internal.mime.Mime_WordEncoder.WordEncoder;
+typedef WordDecoderPointer = stdgo._internal.mime.Mime_WordDecoderPointer.WordDecoderPointer;
 class WordDecoder_static_extension {
     static public function _convert(_d:WordDecoder, _buf:stdgo._internal.strings.Strings_Builder.Builder, _charset:String, _content:Array<std.UInt>):stdgo.Error {
         final _content = ([for (i in _content) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -37,6 +38,7 @@ class WordDecoder_static_extension {
         };
     }
 }
+typedef WordEncoderPointer = stdgo._internal.mime.Mime_WordEncoderPointer.WordEncoderPointer;
 class WordEncoder_static_extension {
     static public function _splitWord(_e:WordEncoder, _buf:stdgo._internal.strings.Strings_Builder.Builder, _charset:String):Void {
         stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._splitWord(_e, _buf, _charset);

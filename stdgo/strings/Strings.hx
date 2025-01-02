@@ -220,6 +220,7 @@ typedef T_asciiSet = stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef BuilderPointer = stdgo._internal.strings.Strings_BuilderPointer.BuilderPointer;
 class Builder_static_extension {
     static public function writeString(_b:Builder, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -265,6 +266,7 @@ class Builder_static_extension {
         stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension._copyCheck(_b);
     }
 }
+typedef ReaderPointer = stdgo._internal.strings.Strings_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function reset(_r:Reader, _s:String):Void {
         stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.reset(_r, _s);
@@ -320,6 +322,7 @@ class Reader_static_extension {
         return stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.len(_r);
     }
 }
+typedef ReplacerPointer = stdgo._internal.strings.Strings_ReplacerPointer.ReplacerPointer;
 class Replacer_static_extension {
     static public function writeString(_r:Replacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -343,11 +346,13 @@ class Replacer_static_extension {
         return stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension.replacer(_r);
     }
 }
+typedef T_trieNodePointer = stdgo._internal.strings.Strings_T_trieNodePointer.T_trieNodePointer;
 class T_trieNode_static_extension {
     static public function _add(_t:T_trieNode, _key:String, _val:String, _priority:StdTypes.Int, _r:T_genericReplacer):Void {
         stdgo._internal.strings.Strings_T_trieNode_static_extension.T_trieNode_static_extension._add(_t, _key, _val, _priority, _r);
     }
 }
+typedef T_genericReplacerPointer = stdgo._internal.strings.Strings_T_genericReplacerPointer.T_genericReplacerPointer;
 class T_genericReplacer_static_extension {
     static public function writeString(_r:T_genericReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -368,6 +373,7 @@ class T_genericReplacer_static_extension {
         return stdgo._internal.strings.Strings_T_genericReplacer_static_extension.T_genericReplacer_static_extension._printNode(_r, _t, _depth);
     }
 }
+typedef T_stringWriterPointer = stdgo._internal.strings.Strings_T_stringWriterPointer.T_stringWriterPointer;
 class T_stringWriter_static_extension {
     static public function writeString(_w:T_stringWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -376,6 +382,7 @@ class T_stringWriter_static_extension {
         };
     }
 }
+typedef T_singleStringReplacerPointer = stdgo._internal.strings.Strings_T_singleStringReplacerPointer.T_singleStringReplacerPointer;
 class T_singleStringReplacer_static_extension {
     static public function writeString(_r:T_singleStringReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -387,6 +394,7 @@ class T_singleStringReplacer_static_extension {
         return stdgo._internal.strings.Strings_T_singleStringReplacer_static_extension.T_singleStringReplacer_static_extension.replace(_r, _s);
     }
 }
+typedef T_byteStringReplacerPointer = stdgo._internal.strings.Strings_T_byteStringReplacerPointer.T_byteStringReplacerPointer;
 class T_byteStringReplacer_static_extension {
     static public function writeString(_r:T_byteStringReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -398,11 +406,13 @@ class T_byteStringReplacer_static_extension {
         return stdgo._internal.strings.Strings_T_byteStringReplacer_static_extension.T_byteStringReplacer_static_extension.replace(_r, _s);
     }
 }
+typedef T_stringFinderPointer = stdgo._internal.strings.Strings_T_stringFinderPointer.T_stringFinderPointer;
 class T_stringFinder_static_extension {
     static public function _next(_f:T_stringFinder, _text:String):StdTypes.Int {
         return stdgo._internal.strings.Strings_T_stringFinder_static_extension.T_stringFinder_static_extension._next(_f, _text);
     }
 }
+typedef T_appendSliceWriterPointer = stdgo._internal.strings.Strings_T_appendSliceWriterPointer.T_appendSliceWriterPointer;
 class T_appendSliceWriter_static_extension {
     static public function writeString(_w:T_appendSliceWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -418,6 +428,7 @@ class T_appendSliceWriter_static_extension {
         };
     }
 }
+typedef T_byteReplacerPointer = stdgo._internal.strings.Strings_T_byteReplacerPointer.T_byteReplacerPointer;
 class T_byteReplacer_static_extension {
     static public function writeString(_r:T_byteReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -429,6 +440,7 @@ class T_byteReplacer_static_extension {
         return stdgo._internal.strings.Strings_T_byteReplacer_static_extension.T_byteReplacer_static_extension.replace(_r, _s);
     }
 }
+typedef T_asciiSetPointer = stdgo._internal.strings.Strings_T_asciiSetPointer.T_asciiSetPointer;
 class T_asciiSet_static_extension {
     static public function _contains(_as:T_asciiSet, _c:std.UInt):Bool {
         return stdgo._internal.strings.Strings_T_asciiSet_static_extension.T_asciiSet_static_extension._contains(_as, _c);
@@ -436,179 +448,179 @@ class T_asciiSet_static_extension {
 }
 /**
     /|*{
-    	i_2830975 = 0
+    	i_3010419 = 0
     	_ = 0
-    	gotoNext = 2830983
-    	_ = gotoNext == 2830983
-    	if i_2830975 < len(s) && i_2830975 < len(t) {
-    		gotoNext = 2831019
-    		_ = gotoNext == 2831019
-    		sr_2831023 = s[i_2830975]
-    		tr_2831036 = t[i_2830975]
-    		if sr_2831023|tr_2831036 >= 128 {
-    			gotoNext = 2831075
-    			_ = gotoNext == 2831075
-    			gotoNext = 2831433
-    			gotoNext = 2831119
+    	gotoNext = 3010427
+    	_ = gotoNext == 3010427
+    	if i_3010419 < len(s) && i_3010419 < len(t) {
+    		gotoNext = 3010463
+    		_ = gotoNext == 3010463
+    		sr_3010467 = s[i_3010419]
+    		tr_3010480 = t[i_3010419]
+    		if sr_3010467|tr_3010480 >= 128 {
+    			gotoNext = 3010519
+    			_ = gotoNext == 3010519
+    			gotoNext = 3010877
+    			gotoNext = 3010563
     		} else {
-    			gotoNext = 2831119
+    			gotoNext = 3010563
     		}
-    		_ = gotoNext == 2831119
-    		if tr_2831036 == sr_2831023 {
-    			gotoNext = 2831131
-    			_ = gotoNext == 2831131
-    			i_2830975++
-    			gotoNext = 2830983
-    			gotoNext = 2831196
+    		_ = gotoNext == 3010563
+    		if tr_3010480 == sr_3010467 {
+    			gotoNext = 3010575
+    			_ = gotoNext == 3010575
+    			i_3010419++
+    			gotoNext = 3010427
+    			gotoNext = 3010640
     		} else {
-    			gotoNext = 2831196
+    			gotoNext = 3010640
     		}
-    		_ = gotoNext == 2831196
-    		if tr_2831036 < sr_2831023 {
-    			gotoNext = 2831207
-    			_ = gotoNext == 2831207
-    			tr_2831036, sr_2831023 = sr_2831023, tr_2831036
-    			gotoNext = 2831282
+    		_ = gotoNext == 3010640
+    		if tr_3010480 < sr_3010467 {
+    			gotoNext = 3010651
+    			_ = gotoNext == 3010651
+    			tr_3010480, sr_3010467 = sr_3010467, tr_3010480
+    			gotoNext = 3010726
     		} else {
-    			gotoNext = 2831282
+    			gotoNext = 3010726
     		}
-    		_ = gotoNext == 2831282
-    		if 65 <= sr_2831023 && sr_2831023 <= 90 && tr_2831036 == sr_2831023+97-65 {
-    			gotoNext = 2831328
-    			_ = gotoNext == 2831328
-    			i_2830975++
-    			gotoNext = 2830983
-    			gotoNext = 2831348
+    		_ = gotoNext == 3010726
+    		if 65 <= sr_3010467 && sr_3010467 <= 90 && tr_3010480 == sr_3010467+97-65 {
+    			gotoNext = 3010772
+    			_ = gotoNext == 3010772
+    			i_3010419++
+    			gotoNext = 3010427
+    			gotoNext = 3010792
     		} else {
-    			gotoNext = 2831348
+    			gotoNext = 3010792
     		}
-    		_ = gotoNext == 2831348
+    		_ = gotoNext == 3010792
     		return false
-    		i_2830975++
-    		gotoNext = 2830983
+    		i_3010419++
+    		gotoNext = 3010427
     	} else {
-    		gotoNext = 2831408
+    		gotoNext = 3010852
     	}
-    	_ = gotoNext == 2831408
+    	_ = gotoNext == 3010852
     	return len(s) == len(t)
-    	gotoNext = 2831433
-    	_ = gotoNext == 2831433
-    	s = s[i_2830975:]
-    	t = t[i_2830975:]
-    	keys_2831468 = []int{}
-    	values_2831468 = []rune{}
+    	gotoNext = 3010877
+    	_ = gotoNext == 3010877
+    	s = s[i_3010419:]
+    	t = t[i_3010419:]
+    	keys_3010912 = []int{}
+    	values_3010912 = []rune{}
     	for key, value := range s {
-    		keys_2831468 = append(keys_2831468, key)
-    		values_2831468 = append(values_2831468, value)
+    		keys_3010912 = append(keys_3010912, key)
+    		values_3010912 = append(values_3010912, value)
     	}
-    	if 0 < len(keys_2831468) {
-    		gotoNext = 2832399
-    		_ = gotoNext == 2832399
-    		i_2831481 = 0
-    		gotoNext = 2832400
-    		_ = gotoNext == 2832400
-    		if i_2831481 < len(keys_2831468) {
-    			gotoNext = 2831489
-    			_ = gotoNext == 2831489
-    			sr_2831475 = values_2831468[i_2831481]
-    			_ = keys_2831468[i_2831481]
+    	if 0 < len(keys_3010912) {
+    		gotoNext = 3011843
+    		_ = gotoNext == 3011843
+    		i_3010925 = 0
+    		gotoNext = 3011844
+    		_ = gotoNext == 3011844
+    		if i_3010925 < len(keys_3010912) {
+    			gotoNext = 3010933
+    			_ = gotoNext == 3010933
+    			sr_3010919 = values_3010912[i_3010925]
+    			_ = keys_3010912[i_3010925]
     			if len(t) == 0 {
-    				gotoNext = 2831558
-    				_ = gotoNext == 2831558
+    				gotoNext = 3011002
+    				_ = gotoNext == 3011002
     				return false
-    				gotoNext = 2831627
+    				gotoNext = 3011071
     			} else {
-    				gotoNext = 2831627
+    				gotoNext = 3011071
     			}
-    			_ = gotoNext == 2831627
+    			_ = gotoNext == 3011071
     			if t[0] < 128 {
-    				gotoNext = 2831665
-    				_ = gotoNext == 2831665
-    				tr_2831631, t = rune(t[0]), t[1:]
-    				gotoNext = 2831849
+    				gotoNext = 3011109
+    				_ = gotoNext == 3011109
+    				tr_3011075, t = rune(t[0]), t[1:]
+    				gotoNext = 3011293
     			} else {
-    				gotoNext = 2831705
-    				_ = gotoNext == 2831705
-    				gotoNext = 2831705
-    				_ = gotoNext == 2831705
-    				r_2831710, size_2831713 = utf8.DecodeRuneInString(t)
-    				tr_2831631, t = r_2831710, t[size_2831713:]
+    				gotoNext = 3011149
+    				_ = gotoNext == 3011149
+    				gotoNext = 3011149
+    				_ = gotoNext == 3011149
+    				r_3011154, size_3011157 = utf8.DecodeRuneInString(t)
+    				tr_3011075, t = r_3011154, t[size_3011157:]
     				_ = 0
-    				gotoNext = 2831849
+    				gotoNext = 3011293
     			}
-    			_ = gotoNext == 2831849
-    			if tr_2831631 == sr_2831475 {
-    				gotoNext = 2831861
-    				_ = gotoNext == 2831861
-    				i_2831481++
-    				gotoNext = 2832400
-    				gotoNext = 2831926
+    			_ = gotoNext == 3011293
+    			if tr_3011075 == sr_3010919 {
+    				gotoNext = 3011305
+    				_ = gotoNext == 3011305
+    				i_3010925++
+    				gotoNext = 3011844
+    				gotoNext = 3011370
     			} else {
-    				gotoNext = 2831926
+    				gotoNext = 3011370
     			}
-    			_ = gotoNext == 2831926
-    			if tr_2831631 < sr_2831475 {
-    				gotoNext = 2831937
-    				_ = gotoNext == 2831937
-    				tr_2831631, sr_2831475 = sr_2831475, tr_2831631
-    				gotoNext = 2831991
+    			_ = gotoNext == 3011370
+    			if tr_3011075 < sr_3010919 {
+    				gotoNext = 3011381
+    				_ = gotoNext == 3011381
+    				tr_3011075, sr_3010919 = sr_3010919, tr_3011075
+    				gotoNext = 3011435
     			} else {
-    				gotoNext = 2831991
+    				gotoNext = 3011435
     			}
-    			_ = gotoNext == 2831991
-    			if tr_2831631 < 128 {
-    				gotoNext = 2832013
-    				_ = gotoNext == 2832013
-    				if 65 <= sr_2831475 && sr_2831475 <= 90 && tr_2831631 == sr_2831475+97-65 {
-    					gotoNext = 2832113
-    					_ = gotoNext == 2832113
-    					i_2831481++
-    					gotoNext = 2832400
-    					gotoNext = 2832136
+    			_ = gotoNext == 3011435
+    			if tr_3011075 < 128 {
+    				gotoNext = 3011457
+    				_ = gotoNext == 3011457
+    				if 65 <= sr_3010919 && sr_3010919 <= 90 && tr_3011075 == sr_3010919+97-65 {
+    					gotoNext = 3011557
+    					_ = gotoNext == 3011557
+    					i_3010925++
+    					gotoNext = 3011844
+    					gotoNext = 3011580
     				} else {
-    					gotoNext = 2832136
+    					gotoNext = 3011580
     				}
-    				_ = gotoNext == 2832136
+    				_ = gotoNext == 3011580
     				return false
-    				gotoNext = 2832266
+    				gotoNext = 3011710
     			} else {
-    				gotoNext = 2832266
+    				gotoNext = 3011710
     			}
-    			_ = gotoNext == 2832266
-    			r_2832266 = unicode.SimpleFold(sr_2831475)
+    			_ = gotoNext == 3011710
+    			r_3011710 = unicode.SimpleFold(sr_3010919)
     			_ = 0
-    			gotoNext = 2832296
-    			_ = gotoNext == 2832296
-    			if r_2832266 != sr_2831475 && r_2832266 < tr_2831631 {
-    				gotoNext = 2832318
-    				_ = gotoNext == 2832318
-    				r_2832266 = unicode.SimpleFold(r_2832266)
-    				gotoNext = 2832296
+    			gotoNext = 3011740
+    			_ = gotoNext == 3011740
+    			if r_3011710 != sr_3010919 && r_3011710 < tr_3011075 {
+    				gotoNext = 3011762
+    				_ = gotoNext == 3011762
+    				r_3011710 = unicode.SimpleFold(r_3011710)
+    				gotoNext = 3011740
     			} else {
-    				gotoNext = 2832355
+    				gotoNext = 3011799
     			}
-    			_ = gotoNext == 2832355
-    			if r_2832266 == tr_2831631 {
-    				gotoNext = 2832366
-    				_ = gotoNext == 2832366
-    				i_2831481++
-    				gotoNext = 2832400
-    				gotoNext = 2832386
+    			_ = gotoNext == 3011799
+    			if r_3011710 == tr_3011075 {
+    				gotoNext = 3011810
+    				_ = gotoNext == 3011810
+    				i_3010925++
+    				gotoNext = 3011844
+    				gotoNext = 3011830
     			} else {
-    				gotoNext = 2832386
+    				gotoNext = 3011830
     			}
-    			_ = gotoNext == 2832386
+    			_ = gotoNext == 3011830
     			return false
-    			i_2831481++
-    			gotoNext = 2832400
+    			i_3010925++
+    			gotoNext = 3011844
     		} else {
-    			gotoNext = 2832473
+    			gotoNext = 3011917
     		}
-    		gotoNext = 2832473
+    		gotoNext = 3011917
     	} else {
-    		gotoNext = 2832473
+    		gotoNext = 3011917
     	}
-    	_ = gotoNext == 2832473
+    	_ = gotoNext == 3011917
     	return len(t) == 0
     	gotoNext = -1
     }*|/

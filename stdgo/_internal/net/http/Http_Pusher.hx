@@ -28,5 +28,6 @@ typedef Pusher = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function push(_target:stdgo.GoString, _opts:stdgo.Ref<stdgo._internal.net.http.Http_PushOptions.PushOptions>):stdgo.Error;
 };

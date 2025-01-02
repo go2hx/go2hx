@@ -5,7 +5,7 @@ function testShiftRight(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             _z = _z._shr(_test._in, _test._shift);
             for (_j => _d in _test._out) {
                 if (((_j >= (_z.length) : Bool) || (_z[(_j : stdgo.GoInt)] != _d) : Bool)) {
-                    _t.errorf(("#%d: got: %v want: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._out)));
+                    @:check2r _t.errorf(("#%d: got: %v want: %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._out)));
                     break;
                 };
             };

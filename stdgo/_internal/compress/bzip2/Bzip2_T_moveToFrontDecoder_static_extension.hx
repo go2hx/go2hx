@@ -1,11 +1,13 @@
 package stdgo._internal.compress.bzip2;
 @:keep @:allow(stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_asInterface) class T_moveToFrontDecoder_static_extension {
     @:keep
+    @:tdfield
     static public function first( _m:stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder):stdgo.GoUInt8 {
         @:recv var _m:stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder = _m;
         return _m[(0 : stdgo.GoInt)];
     }
     @:keep
+    @:tdfield
     static public function decode( _m:stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder, _n:stdgo.GoInt):stdgo.GoUInt8 {
         @:recv var _m:stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder = _m;
         var _b = (0 : stdgo.GoUInt8);

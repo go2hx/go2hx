@@ -284,11 +284,13 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 typedef T_recType = stdgo._internal.net.http.fcgi.Fcgi_T_recType.T_recType;
+typedef T_requestPointer = stdgo._internal.net.http.fcgi.Fcgi_T_requestPointer.T_requestPointer;
 class T_request_static_extension {
     static public function _parseParams(_r:T_request):Void {
         stdgo._internal.net.http.fcgi.Fcgi_T_request_static_extension.T_request_static_extension._parseParams(_r);
     }
 }
+typedef T_responsePointer = stdgo._internal.net.http.fcgi.Fcgi_T_responsePointer.T_responsePointer;
 class T_response_static_extension {
     static public function close(_r:T_response):stdgo.Error {
         return stdgo._internal.net.http.fcgi.Fcgi_T_response_static_extension.T_response_static_extension.close(_r);
@@ -314,6 +316,7 @@ class T_response_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_T_response_static_extension.T_response_static_extension.header(_r);
     }
 }
+typedef T_childPointer = stdgo._internal.net.http.fcgi.Fcgi_T_childPointer.T_childPointer;
 class T_child_static_extension {
     static public function _cleanUp(_c:T_child):Void {
         stdgo._internal.net.http.fcgi.Fcgi_T_child_static_extension.T_child_static_extension._cleanUp(_c);
@@ -328,17 +331,20 @@ class T_child_static_extension {
         stdgo._internal.net.http.fcgi.Fcgi_T_child_static_extension.T_child_static_extension._serve(_c);
     }
 }
+typedef T_headerPointer = stdgo._internal.net.http.fcgi.Fcgi_T_headerPointer.T_headerPointer;
 class T_header_static_extension {
     static public function _init(_h:T_header, _recType:T_recType, _reqId:std.UInt, _contentLength:StdTypes.Int):Void {
         stdgo._internal.net.http.fcgi.Fcgi_T_header_static_extension.T_header_static_extension._init(_h, _recType, _reqId, _contentLength);
     }
 }
+typedef T_beginRequestPointer = stdgo._internal.net.http.fcgi.Fcgi_T_beginRequestPointer.T_beginRequestPointer;
 class T_beginRequest_static_extension {
     static public function _read(_br:T_beginRequest, _content:Array<std.UInt>):stdgo.Error {
         final _content = ([for (i in _content) i] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.http.fcgi.Fcgi_T_beginRequest_static_extension.T_beginRequest_static_extension._read(_br, _content);
     }
 }
+typedef T_connPointer = stdgo._internal.net.http.fcgi.Fcgi_T_connPointer.T_connPointer;
 class T_conn_static_extension {
     static public function _writePairs(_c:T_conn, _recType:T_recType, _reqId:std.UInt, _pairs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
         return stdgo._internal.net.http.fcgi.Fcgi_T_conn_static_extension.T_conn_static_extension._writePairs(_c, _recType, _reqId, _pairs);
@@ -354,6 +360,7 @@ class T_conn_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_T_conn_static_extension.T_conn_static_extension.close(_c);
     }
 }
+typedef T_recordPointer = stdgo._internal.net.http.fcgi.Fcgi_T_recordPointer.T_recordPointer;
 class T_record_static_extension {
     static public function _content(_r:T_record):Array<std.UInt> {
         return [for (i in stdgo._internal.net.http.fcgi.Fcgi_T_record_static_extension.T_record_static_extension._content(_r)) i];
@@ -362,41 +369,42 @@ class T_record_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_T_record_static_extension.T_record_static_extension._read(_rec, _r);
     }
 }
+typedef T_bufWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriterPointer.T_bufWriterPointer;
 class T_bufWriter_static_extension {
     static public function close(_w:T_bufWriter):stdgo.Error {
         return stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.close(_w);
     }
-    public static function writeString(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, __0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeString(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeString(__self__, __0);
+            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeString(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeRune(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _new:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeRune(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeRune(__self__, _new);
+            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeRune(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeByte(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _c:std.UInt):stdgo.Error {
-        return stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeByte(__self__, _c);
+    public static function writeByte(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:std.UInt):stdgo.Error {
+        return stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.writeByte(__self__, _0);
     }
-    public static function write(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.write(__self__, _data);
+            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function size(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter):StdTypes.Int {
         return stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.size(__self__);
     }
-    public static function reset(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _w:stdgo._internal.io.Io_Writer.Writer) {
-        stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.reset(__self__, _w);
+    public static function reset(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo._internal.io.Io_Writer.Writer):Void {
+        stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.reset(__self__, _0);
     }
-    public static function readFrom(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function readFrom(__self__:stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter.T_bufWriter, _0:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.readFrom(__self__, _r);
+            final obj = stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.readFrom(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -413,6 +421,7 @@ class T_bufWriter_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_T_bufWriter_static_extension.T_bufWriter_static_extension.available(__self__);
     }
 }
+typedef T_streamWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_T_streamWriterPointer.T_streamWriterPointer;
 class T_streamWriter_static_extension {
     static public function close(_w:T_streamWriter):stdgo.Error {
         return stdgo._internal.net.http.fcgi.Fcgi_T_streamWriter_static_extension.T_streamWriter_static_extension.close(_w);

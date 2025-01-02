@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2StreamError_asInterface) class T_http2StreamError_static_extension {
     @:keep
+    @:tdfield
     static public function as( _e:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError, _target:stdgo.AnyInterface):Bool {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError = _e?.__copy__();
         var _dst = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_target).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
@@ -36,16 +37,19 @@ _df.set(_src.field(_i).convert(_df.type()).__copy__());
         return true;
     }
     @:keep
+    @:tdfield
     static public function _staysWithinBuffer( _se:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError, _max:stdgo.GoInt):Bool {
         @:recv var _se:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError = _se?.__copy__();
         return ((13 : stdgo.GoInt) <= _max : Bool);
     }
     @:keep
+    @:tdfield
     static public function _writeFrame( _se:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError, _ctx:stdgo._internal.net.http.Http_T_http2writeContext.T_http2writeContext):stdgo.Error {
         @:recv var _se:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError = _se?.__copy__();
-        return _ctx.framer().writeRSTStream(_se.streamID, _se.code);
+        return @:check2r _ctx.framer().writeRSTStream(_se.streamID, _se.code);
     }
     @:keep
+    @:tdfield
     static public function error( _e:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError = _e?.__copy__();
         if (_e.cause != null) {

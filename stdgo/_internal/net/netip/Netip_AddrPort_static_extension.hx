@@ -1,13 +1,14 @@
 package stdgo._internal.net.netip;
 @:keep @:allow(stdgo._internal.net.netip.Netip.AddrPort_asInterface) class AddrPort_static_extension {
     @:keep
+    @:tdfield
     static public function unmarshalBinary( _p:stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort> = _p;
         if (((_b.length) < (2 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("unexpected slice size" : stdgo.GoString));
         };
         var _addr:stdgo._internal.net.netip.Netip_Addr.Addr = ({} : stdgo._internal.net.netip.Netip_Addr.Addr);
-        var _err = (_addr.unmarshalBinary((_b.__slice__(0, ((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
+        var _err = (@:check2 _addr.unmarshalBinary((_b.__slice__(0, ((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
         if (_err != null) {
             return _err;
         };
@@ -20,6 +21,7 @@ package stdgo._internal.net.netip;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalBinary( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         var _b = _p.addr()._marshalBinaryWithTrailingBytes((2 : stdgo.GoInt));
@@ -27,6 +29,7 @@ package stdgo._internal.net.netip;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function unmarshalText( _p:stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort> = _p;
         if ((_text.length) == ((0 : stdgo.GoInt))) {
@@ -49,6 +52,7 @@ package stdgo._internal.net.netip;
         return _err;
     }
     @:keep
+    @:tdfield
     static public function marshalText( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         var _max:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -65,6 +69,7 @@ package stdgo._internal.net.netip;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function appendTo( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         {
@@ -96,6 +101,7 @@ package stdgo._internal.net.netip;
         return _b;
     }
     @:keep
+    @:tdfield
     static public function string( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):stdgo.GoString {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         {
@@ -117,16 +123,19 @@ package stdgo._internal.net.netip;
         };
     }
     @:keep
+    @:tdfield
     static public function isValid( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):Bool {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         return _p._ip.isValid();
     }
     @:keep
+    @:tdfield
     static public function port( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):stdgo.GoUInt16 {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         return _p._port;
     }
     @:keep
+    @:tdfield
     static public function addr( _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort):stdgo._internal.net.netip.Netip_Addr.Addr {
         @:recv var _p:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = _p?.__copy__();
         return _p._ip?.__copy__();

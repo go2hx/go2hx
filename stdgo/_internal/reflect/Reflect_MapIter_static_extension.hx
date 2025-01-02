@@ -1,6 +1,7 @@
 package stdgo._internal.reflect;
 @:keep @:allow(stdgo._internal.reflect.Reflect.MapIter_asInterface) class MapIter_static_extension {
     @:keep
+    @:tdfield
     static public function reset( _iter:stdgo.Ref<stdgo._internal.reflect.Reflect_MapIter.MapIter>, _v:stdgo._internal.reflect.Reflect_Value.Value):Void @:splitdeps {
         @:privateAccess _iter.index = 0;
         @:privateAccess _iter.map = _v.value.value;
@@ -8,6 +9,7 @@ package stdgo._internal.reflect;
         @:privateAccess _iter.values = null;
     };
     @:keep
+    @:tdfield
     static public function next( _iter:stdgo.Ref<stdgo._internal.reflect.Reflect_MapIter.MapIter>):Bool @:splitdeps {
         if (@:privateAccess _iter.map == null) return false;
         @:privateAccess if (_iter.keys == null) {
@@ -19,6 +21,7 @@ package stdgo._internal.reflect;
         return @:privateAccess _iter.index < @:privateAccess _iter.keys.length;
     };
     @:keep
+    @:tdfield
     static public function value( _iter:stdgo.Ref<stdgo._internal.reflect.Reflect_MapIter.MapIter>):stdgo._internal.reflect.Reflect_Value.Value @:splitdeps {
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];
@@ -34,6 +37,7 @@ package stdgo._internal.reflect;
         return new stdgo._internal.reflect.Reflect_Value.Value(new stdgo.AnyInterface(@:privateAccess _iter.values[_iter.index], value));
     };
     @:keep
+    @:tdfield
     static public function key( _iter:stdgo.Ref<stdgo._internal.reflect.Reflect_MapIter.MapIter>):stdgo._internal.reflect.Reflect_Value.Value @:splitdeps {
         @:privateAccess if (_iter.keys == null) {
             @:privateAccess _iter.keys = [for (key in _iter.map.keys()) key];

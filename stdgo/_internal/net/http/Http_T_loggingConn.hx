@@ -8,16 +8,26 @@ package stdgo._internal.net.http;
         if (conn != null) this.conn = conn;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var localAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function localAddr():stdgo._internal.net.Net_Addr.Addr return this.conn.localAddr();
+    @:embeddededffieldsffun
+    public function get_localAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.conn ?? throw "null pointer derefrence").localAddr;
+    public var remoteAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
-    public function remoteAddr():stdgo._internal.net.Net_Addr.Addr return this.conn.remoteAddr();
+    @:embeddededffieldsffun
+    public function get_remoteAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.conn ?? throw "null pointer derefrence").remoteAddr;
+    public var setDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setDeadline;
+    public var setReadDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setReadDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setReadDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setReadDeadline;
+    public var setWriteDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
-    public function setWriteDeadline(__0:stdgo._internal.time.Time_Time.Time):stdgo.Error return this.conn.setWriteDeadline(__0);
+    @:embeddededffieldsffun
+    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check3 (this.conn ?? throw "null pointer derefrence").setWriteDeadline;
     public function __copy__() {
         return new T_loggingConn(_name, conn);
     }

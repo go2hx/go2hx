@@ -8,9 +8,9 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
                 { _0 : (null : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>), _1 : false };
             }, _x = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                _x.func = ("ParseComplex" : stdgo.GoString);
-                _x.num = stdgo._internal.strconv.Strconv__cloneString._cloneString(_s?.__copy__())?.__copy__();
-                if (stdgo.Go.toInterface(_x.err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange))) {
+                (@:checkr _x ?? throw "null pointer dereference").func = ("ParseComplex" : stdgo.GoString);
+                (@:checkr _x ?? throw "null pointer dereference").num = stdgo._internal.strconv.Strconv__cloneString._cloneString(_s?.__copy__())?.__copy__();
+                if (stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange))) {
                     return {
                         final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Error), _1 : stdgo.Go.asInterface(_x) };
                         _syntax = __tmp__._0;

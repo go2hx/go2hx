@@ -5,6 +5,7 @@ typedef Interface = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function len():stdgo.GoInt;
     /**
         Less reports whether the element with index i
@@ -25,11 +26,13 @@ typedef Interface = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function less(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool;
     /**
         Swap swaps the elements with indexes i and j.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function swap(_i:stdgo.GoInt, _j:stdgo.GoInt):Void;
 };

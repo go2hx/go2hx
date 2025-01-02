@@ -1,7 +1,7 @@
 package stdgo._internal.image;
 function _sniff(_r:stdgo._internal.image.Image_T_reader.T_reader):stdgo._internal.image.Image_T_format.T_format {
         var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((stdgo._internal.image.Image__atomicFormats._atomicFormats.load() : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>)) : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>), _1 : true };
+            { _0 : (stdgo.Go.typeAssert((@:check2 stdgo._internal.image.Image__atomicFormats._atomicFormats.load() : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>)) : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>), _1 : false };
         }, _formats = __tmp__._0, __0 = __tmp__._1;

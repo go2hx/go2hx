@@ -297,6 +297,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_decoderPointer = stdgo._internal.image.gif.Gif_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _readBlock(_d:T_decoder):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
@@ -332,6 +333,7 @@ class T_decoder_static_extension {
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._decode(_d, _r, _configOnly, _keepAllFrames);
     }
 }
+typedef T_blockReaderPointer = stdgo._internal.image.gif.Gif_T_blockReaderPointer.T_blockReaderPointer;
 class T_blockReader_static_extension {
     static public function _close(_b:T_blockReader):stdgo.Error {
         return stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension._close(_b);
@@ -353,6 +355,7 @@ class T_blockReader_static_extension {
         stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension._fill(_b);
     }
 }
+typedef T_encoderPointer = stdgo._internal.image.gif.Gif_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _writeImageBlock(_e:T_encoder, _pm:stdgo._internal.image.Image_Paletted.Paletted, _delay:StdTypes.Int, _disposal:std.UInt):Void {
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._writeImageBlock(_e, _pm, _delay, _disposal);
@@ -374,6 +377,7 @@ class T_encoder_static_extension {
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._flush(_e);
     }
 }
+typedef T_blockWriterPointer = stdgo._internal.image.gif.Gif_T_blockWriterPointer.T_blockWriterPointer;
 class T_blockWriter_static_extension {
     static public function _close(_b:T_blockWriter):Void {
         stdgo._internal.image.gif.Gif_T_blockWriter_static_extension.T_blockWriter_static_extension._close(_b);

@@ -11,8 +11,10 @@ package stdgo._internal.debug.macho;
         if (indirectSyms != null) this.indirectSyms = indirectSyms;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var raw(get, never) : () -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
-    public function raw():stdgo.Slice<stdgo.GoUInt8> return this.loadBytes.raw();
+    @:embeddededffieldsffun
+    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this.loadBytes ?? throw "null pointer derefrence").raw;
     public function __copy__() {
         return new Dysymtab(loadBytes, dysymtabCmd, indirectSyms);
     }

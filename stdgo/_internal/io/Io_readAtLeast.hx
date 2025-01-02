@@ -20,7 +20,7 @@ function readAtLeast(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<st
         };
         if ((_n >= _min : Bool)) {
             _err = (null : stdgo.Error);
-        } else if (((_n > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+        } else if (((_n > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
         };
         return { _0 : _n, _1 : _err };

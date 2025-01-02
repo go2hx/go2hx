@@ -16,8 +16,8 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                 __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         if (_err != null) {
-                            _f.close();
-                            stdgo._internal.os.Os_remove.remove(_f.name()?.__copy__());
+                            @:check2r _f.close();
+                            stdgo._internal.os.Os_remove.remove(@:check2r _f.name()?.__copy__());
                         };
                     };
                     a();
@@ -25,7 +25,7 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             };
             var _totalSize = (stdgo._internal.internal.fuzz.Fuzz__sharedMemSize._sharedMemSize(_size) : stdgo.GoInt);
             {
-                var _err = (_f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);
+                var _err = (@:check2r _f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);
                 if (_err != null) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>; var _1 : stdgo.Error; } = {
@@ -35,6 +35,7 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -50,12 +51,14 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -70,6 +73,7 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

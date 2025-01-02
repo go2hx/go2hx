@@ -4,7 +4,7 @@ function testBlockSize(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         {
             var _got = (_c.blockSize() : stdgo.GoInt);
             if (_got != ((64 : stdgo.GoInt))) {
-                _t.errorf(("BlockSize = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((64 : stdgo.GoInt)));
+                @:check2r _t.errorf(("BlockSize = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((64 : stdgo.GoInt)));
             };
         };
     }

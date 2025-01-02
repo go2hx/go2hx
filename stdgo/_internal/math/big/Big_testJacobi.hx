@@ -21,12 +21,12 @@ function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _y = __1, _x = __0;
         for (_i => _test in _testCases) {
-            _x.setInt64(_test._x);
-            _y.setInt64(_test._y);
+            @:check2 _x.setInt64(_test._x);
+            @:check2 _y.setInt64(_test._y);
             var _expected = (_test._result : stdgo.GoInt);
             var _actual = (stdgo._internal.math.big.Big_jacobi.jacobi((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) : stdgo.GoInt);
             if (_actual != (_expected)) {
-                _t.errorf(("#%d: Jacobi(%d, %d) = %d, but expected %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._y), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_expected));
+                @:check2r _t.errorf(("#%d: Jacobi(%d, %d) = %d, but expected %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._y), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_expected));
             };
         };
     }

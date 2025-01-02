@@ -1,12 +1,12 @@
 package stdgo._internal.runtime.pprof;
 function withLabels(_ctx:stdgo._internal.context.Context_Context.Context, _labels:stdgo._internal.runtime.pprof.Pprof_LabelSet.LabelSet):stdgo._internal.context.Context_Context.Context {
         var _parentLabels = (stdgo._internal.runtime.pprof.Pprof__labelValue._labelValue(_ctx) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap);
-        var _childLabels = (({
+        var _childLabels = ((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap);
         for (_k => _v in _parentLabels) {
             _childLabels[_k] = _v?.__copy__();
         };

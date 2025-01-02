@@ -82,6 +82,7 @@ package stdgo.encoding.ascii85;
     public function __copy__() return this.__copy__();
 }
 typedef CorruptInputError = stdgo._internal.encoding.ascii85.Ascii85_CorruptInputError.CorruptInputError;
+typedef T_encoderPointer = stdgo._internal.encoding.ascii85.Ascii85_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
         return stdgo._internal.encoding.ascii85.Ascii85_T_encoder_static_extension.T_encoder_static_extension.close(_e);
@@ -94,6 +95,7 @@ class T_encoder_static_extension {
         };
     }
 }
+typedef T_decoderPointer = stdgo._internal.encoding.ascii85.Ascii85_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -103,6 +105,7 @@ class T_decoder_static_extension {
         };
     }
 }
+typedef CorruptInputErrorPointer = stdgo._internal.encoding.ascii85.Ascii85_CorruptInputErrorPointer.CorruptInputErrorPointer;
 class CorruptInputError_static_extension {
     static public function error(_e:CorruptInputError):String {
         return stdgo._internal.encoding.ascii85.Ascii85_CorruptInputError_static_extension.CorruptInputError_static_extension.error(_e);

@@ -22,18 +22,18 @@ stdgo.Go.toInterface(("hello" : stdgo.GoString))]) : stdgo.Slice<stdgo.AnyInterf
         for (__8 => _value in _values) {
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
-            var _err = (_enc.encode(_value) : stdgo.Error);
+            var _err = (@:check2r _enc.encode(_value) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(("encoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _result = (stdgo._internal.reflect.Reflect_new_.new_(stdgo._internal.reflect.Reflect_typeOf.typeOf(_value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-            _err = _dec.decode(_result.interface_());
+            _err = @:check2r _dec.decode(_result.interface_());
             if (_err != null) {
-                _t.fatalf(("error decoding %T: %v:" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.reflect.Reflect_typeOf.typeOf(_value)), stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("error decoding %T: %v:" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.reflect.Reflect_typeOf.typeOf(_value)), stdgo.Go.toInterface(_err));
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_value, _result.elem().interface_())) {
-                _t.fatalf(("%T: expected %v got %v" : stdgo.GoString), _value, _value, _result.elem().interface_());
+                @:check2r _t.fatalf(("%T: expected %v got %v" : stdgo.GoString), _value, _value, _result.elem().interface_());
             };
         };
     }

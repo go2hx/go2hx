@@ -15,7 +15,7 @@ function verifyASN1(_pub:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.
             };
         };
         {
-            final __value__ = _pub.curve.params();
+            final __value__ = (@:checkr _pub ?? throw "null pointer dereference").curve.params();
             if (__value__ == (stdgo._internal.crypto.elliptic.Elliptic_p224.p224().params())) {
                 return stdgo._internal.crypto.ecdsa.Ecdsa__verifyNISTEC._verifyNISTEC(stdgo._internal.crypto.ecdsa.Ecdsa__p224._p224(), _pub, _hash, _sig);
             } else if (__value__ == (stdgo._internal.crypto.elliptic.Elliptic_p256.p256().params())) {

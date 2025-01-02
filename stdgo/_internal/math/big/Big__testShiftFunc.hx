@@ -7,7 +7,7 @@ function _testShiftFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _f:
         var _c = (_f(_z, _x, _a._s) : stdgo._internal.math.big.Big_Word.Word);
         for (_i => _zi in _z) {
             if (_zi != (_a._r[(_i : stdgo.GoInt)])) {
-                _t.errorf(("d := %v, %s(d[%d:%d], d[%d:%d], %d)\n\tgot z[%d] = %#x; want %#x" : stdgo.GoString),
+                @:check2r _t.errorf(("d := %v, %s(d[%d:%d], d[%d:%d], %d)\n\tgot z[%d] = %#x; want %#x" : stdgo.GoString),
 stdgo.Go.toInterface(_a._d),
 stdgo.Go.toInterface(_a._m),
 stdgo.Go.toInterface(_a._zp),
@@ -22,6 +22,6 @@ stdgo.Go.toInterface(_a._r[(_i : stdgo.GoInt)]));
             };
         };
         if (_c != (_a._c)) {
-            _t.errorf(("d := %v, %s(d[%d:%d], d[%d:%d], %d)\n\tgot c = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_a._d), stdgo.Go.toInterface(_a._m), stdgo.Go.toInterface(_a._zp), stdgo.Go.toInterface((_a._zp + _a._l : stdgo.GoUInt)), stdgo.Go.toInterface(_a._xp), stdgo.Go.toInterface((_a._xp + _a._l : stdgo.GoUInt)), stdgo.Go.toInterface(_a._s), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_a._c));
+            @:check2r _t.errorf(("d := %v, %s(d[%d:%d], d[%d:%d], %d)\n\tgot c = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_a._d), stdgo.Go.toInterface(_a._m), stdgo.Go.toInterface(_a._zp), stdgo.Go.toInterface((_a._zp + _a._l : stdgo.GoUInt)), stdgo.Go.toInterface(_a._xp), stdgo.Go.toInterface((_a._xp + _a._l : stdgo.GoUInt)), stdgo.Go.toInterface(_a._s), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_a._c));
         };
     }

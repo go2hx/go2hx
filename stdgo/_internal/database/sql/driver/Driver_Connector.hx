@@ -17,6 +17,7 @@ typedef Connector = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function connect(_0:stdgo._internal.context.Context_Context.Context):{ var _0 : stdgo._internal.database.sql.driver.Driver_Conn.Conn; var _1 : stdgo.Error; };
     /**
         Driver returns the underlying Driver of the Connector,
@@ -25,5 +26,6 @@ typedef Connector = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function driver():stdgo._internal.database.sql.driver.Driver_Driver.Driver;
 };

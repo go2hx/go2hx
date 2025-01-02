@@ -8,15 +8,16 @@ function _elfBuildID(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
             };
             {
-                final __f__ = _f.close;
+                final __f__ = @:check2r _f.close;
                 __deferstack__.unshift(() -> __f__());
             };
             {
-                var __tmp__ = _f.readAt((_buf.__slice__(0, (64 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r _f.readAt((_buf.__slice__(0, (64 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
                         final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -27,6 +28,7 @@ function _elfBuildID(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -43,6 +45,7 @@ function _elfBuildID(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                     {
                         final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -61,6 +64,7 @@ var _shentsize = __1, _shoff = __0;
                         {
                             final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -74,6 +78,7 @@ var _shentsize = __1, _shoff = __0;
                         {
                             final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -84,6 +89,7 @@ var _shentsize = __1, _shoff = __0;
                     {
                         final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -94,11 +100,12 @@ var _shentsize = __1, _shoff = __0;
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _shnum : Bool)) {
                     {
-                        var __tmp__ = _f.readAt((_buf.__slice__(0, _shentsize) : stdgo.Slice<stdgo.GoUInt8>), (_shoff + ((_i : stdgo.GoInt64) * _shentsize : stdgo.GoInt64) : stdgo.GoInt64)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = @:check2r _f.readAt((_buf.__slice__(0, _shentsize) : stdgo.Slice<stdgo.GoUInt8>), (_shoff + ((_i : stdgo.GoInt64) * _shentsize : stdgo.GoInt64) : stdgo.GoInt64)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str().__copy__(), _1 : _err };
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return __ret__;
@@ -126,11 +133,12 @@ if (_shentsize == ((40i64 : stdgo.GoInt64))) {
 _size = (_size + (_off) : stdgo.GoInt64);
 while ((_off < _size : Bool)) {
                         {
-                            var __tmp__ = _f.readAt((_buf.__slice__(0, (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _off), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = @:check2r _f.readAt((_buf.__slice__(0, (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _off), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 {
                                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return __ret__;
@@ -149,17 +157,19 @@ while ((_off < _size : Bool)) {
                             {
                                 final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errBadELF._errBadELF };
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 return __ret__;
                             };
                         };
                         {
-                            var __tmp__ = _f.readAt((_buf.__slice__(0, _descSize) : stdgo.Slice<stdgo.GoUInt8>), _descOff), __3:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = @:check2r _f.readAt((_buf.__slice__(0, _descSize) : stdgo.Slice<stdgo.GoUInt8>), _descOff), __3:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 {
                                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return __ret__;
@@ -169,6 +179,7 @@ while ((_off < _size : Bool)) {
                         {
                             final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo._internal.fmt.Fmt_sprintf.sprintf(("%x" : stdgo.GoString), stdgo.Go.toInterface((_buf.__slice__(0, _descSize) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             return __ret__;
@@ -180,12 +191,14 @@ while ((_off < _size : Bool)) {
             {
                 final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errNoBuildID._errNoBuildID };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -200,6 +213,7 @@ while ((_off < _size : Bool)) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -353,11 +353,13 @@ _writeReq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.net.http.httputil.Httputil_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.net.http.httputil.Httputil_T__struct_0.T__struct_0;
 typedef T_neverEnding = stdgo._internal.net.http.httputil.Httputil_T_neverEnding.T_neverEnding;
+typedef T_dumpConnPointer = stdgo._internal.net.http.httputil.Httputil_T_dumpConnPointer.T_dumpConnPointer;
 class T_dumpConn_static_extension {
     static public function setWriteDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.setWriteDeadline(_c, _t);
@@ -377,21 +379,22 @@ class T_dumpConn_static_extension {
     static public function close(_c:T_dumpConn):stdgo.Error {
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.close(_c);
     }
-    public static function write(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.write(__self__, _p);
+            final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.read(__self__, _p);
+            final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
+typedef T_delegateReaderPointer = stdgo._internal.net.http.httputil.Httputil_T_delegateReaderPointer.T_delegateReaderPointer;
 class T_delegateReader_static_extension {
     static public function read(_r:T_delegateReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -401,6 +404,7 @@ class T_delegateReader_static_extension {
         };
     }
 }
+typedef T_failureToReadBodyPointer = stdgo._internal.net.http.httputil.Httputil_T_failureToReadBodyPointer.T_failureToReadBodyPointer;
 class T_failureToReadBody_static_extension {
     static public function close(_:T_failureToReadBody):stdgo.Error {
         return stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody_static_extension.T_failureToReadBody_static_extension.close(_);
@@ -413,6 +417,7 @@ class T_failureToReadBody_static_extension {
         };
     }
 }
+typedef ServerConnPointer = stdgo._internal.net.http.httputil.Httputil_ServerConnPointer.ServerConnPointer;
 class ServerConn_static_extension {
     static public function write(_sc:ServerConn, _req:stdgo._internal.net.http.Http_Request.Request, _resp:stdgo._internal.net.http.Http_Response.Response):stdgo.Error {
         return stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.write(_sc, _req, _resp);
@@ -436,6 +441,7 @@ class ServerConn_static_extension {
         };
     }
 }
+typedef ClientConnPointer = stdgo._internal.net.http.httputil.Httputil_ClientConnPointer.ClientConnPointer;
 class ClientConn_static_extension {
     static public function do_(_cc:ClientConn, _req:stdgo._internal.net.http.Http_Request.Request):stdgo.Tuple<stdgo._internal.net.http.Http_Response.Response, stdgo.Error> {
         return {
@@ -465,6 +471,7 @@ class ClientConn_static_extension {
         };
     }
 }
+typedef ProxyRequestPointer = stdgo._internal.net.http.httputil.Httputil_ProxyRequestPointer.ProxyRequestPointer;
 class ProxyRequest_static_extension {
     static public function setXForwarded(_r:ProxyRequest):Void {
         stdgo._internal.net.http.httputil.Httputil_ProxyRequest_static_extension.ProxyRequest_static_extension.setXForwarded(_r);
@@ -473,6 +480,7 @@ class ProxyRequest_static_extension {
         stdgo._internal.net.http.httputil.Httputil_ProxyRequest_static_extension.ProxyRequest_static_extension.setURL(_r, _target);
     }
 }
+typedef ReverseProxyPointer = stdgo._internal.net.http.httputil.Httputil_ReverseProxyPointer.ReverseProxyPointer;
 class ReverseProxy_static_extension {
     static public function _handleUpgradeResponse(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request, _res:stdgo._internal.net.http.Http_Response.Response):Void {
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._handleUpgradeResponse(_p, _rw, _req, _res);
@@ -506,6 +514,7 @@ class ReverseProxy_static_extension {
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._defaultErrorHandler(_p, _rw, _req, _err);
     }
 }
+typedef T_maxLatencyWriterPointer = stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriterPointer.T_maxLatencyWriterPointer;
 class T_maxLatencyWriter_static_extension {
     static public function _stop(_m:T_maxLatencyWriter):Void {
         stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter_static_extension.T_maxLatencyWriter_static_extension._stop(_m);
@@ -521,6 +530,7 @@ class T_maxLatencyWriter_static_extension {
         };
     }
 }
+typedef T_switchProtocolCopierPointer = stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopierPointer.T_switchProtocolCopierPointer;
 class T_switchProtocolCopier_static_extension {
     static public function _copyToBackend(_c:T_switchProtocolCopier, _errc:stdgo.Chan<stdgo.Error>):Void {
         stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier_static_extension.T_switchProtocolCopier_static_extension._copyToBackend(_c, _errc);
@@ -529,6 +539,7 @@ class T_switchProtocolCopier_static_extension {
         stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier_static_extension.T_switchProtocolCopier_static_extension._copyFromBackend(_c, _errc);
     }
 }
+typedef T_neverEndingPointer = stdgo._internal.net.http.httputil.Httputil_T_neverEndingPointer.T_neverEndingPointer;
 class T_neverEnding_static_extension {
     static public function read(_b:T_neverEnding, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);

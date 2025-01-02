@@ -17,7 +17,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         var _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = ((0 : stdgo.GoUInt) : stdgo._internal.crypto.Crypto_Hash.Hash);
         var _sigAlgo:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
         {
-            var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), _template.signatureAlgorithm);
+            var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), (@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm);
             _hashFunc = __tmp__._0;
             _sigAlgo = __tmp__._1?.__copy__();
             _err = __tmp__._2;
@@ -55,8 +55,8 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
                 __tmp__;
             };
         };
-        var _attributes = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>((0 : stdgo.GoInt).toBasic(), (_template.attributes.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (_template.attributes.length) ? (0 : stdgo.GoInt).toBasic() : (_template.attributes.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>);
-        for (__1 => _attr in _template.attributes) {
+        var _attributes = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>((0 : stdgo.GoInt).toBasic(), ((@:checkr _template ?? throw "null pointer dereference").attributes.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > ((@:checkr _template ?? throw "null pointer dereference").attributes.length) ? (0 : stdgo.GoInt).toBasic() : ((@:checkr _template ?? throw "null pointer dereference").attributes.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>);
+        for (__1 => _attr in (@:checkr _template ?? throw "null pointer dereference").attributes) {
             var _values = (new stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>((_attr.value.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>);
             _values.__copyTo__(_attr.value);
             _attributes = (_attributes.__append__(({ type : _attr.type, value : _values } : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)));
@@ -67,12 +67,12 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
                 if ((!_atvSet.type.equal(stdgo._internal.crypto.x509.X509__oidExtensionRequest._oidExtensionRequest) || (_atvSet.value.length == (0 : stdgo.GoInt)) : Bool)) {
                     continue;
                 };
-                var _specifiedExtensions = ({
+                var _specifiedExtensions = (({
                     final x = new stdgo.GoMap.GoStringMap<Bool>();
                     x.__defaultValue__ = () -> false;
                     {};
                     x;
-                } : stdgo.GoMap<stdgo.GoString, Bool>);
+                } : stdgo.GoMap<stdgo.GoString, Bool>) : stdgo.GoMap<stdgo.GoString, Bool>);
                 for (__3 => _atvs in _atvSet.value) {
                     for (__4 => _atv in _atvs) {
                         _specifiedExtensions[(_atv.type.string() : stdgo.GoString)] = true;
@@ -120,10 +120,10 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             };
             _rawAttributes = (_rawAttributes.__append__(_rawValue?.__copy__()));
         };
-        var _asn1Subject = _template.rawSubject;
+        var _asn1Subject = (@:checkr _template ?? throw "null pointer dereference").rawSubject;
         if ((_asn1Subject.length) == ((0 : stdgo.GoInt))) {
             {
-                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_template.subject.toRDNSequence())));
+                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _template ?? throw "null pointer dereference").subject.toRDNSequence())));
                 _asn1Subject = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -158,7 +158,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             return { _0 : _csr, _1 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ tbscsr : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest)));
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ tBSCSR : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest)));
             _csr = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

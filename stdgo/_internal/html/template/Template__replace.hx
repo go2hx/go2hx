@@ -27,10 +27,10 @@ if (((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__lowUnicodeRep
                     };
                 };
 if (_written == ((0 : stdgo.GoInt))) {
-                    _b.grow((_s.length));
+                    @:check2 _b.grow((_s.length));
                 };
-_b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
-_b.writeString(_repl.__copy__());
+@:check2 _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
+@:check2 _b.writeString(_repl.__copy__());
 _written = (_i + _w : stdgo.GoInt);
                 _i = (_i + (_w) : stdgo.GoInt);
             };
@@ -38,6 +38,6 @@ _written = (_i + _w : stdgo.GoInt);
         if (_written == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();
         };
-        _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        @:check2 _b.writeString((_s.__slice__(_written) : stdgo.GoString)?.__copy__());
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

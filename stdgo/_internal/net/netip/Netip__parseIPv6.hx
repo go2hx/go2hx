@@ -20,7 +20,7 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
             _ellipsis = (0 : stdgo.GoInt);
             _s = (_s.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             if ((_s.length) == ((0 : stdgo.GoInt))) {
-                return { _0 : stdgo._internal.net.netip.Netip_ipv6Unspecified.ipv6Unspecified().withZone(_zone?.__copy__())?.__copy__(), _1 : (null : stdgo.Error) };
+                return { _0 : stdgo._internal.net.netip.Netip_iPv6Unspecified.iPv6Unspecified().withZone(_zone?.__copy__())?.__copy__(), _1 : (null : stdgo.Error) };
             };
         };
         _i = (0 : stdgo.GoInt);

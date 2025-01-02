@@ -8,7 +8,7 @@ function testIssue37499(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {
             var _s = ((_q._utoa((16 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_s != (("fffffffffffffffffffffffffffffffffffffffffffffffb" : stdgo.GoString))) {
-                _t.fatalf(("incorrect quotient: %s" : stdgo.GoString), stdgo.Go.toInterface(_s));
+                @:check2r _t.fatalf(("incorrect quotient: %s" : stdgo.GoString), stdgo.Go.toInterface(_s));
             };
         };
     }

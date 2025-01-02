@@ -73,6 +73,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef FSPointer = stdgo._internal.embed.Embed_FSPointer.FSPointer;
 class FS_static_extension {
     static public function readFile(_f:FS, _name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -99,6 +100,7 @@ class FS_static_extension {
         return stdgo._internal.embed.Embed_FS_static_extension.FS_static_extension._lookup(_f, _name);
     }
 }
+typedef T_filePointer = stdgo._internal.embed.Embed_T_filePointer.T_filePointer;
 class T_file_static_extension {
     static public function string(_f:T_file):String {
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.string(_f);
@@ -131,6 +133,7 @@ class T_file_static_extension {
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.name(_f);
     }
 }
+typedef T_openFilePointer = stdgo._internal.embed.Embed_T_openFilePointer.T_openFilePointer;
 class T_openFile_static_extension {
     static public function readAt(_f:T_openFile, _b:Array<std.UInt>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -162,6 +165,7 @@ class T_openFile_static_extension {
         return stdgo._internal.embed.Embed_T_openFile_static_extension.T_openFile_static_extension.close(_f);
     }
 }
+typedef T_openDirPointer = stdgo._internal.embed.Embed_T_openDirPointer.T_openDirPointer;
 class T_openDir_static_extension {
     static public function readDir(_d:T_openDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
         return {

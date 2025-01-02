@@ -6,7 +6,7 @@ var _vv = __1, _ss = __0;
             if (!stdgo._internal.slices.Slices__panics._panics(function():Void {
                 stdgo._internal.slices.Slices_replace.replace(_ss, _test._i, _test._j, ...(_vv : Array<stdgo.GoInt>));
             })) {
-                _t.errorf(("Replace %s: should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
+                @:check2r _t.errorf(("Replace %s: should have panicked" : stdgo.GoString), stdgo.Go.toInterface(_test._name));
             };
         };
     }

@@ -1,4 +1,4 @@
 package stdgo._internal.flag;
 function printDefaults():Void {
-        stdgo._internal.flag.Flag_commandLine.commandLine.printDefaults();
+        @:check2r stdgo._internal.flag.Flag_commandLine.commandLine.printDefaults();
     }

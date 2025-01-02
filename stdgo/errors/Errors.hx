@@ -51,11 +51,13 @@ typedef T__interface_3 = stdgo._internal.errors.Errors_T__interface_3.T__interfa
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_errorStringPointer = stdgo._internal.errors.Errors_T_errorStringPointer.T_errorStringPointer;
 class T_errorString_static_extension {
     static public function error(_e:T_errorString):String {
         return stdgo._internal.errors.Errors_T_errorString_static_extension.T_errorString_static_extension.error(_e);
     }
 }
+typedef T_joinErrorPointer = stdgo._internal.errors.Errors_T_joinErrorPointer.T_joinErrorPointer;
 class T_joinError_static_extension {
     static public function unwrap(_e:T_joinError):Array<stdgo.Error> {
         return [for (i in stdgo._internal.errors.Errors_T_joinError_static_extension.T_joinError_static_extension.unwrap(_e)) i];

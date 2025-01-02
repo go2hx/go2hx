@@ -6,19 +6,19 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
         return v;
     }
 @:structInit @:using(stdgo.internal.platform.Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_OSArch.OSArch) from stdgo._internal.internal.platform.Platform_OSArch.OSArch to stdgo._internal.internal.platform.Platform_OSArch.OSArch {
-    public var goos(get, set) : String;
-    function get_goos():String return this.goos;
-    function set_goos(v:String):String {
-        this.goos = v;
+    public var gOOS(get, set) : String;
+    function get_gOOS():String return this.gOOS;
+    function set_gOOS(v:String):String {
+        this.gOOS = v;
         return v;
     }
-    public var goarch(get, set) : String;
-    function get_goarch():String return this.goarch;
-    function set_goarch(v:String):String {
-        this.goarch = v;
+    public var gOARCH(get, set) : String;
+    function get_gOARCH():String return this.gOARCH;
+    function set_gOARCH(v:String):String {
+        this.gOARCH = v;
         return v;
     }
-    public function new(?goos:String, ?goarch:String) this = new stdgo._internal.internal.platform.Platform_OSArch.OSArch(goos, goarch);
+    public function new(?gOOS:String, ?gOARCH:String) this = new stdgo._internal.internal.platform.Platform_OSArch.OSArch(gOOS, gOARCH);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -45,6 +45,7 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef OSArchPointer = stdgo._internal.internal.platform.Platform_OSArchPointer.OSArchPointer;
 class OSArch_static_extension {
     static public function string(_p:OSArch):String {
         return stdgo._internal.internal.platform.Platform_OSArch_static_extension.OSArch_static_extension.string(_p);
@@ -65,15 +66,15 @@ class Platform {
         MSanSupported reports whether goos/goarch supports the memory
         sanitizer option.
     **/
-    static public function msanSupported(_goos:String, _goarch:String):Bool {
-        return stdgo._internal.internal.platform.Platform_msanSupported.msanSupported(_goos, _goarch);
+    static public function mSanSupported(_goos:String, _goarch:String):Bool {
+        return stdgo._internal.internal.platform.Platform_mSanSupported.mSanSupported(_goos, _goarch);
     }
     /**
         ASanSupported reports whether goos/goarch supports the address
         sanitizer option.
     **/
-    static public function asanSupported(_goos:String, _goarch:String):Bool {
-        return stdgo._internal.internal.platform.Platform_asanSupported.asanSupported(_goos, _goarch);
+    static public function aSanSupported(_goos:String, _goarch:String):Bool {
+        return stdgo._internal.internal.platform.Platform_aSanSupported.aSanSupported(_goos, _goarch);
     }
     /**
         FuzzSupported reports whether goos/goarch supports fuzzing

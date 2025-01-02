@@ -57,6 +57,7 @@ package stdgo.mime.quotedprintable;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ReaderPointer = stdgo._internal.mime.quotedprintable.Quotedprintable_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function read(_r:Reader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -66,6 +67,7 @@ class Reader_static_extension {
         };
     }
 }
+typedef WriterPointer = stdgo._internal.mime.quotedprintable.Quotedprintable_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function _flush(_w:Writer):stdgo.Error {
         return stdgo._internal.mime.quotedprintable.Quotedprintable_Writer_static_extension.Writer_static_extension._flush(_w);

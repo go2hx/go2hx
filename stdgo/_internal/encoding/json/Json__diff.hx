@@ -8,7 +8,7 @@ function _diff(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _a:stdgo.Sli
                     if ((_j < (0 : stdgo.GoInt) : Bool)) {
                         _j = (0 : stdgo.GoInt);
                     };
-                    _t.errorf(("diverge at %d: «%s» vs «%s»" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__trim._trim((_a.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>))), stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__trim._trim((_b.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>))));
+                    @:check2r _t.errorf(("diverge at %d: «%s» vs «%s»" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__trim._trim((_a.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>))), stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__trim._trim((_b.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>))));
                     return;
                 };
                 _i++;

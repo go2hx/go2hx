@@ -2,24 +2,26 @@ package stdgo._internal.internal.intern;
 function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            stdgo._internal.internal.intern.Intern__mu._mu.lock();
+            @:check2 stdgo._internal.internal.intern.Intern__mu._mu.lock();
             {
-                final __f__ = stdgo._internal.internal.intern.Intern__mu._mu.unlock;
+                final __f__ = @:check2 stdgo._internal.internal.intern.Intern__mu._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (_v._resurrected) {
-                _v._resurrected = false;
+            if ((@:checkr _v ?? throw "null pointer dereference")._resurrected) {
+                (@:checkr _v ?? throw "null pointer dereference")._resurrected = false;
                 stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_v)), stdgo.Go.toInterface(stdgo._internal.internal.intern.Intern__finalize._finalize));
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return;
                 };
             };
-            if (stdgo._internal.internal.intern.Intern__valMap._valMap != null) stdgo._internal.internal.intern.Intern__valMap._valMap.remove(stdgo._internal.internal.intern.Intern__keyFor._keyFor(_v._cmpVal));
+            if (stdgo._internal.internal.intern.Intern__valMap._valMap != null) stdgo._internal.internal.intern.Intern__valMap._valMap.remove(stdgo._internal.internal.intern.Intern__keyFor._keyFor((@:checkr _v ?? throw "null pointer dereference")._cmpVal));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -34,6 +36,7 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

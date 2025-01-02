@@ -24,6 +24,7 @@ typedef Value = stdgo._internal.internal.reflectlite.Reflectlite_Value.Value;
     public function __copy__() return this.__copy__();
 }
 typedef Kind = stdgo._internal.internal.reflectlite.Reflectlite_Kind.Kind;
+typedef ValuePointer = stdgo._internal.internal.reflectlite.Reflectlite_ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function type(_v:Value):Type_ {
         return stdgo._internal.internal.reflectlite.Reflectlite_Value_static_extension.Value_static_extension.type(_v);
@@ -50,6 +51,7 @@ class Value_static_extension {
         return stdgo._internal.internal.reflectlite.Reflectlite_Value_static_extension.Value_static_extension.canSet(_v);
     }
 }
+typedef ValueErrorPointer = stdgo._internal.internal.reflectlite.Reflectlite_ValueErrorPointer.ValueErrorPointer;
 class ValueError_static_extension {
     static public function error(_e:ValueError):String {
         return stdgo._internal.internal.reflectlite.Reflectlite_ValueError_static_extension.ValueError_static_extension.error(_e);

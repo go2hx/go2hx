@@ -17,7 +17,7 @@ function newPkgDecoder(_pkgPath:stdgo.GoString, _input:stdgo.GoString):stdgo._in
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((_pr._elemEndsEnds.__slice__(0) : stdgo.Slice<stdgo.GoUInt32>))) == null);
         _pr._elemEnds = (new stdgo.Slice<stdgo.GoUInt32>((_pr._elemEndsEnds[(9 : stdgo.GoInt)] : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((_pr._elemEnds.__slice__(0) : stdgo.Slice<stdgo.GoUInt32>))) == null);
-        var __tmp__ = _r.seek((0i64 : stdgo.GoInt64), (1 : stdgo.GoInt)), _pos:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _r.seek((0i64 : stdgo.GoInt64), (1 : stdgo.GoInt)), _pos:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_err == null);
         _pr._elemData = (_input.__slice__(_pos) : stdgo.GoString)?.__copy__();
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(((_pr._elemData.length) - (8 : stdgo.GoInt) : stdgo.GoInt) == ((_pr._elemEnds[((_pr._elemEnds.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)));

@@ -7,14 +7,14 @@ function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.Ref<stdgo._internal.testin
             while (true) {
                 var _v:stdgo.AnyInterface = (null : stdgo.AnyInterface);
                 {
-                    _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>)));
+                    _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>)));
                     if (_err != null) {
                         break;
                     };
                 };
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err))) {
-                _t.errorf(("#%d: got %#v, want %#v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
+                @:check2r _t.errorf(("#%d: got %#v, want %#v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
             };
         };
     }

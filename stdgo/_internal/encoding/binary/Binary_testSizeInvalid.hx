@@ -5,7 +5,7 @@ function testSizeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             {
                 var _got = (stdgo._internal.encoding.binary.Binary_size.size(_tc) : stdgo.GoInt);
                 if (_got != ((-1 : stdgo.GoInt))) {
-                    _t.errorf(("Size(%T) = %d, want -1" : stdgo.GoString), _tc, stdgo.Go.toInterface(_got));
+                    @:check2r _t.errorf(("Size(%T) = %d, want -1" : stdgo.GoString), _tc, stdgo.Go.toInterface(_got));
                 };
             };
         };

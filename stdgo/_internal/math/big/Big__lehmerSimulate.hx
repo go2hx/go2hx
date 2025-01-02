@@ -3,14 +3,14 @@ function _lehmerSimulate(a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, b:
         var _u0 = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _u1 = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _v0 = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _v1 = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _even = false;
         var __0:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), __1:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), __2:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), __3:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
 var _v2 = __3, _u2 = __2, _a2 = __1, _a1 = __0;
-        var _m = (b._abs.length : stdgo.GoInt);
-        var _n = (a._abs.length : stdgo.GoInt);
-        var _h = (stdgo._internal.math.big.Big__nlz._nlz(a._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt);
-        _a1 = ((a._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_Word.Word) | (a._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
+        var _m = ((@:checkr b ?? throw "null pointer dereference")._abs.length : stdgo.GoInt);
+        var _n = ((@:checkr a ?? throw "null pointer dereference")._abs.length : stdgo.GoInt);
+        var _h = (stdgo._internal.math.big.Big__nlz._nlz((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt);
+        _a1 = (((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_Word.Word) | ((@:checkr a ?? throw "null pointer dereference")._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
         if (_n == (_m)) {
-            _a2 = ((b._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_Word.Word) | (b._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
+            _a2 = (((@:checkr b ?? throw "null pointer dereference")._abs[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] << _h : stdgo._internal.math.big.Big_Word.Word) | ((@:checkr b ?? throw "null pointer dereference")._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
         } else if (_n == ((_m + (1 : stdgo.GoInt) : stdgo.GoInt))) {
-            _a2 = (b._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word);
+            _a2 = ((@:checkr b ?? throw "null pointer dereference")._abs[(_n - (2 : stdgo.GoInt) : stdgo.GoInt)] >> (((32u32 : stdgo.GoUInt) - _h : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word);
         } else {
             _a2 = (0u32 : stdgo._internal.math.big.Big_Word.Word);
         };

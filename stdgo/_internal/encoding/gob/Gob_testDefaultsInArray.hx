@@ -6,7 +6,7 @@ function testDefaultsInArray(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_t7), stdgo.Go.toInterface((stdgo.Go.setRef(_t7p) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testDefaultsInArray___localname___Type7_8446.T_testDefaultsInArray___localname___Type7_8446>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

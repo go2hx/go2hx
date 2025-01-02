@@ -1,6 +1,7 @@
 package stdgo._internal.slices;
 @:keep @:allow(stdgo._internal.slices.Slices.T_myStructs_asInterface) class T_myStructs_static_extension {
     @:keep
+    @:tdfield
     static public function swap( _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs = _s;
         {
@@ -15,11 +16,13 @@ package stdgo._internal.slices;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs = _s;
-        return (_s[(_i : stdgo.GoInt)]._n < _s[(_j : stdgo.GoInt)]._n : Bool);
+        return ((@:checkr _s[(_i : stdgo.GoInt)] ?? throw "null pointer dereference")._n < (@:checkr _s[(_j : stdgo.GoInt)] ?? throw "null pointer dereference")._n : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs):stdgo.GoInt {
         @:recv var _s:stdgo._internal.slices.Slices_T_myStructs.T_myStructs = _s;
         return (_s.length);

@@ -1,6 +1,7 @@
 package stdgo._internal.net.http.pprof;
 @:keep @:allow(stdgo._internal.net.http.pprof.Pprof.T_handler_asInterface) class T_handler_static_extension {
     @:keep
+    @:tdfield
     static public function _serveDeltaProfile( _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>, _secStr:stdgo.GoString):Void {
         @:recv var _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler = _name;
         var __deferstack__:Array<Void -> Void> = [];
@@ -18,7 +19,7 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (400 : stdgo.GoInt), ("profile duration exceeds server\'s WriteTimeout" : stdgo.GoString));
                 return;
             };
-            var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_r.formValue(("debug" : stdgo.GoString))?.__copy__()), _debug:stdgo.GoInt = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(@:check2r _r.formValue(("debug" : stdgo.GoString))?.__copy__()), _debug:stdgo.GoInt = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             if (_debug != ((0 : stdgo.GoInt))) {
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (400 : stdgo.GoInt), ("seconds and debug params are incompatible" : stdgo.GoString));
                 return;
@@ -30,18 +31,18 @@ package stdgo._internal.net.http.pprof;
             };
             var _t = stdgo._internal.time.Time_newTimer.newTimer(((_sec : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration));
             {
-                final __f__ = _t.stop;
+                final __f__ = @:check2r _t.stop;
                 __deferstack__.unshift(() -> __f__());
             };
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_r.context().done() != null && _r.context().done().__isGet__()) {
+                    if (@:check2r _r.context().done() != null && @:check2r _r.context().done().__isGet__()) {
                         __select__ = false;
                         {
-                            _r.context().done().__get__();
+                            @:check2r _r.context().done().__get__();
                             {
-                                var _err = (_r.context().err() : stdgo.Error);
+                                var _err = (@:check2r _r.context().err() : stdgo.Error);
                                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.context.Context_deadlineExceeded.deadlineExceeded))) {
                                     stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (408 : stdgo.GoInt), _err.error()?.__copy__());
                                 } else {
@@ -49,16 +50,17 @@ package stdgo._internal.net.http.pprof;
                                 };
                                 {
                                     for (defer in __deferstack__) {
+                                        __deferstack__.remove(defer);
                                         defer();
                                     };
                                     return;
                                 };
                             };
                         };
-                    } else if (_t.c != null && _t.c.__isGet__()) {
+                    } else if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__()) {
                         __select__ = false;
                         {
-                            _t.c.__get__();
+                            (@:checkr _t ?? throw "null pointer dereference").c.__get__();
                             {};
                         };
                     };
@@ -71,14 +73,15 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to collect profile" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return;
                 };
             };
-            var _ts = (_p1.timeNanos : stdgo.GoInt64);
-            var _dur = (_p1.timeNanos - _p0.timeNanos : stdgo.GoInt64);
-            _p0.scale((-1 : stdgo.GoFloat64));
+            var _ts = ((@:checkr _p1 ?? throw "null pointer dereference").timeNanos : stdgo.GoInt64);
+            var _dur = ((@:checkr _p1 ?? throw "null pointer dereference").timeNanos - (@:checkr _p0 ?? throw "null pointer dereference").timeNanos : stdgo.GoInt64);
+            @:check2r _p0.scale((-1 : stdgo.GoFloat64));
             {
                 var __tmp__ = _internal.internal.profile.Profile_merge.merge((new stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>(2, 2, ...[_p0, _p1]) : stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>));
                 _p1 = __tmp__._0;
@@ -88,18 +91,20 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to compute delta" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return;
                 };
             };
-            _p1.timeNanos = _ts;
-            _p1.durationNanos = _dur;
+            (@:checkr _p1 ?? throw "null pointer dereference").timeNanos = _ts;
+            (@:checkr _p1 ?? throw "null pointer dereference").durationNanos = _dur;
             _w.header().set(("Content-Type" : stdgo.GoString), ("application/octet-stream" : stdgo.GoString));
             _w.header().set(("Content-Disposition" : stdgo.GoString), stdgo._internal.fmt.Fmt_sprintf.sprintf(("attachment; filename=\"%s-delta\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_name)))?.__copy__());
-            _p1.write(_w);
+            @:check2r _p1.write(_w);
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -114,6 +119,7 @@ package stdgo._internal.net.http.pprof;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -121,6 +127,7 @@ package stdgo._internal.net.http.pprof;
         };
     }
     @:keep
+    @:tdfield
     static public function serveHTTP( _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler = _name;
         _w.header().set(("X-Content-Type-Options" : stdgo.GoString), ("nosniff" : stdgo.GoString));
@@ -130,23 +137,23 @@ package stdgo._internal.net.http.pprof;
             return;
         };
         {
-            var _sec = (_r.formValue(("seconds" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+            var _sec = (@:check2r _r.formValue(("seconds" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_sec != (stdgo.Go.str())) {
                 _name._serveDeltaProfile(_w, _r, _p, _sec?.__copy__());
                 return;
             };
         };
-        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_r.formValue(("gc" : stdgo.GoString))?.__copy__()), _gc:stdgo.GoInt = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(@:check2r _r.formValue(("gc" : stdgo.GoString))?.__copy__()), _gc:stdgo.GoInt = __tmp__._0, __0:stdgo.Error = __tmp__._1;
         if (((_name == (("heap" : stdgo.GoString) : stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler)) && (_gc > (0 : stdgo.GoInt) : Bool) : Bool)) {
-            stdgo._internal.runtime.Runtime_gc.gc();
+            stdgo._internal.runtime.Runtime_gC.gC();
         };
-        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_r.formValue(("debug" : stdgo.GoString))?.__copy__()), _debug:stdgo.GoInt = __tmp__._0, __1:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(@:check2r _r.formValue(("debug" : stdgo.GoString))?.__copy__()), _debug:stdgo.GoInt = __tmp__._0, __1:stdgo.Error = __tmp__._1;
         if (_debug != ((0 : stdgo.GoInt))) {
             _w.header().set(("Content-Type" : stdgo.GoString), ("text/plain; charset=utf-8" : stdgo.GoString));
         } else {
             _w.header().set(("Content-Type" : stdgo.GoString), ("application/octet-stream" : stdgo.GoString));
             _w.header().set(("Content-Disposition" : stdgo.GoString), stdgo._internal.fmt.Fmt_sprintf.sprintf(("attachment; filename=\"%s\"" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_name)))?.__copy__());
         };
-        _p.writeTo(_w, _debug);
+        @:check2r _p.writeTo(_w, _debug);
     }
 }

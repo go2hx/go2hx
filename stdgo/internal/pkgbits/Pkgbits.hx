@@ -282,6 +282,7 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_Code.Code;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.internal.pkgbits.Pkgbits_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
@@ -293,6 +294,7 @@ typedef RelocKind = stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind
 typedef Index = stdgo._internal.internal.pkgbits.Pkgbits_Index.Index;
 typedef T_frameVisitor = stdgo._internal.internal.pkgbits.Pkgbits_T_frameVisitor.T_frameVisitor;
 typedef SyncMarker = stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker;
+typedef PkgDecoderPointer = stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoderPointer.PkgDecoderPointer;
 class PkgDecoder_static_extension {
     static public function peekObj(_pr:PkgDecoder, _idx:Index):stdgo.Tuple.Tuple3<String, String, CodeObj> {
         return {
@@ -343,6 +345,7 @@ class PkgDecoder_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder_static_extension.PkgDecoder_static_extension.pkgPath(_pr);
     }
 }
+typedef DecoderPointer = stdgo._internal.internal.pkgbits.Pkgbits_DecoderPointer.DecoderPointer;
 class Decoder_static_extension {
     static public function _bigFloat(_r:Decoder):stdgo._internal.math.big.Big_Float_.Float_ {
         return stdgo._internal.internal.pkgbits.Pkgbits_Decoder_static_extension.Decoder_static_extension._bigFloat(_r);
@@ -402,6 +405,7 @@ class Decoder_static_extension {
         stdgo._internal.internal.pkgbits.Pkgbits_Decoder_static_extension.Decoder_static_extension._checkErr(_r, _err);
     }
 }
+typedef PkgEncoderPointer = stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoderPointer.PkgEncoderPointer;
 class PkgEncoder_static_extension {
     static public function newEncoderRaw(_pw:PkgEncoder, _k:RelocKind):Encoder {
         return stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder_static_extension.PkgEncoder_static_extension.newEncoderRaw(_pw, _k);
@@ -419,6 +423,7 @@ class PkgEncoder_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder_static_extension.PkgEncoder_static_extension.syncMarkers(_pw);
     }
 }
+typedef EncoderPointer = stdgo._internal.internal.pkgbits.Pkgbits_EncoderPointer.EncoderPointer;
 class Encoder_static_extension {
     static public function _bigFloat(_w:Encoder, _v:stdgo._internal.math.big.Big_Float_.Float_):Void {
         stdgo._internal.internal.pkgbits.Pkgbits_Encoder_static_extension.Encoder_static_extension._bigFloat(_w, _v);
@@ -485,6 +490,7 @@ class Encoder_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_Encoder_static_extension.Encoder_static_extension.flush(_w);
     }
 }
+typedef CodeValPointer = stdgo._internal.internal.pkgbits.Pkgbits_CodeValPointer.CodeValPointer;
 class CodeVal_static_extension {
     static public function value(_c:CodeVal):StdTypes.Int {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeVal_static_extension.CodeVal_static_extension.value(_c);
@@ -493,6 +499,7 @@ class CodeVal_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeVal_static_extension.CodeVal_static_extension.marker(_c);
     }
 }
+typedef CodeTypePointer = stdgo._internal.internal.pkgbits.Pkgbits_CodeTypePointer.CodeTypePointer;
 class CodeType_static_extension {
     static public function value(_c:CodeType):StdTypes.Int {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeType_static_extension.CodeType_static_extension.value(_c);
@@ -501,6 +508,7 @@ class CodeType_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeType_static_extension.CodeType_static_extension.marker(_c);
     }
 }
+typedef CodeObjPointer = stdgo._internal.internal.pkgbits.Pkgbits_CodeObjPointer.CodeObjPointer;
 class CodeObj_static_extension {
     static public function value(_c:CodeObj):StdTypes.Int {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeObj_static_extension.CodeObj_static_extension.value(_c);
@@ -509,6 +517,7 @@ class CodeObj_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_CodeObj_static_extension.CodeObj_static_extension.marker(_c);
     }
 }
+typedef SyncMarkerPointer = stdgo._internal.internal.pkgbits.Pkgbits_SyncMarkerPointer.SyncMarkerPointer;
 class SyncMarker_static_extension {
     static public function string(_i:SyncMarker):String {
         return stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker_static_extension.SyncMarker_static_extension.string(_i);

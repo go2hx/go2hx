@@ -8,5 +8,6 @@ typedef ColumnConverter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columnConverter(_idx:stdgo.GoInt):stdgo._internal.database.sql.driver.Driver_ValueConverter.ValueConverter;
 };

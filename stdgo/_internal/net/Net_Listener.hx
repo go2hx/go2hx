@@ -5,6 +5,7 @@ typedef Listener = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function accept():{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; };
     /**
         Close closes the listener.
@@ -12,11 +13,13 @@ typedef Listener = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         Addr returns the listener's network address.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function addr():stdgo._internal.net.Net_Addr.Addr;
 };

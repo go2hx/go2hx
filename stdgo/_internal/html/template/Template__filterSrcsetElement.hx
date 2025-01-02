@@ -30,13 +30,13 @@ function _filterSrcsetElement(_s:stdgo.GoString, _left:stdgo.GoInt, _right:stdgo
                     };
                 };
                 if (_metadataOk) {
-                    _b.writeString((_s.__slice__(_left, _start) : stdgo.GoString)?.__copy__());
+                    @:check2r _b.writeString((_s.__slice__(_left, _start) : stdgo.GoString)?.__copy__());
                     stdgo._internal.html.template.Template__processURLOnto._processURLOnto(_url?.__copy__(), true, _b);
-                    _b.writeString((_s.__slice__(_end, _right) : stdgo.GoString)?.__copy__());
+                    @:check2r _b.writeString((_s.__slice__(_end, _right) : stdgo.GoString)?.__copy__());
                     return;
                 };
             };
         };
-        _b.writeString(("#" : stdgo.GoString));
-        _b.writeString(("ZgotmplZ" : stdgo.GoString));
+        @:check2r _b.writeString(("#" : stdgo.GoString));
+        @:check2r _b.writeString(("ZgotmplZ" : stdgo.GoString));
     }

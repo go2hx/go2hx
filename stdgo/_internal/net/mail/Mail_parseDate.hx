@@ -1,12 +1,12 @@
 package stdgo._internal.net.mail;
 function parseDate(_date:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
-        stdgo._internal.net.mail.Mail__dateLayoutsBuildOnce._dateLayoutsBuildOnce.do_(stdgo._internal.net.mail.Mail__buildDateLayouts._buildDateLayouts);
+        @:check2 stdgo._internal.net.mail.Mail__dateLayoutsBuildOnce._dateLayoutsBuildOnce.do_(stdgo._internal.net.mail.Mail__buildDateLayouts._buildDateLayouts);
         _date = stdgo._internal.strings.Strings_replaceAll.replaceAll(_date?.__copy__(), ("\r\n" : stdgo.GoString), stdgo.Go.str()?.__copy__())?.__copy__();
         if (stdgo._internal.strings.Strings_contains.contains(_date?.__copy__(), ("\r" : stdgo.GoString))) {
             return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: header has a CR without LF" : stdgo.GoString)) };
         };
         var _p = (new stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser(_date?.__copy__(), null) : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
-        _p._skipSpace();
+        @:check2 _p._skipSpace();
         {
             var _ind = (stdgo._internal.strings.Strings_indexAny.indexAny(_p._s?.__copy__(), ("+-" : stdgo.GoString)) : stdgo.GoInt);
             if (((_ind != (-1 : stdgo.GoInt)) && ((_p._s.length) >= (_ind + (5 : stdgo.GoInt) : stdgo.GoInt) : Bool) : Bool)) {
@@ -26,7 +26,7 @@ function parseDate(_date:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_Ti
                 };
             };
         };
-        if (!_p._skipCFWS()) {
+        if (!@:check2 _p._skipCFWS()) {
             return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: misformatted parenthetical comment" : stdgo.GoString)) };
         };
         for (__0 => _layout in stdgo._internal.net.mail.Mail__dateLayouts._dateLayouts) {

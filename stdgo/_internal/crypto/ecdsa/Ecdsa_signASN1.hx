@@ -20,7 +20,7 @@ function signASN1(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<std
             };
         };
         {
-            final __value__ = _priv.publicKey.curve.params();
+            final __value__ = (@:checkr _priv ?? throw "null pointer dereference").publicKey.curve.params();
             if (__value__ == (stdgo._internal.crypto.elliptic.Elliptic_p224.p224().params())) {
                 return stdgo._internal.crypto.ecdsa.Ecdsa__signNISTEC._signNISTEC(stdgo._internal.crypto.ecdsa.Ecdsa__p224._p224(), _priv, _csprng, _hash);
             } else if (__value__ == (stdgo._internal.crypto.elliptic.Elliptic_p256.p256().params())) {

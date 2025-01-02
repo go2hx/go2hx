@@ -7,5 +7,6 @@ typedef SessionResetter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function resetSession(_ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error;
 };

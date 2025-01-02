@@ -1,7 +1,7 @@
 package stdgo._internal.debug.gosym;
 @:structInit @:using(stdgo._internal.debug.gosym.Gosym_LineTable_static_extension.LineTable_static_extension) class LineTable {
     public var data : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var pc : stdgo.GoUInt64 = 0;
+    public var pC : stdgo.GoUInt64 = 0;
     public var line : stdgo.GoInt = 0;
     public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _version : stdgo._internal.debug.gosym.Gosym_T_version.T_version = ((0 : stdgo.GoInt) : stdgo._internal.debug.gosym.Gosym_T_version.T_version);
@@ -20,9 +20,9 @@ package stdgo._internal.debug.gosym;
     public var _funcNames : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>);
     public var _strings : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>);
     public var _fileMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>);
-    public function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pc:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_version:stdgo._internal.debug.gosym.Gosym_T_version.T_version, ?_binary:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>) {
+    public function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pC:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_version:stdgo._internal.debug.gosym.Gosym_T_version.T_version, ?_binary:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>) {
         if (data != null) this.data = data;
-        if (pc != null) this.pc = pc;
+        if (pC != null) this.pC = pC;
         if (line != null) this.line = line;
         if (_mu != null) this._mu = _mu;
         if (_version != null) this._version = _version;
@@ -46,7 +46,7 @@ package stdgo._internal.debug.gosym;
     public function __copy__() {
         return new LineTable(
 data,
-pc,
+pC,
 line,
 _mu,
 _version,

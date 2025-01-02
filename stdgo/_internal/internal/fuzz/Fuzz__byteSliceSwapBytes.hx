@@ -3,16 +3,16 @@ function _byteSliceSwapBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_m
         if (((_b.length) <= (1 : stdgo.GoInt) : Bool)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        var _src = (_m._rand((_b.length)) : stdgo.GoInt);
-        var _dst = (_m._rand((_b.length)) : stdgo.GoInt);
+        var _src = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
+        var _dst = (@:check2r _m._rand((_b.length)) : stdgo.GoInt);
         while (_dst == (_src)) {
-            _dst = _m._rand((_b.length));
+            _dst = @:check2r _m._rand((_b.length));
         };
         var _max = (_dst : stdgo.GoInt);
         if ((_src > _max : Bool)) {
             _max = _src;
         };
-        var _n = (_m._chooseLen((((_b.length) - _max : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+        var _n = (@:check2r _m._chooseLen((((_b.length) - _max : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         if ((((_src > _dst : Bool) && ((_dst + _n : stdgo.GoInt) >= _src : Bool) : Bool) || ((_dst > _src : Bool) && ((_src + _n : stdgo.GoInt) >= _dst : Bool) : Bool) : Bool)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };

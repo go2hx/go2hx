@@ -165,10 +165,10 @@ typedef T_fileWriter = stdgo._internal.archive.tar.Tar_T_fileWriter.T_fileWriter
         this.xattrs = v;
         return v;
     }
-    public var paxrecords(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_paxrecords():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.paxrecords;
-    function set_paxrecords(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.paxrecords = v;
+    public var pAXRecords(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
+    function get_pAXRecords():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.pAXRecords;
+    function set_pAXRecords(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
+        this.pAXRecords = v;
         return v;
     }
     public var format(get, set) : Format;
@@ -177,7 +177,7 @@ typedef T_fileWriter = stdgo._internal.archive.tar.Tar_T_fileWriter.T_fileWriter
         this.format = v;
         return v;
     }
-    public function new(?typeflag:std.UInt, ?name:String, ?linkname:String, ?size:haxe.Int64, ?mode:haxe.Int64, ?uid:StdTypes.Int, ?gid:StdTypes.Int, ?uname:String, ?gname:String, ?modTime:stdgo._internal.time.Time_Time.Time, ?accessTime:stdgo._internal.time.Time_Time.Time, ?changeTime:stdgo._internal.time.Time_Time.Time, ?devmajor:haxe.Int64, ?devminor:haxe.Int64, ?xattrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?paxrecords:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?format:Format) this = new stdgo._internal.archive.tar.Tar_Header.Header(
+    public function new(?typeflag:std.UInt, ?name:String, ?linkname:String, ?size:haxe.Int64, ?mode:haxe.Int64, ?uid:StdTypes.Int, ?gid:StdTypes.Int, ?uname:String, ?gname:String, ?modTime:stdgo._internal.time.Time_Time.Time, ?accessTime:stdgo._internal.time.Time_Time.Time, ?changeTime:stdgo._internal.time.Time_Time.Time, ?devmajor:haxe.Int64, ?devminor:haxe.Int64, ?xattrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?pAXRecords:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?format:Format) this = new stdgo._internal.archive.tar.Tar_Header.Header(
 typeflag,
 name,
 linkname,
@@ -193,7 +193,7 @@ changeTime,
 devmajor,
 devminor,
 xattrs,
-paxrecords,
+pAXRecords,
 format);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -414,21 +414,23 @@ format);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.archive.tar.Tar_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function read(__self__:stdgo._internal.archive.tar.Tar_T__struct_0.T__struct_0, __0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:stdgo._internal.archive.tar.Tar_T__struct_0.T__struct_0, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.archive.tar.Tar_T__struct_0_static_extension.T__struct_0_static_extension.read(__self__, __0);
+            final obj = stdgo._internal.archive.tar.Tar_T__struct_0_static_extension.T__struct_0_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 typedef T__struct_0 = stdgo._internal.archive.tar.Tar_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.archive.tar.Tar_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
-    public static function write(__self__:stdgo._internal.archive.tar.Tar_T__struct_1.T__struct_1, __0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:stdgo._internal.archive.tar.Tar_T__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.archive.tar.Tar_T__struct_1_static_extension.T__struct_1_static_extension.write(__self__, __0);
+            final obj = stdgo._internal.archive.tar.Tar_T__struct_1_static_extension.T__struct_1_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -447,6 +449,7 @@ typedef T_sparseArray = stdgo._internal.archive.tar.Tar_T_sparseArray.T_sparseAr
 typedef T_sparseElem = stdgo._internal.archive.tar.Tar_T_sparseElem.T_sparseElem;
 typedef T_stringFormatter = stdgo._internal.archive.tar.Tar_T_stringFormatter.T_stringFormatter;
 typedef T_numberFormatter = stdgo._internal.archive.tar.Tar_T_numberFormatter.T_numberFormatter;
+typedef HeaderPointer = stdgo._internal.archive.tar.Tar_HeaderPointer.HeaderPointer;
 class Header_static_extension {
     static public function fileInfo(_h:Header):stdgo._internal.io.fs.Fs_FileInfo.FileInfo {
         return stdgo._internal.archive.tar.Tar_Header_static_extension.Header_static_extension.fileInfo(_h);
@@ -458,11 +461,13 @@ class Header_static_extension {
         };
     }
 }
+typedef T_sparseEntryPointer = stdgo._internal.archive.tar.Tar_T_sparseEntryPointer.T_sparseEntryPointer;
 class T_sparseEntry_static_extension {
     static public function _endOffset(_s:T_sparseEntry):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_sparseEntry_static_extension.T_sparseEntry_static_extension._endOffset(_s);
     }
 }
+typedef T_headerFileInfoPointer = stdgo._internal.archive.tar.Tar_T_headerFileInfoPointer.T_headerFileInfoPointer;
 class T_headerFileInfo_static_extension {
     static public function string(_fi:T_headerFileInfo):String {
         return stdgo._internal.archive.tar.Tar_T_headerFileInfo_static_extension.T_headerFileInfo_static_extension.string(_fi);
@@ -486,6 +491,7 @@ class T_headerFileInfo_static_extension {
         return stdgo._internal.archive.tar.Tar_T_headerFileInfo_static_extension.T_headerFileInfo_static_extension.size(_fi);
     }
 }
+typedef ReaderPointer = stdgo._internal.archive.tar.Tar_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function _writeTo(_tr:Reader, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -537,6 +543,7 @@ class Reader_static_extension {
         };
     }
 }
+typedef T_regFileReaderPointer = stdgo._internal.archive.tar.Tar_T_regFileReaderPointer.T_regFileReaderPointer;
 class T_regFileReader_static_extension {
     static public function _physicalRemaining(_fr:T_regFileReader):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_regFileReader_static_extension.T_regFileReader_static_extension._physicalRemaining(_fr);
@@ -558,6 +565,7 @@ class T_regFileReader_static_extension {
         };
     }
 }
+typedef T_sparseFileReaderPointer = stdgo._internal.archive.tar.Tar_T_sparseFileReaderPointer.T_sparseFileReaderPointer;
 class T_sparseFileReader_static_extension {
     static public function _physicalRemaining(_sr:T_sparseFileReader):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_sparseFileReader_static_extension.T_sparseFileReader_static_extension._physicalRemaining(_sr);
@@ -579,6 +587,7 @@ class T_sparseFileReader_static_extension {
         };
     }
 }
+typedef T_zeroReaderPointer = stdgo._internal.archive.tar.Tar_T_zeroReaderPointer.T_zeroReaderPointer;
 class T_zeroReader_static_extension {
     static public function read(_:T_zeroReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -588,6 +597,7 @@ class T_zeroReader_static_extension {
         };
     }
 }
+typedef T_parserPointer = stdgo._internal.archive.tar.Tar_T_parserPointer.T_parserPointer;
 class T_parser_static_extension {
     static public function _parseOctal(_p:T_parser, _b:Array<std.UInt>):haxe.Int64 {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -602,6 +612,7 @@ class T_parser_static_extension {
         return stdgo._internal.archive.tar.Tar_T_parser_static_extension.T_parser_static_extension._parseString(_, _b);
     }
 }
+typedef T_formatterPointer = stdgo._internal.archive.tar.Tar_T_formatterPointer.T_formatterPointer;
 class T_formatter_static_extension {
     static public function _formatOctal(_f:T_formatter, _b:Array<std.UInt>, _x:haxe.Int64):Void {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -616,6 +627,7 @@ class T_formatter_static_extension {
         stdgo._internal.archive.tar.Tar_T_formatter_static_extension.T_formatter_static_extension._formatString(_f, _b, _s);
     }
 }
+typedef WriterPointer = stdgo._internal.archive.tar.Tar_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function close(_tw:Writer):stdgo.Error {
         return stdgo._internal.archive.tar.Tar_Writer_static_extension.Writer_static_extension.close(_tw);
@@ -658,6 +670,7 @@ class Writer_static_extension {
         return stdgo._internal.archive.tar.Tar_Writer_static_extension.Writer_static_extension.flush(_tw);
     }
 }
+typedef T_regFileWriterPointer = stdgo._internal.archive.tar.Tar_T_regFileWriterPointer.T_regFileWriterPointer;
 class T_regFileWriter_static_extension {
     static public function _physicalRemaining(_fw:T_regFileWriter):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_regFileWriter_static_extension.T_regFileWriter_static_extension._physicalRemaining(_fw);
@@ -679,6 +692,7 @@ class T_regFileWriter_static_extension {
         };
     }
 }
+typedef T_sparseFileWriterPointer = stdgo._internal.archive.tar.Tar_T_sparseFileWriterPointer.T_sparseFileWriterPointer;
 class T_sparseFileWriter_static_extension {
     static public function _physicalRemaining(_sw:T_sparseFileWriter):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_sparseFileWriter_static_extension.T_sparseFileWriter_static_extension._physicalRemaining(_sw);
@@ -700,6 +714,7 @@ class T_sparseFileWriter_static_extension {
         };
     }
 }
+typedef T_zeroWriterPointer = stdgo._internal.archive.tar.Tar_T_zeroWriterPointer.T_zeroWriterPointer;
 class T_zeroWriter_static_extension {
     static public function write(_:T_zeroWriter, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -709,28 +724,31 @@ class T_zeroWriter_static_extension {
         };
     }
 }
+typedef T_headerErrorPointer = stdgo._internal.archive.tar.Tar_T_headerErrorPointer.T_headerErrorPointer;
 class T_headerError_static_extension {
     static public function error(_he:T_headerError):String {
         return stdgo._internal.archive.tar.Tar_T_headerError_static_extension.T_headerError_static_extension.error(_he);
     }
 }
+typedef FormatPointer = stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer;
 class Format_static_extension {
     static public function string(_f:Format):String {
         return stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension.string(_f);
     }
-    static public function _mustNotBe(____:Format, _f:stdgo.Pointer<Format>, _f2:Format):Void {
-        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mustNotBe(____, _f, _f2);
+    static public function _mustNotBe(_f:stdgo.Pointer<Format>, _f2:Format):Void {
+        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mustNotBe(_f, _f2);
     }
-    static public function _mayOnlyBe(____:Format, _f:stdgo.Pointer<Format>, _f2:Format):Void {
-        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mayOnlyBe(____, _f, _f2);
+    static public function _mayOnlyBe(_f:stdgo.Pointer<Format>, _f2:Format):Void {
+        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mayOnlyBe(_f, _f2);
     }
-    static public function _mayBe(____:Format, _f:stdgo.Pointer<Format>, _f2:Format):Void {
-        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mayBe(____, _f, _f2);
+    static public function _mayBe(_f:stdgo.Pointer<Format>, _f2:Format):Void {
+        stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._mayBe(_f, _f2);
     }
     static public function _has(_f:Format, _f2:Format):Bool {
         return stdgo._internal.archive.tar.Tar_Format_static_extension.Format_static_extension._has(_f, _f2);
     }
 }
+typedef T_blockPointer = stdgo._internal.archive.tar.Tar_T_blockPointer.T_blockPointer;
 class T_block_static_extension {
     static public function _reset(_b:T_block):Void {
         stdgo._internal.archive.tar.Tar_T_block_static_extension.T_block_static_extension._reset(_b);
@@ -763,6 +781,7 @@ class T_block_static_extension {
         return stdgo._internal.archive.tar.Tar_T_block_static_extension.T_block_static_extension._toV7(_b);
     }
 }
+typedef T_headerV7Pointer = stdgo._internal.archive.tar.Tar_T_headerV7Pointer.T_headerV7Pointer;
 class T_headerV7_static_extension {
     static public function _linkName(_h:T_headerV7):Array<std.UInt> {
         return [for (i in stdgo._internal.archive.tar.Tar_T_headerV7_static_extension.T_headerV7_static_extension._linkName(_h)) i];
@@ -792,6 +811,7 @@ class T_headerV7_static_extension {
         return [for (i in stdgo._internal.archive.tar.Tar_T_headerV7_static_extension.T_headerV7_static_extension._name(_h)) i];
     }
 }
+typedef T_headerGNUPointer = stdgo._internal.archive.tar.Tar_T_headerGNUPointer.T_headerGNUPointer;
 class T_headerGNU_static_extension {
     static public function _realSize(_h:T_headerGNU):Array<std.UInt> {
         return [for (i in stdgo._internal.archive.tar.Tar_T_headerGNU_static_extension.T_headerGNU_static_extension._realSize(_h)) i];
@@ -827,6 +847,7 @@ class T_headerGNU_static_extension {
         return stdgo._internal.archive.tar.Tar_T_headerGNU_static_extension.T_headerGNU_static_extension._v7(_h);
     }
 }
+typedef T_headerSTARPointer = stdgo._internal.archive.tar.Tar_T_headerSTARPointer.T_headerSTARPointer;
 class T_headerSTAR_static_extension {
     static public function _trailer(_h:T_headerSTAR):Array<std.UInt> {
         return [for (i in stdgo._internal.archive.tar.Tar_T_headerSTAR_static_extension.T_headerSTAR_static_extension._trailer(_h)) i];
@@ -862,6 +883,7 @@ class T_headerSTAR_static_extension {
         return stdgo._internal.archive.tar.Tar_T_headerSTAR_static_extension.T_headerSTAR_static_extension._v7(_h);
     }
 }
+typedef T_headerUSTARPointer = stdgo._internal.archive.tar.Tar_T_headerUSTARPointer.T_headerUSTARPointer;
 class T_headerUSTAR_static_extension {
     static public function _prefix(_h:T_headerUSTAR):Array<std.UInt> {
         return [for (i in stdgo._internal.archive.tar.Tar_T_headerUSTAR_static_extension.T_headerUSTAR_static_extension._prefix(_h)) i];
@@ -888,6 +910,7 @@ class T_headerUSTAR_static_extension {
         return stdgo._internal.archive.tar.Tar_T_headerUSTAR_static_extension.T_headerUSTAR_static_extension._v7(_h);
     }
 }
+typedef T_sparseArrayPointer = stdgo._internal.archive.tar.Tar_T_sparseArrayPointer.T_sparseArrayPointer;
 class T_sparseArray_static_extension {
     static public function _maxEntries(_s:T_sparseArray):StdTypes.Int {
         return stdgo._internal.archive.tar.Tar_T_sparseArray_static_extension.T_sparseArray_static_extension._maxEntries(_s);
@@ -899,6 +922,7 @@ class T_sparseArray_static_extension {
         return stdgo._internal.archive.tar.Tar_T_sparseArray_static_extension.T_sparseArray_static_extension._entry(_s, _i);
     }
 }
+typedef T_sparseElemPointer = stdgo._internal.archive.tar.Tar_T_sparseElemPointer.T_sparseElemPointer;
 class T_sparseElem_static_extension {
     static public function _length(_s:T_sparseElem):Array<std.UInt> {
         return [for (i in stdgo._internal.archive.tar.Tar_T_sparseElem_static_extension.T_sparseElem_static_extension._length(_s)) i];

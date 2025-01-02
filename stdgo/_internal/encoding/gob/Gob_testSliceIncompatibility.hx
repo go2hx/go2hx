@@ -5,7 +5,7 @@ function testSliceIncompatibility(_t:stdgo.Ref<stdgo._internal.testing.Testing_T
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_in), stdgo.Go.toInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>))) : stdgo.Error);
             if (_err == null) {
-                _t.error(stdgo.Go.toInterface(("expected compatibility error" : stdgo.GoString)));
+                @:check2r _t.error(stdgo.Go.toInterface(("expected compatibility error" : stdgo.GoString)));
             };
         };
     }

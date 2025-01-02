@@ -1,6 +1,7 @@
 package stdgo._internal.internal.buildcfg;
 @:keep @:allow(stdgo._internal.internal.buildcfg.Buildcfg.T_gowasmFeatures_asInterface) class T_gowasmFeatures_static_extension {
     @:keep
+    @:tdfield
     static public function string( _f:stdgo._internal.internal.buildcfg.Buildcfg_T_gowasmFeatures.T_gowasmFeatures):stdgo.GoString {
         @:recv var _f:stdgo._internal.internal.buildcfg.Buildcfg_T_gowasmFeatures.T_gowasmFeatures = _f?.__copy__();
         var _flags:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

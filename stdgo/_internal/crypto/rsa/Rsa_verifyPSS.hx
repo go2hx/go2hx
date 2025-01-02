@@ -6,20 +6,20 @@ function verifyPSS(_pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.Publi
                 return _err;
             };
             {
-                var _err = (stdgo._internal.crypto.internal.boring.Boring_verifyRSAPSS.verifyRSAPSS(_bkey, _hash, _digest, _sig, _opts._saltLength()) : stdgo.Error);
+                var _err = (stdgo._internal.crypto.internal.boring.Boring_verifyRSAPSS.verifyRSAPSS(_bkey, _hash, _digest, _sig, @:check2r _opts._saltLength()) : stdgo.Error);
                 if (_err != null) {
                     return stdgo._internal.crypto.rsa.Rsa_errVerification.errVerification;
                 };
             };
             return (null : stdgo.Error);
         };
-        if ((_sig.length) != (_pub.size())) {
+        if ((_sig.length) != (@:check2r _pub.size())) {
             return stdgo._internal.crypto.rsa.Rsa_errVerification.errVerification;
         };
-        if ((_opts._saltLength() < (-1 : stdgo.GoInt) : Bool)) {
+        if ((@:check2r _opts._saltLength() < (-1 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.crypto.rsa.Rsa__invalidSaltLenErr._invalidSaltLenErr;
         };
-        var _emBits = (_pub.n.bitLen() - (1 : stdgo.GoInt) : stdgo.GoInt);
+        var _emBits = (@:check2r (@:checkr _pub ?? throw "null pointer dereference").n.bitLen() - (1 : stdgo.GoInt) : stdgo.GoInt);
         var _emLen = (((_emBits + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         var __tmp__ = stdgo._internal.crypto.rsa.Rsa__encrypt._encrypt(_pub, _sig), _em:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -31,5 +31,5 @@ function verifyPSS(_pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.Publi
             };
             _em = (_em.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return stdgo._internal.crypto.rsa.Rsa__emsaPSSVerify._emsaPSSVerify(_digest, _em, _emBits, _opts._saltLength(), _hash.new_());
+        return stdgo._internal.crypto.rsa.Rsa__emsaPSSVerify._emsaPSSVerify(_digest, _em, _emBits, @:check2r _opts._saltLength(), _hash.new_());
     }

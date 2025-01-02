@@ -1,11 +1,11 @@
 package stdgo._internal.net.textproto;
 function _initCommonHeader():Void {
-        stdgo._internal.net.textproto.Textproto__commonHeader._commonHeader = ({
+        stdgo._internal.net.textproto.Textproto__commonHeader._commonHeader = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         for (__0 => _v in (new stdgo.Slice<stdgo.GoString>(39, 39, ...[
 ("Accept" : stdgo.GoString),
 ("Accept-Charset" : stdgo.GoString),

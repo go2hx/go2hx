@@ -6,8 +6,10 @@ package stdgo._internal.io;
         if (reader != null) this.reader = reader;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
-    public function read(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return this.reader.read(_p);
+    @:embeddededffieldsffun
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 (this.reader ?? throw "null pointer derefrence").read;
     public function __copy__() {
         return new T_nopCloser(reader);
     }

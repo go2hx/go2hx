@@ -6,5 +6,6 @@ typedef T_writer = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function flush():stdgo.Error;
 };

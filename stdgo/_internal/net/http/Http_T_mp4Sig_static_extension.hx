@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_mp4Sig_asInterface) class T_mp4Sig_static_extension {
     @:keep
+    @:tdfield
     static public function _match( _:stdgo._internal.net.http.Http_T_mp4Sig.T_mp4Sig, _data:stdgo.Slice<stdgo.GoUInt8>, _firstNonWS:stdgo.GoInt):stdgo.GoString {
         @:recv var _:stdgo._internal.net.http.Http_T_mp4Sig.T_mp4Sig = _?.__copy__();
         if (((_data.length) < (12 : stdgo.GoInt) : Bool)) {

@@ -6,16 +6,26 @@ package stdgo._internal.testing.fstest;
         if (mapFS != null) this.mapFS = mapFS;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var glob(get, never) : stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; };
     @:embedded
-    public function glob(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return this.mapFS.glob(_pattern);
+    @:embeddededffieldsffun
+    public function get_glob():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return @:check3 (this.mapFS ?? throw "null pointer derefrence").glob;
+    public var open(get, never) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; };
     @:embedded
-    public function open(_pattern:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return this.mapFS.open(_pattern);
+    @:embeddededffieldsffun
+    public function get_open():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return @:check3 (this.mapFS ?? throw "null pointer derefrence").open;
+    public var readDir(get, never) : stdgo.GoString -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; };
     @:embedded
-    public function readDir(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } return this.mapFS.readDir(_pattern);
+    @:embeddededffieldsffun
+    public function get_readDir():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } return @:check3 (this.mapFS ?? throw "null pointer derefrence").readDir;
+    public var readFile(get, never) : stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     @:embedded
-    public function readFile(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return this.mapFS.readFile(_pattern);
+    @:embeddededffieldsffun
+    public function get_readFile():stdgo.GoString -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:check3 (this.mapFS ?? throw "null pointer derefrence").readFile;
+    public var stat(get, never) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
     @:embedded
-    public function stat(_pattern:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return this.mapFS.stat(_pattern);
+    @:embeddededffieldsffun
+    public function get_stat():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check3 (this.mapFS ?? throw "null pointer derefrence").stat;
     public function __copy__() {
         return new T_noSub(mapFS);
     }

@@ -7,13 +7,13 @@ function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoStr
             };
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
             if (_wid == ((1 : stdgo.GoInt))) {
-                _b.grow(((_s.length) + (_replacement.length) : stdgo.GoInt));
-                _b.writeString((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__());
+                @:check2 _b.grow(((_s.length) + (_replacement.length) : stdgo.GoInt));
+                @:check2 _b.writeString((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__());
                 _s = (_s.__slice__(_i) : stdgo.GoString)?.__copy__();
                 break;
             };
         };
-        if (_b.cap() == ((0 : stdgo.GoInt))) {
+        if (@:check2 _b.cap() == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();
         };
         var _invalid = (false : Bool);
@@ -24,7 +24,7 @@ function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoStr
                 if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                     _i++;
                     _invalid = false;
-                    _b.writeByte(_c);
+                    @:check2 _b.writeByte(_c);
                     continue;
                 };
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
@@ -32,14 +32,14 @@ function toValidUTF8(_s:stdgo.GoString, _replacement:stdgo.GoString):stdgo.GoStr
                     _i++;
                     if (!_invalid) {
                         _invalid = true;
-                        _b.writeString(_replacement?.__copy__());
+                        @:check2 _b.writeString(_replacement?.__copy__());
                     };
                     continue;
                 };
                 _invalid = false;
-                _b.writeString((_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
+                @:check2 _b.writeString((_s.__slice__(_i, (_i + _wid : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
                 _i = (_i + (_wid) : stdgo.GoInt);
             };
         };
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

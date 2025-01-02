@@ -4,8 +4,8 @@ function _stateBeginString(_s:stdgo.Ref<stdgo._internal.encoding.json.Json_T_sca
             return (9 : stdgo.GoInt);
         };
         if (_c == ((34 : stdgo.GoUInt8))) {
-            _s._step = stdgo._internal.encoding.json.Json__stateInString._stateInString;
+            (@:checkr _s ?? throw "null pointer dereference")._step = stdgo._internal.encoding.json.Json__stateInString._stateInString;
             return (1 : stdgo.GoInt);
         };
-        return _s._error(_c, ("looking for beginning of object key string" : stdgo.GoString));
+        return @:check2r _s._error(_c, ("looking for beginning of object key string" : stdgo.GoString));
     }

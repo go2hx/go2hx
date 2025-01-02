@@ -1,24 +1,31 @@
 package stdgo._internal.net.http;
 class T_http2ContinuationFrame_asInterface {
     @:keep
-    public dynamic function headersEnded():Bool return __self__.value.headersEnded();
+    @:tdfield
+    public dynamic function headersEnded():Bool return @:_0 __self__.value.headersEnded();
     @:keep
-    public dynamic function headerBlockFragment():stdgo.Slice<stdgo.GoUInt8> return __self__.value.headerBlockFragment();
+    @:tdfield
+    public dynamic function headerBlockFragment():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.headerBlockFragment();
     @:embedded
-    public dynamic function _writeDebug(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):Void __self__.value._writeDebug(_buf);
+    @:embeddededffieldsffun
+    public dynamic function _writeDebug(_0:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):Void @:_0 __self__.value._writeDebug(_0);
     @:embedded
-    public dynamic function _invalidate():Void __self__.value._invalidate();
+    @:embeddededffieldsffun
+    public dynamic function _invalidate():Void @:_0 __self__.value._invalidate();
     @:embedded
-    public dynamic function _checkValid():Void __self__.value._checkValid();
+    @:embeddededffieldsffun
+    public dynamic function _checkValid():Void @:_0 __self__.value._checkValid();
     @:embedded
-    public dynamic function string():stdgo.GoString return __self__.value.string();
+    @:embeddededffieldsffun
+    public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     @:embedded
-    public dynamic function header():stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return __self__.value.header();
+    @:embeddededffieldsffun
+    public dynamic function header():stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return @:_0 __self__.value.header();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.net.http.Http_T_http2ContinuationFrame.T_http2ContinuationFrame>;
+    var __self__ : stdgo._internal.net.http.Http_T_http2ContinuationFramePointer.T_http2ContinuationFramePointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

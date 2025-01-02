@@ -5,6 +5,6 @@ class T_testIssue48215___localname___B_58304_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.text.template.Template_T_testIssue48215___localname___B_58304.T_testIssue48215___localname___B_58304>;
+    var __self__ : stdgo._internal.text.template.Template_T_testIssue48215___localname___B_58304Pointer.T_testIssue48215___localname___B_58304Pointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

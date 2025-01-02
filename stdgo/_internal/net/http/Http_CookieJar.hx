@@ -7,6 +7,7 @@ typedef CookieJar = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setCookies(_u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _cookies:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>):Void;
     /**
         Cookies returns the cookies to send in a request for the given URL.
@@ -15,5 +16,6 @@ typedef CookieJar = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function cookies(_u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>;
 };

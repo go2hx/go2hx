@@ -3,15 +3,15 @@ function _http2encodeHeaders(_enc:stdgo.Ref<_internal.vendor.golang_dot_org.x.ne
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (_keys == null) {
-                var _sorter = (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2sorterPool._http2sorterPool.get() : stdgo.Ref<stdgo._internal.net.http.Http_T_http2sorter.T_http2sorter>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2sorter.T_http2sorter>);
+                var _sorter = (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__http2sorterPool._http2sorterPool.get() : stdgo.Ref<stdgo._internal.net.http.Http_T_http2sorter.T_http2sorter>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2sorter.T_http2sorter>);
                 {
                     var _a0 = _sorter;
-                    final __f__ = stdgo._internal.net.http.Http__http2sorterPool._http2sorterPool.put;
+                    final __f__ = @:check2 stdgo._internal.net.http.Http__http2sorterPool._http2sorterPool.put;
                     __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
                 };
-                _keys = _sorter.keys(_h);
+                _keys = @:check2r _sorter.keys(_h);
             };
-            for (__132 => _k in _keys) {
+            for (__137 => _k in _keys) {
                 var _vv = (_h[_k] ?? (null : stdgo.Slice<stdgo.GoString>));
                 var __tmp__ = stdgo._internal.net.http.Http__http2lowerHeader._http2lowerHeader(_k?.__copy__()), _k:stdgo.GoString = __tmp__._0, _ascii:Bool = __tmp__._1;
                 if (!_ascii) {
@@ -21,7 +21,7 @@ function _http2encodeHeaders(_enc:stdgo.Ref<_internal.vendor.golang_dot_org.x.ne
                     continue;
                 };
                 var _isTE = (_k == (("transfer-encoding" : stdgo.GoString)) : Bool);
-                for (__133 => _v in _vv) {
+                for (__138 => _v in _vv) {
                     if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldValue.validHeaderFieldValue(_v?.__copy__())) {
                         continue;
                     };
@@ -33,6 +33,7 @@ function _http2encodeHeaders(_enc:stdgo.Ref<_internal.vendor.golang_dot_org.x.ne
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -47,6 +48,7 @@ function _http2encodeHeaders(_enc:stdgo.Ref<_internal.vendor.golang_dot_org.x.ne
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

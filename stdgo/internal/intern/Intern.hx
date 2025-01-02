@@ -45,11 +45,13 @@ package stdgo.internal.intern;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef ValuePointer = stdgo._internal.internal.intern.Intern_ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function get(_v:Value):stdgo.AnyInterface {
         return stdgo._internal.internal.intern.Intern_Value_static_extension.Value_static_extension.get(_v);
     }
 }
+typedef T_keyPointer = stdgo._internal.internal.intern.Intern_T_keyPointer.T_keyPointer;
 class T_key_static_extension {
     static public function value(_k:T_key):Value {
         return stdgo._internal.internal.intern.Intern_T_key_static_extension.T_key_static_extension.value(_k);

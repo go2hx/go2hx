@@ -38,7 +38,7 @@ function _marshalSANs(_dnsNames:stdgo.Slice<stdgo.GoString>, _emailAddresses:std
             _rawValues = (_rawValues.__append__(({ tag : (7 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : _ip } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue)));
         };
         for (__4 => _uri in _uris) {
-            var _uriStr = ((_uri.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            var _uriStr = ((@:check2r _uri.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             {
                 var _err = (stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_uriStr?.__copy__()) : stdgo.Error);
                 if (_err != null) {

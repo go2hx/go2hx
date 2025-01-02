@@ -7,5 +7,6 @@ typedef Var = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function string():stdgo.GoString;
 };

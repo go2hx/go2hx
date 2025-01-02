@@ -1,52 +1,57 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_wantConn_asInterface) class T_wantConn_static_extension {
     @:keep
+    @:tdfield
     static public function _cancel( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>, _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _err:stdgo.Error):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn> = _w;
-        _w._mu.lock();
-        if (((_w._pc == null || (_w._pc : Dynamic).__nil__) && (_w._err == null) : Bool)) {
-            if (_w._ready != null) _w._ready.__close__();
+        @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
+        if ((((@:checkr _w ?? throw "null pointer dereference")._pc == null || ((@:checkr _w ?? throw "null pointer dereference")._pc : Dynamic).__nil__) && ((@:checkr _w ?? throw "null pointer dereference")._err == null) : Bool)) {
+            if ((@:checkr _w ?? throw "null pointer dereference")._ready != null) (@:checkr _w ?? throw "null pointer dereference")._ready.__close__();
         };
-        var _pc = _w._pc;
-        _w._pc = null;
-        _w._err = _err;
-        _w._mu.unlock();
+        var _pc = (@:checkr _w ?? throw "null pointer dereference")._pc;
+        (@:checkr _w ?? throw "null pointer dereference")._pc = null;
+        (@:checkr _w ?? throw "null pointer dereference")._err = _err;
+        @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock();
         if ((_pc != null && ((_pc : Dynamic).__nil__ == null || !(_pc : Dynamic).__nil__))) {
-            _t._putOrCloseIdleConn(_pc);
+            @:check2r _t._putOrCloseIdleConn(_pc);
         };
     }
     @:keep
+    @:tdfield
     static public function _tryDeliver( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>, _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>, _err:stdgo.Error):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn> = _w;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _w._mu.lock();
+            @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _w._mu.unlock;
+                final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (((_w._pc != null && ((_w._pc : Dynamic).__nil__ == null || !(_w._pc : Dynamic).__nil__)) || (_w._err != null) : Bool)) {
+            if ((((@:checkr _w ?? throw "null pointer dereference")._pc != null && (((@:checkr _w ?? throw "null pointer dereference")._pc : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._pc : Dynamic).__nil__)) || ((@:checkr _w ?? throw "null pointer dereference")._err != null) : Bool)) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return false;
                 };
             };
-            _w._pc = _pc;
-            _w._err = _err;
-            if (((_w._pc == null || (_w._pc : Dynamic).__nil__) && (_w._err == null) : Bool)) {
+            (@:checkr _w ?? throw "null pointer dereference")._pc = _pc;
+            (@:checkr _w ?? throw "null pointer dereference")._err = _err;
+            if ((((@:checkr _w ?? throw "null pointer dereference")._pc == null || ((@:checkr _w ?? throw "null pointer dereference")._pc : Dynamic).__nil__) && ((@:checkr _w ?? throw "null pointer dereference")._err == null) : Bool)) {
                 throw stdgo.Go.toInterface(("net/http: internal error: misuse of tryDeliver" : stdgo.GoString));
             };
-            if (_w._ready != null) _w._ready.__close__();
+            if ((@:checkr _w ?? throw "null pointer dereference")._ready != null) (@:checkr _w ?? throw "null pointer dereference")._ready.__close__();
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return true;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -61,6 +66,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -68,16 +74,17 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _waiting( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn> = _w;
         {
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_w._ready != null && _w._ready.__isGet__()) {
+                    if ((@:checkr _w ?? throw "null pointer dereference")._ready != null && (@:checkr _w ?? throw "null pointer dereference")._ready.__isGet__()) {
                         __select__ = false;
                         {
-                            _w._ready.__get__();
+                            (@:checkr _w ?? throw "null pointer dereference")._ready.__get__();
                             {
                                 return false;
                             };

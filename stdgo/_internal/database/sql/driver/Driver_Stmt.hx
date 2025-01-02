@@ -11,6 +11,7 @@ typedef Stmt = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         NumInput returns the number of placeholder parameters.
@@ -25,6 +26,7 @@ typedef Stmt = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function numInput():stdgo.GoInt;
     /**
         Exec executes a query that doesn't return rows, such
@@ -34,6 +36,7 @@ typedef Stmt = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function exec(_args:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>):{ var _0 : stdgo._internal.database.sql.driver.Driver_Result.Result; var _1 : stdgo.Error; };
     /**
         Query executes a query that may return rows, such as a
@@ -43,5 +46,6 @@ typedef Stmt = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function query(_args:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>):{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; };
 };

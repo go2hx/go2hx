@@ -1,9 +1,10 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.ResponseController_asInterface) class ResponseController_static_extension {
     @:keep
+    @:tdfield
     static public function enableFullDuplex( _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController> = _c;
-        var _rw = (_c._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
+        var _rw = ((@:checkr _c ?? throw "null pointer dereference")._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
         while (true) {
             {
                 final __type__ = _rw;
@@ -21,9 +22,10 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function setWriteDeadline( _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController>, _deadline:stdgo._internal.time.Time_Time.Time):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController> = _c;
-        var _rw = (_c._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
+        var _rw = ((@:checkr _c ?? throw "null pointer dereference")._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
         while (true) {
             {
                 final __type__ = _rw;
@@ -41,9 +43,10 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function setReadDeadline( _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController>, _deadline:stdgo._internal.time.Time_Time.Time):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController> = _c;
-        var _rw = (_c._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
+        var _rw = ((@:checkr _c ?? throw "null pointer dereference")._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
         while (true) {
             {
                 final __type__ = _rw;
@@ -61,9 +64,10 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function hijack( _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController>):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>; var _2 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController> = _c;
-        var _rw = (_c._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
+        var _rw = ((@:checkr _c ?? throw "null pointer dereference")._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
         while (true) {
             {
                 final __type__ = _rw;
@@ -81,9 +85,10 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function flush( _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_ResponseController.ResponseController> = _c;
-        var _rw = (_c._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
+        var _rw = ((@:checkr _c ?? throw "null pointer dereference")._rw : stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter);
         while (true) {
             {
                 final __type__ = _rw;

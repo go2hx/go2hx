@@ -9,17 +9,17 @@ var _stride = __2, _pix = __1, _palette = __0;
                 { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>), _1 : false };
             }, _p = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                _palette = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_p.palette.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_p.palette.length : stdgo.GoInt).toBasic() > 0 ? (_p.palette.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoInt32)])]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
-                for (_i => _col in _p.palette) {
-                    var __tmp__ = _col.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
+                _palette = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>(((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() > 0 ? ((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoInt32)])]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
+                for (_i => _col in (@:checkr _p ?? throw "null pointer dereference").palette) {
+                    var __tmp__ = _col.rGBA(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
                     _palette[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_r : stdgo.GoInt32);
                     _palette[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_g : stdgo.GoInt32);
                     _palette[(_i : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_b : stdgo.GoInt32);
                     _palette[(_i : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_a : stdgo.GoInt32);
                 };
                 {
-                    final __tmp__0 = (_p.pix.__slice__(_p.pixOffset(_r.min.x, _r.min.y)) : stdgo.Slice<stdgo.GoUInt8>);
-                    final __tmp__1 = _p.stride;
+                    final __tmp__0 = ((@:checkr _p ?? throw "null pointer dereference").pix.__slice__(@:check2r _p.pixOffset(_r.min.x, _r.min.y)) : stdgo.Slice<stdgo.GoUInt8>);
+                    final __tmp__1 = (@:checkr _p ?? throw "null pointer dereference").stride;
                     _pix = __tmp__0;
                     _stride = __tmp__1;
                 };
@@ -34,7 +34,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src.at(_x, _y).rgba();
+                final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src.at(_x, _y).rGBA();
                 _r = __tmp__._0;
                 _g = __tmp__._1;
                 _b = __tmp__._2;
@@ -49,7 +49,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.rgbaat(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.rGBAAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
@@ -62,7 +62,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.nrgbaat(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.nRGBAAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
@@ -75,7 +75,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.ycbCrAt(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.yCbCrAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
@@ -142,7 +142,7 @@ var _bestSum = __1, _bestIndex = __0;
                                 };
                             };
                             {
-                                var __tmp__ = _dst.at((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt)).rgba();
+                                var __tmp__ = _dst.at((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt)).rGBA();
                                 _sr = __tmp__._0;
                                 _sg = __tmp__._1;
                                 _sb = __tmp__._2;

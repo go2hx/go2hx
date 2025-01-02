@@ -42,17 +42,17 @@ function testBinarySearch(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
 ({ _data : _strSame, _target : ("ab" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
 ({ _data : _strSame, _target : ("zz" : stdgo.GoString), _wantPos : (3 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14)].concat([for (i in 34 ... (34 > 34 ? 34 : 34 : stdgo.GoInt).toBasic()) ({ _data : (null : stdgo.Slice<stdgo.GoString>), _target : ("" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14)])) : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_14.T__struct_14>);
         for (__0 => _tt in _tests) {
-            _t.run(_tt._target?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
+            @:check2r _t.run(_tt._target?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 {
                     var __tmp__ = stdgo._internal.slices.Slices_binarySearch.binarySearch(_tt._data, _tt._target?.__copy__()), _pos:stdgo.GoInt = __tmp__._0, _found:Bool = __tmp__._1;
                     if (((_pos != _tt._wantPos) || (_found != _tt._wantFound) : Bool)) {
-                        _t.errorf(("BinarySearch got (%v, %v), want (%v, %v)" : stdgo.GoString), stdgo.Go.toInterface(_pos), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_tt._wantPos), stdgo.Go.toInterface(_tt._wantFound));
+                        @:check2r _t.errorf(("BinarySearch got (%v, %v), want (%v, %v)" : stdgo.GoString), stdgo.Go.toInterface(_pos), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_tt._wantPos), stdgo.Go.toInterface(_tt._wantFound));
                     };
                 };
                 {
                     var __tmp__ = stdgo._internal.slices.Slices_binarySearchFunc.binarySearchFunc(_tt._data, _tt._target?.__copy__(), stdgo._internal.strings.Strings_compare.compare), _pos:stdgo.GoInt = __tmp__._0, _found:Bool = __tmp__._1;
                     if (((_pos != _tt._wantPos) || (_found != _tt._wantFound) : Bool)) {
-                        _t.errorf(("BinarySearchFunc got (%v, %v), want (%v, %v)" : stdgo.GoString), stdgo.Go.toInterface(_pos), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_tt._wantPos), stdgo.Go.toInterface(_tt._wantFound));
+                        @:check2r _t.errorf(("BinarySearchFunc got (%v, %v), want (%v, %v)" : stdgo.GoString), stdgo.Go.toInterface(_pos), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_tt._wantPos), stdgo.Go.toInterface(_tt._wantFound));
                     };
                 };
             });

@@ -150,7 +150,7 @@ function write(_w:stdgo._internal.io.Io_Writer.Writer, _order:stdgo._internal.en
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _e = (stdgo.Go.setRef(({ _order : _order, _buf : _buf } : stdgo._internal.encoding.binary.Binary_T_encoder.T_encoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_encoder.T_encoder>);
-        _e._value(_v?.__copy__());
+        @:check2r _e._value(_v?.__copy__());
         var __tmp__ = _w.write(_buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }

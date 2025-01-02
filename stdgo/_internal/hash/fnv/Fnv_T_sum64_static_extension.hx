@@ -2,7 +2,8 @@ package stdgo._internal.hash.fnv;
 @:keep @:allow(stdgo._internal.hash.fnv.Fnv.T_sum64_asInterface) class T_sum64_static_extension {
     @:keep
     @:pointer
-    static public function unmarshalBinary(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
+    @:tdfield
+    static public function unmarshalBinary( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         if ((((_b.length) < (stdgo.Go.str("fnv", 3).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("fnv", 3).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("fnv", 3)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("hash/fnv: invalid hash state identifier" : stdgo.GoString));
         };
@@ -14,7 +15,8 @@ package stdgo._internal.hash.fnv;
     }
     @:keep
     @:pointer
-    static public function marshalBinary(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    @:tdfield
+    static public function marshalBinary( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (12 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...(stdgo.Go.str("fnv", 3) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.hash.fnv.Fnv__appendUint64._appendUint64(_b, (_s.value : stdgo.GoUInt64));
@@ -22,23 +24,27 @@ package stdgo._internal.hash.fnv;
     }
     @:keep
     @:pointer
-    static public function sum(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+    @:tdfield
+    static public function sum( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         var _v = (_s.value : stdgo.GoUInt64);
         return (_in.__append__(((_v >> (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (40i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8), (_v : stdgo.GoUInt8)));
     }
     @:keep
     @:pointer
-    static public function blockSize(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoInt {
+    @:tdfield
+    static public function blockSize( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoInt {
         return (1 : stdgo.GoInt);
     }
     @:keep
     @:pointer
-    static public function size(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoInt {
+    @:tdfield
+    static public function size( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoInt {
         return (8 : stdgo.GoInt);
     }
     @:keep
     @:pointer
-    static public function write(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+    @:tdfield
+    static public function write( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _hash = (_s.value : stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64);
         for (__0 => _c in _data) {
             _hash = (_hash * ((1099511628211i64 : stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64)) : stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64);
@@ -49,12 +55,14 @@ package stdgo._internal.hash.fnv;
     }
     @:keep
     @:pointer
-    static public function sum64(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoUInt64 {
+    @:tdfield
+    static public function sum64( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):stdgo.GoUInt64 {
         return (_s.value : stdgo.GoUInt64);
     }
     @:keep
     @:pointer
-    static public function reset(____:stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64,  _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):Void {
+    @:tdfield
+    static public function reset( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):Void {
         _s.value = (-3750763034362895579i64 : stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64);
     }
 }

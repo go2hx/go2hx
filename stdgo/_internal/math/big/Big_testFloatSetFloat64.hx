@@ -24,11 +24,11 @@ stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)),
                         _want = -_want;
                     };
                     var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
-                    _f.setFloat64(_want);
+                    @:check2 _f.setFloat64(_want);
                     {
-                        var __tmp__ = _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                        var __tmp__ = @:check2 _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
                         if (((_got != _want) || (_acc != (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy)) : Bool)) {
-                            _t.errorf(("got %g (%s, %s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_want));
+                            @:check2r _t.errorf(("got %g (%s, %s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(@:check2 _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_want));
                         };
                     };
                 };
@@ -37,11 +37,11 @@ stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)),
             {
                 var _prec = ((1u32 : stdgo.GoUInt) : stdgo.GoUInt);
                 while ((_prec <= (52u32 : stdgo.GoUInt) : Bool)) {
-                    var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setFloat64(((2381903803200024i64 : stdgo.GoUInt64) : stdgo.GoFloat64));
-var __tmp__ = _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __9:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                    var _f = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setFloat64(((2381903803200024i64 : stdgo.GoUInt64) : stdgo.GoFloat64));
+var __tmp__ = @:check2r _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __9:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
 var _want = (((2381903803200024i64 : stdgo.GoUInt64) & ((((((1i64 : stdgo.GoUInt64) << (((52u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64) : stdgo.GoFloat64);
 if (_got != (_want)) {
-                        _t.errorf(("got %g (%s); want %g" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(_want));
+                        @:check2r _t.errorf(("got %g (%s); want %g" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(@:check2r _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(_want));
                     };
                     _prec++;
                 };
@@ -60,7 +60,7 @@ if (_got != (_want)) {
                                 { _0 : ({} : stdgo._internal.math.big.Big_ErrNaN.ErrNaN), _1 : false };
                             }, _p = __tmp__._0, _ok = __tmp__._1;
                             if (!_ok) {
-                                _t.errorf(("got %v; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
+                                @:check2r _t.errorf(("got %v; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
                             };
                         };
                     };
@@ -68,10 +68,11 @@ if (_got != (_want)) {
                 }));
             };
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
-            _f.setFloat64(stdgo._internal.math.Math_naN.naN());
-            _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))));
+            @:check2 _f.setFloat64(stdgo._internal.math.Math_naN.naN());
+            @:check2r _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(@:check2 _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -86,6 +87,7 @@ if (_got != (_want)) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

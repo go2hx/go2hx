@@ -33,11 +33,11 @@ function testInterfaceValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
 ({ _text : ("{{lt (index .Slice 1) .Zero}}" : stdgo.GoString), _out : ("false" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_5.T__struct_5)].concat([for (i in 30 ... (30 > 30 ? 30 : 30 : stdgo.GoInt).toBasic()) ({ _text : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_5.T__struct_5)])) : stdgo.Slice<stdgo._internal.text.template.Template_T__struct_5.T__struct_5>);
         for (__8 => _tt in _tests) {
             var _tmpl = ({
-                var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
+                var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
                 stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
             });
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-            var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(({
+            var _err = (@:check2r _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
                 x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
                 x.set(("PlusOne" : stdgo.GoString), stdgo.Go.toInterface(function(_n:stdgo.GoInt):stdgo.GoInt {
@@ -53,16 +53,16 @@ x.set(("Zero" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
             if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_tt._out?.__copy__(), ("ERROR:" : stdgo.GoString))) {
                 var _e = (stdgo._internal.strings.Strings_trimSpace.trimSpace(stdgo._internal.strings.Strings_trimPrefix.trimPrefix(_tt._out?.__copy__(), ("ERROR:" : stdgo.GoString))?.__copy__())?.__copy__() : stdgo.GoString);
                 if (((_err == null) || !stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), _e?.__copy__()) : Bool)) {
-                    _t.errorf(("%s: Execute: %v, want error %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_e));
+                    @:check2r _t.errorf(("%s: Execute: %v, want error %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_e));
                 };
                 continue;
             };
             if (_err != null) {
-                _t.errorf(("%s: Execute: %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("%s: Execute: %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if ((_buf.string() : stdgo.GoString) != (_tt._out)) {
-                _t.errorf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))), stdgo.Go.toInterface(_tt._out));
+            if ((@:check2 _buf.string() : stdgo.GoString) != (_tt._out)) {
+                @:check2r _t.errorf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_tt._text), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))), stdgo.Go.toInterface(_tt._out));
             };
         };
     }

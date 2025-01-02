@@ -5,5 +5,6 @@ typedef T__interface_2 = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setReadDeadline(_0:stdgo._internal.time.Time_Time.Time):stdgo.Error;
 };

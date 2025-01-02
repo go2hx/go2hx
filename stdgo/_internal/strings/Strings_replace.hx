@@ -12,7 +12,7 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
             };
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _b.grow(((_s.length) + (_n * (((_new.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt));
+        @:check2 _b.grow(((_s.length) + (_n * (((_new.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt));
         var _start = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
@@ -26,12 +26,12 @@ if ((_old.length) == ((0 : stdgo.GoInt))) {
                 } else {
                     _j = (_j + (stdgo._internal.strings.Strings_index.index((_s.__slice__(_start) : stdgo.GoString).__copy__(), _old.__copy__())) : stdgo.GoInt);
                 };
-_b.writeString((_s.__slice__(_start, _j) : stdgo.GoString).__copy__());
-_b.writeString(_new.__copy__());
+@:check2 _b.writeString((_s.__slice__(_start, _j) : stdgo.GoString).__copy__());
+@:check2 _b.writeString(_new.__copy__());
 _start = (_j + (_old.length) : stdgo.GoInt);
                 _i++;
             };
         };
-        _b.writeString((_s.__slice__(_start) : stdgo.GoString)?.__copy__());
-        return (_b.string() : stdgo.GoString)?.__copy__();
+        @:check2 _b.writeString((_s.__slice__(_start) : stdgo.GoString)?.__copy__());
+        return (@:check2 _b.string() : stdgo.GoString)?.__copy__();
     }

@@ -1,21 +1,23 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.ServeMux_asInterface) class ServeMux_static_extension {
     @:keep
+    @:tdfield
     static public function handleFunc( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _pattern:stdgo.GoString, _handler:(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) -> Void):Void {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         if (_handler == null) {
             throw stdgo.Go.toInterface(("http: nil handler" : stdgo.GoString));
         };
-        _mux.handle(_pattern?.__copy__(), stdgo.Go.asInterface((_handler : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
+        @:check2r _mux.handle(_pattern?.__copy__(), stdgo.Go.asInterface((_handler : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
     }
     @:keep
+    @:tdfield
     static public function handle( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _pattern:stdgo.GoString, _handler:stdgo._internal.net.http.Http_Handler.Handler):Void {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _mux._mu.lock();
+            @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _mux._mu.unlock;
+                final __f__ = @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             if (_pattern == (stdgo.Go.str())) {
@@ -25,29 +27,30 @@ package stdgo._internal.net.http;
                 throw stdgo.Go.toInterface(("http: nil handler" : stdgo.GoString));
             };
             {
-                var __tmp__ = (_mux._m != null && _mux._m.exists(_pattern?.__copy__()) ? { _0 : _mux._m[_pattern?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34516:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.exists(_pattern?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[_pattern?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34521:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
                 if (_exist) {
                     throw stdgo.Go.toInterface((("http: multiple registrations for " : stdgo.GoString) + _pattern?.__copy__() : stdgo.GoString));
                 };
             };
-            if (_mux._m == null) {
-                _mux._m = ({
+            if ((@:checkr _mux ?? throw "null pointer dereference")._m == null) {
+                (@:checkr _mux ?? throw "null pointer dereference")._m = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>();
                     x.__defaultValue__ = () -> ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry);
                     {};
                     x;
-                } : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>);
+                } : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>);
             };
             var _e = ({ _h : _handler, _pattern : _pattern?.__copy__() } : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry);
-            _mux._m[_pattern] = _e?.__copy__();
+            (@:checkr _mux ?? throw "null pointer dereference")._m[_pattern] = _e?.__copy__();
             if (_pattern[((_pattern.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == ((47 : stdgo.GoUInt8))) {
-                _mux._es = stdgo._internal.net.http.Http__appendSorted._appendSorted(_mux._es, _e?.__copy__());
+                (@:checkr _mux ?? throw "null pointer dereference")._es = stdgo._internal.net.http.Http__appendSorted._appendSorted((@:checkr _mux ?? throw "null pointer dereference")._es, _e?.__copy__());
             };
             if (_pattern[(0 : stdgo.GoInt)] != ((47 : stdgo.GoUInt8))) {
-                _mux._hosts = true;
+                (@:checkr _mux ?? throw "null pointer dereference")._hosts = true;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -62,6 +65,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -69,39 +73,41 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function serveHTTP( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
-        if (_r.requestURI == (("*" : stdgo.GoString))) {
-            if (_r.protoAtLeast((1 : stdgo.GoInt), (1 : stdgo.GoInt))) {
+        if ((@:checkr _r ?? throw "null pointer dereference").requestURI == (("*" : stdgo.GoString))) {
+            if (@:check2r _r.protoAtLeast((1 : stdgo.GoInt), (1 : stdgo.GoInt))) {
                 _w.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
             };
             _w.writeHeader((400 : stdgo.GoInt));
             return;
         };
-        var __tmp__ = _mux.handler(_r), _h:stdgo._internal.net.http.Http_Handler.Handler = __tmp__._0, __34496:stdgo.GoString = __tmp__._1;
+        var __tmp__ = @:check2r _mux.handler(_r), _h:stdgo._internal.net.http.Http_Handler.Handler = __tmp__._0, __34501:stdgo.GoString = __tmp__._1;
         _h.serveHTTP(_w, _r);
     }
     @:keep
+    @:tdfield
     static public function _handler( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _host:stdgo.GoString, _path:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         var __deferstack__:Array<Void -> Void> = [];
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
         try {
-            _mux._mu.rlock();
+            @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rLock();
             {
-                final __f__ = _mux._mu.runlock;
+                final __f__ = @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rUnlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (_mux._hosts) {
+            if ((@:checkr _mux ?? throw "null pointer dereference")._hosts) {
                 {
-                    var __tmp__ = _mux._match((_host + _path?.__copy__() : stdgo.GoString)?.__copy__());
+                    var __tmp__ = @:check2r _mux._match((_host + _path?.__copy__() : stdgo.GoString)?.__copy__());
                     _h = __tmp__._0;
                     _pattern = __tmp__._1?.__copy__();
                 };
             };
             if (_h == null) {
                 {
-                    var __tmp__ = _mux._match(_path?.__copy__());
+                    var __tmp__ = @:check2r _mux._match(_path?.__copy__());
                     _h = __tmp__._0;
                     _pattern = __tmp__._1?.__copy__();
                 };
@@ -116,12 +122,14 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _h, _1 : _pattern };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -136,6 +144,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -143,15 +152,16 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function handler( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
-        if (_r.method == (("CONNECT" : stdgo.GoString))) {
+        if ((@:checkr _r ?? throw "null pointer dereference").method == (("CONNECT" : stdgo.GoString))) {
             {
-                var __tmp__ = _mux._redirectToPathSlash(_r.url.host?.__copy__(), _r.url.path?.__copy__(), _r.url), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = @:check2r _mux._redirectToPathSlash((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__(), (@:checkr _r ?? throw "null pointer dereference").uRL), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _u.path?.__copy__() };
+                        final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((@:check2r _u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : (@:checkr _u ?? throw "null pointer dereference").path?.__copy__() };
                         _h = __tmp__._0;
                         _pattern = __tmp__._1;
                         __tmp__;
@@ -159,52 +169,53 @@ package stdgo._internal.net.http;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = _mux._handler(_r.host?.__copy__(), _r.url.path?.__copy__());
+                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = @:check2r _mux._handler((@:checkr _r ?? throw "null pointer dereference").host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
                 _h = __tmp__._0;
                 _pattern = __tmp__._1;
                 __tmp__;
             };
         };
-        var _host = (stdgo._internal.net.http.Http__stripHostPort._stripHostPort(_r.host?.__copy__())?.__copy__() : stdgo.GoString);
-        var _path = (stdgo._internal.net.http.Http__cleanPath._cleanPath(_r.url.path?.__copy__())?.__copy__() : stdgo.GoString);
+        var _host = (stdgo._internal.net.http.Http__stripHostPort._stripHostPort((@:checkr _r ?? throw "null pointer dereference").host?.__copy__())?.__copy__() : stdgo.GoString);
+        var _path = (stdgo._internal.net.http.Http__cleanPath._cleanPath((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__())?.__copy__() : stdgo.GoString);
         {
-            var __tmp__ = _mux._redirectToPathSlash(_host?.__copy__(), _path?.__copy__(), _r.url), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = @:check2r _mux._redirectToPathSlash(_host?.__copy__(), _path?.__copy__(), (@:checkr _r ?? throw "null pointer dereference").uRL), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _u.path?.__copy__() };
+                    final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((@:check2r _u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : (@:checkr _u ?? throw "null pointer dereference").path?.__copy__() };
                     _h = __tmp__._0;
                     _pattern = __tmp__._1;
                     __tmp__;
                 };
             };
         };
-        if (_path != (_r.url.path)) {
+        if (_path != ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path)) {
             {
-                var __tmp__ = _mux._handler(_host?.__copy__(), _path?.__copy__());
+                var __tmp__ = @:check2r _mux._handler(_host?.__copy__(), _path?.__copy__());
                 _pattern = __tmp__._1?.__copy__();
             };
-            var _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : _r.url.rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+            var _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
             return {
-                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern?.__copy__() };
+                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((@:check2r _u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern?.__copy__() };
                 _h = __tmp__._0;
                 _pattern = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = _mux._handler(_host?.__copy__(), _r.url.path?.__copy__());
+            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = @:check2r _mux._handler(_host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
             _h = __tmp__._0;
             _pattern = __tmp__._1;
             __tmp__;
         };
     }
     @:keep
+    @:tdfield
     static public function _shouldRedirectRLocked( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _host:stdgo.GoString, _path:stdgo.GoString):Bool {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         var _p = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[_path?.__copy__(), (_host + _path?.__copy__() : stdgo.GoString)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
-        for (__34492 => _c in _p) {
+        for (__34497 => _c in _p) {
             {
-                var __tmp__ = (_mux._m != null && _mux._m.exists(_c?.__copy__()) ? { _0 : _mux._m[_c?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34501:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.exists(_c?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[_c?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34506:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
                 if (_exist) {
                     return false;
                 };
@@ -214,9 +225,9 @@ package stdgo._internal.net.http;
         if (_n == ((0 : stdgo.GoInt))) {
             return false;
         };
-        for (__34493 => _c in _p) {
+        for (__34498 => _c in _p) {
             {
-                var __tmp__ = (_mux._m != null && _mux._m.exists((_c + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) ? { _0 : _mux._m[(_c + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34502:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.exists((_c + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[(_c + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), __34507:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
                 if (_exist) {
                     return _path[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] != ((47 : stdgo.GoUInt8));
                 };
@@ -225,23 +236,25 @@ package stdgo._internal.net.http;
         return false;
     }
     @:keep
+    @:tdfield
     static public function _redirectToPathSlash( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _host:stdgo.GoString, _path:stdgo.GoString, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : Bool; } {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
-        _mux._mu.rlock();
-        var _shouldRedirect = (_mux._shouldRedirectRLocked(_host?.__copy__(), _path?.__copy__()) : Bool);
-        _mux._mu.runlock();
+        @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rLock();
+        var _shouldRedirect = (@:check2r _mux._shouldRedirectRLocked(_host?.__copy__(), _path?.__copy__()) : Bool);
+        @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rUnlock();
         if (!_shouldRedirect) {
             return { _0 : _u, _1 : false };
         };
         _path = (_path + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
-        _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : _u.rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : (@:checkr _u ?? throw "null pointer dereference").rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
         return { _0 : _u, _1 : true };
     }
     @:keep
+    @:tdfield
     static public function _match( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _path:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
-        var __tmp__ = (_mux._m != null && _mux._m.exists(_path?.__copy__()) ? { _0 : _mux._m[_path?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), _v:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.exists(_path?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[_path?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), _v:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _ok:Bool = __tmp__._1;
         if (_ok) {
             return {
                 final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _v._h, _1 : _v._pattern?.__copy__() };
@@ -250,7 +263,7 @@ package stdgo._internal.net.http;
                 __tmp__;
             };
         };
-        for (__34504 => _e in _mux._es) {
+        for (__34509 => _e in (@:checkr _mux ?? throw "null pointer dereference")._es) {
             if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_path?.__copy__(), _e._pattern?.__copy__())) {
                 return {
                     final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _e._h, _1 : _e._pattern?.__copy__() };

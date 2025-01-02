@@ -4,9 +4,9 @@ function testMTF(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _mtf = (stdgo._internal.compress.bzip2.Bzip2__newMTFDecoderWithRange._newMTFDecoderWithRange((5 : stdgo.GoInt)) : stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder);
         for (_i => _v in _vectors) {
             var _sym = (_mtf.decode(_v._idx) : stdgo.GoUInt8);
-            _t.log(stdgo.Go.toInterface(stdgo.Go.asInterface(_mtf)));
+            @:check2r _t.log(stdgo.Go.toInterface(stdgo.Go.asInterface(_mtf)));
             if (_sym != (_v._sym)) {
-                _t.errorf(("test %d, symbol mismatch: Decode(%d) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._idx), stdgo.Go.toInterface(_sym), stdgo.Go.toInterface(_v._sym));
+                @:check2r _t.errorf(("test %d, symbol mismatch: Decode(%d) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_v._idx), stdgo.Go.toInterface(_sym), stdgo.Go.toInterface(_v._sym));
             };
         };
     }

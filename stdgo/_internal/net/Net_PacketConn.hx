@@ -13,6 +13,7 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function readFrom(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.net.Net_Addr.Addr; var _2 : stdgo.Error; };
     /**
         WriteTo writes a packet with payload p to addr.
@@ -22,6 +23,7 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function writeTo(_p:stdgo.Slice<stdgo.GoUInt8>, _addr:stdgo._internal.net.Net_Addr.Addr):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     /**
         Close closes the connection.
@@ -29,12 +31,14 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         LocalAddr returns the local network address, if known.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function localAddr():stdgo._internal.net.Net_Addr.Addr;
     /**
         SetDeadline sets the read and write deadlines associated
@@ -61,6 +65,7 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
     /**
         SetReadDeadline sets the deadline for future ReadFrom calls
@@ -69,6 +74,7 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setReadDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
     /**
         SetWriteDeadline sets the deadline for future WriteTo calls
@@ -79,5 +85,6 @@ typedef PacketConn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function setWriteDeadline(_t:stdgo._internal.time.Time_Time.Time):stdgo.Error;
 };

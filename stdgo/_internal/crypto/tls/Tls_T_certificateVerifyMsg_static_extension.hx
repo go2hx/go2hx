@@ -1,42 +1,44 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_certificateVerifyMsg_asInterface) class T_certificateVerifyMsg_static_extension {
     @:keep
+    @:tdfield
     static public function _unmarshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg>, _data:stdgo.Slice<stdgo.GoUInt8>):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg> = _m;
-        _m._raw = _data;
+        (@:checkr _m ?? throw "null pointer dereference")._raw = _data;
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-        if (!_s.skip((4 : stdgo.GoInt))) {
+        if (!@:check2 _s.skip((4 : stdgo.GoInt))) {
             return false;
         };
-        if (_m._hasSignatureAlgorithm) {
-            if (!_s.readUint16(new stdgo.Pointer<stdgo.GoUInt16>(() -> (stdgo.Go.pointer(_m._signatureAlgorithm).value : stdgo.GoUInt16), v -> (stdgo.Go.pointer(_m._signatureAlgorithm).value = (v : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme) : stdgo.GoUInt16)))) {
+        if ((@:checkr _m ?? throw "null pointer dereference")._hasSignatureAlgorithm) {
+            if (!@:check2 _s.readUint16(new stdgo.Pointer<stdgo.GoUInt16>(() -> (stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._signatureAlgorithm).value : stdgo.GoUInt16), v -> (stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._signatureAlgorithm).value = (v : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme) : stdgo.GoUInt16)))) {
                 return false;
             };
         };
-        return (stdgo._internal.crypto.tls.Tls__readUint16LengthPrefixed._readUint16LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._signature) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) && _s.empty() : Bool);
+        return (stdgo._internal.crypto.tls.Tls__readUint16LengthPrefixed._readUint16LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._signature) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) && _s.empty() : Bool);
     }
     @:keep
+    @:tdfield
     static public function _marshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg> = _m;
-        if (_m._raw != null) {
-            return { _0 : _m._raw, _1 : (null : stdgo.Error) };
+        if ((@:checkr _m ?? throw "null pointer dereference")._raw != null) {
+            return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : (null : stdgo.Error) };
         };
         var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder);
-        _b.addUint8((15 : stdgo.GoUInt8));
-        _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
-            if (_m._hasSignatureAlgorithm) {
-                _b.addUint16((_m._signatureAlgorithm : stdgo.GoUInt16));
+        @:check2 _b.addUint8((15 : stdgo.GoUInt8));
+        @:check2 _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
+            if ((@:checkr _m ?? throw "null pointer dereference")._hasSignatureAlgorithm) {
+                @:check2r _b.addUint16(((@:checkr _m ?? throw "null pointer dereference")._signatureAlgorithm : stdgo.GoUInt16));
             };
-            _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
-                _b.addBytes(_m._signature);
+            @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
+                @:check2r _b.addBytes((@:checkr _m ?? throw "null pointer dereference")._signature);
             });
         });
         var _err:stdgo.Error = (null : stdgo.Error);
         {
-            var __tmp__ = _b.bytes();
-            _m._raw = __tmp__._0;
+            var __tmp__ = @:check2 _b.bytes();
+            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
             _err = __tmp__._1;
         };
-        return { _0 : _m._raw, _1 : _err };
+        return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }
 }

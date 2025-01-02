@@ -13,16 +13,16 @@ function _findDirectory64End(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _direct
         };
         var _b = (_buf : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
         {
-            var _sig = (_b._uint32() : stdgo.GoUInt32);
+            var _sig = (@:check2 _b._uint32() : stdgo.GoUInt32);
             if (_sig != ((117853008u32 : stdgo.GoUInt32))) {
                 return { _0 : (-1i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
             };
         };
-        if (_b._uint32() != ((0u32 : stdgo.GoUInt32))) {
+        if (@:check2 _b._uint32() != ((0u32 : stdgo.GoUInt32))) {
             return { _0 : (-1i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
         };
-        var _p = (_b._uint64() : stdgo.GoUInt64);
-        if (_b._uint32() != ((1u32 : stdgo.GoUInt32))) {
+        var _p = (@:check2 _b._uint64() : stdgo.GoUInt64);
+        if (@:check2 _b._uint32() != ((1u32 : stdgo.GoUInt32))) {
             return { _0 : (-1i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
         };
         return { _0 : (_p : stdgo.GoInt64), _1 : (null : stdgo.Error) };

@@ -4,10 +4,10 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:std
         try {
             var __tmp__ = stdgo._internal.os.Os_open.open(_file?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatal(stdgo.Go.toInterface(_err));
+                @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
             {
-                final __f__ = _f.close;
+                final __f__ = @:check2r _f.close;
                 __deferstack__.unshift(() -> __f__());
             };
             var _txt:stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
@@ -24,17 +24,17 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:std
 var _ncase = __6, _nfail = __5, _refull = __4, _re = __3, _inStrings = __2, _input = __1, _str = __0;
             {
                 var _lineno = (1 : stdgo.GoInt);
-                while (_scanner.scan()) {
-                    var _line = (_scanner.text().__copy__() : stdgo.GoString);
+                while (@:check2r _scanner.scan()) {
+                    var _line = (@:check2r _scanner.text().__copy__() : stdgo.GoString);
 if (_line == (stdgo.Go.str())) {
-                        _t.fatalf(("%s:%d: unexpected blank line" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno));
+                        @:check2r _t.fatalf(("%s:%d: unexpected blank line" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno));
                     } else if (_line[(0 : stdgo.GoInt)] == ((35 : stdgo.GoUInt8))) {
                         {
                             _lineno++;
                             continue;
                         };
                     } else if ((((65 : stdgo.GoUInt8) <= _line[(0 : stdgo.GoInt)] : Bool) && (_line[(0 : stdgo.GoInt)] <= (90 : stdgo.GoUInt8) : Bool) : Bool)) {
-                        _t.logf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_line));
+                        @:check2r _t.logf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_line));
                         {
                             _lineno++;
                             continue;
@@ -47,7 +47,7 @@ if (_line == (stdgo.Go.str())) {
                     } else if (_line[(0 : stdgo.GoInt)] == ((34 : stdgo.GoUInt8))) {
                         var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote(_line.__copy__()), _q:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
-                            _t.fatalf(("%s:%d: unquote %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
+                            @:check2r _t.fatalf(("%s:%d: unquote %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err));
                         };
                         if (_inStrings) {
                             _str = (_str.__append__(_q.__copy__()));
@@ -57,7 +57,7 @@ if (_line == (stdgo.Go.str())) {
                             };
                         };
                         if ((_input.length) != ((0 : stdgo.GoInt))) {
-                            _t.fatalf(("%s:%d: out of sync: have %d strings left before %#q" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_input.length)), stdgo.Go.toInterface(_q));
+                            @:check2r _t.fatalf(("%s:%d: out of sync: have %d strings left before %#q" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_input.length)), stdgo.Go.toInterface(_q));
                         };
                         {
                             var __tmp__ = stdgo._internal.regexp.Regexp__tryCompile._tryCompile(_q.__copy__());
@@ -71,11 +71,11 @@ if (_line == (stdgo.Go.str())) {
                                     continue;
                                 };
                             };
-                            _t.errorf(("%s:%d: compile %#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_err));
+                            @:check2r _t.errorf(("%s:%d: compile %#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_q), stdgo.Go.toInterface(_err));
                             {
                                 _nfail++;
                                 if ((_nfail >= (100 : stdgo.GoInt) : Bool)) {
-                                    _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
+                                    @:check2r _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
                                 };
                             };
                             {
@@ -90,7 +90,7 @@ if (_line == (stdgo.Go.str())) {
                             _err = __tmp__._1;
                         };
                         if (_err != null) {
-                            _t.fatalf(("%s:%d: compile full %#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_full), stdgo.Go.toInterface(_err));
+                            @:check2r _t.fatalf(("%s:%d: compile full %#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_full), stdgo.Go.toInterface(_err));
                         };
                         _input = _str;
                     } else if (((_line[(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _line[(0 : stdgo.GoInt)] : Bool) && (_line[(0 : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
@@ -102,7 +102,7 @@ if (_line == (stdgo.Go.str())) {
                             };
                         };
                         if ((_input.length) == ((0 : stdgo.GoInt))) {
-                            _t.fatalf(("%s:%d: out of sync: no input remaining" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno));
+                            @:check2r _t.fatalf(("%s:%d: out of sync: no input remaining" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno));
                         };
                         var _text:stdgo.GoString = ("" : stdgo.GoString);
                         {
@@ -111,7 +111,7 @@ if (_line == (stdgo.Go.str())) {
                             _text = __tmp__0;
                             _input = __tmp__1;
                         };
-                        if ((!stdgo._internal.regexp.Regexp__isSingleBytes._isSingleBytes(_text.__copy__()) && stdgo._internal.strings.Strings_contains.contains((_re.string() : stdgo.GoString).__copy__(), ("\\B" : stdgo.GoString)) : Bool)) {
+                        if ((!stdgo._internal.regexp.Regexp__isSingleBytes._isSingleBytes(_text.__copy__()) && stdgo._internal.strings.Strings_contains.contains((@:check2r _re.string() : stdgo.GoString).__copy__(), ("\\B" : stdgo.GoString)) : Bool)) {
                             {
                                 _lineno++;
                                 continue;
@@ -119,51 +119,52 @@ if (_line == (stdgo.Go.str())) {
                         };
                         var _res = stdgo._internal.strings.Strings_split.split(_line.__copy__(), (";" : stdgo.GoString));
                         if ((_res.length) != ((stdgo._internal.regexp.Regexp__run._run.length))) {
-                            _t.fatalf(("%s:%d: have %d test results, want %d" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_res.length)), stdgo.Go.toInterface((stdgo._internal.regexp.Regexp__run._run.length)));
+                            @:check2r _t.fatalf(("%s:%d: have %d test results, want %d" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_res.length)), stdgo.Go.toInterface((stdgo._internal.regexp.Regexp__run._run.length)));
                         };
                         for (_i => _ in _res) {
                             var __tmp__ = stdgo._internal.regexp.Regexp__run._run[(_i : stdgo.GoInt)](_re, _refull, _text?.__copy__()), _have:stdgo.Slice<stdgo.GoInt> = __tmp__._0, _suffix:stdgo.GoString = __tmp__._1;
                             var _want = stdgo._internal.regexp.Regexp__parseResult._parseResult(_t, _file?.__copy__(), _lineno, _res[(_i : stdgo.GoInt)]?.__copy__());
                             if (!stdgo._internal.regexp.Regexp__same._same(_have, _want)) {
-                                _t.errorf(("%s:%d: %#q%s.FindSubmatchIndex(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(stdgo.Go.asInterface(_re)), stdgo.Go.toInterface(_suffix), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
+                                @:check2r _t.errorf(("%s:%d: %#q%s.FindSubmatchIndex(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(stdgo.Go.asInterface(_re)), stdgo.Go.toInterface(_suffix), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_have), stdgo.Go.toInterface(_want));
                                 {
                                     _nfail++;
                                     if ((_nfail >= (100 : stdgo.GoInt) : Bool)) {
-                                        _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
+                                        @:check2r _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
                                     };
                                 };
                                 continue;
                             };
                             var __tmp__ = stdgo._internal.regexp.Regexp__match._match[(_i : stdgo.GoInt)](_re, _refull, _text?.__copy__()), _b:Bool = __tmp__._0, _suffix:stdgo.GoString = __tmp__._1;
                             if (_b != ((_want != null))) {
-                                _t.errorf(("%s:%d: %#q%s.MatchString(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(stdgo.Go.asInterface(_re)), stdgo.Go.toInterface(_suffix), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(!_b));
+                                @:check2r _t.errorf(("%s:%d: %#q%s.MatchString(%#q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(stdgo.Go.asInterface(_re)), stdgo.Go.toInterface(_suffix), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(!_b));
                                 {
                                     _nfail++;
                                     if ((_nfail >= (100 : stdgo.GoInt) : Bool)) {
-                                        _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
+                                        @:check2r _t.fatalf(("stopping after %d errors" : stdgo.GoString), stdgo.Go.toInterface(_nfail));
                                     };
                                 };
                                 continue;
                             };
                         };
                     } else {
-                        _t.fatalf(("%s:%d: out of sync: %s\n" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line));
+                        @:check2r _t.fatalf(("%s:%d: out of sync: %s\n" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_line));
                     };
                     _lineno++;
                 };
             };
             {
-                var _err = (_scanner.err() : stdgo.Error);
+                var _err = (@:check2r _scanner.err() : stdgo.Error);
                 if (_err != null) {
-                    _t.fatalf(("%s:%d: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_err));
+                    @:check2r _t.fatalf(("%s:%d: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_err));
                 };
             };
             if ((_input.length) != ((0 : stdgo.GoInt))) {
-                _t.fatalf(("%s:%d: out of sync: have %d strings left at EOF" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_input.length)));
+                @:check2r _t.fatalf(("%s:%d: out of sync: have %d strings left at EOF" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface((_input.length)));
             };
-            _t.logf(("%d cases tested" : stdgo.GoString), stdgo.Go.toInterface(_ncase));
+            @:check2r _t.logf(("%d cases tested" : stdgo.GoString), stdgo.Go.toInterface(_ncase));
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -178,6 +179,7 @@ if (_line == (stdgo.Go.str())) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

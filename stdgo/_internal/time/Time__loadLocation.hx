@@ -48,7 +48,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
             };
         };
         {
-            var __tmp__ = stdgo._internal.time.Time__gorootZoneSource._gorootZoneSource(stdgo._internal.runtime.Runtime_goroot.goroot()?.__copy__()), _source:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.time.Time__gorootZoneSource._gorootZoneSource(stdgo._internal.runtime.Runtime_gOROOT.gOROOT()?.__copy__()), _source:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 var __tmp__ = stdgo._internal.time.Time__loadTzinfo._loadTzinfo(_name?.__copy__(), _source?.__copy__()), _zoneData:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {

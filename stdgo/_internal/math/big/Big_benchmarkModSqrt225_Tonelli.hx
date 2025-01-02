@@ -4,9 +4,9 @@ function benchmarkModSqrt225_Tonelli(_b:stdgo.Ref<stdgo._internal.testing.Testin
         var _x = stdgo._internal.math.big.Big_newInt.newInt((2i64 : stdgo.GoInt64));
         {
             var _i = (0 : stdgo.GoInt);
-            while ((_i < _b.n : Bool)) {
-                _x.setUint64((2i64 : stdgo.GoUInt64));
-_x._modSqrtTonelliShanks(_x, _p);
+            while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                @:check2r _x.setUint64((2i64 : stdgo.GoUInt64));
+@:check2r _x._modSqrtTonelliShanks(_x, _p);
                 _i++;
             };
         };

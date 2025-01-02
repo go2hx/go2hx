@@ -7,5 +7,6 @@ typedef T_http2pipeBuffer = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function len():stdgo.GoInt;
 };

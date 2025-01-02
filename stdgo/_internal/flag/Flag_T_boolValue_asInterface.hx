@@ -2,21 +2,25 @@ package stdgo._internal.flag;
 class T_boolValue_asInterface {
     @:keep
     @:pointer
-    public dynamic function isBoolFlag():Bool return __self__.value.isBoolFlag(__self__);
+    @:tdfield
+    public dynamic function isBoolFlag():Bool return @:_0 __self__.isBoolFlag();
     @:keep
     @:pointer
-    public dynamic function string():stdgo.GoString return __self__.value.string(__self__);
+    @:tdfield
+    public dynamic function string():stdgo.GoString return @:_0 __self__.string();
     @:keep
     @:pointer
-    public dynamic function get():stdgo.AnyInterface return __self__.value.get(__self__);
+    @:tdfield
+    public dynamic function get():stdgo.AnyInterface return @:_0 __self__.get();
     @:keep
     @:pointer
-    public dynamic function set(_s:stdgo.GoString):stdgo.Error return __self__.value.set(__self__, _s);
+    @:tdfield
+    public dynamic function set(_s:stdgo.GoString):stdgo.Error return @:_0 __self__.set(_s);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.flag.Flag_T_boolValue.T_boolValue>;
+    var __self__ : stdgo._internal.flag.Flag_T_boolValuePointer.T_boolValuePointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

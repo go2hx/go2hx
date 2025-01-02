@@ -34,9 +34,9 @@ function _parseSANExtension(_der:_internal.vendor.golang_dot_org.x.crypto.crypto
                     if (_err != null) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: cannot parse URI %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_uriStr), stdgo.Go.toInterface(_err));
                     };
-                    if (((_uri.host.length) > (0 : stdgo.GoInt) : Bool)) {
+                    if ((((@:checkr _uri ?? throw "null pointer dereference").host.length) > (0 : stdgo.GoInt) : Bool)) {
                         {
-                            var __tmp__ = stdgo._internal.crypto.x509.X509__domainToReverseLabels._domainToReverseLabels(_uri.host?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = stdgo._internal.crypto.x509.X509__domainToReverseLabels._domainToReverseLabels((@:checkr _uri ?? throw "null pointer dereference").host?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: cannot parse URI %q: invalid domain" : stdgo.GoString), stdgo.Go.toInterface(_uriStr));
                             };

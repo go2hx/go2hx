@@ -4,7 +4,7 @@ function testInfiniteLoopIntanSeries(_t:stdgo.Ref<stdgo._internal.testing.Testin
         {
             var _got = (stdgo._internal.math.cmplx.Cmplx_cot.cot(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))) : stdgo.GoComplex128);
             if (_got != (_want)) {
-                _t.errorf(("Cot(0): got %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                @:check2r _t.errorf(("Cot(0): got %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }

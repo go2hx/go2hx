@@ -19,14 +19,14 @@ function _consumeValue(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : st
                 var _r = (_v[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
 if (_r == ((34 : stdgo.GoUInt8))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (_buffer.string() : stdgo.GoString).__copy__(), _1 : (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__() };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (@:check2r _buffer.string() : stdgo.GoString).__copy__(), _1 : (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__() };
                         _value = __tmp__._0;
                         _rest = __tmp__._1;
                         __tmp__;
                     };
                 };
 if (((_r == ((92 : stdgo.GoUInt8)) && ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_v.length) : Bool) : Bool) && stdgo._internal.mime.Mime__isTSpecial._isTSpecial((_v[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt32)) : Bool)) {
-                    _buffer.writeByte(_v[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]);
+                    @:check2r _buffer.writeByte(_v[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]);
                     _i++;
                     {
                         _i++;
@@ -41,7 +41,7 @@ if (((_r == (13 : stdgo.GoUInt8)) || (_r == (10 : stdgo.GoUInt8)) : Bool)) {
                         __tmp__;
                     };
                 };
-_buffer.writeByte(_v[(_i : stdgo.GoInt)]);
+@:check2r _buffer.writeByte(_v[(_i : stdgo.GoInt)]);
                 _i++;
             };
         };

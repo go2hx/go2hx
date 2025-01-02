@@ -12,24 +12,42 @@ package stdgo._internal.testing.fstest;
         if (_offset != null) this._offset = _offset;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var info(get, never) : () -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
     @:embedded
-    public function info():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return this._mapFileInfo.info();
+    @:embeddededffieldsffun
+    public function get_info():() -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").info;
+    public var isDir(get, never) : () -> Bool;
     @:embedded
-    public function isDir():Bool return this._mapFileInfo.isDir();
+    @:embeddededffieldsffun
+    public function get_isDir():() -> Bool return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").isDir;
+    public var modTime(get, never) : () -> stdgo._internal.time.Time_Time.Time;
     @:embedded
-    public function modTime():stdgo._internal.time.Time_Time.Time return this._mapFileInfo.modTime();
+    @:embeddededffieldsffun
+    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").modTime;
+    public var mode(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
-    public function mode():stdgo._internal.io.fs.Fs_FileMode.FileMode return this._mapFileInfo.mode();
+    @:embeddededffieldsffun
+    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").mode;
+    public var name(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function name():stdgo.GoString return this._mapFileInfo.name();
+    @:embeddededffieldsffun
+    public function get_name():() -> stdgo.GoString return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").name;
+    public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
-    public function size():stdgo.GoInt64 return this._mapFileInfo.size();
+    @:embeddededffieldsffun
+    public function get_size():() -> stdgo.GoInt64 return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").size;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this._mapFileInfo.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").string;
+    public var sys(get, never) : () -> stdgo.AnyInterface;
     @:embedded
-    public function sys():stdgo.AnyInterface return this._mapFileInfo.sys();
+    @:embeddededffieldsffun
+    public function get_sys():() -> stdgo.AnyInterface return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").sys;
+    public var type(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
-    public function type():stdgo._internal.io.fs.Fs_FileMode.FileMode return this._mapFileInfo.type();
+    @:embeddededffieldsffun
+    public function get_type():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 (this._mapFileInfo ?? throw "null pointer derefrence").type;
     public function __copy__() {
         return new T_mapDir(_path, _mapFileInfo, _entry, _offset);
     }

@@ -1,7 +1,7 @@
 package stdgo._internal.net.http.pprof;
 function profile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         _w.header().set(("X-Content-Type-Options" : stdgo.GoString), ("nosniff" : stdgo.GoString));
-        var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_r.formValue(("seconds" : stdgo.GoString))?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _sec:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(@:check2r _r.formValue(("seconds" : stdgo.GoString))?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _sec:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_sec <= (0i64 : stdgo.GoInt64) : Bool) || (_err != null) : Bool)) {
             _sec = (30i64 : stdgo.GoInt64);
         };

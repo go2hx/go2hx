@@ -31,22 +31,38 @@ package stdgo._internal.encoding.json;
         if (_embed != null) this._embed = _embed;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var add(get, never) : stdgo._internal.image.Image_Point.Point -> stdgo._internal.image.Image_Point.Point;
     @:embedded
-    public function add(_q:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return this.embed0p.add(_q);
+    @:embeddededffieldsffun
+    public function get_add():stdgo._internal.image.Image_Point.Point -> stdgo._internal.image.Image_Point.Point return @:check3 (this.embed0p ?? throw "null pointer derefrence").add;
+    public var div(get, never) : stdgo.GoInt -> stdgo._internal.image.Image_Point.Point;
     @:embedded
-    public function div(_n:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return this.embed0p.div(_n);
+    @:embeddededffieldsffun
+    public function get_div():stdgo.GoInt -> stdgo._internal.image.Image_Point.Point return @:check3 (this.embed0p ?? throw "null pointer derefrence").div;
+    public var eq(get, never) : stdgo._internal.image.Image_Point.Point -> Bool;
     @:embedded
-    public function eq(_q:stdgo._internal.image.Image_Point.Point):Bool return this.embed0p.eq(_q);
+    @:embeddededffieldsffun
+    public function get_eq():stdgo._internal.image.Image_Point.Point -> Bool return @:check3 (this.embed0p ?? throw "null pointer derefrence").eq;
+    public var in_(get, never) : stdgo._internal.image.Image_Rectangle.Rectangle -> Bool;
     @:embedded
-    public function in_(_r:stdgo._internal.image.Image_Rectangle.Rectangle):Bool return this.embed0p.in_(_r);
+    @:embeddededffieldsffun
+    public function get_in_():stdgo._internal.image.Image_Rectangle.Rectangle -> Bool return @:check3 (this.embed0p ?? throw "null pointer derefrence").in_;
+    public var mod(get, never) : stdgo._internal.image.Image_Rectangle.Rectangle -> stdgo._internal.image.Image_Point.Point;
     @:embedded
-    public function mod(_r:stdgo._internal.image.Image_Rectangle.Rectangle):stdgo._internal.image.Image_Point.Point return this.embed0p.mod(_r);
+    @:embeddededffieldsffun
+    public function get_mod():stdgo._internal.image.Image_Rectangle.Rectangle -> stdgo._internal.image.Image_Point.Point return @:check3 (this.embed0p ?? throw "null pointer derefrence").mod;
+    public var mul(get, never) : stdgo.GoInt -> stdgo._internal.image.Image_Point.Point;
     @:embedded
-    public function mul(_n:stdgo.GoInt):stdgo._internal.image.Image_Point.Point return this.embed0p.mul(_n);
+    @:embeddededffieldsffun
+    public function get_mul():stdgo.GoInt -> stdgo._internal.image.Image_Point.Point return @:check3 (this.embed0p ?? throw "null pointer derefrence").mul;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.embed0p.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.embed0p ?? throw "null pointer derefrence").string;
+    public var sub(get, never) : stdgo._internal.image.Image_Point.Point -> stdgo._internal.image.Image_Point.Point;
     @:embedded
-    public function sub(_q:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point return this.embed0p.sub(_q);
+    @:embeddededffieldsffun
+    public function get_sub():stdgo._internal.image.Image_Point.Point -> stdgo._internal.image.Image_Point.Point return @:check3 (this.embed0p ?? throw "null pointer derefrence").sub;
     public function __copy__() {
         return new Top(level0, embed0, embed0a, embed0b, embed0c, loop, embed0p, embed0q, _embed);
     }

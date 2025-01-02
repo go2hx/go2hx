@@ -24,8 +24,8 @@ x.set(("st" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoStr
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
-        var _err = (_enc.encode(stdgo.Go.toInterface(_m)) : stdgo.Error);
+        var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_m)) : stdgo.Error);
         if (_err != null) {
-            _t.errorf(("encode map: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            @:check2r _t.errorf(("encode map: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }

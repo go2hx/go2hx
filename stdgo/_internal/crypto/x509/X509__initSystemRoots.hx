@@ -2,9 +2,9 @@ package stdgo._internal.crypto.x509;
 function _initSystemRoots():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
+            @:check2 stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
             {
-                final __f__ = stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
+                final __f__ = @:check2 stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             {
@@ -17,6 +17,7 @@ function _initSystemRoots():Void {
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -31,6 +32,7 @@ function _initSystemRoots():Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

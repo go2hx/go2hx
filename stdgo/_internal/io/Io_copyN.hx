@@ -15,7 +15,7 @@ function copyN(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._internal.io
             };
         };
         if (((_written < _n : Bool) && (_err == null) : Bool)) {
-            _err = stdgo._internal.io.Io_eof.eof;
+            _err = stdgo._internal.io.Io_eOF.eOF;
         };
         return { _0 : _written, _1 : _err };
     }

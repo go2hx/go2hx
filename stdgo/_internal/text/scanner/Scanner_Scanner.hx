@@ -42,10 +42,14 @@ package stdgo._internal.text.scanner;
         if (position != null) this.position = position;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var isValid(get, never) : () -> Bool;
     @:embedded
-    public function isValid():Bool return this.position.isValid();
+    @:embeddededffieldsffun
+    public function get_isValid():() -> Bool return @:check3 (this.position ?? throw "null pointer derefrence").isValid;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.position.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.position ?? throw "null pointer derefrence").string;
     public function __copy__() {
         return new Scanner(
 _src,

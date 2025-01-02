@@ -15,7 +15,7 @@ function _fmtF(_buf:stdgo.Slice<stdgo.GoUInt8>, _prec:stdgo.GoInt, _d:stdgo._int
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _prec : Bool)) {
-                    _buf = (_buf.__append__(_d._at((_d._exp + _i : stdgo.GoInt))));
+                    _buf = (_buf.__append__(@:check2 _d._at((_d._exp + _i : stdgo.GoInt))));
                     _i++;
                 };
             };

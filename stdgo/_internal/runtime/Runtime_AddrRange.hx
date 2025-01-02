@@ -2,18 +2,30 @@ package stdgo._internal.runtime;
 @:structInit @:using(stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension) class AddrRange {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _contains(get, never) : stdgo.GoUIntptr -> Bool;
     @:embedded
-    public function _contains(__0:stdgo.GoUIntptr):Bool return this.new._contains(__0);
+    @:embeddededffieldsffun
+    public function get__contains():stdgo.GoUIntptr -> Bool return @:check3 (this.new ?? throw "null pointer derefrence")._contains;
+    public var _removeGreaterEqual(get, never) : stdgo.GoUIntptr -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange;
     @:embedded
-    public function _removeGreaterEqual(__0:stdgo.GoUIntptr):stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return this.new._removeGreaterEqual(__0);
+    @:embeddededffieldsffun
+    public function get__removeGreaterEqual():stdgo.GoUIntptr -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check3 (this.new ?? throw "null pointer derefrence")._removeGreaterEqual;
+    public var _size(get, never) : () -> stdgo.GoUIntptr;
     @:embedded
-    public function _size():stdgo.GoUIntptr return this.new._size();
+    @:embeddededffieldsffun
+    public function get__size():() -> stdgo.GoUIntptr return @:check3 (this.new ?? throw "null pointer derefrence")._size;
+    public var _subtract(get, never) : stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange;
     @:embedded
-    public function _subtract(__0:stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange):stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return this.new._subtract(__0);
+    @:embeddededffieldsffun
+    public function get__subtract():stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check3 (this.new ?? throw "null pointer derefrence")._subtract;
+    public var _takeFromBack(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; };
     @:embedded
-    public function _takeFromBack(_offset:stdgo.GoUIntptr, _kind:stdgo.GoUInt8):{ var _0 : stdgo.GoUIntptr; var _1 : Bool; } return this.new._takeFromBack(_offset, _kind);
+    @:embeddededffieldsffun
+    public function get__takeFromBack():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 (this.new ?? throw "null pointer derefrence")._takeFromBack;
+    public var _takeFromFront(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; };
     @:embedded
-    public function _takeFromFront(_offset:stdgo.GoUIntptr, _kind:stdgo.GoUInt8):{ var _0 : stdgo.GoUIntptr; var _1 : Bool; } return this.new._takeFromFront(_offset, _kind);
+    @:embeddededffieldsffun
+    public function get__takeFromFront():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 (this.new ?? throw "null pointer derefrence")._takeFromFront;
     public function __copy__() {
         return new AddrRange();
     }

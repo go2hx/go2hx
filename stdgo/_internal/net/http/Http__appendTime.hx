@@ -2,7 +2,7 @@ package stdgo._internal.net.http;
 function _appendTime(_b:stdgo.Slice<stdgo.GoUInt8>, _t:stdgo._internal.time.Time_Time.Time):stdgo.Slice<stdgo.GoUInt8> {
         {};
         {};
-        _t = _t.utc()?.__copy__();
+        _t = _t.uTC()?.__copy__();
         var __tmp__ = _t.date(), _yy:stdgo.GoInt = __tmp__._0, _mm:stdgo._internal.time.Time_Month.Month = __tmp__._1, _dd:stdgo.GoInt = __tmp__._2;
         var __tmp__ = _t.clock(), _hh:stdgo.GoInt = __tmp__._0, _mn:stdgo.GoInt = __tmp__._1, _ss:stdgo.GoInt = __tmp__._2;
         var _day = ((("SunMonTueWedThuFriSat" : stdgo.GoString).__slice__(((3 : stdgo._internal.time.Time_Weekday.Weekday) * _t.weekday() : stdgo._internal.time.Time_Weekday.Weekday)) : stdgo.GoString)?.__copy__() : stdgo.GoString);

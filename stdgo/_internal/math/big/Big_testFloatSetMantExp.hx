@@ -20,13 +20,13 @@ function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             var _frac = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._frac?.__copy__());
             var _want = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._z?.__copy__());
             var _z:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
-            _z.setMantExp(_frac, _test._exp);
+            @:check2 _z.setMantExp(_frac, _test._exp);
             if (!stdgo._internal.math.big.Big__alike._alike((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), _want)) {
-                _t.errorf(("SetMantExp(%s, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._frac), stdgo.Go.toInterface(_test._exp), stdgo.Go.toInterface(_z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
+                @:check2r _t.errorf(("SetMantExp(%s, %d) = %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._frac), stdgo.Go.toInterface(_test._exp), stdgo.Go.toInterface(@:check2 _z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
             };
             var _mant = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-            if (_z.setMantExp(_mant, _want.mantExp(_mant)).cmp(_want) != ((0 : stdgo.GoInt))) {
-                _t.errorf(("Inverse property not satisfied: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
+            if (@:check2r @:check2 _z.setMantExp(_mant, @:check2r _want.mantExp(_mant)).cmp(_want) != ((0 : stdgo.GoInt))) {
+                @:check2r _t.errorf(("Inverse property not satisfied: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(@:check2 _z.text((103 : stdgo.GoUInt8), (10 : stdgo.GoInt))), stdgo.Go.toInterface(_test._z));
             };
         };
     }

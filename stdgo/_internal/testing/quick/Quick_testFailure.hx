@@ -5,7 +5,7 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         } : stdgo.GoInt -> Bool);
         var _err = (stdgo._internal.testing.quick.Quick_check.check(stdgo.Go.toInterface(_f), null) : stdgo.Error);
         if (_err == null) {
-            _t.errorf(("Check didn\'t return an error" : stdgo.GoString));
+            @:check2r _t.errorf(("Check didn\'t return an error" : stdgo.GoString));
         };
         {
             var __tmp__ = try {
@@ -14,12 +14,12 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 { _0 : (null : stdgo.Ref<stdgo._internal.testing.quick.Quick_CheckError.CheckError>), _1 : false };
             }, __0 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
-                _t.errorf(("Error was not a CheckError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("Error was not a CheckError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         _err = stdgo._internal.testing.quick.Quick_checkEqual.checkEqual(stdgo.Go.toInterface(stdgo._internal.testing.quick.Quick__fUint._fUint), stdgo.Go.toInterface(stdgo._internal.testing.quick.Quick__fUint32._fUint32), null);
         if (_err == null) {
-            _t.errorf(("#1 CheckEqual didn\'t return an error" : stdgo.GoString));
+            @:check2r _t.errorf(("#1 CheckEqual didn\'t return an error" : stdgo.GoString));
         };
         {
             var __tmp__ = try {
@@ -28,12 +28,12 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 { _0 : (("" : stdgo.GoString) : stdgo._internal.testing.quick.Quick_SetupError.SetupError), _1 : false };
             }, __1 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
-                _t.errorf(("#1 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("#1 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         _err = stdgo._internal.testing.quick.Quick_checkEqual.checkEqual(stdgo.Go.toInterface(function(_x:stdgo.GoInt, _y:stdgo.GoInt):Void {}), stdgo.Go.toInterface(function(_x:stdgo.GoInt):Void {}), null);
         if (_err == null) {
-            _t.errorf(("#2 CheckEqual didn\'t return an error" : stdgo.GoString));
+            @:check2r _t.errorf(("#2 CheckEqual didn\'t return an error" : stdgo.GoString));
         };
         {
             var __tmp__ = try {
@@ -42,7 +42,7 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 { _0 : (("" : stdgo.GoString) : stdgo._internal.testing.quick.Quick_SetupError.SetupError), _1 : false };
             }, __2 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
-                _t.errorf(("#2 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("#2 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         _err = stdgo._internal.testing.quick.Quick_checkEqual.checkEqual(stdgo.Go.toInterface(function(_x:stdgo.GoInt):stdgo.GoInt {
@@ -51,7 +51,7 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             return (0 : stdgo.GoInt32);
         }), null);
         if (_err == null) {
-            _t.errorf(("#3 CheckEqual didn\'t return an error" : stdgo.GoString));
+            @:check2r _t.errorf(("#3 CheckEqual didn\'t return an error" : stdgo.GoString));
         };
         {
             var __tmp__ = try {
@@ -60,7 +60,7 @@ function testFailure(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 { _0 : (("" : stdgo.GoString) : stdgo._internal.testing.quick.Quick_SetupError.SetupError), _1 : false };
             }, __3 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
-                _t.errorf(("#3 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                @:check2r _t.errorf(("#3 Error was not a SetupError: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
     }

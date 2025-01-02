@@ -1,9 +1,9 @@
 package stdgo._internal.net.http;
 function _checkIfModifiedSince(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _modtime:stdgo._internal.time.Time_Time.Time):stdgo._internal.net.http.Http_T_condResult.T_condResult {
-        if (((_r.method != ("GET" : stdgo.GoString)) && (_r.method != ("HEAD" : stdgo.GoString)) : Bool)) {
+        if ((((@:checkr _r ?? throw "null pointer dereference").method != ("GET" : stdgo.GoString)) && ((@:checkr _r ?? throw "null pointer dereference").method != ("HEAD" : stdgo.GoString)) : Bool)) {
             return (0 : stdgo._internal.net.http.Http_T_condResult.T_condResult);
         };
-        var _ims = (_r.header.get(("If-Modified-Since" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _ims = ((@:checkr _r ?? throw "null pointer dereference").header.get(("If-Modified-Since" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (((_ims == stdgo.Go.str()) || stdgo._internal.net.http.Http__isZeroTime._isZeroTime(_modtime?.__copy__()) : Bool)) {
             return (0 : stdgo._internal.net.http.Http_T_condResult.T_condResult);
         };

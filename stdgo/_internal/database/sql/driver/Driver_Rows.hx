@@ -8,12 +8,14 @@ typedef Rows = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function columns():stdgo.Slice<stdgo.GoString>;
     /**
         Close closes the rows iterator.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         Next is called to populate the next row of data into
@@ -28,5 +30,6 @@ typedef Rows = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function next(_dest:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>):stdgo.Error;
 };

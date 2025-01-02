@@ -5,7 +5,7 @@ function _knownRoundTripperImpl(_rt:stdgo._internal.net.http.Http_RoundTripper.R
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>))) {
                 var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>) : __type__.__underlying__().value;
                 {
-                    var _altRT = (_t._alternateRoundTripper(_req) : stdgo._internal.net.http.Http_RoundTripper.RoundTripper);
+                    var _altRT = (@:check2r _t._alternateRoundTripper(_req) : stdgo._internal.net.http.Http_RoundTripper.RoundTripper);
                     if (_altRT != null) {
                         return stdgo._internal.net.http.Http__knownRoundTripperImpl._knownRoundTripperImpl(_altRT, _req);
                     };

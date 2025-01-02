@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.ClientAuthType_asInterface) class ClientAuthType_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.crypto.tls.Tls_ClientAuthType.ClientAuthType):stdgo.GoString {
         @:recv var _i:stdgo._internal.crypto.tls.Tls_ClientAuthType.ClientAuthType = _i;
         if (((_i < (0 : stdgo._internal.crypto.tls.Tls_ClientAuthType.ClientAuthType) : Bool) || (_i >= ((5 : stdgo.GoInt) : stdgo._internal.crypto.tls.Tls_ClientAuthType.ClientAuthType) : Bool) : Bool)) {

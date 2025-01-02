@@ -1,11 +1,13 @@
 package stdgo._internal.sort;
 @:keep @:allow(stdgo._internal.sort.Sort.StringSlice_asInterface) class StringSlice_static_extension {
     @:keep
+    @:tdfield
     static public function sort( _x:stdgo._internal.sort.Sort_StringSlice.StringSlice):Void {
         @:recv var _x:stdgo._internal.sort.Sort_StringSlice.StringSlice = _x;
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_x));
     }
     @:keep
+    @:tdfield
     static public function swap( _x:stdgo._internal.sort.Sort_StringSlice.StringSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Void {
         @:recv var _x:stdgo._internal.sort.Sort_StringSlice.StringSlice = _x;
         {
@@ -20,16 +22,19 @@ package stdgo._internal.sort;
         };
     }
     @:keep
+    @:tdfield
     static public function less( _x:stdgo._internal.sort.Sort_StringSlice.StringSlice, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _x:stdgo._internal.sort.Sort_StringSlice.StringSlice = _x;
         return (_x[(_i : stdgo.GoInt)] < _x[(_j : stdgo.GoInt)] : Bool);
     }
     @:keep
+    @:tdfield
     static public function len( _x:stdgo._internal.sort.Sort_StringSlice.StringSlice):stdgo.GoInt {
         @:recv var _x:stdgo._internal.sort.Sort_StringSlice.StringSlice = _x;
         return (_x.length);
     }
     @:keep
+    @:tdfield
     static public function search( _p:stdgo._internal.sort.Sort_StringSlice.StringSlice, _x:stdgo.GoString):stdgo.GoInt {
         @:recv var _p:stdgo._internal.sort.Sort_StringSlice.StringSlice = _p;
         return stdgo._internal.sort.Sort_searchStrings.searchStrings(_p, _x?.__copy__());

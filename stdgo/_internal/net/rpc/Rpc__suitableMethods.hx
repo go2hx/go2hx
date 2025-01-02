@@ -1,11 +1,11 @@
 package stdgo._internal.net.rpc;
 function _suitableMethods(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _logErr:Bool):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>> {
-        var _methods = ({
+        var _methods = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>();
             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>);
         {
             var _m = (0 : stdgo.GoInt);
             while ((_m < _typ.numMethod() : Bool)) {

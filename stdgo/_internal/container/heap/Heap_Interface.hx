@@ -6,11 +6,13 @@ typedef Interface = stdgo.StructType & {
         
         add x as element Len()
     **/
+    @:interfacetypeffun
     public dynamic function push(_x:stdgo.AnyInterface):Void;
     /**
         
         
         remove and return element Len() - 1.
     **/
+    @:interfacetypeffun
     public dynamic function pop():stdgo.AnyInterface;
 };

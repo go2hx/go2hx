@@ -23,12 +23,14 @@ function stat(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var 
             {
                 final __ret__:{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } = _file.stat();
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -43,6 +45,7 @@ function stat(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var 
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

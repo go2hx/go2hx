@@ -1,6 +1,7 @@
 package stdgo._internal.html.template;
 @:keep @:allow(stdgo._internal.html.template.Template.T_urlPart_asInterface) class T_urlPart_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.html.template.Template_T_urlPart.T_urlPart):stdgo.GoString {
         @:recv var _i:stdgo._internal.html.template.Template_T_urlPart.T_urlPart = _i;
         if ((_i >= ((4 : stdgo.GoInt) : stdgo._internal.html.template.Template_T_urlPart.T_urlPart) : Bool)) {

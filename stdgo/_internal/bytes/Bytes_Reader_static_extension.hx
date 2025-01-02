@@ -1,6 +1,7 @@
 package stdgo._internal.bytes;
 @:keep @:allow(stdgo._internal.bytes.Bytes.Reader_asInterface) class Reader_static_extension {
     @:keep
+    @:tdfield
     static public function reset( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>, _b:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         {
@@ -12,11 +13,12 @@ package stdgo._internal.bytes;
         };
     }
     @:keep
+    @:tdfield
     static public function writeTo( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>, _w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
-        _r._prevRune = (-1 : stdgo.GoInt);
-        if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
+        if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
@@ -24,12 +26,12 @@ package stdgo._internal.bytes;
                 __tmp__;
             };
         };
-        var _b = (_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>);
+        var _b = ((@:checkr _r ?? throw "null pointer dereference")._s.__slice__((@:checkr _r ?? throw "null pointer dereference")._i) : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = _w.write(_b), _m:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_m > (_b.length) : Bool)) {
             throw stdgo.Go.toInterface(("bytes.Reader.WriteTo: invalid Write count" : stdgo.GoString));
         };
-        _r._i = (_r._i + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
+        (@:checkr _r ?? throw "null pointer dereference")._i = ((@:checkr _r ?? throw "null pointer dereference")._i + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
         _n = (_m : stdgo.GoInt64);
         if (((_m != (_b.length)) && (_err == null) : Bool)) {
             _err = stdgo._internal.io.Io_errShortWrite.errShortWrite;
@@ -37,18 +39,19 @@ package stdgo._internal.bytes;
         return { _0 : _n, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function seek( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        _r._prevRune = (-1 : stdgo.GoInt);
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
         var _abs:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
             final __value__ = _whence;
             if (__value__ == ((0 : stdgo.GoInt))) {
                 _abs = _offset;
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                _abs = (_r._i + _offset : stdgo.GoInt64);
+                _abs = ((@:checkr _r ?? throw "null pointer dereference")._i + _offset : stdgo.GoInt64);
             } else if (__value__ == ((2 : stdgo.GoInt))) {
-                _abs = ((_r._s.length : stdgo.GoInt64) + _offset : stdgo.GoInt64);
+                _abs = (((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) + _offset : stdgo.GoInt64);
             } else {
                 return { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.Seek: invalid whence" : stdgo.GoString)) };
             };
@@ -56,41 +59,43 @@ package stdgo._internal.bytes;
         if ((_abs < (0i64 : stdgo.GoInt64) : Bool)) {
             return { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.Seek: negative position" : stdgo.GoString)) };
         };
-        _r._i = _abs;
+        (@:checkr _r ?? throw "null pointer dereference")._i = _abs;
         return { _0 : _abs, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function unreadRune( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        if ((_r._i <= (0i64 : stdgo.GoInt64) : Bool)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._i <= (0i64 : stdgo.GoInt64) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.UnreadRune: at beginning of slice" : stdgo.GoString));
         };
-        if ((_r._prevRune < (0 : stdgo.GoInt) : Bool)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._prevRune < (0 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.UnreadRune: previous operation was not ReadRune" : stdgo.GoString));
         };
-        _r._i = (_r._prevRune : stdgo.GoInt64);
-        _r._prevRune = (-1 : stdgo.GoInt);
+        (@:checkr _r ?? throw "null pointer dereference")._i = ((@:checkr _r ?? throw "null pointer dereference")._prevRune : stdgo.GoInt64);
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function readRune( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _ch = (0 : stdgo.GoInt32), _size = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            _r._prevRune = (-1 : stdgo.GoInt);
+        if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
+            (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eof };
+                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eOF.eOF };
                 _ch = __tmp__._0;
                 _size = __tmp__._1;
                 _err = __tmp__._2;
                 __tmp__;
             };
         };
-        _r._prevRune = (_r._i : stdgo.GoInt);
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = ((@:checkr _r ?? throw "null pointer dereference")._i : stdgo.GoInt);
         {
-            var _c = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
+            var _c = ((@:checkr _r ?? throw "null pointer dereference")._s[((@:checkr _r ?? throw "null pointer dereference")._i : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
-                _r._i++;
+                (@:checkr _r ?? throw "null pointer dereference")._i++;
                 return {
                     final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
                     _ch = __tmp__._0;
@@ -101,35 +106,38 @@ package stdgo._internal.bytes;
             };
         };
         {
-            var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>));
+            var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(((@:checkr _r ?? throw "null pointer dereference")._s.__slice__((@:checkr _r ?? throw "null pointer dereference")._i) : stdgo.Slice<stdgo.GoUInt8>));
             _ch = __tmp__._0;
             _size = __tmp__._1;
         };
-        _r._i = (_r._i + ((_size : stdgo.GoInt64)) : stdgo.GoInt64);
+        (@:checkr _r ?? throw "null pointer dereference")._i = ((@:checkr _r ?? throw "null pointer dereference")._i + ((_size : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _ch, _1 : _size, _2 : _err };
     }
     @:keep
+    @:tdfield
     static public function unreadByte( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        if ((_r._i <= (0i64 : stdgo.GoInt64) : Bool)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._i <= (0i64 : stdgo.GoInt64) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.UnreadByte: at beginning of slice" : stdgo.GoString));
         };
-        _r._prevRune = (-1 : stdgo.GoInt);
-        _r._i--;
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
+        (@:checkr _r ?? throw "null pointer dereference")._i--;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function readByte( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        _r._prevRune = (-1 : stdgo.GoInt);
-        if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eof.eof };
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
+        if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
+            return { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eOF.eOF };
         };
-        var _b = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
-        _r._i++;
+        var _b = ((@:checkr _r ?? throw "null pointer dereference")._s[((@:checkr _r ?? throw "null pointer dereference")._i : stdgo.GoInt)] : stdgo.GoUInt8);
+        (@:checkr _r ?? throw "null pointer dereference")._i++;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }
     @:keep
+    @:tdfield
     static public function readAt( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
@@ -141,48 +149,51 @@ package stdgo._internal.bytes;
                 __tmp__;
             };
         };
-        if ((_off >= (_r._s.length : stdgo.GoInt64) : Bool)) {
+        if ((_off >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        _n = _b.__copyTo__((_r._s.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _b.__copyTo__(((@:checkr _r ?? throw "null pointer dereference")._s.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_n < (_b.length) : Bool)) {
-            _err = stdgo._internal.io.Io_eof.eof;
+            _err = stdgo._internal.io.Io_eOF.eOF;
         };
         return { _0 : _n, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function read( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        _r._prevRune = (-1 : stdgo.GoInt);
-        _n = _b.__copyTo__((_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>));
-        _r._i = (_r._i + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
+        (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
+        _n = _b.__copyTo__(((@:checkr _r ?? throw "null pointer dereference")._s.__slice__((@:checkr _r ?? throw "null pointer dereference")._i) : stdgo.Slice<stdgo.GoUInt8>));
+        (@:checkr _r ?? throw "null pointer dereference")._i = ((@:checkr _r ?? throw "null pointer dereference")._i + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function size( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):stdgo.GoInt64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        return (_r._s.length : stdgo.GoInt64);
+        return ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function len( _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>):stdgo.GoInt {
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
-        if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
+        if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return (0 : stdgo.GoInt);
         };
-        return (((_r._s.length : stdgo.GoInt64) - _r._i : stdgo.GoInt64) : stdgo.GoInt);
+        return ((((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) - (@:checkr _r ?? throw "null pointer dereference")._i : stdgo.GoInt64) : stdgo.GoInt);
     }
 }

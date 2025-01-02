@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.cipher;
 @:keep @:allow(stdgo._internal.crypto.cipher.Cipher.StreamWriter_asInterface) class StreamWriter_static_extension {
     @:keep
+    @:tdfield
     static public function close( _w:stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter):stdgo.Error {
         @:recv var _w:stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter = _w?.__copy__();
         {
@@ -16,11 +17,12 @@ package stdgo._internal.crypto.cipher;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function write( _w:stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter, _src:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter = _w?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _c = (new stdgo.Slice<stdgo.GoUInt8>((_src.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _w.s.xorkeyStream(_c, _src);
+        _w.s.xORKeyStream(_c, _src);
         {
             var __tmp__ = _w.w.write(_c);
             _n = __tmp__._0;

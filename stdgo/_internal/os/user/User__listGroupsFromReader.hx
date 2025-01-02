@@ -1,23 +1,23 @@
 package stdgo._internal.os.user;
 function _listGroupsFromReader(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
-        if (_u.username == (stdgo.Go.str())) {
+        if ((@:checkr _u ?? throw "null pointer dereference").username == (stdgo.Go.str())) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.errors.Errors_new_.new_(("user: list groups: empty username" : stdgo.GoString)) };
         };
-        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_u.gid?.__copy__()), _primaryGid:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi((@:checkr _u ?? throw "null pointer dereference").gid?.__copy__()), _primaryGid:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("user: list groups for %s: invalid gid %q" : stdgo.GoString), stdgo.Go.toInterface(_u.username), stdgo.Go.toInterface(_u.gid)) };
+            return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("user: list groups for %s: invalid gid %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _u ?? throw "null pointer dereference").username), stdgo.Go.toInterface((@:checkr _u ?? throw "null pointer dereference").gid)) };
         };
-        var _userCommas = (((("," : stdgo.GoString) + _u.username?.__copy__() : stdgo.GoString) + ("," : stdgo.GoString)?.__copy__() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _userCommas = (((("," : stdgo.GoString) + (@:checkr _u ?? throw "null pointer dereference").username?.__copy__() : stdgo.GoString) + ("," : stdgo.GoString)?.__copy__() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _userFirst = (_userCommas.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _userLast = (_userCommas.__slice__(0, ((_userCommas.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _userOnly = (_userCommas.__slice__((1 : stdgo.GoInt), ((_userCommas.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        var _groups = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_u.gid?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        var _groups = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[(@:checkr _u ?? throw "null pointer dereference").gid?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _rd = stdgo._internal.bufio.Bufio_newReader.newReader(_r);
         var _done = (false : Bool);
         while (!_done) {
-            var __tmp__ = _rd.readBytes((10 : stdgo.GoUInt8)), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _rd.readBytes((10 : stdgo.GoUInt8)), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     _done = true;
                 } else {
                     return { _0 : _groups, _1 : _err };

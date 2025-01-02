@@ -7,12 +7,12 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
                 return _err;
             };
             {
-                final __f__ = _f.close;
+                final __f__ = @:check2r _f.close;
                 __deferstack__.unshift(() -> __f__());
             };
             var _scanner = stdgo._internal.bufio.Bufio_newScanner.newScanner(stdgo.Go.asInterface(_f));
-            while (_scanner.scan()) {
-                var _fields = stdgo._internal.strings.Strings_split.split(_scanner.text()?.__copy__(), (":" : stdgo.GoString));
+            while (@:check2r _scanner.scan()) {
+                var _fields = stdgo._internal.strings.Strings_split.split(@:check2r _scanner.text()?.__copy__(), (":" : stdgo.GoString));
                 if (((((_fields.length) < (3 : stdgo.GoInt) : Bool) || ((_fields[(0 : stdgo.GoInt)].length) < (1 : stdgo.GoInt) : Bool) : Bool) || ((_fields[(2 : stdgo.GoInt)].length) < (3 : stdgo.GoInt) : Bool) : Bool)) {
                     continue;
                 } else if (((_fields[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == ((35 : stdgo.GoUInt8)) || _fields[(2 : stdgo.GoInt)][(0 : stdgo.GoInt)] != ((42 : stdgo.GoUInt8)) : Bool) || (_fields[(2 : stdgo.GoInt)][(1 : stdgo.GoInt)] != (46 : stdgo.GoUInt8)) : Bool)) {
@@ -23,7 +23,7 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
                     continue;
                 };
                 {
-                    var __tmp__ = stdgo._internal.mime.Mime__mimeTypes._mimeTypes.load(stdgo.Go.toInterface(_extension)), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 stdgo._internal.mime.Mime__mimeTypes._mimeTypes.load(stdgo.Go.toInterface(_extension)), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         continue;
                     };
@@ -31,7 +31,7 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
                 stdgo._internal.mime.Mime__setExtensionType._setExtensionType(_extension?.__copy__(), _fields[(1 : stdgo.GoInt)]?.__copy__());
             };
             {
-                var _err = (_scanner.err() : stdgo.Error);
+                var _err = (@:check2r _scanner.err() : stdgo.Error);
                 if (_err != null) {
                     throw stdgo.Go.toInterface(_err);
                 };
@@ -39,12 +39,14 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -59,6 +61,7 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

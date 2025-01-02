@@ -25,16 +25,18 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
                     };
                 };
                 var _c = stdgo._internal.net.http.fcgi.Fcgi__newChild._newChild(_rw, _handler);
-                stdgo.Go.routine(() -> _c._serve());
+                stdgo.Go.routine(() -> @:check2r _c._serve());
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -49,6 +51,7 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

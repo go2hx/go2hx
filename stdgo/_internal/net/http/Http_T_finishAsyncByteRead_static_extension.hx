@@ -1,13 +1,14 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_finishAsyncByteRead_asInterface) class T_finishAsyncByteRead_static_extension {
     @:keep
+    @:tdfield
     static public function read( _fr:stdgo._internal.net.http.Http_T_finishAsyncByteRead.T_finishAsyncByteRead, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _fr:stdgo._internal.net.http.Http_T_finishAsyncByteRead.T_finishAsyncByteRead = _fr?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_p.length) == ((0 : stdgo.GoInt))) {
             return { _0 : _n, _1 : _err };
         };
-        var _rres = (_fr._tw.byteReadCh.__get__()?.__copy__() : stdgo._internal.net.http.Http_T_readResult.T_readResult);
+        var _rres = ((@:checkr _fr._tw ?? throw "null pointer dereference").byteReadCh.__get__()?.__copy__() : stdgo._internal.net.http.Http_T_readResult.T_readResult);
         {
             final __tmp__0 = _rres._n;
             final __tmp__1 = _rres._err;
@@ -18,7 +19,7 @@ package stdgo._internal.net.http;
             _p[(0 : stdgo.GoInt)] = _rres._b;
         };
         if (_err == null) {
-            _err = stdgo._internal.io.Io_eof.eof;
+            _err = stdgo._internal.io.Io_eOF.eOF;
         };
         return { _0 : _n, _1 : _err };
     }

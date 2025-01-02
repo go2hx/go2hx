@@ -10,6 +10,7 @@ function stopCPUProfile():Void {
             if (!stdgo._internal.runtime.pprof.Pprof__cpu._cpu._profiling) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return;
@@ -20,6 +21,7 @@ function stopCPUProfile():Void {
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done.__get__();
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -34,6 +36,7 @@ function stopCPUProfile():Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -1,15 +1,16 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_timeoutHandler_asInterface) class T_timeoutHandler_static_extension {
     @:keep
+    @:tdfield
     static public function serveHTTP( _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler>, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler> = _h;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _ctx = (_h._testContext : stdgo._internal.context.Context_Context.Context);
+            var _ctx = ((@:checkr _h ?? throw "null pointer dereference")._testContext : stdgo._internal.context.Context_Context.Context);
             if (_ctx == null) {
                 var _cancelCtx:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
-                    var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_r.context(), _h._dt);
+                    var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(@:check2r _r.context(), (@:checkr _h ?? throw "null pointer dereference")._dt);
                     _ctx = __tmp__._0;
                     _cancelCtx = __tmp__._1;
                 };
@@ -18,7 +19,7 @@ package stdgo._internal.net.http;
                     __deferstack__.unshift(() -> __f__());
                 };
             };
-            _r = _r.withContext(_ctx);
+            _r = @:check2r _r.withContext(_ctx);
             var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
             var _tw = (stdgo.Go.setRef(({ _w : _w, _h : (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
@@ -48,10 +49,11 @@ package stdgo._internal.net.http;
                                 a();
                             }));
                         };
-                        _h._handler.serveHTTP(stdgo.Go.asInterface(_tw), _r);
+                        (@:checkr _h ?? throw "null pointer dereference")._handler.serveHTTP(stdgo.Go.asInterface(_tw), _r);
                         if (_done != null) _done.__close__();
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -66,6 +68,7 @@ package stdgo._internal.net.http;
                         };
                         stdgo.Go.recover_exception = exe;
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -90,20 +93,20 @@ package stdgo._internal.net.http;
                         {
                             _done.__get__();
                             {
-                                _tw._mu.lock();
+                                @:check2 (@:checkr _tw ?? throw "null pointer dereference")._mu.lock();
                                 {
-                                    final __f__ = _tw._mu.unlock;
+                                    final __f__ = @:check2 (@:checkr _tw ?? throw "null pointer dereference")._mu.unlock;
                                     __deferstack__.unshift(() -> __f__());
                                 };
                                 var _dst = (_w.header() : stdgo._internal.net.http.Http_Header.Header);
-                                for (_k => _vv in _tw._h) {
+                                for (_k => _vv in (@:checkr _tw ?? throw "null pointer dereference")._h) {
                                     _dst[_k] = _vv;
                                 };
-                                if (!_tw._wroteHeader) {
-                                    _tw._code = (200 : stdgo.GoInt);
+                                if (!(@:checkr _tw ?? throw "null pointer dereference")._wroteHeader) {
+                                    (@:checkr _tw ?? throw "null pointer dereference")._code = (200 : stdgo.GoInt);
                                 };
-                                _w.writeHeader(_tw._code);
-                                _w.write(_tw._wbuf.bytes());
+                                _w.writeHeader((@:checkr _tw ?? throw "null pointer dereference")._code);
+                                _w.write(@:check2 (@:checkr _tw ?? throw "null pointer dereference")._wbuf.bytes());
                             };
                         };
                     } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
@@ -111,9 +114,9 @@ package stdgo._internal.net.http;
                         {
                             _ctx.done().__get__();
                             {
-                                _tw._mu.lock();
+                                @:check2 (@:checkr _tw ?? throw "null pointer dereference")._mu.lock();
                                 {
-                                    final __f__ = _tw._mu.unlock;
+                                    final __f__ = @:check2 (@:checkr _tw ?? throw "null pointer dereference")._mu.unlock;
                                     __deferstack__.unshift(() -> __f__());
                                 };
                                 {
@@ -122,11 +125,11 @@ package stdgo._internal.net.http;
                                         final __value__ = _err;
                                         if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.context.Context_deadlineExceeded.deadlineExceeded))) {
                                             _w.writeHeader((503 : stdgo.GoInt));
-                                            stdgo._internal.io.Io_writeString.writeString(_w, _h._errorBody()?.__copy__());
-                                            _tw._err = stdgo._internal.net.http.Http_errHandlerTimeout.errHandlerTimeout;
+                                            stdgo._internal.io.Io_writeString.writeString(_w, @:check2r _h._errorBody()?.__copy__());
+                                            (@:checkr _tw ?? throw "null pointer dereference")._err = stdgo._internal.net.http.Http_errHandlerTimeout.errHandlerTimeout;
                                         } else {
                                             _w.writeHeader((503 : stdgo.GoInt));
-                                            _tw._err = _err;
+                                            (@:checkr _tw ?? throw "null pointer dereference")._err = _err;
                                         };
                                     };
                                 };
@@ -139,6 +142,7 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -153,6 +157,7 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -160,10 +165,11 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
+    @:tdfield
     static public function _errorBody( _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler>):stdgo.GoString {
         @:recv var _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler> = _h;
-        if (_h._body != (stdgo.Go.str())) {
-            return _h._body?.__copy__();
+        if ((@:checkr _h ?? throw "null pointer dereference")._body != (stdgo.Go.str())) {
+            return (@:checkr _h ?? throw "null pointer dereference")._body?.__copy__();
         };
         return ("<html><head><title>Timeout</title></head><body><h1>Timeout</h1></body></html>" : stdgo.GoString);
     }

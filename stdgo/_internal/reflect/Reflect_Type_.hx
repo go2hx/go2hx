@@ -6,6 +6,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function align():stdgo.GoInt;
     /**
         FieldAlign returns the alignment in bytes of a value of
@@ -13,6 +14,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function fieldAlign():stdgo.GoInt;
     /**
         Method returns the i'th method in the type's method set.
@@ -29,6 +31,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function method(_0:stdgo.GoInt):stdgo._internal.reflect.Reflect_Method.Method;
     /**
         MethodByName returns the method with that name in the type's
@@ -42,6 +45,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function methodByName(_0:stdgo.GoString):{ var _0 : stdgo._internal.reflect.Reflect_Method.Method; var _1 : Bool; };
     /**
         NumMethod returns the number of methods accessible using Method.
@@ -52,6 +56,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function numMethod():stdgo.GoInt;
     /**
         Name returns the type's name within its package for a defined type.
@@ -59,6 +64,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function name():stdgo.GoString;
     /**
         PkgPath returns a defined type's package path, that is, the import path
@@ -69,6 +75,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function pkgPath():stdgo.GoString;
     /**
         Size returns the number of bytes needed to store
@@ -76,6 +83,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function size():stdgo.GoUIntptr;
     /**
         String returns a string representation of the type.
@@ -86,24 +94,28 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function string():stdgo.GoString;
     /**
         Kind returns the specific kind of this type.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function kind():stdgo._internal.reflect.Reflect_Kind.Kind;
     /**
         Implements reports whether the type implements the interface type u.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function implements_(_u:stdgo._internal.reflect.Reflect_Type_.Type_):Bool;
     /**
         AssignableTo reports whether a value of the type is assignable to type u.
         
         
     **/
+    @:interfacetypeffun
     public dynamic function assignableTo(_u:stdgo._internal.reflect.Reflect_Type_.Type_):Bool;
     /**
         ConvertibleTo reports whether a value of the type is convertible to type u.
@@ -113,6 +125,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function convertibleTo(_u:stdgo._internal.reflect.Reflect_Type_.Type_):Bool;
     /**
         Comparable reports whether values of this type are comparable.
@@ -122,6 +135,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function comparable_():Bool;
     /**
         Bits returns the size of the type in bits.
@@ -130,6 +144,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function bits():stdgo.GoInt;
     /**
         ChanDir returns a channel type's direction.
@@ -137,6 +152,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function chanDir():stdgo._internal.reflect.Reflect_ChanDir.ChanDir;
     /**
         IsVariadic reports whether a function type's final input parameter
@@ -154,6 +170,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function isVariadic():Bool;
     /**
         Elem returns a type's element type.
@@ -161,6 +178,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function elem():stdgo._internal.reflect.Reflect_Type_.Type_;
     /**
         Field returns a struct type's i'th field.
@@ -169,6 +187,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function field(_i:stdgo.GoInt):stdgo._internal.reflect.Reflect_StructField.StructField;
     /**
         FieldByIndex returns the nested field corresponding
@@ -178,6 +197,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function fieldByIndex(_index:stdgo.Slice<stdgo.GoInt>):stdgo._internal.reflect.Reflect_StructField.StructField;
     /**
         FieldByName returns the struct field with the given name
@@ -185,6 +205,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function fieldByName(_name:stdgo.GoString):{ var _0 : stdgo._internal.reflect.Reflect_StructField.StructField; var _1 : Bool; };
     /**
         FieldByNameFunc returns the struct field with a name
@@ -202,6 +223,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function fieldByNameFunc(_match:stdgo.GoString -> Bool):{ var _0 : stdgo._internal.reflect.Reflect_StructField.StructField; var _1 : Bool; };
     /**
         In returns the type of a function type's i'th input parameter.
@@ -210,6 +232,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function in_(_i:stdgo.GoInt):stdgo._internal.reflect.Reflect_Type_.Type_;
     /**
         Key returns a map type's key type.
@@ -217,6 +240,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function key():stdgo._internal.reflect.Reflect_Type_.Type_;
     /**
         Len returns an array type's length.
@@ -224,6 +248,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function len():stdgo.GoInt;
     /**
         NumField returns a struct type's field count.
@@ -231,6 +256,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function numField():stdgo.GoInt;
     /**
         NumIn returns a function type's input parameter count.
@@ -238,6 +264,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function numIn():stdgo.GoInt;
     /**
         NumOut returns a function type's output parameter count.
@@ -245,6 +272,7 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function numOut():stdgo.GoInt;
     /**
         Out returns the type of a function type's i'th output parameter.
@@ -253,5 +281,6 @@ typedef Type_ = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function out(_i:stdgo.GoInt):stdgo._internal.reflect.Reflect_Type_.Type_;
 };

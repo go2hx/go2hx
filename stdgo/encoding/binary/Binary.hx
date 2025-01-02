@@ -385,30 +385,37 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.encoding.binary.Binary_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.encoding.binary.Binary_T__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.encoding.binary.Binary_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
 typedef T__struct_1 = stdgo._internal.encoding.binary.Binary_T__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.encoding.binary.Binary_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
 typedef T__struct_2 = stdgo._internal.encoding.binary.Binary_T__struct_2.T__struct_2;
+typedef T__struct_3Pointer = stdgo._internal.encoding.binary.Binary_T__struct_3Pointer.T__struct_3Pointer;
 class T__struct_3_static_extension {
 
 }
 typedef T__struct_3 = stdgo._internal.encoding.binary.Binary_T__struct_3.T__struct_3;
+typedef T__struct_4Pointer = stdgo._internal.encoding.binary.Binary_T__struct_4Pointer.T__struct_4Pointer;
 class T__struct_4_static_extension {
 
 }
 typedef T__struct_4 = stdgo._internal.encoding.binary.Binary_T__struct_4.T__struct_4;
+typedef T__struct_5Pointer = stdgo._internal.encoding.binary.Binary_T__struct_5Pointer.T__struct_5Pointer;
 class T__struct_5_static_extension {
 
 }
 typedef T__struct_5 = stdgo._internal.encoding.binary.Binary_T__struct_5.T__struct_5;
+typedef T__struct_6Pointer = stdgo._internal.encoding.binary.Binary_T__struct_6Pointer.T__struct_6Pointer;
 class T__struct_6_static_extension {
 
 }
@@ -476,6 +483,7 @@ typedef T_testByteOrder___localname___byteOrder_10108 = stdgo._internal.encoding
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T_littleEndianPointer = stdgo._internal.encoding.binary.Binary_T_littleEndianPointer.T_littleEndianPointer;
 class T_littleEndian_static_extension {
     static public function goString(_:T_littleEndian):String {
         return stdgo._internal.encoding.binary.Binary_T_littleEndian_static_extension.T_littleEndian_static_extension.goString(_);
@@ -520,6 +528,7 @@ class T_littleEndian_static_extension {
         return stdgo._internal.encoding.binary.Binary_T_littleEndian_static_extension.T_littleEndian_static_extension.uint16(_, _b);
     }
 }
+typedef T_bigEndianPointer = stdgo._internal.encoding.binary.Binary_T_bigEndianPointer.T_bigEndianPointer;
 class T_bigEndian_static_extension {
     static public function goString(_:T_bigEndian):String {
         return stdgo._internal.encoding.binary.Binary_T_bigEndian_static_extension.T_bigEndian_static_extension.goString(_);
@@ -564,6 +573,7 @@ class T_bigEndian_static_extension {
         return stdgo._internal.encoding.binary.Binary_T_bigEndian_static_extension.T_bigEndian_static_extension.uint16(_, _b);
     }
 }
+typedef T_byteSliceReaderPointer = stdgo._internal.encoding.binary.Binary_T_byteSliceReaderPointer.T_byteSliceReaderPointer;
 class T_byteSliceReader_static_extension {
     static public function read(_br:T_byteSliceReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -573,6 +583,7 @@ class T_byteSliceReader_static_extension {
         };
     }
 }
+typedef T_nativeEndianPointer = stdgo._internal.encoding.binary.Binary_T_nativeEndianPointer.T_nativeEndianPointer;
 class T_nativeEndian_static_extension {
     static public function goString(_:T_nativeEndian):String {
         return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.goString(_);
@@ -580,43 +591,44 @@ class T_nativeEndian_static_extension {
     static public function string(_:T_nativeEndian):String {
         return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.string(_);
     }
-    public static function uint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>):haxe.UInt64 {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint64(__self__, __0);
+    public static function uint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>):haxe.UInt64 {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint64(__self__, _0);
     }
-    public static function uint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>):std.UInt {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint32(__self__, __0);
+    public static function uint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>):std.UInt {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint32(__self__, _0);
     }
-    public static function uint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>):std.UInt {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint16(__self__, __0);
+    public static function uint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>):std.UInt {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.uint16(__self__, _0);
     }
-    public static function putUint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:haxe.UInt64) {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint64(__self__, __0, __1);
+    public static function putUint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:haxe.UInt64):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint64(__self__, _0, _1);
     }
-    public static function putUint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt) {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint32(__self__, __0, __1);
+    public static function putUint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint32(__self__, _0, _1);
     }
-    public static function putUint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt) {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint16(__self__, __0, __1);
+    public static function putUint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.putUint16(__self__, _0, _1);
     }
-    public static function appendUint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:haxe.UInt64):Array<std.UInt> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint64(__self__, __0, __1)) i];
+    public static function appendUint64(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint64(__self__, _0, _1)) i];
     }
-    public static function appendUint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt):Array<std.UInt> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint32(__self__, __0, __1)) i];
+    public static function appendUint32(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Array<std.UInt> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint32(__self__, _0, _1)) i];
     }
-    public static function appendUint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt):Array<std.UInt> {
-        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint16(__self__, __0, __1)) i];
+    public static function appendUint16(__self__:stdgo._internal.encoding.binary.Binary_T_nativeEndian.T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Array<std.UInt> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary_T_nativeEndian_static_extension.T_nativeEndian_static_extension.appendUint16(__self__, _0, _1)) i];
     }
 }
+typedef T_decoderPointer = stdgo._internal.encoding.binary.Binary_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _skip(_d:T_decoder, _v:stdgo._internal.reflect.Reflect_Value.Value):Void {
         stdgo._internal.encoding.binary.Binary_T_decoder_static_extension.T_decoder_static_extension._skip(_d, _v);
@@ -652,6 +664,7 @@ class T_decoder_static_extension {
         return stdgo._internal.encoding.binary.Binary_T_decoder_static_extension.T_decoder_static_extension._bool(_d);
     }
 }
+typedef T_encoderPointer = stdgo._internal.encoding.binary.Binary_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _skip(_e:T_encoder, _v:stdgo._internal.reflect.Reflect_Value.Value):Void {
         stdgo._internal.encoding.binary.Binary_T_encoder_static_extension.T_encoder_static_extension._skip(_e, _v);

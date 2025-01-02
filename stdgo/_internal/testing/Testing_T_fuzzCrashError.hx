@@ -6,6 +6,7 @@ typedef T_fuzzCrashError = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function unwrap():stdgo.Error;
     /**
         CrashPath returns the path of the subtest that corresponds to the saved
@@ -15,5 +16,6 @@ typedef T_fuzzCrashError = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function crashPath():stdgo.GoString;
 };

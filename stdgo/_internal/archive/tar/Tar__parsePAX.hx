@@ -6,12 +6,12 @@ function _parsePAX(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoMa
         };
         var _sbuf = ((_buf : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _sparseMap:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        var _paxHdrs = ({
+        var _paxHdrs = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         while (((_sbuf.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.archive.tar.Tar__parsePAXRecord._parsePAXRecord(_sbuf?.__copy__()), _key:stdgo.GoString = __tmp__._0, _value:stdgo.GoString = __tmp__._1, _residual:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
             if (_err != null) {

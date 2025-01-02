@@ -7,7 +7,7 @@ function readDataAt(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _n:stdgo.GoUInt6
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _r.readAt(_buf, _off), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                if (((stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) || (_n > (0i64 : stdgo.GoUInt64) : Bool) : Bool)) {
+                if (((stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) || (_n > (0i64 : stdgo.GoUInt64) : Bool) : Bool)) {
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                 };
             };

@@ -46,7 +46,7 @@ function _formToClass(_form:stdgo._internal.debug.dwarf.Dwarf_T_format.T_format,
             } else if (__value__ == ((35u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format))) {
                 return (17 : stdgo._internal.debug.dwarf.Dwarf_Class_.Class_);
             } else {
-                _b._error(("cannot determine class of unknown attribute form" : stdgo.GoString));
+                @:check2r _b._error(("cannot determine class of unknown attribute form" : stdgo.GoString));
                 return (0 : stdgo._internal.debug.dwarf.Dwarf_Class_.Class_);
             };
         };

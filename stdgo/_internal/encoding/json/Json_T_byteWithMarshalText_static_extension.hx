@@ -2,7 +2,8 @@ package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_byteWithMarshalText_asInterface) class T_byteWithMarshalText_static_extension {
     @:keep
     @:pointer
-    static public function unmarshalText(____:stdgo._internal.encoding.json.Json_T_byteWithMarshalText.T_byteWithMarshalText,  _b:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_byteWithMarshalText.T_byteWithMarshalText>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
+    @:tdfield
+    static public function unmarshalText( _b:stdgo.Pointer<stdgo._internal.encoding.json.Json_T_byteWithMarshalText.T_byteWithMarshalText>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         if (((_data.length != (3 : stdgo.GoInt)) || (_data[(0 : stdgo.GoInt)] != (90 : stdgo.GoUInt8)) : Bool)) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("bad quoted string" : stdgo.GoString));
         };
@@ -14,6 +15,7 @@ package stdgo._internal.encoding.json;
         return (null : stdgo.Error);
     }
     @:keep
+    @:tdfield
     static public function marshalText( _b:stdgo._internal.encoding.json.Json_T_byteWithMarshalText.T_byteWithMarshalText):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo._internal.encoding.json.Json_T_byteWithMarshalText.T_byteWithMarshalText = _b;
         return { _0 : (stdgo._internal.fmt.Fmt_sprintf.sprintf(("Z%.2x" : stdgo.GoString), stdgo.Go.toInterface((_b : stdgo.GoUInt8))) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };

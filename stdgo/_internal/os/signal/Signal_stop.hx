@@ -10,7 +10,7 @@ function stop(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):Void {
         {
             var _n = (0 : stdgo.GoInt);
             while ((_n < (65 : stdgo.GoInt) : Bool)) {
-                if (_h._want(_n)) {
+                if (@:check2r _h._want(_n)) {
                     stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]--;
                     if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
                         stdgo._internal.os.signal.Signal__disableSignal._disableSignal(_n);

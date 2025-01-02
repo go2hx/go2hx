@@ -6,7 +6,7 @@ function testPtrTypeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_t1), stdgo.Go.toInterface(_t1p)) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
     }

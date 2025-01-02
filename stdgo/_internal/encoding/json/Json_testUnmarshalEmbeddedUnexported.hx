@@ -5,10 +5,10 @@ function testUnmarshalEmbeddedUnexported(_t:stdgo.Ref<stdgo._internal.testing.Te
         for (_i => _tt in _tests) {
             var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_tt._in : stdgo.Slice<stdgo.GoUInt8>), _tt._ptr) : stdgo.Error);
             if (!stdgo._internal.encoding.json.Json__equalError._equalError(_err, _tt._err)) {
-                _t.errorf(("#%d: %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
+                @:check2r _t.errorf(("#%d: %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_tt._err));
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_tt._ptr, _tt._out)) {
-                _t.errorf(("#%d: mismatch\ngot:  %#+v\nwant: %#+v" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._ptr, _tt._out);
+                @:check2r _t.errorf(("#%d: mismatch\ngot:  %#+v\nwant: %#+v" : stdgo.GoString), stdgo.Go.toInterface(_i), _tt._ptr, _tt._out);
             };
         };
     }

@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.x509.pkix;
 @:keep @:allow(stdgo._internal.crypto.x509.pkix.Pkix.RDNSequence_asInterface) class RDNSequence_static_extension {
     @:keep
+    @:tdfield
     static public function string( _r:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence):stdgo.GoString {
         @:recv var _r:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence = _r;
         var _s = (stdgo.Go.str()?.__copy__() : stdgo.GoString);

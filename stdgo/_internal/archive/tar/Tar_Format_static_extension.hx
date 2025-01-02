@@ -1,6 +1,7 @@
 package stdgo._internal.archive.tar;
 @:keep @:allow(stdgo._internal.archive.tar.Tar.Format_asInterface) class Format_static_extension {
     @:keep
+    @:tdfield
     static public function string( _f:stdgo._internal.archive.tar.Tar_Format.Format):stdgo.GoString {
         @:recv var _f:stdgo._internal.archive.tar.Tar_Format.Format = _f;
         var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
@@ -26,20 +27,24 @@ package stdgo._internal.archive.tar;
     }
     @:keep
     @:pointer
-    static public function _mustNotBe(____:stdgo._internal.archive.tar.Tar_Format.Format,  _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
+    @:tdfield
+    static public function _mustNotBe( _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
         _f.value = (_f.value & (((_f2) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.archive.tar.Tar_Format.Format)) : stdgo._internal.archive.tar.Tar_Format.Format);
     }
     @:keep
     @:pointer
-    static public function _mayOnlyBe(____:stdgo._internal.archive.tar.Tar_Format.Format,  _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
+    @:tdfield
+    static public function _mayOnlyBe( _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
         _f.value = (_f.value & (_f2) : stdgo._internal.archive.tar.Tar_Format.Format);
     }
     @:keep
     @:pointer
-    static public function _mayBe(____:stdgo._internal.archive.tar.Tar_Format.Format,  _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
+    @:tdfield
+    static public function _mayBe( _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
         _f.value = (_f.value | (_f2) : stdgo._internal.archive.tar.Tar_Format.Format);
     }
     @:keep
+    @:tdfield
     static public function _has( _f:stdgo._internal.archive.tar.Tar_Format.Format, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Bool {
         @:recv var _f:stdgo._internal.archive.tar.Tar_Format.Format = _f;
         return (_f & _f2 : stdgo._internal.archive.tar.Tar_Format.Format) != ((0 : stdgo._internal.archive.tar.Tar_Format.Format));

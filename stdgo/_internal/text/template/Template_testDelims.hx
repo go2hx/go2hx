@@ -19,17 +19,17 @@ if (_right == (stdgo.Go.str())) {
 _text = ((_trueLeft + _text.__copy__() : stdgo.GoString) + _trueRight.__copy__() : stdgo.GoString).__copy__();
 _text = (_text + (((_trueLeft + ("/*comment*/" : stdgo.GoString).__copy__() : stdgo.GoString) + _trueRight.__copy__() : stdgo.GoString)).__copy__() : stdgo.GoString);
 _text = (_text + (((((_trueLeft + ("\"" : stdgo.GoString).__copy__() : stdgo.GoString) + _trueLeft.__copy__() : stdgo.GoString) + ("\"" : stdgo.GoString).__copy__() : stdgo.GoString) + _trueRight.__copy__() : stdgo.GoString)).__copy__() : stdgo.GoString);
-var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("delims" : stdgo.GoString)).delims(_left.__copy__(), _right.__copy__()).parse(_text.__copy__()), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+var __tmp__ = @:check2r @:check2r stdgo._internal.text.template.Template_new_.new_(("delims" : stdgo.GoString)).delims(_left.__copy__(), _right.__copy__()).parse(_text.__copy__()), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
-                    _t.fatalf(("delim %q text %q parse err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_err));
+                    @:check2r _t.fatalf(("delim %q text %q parse err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_err));
                 };
 var _b = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-_err = _tmpl.execute(stdgo.Go.asInterface(_b), stdgo.Go.toInterface(stdgo.Go.asInterface(_value)));
+_err = @:check2r _tmpl.execute(stdgo.Go.asInterface(_b), stdgo.Go.toInterface(stdgo.Go.asInterface(_value)));
 if (_err != null) {
-                    _t.fatalf(("delim %q exec err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_err));
+                    @:check2r _t.fatalf(("delim %q exec err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_err));
                 };
-if ((_b.string() : stdgo.GoString) != ((("Hello, world" : stdgo.GoString) + _trueLeft.__copy__() : stdgo.GoString))) {
-                    _t.errorf(("expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface((("Hello, world" : stdgo.GoString) + _trueLeft.__copy__() : stdgo.GoString)), stdgo.Go.toInterface((_b.string() : stdgo.GoString)));
+if ((@:check2r _b.string() : stdgo.GoString) != ((("Hello, world" : stdgo.GoString) + _trueLeft.__copy__() : stdgo.GoString))) {
+                    @:check2r _t.errorf(("expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface((("Hello, world" : stdgo.GoString) + _trueLeft.__copy__() : stdgo.GoString)), stdgo.Go.toInterface((@:check2r _b.string() : stdgo.GoString)));
                 };
                 _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };

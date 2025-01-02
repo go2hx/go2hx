@@ -6,36 +6,66 @@ package stdgo._internal.net.rpc;
         if (server != null) this.server = server;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var accept(get, never) : stdgo._internal.net.Net_Listener.Listener -> Void;
     @:embedded
-    public function accept(_lis:stdgo._internal.net.Net_Listener.Listener) this.server.accept(_lis);
+    @:embeddededffieldsffun
+    public function get_accept():stdgo._internal.net.Net_Listener.Listener -> Void return @:check3 (this.server ?? throw "null pointer derefrence").accept;
+    public var handleHTTP(get, never) : (stdgo.GoString, stdgo.GoString) -> Void;
     @:embedded
-    public function handleHTTP(_network:stdgo.GoString, _address:stdgo.GoString) this.server.handleHTTP(_network, _address);
+    @:embeddededffieldsffun
+    public function get_handleHTTP():(stdgo.GoString, stdgo.GoString) -> Void return @:check3 (this.server ?? throw "null pointer derefrence").handleHTTP;
+    public var register(get, never) : stdgo.AnyInterface -> stdgo.Error;
     @:embedded
-    public function register(__0:stdgo.AnyInterface):stdgo.Error return this.server.register(__0);
+    @:embeddededffieldsffun
+    public function get_register():stdgo.AnyInterface -> stdgo.Error return @:check3 (this.server ?? throw "null pointer derefrence").register;
+    public var registerName(get, never) : (stdgo.GoString, stdgo.AnyInterface) -> stdgo.Error;
     @:embedded
-    public function registerName(_name:stdgo.GoString, _rcvr:stdgo.AnyInterface):stdgo.Error return this.server.registerName(_name, _rcvr);
+    @:embeddededffieldsffun
+    public function get_registerName():(stdgo.GoString, stdgo.AnyInterface) -> stdgo.Error return @:check3 (this.server ?? throw "null pointer derefrence").registerName;
+    public var serveCodec(get, never) : stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> Void;
     @:embedded
-    public function serveCodec(_codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec) this.server.serveCodec(_codec);
+    @:embeddededffieldsffun
+    public function get_serveCodec():stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> Void return @:check3 (this.server ?? throw "null pointer derefrence").serveCodec;
+    public var serveConn(get, never) : stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser -> Void;
     @:embedded
-    public function serveConn(_conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser) this.server.serveConn(_conn);
+    @:embeddededffieldsffun
+    public function get_serveConn():stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser -> Void return @:check3 (this.server ?? throw "null pointer derefrence").serveConn;
+    public var serveRequest(get, never) : stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> stdgo.Error;
     @:embedded
-    public function serveRequest(_codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec):stdgo.Error return this.server.serveRequest(_codec);
+    @:embeddededffieldsffun
+    public function get_serveRequest():stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> stdgo.Error return @:check3 (this.server ?? throw "null pointer derefrence").serveRequest;
+    public var _freeRequest(get, never) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request> -> Void;
     @:embedded
-    public function _freeRequest(__0:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>) this.server._freeRequest(__0);
+    @:embeddededffieldsffun
+    public function get__freeRequest():stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request> -> Void return @:check3 (this.server ?? throw "null pointer derefrence")._freeRequest;
+    public var _freeResponse(get, never) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response> -> Void;
     @:embedded
-    public function _freeResponse(__0:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>) this.server._freeResponse(__0);
+    @:embeddededffieldsffun
+    public function get__freeResponse():stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response> -> Void return @:check3 (this.server ?? throw "null pointer derefrence")._freeResponse;
+    public var _getRequest(get, never) : () -> stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>;
     @:embedded
-    public function _getRequest():stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request> return this.server._getRequest();
+    @:embeddededffieldsffun
+    public function get__getRequest():() -> stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request> return @:check3 (this.server ?? throw "null pointer derefrence")._getRequest;
+    public var _getResponse(get, never) : () -> stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>;
     @:embedded
-    public function _getResponse():stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response> return this.server._getResponse();
+    @:embeddededffieldsffun
+    public function get__getResponse():() -> stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response> return @:check3 (this.server ?? throw "null pointer derefrence")._getResponse;
+    public var _readRequest(get, never) : stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> { var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : stdgo._internal.reflect.Reflect_Value.Value; var _4 : stdgo._internal.reflect.Reflect_Value.Value; var _5 : Bool; var _6 : stdgo.Error; };
     @:embedded
-    public function _readRequest(_codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec):{ var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : stdgo._internal.reflect.Reflect_Value.Value; var _4 : stdgo._internal.reflect.Reflect_Value.Value; var _5 : Bool; var _6 : stdgo.Error; } return this.server._readRequest(_codec);
+    @:embeddededffieldsffun
+    public function get__readRequest():stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> { var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : stdgo._internal.reflect.Reflect_Value.Value; var _4 : stdgo._internal.reflect.Reflect_Value.Value; var _5 : Bool; var _6 : stdgo.Error; } return @:check3 (this.server ?? throw "null pointer derefrence")._readRequest;
+    public var _readRequestHeader(get, never) : stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> { var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : Bool; var _4 : stdgo.Error; };
     @:embedded
-    public function _readRequestHeader(_codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec):{ var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : Bool; var _4 : stdgo.Error; } return this.server._readRequestHeader(_codec);
+    @:embeddededffieldsffun
+    public function get__readRequestHeader():stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec -> { var _0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>; var _1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>; var _2 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>; var _3 : Bool; var _4 : stdgo.Error; } return @:check3 (this.server ?? throw "null pointer derefrence")._readRequestHeader;
+    public var _register(get, never) : (stdgo.AnyInterface, stdgo.GoString, Bool) -> stdgo.Error;
     @:embedded
-    public function _register(_rcvr:stdgo.AnyInterface, _name:stdgo.GoString, _useName:Bool):stdgo.Error return this.server._register(_rcvr, _name, _useName);
+    @:embeddededffieldsffun
+    public function get__register():(stdgo.AnyInterface, stdgo.GoString, Bool) -> stdgo.Error return @:check3 (this.server ?? throw "null pointer derefrence")._register;
+    public var _sendResponse(get, never) : (stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>, stdgo.AnyInterface, stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, stdgo.GoString) -> Void;
     @:embedded
-    public function _sendResponse(_sending:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>, _req:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>, _reply:stdgo.AnyInterface, _codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, _errmsg:stdgo.GoString) this.server._sendResponse(_sending, _req, _reply, _codec, _errmsg);
+    @:embeddededffieldsffun
+    public function get__sendResponse():(stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>, stdgo.AnyInterface, stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, stdgo.GoString) -> Void return @:check3 (this.server ?? throw "null pointer derefrence")._sendResponse;
     public function __copy__() {
         return new T_debugHTTP(server);
     }

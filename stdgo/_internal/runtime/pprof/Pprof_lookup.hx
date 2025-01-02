@@ -10,12 +10,14 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
             {
                 final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>));
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -30,6 +32,7 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

@@ -16,17 +16,17 @@ function testUnmarshalMaxDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
         } } : stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _newValue : null } : stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17>);
         for (__4 => _tc in _testcases) {
             for (__5 => _target in _targets) {
-                _t.run(((_target._name + ("-" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _tc._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
+                @:check2r _t.run(((_target._name + ("-" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _tc._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_tc._data : stdgo.Slice<stdgo.GoUInt8>), _target._newValue()) : stdgo.Error);
                     if (!_tc._errMaxDepth) {
                         if (_err != null) {
-                            _t.errorf(("unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                            @:check2r _t.errorf(("unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                         };
                     } else {
                         if (_err == null) {
-                            _t.errorf(("expected error containing \'exceeded max depth\', got none" : stdgo.GoString));
+                            @:check2r _t.errorf(("expected error containing \'exceeded max depth\', got none" : stdgo.GoString));
                         } else if (!stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), ("exceeded max depth" : stdgo.GoString))) {
-                            _t.errorf(("expected error containing \'exceeded max depth\', got: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+                            @:check2r _t.errorf(("expected error containing \'exceeded max depth\', got: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                         };
                     };
                 });

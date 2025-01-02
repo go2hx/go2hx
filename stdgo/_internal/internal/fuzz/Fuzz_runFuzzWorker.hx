@@ -11,7 +11,7 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                     throw stdgo.Go.toInterface(("deadlocked!" : stdgo.GoString));
                 });
                 {
-                    final __f__ = _timer.stop;
+                    final __f__ = @:check2r _timer.stop;
                     __deferstack__.unshift(() -> __f__());
                 };
                 var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
@@ -19,12 +19,14 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                 {
                     final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Error; } = { _0 : stdgo._internal.time.Time_since.since(_start?.__copy__()), _1 : _err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
                 };
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -39,11 +41,12 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                 };
                 stdgo.Go.recover_exception = exe;
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
             };
         }, _m : stdgo._internal.internal.fuzz.Fuzz__newMutator._newMutator() } : stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>);
-        return _srv._serve(_ctx);
+        return @:check2r _srv._serve(_ctx);
     }

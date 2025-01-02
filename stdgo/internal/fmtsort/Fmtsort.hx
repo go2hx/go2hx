@@ -16,6 +16,7 @@ package stdgo.internal.fmtsort;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef SortedMapPointer = stdgo._internal.internal.fmtsort.Fmtsort_SortedMapPointer.SortedMapPointer;
 class SortedMap_static_extension {
     static public function swap(_o:SortedMap, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.swap(_o, _i, _j);

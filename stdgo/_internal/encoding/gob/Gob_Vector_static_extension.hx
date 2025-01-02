@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.gob;
 @:keep @:allow(stdgo._internal.encoding.gob.Gob.Vector_asInterface) class Vector_static_extension {
     @:keep
+    @:tdfield
     static public function square( _v:stdgo._internal.encoding.gob.Gob_Vector.Vector):stdgo.GoInt {
         @:recv var _v:stdgo._internal.encoding.gob.Gob_Vector.Vector = _v;
         var _sum = (0 : stdgo.GoInt);

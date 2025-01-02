@@ -1,6 +1,7 @@
 package stdgo._internal.image;
 @:keep @:allow(stdgo._internal.image.Image.YCbCrSubsampleRatio_asInterface) class YCbCrSubsampleRatio_static_extension {
     @:keep
+    @:tdfield
     static public function string( _s:stdgo._internal.image.Image_YCbCrSubsampleRatio.YCbCrSubsampleRatio):stdgo.GoString {
         @:recv var _s:stdgo._internal.image.Image_YCbCrSubsampleRatio.YCbCrSubsampleRatio = _s;
         {

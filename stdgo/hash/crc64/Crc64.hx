@@ -1,7 +1,7 @@
 package stdgo.hash.crc64;
 final size : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_size.size;
-final iso : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_iso.iso;
-final ecma : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.ecma;
+final iSO : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_iSO.iSO;
+final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_eCMA.eCMA;
 @:structInit @:using(stdgo.hash.crc64.Crc64.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc64.Crc64_T_digest.T_digest) from stdgo._internal.hash.crc64.Crc64_T_digest.T_digest to stdgo._internal.hash.crc64.Crc64_T_digest.T_digest {
     public var _crc(get, set) : haxe.UInt64;
     function get__crc():haxe.UInt64 return this._crc;
@@ -20,6 +20,7 @@ final ecma : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.ecma;
     public function __copy__() return this.__copy__();
 }
 typedef Table = stdgo._internal.hash.crc64.Crc64_Table.Table;
+typedef T_digestPointer = stdgo._internal.hash.crc64.Crc64_T_digestPointer.T_digestPointer;
 class T_digest_static_extension {
     static public function sum(_d:T_digest, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);

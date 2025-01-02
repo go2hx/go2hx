@@ -1,7 +1,7 @@
 package stdgo._internal.archive.zip;
 function _newFlateReader(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_ReadCloser.ReadCloser {
         var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((stdgo._internal.archive.zip.Zip__flateReaderPool._flateReaderPool.get() : stdgo._internal.io.Io_ReadCloser.ReadCloser)) : stdgo._internal.io.Io_ReadCloser.ReadCloser), _1 : true };
+            { _0 : (stdgo.Go.typeAssert((@:check2 stdgo._internal.archive.zip.Zip__flateReaderPool._flateReaderPool.get() : stdgo._internal.io.Io_ReadCloser.ReadCloser)) : stdgo._internal.io.Io_ReadCloser.ReadCloser), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_ReadCloser.ReadCloser), _1 : false };
         }, _fr = __tmp__._0, _ok = __tmp__._1;

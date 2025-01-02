@@ -7,5 +7,5 @@ function newClientConn(_c:stdgo._internal.net.Net_Conn.Conn, _r:stdgo.Ref<stdgo.
             final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>();
             {};
             cast x;
-        } : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>), _writeReq : stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension.write } : stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
+        } : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>), _writeReq : @:check2 stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension.write } : stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
     }

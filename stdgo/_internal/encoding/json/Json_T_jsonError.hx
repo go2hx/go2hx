@@ -6,8 +6,10 @@ package stdgo._internal.encoding.json;
         if (_error != null) this._error = _error;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var error(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function error():stdgo.GoString return this._error.error();
+    @:embeddededffieldsffun
+    public function get_error():() -> stdgo.GoString return @:check3 (this._error ?? throw "null pointer derefrence").error;
     public function __copy__() {
         return new T_jsonError(_error);
     }

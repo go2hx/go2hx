@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function _decUint8Slice(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
-        var __tmp__ = _state._getLength(), _n:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = @:check2r _state._getLength(), _n:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             stdgo._internal.encoding.gob.Gob__errorf._errorf(("bad %s slice length: %d" : stdgo.GoString), stdgo.Go.toInterface(_value.type()), stdgo.Go.toInterface(_n));
         };
@@ -23,7 +23,7 @@ function _decUint8Slice(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr
                 _value.setLen(_ln);
                 var _sub = (_value.slice(_i, _ln)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                 {
-                    var __tmp__ = _state._b.read(_sub.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_sub.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("error decoding []byte at %d: %s" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_i));
                     };
@@ -33,7 +33,7 @@ function _decUint8Slice(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr
         } else {
             _value.setLen(_n);
             {
-                var __tmp__ = _state._b.read(_value.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_value.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("error decoding []byte: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };

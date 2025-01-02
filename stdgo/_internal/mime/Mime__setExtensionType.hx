@@ -11,16 +11,16 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                 _mimeType = stdgo._internal.mime.Mime_formatMediaType.formatMediaType(_mimeType?.__copy__(), _param)?.__copy__();
             };
             var _extLower = (stdgo._internal.strings.Strings_toLower.toLower(_extension?.__copy__())?.__copy__() : stdgo.GoString);
-            stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_extension), stdgo.Go.toInterface(_mimeType));
-            stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.store(stdgo.Go.toInterface(_extLower), stdgo.Go.toInterface(_mimeType));
-            stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
+            @:check2 stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_extension), stdgo.Go.toInterface(_mimeType));
+            @:check2 stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.store(stdgo.Go.toInterface(_extLower), stdgo.Go.toInterface(_mimeType));
+            @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
             {
-                final __f__ = stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
+                final __f__ = @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             var _exts:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             {
-                var __tmp__ = stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _ei:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = @:check2 stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _ei:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _exts = (stdgo.Go.typeAssert((_ei : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                 };
@@ -30,22 +30,25 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
                     };
                 };
             };
-            stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_extLower?.__copy__()))));
+            @:check2 stdgo._internal.mime.Mime__extensions._extensions.store(stdgo.Go.toInterface(_justType), stdgo.Go.toInterface((_exts.__append__(_extLower?.__copy__()))));
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -60,6 +63,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

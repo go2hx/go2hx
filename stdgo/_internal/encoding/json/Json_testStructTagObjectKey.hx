@@ -3,12 +3,12 @@ function testStructTagObjectKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
         for (__4 => _tt in stdgo._internal.encoding.json.Json__structTagObjectKeyTests._structTagObjectKeyTests) {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._raw), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t.fatalf(("Marshal(%#q) failed: %v" : stdgo.GoString), _tt._raw, stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("Marshal(%#q) failed: %v" : stdgo.GoString), _tt._raw, stdgo.Go.toInterface(_err));
             };
             var _f:stdgo.AnyInterface = (null : stdgo.AnyInterface);
             _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>)));
             if (_err != null) {
-                _t.fatalf(("Unmarshal(%#q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_err));
+                @:check2r _t.fatalf(("Unmarshal(%#q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_err));
             };
             for (_i => _v in (stdgo.Go.typeAssert((_f : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)) {
                 {
@@ -21,11 +21,11 @@ function testStructTagObjectKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             }, _s = __tmp__._0, _ok = __tmp__._1;
                             if ((!_ok || (_s != _tt._value) : Bool)) {
-                                _t.fatalf(("Unexpected value: %#q, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._value));
+                                @:check2r _t.fatalf(("Unexpected value: %#q, want %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._value));
                             };
                         };
                     } else {
-                        _t.fatalf(("Unexpected key: %#q, from %#q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_b));
+                        @:check2r _t.fatalf(("Unexpected key: %#q, from %#q" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_b));
                     };
                 };
             };

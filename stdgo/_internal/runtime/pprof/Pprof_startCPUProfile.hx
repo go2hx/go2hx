@@ -15,6 +15,7 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
                 {
                     final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("cpu profiling already in use" : stdgo.GoString));
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -26,12 +27,14 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -46,6 +49,7 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

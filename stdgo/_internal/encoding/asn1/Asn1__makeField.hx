@@ -58,8 +58,8 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
                 };
             };
             var _t = (stdgo.Go.setRef(({} : stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
-            _t._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength((_t._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength(_rv.class_, _rv.tag, (_rv.bytes.length), _rv.isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
-            _t._body = stdgo.Go.asInterface((_rv.bytes : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
+            (@:checkr _t ?? throw "null pointer dereference")._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength(((@:checkr _t ?? throw "null pointer dereference")._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength(_rv.class_, _rv.tag, (_rv.bytes.length), _rv.isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
+            (@:checkr _t ?? throw "null pointer dereference")._body = stdgo.Go.asInterface((_rv.bytes : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
             return {
                 final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_t), _1 : (null : stdgo.Error) };
                 _e = __tmp__._0;
@@ -146,7 +146,7 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
         var _t = (stdgo.Go.setRef(({} : stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeBody._makeBody(_v?.__copy__(), _params?.__copy__());
-            _t._body = __tmp__._0;
+            (@:checkr _t ?? throw "null pointer dereference")._body = __tmp__._0;
             _err = __tmp__._1;
         };
         if (_err != null) {
@@ -157,7 +157,7 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
                 __tmp__;
             };
         };
-        var _bodyLen = (_t._body.len() : stdgo.GoInt);
+        var _bodyLen = ((@:checkr _t ?? throw "null pointer dereference")._body.len() : stdgo.GoInt);
         var _class = (0 : stdgo.GoInt);
         if (_params._tag != null) {
             if (_params._application) {
@@ -168,10 +168,10 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
                 _class = (2 : stdgo.GoInt);
             };
             if (_params._explicit) {
-                _t._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength((_t._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength((0 : stdgo.GoInt), _tag, _bodyLen, _isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
+                (@:checkr _t ?? throw "null pointer dereference")._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength(((@:checkr _t ?? throw "null pointer dereference")._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength((0 : stdgo.GoInt), _tag, _bodyLen, _isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
                 var _tt = (stdgo.Go.setRef(({} : stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
-                _tt._body = stdgo.Go.asInterface(_t);
-                _tt._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength((_tt._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ({ _class : _class, _tag : _params._tag.value, _length : (_bodyLen + _t._tag.len() : stdgo.GoInt), _isCompound : true } : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
+                (@:checkr _tt ?? throw "null pointer dereference")._body = stdgo.Go.asInterface(_t);
+                (@:checkr _tt ?? throw "null pointer dereference")._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength(((@:checkr _tt ?? throw "null pointer dereference")._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ({ _class : _class, _tag : _params._tag.value, _length : (_bodyLen + (@:checkr _t ?? throw "null pointer dereference")._tag.len() : stdgo.GoInt), _isCompound : true } : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
                 return {
                     final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_tt), _1 : (null : stdgo.Error) };
                     _e = __tmp__._0;
@@ -181,7 +181,7 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
             };
             _tag = _params._tag.value;
         };
-        _t._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength((_t._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength(_class, _tag, _bodyLen, _isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
+        (@:checkr _t ?? throw "null pointer dereference")._tag = stdgo.Go.asInterface((stdgo._internal.encoding.asn1.Asn1__appendTagAndLength._appendTagAndLength(((@:checkr _t ?? throw "null pointer dereference")._scratch.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength(_class, _tag, _bodyLen, _isCompound) : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength)) : stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder));
         return {
             final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_t), _1 : (null : stdgo.Error) };
             _e = __tmp__._0;

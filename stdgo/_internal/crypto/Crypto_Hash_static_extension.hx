@@ -1,11 +1,13 @@
 package stdgo._internal.crypto;
 @:keep @:allow(stdgo._internal.crypto.Crypto.Hash_asInterface) class Hash_static_extension {
     @:keep
+    @:tdfield
     static public function available( _h:stdgo._internal.crypto.Crypto_Hash.Hash):Bool {
         @:recv var _h:stdgo._internal.crypto.Crypto_Hash.Hash = _h;
         return ((_h < (20u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool) && (stdgo._internal.crypto.Crypto__hashes._hashes[(_h : stdgo.GoInt)] != null) : Bool);
     }
     @:keep
+    @:tdfield
     static public function new_( _h:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo._internal.hash.Hash_Hash.Hash {
         @:recv var _h:stdgo._internal.crypto.Crypto_Hash.Hash = _h;
         if (((_h > (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool) && (_h < (20u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool) : Bool)) {
@@ -17,6 +19,7 @@ package stdgo._internal.crypto;
         throw stdgo.Go.toInterface(((("crypto: requested hash function #" : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_h : stdgo.GoInt))?.__copy__() : stdgo.GoString) + (" is unavailable" : stdgo.GoString)?.__copy__() : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function size( _h:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo.GoInt {
         @:recv var _h:stdgo._internal.crypto.Crypto_Hash.Hash = _h;
         if (((_h > (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool) && (_h < (20u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool) : Bool)) {
@@ -25,6 +28,7 @@ package stdgo._internal.crypto;
         throw stdgo.Go.toInterface(("crypto: Size of unknown hash function" : stdgo.GoString));
     }
     @:keep
+    @:tdfield
     static public function string( _h:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo.GoString {
         @:recv var _h:stdgo._internal.crypto.Crypto_Hash.Hash = _h;
         {
@@ -73,6 +77,7 @@ package stdgo._internal.crypto;
         };
     }
     @:keep
+    @:tdfield
     static public function hashFunc( _h:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo._internal.crypto.Crypto_Hash.Hash {
         @:recv var _h:stdgo._internal.crypto.Crypto_Hash.Hash = _h;
         return _h;

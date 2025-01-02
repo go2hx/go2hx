@@ -10,8 +10,10 @@ package stdgo._internal.runtime;
         if (stackRecord != null) this.stackRecord = stackRecord;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var stack(get, never) : () -> stdgo.Slice<stdgo.GoUIntptr>;
     @:embedded
-    public function stack():stdgo.Slice<stdgo.GoUIntptr> return this.stackRecord.stack();
+    @:embeddededffieldsffun
+    public function get_stack():() -> stdgo.Slice<stdgo.GoUIntptr> return @:check3 (this.stackRecord ?? throw "null pointer derefrence").stack;
     public function __copy__() {
         return new BlockProfileRecord(count, cycles, stackRecord);
     }

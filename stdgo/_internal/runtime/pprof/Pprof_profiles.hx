@@ -12,16 +12,18 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Pr
                 _all = (_all.__append__(_p));
             };
             stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_all), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-                return (_all[(_i : stdgo.GoInt)]._name < _all[(_j : stdgo.GoInt)]._name : Bool);
+                return ((@:checkr _all[(_i : stdgo.GoInt)] ?? throw "null pointer dereference")._name < (@:checkr _all[(_j : stdgo.GoInt)] ?? throw "null pointer dereference")._name : Bool);
             });
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _all;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -36,6 +38,7 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Pr
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

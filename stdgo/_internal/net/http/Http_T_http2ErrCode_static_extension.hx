@@ -1,6 +1,7 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2ErrCode_asInterface) class T_http2ErrCode_static_extension {
     @:keep
+    @:tdfield
     static public function _stringToken( _e:stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode = _e;
         {
@@ -12,6 +13,7 @@ package stdgo._internal.net.http;
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("ERR_UNKNOWN_%d" : stdgo.GoString), stdgo.Go.toInterface((_e : stdgo.GoUInt32)))?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function string( _e:stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode = _e;
         {

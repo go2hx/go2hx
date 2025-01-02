@@ -6,5 +6,6 @@ typedef Resetter = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function reset(_r:stdgo._internal.io.Io_Reader.Reader, _dict:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error;
 };

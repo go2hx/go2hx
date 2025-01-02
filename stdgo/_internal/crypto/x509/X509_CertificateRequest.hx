@@ -13,11 +13,11 @@ package stdgo._internal.crypto.x509;
     public var attributes : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET> = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>);
     public var extensions : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension> = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
     public var extraExtensions : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension> = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
-    public var dnsnames : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+    public var dNSNames : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var emailAddresses : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-    public var ipaddresses : stdgo.Slice<stdgo._internal.net.Net_IP.IP> = (null : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
-    public var uris : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
-    public function new(?raw:stdgo.Slice<stdgo.GoUInt8>, ?rawTBSCertificateRequest:stdgo.Slice<stdgo.GoUInt8>, ?rawSubjectPublicKeyInfo:stdgo.Slice<stdgo.GoUInt8>, ?rawSubject:stdgo.Slice<stdgo.GoUInt8>, ?version:stdgo.GoInt, ?signature:stdgo.Slice<stdgo.GoUInt8>, ?signatureAlgorithm:stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm, ?publicKeyAlgorithm:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?subject:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?attributes:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>, ?extensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?extraExtensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?dnsnames:stdgo.Slice<stdgo.GoString>, ?emailAddresses:stdgo.Slice<stdgo.GoString>, ?ipaddresses:stdgo.Slice<stdgo._internal.net.Net_IP.IP>, ?uris:stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>) {
+    public var iPAddresses : stdgo.Slice<stdgo._internal.net.Net_IP.IP> = (null : stdgo.Slice<stdgo._internal.net.Net_IP.IP>);
+    public var uRIs : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+    public function new(?raw:stdgo.Slice<stdgo.GoUInt8>, ?rawTBSCertificateRequest:stdgo.Slice<stdgo.GoUInt8>, ?rawSubjectPublicKeyInfo:stdgo.Slice<stdgo.GoUInt8>, ?rawSubject:stdgo.Slice<stdgo.GoUInt8>, ?version:stdgo.GoInt, ?signature:stdgo.Slice<stdgo.GoUInt8>, ?signatureAlgorithm:stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm, ?publicKeyAlgorithm:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?subject:stdgo._internal.crypto.x509.pkix.Pkix_Name.Name, ?attributes:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>, ?extensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?extraExtensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>, ?dNSNames:stdgo.Slice<stdgo.GoString>, ?emailAddresses:stdgo.Slice<stdgo.GoString>, ?iPAddresses:stdgo.Slice<stdgo._internal.net.Net_IP.IP>, ?uRIs:stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>) {
         if (raw != null) this.raw = raw;
         if (rawTBSCertificateRequest != null) this.rawTBSCertificateRequest = rawTBSCertificateRequest;
         if (rawSubjectPublicKeyInfo != null) this.rawSubjectPublicKeyInfo = rawSubjectPublicKeyInfo;
@@ -31,10 +31,10 @@ package stdgo._internal.crypto.x509;
         if (attributes != null) this.attributes = attributes;
         if (extensions != null) this.extensions = extensions;
         if (extraExtensions != null) this.extraExtensions = extraExtensions;
-        if (dnsnames != null) this.dnsnames = dnsnames;
+        if (dNSNames != null) this.dNSNames = dNSNames;
         if (emailAddresses != null) this.emailAddresses = emailAddresses;
-        if (ipaddresses != null) this.ipaddresses = ipaddresses;
-        if (uris != null) this.uris = uris;
+        if (iPAddresses != null) this.iPAddresses = iPAddresses;
+        if (uRIs != null) this.uRIs = uRIs;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
@@ -52,9 +52,9 @@ subject,
 attributes,
 extensions,
 extraExtensions,
-dnsnames,
+dNSNames,
 emailAddresses,
-ipaddresses,
-uris);
+iPAddresses,
+uRIs);
     }
 }

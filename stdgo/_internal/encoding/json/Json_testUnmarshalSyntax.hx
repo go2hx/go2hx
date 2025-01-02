@@ -10,7 +10,7 @@ function testUnmarshalSyntax(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
                     { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError>), _1 : false };
                 }, __5 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
-                    _t.errorf(("expected syntax error for Unmarshal(%q): got %T" : stdgo.GoString), stdgo.Go.toInterface(_src), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("expected syntax error for Unmarshal(%q): got %T" : stdgo.GoString), stdgo.Go.toInterface(_src), stdgo.Go.toInterface(_err));
                 };
             };
         };

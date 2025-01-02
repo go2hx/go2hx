@@ -28,10 +28,10 @@ function _checkSignature(_algo:stdgo._internal.crypto.x509.X509_SignatureAlgorit
                         break;
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (3u32 : stdgo._internal.crypto.Crypto_Hash.Hash)))) {
                         if (!_allowSHA1) {
-                            if (stdgo._internal.crypto.x509.X509__x509sha1._x509sha1.value() != (("1" : stdgo.GoString))) {
+                            if (@:check2r stdgo._internal.crypto.x509.X509__x509sha1._x509sha1.value() != (("1" : stdgo.GoString))) {
                                 return _err = stdgo.Go.asInterface((_algo : stdgo._internal.crypto.x509.X509_InsecureAlgorithmError.InsecureAlgorithmError));
                             };
-                            stdgo._internal.crypto.x509.X509__x509sha1._x509sha1.incNonDefault();
+                            @:check2r stdgo._internal.crypto.x509.X509__x509sha1._x509sha1.incNonDefault();
                         };
                         @:fallthrough {
                             __switchIndex__ = 3;

@@ -4,7 +4,7 @@ function testSize(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _got = (_c.size() : stdgo.GoInt);
             if (_got != ((20 : stdgo.GoInt))) {
-                _t.errorf(("Size = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((20 : stdgo.GoInt)));
+                @:check2r _t.errorf(("Size = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((20 : stdgo.GoInt)));
             };
         };
     }

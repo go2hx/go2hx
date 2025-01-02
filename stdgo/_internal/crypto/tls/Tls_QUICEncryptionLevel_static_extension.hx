@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.QUICEncryptionLevel_asInterface) class QUICEncryptionLevel_static_extension {
     @:keep
+    @:tdfield
     static public function string( _l:stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel):stdgo.GoString {
         @:recv var _l:stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel = _l;
         {

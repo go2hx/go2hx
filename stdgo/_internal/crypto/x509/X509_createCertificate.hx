@@ -8,16 +8,16 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
         };
-        if ((_template.serialNumber == null || (_template.serialNumber : Dynamic).__nil__)) {
+        if (((@:checkr _template ?? throw "null pointer dereference").serialNumber == null || ((@:checkr _template ?? throw "null pointer dereference").serialNumber : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: no SerialNumber given" : stdgo.GoString)) };
         };
-        if (_template.serialNumber.sign() == ((-1 : stdgo.GoInt))) {
+        if (@:check2r (@:checkr _template ?? throw "null pointer dereference").serialNumber.sign() == ((-1 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: serial number must be positive" : stdgo.GoString)) };
         };
-        if ((((_template.basicConstraintsValid && !_template.isCA : Bool) && _template.maxPathLen != ((-1 : stdgo.GoInt)) : Bool) && (((_template.maxPathLen != (0 : stdgo.GoInt)) || _template.maxPathLenZero : Bool)) : Bool)) {
+        if (((((@:checkr _template ?? throw "null pointer dereference").basicConstraintsValid && !(@:checkr _template ?? throw "null pointer dereference").isCA : Bool) && (@:checkr _template ?? throw "null pointer dereference").maxPathLen != ((-1 : stdgo.GoInt)) : Bool) && ((((@:checkr _template ?? throw "null pointer dereference").maxPathLen != (0 : stdgo.GoInt)) || (@:checkr _template ?? throw "null pointer dereference").maxPathLenZero : Bool)) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: only CAs are allowed to specify MaxPathLen" : stdgo.GoString)) };
         };
-        var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), _template.signatureAlgorithm), _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), (@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm), _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
@@ -36,12 +36,12 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
-        var _authorityKeyId = _template.authorityKeyId;
-        if ((!stdgo._internal.bytes.Bytes_equal.equal(_asn1Issuer, _asn1Subject) && ((_parent.subjectKeyId.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-            _authorityKeyId = _parent.subjectKeyId;
+        var _authorityKeyId = (@:checkr _template ?? throw "null pointer dereference").authorityKeyId;
+        if ((!stdgo._internal.bytes.Bytes_equal.equal(_asn1Issuer, _asn1Subject) && (((@:checkr _parent ?? throw "null pointer dereference").subjectKeyId.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+            _authorityKeyId = (@:checkr _parent ?? throw "null pointer dereference").subjectKeyId;
         };
-        var _subjectKeyId = _template.subjectKeyId;
-        if (((_subjectKeyId.length == (0 : stdgo.GoInt)) && _template.isCA : Bool)) {
+        var _subjectKeyId = (@:checkr _template ?? throw "null pointer dereference").subjectKeyId;
+        if (((_subjectKeyId.length == (0 : stdgo.GoInt)) && (@:checkr _template ?? throw "null pointer dereference").isCA : Bool)) {
             var _h = stdgo._internal.crypto.sha1.Sha1_sum.sum(_publicKeyBytes)?.__copy__();
             _subjectKeyId = (_h.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
         };
@@ -54,7 +54,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
             }, _privPub = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: internal error: supported public key does not implement Equal" : stdgo.GoString)) };
-            } else if (((_parent.publicKey != null) && !_privPub.equal(stdgo.Go.toInterface(_parent.publicKey)) : Bool)) {
+            } else if ((((@:checkr _parent ?? throw "null pointer dereference").publicKey != null) && !_privPub.equal(stdgo.Go.toInterface((@:checkr _parent ?? throw "null pointer dereference").publicKey)) : Bool)) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: provided PrivateKey doesn\'t match parent\'s PublicKey" : stdgo.GoString)) };
             };
         };
@@ -63,7 +63,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
         var _encodedPublicKey = ({ bitLength : ((_publicKeyBytes.length) * (8 : stdgo.GoInt) : stdgo.GoInt), bytes : _publicKeyBytes } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString);
-        var _c = ({ version : (2 : stdgo.GoInt), serialNumber : _template.serialNumber, signatureAlgorithm : _signatureAlgorithm?.__copy__(), issuer : ({ fullBytes : _asn1Issuer } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), validity : (new stdgo._internal.crypto.x509.X509_T_validity.T_validity(_template.notBefore.utc()?.__copy__(), _template.notAfter.utc()?.__copy__()) : stdgo._internal.crypto.x509.X509_T_validity.T_validity), subject : ({ fullBytes : _asn1Subject } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), publicKey : (new stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo(null, _publicKeyAlgorithm?.__copy__(), _encodedPublicKey?.__copy__()) : stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo), extensions : _extensions } : stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate);
+        var _c = ({ version : (2 : stdgo.GoInt), serialNumber : (@:checkr _template ?? throw "null pointer dereference").serialNumber, signatureAlgorithm : _signatureAlgorithm?.__copy__(), issuer : ({ fullBytes : _asn1Issuer } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), validity : (new stdgo._internal.crypto.x509.X509_T_validity.T_validity((@:checkr _template ?? throw "null pointer dereference").notBefore.uTC()?.__copy__(), (@:checkr _template ?? throw "null pointer dereference").notAfter.uTC()?.__copy__()) : stdgo._internal.crypto.x509.X509_T_validity.T_validity), subject : ({ fullBytes : _asn1Subject } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), publicKey : (new stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo(null, _publicKeyAlgorithm?.__copy__(), _encodedPublicKey?.__copy__()) : stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo), extensions : _extensions } : stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate);
         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_c)), _tbsCertContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
@@ -76,7 +76,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
             _signed = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _signerOpts:stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts = stdgo.Go.asInterface(_hashFunc);
-        if (((_template.signatureAlgorithm != (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm)) && _template.signatureAlgorithm._isRSAPSS() : Bool)) {
+        if ((((@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm != (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm)) && (@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm._isRSAPSS() : Bool)) {
             _signerOpts = stdgo.Go.asInterface((stdgo.Go.setRef(({ saltLength : (-1 : stdgo.GoInt), hash : _hashFunc } : stdgo._internal.crypto.rsa.Rsa_PSSOptions.PSSOptions)) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PSSOptions.PSSOptions>));
         };
         var _signature:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

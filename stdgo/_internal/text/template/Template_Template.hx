@@ -15,136 +15,266 @@ package stdgo._internal.text.template;
         if (_rightDelim != null) this._rightDelim = _rightDelim;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var copy(get, never) : () -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get_copy():() -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return @:check3 (this.tree ?? throw "null pointer derefrence").copy;
+    public var errorContext(get, never) : stdgo._internal.text.template.parse.Parse_Node.Node -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; };
+    @:embedded
+    @:embeddededffieldsffun
+    public function get_errorContext():stdgo._internal.text.template.parse.Parse_Node.Node -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return @:check3 (this.tree ?? throw "null pointer derefrence").errorContext;
+    public var _action(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__action():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._action;
+    public var _add(get, never) : () -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__add():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._add;
+    public var _backup(get, never) : () -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__backup():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._backup;
+    public var _backup2(get, never) : stdgo._internal.text.template.parse.Parse_T_item.T_item -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__backup2():stdgo._internal.text.template.parse.Parse_T_item.T_item -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._backup2;
+    public var _backup3(get, never) : (stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo._internal.text.template.parse.Parse_T_item.T_item) -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__backup3():(stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo._internal.text.template.parse.Parse_T_item.T_item) -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._backup3;
+    public var _blockControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__blockControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._blockControl;
+    public var _breakControl(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__breakControl():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._breakControl;
+    public var _checkPipeline(get, never) : (stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.GoString) -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__checkPipeline():(stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.GoString) -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._checkPipeline;
+    public var _clearActionLine(get, never) : () -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__clearActionLine():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._clearActionLine;
+    public var _command(get, never) : () -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__command():() -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._command;
+    public var _continueControl(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__continueControl():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._continueControl;
+    public var _elseControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__elseControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._elseControl;
+    public var _endControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__endControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._endControl;
+    public var _error(get, never) : stdgo.Error -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__error():stdgo.Error -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._error;
+    public var _errorf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__errorf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._errorf;
+    public var _expect(get, never) : (stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__expect():(stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._expect;
+    public var _expectOneOf(get, never) : (stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__expectOneOf():(stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._expectOneOf;
+    public var _hasFunction(get, never) : stdgo.GoString -> Bool;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__hasFunction():stdgo.GoString -> Bool return @:check3 (this.tree ?? throw "null pointer derefrence")._hasFunction;
+    public var _ifControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__ifControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._ifControl;
+    public var _itemList(get, never) : () -> { var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _1 : stdgo._internal.text.template.parse.Parse_Node.Node; };
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__itemList():() -> { var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _1 : stdgo._internal.text.template.parse.Parse_Node.Node; } return @:check3 (this.tree ?? throw "null pointer derefrence")._itemList;
+    public var _newAction(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newAction():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newAction;
+    public var _newBool(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, Bool) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newBool():(stdgo._internal.text.template.parse.Parse_Pos.Pos, Bool) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newBool;
+    public var _newBreak(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newBreak():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newBreak;
+    public var _newChain(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo._internal.text.template.parse.Parse_Node.Node) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newChain():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo._internal.text.template.parse.Parse_Node.Node) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newChain;
+    public var _newCommand(get, never) : stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newCommand():stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newCommand;
+    public var _newComment(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newComment():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newComment;
+    public var _newContinue(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newContinue():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newContinue;
+    public var _newDot(get, never) : stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newDot():stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newDot;
+    public var _newElse(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newElse():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newElse;
+    public var _newEnd(get, never) : stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newEnd():stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newEnd;
+    public var _newField(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newField():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newField;
+    public var _newIf(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_IfNode.IfNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newIf():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_IfNode.IfNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newIf;
+    public var _newList(get, never) : stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newList():stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newList;
+    public var _newNil(get, never) : stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newNil():stdgo._internal.text.template.parse.Parse_Pos.Pos -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newNil;
+    public var _newNumber(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType) -> { var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>; var _1 : stdgo.Error; };
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newNumber():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType) -> { var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>; var _1 : stdgo.Error; } return @:check3 (this.tree ?? throw "null pointer derefrence")._newNumber;
+    public var _newPipeline(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newPipeline():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newPipeline;
+    public var _newRange(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newRange():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newRange;
+    public var _newString(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode>;
+    @:embedded
+    @:embeddededffieldsffun
+    public function get__newString():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newString;
+    public var _newTemplate(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>;
     @:embedded
-    public function copy():stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return this.tree.copy();
+    @:embeddededffieldsffun
+    public function get__newTemplate():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newTemplate;
+    public var _newText(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>;
     @:embedded
-    public function errorContext(_node:stdgo._internal.text.template.parse.Parse_Node.Node):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return this.tree.errorContext(_node);
+    @:embeddededffieldsffun
+    public function get__newText():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newText;
+    public var _newVariable(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>;
     @:embedded
-    public function _action():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._action();
+    @:embeddededffieldsffun
+    public function get__newVariable():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newVariable;
+    public var _newWith(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_WithNode.WithNode>;
     @:embedded
-    public function _add() this.tree._add();
+    @:embeddededffieldsffun
+    public function get__newWith():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoInt, stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_WithNode.WithNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._newWith;
+    public var _next(get, never) : () -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
     @:embedded
-    public function _backup() this.tree._backup();
+    @:embeddededffieldsffun
+    public function get__next():() -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._next;
+    public var _nextNonSpace(get, never) : () -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
     @:embedded
-    public function _backup2(_t1:stdgo._internal.text.template.parse.Parse_T_item.T_item) this.tree._backup2(_t1);
+    @:embeddededffieldsffun
+    public function get__nextNonSpace():() -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._nextNonSpace;
+    public var _operand(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _backup3(_t2:stdgo._internal.text.template.parse.Parse_T_item.T_item, _t1:stdgo._internal.text.template.parse.Parse_T_item.T_item) this.tree._backup3(_t2, _t1);
+    @:embeddededffieldsffun
+    public function get__operand():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._operand;
+    public var _parse(get, never) : () -> Void;
     @:embedded
-    public function _blockControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._blockControl();
+    @:embeddededffieldsffun
+    public function get__parse():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._parse;
+    public var _parseControl(get, never) : (Bool, stdgo.GoString) -> { var _0 : stdgo._internal.text.template.parse.Parse_Pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; };
     @:embedded
-    public function _breakControl(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._breakControl(_pos, _line);
+    @:embeddededffieldsffun
+    public function get__parseControl():(Bool, stdgo.GoString) -> { var _0 : stdgo._internal.text.template.parse.Parse_Pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; } return @:check3 (this.tree ?? throw "null pointer derefrence")._parseControl;
+    public var _parseDefinition(get, never) : () -> Void;
     @:embedded
-    public function _checkPipeline(_pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _context:stdgo.GoString) this.tree._checkPipeline(_pipe, _context);
+    @:embeddededffieldsffun
+    public function get__parseDefinition():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._parseDefinition;
+    public var _parseTemplateName(get, never) : (stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo.GoString) -> stdgo.GoString;
     @:embedded
-    public function _clearActionLine() this.tree._clearActionLine();
+    @:embeddededffieldsffun
+    public function get__parseTemplateName():(stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo.GoString) -> stdgo.GoString return @:check3 (this.tree ?? throw "null pointer derefrence")._parseTemplateName;
+    public var _peek(get, never) : () -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
     @:embedded
-    public function _command():stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> return this.tree._command();
+    @:embeddededffieldsffun
+    public function get__peek():() -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._peek;
+    public var _peekNonSpace(get, never) : () -> stdgo._internal.text.template.parse.Parse_T_item.T_item;
     @:embedded
-    public function _continueControl(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._continueControl(_pos, _line);
+    @:embeddededffieldsffun
+    public function get__peekNonSpace():() -> stdgo._internal.text.template.parse.Parse_T_item.T_item return @:check3 (this.tree ?? throw "null pointer derefrence")._peekNonSpace;
+    public var _pipeline(get, never) : (stdgo.GoString, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>;
     @:embedded
-    public function _elseControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._elseControl();
+    @:embeddededffieldsffun
+    public function get__pipeline():(stdgo.GoString, stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType) -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> return @:check3 (this.tree ?? throw "null pointer derefrence")._pipeline;
+    public var _popVars(get, never) : stdgo.GoInt -> Void;
     @:embedded
-    public function _endControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._endControl();
+    @:embeddededffieldsffun
+    public function get__popVars():stdgo.GoInt -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._popVars;
+    public var _rangeControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _error(__0:stdgo.Error) this.tree._error(__0);
+    @:embeddededffieldsffun
+    public function get__rangeControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._rangeControl;
+    public var _recover(get, never) : stdgo.Ref<stdgo.Error> -> Void;
     @:embedded
-    public function _errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>) this.tree._errorf(_format, ..._args);
+    @:embeddededffieldsffun
+    public function get__recover():stdgo.Ref<stdgo.Error> -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._recover;
+    public var _startParse(get, never) : (stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>, stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>) -> Void;
     @:embedded
-    public function _expect(_expected:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, _context:stdgo.GoString):stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._expect(_expected, _context);
+    @:embeddededffieldsffun
+    public function get__startParse():(stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>, stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>) -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._startParse;
+    public var _stopParse(get, never) : () -> Void;
     @:embedded
-    public function _expectOneOf(_expected1:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, _expected2:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType, _context:stdgo.GoString):stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._expectOneOf(_expected1, _expected2, _context);
+    @:embeddededffieldsffun
+    public function get__stopParse():() -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._stopParse;
+    public var _templateControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _hasFunction(__0:stdgo.GoString):Bool return this.tree._hasFunction(__0);
+    @:embeddededffieldsffun
+    public function get__templateControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._templateControl;
+    public var _term(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _ifControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._ifControl();
+    @:embeddededffieldsffun
+    public function get__term():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._term;
+    public var _textOrAction(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _itemList():{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _1 : stdgo._internal.text.template.parse.Parse_Node.Node; } return this.tree._itemList();
+    @:embeddededffieldsffun
+    public function get__textOrAction():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._textOrAction;
+    public var _unexpected(get, never) : (stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo.GoString) -> Void;
     @:embedded
-    public function _newAction(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode> return this.tree._newAction(_pos, _line, _pipe);
+    @:embeddededffieldsffun
+    public function get__unexpected():(stdgo._internal.text.template.parse.Parse_T_item.T_item, stdgo.GoString) -> Void return @:check3 (this.tree ?? throw "null pointer derefrence")._unexpected;
+    public var _useVar(get, never) : (stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _newBool(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, __true:Bool):stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode> return this.tree._newBool(_pos, __true);
+    @:embeddededffieldsffun
+    public function get__useVar():(stdgo._internal.text.template.parse.Parse_Pos.Pos, stdgo.GoString) -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._useVar;
+    public var _withControl(get, never) : () -> stdgo._internal.text.template.parse.Parse_Node.Node;
     @:embedded
-    public function _newBreak(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode> return this.tree._newBreak(_pos, _line);
-    @:embedded
-    public function _newChain(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _node:stdgo._internal.text.template.parse.Parse_Node.Node):stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode> return this.tree._newChain(_pos, _node);
-    @:embedded
-    public function _newCommand(__0:stdgo._internal.text.template.parse.Parse_Pos.Pos):stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> return this.tree._newCommand(__0);
-    @:embedded
-    public function _newComment(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode> return this.tree._newComment(_pos, _text);
-    @:embedded
-    public function _newContinue(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode> return this.tree._newContinue(_pos, _line);
-    @:embedded
-    public function _newDot(__0:stdgo._internal.text.template.parse.Parse_Pos.Pos):stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode> return this.tree._newDot(__0);
-    @:embedded
-    public function _newElse(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode> return this.tree._newElse(_pos, _line);
-    @:embedded
-    public function _newEnd(__0:stdgo._internal.text.template.parse.Parse_Pos.Pos):stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode> return this.tree._newEnd(__0);
-    @:embedded
-    public function _newField(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode> return this.tree._newField(_pos, _text);
-    @:embedded
-    public function _newIf(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_IfNode.IfNode> return this.tree._newIf(_pos, _line, _pipe, _list, _elseList);
-    @:embedded
-    public function _newList(__0:stdgo._internal.text.template.parse.Parse_Pos.Pos):stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode> return this.tree._newList(__0);
-    @:embedded
-    public function _newNil(__0:stdgo._internal.text.template.parse.Parse_Pos.Pos):stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode> return this.tree._newNil(__0);
-    @:embedded
-    public function _newNumber(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString, _typ:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType):{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>; var _1 : stdgo.Error; } return this.tree._newNumber(_pos, _text, _typ);
-    @:embedded
-    public function _newPipeline(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _vars:stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> return this.tree._newPipeline(_pos, _line, _vars);
-    @:embedded
-    public function _newRange(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode> return this.tree._newRange(_pos, _line, _pipe, _list, _elseList);
-    @:embedded
-    public function _newString(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _orig:stdgo.GoString, _text:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode> return this.tree._newString(_pos, _orig, _text);
-    @:embedded
-    public function _newTemplate(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _name:stdgo.GoString, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> return this.tree._newTemplate(_pos, _line, _name, _pipe);
-    @:embedded
-    public function _newText(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode> return this.tree._newText(_pos, _text);
-    @:embedded
-    public function _newVariable(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode> return this.tree._newVariable(_pos, _text);
-    @:embedded
-    public function _newWith(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_WithNode.WithNode> return this.tree._newWith(_pos, _line, _pipe, _list, _elseList);
-    @:embedded
-    public function _next():stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._next();
-    @:embedded
-    public function _nextNonSpace():stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._nextNonSpace();
-    @:embedded
-    public function _operand():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._operand();
-    @:embedded
-    public function _parse() this.tree._parse();
-    @:embedded
-    public function _parseControl(_allowElseIf:Bool, _context:stdgo.GoString):{ var _0 : stdgo._internal.text.template.parse.Parse_Pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; } return this.tree._parseControl(_allowElseIf, _context);
-    @:embedded
-    public function _parseDefinition() this.tree._parseDefinition();
-    @:embedded
-    public function _parseTemplateName(_token:stdgo._internal.text.template.parse.Parse_T_item.T_item, _context:stdgo.GoString):stdgo.GoString return this.tree._parseTemplateName(_token, _context);
-    @:embedded
-    public function _peek():stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._peek();
-    @:embedded
-    public function _peekNonSpace():stdgo._internal.text.template.parse.Parse_T_item.T_item return this.tree._peekNonSpace();
-    @:embedded
-    public function _pipeline(_context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> return this.tree._pipeline(_context, _end);
-    @:embedded
-    public function _popVars(__0:stdgo.GoInt) this.tree._popVars(__0);
-    @:embedded
-    public function _rangeControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._rangeControl();
-    @:embedded
-    public function _recover(_errp:stdgo.Ref<stdgo.Error>) this.tree._recover(_errp);
-    @:embedded
-    public function _startParse(_funcs:stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _lex:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>) this.tree._startParse(_funcs, _lex, _treeSet);
-    @:embedded
-    public function _stopParse() this.tree._stopParse();
-    @:embedded
-    public function _templateControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._templateControl();
-    @:embedded
-    public function _term():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._term();
-    @:embedded
-    public function _textOrAction():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._textOrAction();
-    @:embedded
-    public function _unexpected(_token:stdgo._internal.text.template.parse.Parse_T_item.T_item, _context:stdgo.GoString) this.tree._unexpected(_token, _context);
-    @:embedded
-    public function _useVar(_pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _text:stdgo.GoString):stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._useVar(_pos, _text);
-    @:embedded
-    public function _withControl():stdgo._internal.text.template.parse.Parse_Node.Node return this.tree._withControl();
+    @:embeddededffieldsffun
+    public function get__withControl():() -> stdgo._internal.text.template.parse.Parse_Node.Node return @:check3 (this.tree ?? throw "null pointer derefrence")._withControl;
     public function __copy__() {
         return new Template(_name, tree, _common, _leftDelim, _rightDelim);
     }

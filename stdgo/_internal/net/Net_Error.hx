@@ -6,6 +6,7 @@ typedef Error = stdgo.StructType & {
         
         Is the error a timeout?
     **/
+    @:interfacetypeffun
     public dynamic function timeout():Bool;
     /**
         Deprecated: Temporary errors are not well-defined.
@@ -14,5 +15,6 @@ typedef Error = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function temporary():Bool;
 };

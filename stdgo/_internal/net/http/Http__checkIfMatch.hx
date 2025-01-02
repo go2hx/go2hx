@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _checkIfMatch(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo._internal.net.http.Http_T_condResult.T_condResult {
-        var _im = (_r.header.get(("If-Match" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _im = ((@:checkr _r ?? throw "null pointer dereference").header.get(("If-Match" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_im == (stdgo.Go.str())) {
             return (0 : stdgo._internal.net.http.Http_T_condResult.T_condResult);
         };

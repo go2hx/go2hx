@@ -1,40 +1,55 @@
 package stdgo._internal.crypto.tls;
 class T_certCache_asInterface {
     @:keep
-    public dynamic function _newCert(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert>; var _1 : stdgo.Error; } return __self__.value._newCert(_der);
+    @:tdfield
+    public dynamic function _newCert(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert>; var _1 : stdgo.Error; } return @:_0 __self__.value._newCert(_der);
     @:keep
-    public dynamic function _evict(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry>):Void __self__.value._evict(_e);
+    @:tdfield
+    public dynamic function _evict(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry>):Void @:_0 __self__.value._evict(_e);
     @:keep
-    public dynamic function _active(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert> return __self__.value._active(_e);
+    @:tdfield
+    public dynamic function _active(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert> return @:_0 __self__.value._active(_e);
     @:embedded
-    public dynamic function _missLocked():Void __self__.value._missLocked();
+    @:embeddededffieldsffun
+    public dynamic function _missLocked():Void @:_0 __self__.value._missLocked();
     @:embedded
-    public dynamic function _loadReadOnly():stdgo._internal.sync.Sync_T_readOnly.T_readOnly return __self__.value._loadReadOnly();
+    @:embeddededffieldsffun
+    public dynamic function _loadReadOnly():stdgo._internal.sync.Sync_T_readOnly.T_readOnly return @:_0 __self__.value._loadReadOnly();
     @:embedded
-    public dynamic function _dirtyLocked():Void __self__.value._dirtyLocked();
+    @:embeddededffieldsffun
+    public dynamic function _dirtyLocked():Void @:_0 __self__.value._dirtyLocked();
     @:embedded
-    public dynamic function swap(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return __self__.value.swap(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public dynamic function swap(_0:stdgo.AnyInterface, _1:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value.swap(_0, _1);
     @:embedded
-    public dynamic function store(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):Void __self__.value.store(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public dynamic function store(_0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Void @:_0 __self__.value.store(_0, _1);
     @:embedded
-    public dynamic function range(_f:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void __self__.value.range(_f);
+    @:embeddededffieldsffun
+    public dynamic function range(_0:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void @:_0 __self__.value.range(_0);
     @:embedded
-    public dynamic function loadOrStore(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return __self__.value.loadOrStore(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public dynamic function loadOrStore(_0:stdgo.AnyInterface, _1:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value.loadOrStore(_0, _1);
     @:embedded
-    public dynamic function loadAndDelete(_key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return __self__.value.loadAndDelete(_key);
+    @:embeddededffieldsffun
+    public dynamic function loadAndDelete(_0:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value.loadAndDelete(_0);
     @:embedded
-    public dynamic function load(_key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return __self__.value.load(_key);
+    @:embeddededffieldsffun
+    public dynamic function load(_0:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value.load(_0);
     @:embedded
-    public dynamic function delete(_key:stdgo.AnyInterface):Void __self__.value.delete(_key);
+    @:embeddededffieldsffun
+    public dynamic function delete(_0:stdgo.AnyInterface):Void @:_0 __self__.value.delete(_0);
     @:embedded
-    public dynamic function compareAndSwap(_key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return __self__.value.compareAndSwap(_key, _old, _new);
+    @:embeddededffieldsffun
+    public dynamic function compareAndSwap(_0:stdgo.AnyInterface, _1:stdgo.AnyInterface, _2:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndSwap(_0, _1, _2);
     @:embedded
-    public dynamic function compareAndDelete(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):Bool return __self__.value.compareAndDelete(_parsedName, _constraint);
+    @:embeddededffieldsffun
+    public dynamic function compareAndDelete(_0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndDelete(_0, _1);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache>;
+    var __self__ : stdgo._internal.crypto.tls.Tls_T_certCachePointer.T_certCachePointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

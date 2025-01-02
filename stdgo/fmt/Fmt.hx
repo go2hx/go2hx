@@ -412,6 +412,7 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
 }
 typedef T_buffer = stdgo._internal.fmt.Fmt_T_buffer.T_buffer;
 typedef T_stringReader = stdgo._internal.fmt.Fmt_T_stringReader.T_stringReader;
+typedef T_wrapErrorPointer = stdgo._internal.fmt.Fmt_T_wrapErrorPointer.T_wrapErrorPointer;
 class T_wrapError_static_extension {
     static public function unwrap(_e:T_wrapError):stdgo.Error {
         return stdgo._internal.fmt.Fmt_T_wrapError_static_extension.T_wrapError_static_extension.unwrap(_e);
@@ -420,6 +421,7 @@ class T_wrapError_static_extension {
         return stdgo._internal.fmt.Fmt_T_wrapError_static_extension.T_wrapError_static_extension.error(_e);
     }
 }
+typedef T_wrapErrorsPointer = stdgo._internal.fmt.Fmt_T_wrapErrorsPointer.T_wrapErrorsPointer;
 class T_wrapErrors_static_extension {
     static public function unwrap(_e:T_wrapErrors):Array<stdgo.Error> {
         return [for (i in stdgo._internal.fmt.Fmt_T_wrapErrors_static_extension.T_wrapErrors_static_extension.unwrap(_e)) i];
@@ -428,6 +430,7 @@ class T_wrapErrors_static_extension {
         return stdgo._internal.fmt.Fmt_T_wrapErrors_static_extension.T_wrapErrors_static_extension.error(_e);
     }
 }
+typedef T_fmtPointer = stdgo._internal.fmt.Fmt_T_fmtPointer.T_fmtPointer;
 class T_fmt_static_extension {
     static public function _fmtFloat(_f:T_fmt, _v:StdTypes.Float, _size:StdTypes.Int, _verb:StdTypes.Int, _prec:StdTypes.Int):Void {
         stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtFloat(_f, _v, _size, _verb, _prec);
@@ -492,6 +495,7 @@ class T_fmt_static_extension {
         stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._clearflags(_f);
     }
 }
+typedef T_ppPointer = stdgo._internal.fmt.Fmt_T_ppPointer.T_ppPointer;
 class T_pp_static_extension {
     static public function _doPrintln(_p:T_pp, _a:Array<stdgo.AnyInterface>):Void {
         final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.AnyInterface>);
@@ -592,6 +596,7 @@ class T_pp_static_extension {
         stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._free(_p);
     }
 }
+typedef T_ssPointer = stdgo._internal.fmt.Fmt_T_ssPointer.T_ssPointer;
 class T_ss_static_extension {
     static public function _doScanf(_s:T_ss, _format:String, _a:Array<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.AnyInterface>);
@@ -740,6 +745,7 @@ class T_ss_static_extension {
         };
     }
 }
+typedef T_readRunePointer = stdgo._internal.fmt.Fmt_T_readRunePointer.T_readRunePointer;
 class T_readRune_static_extension {
     static public function unreadRune(_r:T_readRune):stdgo.Error {
         return stdgo._internal.fmt.Fmt_T_readRune_static_extension.T_readRune_static_extension.unreadRune(_r);
@@ -757,6 +763,7 @@ class T_readRune_static_extension {
         };
     }
 }
+typedef T_bufferPointer = stdgo._internal.fmt.Fmt_T_bufferPointer.T_bufferPointer;
 class T_buffer_static_extension {
     static public function _writeRune(_bp:T_buffer, _r:StdTypes.Int):Void {
         stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._writeRune(_bp, _r);
@@ -772,391 +779,392 @@ class T_buffer_static_extension {
         stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._write(_b, _p);
     }
 }
+typedef T_stringReaderPointer = stdgo._internal.fmt.Fmt_T_stringReaderPointer.T_stringReaderPointer;
 class T_stringReader_static_extension {
-    static public function read(____:T_stringReader, _r:stdgo.Pointer<T_stringReader>, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function read(_r:stdgo.Pointer<T_stringReader>, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_stringReader_static_extension.T_stringReader_static_extension.read(____, _r, _b);
+            final obj = stdgo._internal.fmt.Fmt_T_stringReader_static_extension.T_stringReader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 /**
     /|*{
-    	end_4082479 = len(format)
-    	argNum_4082499 = 0
-    	afterIndex_4082570 = false
+    	end_4058450 = len(format)
+    	argNum_4058470 = 0
+    	afterIndex_4058541 = false
     	p.reordered = false
-    	gotoNext = 4082661
-    	_ = gotoNext == 4082661
-    	i_4082678 = 0
+    	gotoNext = 4058632
+    	_ = gotoNext == 4058632
+    	i_4058649 = 0
     	formatLoopBreak = false
-    	gotoNext = 4082674
-    	_ = gotoNext == 4082674
-    	if !formatLoopBreak && (i_4082678 < end_4082479) {
-    		gotoNext = 4082695
-    		_ = gotoNext == 4082695
+    	gotoNext = 4058645
+    	_ = gotoNext == 4058645
+    	if !formatLoopBreak && (i_4058649 < end_4058450) {
+    		gotoNext = 4058666
+    		_ = gotoNext == 4058666
     		p.goodArgNum = true
-    		lasti_4082721 = i_4082678
+    		lasti_4058692 = i_4058649
     		_ = 0
-    		gotoNext = 4082734
-    		_ = gotoNext == 4082734
-    		if i_4082678 < end_4082479 && format[i_4082678] != 37 {
-    			gotoNext = 4082766
-    			_ = gotoNext == 4082766
-    			i_4082678++
-    			gotoNext = 4082734
+    		gotoNext = 4058705
+    		_ = gotoNext == 4058705
+    		if i_4058649 < end_4058450 && format[i_4058649] != 37 {
+    			gotoNext = 4058737
+    			_ = gotoNext == 4058737
+    			i_4058649++
+    			gotoNext = 4058705
     		} else {
-    			gotoNext = 4082781
+    			gotoNext = 4058752
     		}
-    		_ = gotoNext == 4082781
-    		if i_4082678 > lasti_4082721 {
-    			gotoNext = 4082794
-    			_ = gotoNext == 4082794
-    			p.buf.writeString(format[lasti_4082721:i_4082678])
-    			gotoNext = 4082840
+    		_ = gotoNext == 4058752
+    		if i_4058649 > lasti_4058692 {
+    			gotoNext = 4058765
+    			_ = gotoNext == 4058765
+    			p.buf.writeString(format[lasti_4058692:i_4058649])
+    			gotoNext = 4058811
     		} else {
-    			gotoNext = 4082840
+    			gotoNext = 4058811
     		}
-    		_ = gotoNext == 4082840
-    		if i_4082678 >= end_4082479 {
-    			gotoNext = 4082852
-    			_ = gotoNext == 4082852
-    			gotoNext = 4086505
-    			gotoNext = 4082928
+    		_ = gotoNext == 4058811
+    		if i_4058649 >= end_4058450 {
+    			gotoNext = 4058823
+    			_ = gotoNext == 4058823
+    			gotoNext = 4062476
+    			gotoNext = 4058899
     		} else {
-    			gotoNext = 4082928
+    			gotoNext = 4058899
     		}
-    		_ = gotoNext == 4082928
-    		i_4082678++
+    		_ = gotoNext == 4058899
+    		i_4058649++
     		p.fmt.clearflags()
-    		gotoNext = 4082978
-    		_ = gotoNext == 4082978
+    		gotoNext = 4058949
+    		_ = gotoNext == 4058949
     		_ = 0
     		simpleFormatBreak = false
-    		gotoNext = 4082994
-    		_ = gotoNext == 4082994
-    		if !simpleFormatBreak && (i_4082678 < end_4082479) {
-    			gotoNext = 4083013
-    			_ = gotoNext == 4083013
-    			c_4083018 = format[i_4082678]
-    			gotoNext = 4083036
-    			_ = gotoNext == 4083036
-    			switch c_4083018 {
+    		gotoNext = 4058965
+    		_ = gotoNext == 4058965
+    		if !simpleFormatBreak && (i_4058649 < end_4058450) {
+    			gotoNext = 4058984
+    			_ = gotoNext == 4058984
+    			c_4058989 = format[i_4058649]
+    			gotoNext = 4059007
+    			_ = gotoNext == 4059007
+    			switch c_4058989 {
     			case 35:
-    				gotoNext = 4083050
-    				_ = gotoNext == 4083050
+    				gotoNext = 4059021
+    				_ = gotoNext == 4059021
     				p.fmt.sharp = true
-    				gotoNext = 4083009
+    				gotoNext = 4058980
     			case 48:
-    				gotoNext = 4083086
-    				_ = gotoNext == 4083086
+    				gotoNext = 4059057
+    				_ = gotoNext == 4059057
     				p.fmt.zero = !p.fmt.minus
-    				gotoNext = 4083009
+    				gotoNext = 4058980
     			case 43:
-    				gotoNext = 4083169
-    				_ = gotoNext == 4083169
+    				gotoNext = 4059140
+    				_ = gotoNext == 4059140
     				p.fmt.plus = true
-    				gotoNext = 4083009
+    				gotoNext = 4058980
     			case 45:
-    				gotoNext = 4083204
-    				_ = gotoNext == 4083204
+    				gotoNext = 4059175
+    				_ = gotoNext == 4059175
     				p.fmt.minus = true
     				p.fmt.zero = false
-    				gotoNext = 4083009
+    				gotoNext = 4058980
     			case 32:
-    				gotoNext = 4083302
-    				_ = gotoNext == 4083302
+    				gotoNext = 4059273
+    				_ = gotoNext == 4059273
     				p.fmt.space = true
-    				gotoNext = 4083009
+    				gotoNext = 4058980
     			default:
-    				gotoNext = 4083338
-    				_ = gotoNext == 4083338
-    				if 97 <= c_4083018 && c_4083018 <= 122 && argNum_4082499 < len(a) {
-    					gotoNext = 4083515
-    					_ = gotoNext == 4083515
-    					gotoNext = 4083522
-    					_ = gotoNext == 4083522
-    					switch c_4083018 {
+    				gotoNext = 4059309
+    				_ = gotoNext == 4059309
+    				if 97 <= c_4058989 && c_4058989 <= 122 && argNum_4058470 < len(a) {
+    					gotoNext = 4059486
+    					_ = gotoNext == 4059486
+    					gotoNext = 4059493
+    					_ = gotoNext == 4059493
+    					switch c_4058989 {
     					case 119:
-    						gotoNext = 4083538
-    						_ = gotoNext == 4083538
-    						p.wrappedErrs = append(p.wrappedErrs, argNum_4082499)
-    						gotoNext = 4083623
-    						gotoNext = 4083808
+    						gotoNext = 4059509
+    						_ = gotoNext == 4059509
+    						p.wrappedErrs = append(p.wrappedErrs, argNum_4058470)
+    						gotoNext = 4059594
+    						gotoNext = 4059779
     					case 118:
-    						gotoNext = 4083623
-    						_ = gotoNext == 4083623
+    						gotoNext = 4059594
+    						_ = gotoNext == 4059594
     						p.fmt.sharpV = p.fmt.sharp
     						p.fmt.sharp = false
     						p.fmt.plusV = p.fmt.plus
     						p.fmt.plus = false
-    						gotoNext = 4083808
+    						gotoNext = 4059779
     					default:
-    						gotoNext = 4083808
+    						gotoNext = 4059779
     					}
-    					_ = gotoNext == 4083808
-    					p.printArg(a[argNum_4082499], rune(c_4083018))
-    					argNum_4082499++
-    					i_4082678++
-    					gotoNext = 4082674
-    					gotoNext = 4083973
+    					_ = gotoNext == 4059779
+    					p.printArg(a[argNum_4058470], rune(c_4058989))
+    					argNum_4058470++
+    					i_4058649++
+    					gotoNext = 4058645
+    					gotoNext = 4059944
     				} else {
-    					gotoNext = 4083973
+    					gotoNext = 4059944
     				}
-    				_ = gotoNext == 4083973
+    				_ = gotoNext == 4059944
     				simpleFormatBreak = true
-    				gotoNext = 4082994
-    				gotoNext = 4083009
+    				gotoNext = 4058965
+    				gotoNext = 4058980
     			}
-    			_ = gotoNext == 4083009
-    			i_4082678++
-    			gotoNext = 4082994
+    			_ = gotoNext == 4058980
+    			i_4058649++
+    			gotoNext = 4058965
     		} else {
-    			gotoNext = 4084048
+    			gotoNext = 4060019
     		}
-    		_ = gotoNext == 4084048
-    		argNum_4082499, i_4082678, afterIndex_4082570 = p.argNumber(argNum_4082499, format, i_4082678, len(a))
-    		if i_4082678 < end_4082479 && format[i_4082678] == 42 {
-    			gotoNext = 4084168
-    			_ = gotoNext == 4084168
-    			i_4082678++
-    			p.fmt.wid, p.fmt.widPresent, argNum_4082499 = intFromArg(a, argNum_4082499)
+    		_ = gotoNext == 4060019
+    		argNum_4058470, i_4058649, afterIndex_4058541 = p.argNumber(argNum_4058470, format, i_4058649, len(a))
+    		if i_4058649 < end_4058450 && format[i_4058649] == 42 {
+    			gotoNext = 4060139
+    			_ = gotoNext == 4060139
+    			i_4058649++
+    			p.fmt.wid, p.fmt.widPresent, argNum_4058470 = intFromArg(a, argNum_4058470)
     			if !p.fmt.widPresent {
-    				gotoNext = 4084265
-    				_ = gotoNext == 4084265
+    				gotoNext = 4060236
+    				_ = gotoNext == 4060236
     				p.buf.writeString("%!(BADWIDTH)")
-    				gotoNext = 4084408
+    				gotoNext = 4060379
     			} else {
-    				gotoNext = 4084408
+    				gotoNext = 4060379
     			}
-    			_ = gotoNext == 4084408
+    			_ = gotoNext == 4060379
     			if p.fmt.wid < 0 {
-    				gotoNext = 4084425
-    				_ = gotoNext == 4084425
+    				gotoNext = 4060396
+    				_ = gotoNext == 4060396
     				p.fmt.wid = -p.fmt.wid
     				p.fmt.minus = true
     				p.fmt.zero = false
-    				gotoNext = 4084547
+    				gotoNext = 4060518
     			} else {
-    				gotoNext = 4084547
+    				gotoNext = 4060518
     			}
-    			_ = gotoNext == 4084547
-    			afterIndex_4082570 = false
-    			gotoNext = 4084753
+    			_ = gotoNext == 4060518
+    			afterIndex_4058541 = false
+    			gotoNext = 4060724
     		} else {
-    			gotoNext = 4084575
-    			_ = gotoNext == 4084575
-    			gotoNext = 4084575
-    			_ = gotoNext == 4084575
-    			p.fmt.wid, p.fmt.widPresent, i_4082678 = parsenum(format, i_4082678, end_4082479)
-    			if afterIndex_4082570 && p.fmt.widPresent {
-    				gotoNext = 4084675
-    				_ = gotoNext == 4084675
+    			gotoNext = 4060546
+    			_ = gotoNext == 4060546
+    			gotoNext = 4060546
+    			_ = gotoNext == 4060546
+    			p.fmt.wid, p.fmt.widPresent, i_4058649 = parsenum(format, i_4058649, end_4058450)
+    			if afterIndex_4058541 && p.fmt.widPresent {
+    				gotoNext = 4060646
+    				_ = gotoNext == 4060646
     				p.goodArgNum = false
-    				gotoNext = 4084753
+    				gotoNext = 4060724
     			} else {
-    				gotoNext = 4084753
+    				gotoNext = 4060724
     			}
     			_ = 0
-    			gotoNext = 4084753
+    			gotoNext = 4060724
     		}
-    		_ = gotoNext == 4084753
-    		if i_4082678+1 < end_4082479 && format[i_4082678] == 46 {
-    			gotoNext = 4084786
-    			_ = gotoNext == 4084786
-    			i_4082678++
-    			if afterIndex_4082570 {
-    				gotoNext = 4084812
-    				_ = gotoNext == 4084812
+    		_ = gotoNext == 4060724
+    		if i_4058649+1 < end_4058450 && format[i_4058649] == 46 {
+    			gotoNext = 4060757
+    			_ = gotoNext == 4060757
+    			i_4058649++
+    			if afterIndex_4058541 {
+    				gotoNext = 4060783
+    				_ = gotoNext == 4060783
     				p.goodArgNum = false
-    				gotoNext = 4084860
+    				gotoNext = 4060831
     			} else {
-    				gotoNext = 4084860
+    				gotoNext = 4060831
     			}
-    			_ = gotoNext == 4084860
-    			argNum_4082499, i_4082678, afterIndex_4082570 = p.argNumber(argNum_4082499, format, i_4082678, len(a))
-    			if i_4082678 < end_4082479 && format[i_4082678] == 42 {
-    				gotoNext = 4084957
-    				_ = gotoNext == 4084957
-    				i_4082678++
-    				p.fmt.prec, p.fmt.precPresent, argNum_4082499 = intFromArg(a, argNum_4082499)
+    			_ = gotoNext == 4060831
+    			argNum_4058470, i_4058649, afterIndex_4058541 = p.argNumber(argNum_4058470, format, i_4058649, len(a))
+    			if i_4058649 < end_4058450 && format[i_4058649] == 42 {
+    				gotoNext = 4060928
+    				_ = gotoNext == 4060928
+    				i_4058649++
+    				p.fmt.prec, p.fmt.precPresent, argNum_4058470 = intFromArg(a, argNum_4058470)
     				if p.fmt.prec < 0 {
-    					gotoNext = 4085108
-    					_ = gotoNext == 4085108
+    					gotoNext = 4061079
+    					_ = gotoNext == 4061079
     					p.fmt.prec = 0
     					p.fmt.precPresent = false
-    					gotoNext = 4085171
+    					gotoNext = 4061142
     				} else {
-    					gotoNext = 4085171
+    					gotoNext = 4061142
     				}
-    				_ = gotoNext == 4085171
+    				_ = gotoNext == 4061142
     				if !p.fmt.precPresent {
-    					gotoNext = 4085193
-    					_ = gotoNext == 4085193
+    					gotoNext = 4061164
+    					_ = gotoNext == 4061164
     					p.buf.writeString("%!(BADPREC)")
-    					gotoNext = 4085243
+    					gotoNext = 4061214
     				} else {
-    					gotoNext = 4085243
+    					gotoNext = 4061214
     				}
-    				_ = gotoNext == 4085243
-    				afterIndex_4082570 = false
-    				gotoNext = 4085434
+    				_ = gotoNext == 4061214
+    				afterIndex_4058541 = false
+    				gotoNext = 4061405
     			} else {
-    				gotoNext = 4085272
-    				_ = gotoNext == 4085272
-    				gotoNext = 4085272
-    				_ = gotoNext == 4085272
-    				p.fmt.prec, p.fmt.precPresent, i_4082678 = parsenum(format, i_4082678, end_4082479)
+    				gotoNext = 4061243
+    				_ = gotoNext == 4061243
+    				gotoNext = 4061243
+    				_ = gotoNext == 4061243
+    				p.fmt.prec, p.fmt.precPresent, i_4058649 = parsenum(format, i_4058649, end_4058450)
     				if !p.fmt.precPresent {
-    					gotoNext = 4085364
-    					_ = gotoNext == 4085364
+    					gotoNext = 4061335
+    					_ = gotoNext == 4061335
     					p.fmt.prec = 0
     					p.fmt.precPresent = true
-    					gotoNext = 4085434
+    					gotoNext = 4061405
     				} else {
-    					gotoNext = 4085434
+    					gotoNext = 4061405
     				}
     				_ = 0
-    				gotoNext = 4085434
+    				gotoNext = 4061405
     			}
-    			gotoNext = 4085434
+    			gotoNext = 4061405
     		} else {
-    			gotoNext = 4085434
+    			gotoNext = 4061405
     		}
-    		_ = gotoNext == 4085434
-    		if !afterIndex_4082570 {
-    			gotoNext = 4085449
-    			_ = gotoNext == 4085449
-    			argNum_4082499, i_4082678, afterIndex_4082570 = p.argNumber(argNum_4082499, format, i_4082678, len(a))
-    			gotoNext = 4085524
+    		_ = gotoNext == 4061405
+    		if !afterIndex_4058541 {
+    			gotoNext = 4061420
+    			_ = gotoNext == 4061420
+    			argNum_4058470, i_4058649, afterIndex_4058541 = p.argNumber(argNum_4058470, format, i_4058649, len(a))
+    			gotoNext = 4061495
     		} else {
-    			gotoNext = 4085524
+    			gotoNext = 4061495
     		}
-    		_ = gotoNext == 4085524
-    		if i_4082678 >= end_4082479 {
-    			gotoNext = 4085536
-    			_ = gotoNext == 4085536
+    		_ = gotoNext == 4061495
+    		if i_4058649 >= end_4058450 {
+    			gotoNext = 4061507
+    			_ = gotoNext == 4061507
     			p.buf.writeString("%!(NOVERB)")
-    			gotoNext = 4086505
-    			gotoNext = 4085589
+    			gotoNext = 4062476
+    			gotoNext = 4061560
     		} else {
-    			gotoNext = 4085589
+    			gotoNext = 4061560
     		}
-    		_ = gotoNext == 4085589
-    		verb_4085589, size_4085595 = rune(format[i_4082678]), 1
-    		if verb_4085589 >= 128 {
-    			gotoNext = 4085649
-    			_ = gotoNext == 4085649
-    			verb_4085589, size_4085595 = utf8.DecodeRuneInString(format[i_4082678:])
-    			gotoNext = 4085709
+    		_ = gotoNext == 4061560
+    		verb_4061560, size_4061566 = rune(format[i_4058649]), 1
+    		if verb_4061560 >= 128 {
+    			gotoNext = 4061620
+    			_ = gotoNext == 4061620
+    			verb_4061560, size_4061566 = utf8.DecodeRuneInString(format[i_4058649:])
+    			gotoNext = 4061680
     		} else {
-    			gotoNext = 4085709
+    			gotoNext = 4061680
     		}
-    		_ = gotoNext == 4085709
-    		i_4082678 += size_4085595
-    		gotoNext = 4085722
-    		_ = gotoNext == 4085722
+    		_ = gotoNext == 4061680
+    		i_4058649 += size_4061566
+    		gotoNext = 4061693
+    		_ = gotoNext == 4061693
     		switch {
-    		case verb_4085589 == 37:
-    			gotoNext = 4085733
-    			_ = gotoNext == 4085733
+    		case verb_4061560 == 37:
+    			gotoNext = 4061704
+    			_ = gotoNext == 4061704
     			p.buf.writeByte(37)
-    			gotoNext = 4082674
+    			gotoNext = 4058645
     		case !p.goodArgNum:
-    			gotoNext = 4085843
-    			_ = gotoNext == 4085843
-    			p.badArgNum(verb_4085589)
-    			gotoNext = 4082674
-    		case argNum_4082499 >= len(a):
-    			gotoNext = 4085886
-    			_ = gotoNext == 4085886
-    			p.missingArg(verb_4085589)
-    			gotoNext = 4082674
-    		case verb_4085589 == 119:
-    			gotoNext = 4085989
-    			_ = gotoNext == 4085989
-    			p.wrappedErrs = append(p.wrappedErrs, argNum_4082499)
-    			gotoNext = 4086073
-    			gotoNext = 4082674
-    		case verb_4085589 == 118:
-    			gotoNext = 4086073
-    			_ = gotoNext == 4086073
+    			gotoNext = 4061814
+    			_ = gotoNext == 4061814
+    			p.badArgNum(verb_4061560)
+    			gotoNext = 4058645
+    		case argNum_4058470 >= len(a):
+    			gotoNext = 4061857
+    			_ = gotoNext == 4061857
+    			p.missingArg(verb_4061560)
+    			gotoNext = 4058645
+    		case verb_4061560 == 119:
+    			gotoNext = 4061960
+    			_ = gotoNext == 4061960
+    			p.wrappedErrs = append(p.wrappedErrs, argNum_4058470)
+    			gotoNext = 4062044
+    			gotoNext = 4058645
+    		case verb_4061560 == 118:
+    			gotoNext = 4062044
+    			_ = gotoNext == 4062044
     			p.fmt.sharpV = p.fmt.sharp
     			p.fmt.sharp = false
     			p.fmt.plusV = p.fmt.plus
     			p.fmt.plus = false
-    			gotoNext = 4086253
-    			gotoNext = 4082674
+    			gotoNext = 4062224
+    			gotoNext = 4058645
     		default:
-    			gotoNext = 4086253
-    			_ = gotoNext == 4086253
-    			p.printArg(a[argNum_4082499], verb_4085589)
-    			argNum_4082499++
-    			gotoNext = 4082674
+    			gotoNext = 4062224
+    			_ = gotoNext == 4062224
+    			p.printArg(a[argNum_4058470], verb_4061560)
+    			argNum_4058470++
+    			gotoNext = 4058645
     		}
-    		gotoNext = 4082674
+    		gotoNext = 4058645
     	} else {
-    		gotoNext = 4086505
+    		gotoNext = 4062476
     	}
-    	_ = gotoNext == 4086505
-    	if !p.reordered && argNum_4082499 < len(a) {
-    		gotoNext = 4086540
-    		_ = gotoNext == 4086540
+    	_ = gotoNext == 4062476
+    	if !p.reordered && argNum_4058470 < len(a) {
+    		gotoNext = 4062511
+    		_ = gotoNext == 4062511
     		p.fmt.clearflags()
     		p.buf.writeString("%!(EXTRA ")
-    		if 0 < len(a[argNum_4082499:]) {
-    			gotoNext = 4086867
-    			_ = gotoNext == 4086867
-    			i_4086602, arg_4086605 = 0, a[argNum_4082499:][0]
-    			gotoNext = 4086868
-    			_ = gotoNext == 4086868
-    			if i_4086602 < len(a[argNum_4082499:]) {
-    				gotoNext = 4086629
-    				_ = gotoNext == 4086629
-    				arg_4086605 = a[argNum_4082499:][i_4086602]
-    				if i_4086602 > 0 {
-    					gotoNext = 4086643
-    					_ = gotoNext == 4086643
+    		if 0 < len(a[argNum_4058470:]) {
+    			gotoNext = 4062838
+    			_ = gotoNext == 4062838
+    			i_4062573, arg_4062576 = 0, a[argNum_4058470:][0]
+    			gotoNext = 4062839
+    			_ = gotoNext == 4062839
+    			if i_4062573 < len(a[argNum_4058470:]) {
+    				gotoNext = 4062600
+    				_ = gotoNext == 4062600
+    				arg_4062576 = a[argNum_4058470:][i_4062573]
+    				if i_4062573 > 0 {
+    					gotoNext = 4062614
+    					_ = gotoNext == 4062614
     					p.buf.writeString(", ")
-    					gotoNext = 4086693
+    					gotoNext = 4062664
     				} else {
-    					gotoNext = 4086693
+    					gotoNext = 4062664
     				}
-    				_ = gotoNext == 4086693
-    				if arg_4086605 == nil {
-    					gotoNext = 4086707
-    					_ = gotoNext == 4086707
+    				_ = gotoNext == 4062664
+    				if arg_4062576 == nil {
+    					gotoNext = 4062678
+    					_ = gotoNext == 4062678
     					p.buf.writeString("<nil>")
-    					gotoNext = 4086602
+    					gotoNext = 4062573
     				} else {
-    					gotoNext = 4086757
-    					_ = gotoNext == 4086757
-    					gotoNext = 4086757
-    					_ = gotoNext == 4086757
-    					p.buf.writeString(reflect.TypeOf(arg_4086605).String())
+    					gotoNext = 4062728
+    					_ = gotoNext == 4062728
+    					gotoNext = 4062728
+    					_ = gotoNext == 4062728
+    					p.buf.writeString(reflect.TypeOf(arg_4062576).String())
     					p.buf.writeByte(61)
-    					p.printArg(arg_4086605, 118)
+    					p.printArg(arg_4062576, 118)
     					_ = 0
-    					gotoNext = 4086602
+    					gotoNext = 4062573
     				}
-    				_ = gotoNext == 4086602
-    				i_4086602++
-    				gotoNext = 4086868
+    				_ = gotoNext == 4062573
+    				i_4062573++
+    				gotoNext = 4062839
     			} else {
-    				gotoNext = 4086872
+    				gotoNext = 4062843
     			}
-    			gotoNext = 4086872
+    			gotoNext = 4062843
     		} else {
-    			gotoNext = 4086872
+    			gotoNext = 4062843
     		}
-    		_ = gotoNext == 4086872
+    		_ = gotoNext == 4062843
     		p.buf.writeByte(41)
-    		gotoNext = 4086896
+    		gotoNext = 4062867
     	} else {
-    		gotoNext = 4086896
+    		gotoNext = 4062867
     	}
-    	_ = gotoNext == 4086896
+    	_ = gotoNext == 4062867
     	gotoNext = -1
     }*|/
 **/

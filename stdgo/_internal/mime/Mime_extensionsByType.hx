@@ -4,8 +4,8 @@ function extensionsByType(_typ:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoSt
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
         };
-        stdgo._internal.mime.Mime__once._once.do_(stdgo._internal.mime.Mime__initMime._initMime);
-        var __tmp__ = stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _s:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+        @:check2 stdgo._internal.mime.Mime__once._once.do_(stdgo._internal.mime.Mime__initMime._initMime);
+        var __tmp__ = @:check2 stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _s:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };

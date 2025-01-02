@@ -1,12 +1,12 @@
 package stdgo._internal.crypto.rsa;
 function decryptPKCS1v15SessionKey(_random:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>, _ciphertext:stdgo.Slice<stdgo.GoUInt8>, _key:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         {
-            var _err = (stdgo._internal.crypto.rsa.Rsa__checkPub._checkPub((stdgo.Go.setRef(_priv.publicKey) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>)) : stdgo.Error);
+            var _err = (stdgo._internal.crypto.rsa.Rsa__checkPub._checkPub((stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereference").publicKey) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>)) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };
         };
-        var _k = (_priv.size() : stdgo.GoInt);
+        var _k = (@:check2r _priv.size() : stdgo.GoInt);
         if (((_k - ((((_key.length) + (3 : stdgo.GoInt) : stdgo.GoInt) + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) < (0 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption;
         };

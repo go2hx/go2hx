@@ -11,13 +11,13 @@ function _decInt16Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_deco
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _length : Bool)) {
-                if (_state._b.len() == ((0 : stdgo.GoInt))) {
+                if (@:check2r (@:checkr _state ?? throw "null pointer dereference")._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding int16 array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
 if ((_i >= (_slice.length) : Bool)) {
                     stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>), _length);
                 };
-var _x = (_state._decodeInt() : stdgo.GoInt64);
+var _x = (@:check2r _state._decodeInt() : stdgo.GoInt64);
 if (((_x < (-32768i64 : stdgo.GoInt64) : Bool) || ((32767i64 : stdgo.GoInt64) < _x : Bool) : Bool)) {
                     stdgo._internal.encoding.gob.Gob__error_._error_(_ovfl);
                 };

@@ -5,16 +5,16 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             _nreps = (1 : stdgo.GoInt);
         };
         for (_i => _s in stdgo._internal.math.big.Big__primes._primes) {
-            var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_s?.__copy__(), (10 : stdgo.GoInt)), _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __8:Bool = __tmp__._1;
-            if (((!_p.probablyPrime(_nreps) || (_nreps != ((1 : stdgo.GoInt)) && !_p.probablyPrime((1 : stdgo.GoInt)) : Bool) : Bool) || !_p.probablyPrime((0 : stdgo.GoInt)) : Bool)) {
-                _t.errorf(("#%d prime found to be non-prime (%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
+            var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_s?.__copy__(), (10 : stdgo.GoInt)), _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __8:Bool = __tmp__._1;
+            if (((!@:check2r _p.probablyPrime(_nreps) || (_nreps != ((1 : stdgo.GoInt)) && !@:check2r _p.probablyPrime((1 : stdgo.GoInt)) : Bool) : Bool) || !@:check2r _p.probablyPrime((0 : stdgo.GoInt)) : Bool)) {
+                @:check2r _t.errorf(("#%d prime found to be non-prime (%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
             };
         };
         for (_i => _s in stdgo._internal.math.big.Big__composites._composites) {
             _s = stdgo._internal.strings.Strings_map_.map_(stdgo._internal.math.big.Big__cutSpace._cutSpace, _s?.__copy__())?.__copy__();
-            var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_s?.__copy__(), (10 : stdgo.GoInt)), _c:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __8:Bool = __tmp__._1;
-            if (((_c.probablyPrime(_nreps) || (_nreps != ((1 : stdgo.GoInt)) && _c.probablyPrime((1 : stdgo.GoInt)) : Bool) : Bool) || _c.probablyPrime((0 : stdgo.GoInt)) : Bool)) {
-                _t.errorf(("#%d composite found to be prime (%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
+            var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_s?.__copy__(), (10 : stdgo.GoInt)), _c:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __8:Bool = __tmp__._1;
+            if (((@:check2r _c.probablyPrime(_nreps) || (_nreps != ((1 : stdgo.GoInt)) && @:check2r _c.probablyPrime((1 : stdgo.GoInt)) : Bool) : Bool) || @:check2r _c.probablyPrime((0 : stdgo.GoInt)) : Bool)) {
+                @:check2r _t.errorf(("#%d composite found to be prime (%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
             };
         };
         var _c = stdgo._internal.math.big.Big_newInt.newInt((11i64 : stdgo.GoInt64));
@@ -31,17 +31,18 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                                         stdgo.Go.recover_exception = null;
                                         r;
                                     }) == null) : Bool)) {
-                                        _t.fatalf(("expected panic from ProbablyPrime(%d)" : stdgo.GoString), stdgo.Go.toInterface(_n));
+                                        @:check2r _t.fatalf(("expected panic from ProbablyPrime(%d)" : stdgo.GoString), stdgo.Go.toInterface(_n));
                                     };
                                 };
                                 a();
                             }));
                         };
-                        if (!_c.probablyPrime(_n)) {
-                            _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
+                        if (!@:check2r _c.probablyPrime(_n)) {
+                            @:check2r _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
                         };
                         {
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -56,6 +57,7 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                         };
                         stdgo.Go.recover_exception = exe;
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

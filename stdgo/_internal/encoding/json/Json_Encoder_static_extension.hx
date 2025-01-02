@@ -1,74 +1,81 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.Encoder_asInterface) class Encoder_static_extension {
     @:keep
+    @:tdfield
     static public function setEscapeHTML( _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>, _on:Bool):Void {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder> = _enc;
-        _enc._escapeHTML = _on;
+        (@:checkr _enc ?? throw "null pointer dereference")._escapeHTML = _on;
     }
     @:keep
+    @:tdfield
     static public function setIndent( _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>, _prefix:stdgo.GoString, _indent:stdgo.GoString):Void {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder> = _enc;
-        _enc._indentPrefix = _prefix?.__copy__();
-        _enc._indentValue = _indent?.__copy__();
+        (@:checkr _enc ?? throw "null pointer dereference")._indentPrefix = _prefix?.__copy__();
+        (@:checkr _enc ?? throw "null pointer dereference")._indentValue = _indent?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function encode( _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>, _v:stdgo.AnyInterface):stdgo.Error {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder> = _enc;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_enc._err != null) {
-                return _enc._err;
+            if ((@:checkr _enc ?? throw "null pointer dereference")._err != null) {
+                return (@:checkr _enc ?? throw "null pointer dereference")._err;
             };
             var _e = stdgo._internal.encoding.json.Json__newEncodeState._newEncodeState();
             {
                 var _a0 = _e;
-                final __f__ = stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
+                final __f__ = @:check2 stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
                 __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
             };
-            var _err = (_e._marshal(_v, ({ _escapeHTML : _enc._escapeHTML } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
+            var _err = (@:check2r _e._marshal(_v, ({ _escapeHTML : (@:checkr _enc ?? throw "null pointer dereference")._escapeHTML } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return _err;
                 };
             };
-            _e.writeByte((10 : stdgo.GoUInt8));
-            var _b = _e.bytes();
-            if (((_enc._indentPrefix != stdgo.Go.str()) || (_enc._indentValue != stdgo.Go.str()) : Bool)) {
+            @:check2r _e.writeByte((10 : stdgo.GoUInt8));
+            var _b = @:check2r _e.bytes();
+            if ((((@:checkr _enc ?? throw "null pointer dereference")._indentPrefix != stdgo.Go.str()) || ((@:checkr _enc ?? throw "null pointer dereference")._indentValue != stdgo.Go.str()) : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.encoding.json.Json__appendIndent._appendIndent((_enc._indentBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _b, _enc._indentPrefix?.__copy__(), _enc._indentValue?.__copy__());
-                    _enc._indentBuf = __tmp__._0;
+                    var __tmp__ = stdgo._internal.encoding.json.Json__appendIndent._appendIndent(((@:checkr _enc ?? throw "null pointer dereference")._indentBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _b, (@:checkr _enc ?? throw "null pointer dereference")._indentPrefix?.__copy__(), (@:checkr _enc ?? throw "null pointer dereference")._indentValue?.__copy__());
+                    (@:checkr _enc ?? throw "null pointer dereference")._indentBuf = __tmp__._0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return _err;
                     };
                 };
-                _b = _enc._indentBuf;
+                _b = (@:checkr _enc ?? throw "null pointer dereference")._indentBuf;
             };
             {
                 {
-                    var __tmp__ = _enc._w.write(_b);
+                    var __tmp__ = (@:checkr _enc ?? throw "null pointer dereference")._w.write(_b);
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    _enc._err = _err;
+                    (@:checkr _enc ?? throw "null pointer dereference")._err = _err;
                 };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -83,6 +90,7 @@ package stdgo._internal.encoding.json;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

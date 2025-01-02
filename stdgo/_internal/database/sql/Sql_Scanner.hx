@@ -22,5 +22,6 @@ typedef Scanner = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function scan(_src:stdgo.AnyInterface):stdgo.Error;
 };

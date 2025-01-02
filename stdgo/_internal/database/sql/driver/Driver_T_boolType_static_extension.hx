@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql.driver;
 @:keep @:allow(stdgo._internal.database.sql.driver.Driver.T_boolType_asInterface) class T_boolType_static_extension {
     @:keep
+    @:tdfield
     static public function convertValue( _:stdgo._internal.database.sql.driver.Driver_T_boolType.T_boolType, _src:stdgo.AnyInterface):{ var _0 : stdgo._internal.database.sql.driver.Driver_Value.Value; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.database.sql.driver.Driver_T_boolType.T_boolType = _?.__copy__();
         {
@@ -44,6 +45,7 @@ package stdgo._internal.database.sql.driver;
         return { _0 : (null : stdgo._internal.database.sql.driver.Driver_Value.Value), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql/driver: couldn\'t convert %v (%T) into type bool" : stdgo.GoString), _src, _src) };
     }
     @:keep
+    @:tdfield
     static public function string( _:stdgo._internal.database.sql.driver.Driver_T_boolType.T_boolType):stdgo.GoString {
         @:recv var _:stdgo._internal.database.sql.driver.Driver_T_boolType.T_boolType = _?.__copy__();
         return ("Bool" : stdgo.GoString);

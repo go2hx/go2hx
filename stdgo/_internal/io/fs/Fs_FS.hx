@@ -13,5 +13,6 @@ typedef FS = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function open(_name:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; };
 };

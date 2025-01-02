@@ -1,11 +1,13 @@
 package stdgo._internal.debug.dwarf;
 @:keep @:allow(stdgo._internal.debug.dwarf.Dwarf.Class__asInterface) class Class__static_extension {
     @:keep
+    @:tdfield
     static public function goString( _i:stdgo._internal.debug.dwarf.Dwarf_Class_.Class_):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.dwarf.Dwarf_Class_.Class_ = _i;
         return (("dwarf." : stdgo.GoString) + (_i.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.debug.dwarf.Dwarf_Class_.Class_):stdgo.GoString {
         @:recv var _i:stdgo._internal.debug.dwarf.Dwarf_Class_.Class_ = _i;
         if (((_i < (0 : stdgo._internal.debug.dwarf.Dwarf_Class_.Class_) : Bool) || (_i >= ((20 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_Class_.Class_) : Bool) : Bool)) {

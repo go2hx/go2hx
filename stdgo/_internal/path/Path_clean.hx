@@ -9,7 +9,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _dotdot = __1, _r = __0;
         if (_rooted) {
-            _out._append((47 : stdgo.GoUInt8));
+            @:check2 _out._append((47 : stdgo.GoUInt8));
             {
                 final __tmp__0 = (1 : stdgo.GoInt);
                 final __tmp__1 = (1 : stdgo.GoInt);
@@ -26,23 +26,23 @@ var _dotdot = __1, _r = __0;
                 _r = (_r + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 if ((_out._w > _dotdot : Bool)) {
                     _out._w--;
-                    while (((_out._w > _dotdot : Bool) && (_out._index(_out._w) != (47 : stdgo.GoUInt8)) : Bool)) {
+                    while (((_out._w > _dotdot : Bool) && (@:check2 _out._index(_out._w) != (47 : stdgo.GoUInt8)) : Bool)) {
                         _out._w--;
                     };
                 } else if (!_rooted) {
                     if ((_out._w > (0 : stdgo.GoInt) : Bool)) {
-                        _out._append((47 : stdgo.GoUInt8));
+                        @:check2 _out._append((47 : stdgo.GoUInt8));
                     };
-                    _out._append((46 : stdgo.GoUInt8));
-                    _out._append((46 : stdgo.GoUInt8));
+                    @:check2 _out._append((46 : stdgo.GoUInt8));
+                    @:check2 _out._append((46 : stdgo.GoUInt8));
                     _dotdot = _out._w;
                 };
             } else {
                 if (((_rooted && _out._w != ((1 : stdgo.GoInt)) : Bool) || (!_rooted && _out._w != ((0 : stdgo.GoInt)) : Bool) : Bool)) {
-                    _out._append((47 : stdgo.GoUInt8));
+                    @:check2 _out._append((47 : stdgo.GoUInt8));
                 };
                 while (((_r < _n : Bool) && (_path[(_r : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
-                    _out._append(_path[(_r : stdgo.GoInt)]);
+                    @:check2 _out._append(_path[(_r : stdgo.GoInt)]);
                     _r++;
                 };
             };
@@ -50,5 +50,5 @@ var _dotdot = __1, _r = __0;
         if (_out._w == ((0 : stdgo.GoInt))) {
             return ("." : stdgo.GoString);
         };
-        return _out._string()?.__copy__();
+        return @:check2 _out._string()?.__copy__();
     }

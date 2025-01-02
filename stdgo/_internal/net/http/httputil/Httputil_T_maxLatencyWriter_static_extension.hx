@@ -1,21 +1,23 @@
 package stdgo._internal.net.http.httputil;
 @:keep @:allow(stdgo._internal.net.http.httputil.Httputil.T_maxLatencyWriter_asInterface) class T_maxLatencyWriter_static_extension {
     @:keep
+    @:tdfield
     static public function _stop( _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _m._mu.lock();
+            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _m._mu.unlock;
+                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            _m._flushPending = false;
-            if ((_m._t != null && ((_m._t : Dynamic).__nil__ == null || !(_m._t : Dynamic).__nil__))) {
-                _m._t.stop();
+            (@:checkr _m ?? throw "null pointer dereference")._flushPending = false;
+            if (((@:checkr _m ?? throw "null pointer dereference")._t != null && (((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__ == null || !((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__))) {
+                @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.stop();
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -30,6 +32,7 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -37,27 +40,30 @@ package stdgo._internal.net.http.httputil;
         };
     }
     @:keep
+    @:tdfield
     static public function _delayedFlush( _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _m._mu.lock();
+            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _m._mu.unlock;
+                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
-            if (!_m._flushPending) {
+            if (!(@:checkr _m ?? throw "null pointer dereference")._flushPending) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return;
                 };
             };
-            _m._flush();
-            _m._flushPending = false;
+            (@:checkr _m ?? throw "null pointer dereference")._flush();
+            (@:checkr _m ?? throw "null pointer dereference")._flushPending = false;
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -72,6 +78,7 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -79,52 +86,57 @@ package stdgo._internal.net.http.httputil;
         };
     }
     @:keep
+    @:tdfield
     static public function write( _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
-            _m._mu.lock();
+            @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
-                final __f__ = _m._mu.unlock;
+                final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift(() -> __f__());
             };
             {
-                var __tmp__ = _m._dst.write(_p);
+                var __tmp__ = (@:checkr _m ?? throw "null pointer dereference")._dst.write(_p);
                 _n = __tmp__._0;
                 _err = __tmp__._1;
             };
-            if ((_m._latency < (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
-                _m._flush();
+            if (((@:checkr _m ?? throw "null pointer dereference")._latency < (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
+                (@:checkr _m ?? throw "null pointer dereference")._flush();
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return { _0 : _n, _1 : _err };
                 };
             };
-            if (_m._flushPending) {
+            if ((@:checkr _m ?? throw "null pointer dereference")._flushPending) {
                 {
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return { _0 : _n, _1 : _err };
                 };
             };
-            if ((_m._t == null || (_m._t : Dynamic).__nil__)) {
-                _m._t = stdgo._internal.time.Time_afterFunc.afterFunc(_m._latency, _m._delayedFlush);
+            if (((@:checkr _m ?? throw "null pointer dereference")._t == null || ((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__)) {
+                (@:checkr _m ?? throw "null pointer dereference")._t = stdgo._internal.time.Time_afterFunc.afterFunc((@:checkr _m ?? throw "null pointer dereference")._latency, @:check2r _m._delayedFlush);
             } else {
-                _m._t.reset(_m._latency);
+                @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.reset((@:checkr _m ?? throw "null pointer dereference")._latency);
             };
-            _m._flushPending = true;
+            (@:checkr _m ?? throw "null pointer dereference")._flushPending = true;
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return { _0 : _n, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -139,6 +151,7 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

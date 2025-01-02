@@ -5,7 +5,7 @@ function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, _t:stdgo._int
         };
         if ((_flag & (7 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             if ((_flag & (32 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                _t = _t.utc()?.__copy__();
+                _t = _t.uTC()?.__copy__();
             };
             if ((_flag & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                 var __tmp__ = _t.date(), _year:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_Month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2;

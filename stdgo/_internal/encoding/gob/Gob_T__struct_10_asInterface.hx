@@ -5,6 +5,6 @@ class T__struct_10_asInterface {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T__struct_10.T__struct_10>;
+    var __self__ : stdgo._internal.encoding.gob.Gob_T__struct_10Pointer.T__struct_10Pointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

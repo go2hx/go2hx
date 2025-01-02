@@ -1,6 +1,7 @@
 package stdgo._internal.regexp.syntax;
 @:keep @:allow(stdgo._internal.regexp.syntax.Syntax.Op_asInterface) class Op_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.regexp.syntax.Syntax_Op.Op):stdgo.GoString {
         @:recv var _i:stdgo._internal.regexp.syntax.Syntax_Op.Op = _i;
         if ((((1 : stdgo._internal.regexp.syntax.Syntax_Op.Op) <= _i : Bool) && (_i <= (19 : stdgo._internal.regexp.syntax.Syntax_Op.Op) : Bool) : Bool)) {

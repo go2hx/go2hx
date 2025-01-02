@@ -8,7 +8,7 @@ var _c1 = (new stdgo._internal.image.color.Color_YCbCr.YCbCr((_i : stdgo.GoUInt8
 {
                     var _err = (stdgo._internal.image.color.Color__eq._eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1)) : stdgo.Error);
                     if (_err != null) {
-                        _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
                 };
                 _i++;

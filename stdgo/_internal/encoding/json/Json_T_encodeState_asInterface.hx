@@ -1,70 +1,100 @@
 package stdgo._internal.encoding.json;
 class T_encodeState_asInterface {
     @:keep
-    public dynamic function _reflectValue(_v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void __self__.value._reflectValue(_v, _opts);
+    @:tdfield
+    public dynamic function _reflectValue(_v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void @:_0 __self__.value._reflectValue(_v, _opts);
     @:keep
-    public dynamic function _error(_err:stdgo.Error):Void __self__.value._error(_err);
+    @:tdfield
+    public dynamic function _error(_err:stdgo.Error):Void @:_0 __self__.value._error(_err);
     @:keep
-    public dynamic function _marshal(_v:stdgo.AnyInterface, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):stdgo.Error return __self__.value._marshal(_v, _opts);
+    @:tdfield
+    public dynamic function _marshal(_v:stdgo.AnyInterface, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):stdgo.Error return @:_0 __self__.value._marshal(_v, _opts);
     @:embedded
-    public dynamic function _tryGrowByReslice(_n:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } return __self__.value._tryGrowByReslice(_n);
+    @:embeddededffieldsffun
+    public dynamic function _tryGrowByReslice(_0:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } return @:_0 __self__.value._tryGrowByReslice(_0);
     @:embedded
-    public dynamic function _readSlice(__0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value._readSlice(__0);
+    @:embeddededffieldsffun
+    public dynamic function _readSlice(_0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:_0 __self__.value._readSlice(_0);
     @:embedded
-    public dynamic function _grow(_n:stdgo.GoInt):stdgo.GoInt return __self__.value._grow(_n);
+    @:embeddededffieldsffun
+    public dynamic function _grow(_0:stdgo.GoInt):stdgo.GoInt return @:_0 __self__.value._grow(_0);
     @:embedded
-    public dynamic function _empty():Bool return __self__.value._empty();
+    @:embeddededffieldsffun
+    public dynamic function _empty():Bool return @:_0 __self__.value._empty();
     @:embedded
-    public dynamic function writeTo(_w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.value.writeTo(_w);
+    @:embeddededffieldsffun
+    public dynamic function writeTo(_0:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_0 __self__.value.writeTo(_0);
     @:embedded
-    public dynamic function writeString(__0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.writeString(__0);
+    @:embeddededffieldsffun
+    public dynamic function writeString(_0:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.writeString(_0);
     @:embedded
-    public dynamic function writeRune(__0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.writeRune(__0);
+    @:embeddededffieldsffun
+    public dynamic function writeRune(_0:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.writeRune(_0);
     @:embedded
-    public dynamic function writeByte(__0:stdgo.GoUInt8):stdgo.Error return __self__.value.writeByte(__0);
+    @:embeddededffieldsffun
+    public dynamic function writeByte(_0:stdgo.GoUInt8):stdgo.Error return @:_0 __self__.value.writeByte(_0);
     @:embedded
-    public dynamic function write(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.write(_b);
+    @:embeddededffieldsffun
+    public dynamic function write(_0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.write(_0);
     @:embedded
-    public dynamic function unreadRune():stdgo.Error return __self__.value.unreadRune();
+    @:embeddededffieldsffun
+    public dynamic function unreadRune():stdgo.Error return @:_0 __self__.value.unreadRune();
     @:embedded
-    public dynamic function unreadByte():stdgo.Error return __self__.value.unreadByte();
+    @:embeddededffieldsffun
+    public dynamic function unreadByte():stdgo.Error return @:_0 __self__.value.unreadByte();
     @:embedded
-    public dynamic function truncate(_n:stdgo.GoInt):Void __self__.value.truncate(_n);
+    @:embeddededffieldsffun
+    public dynamic function truncate(_0:stdgo.GoInt):Void @:_0 __self__.value.truncate(_0);
     @:embedded
-    public dynamic function string():stdgo.GoString return __self__.value.string();
+    @:embeddededffieldsffun
+    public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     @:embedded
-    public dynamic function reset():Void __self__.value.reset();
+    @:embeddededffieldsffun
+    public dynamic function reset():Void @:_0 __self__.value.reset();
     @:embedded
-    public dynamic function readString(__0:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } return __self__.value.readString(__0);
+    @:embeddededffieldsffun
+    public dynamic function readString(_0:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } return @:_0 __self__.value.readString(_0);
     @:embedded
-    public dynamic function readRune():{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return __self__.value.readRune();
+    @:embeddededffieldsffun
+    public dynamic function readRune():{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return @:_0 __self__.value.readRune();
     @:embedded
-    public dynamic function readFrom(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return __self__.value.readFrom(_r);
+    @:embeddededffieldsffun
+    public dynamic function readFrom(_0:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:_0 __self__.value.readFrom(_0);
     @:embedded
-    public dynamic function readBytes(__0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value.readBytes(__0);
+    @:embeddededffieldsffun
+    public dynamic function readBytes(_0:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return @:_0 __self__.value.readBytes(_0);
     @:embedded
-    public dynamic function readByte():{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return __self__.value.readByte();
+    @:embeddededffieldsffun
+    public dynamic function readByte():{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } return @:_0 __self__.value.readByte();
     @:embedded
-    public dynamic function read(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.read(_b);
+    @:embeddededffieldsffun
+    public dynamic function read(_0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.read(_0);
     @:embedded
-    public dynamic function next(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> return __self__.value.next(_n);
+    @:embeddededffieldsffun
+    public dynamic function next(_0:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.next(_0);
     @:embedded
-    public dynamic function len():stdgo.GoInt return __self__.value.len();
+    @:embeddededffieldsffun
+    public dynamic function len():stdgo.GoInt return @:_0 __self__.value.len();
     @:embedded
-    public dynamic function grow(_n:stdgo.GoInt):Void __self__.value.grow(_n);
+    @:embeddededffieldsffun
+    public dynamic function grow(_0:stdgo.GoInt):Void @:_0 __self__.value.grow(_0);
     @:embedded
-    public dynamic function cap():stdgo.GoInt return __self__.value.cap();
+    @:embeddededffieldsffun
+    public dynamic function cap():stdgo.GoInt return @:_0 __self__.value.cap();
     @:embedded
-    public dynamic function bytes():stdgo.Slice<stdgo.GoUInt8> return __self__.value.bytes();
+    @:embeddededffieldsffun
+    public dynamic function bytes():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.bytes();
     @:embedded
-    public dynamic function availableBuffer():stdgo.Slice<stdgo.GoUInt8> return __self__.value.availableBuffer();
+    @:embeddededffieldsffun
+    public dynamic function availableBuffer():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.availableBuffer();
     @:embedded
-    public dynamic function available():stdgo.GoInt return __self__.value.available();
+    @:embeddededffieldsffun
+    public dynamic function available():stdgo.GoInt return @:_0 __self__.value.available();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>;
+    var __self__ : stdgo._internal.encoding.json.Json_T_encodeStatePointer.T_encodeStatePointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

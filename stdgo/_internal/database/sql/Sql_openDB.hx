@@ -5,12 +5,12 @@ function openDB(_c:stdgo._internal.database.sql.driver.Driver_Connector.Connecto
             final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, stdgo.GoString>();
             {};
             cast x;
-        } : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, stdgo.GoString>), _connRequests : ({
+        } : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, stdgo.GoString>), _connRequests : (({
             final x = new stdgo.GoMap.GoUInt64Map<stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>();
             x.__defaultValue__ = () -> (null : stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>);
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>), _stop : _cancel } : stdgo._internal.database.sql.Sql_DB.DB)) : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>);
-        stdgo.Go.routine(() -> _db._connectionOpener(_ctx));
+        } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>), _stop : _cancel } : stdgo._internal.database.sql.Sql_DB.DB)) : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>);
+        stdgo.Go.routine(() -> @:check2r _db._connectionOpener(_ctx));
         return _db;
     }

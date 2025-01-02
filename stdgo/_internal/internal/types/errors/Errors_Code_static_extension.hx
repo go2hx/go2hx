@@ -1,6 +1,7 @@
 package stdgo._internal.internal.types.errors;
 @:keep @:allow(stdgo._internal.internal.types.errors.Errors.Code_asInterface) class Code_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.internal.types.errors.Errors_Code.Code):stdgo.GoString {
         @:recv var _i:stdgo._internal.internal.types.errors.Errors_Code.Code = _i;
         if (_i == ((-1 : stdgo._internal.internal.types.errors.Errors_Code.Code))) {

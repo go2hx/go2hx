@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _checkIfUnmodifiedSince(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _modtime:stdgo._internal.time.Time_Time.Time):stdgo._internal.net.http.Http_T_condResult.T_condResult {
-        var _ius = (_r.header.get(("If-Unmodified-Since" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+        var _ius = ((@:checkr _r ?? throw "null pointer dereference").header.get(("If-Unmodified-Since" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (((_ius == stdgo.Go.str()) || stdgo._internal.net.http.Http__isZeroTime._isZeroTime(_modtime?.__copy__()) : Bool)) {
             return (0 : stdgo._internal.net.http.Http_T_condResult.T_condResult);
         };

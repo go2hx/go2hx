@@ -4,8 +4,8 @@ function _stateBeginStringOrEmpty(_s:stdgo.Ref<stdgo._internal.encoding.json.Jso
             return (9 : stdgo.GoInt);
         };
         if (_c == ((125 : stdgo.GoUInt8))) {
-            var _n = (_s._parseState.length : stdgo.GoInt);
-            _s._parseState[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = (1 : stdgo.GoInt);
+            var _n = ((@:checkr _s ?? throw "null pointer dereference")._parseState.length : stdgo.GoInt);
+            (@:checkr _s ?? throw "null pointer dereference")._parseState[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] = (1 : stdgo.GoInt);
             return stdgo._internal.encoding.json.Json__stateEndValue._stateEndValue(_s, _c);
         };
         return stdgo._internal.encoding.json.Json__stateBeginString._stateBeginString(_s, _c);

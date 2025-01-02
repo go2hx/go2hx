@@ -72,7 +72,7 @@ function _atof32(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat32; var _1 : stdgo.G
             };
         };
         var _d:stdgo._internal.strconv.Strconv_T_decimal.T_decimal = ({} : stdgo._internal.strconv.Strconv_T_decimal.T_decimal);
-        if (!_d._set((_s.__slice__(0, _n) : stdgo.GoString)?.__copy__())) {
+        if (!@:check2 _d._set((_s.__slice__(0, _n) : stdgo.GoString)?.__copy__())) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoFloat64), _1 : _n, _2 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxError._syntaxError(("ParseFloat" : stdgo.GoString), _s?.__copy__())) };
                 _f = __tmp__._0;
@@ -81,7 +81,7 @@ function _atof32(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat32; var _1 : stdgo.G
                 __tmp__;
             };
         };
-        var __tmp__ = _d._floatBits((stdgo.Go.setRef(stdgo._internal.strconv.Strconv__float32info._float32info) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>)), _b:stdgo.GoUInt64 = __tmp__._0, _ovf:Bool = __tmp__._1;
+        var __tmp__ = @:check2 _d._floatBits((stdgo.Go.setRef(stdgo._internal.strconv.Strconv__float32info._float32info) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>)), _b:stdgo.GoUInt64 = __tmp__._0, _ovf:Bool = __tmp__._1;
         _f = stdgo._internal.math.Math_float32frombits.float32frombits((_b : stdgo.GoUInt32));
         if (_ovf) {
             _err = stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeError._rangeError(("ParseFloat" : stdgo.GoString), _s?.__copy__()));

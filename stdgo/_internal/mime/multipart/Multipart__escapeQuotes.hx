@@ -1,4 +1,4 @@
 package stdgo._internal.mime.multipart;
 function _escapeQuotes(_s:stdgo.GoString):stdgo.GoString {
-        return stdgo._internal.mime.multipart.Multipart__quoteEscaper._quoteEscaper.replace(_s?.__copy__())?.__copy__();
+        return @:check2r stdgo._internal.mime.multipart.Multipart__quoteEscaper._quoteEscaper.replace(_s?.__copy__())?.__copy__();
     }

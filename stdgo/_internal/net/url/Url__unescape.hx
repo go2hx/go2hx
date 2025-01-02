@@ -42,27 +42,27 @@ function _unescape(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encodi
             return { _0 : _s?.__copy__(), _1 : (null : stdgo.Error) };
         };
         var _t:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _t.grow(((_s.length) - ((2 : stdgo.GoInt) * _n : stdgo.GoInt) : stdgo.GoInt));
+        @:check2 _t.grow(((_s.length) - ((2 : stdgo.GoInt) * _n : stdgo.GoInt) : stdgo.GoInt));
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
                 {
                     final __value__ = _s[(_i : stdgo.GoInt)];
                     if (__value__ == ((37 : stdgo.GoUInt8))) {
-                        _t.writeByte(((stdgo._internal.net.url.Url__unhex._unhex(_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]) << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) | stdgo._internal.net.url.Url__unhex._unhex(_s[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt8));
+                        @:check2 _t.writeByte(((stdgo._internal.net.url.Url__unhex._unhex(_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]) << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) | stdgo._internal.net.url.Url__unhex._unhex(_s[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt8));
                         _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
                     } else if (__value__ == ((43 : stdgo.GoUInt8))) {
                         if (_mode == ((6 : stdgo._internal.net.url.Url_T_encoding.T_encoding))) {
-                            _t.writeByte((32 : stdgo.GoUInt8));
+                            @:check2 _t.writeByte((32 : stdgo.GoUInt8));
                         } else {
-                            _t.writeByte((43 : stdgo.GoUInt8));
+                            @:check2 _t.writeByte((43 : stdgo.GoUInt8));
                         };
                     } else {
-                        _t.writeByte(_s[(_i : stdgo.GoInt)]);
+                        @:check2 _t.writeByte(_s[(_i : stdgo.GoInt)]);
                     };
                 };
                 _i++;
             };
         };
-        return { _0 : (_t.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+        return { _0 : (@:check2 _t.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
     }

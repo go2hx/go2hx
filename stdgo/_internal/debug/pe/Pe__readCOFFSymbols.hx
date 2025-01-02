@@ -1,16 +1,16 @@
 package stdgo._internal.debug.pe;
 function _readCOFFSymbols(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.FileHeader>, _r:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):{ var _0 : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>; var _1 : stdgo.Error; } {
-        if (_fh.pointerToSymbolTable == ((0u32 : stdgo.GoUInt32))) {
+        if ((@:checkr _fh ?? throw "null pointer dereference").pointerToSymbolTable == ((0u32 : stdgo.GoUInt32))) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : (null : stdgo.Error) };
         };
-        if ((_fh.numberOfSymbols <= (0u32 : stdgo.GoUInt32) : Bool)) {
+        if (((@:checkr _fh ?? throw "null pointer dereference").numberOfSymbols <= (0u32 : stdgo.GoUInt32) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : (null : stdgo.Error) };
         };
-        var __tmp__ = _r.seek((_fh.pointerToSymbolTable : stdgo.GoInt64), (0 : stdgo.GoInt)), __2:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _r.seek(((@:checkr _fh ?? throw "null pointer dereference").pointerToSymbolTable : stdgo.GoInt64), (0 : stdgo.GoInt)), __2:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to seek to symbol table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
         };
-        var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>))), (_fh.numberOfSymbols : stdgo.GoUInt64)) : stdgo.GoInt);
+        var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>))), ((@:checkr _fh ?? throw "null pointer dereference").numberOfSymbols : stdgo.GoUInt64)) : stdgo.GoInt);
         if ((_c < (0 : stdgo.GoInt) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.errors.Errors_new_.new_(("too many symbols; file may be corrupt" : stdgo.GoString)) };
         };
@@ -18,7 +18,7 @@ function _readCOFFSymbols(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.F
         var _naux = (0 : stdgo.GoInt);
         {
             var _k = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            while ((_k < _fh.numberOfSymbols : Bool)) {
+            while ((_k < (@:checkr _fh ?? throw "null pointer dereference").numberOfSymbols : Bool)) {
                 var _sym:stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol = ({} : stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol);
 if (_naux == ((0 : stdgo.GoInt))) {
                     _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>))));

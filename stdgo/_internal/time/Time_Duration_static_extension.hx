@@ -1,6 +1,7 @@
 package stdgo._internal.time;
 @:keep @:allow(stdgo._internal.time.Time.Duration_asInterface) class Duration_static_extension {
     @:keep
+    @:tdfield
     static public function abs( _d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         if ((_d >= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
@@ -12,6 +13,7 @@ package stdgo._internal.time;
         };
     }
     @:keep
+    @:tdfield
     static public function round( _d:stdgo._internal.time.Time_Duration.Duration, _m:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         if ((_m <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
@@ -43,6 +45,7 @@ package stdgo._internal.time;
         return (9223372036854775807i64 : stdgo._internal.time.Time_Duration.Duration);
     }
     @:keep
+    @:tdfield
     static public function truncate( _d:stdgo._internal.time.Time_Duration.Duration, _m:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         if ((_m <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
@@ -51,6 +54,7 @@ package stdgo._internal.time;
         return (_d - (_d % _m : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
     }
     @:keep
+    @:tdfield
     static public function hours( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoFloat64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         var _hour = (_d / (3600000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
@@ -58,6 +62,7 @@ package stdgo._internal.time;
         return ((_hour : stdgo.GoFloat64) + ((_nsec : stdgo.GoFloat64) / (3.6e+12 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64);
     }
     @:keep
+    @:tdfield
     static public function minutes( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoFloat64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         var _min = (_d / (60000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
@@ -65,6 +70,7 @@ package stdgo._internal.time;
         return ((_min : stdgo.GoFloat64) + ((_nsec : stdgo.GoFloat64) / (6e+10 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64);
     }
     @:keep
+    @:tdfield
     static public function seconds( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoFloat64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         var _sec = (_d / (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration);
@@ -72,21 +78,25 @@ package stdgo._internal.time;
         return ((_sec : stdgo.GoFloat64) + ((_nsec : stdgo.GoFloat64) / (1e+09 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoFloat64);
     }
     @:keep
+    @:tdfield
     static public function milliseconds( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoInt64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         return ((_d : stdgo.GoInt64) / (1000000i64 : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function microseconds( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoInt64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         return ((_d : stdgo.GoInt64) / (1000i64 : stdgo.GoInt64) : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function nanoseconds( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoInt64 {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         return (_d : stdgo.GoInt64);
     }
     @:keep
+    @:tdfield
     static public function string( _d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoString {
         @:recv var _d:stdgo._internal.time.Time_Duration.Duration = _d;
         var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);

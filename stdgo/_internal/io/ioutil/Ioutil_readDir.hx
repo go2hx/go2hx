@@ -4,8 +4,8 @@ function readDir(_dirname:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>), _1 : _err };
         };
-        var __tmp__ = _f.readdir((-1 : stdgo.GoInt)), _list:stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _f.close();
+        var __tmp__ = @:check2r _f.readdir((-1 : stdgo.GoInt)), _list:stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        @:check2r _f.close();
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>), _1 : _err };
         };

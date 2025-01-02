@@ -6,18 +6,30 @@ package stdgo._internal.net.http;
         if (_http2clientConnPool != null) this._http2clientConnPool = _http2clientConnPool;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var markDead(get, never) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> -> Void;
     @:embedded
-    public function markDead(__0:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>) this._http2clientConnPool.markDead(__0);
+    @:embeddededffieldsffun
+    public function get_markDead():stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> -> Void return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence").markDead;
+    public var _addConnIfNeeded(get, never) : (stdgo.GoString, stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> { var _0 : Bool; var _1 : stdgo.Error; };
     @:embedded
-    public function _addConnIfNeeded(_key:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):{ var _0 : Bool; var _1 : stdgo.Error; } return this._http2clientConnPool._addConnIfNeeded(_key, _t, _c);
+    @:embeddededffieldsffun
+    public function get__addConnIfNeeded():(stdgo.GoString, stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> { var _0 : Bool; var _1 : stdgo.Error; } return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence")._addConnIfNeeded;
+    public var _addConnLocked(get, never) : (stdgo.GoString, stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>) -> Void;
     @:embedded
-    public function _addConnLocked(_key:stdgo.GoString, _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>) this._http2clientConnPool._addConnLocked(_key, _cc);
+    @:embeddededffieldsffun
+    public function get__addConnLocked():(stdgo.GoString, stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>) -> Void return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence")._addConnLocked;
+    public var _closeIdleConnections(get, never) : () -> Void;
     @:embedded
-    public function _closeIdleConnections() this._http2clientConnPool._closeIdleConnections();
+    @:embeddededffieldsffun
+    public function get__closeIdleConnections():() -> Void return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence")._closeIdleConnections;
+    public var _getClientConn(get, never) : (stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoString, Bool) -> { var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>; var _1 : stdgo.Error; };
     @:embedded
-    public function _getClientConn(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _addr:stdgo.GoString, _dialOnMiss:Bool):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>; var _1 : stdgo.Error; } return this._http2clientConnPool._getClientConn(_req, _addr, _dialOnMiss);
+    @:embeddededffieldsffun
+    public function get__getClientConn():(stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoString, Bool) -> { var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>; var _1 : stdgo.Error; } return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence")._getClientConn;
+    public var _getStartDialLocked(get, never) : (stdgo._internal.context.Context_Context.Context, stdgo.GoString) -> stdgo.Ref<stdgo._internal.net.http.Http_T_http2dialCall.T_http2dialCall>;
     @:embedded
-    public function _getStartDialLocked(_ctx:stdgo._internal.context.Context_Context.Context, _addr:stdgo.GoString):stdgo.Ref<stdgo._internal.net.http.Http_T_http2dialCall.T_http2dialCall> return this._http2clientConnPool._getStartDialLocked(_ctx, _addr);
+    @:embeddededffieldsffun
+    public function get__getStartDialLocked():(stdgo._internal.context.Context_Context.Context, stdgo.GoString) -> stdgo.Ref<stdgo._internal.net.http.Http_T_http2dialCall.T_http2dialCall> return @:check3 (this._http2clientConnPool ?? throw "null pointer derefrence")._getStartDialLocked;
     public function __copy__() {
         return new T_http2noDialClientConnPool(_http2clientConnPool);
     }

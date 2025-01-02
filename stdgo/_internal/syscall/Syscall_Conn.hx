@@ -5,5 +5,6 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function syscallConn():{ var _0 : stdgo._internal.syscall.Syscall_RawConn.RawConn; var _1 : stdgo.Error; };
 };

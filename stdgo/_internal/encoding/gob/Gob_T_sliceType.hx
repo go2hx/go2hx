@@ -8,12 +8,18 @@ package stdgo._internal.encoding.gob;
         if (elem != null) this.elem = elem;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var _id(get, never) : () -> stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId;
     @:embedded
-    public function _id():stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId return this.commonType._id();
+    @:embeddededffieldsffun
+    public function get__id():() -> stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId return @:check3 (this.commonType ?? throw "null pointer derefrence")._id;
+    public var _name(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function _name():stdgo.GoString return this.commonType._name();
+    @:embeddededffieldsffun
+    public function get__name():() -> stdgo.GoString return @:check3 (this.commonType ?? throw "null pointer derefrence")._name;
+    public var _setId(get, never) : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId -> Void;
     @:embedded
-    public function _setId(__0:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId) this.commonType._setId(__0);
+    @:embeddededffieldsffun
+    public function get__setId():stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId -> Void return @:check3 (this.commonType ?? throw "null pointer derefrence")._setId;
     public function __copy__() {
         return new T_sliceType(commonType, elem);
     }

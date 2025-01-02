@@ -5,33 +5,33 @@ function testBlankFields(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         {
             var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_BlankFields.BlankFields>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
         var _p:stdgo._internal.encoding.binary.Binary_BlankFieldsProbe.BlankFieldsProbe = ({} : stdgo._internal.encoding.binary.Binary_BlankFieldsProbe.BlankFieldsProbe);
         {
             var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_BlankFieldsProbe.BlankFieldsProbe>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
         if ((((_p.p0 != ((0 : stdgo.GoInt32)) || _p.p1[(0 : stdgo.GoInt)] != ((0 : stdgo.GoInt16)) : Bool) || _p.p2[(0 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8)) : Bool) || (_p.p3.f[(0 : stdgo.GoInt)] != (0 : stdgo.GoFloat64)) : Bool)) {
-            _t.errorf(("non-zero values for originally blank fields: %#v" : stdgo.GoString), stdgo.Go.toInterface(_p));
+            @:check2r _t.errorf(("non-zero values for originally blank fields: %#v" : stdgo.GoString), stdgo.Go.toInterface(_p));
         };
         {
             var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_BlankFieldsProbe.BlankFieldsProbe>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
         var _b2:stdgo._internal.encoding.binary.Binary_BlankFields.BlankFields = ({} : stdgo._internal.encoding.binary.Binary_BlankFields.BlankFields);
         {
             var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_b2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_BlankFields.BlankFields>))) : stdgo.Error);
             if (_err != null) {
-                _t.error(stdgo.Go.toInterface(_err));
+                @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
         if (((_b1.a != (_b2.a) || _b1.b != (_b2.b) : Bool) || (_b1.c != _b2.c) : Bool)) {
-            _t.errorf(("%#v != %#v" : stdgo.GoString), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_b2));
+            @:check2r _t.errorf(("%#v != %#v" : stdgo.GoString), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_b2));
         };
     }

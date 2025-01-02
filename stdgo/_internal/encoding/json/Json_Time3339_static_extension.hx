@@ -1,6 +1,7 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.Time3339_asInterface) class Time3339_static_extension {
     @:keep
+    @:tdfield
     static public function unmarshalJSON( _t:stdgo.Ref<stdgo._internal.encoding.json.Json_Time3339.Time3339>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.encoding.json.Json_Time3339.Time3339> = _t;
         if (((((_b.length) < (2 : stdgo.GoInt) : Bool) || _b[(0 : stdgo.GoInt)] != ((34 : stdgo.GoUInt8)) : Bool) || (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] != (34 : stdgo.GoUInt8)) : Bool)) {

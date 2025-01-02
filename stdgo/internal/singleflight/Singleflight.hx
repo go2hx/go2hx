@@ -74,6 +74,7 @@ package stdgo.internal.singleflight;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef GroupPointer = stdgo._internal.internal.singleflight.Singleflight_GroupPointer.GroupPointer;
 class Group_static_extension {
     static public function forgetUnshared(_g:Group, _key:String):Bool {
         return stdgo._internal.internal.singleflight.Singleflight_Group_static_extension.Group_static_extension.forgetUnshared(_g, _key);

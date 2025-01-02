@@ -19,7 +19,7 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
         };
         var _quality = (75 : stdgo.GoInt);
         if ((_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__))) {
-            _quality = _o.quality;
+            _quality = (@:checkr _o ?? throw "null pointer dereference").quality;
             if ((_quality < (1 : stdgo.GoInt) : Bool)) {
                 _quality = (1 : stdgo.GoInt);
             } else if ((_quality > (100 : stdgo.GoInt) : Bool)) {
@@ -53,14 +53,14 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
         };
         _e._buf[(0 : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
         _e._buf[(1 : stdgo.GoInt)] = (216 : stdgo.GoUInt8);
-        _e._write((_e._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        _e._writeDQT();
-        _e._writeSOF0(_b.size()?.__copy__(), _nComponent);
-        _e._writeDHT(_nComponent);
-        _e._writeSOS(_m);
+        @:check2 _e._write((_e._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        @:check2 _e._writeDQT();
+        @:check2 _e._writeSOF0(_b.size()?.__copy__(), _nComponent);
+        @:check2 _e._writeDHT(_nComponent);
+        @:check2 _e._writeSOS(_m);
         _e._buf[(0 : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
         _e._buf[(1 : stdgo.GoInt)] = (217 : stdgo.GoUInt8);
-        _e._write((_e._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        _e._flush();
+        @:check2 _e._write((_e._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        @:check2 _e._flush();
         return _e._err;
     }

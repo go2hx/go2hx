@@ -6,16 +6,26 @@ package stdgo._internal.text.template.parse;
         if (branchNode != null) this.branchNode = branchNode;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
+    public var position(get, never) : () -> stdgo._internal.text.template.parse.Parse_Pos.Pos;
     @:embedded
-    public function position():stdgo._internal.text.template.parse.Parse_Pos.Pos return this.branchNode.position();
+    @:embeddededffieldsffun
+    public function get_position():() -> stdgo._internal.text.template.parse.Parse_Pos.Pos return @:check3 (this.branchNode ?? throw "null pointer derefrence").position;
+    public var string(get, never) : () -> stdgo.GoString;
     @:embedded
-    public function string():stdgo.GoString return this.branchNode.string();
+    @:embeddededffieldsffun
+    public function get_string():() -> stdgo.GoString return @:check3 (this.branchNode ?? throw "null pointer derefrence").string;
+    public var type(get, never) : () -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType;
     @:embedded
-    public function type():stdgo._internal.text.template.parse.Parse_NodeType.NodeType return this.branchNode.type();
+    @:embeddededffieldsffun
+    public function get_type():() -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:check3 (this.branchNode ?? throw "null pointer derefrence").type;
+    public var _tree(get, never) : () -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>;
     @:embedded
-    public function _tree():stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return this.branchNode._tree();
+    @:embeddededffieldsffun
+    public function get__tree():() -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return @:check3 (this.branchNode ?? throw "null pointer derefrence")._tree;
+    public var _writeTo(get, never) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> -> Void;
     @:embedded
-    public function _writeTo(_sb:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>) this.branchNode._writeTo(_sb);
+    @:embeddededffieldsffun
+    public function get__writeTo():stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> -> Void return @:check3 (this.branchNode ?? throw "null pointer derefrence")._writeTo;
     public function __copy__() {
         return new RangeNode(branchNode);
     }

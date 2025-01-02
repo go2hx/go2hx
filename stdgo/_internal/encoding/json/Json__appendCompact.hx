@@ -21,7 +21,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
                     _dst = (_dst.__append__((92 : stdgo.GoUInt8), (117 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), (48 : stdgo.GoUInt8), (50 : stdgo.GoUInt8), stdgo._internal.encoding.json.Json__hex._hex[((_src[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                     _start = (_i + (("\u2029" : stdgo.GoString).length) : stdgo.GoInt);
                 };
-                var _v = (_scan._step(_scan, _c) : stdgo.GoInt);
+                var _v = ((@:checkr _scan ?? throw "null pointer dereference")._step(_scan, _c) : stdgo.GoInt);
                 if ((_v >= (9 : stdgo.GoInt) : Bool)) {
                     if (_v == ((11 : stdgo.GoInt))) {
                         break;
@@ -30,10 +30,11 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
                     _start = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
             };
-            if (_scan._eof() == ((11 : stdgo.GoInt))) {
+            if (@:check2r _scan._eof() == ((11 : stdgo.GoInt))) {
                 {
-                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : _scan._err };
+                    final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (_dst.__slice__(0, _origLen) : stdgo.Slice<stdgo.GoUInt8>), _1 : (@:checkr _scan ?? throw "null pointer dereference")._err };
                     for (defer in __deferstack__) {
+                        __deferstack__.remove(defer);
                         defer();
                     };
                     return __ret__;
@@ -43,12 +44,14 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dst, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -63,6 +66,7 @@ function _appendCompact(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

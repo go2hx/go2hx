@@ -10,6 +10,6 @@ _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, ((_i + (
             };
         };
         if ((_r : stdgo.GoString) != (("AZaz" : stdgo.GoString))) {
-            _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString), stdgo.Go.toInterface((_r : stdgo.GoString)));
+            @:check2r _t.errorf(("appendRange interlaced A-Z a-z = %s, want AZaz" : stdgo.GoString), stdgo.Go.toInterface((_r : stdgo.GoString)));
         };
     }

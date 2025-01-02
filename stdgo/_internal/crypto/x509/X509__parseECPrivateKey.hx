@@ -57,9 +57,9 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
                 __tmp__;
             };
         };
-        var _k = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes(_privKey.privateKey);
+        var _k = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes(_privKey.privateKey);
         var _curveOrder = _curve.params().n;
-        if ((_k.cmp(_curveOrder) >= (0 : stdgo.GoInt) : Bool)) {
+        if ((@:check2r _k.cmp(_curveOrder) >= (0 : stdgo.GoInt) : Bool)) {
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid elliptic curve private key value" : stdgo.GoString)) };
                 _key = __tmp__._0;
@@ -68,9 +68,9 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
             };
         };
         var _priv = (stdgo.Go.setRef(({} : stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>);
-        _priv.publicKey.curve = _curve;
-        _priv.d = _k;
-        var _privateKey = (new stdgo.Slice<stdgo.GoUInt8>((((_curveOrder.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        (@:checkr _priv ?? throw "null pointer dereference").publicKey.curve = _curve;
+        (@:checkr _priv ?? throw "null pointer dereference").d = _k;
+        var _privateKey = (new stdgo.Slice<stdgo.GoUInt8>((((@:check2r _curveOrder.bitLen() + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while (((_privKey.privateKey.length) > (_privateKey.length) : Bool)) {
             if (_privKey.privateKey[(0 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                 return {
@@ -85,8 +85,8 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
         (_privateKey.__slice__(((_privateKey.length) - (_privKey.privateKey.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_privKey.privateKey);
         {
             var __tmp__ = _curve.scalarBaseMult(_privateKey);
-            _priv.publicKey.x = __tmp__._0;
-            _priv.publicKey.y = __tmp__._1;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = __tmp__._0;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = __tmp__._1;
         };
         return {
             final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } = { _0 : _priv, _1 : (null : stdgo.Error) };

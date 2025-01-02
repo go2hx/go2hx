@@ -152,8 +152,8 @@ class Testenv {
         If GOROOT cannot be found, GOROOT skips t if t is non-nil,
         or panics otherwise.
     **/
-    static public function goroot(_t:stdgo._internal.testing.Testing_TB.TB):String {
-        return stdgo._internal.internal.testenv.Testenv_goroot.goroot(_t);
+    static public function gOROOT(_t:stdgo._internal.testing.Testing_TB.TB):String {
+        return stdgo._internal.internal.testenv.Testenv_gOROOT.gOROOT(_t);
     }
     /**
         GoTool reports the path to the Go tool.
@@ -255,8 +255,8 @@ class Testenv {
     /**
         CPUIsSlow reports whether the CPU running the test is suspected to be slow.
     **/
-    static public function cpuisSlow():Bool {
-        return stdgo._internal.internal.testenv.Testenv_cpuisSlow.cpuisSlow();
+    static public function cPUIsSlow():Bool {
+        return stdgo._internal.internal.testenv.Testenv_cPUIsSlow.cPUIsSlow();
     }
     /**
         SkipIfShortAndSlow skips t if -short is set and the CPU running the test is

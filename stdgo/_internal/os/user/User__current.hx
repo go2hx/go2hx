@@ -10,22 +10,22 @@ function _current():{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_User.User>
         {
             final __value__ = ("js" : stdgo.GoString);
             if (__value__ == (("android" : stdgo.GoString))) {
-                if (_u.uid == (stdgo.Go.str())) {
-                    _u.uid = ("1" : stdgo.GoString);
+                if ((@:checkr _u ?? throw "null pointer dereference").uid == (stdgo.Go.str())) {
+                    (@:checkr _u ?? throw "null pointer dereference").uid = ("1" : stdgo.GoString);
                 };
-                if (_u.username == (stdgo.Go.str())) {
-                    _u.username = ("android" : stdgo.GoString);
+                if ((@:checkr _u ?? throw "null pointer dereference").username == (stdgo.Go.str())) {
+                    (@:checkr _u ?? throw "null pointer dereference").username = ("android" : stdgo.GoString);
                 };
             };
         };
-        if (((_u.uid != (stdgo.Go.str()) && _u.username != (stdgo.Go.str()) : Bool) && (_u.homeDir != stdgo.Go.str()) : Bool)) {
+        if ((((@:checkr _u ?? throw "null pointer dereference").uid != (stdgo.Go.str()) && (@:checkr _u ?? throw "null pointer dereference").username != (stdgo.Go.str()) : Bool) && ((@:checkr _u ?? throw "null pointer dereference").homeDir != stdgo.Go.str()) : Bool)) {
             return { _0 : _u, _1 : (null : stdgo.Error) };
         };
         var _missing:stdgo.GoString = ("" : stdgo.GoString);
-        if (_u.username == (stdgo.Go.str())) {
+        if ((@:checkr _u ?? throw "null pointer dereference").username == (stdgo.Go.str())) {
             _missing = ("$USER" : stdgo.GoString);
         };
-        if (_u.homeDir == (stdgo.Go.str())) {
+        if ((@:checkr _u ?? throw "null pointer dereference").homeDir == (stdgo.Go.str())) {
             if (_missing != (stdgo.Go.str())) {
                 _missing = (_missing + ((", " : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };

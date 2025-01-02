@@ -35,7 +35,7 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
             _a[(_i : stdgo.GoInt)] = _c;
             _upper = _c == ((45 : stdgo.GoUInt8));
         };
-        stdgo._internal.net.textproto.Textproto__commonHeaderOnce._commonHeaderOnce.do_(stdgo._internal.net.textproto.Textproto__initCommonHeader._initCommonHeader);
+        @:check2 stdgo._internal.net.textproto.Textproto__commonHeaderOnce._commonHeaderOnce.do_(stdgo._internal.net.textproto.Textproto__initCommonHeader._initCommonHeader);
         {
             var _v = ((stdgo._internal.net.textproto.Textproto__commonHeader._commonHeader[(_a : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_v != (stdgo.Go.str())) {

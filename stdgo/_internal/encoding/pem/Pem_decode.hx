@@ -28,12 +28,12 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                 continue;
             };
             _typeLine = (_typeLine.__slice__((0 : stdgo.GoInt), ((_typeLine.length) - (stdgo._internal.encoding.pem.Pem__pemEndOfLine._pemEndOfLine.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            _p = (stdgo.Go.setRef(({ headers : ({
+            _p = (stdgo.Go.setRef(({ headers : (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                 x.__defaultValue__ = () -> ("" : stdgo.GoString);
                 {};
                 x;
-            } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), type : (_typeLine : stdgo.GoString)?.__copy__() } : stdgo._internal.encoding.pem.Pem_Block.Block)) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
+            } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), type : (_typeLine : stdgo.GoString)?.__copy__() } : stdgo._internal.encoding.pem.Pem_Block.Block)) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
             while (true) {
                 if ((_rest.length) == ((0 : stdgo.GoInt))) {
                     return {
@@ -50,12 +50,12 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                 };
                 _key = stdgo._internal.bytes.Bytes_trimSpace.trimSpace(_key);
                 _val = stdgo._internal.bytes.Bytes_trimSpace.trimSpace(_val);
-                _p.headers[(_key : stdgo.GoString)] = (_val : stdgo.GoString)?.__copy__();
+                (@:checkr _p ?? throw "null pointer dereference").headers[(_key : stdgo.GoString)] = (_val : stdgo.GoString)?.__copy__();
                 _rest = _next;
             };
             var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _endTrailerIndex = __1, _endIndex = __0;
-            if (((_p.headers.length == (0 : stdgo.GoInt)) && stdgo._internal.bytes.Bytes_hasPrefix.hasPrefix(_rest, (stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : Bool)) {
+            if ((((@:checkr _p ?? throw "null pointer dereference").headers.length == (0 : stdgo.GoInt)) && stdgo._internal.bytes.Bytes_hasPrefix.hasPrefix(_rest, (stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : Bool)) {
                 _endIndex = (0 : stdgo.GoInt);
                 _endTrailerIndex = ((stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             } else {
@@ -82,12 +82,12 @@ var _endTrailerIndex = __1, _endIndex = __0;
                 };
             };
             var _base64Data = stdgo._internal.encoding.pem.Pem__removeSpacesAndTabs._removeSpacesAndTabs((_rest.__slice__(0, _endIndex) : stdgo.Slice<stdgo.GoUInt8>));
-            _p.bytes = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_base64Data.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var __tmp__ = stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode(_p.bytes, _base64Data), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            (@:checkr _p ?? throw "null pointer dereference").bytes = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodedLen((_base64Data.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+            var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode((@:checkr _p ?? throw "null pointer dereference").bytes, _base64Data), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 continue;
             };
-            _p.bytes = (_p.bytes.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>);
+            (@:checkr _p ?? throw "null pointer dereference").bytes = ((@:checkr _p ?? throw "null pointer dereference").bytes.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem__getLine._getLine((_rest.__slice__(((_endIndex + (stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                 _rest = __tmp__._1;

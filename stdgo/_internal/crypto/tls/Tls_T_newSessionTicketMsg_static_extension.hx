@@ -1,9 +1,10 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_newSessionTicketMsg_asInterface) class T_newSessionTicketMsg_static_extension {
     @:keep
+    @:tdfield
     static public function _unmarshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg>, _data:stdgo.Slice<stdgo.GoUInt8>):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg> = _m;
-        _m._raw = _data;
+        (@:checkr _m ?? throw "null pointer dereference")._raw = _data;
         if (((_data.length) < (10 : stdgo.GoInt) : Bool)) {
             return false;
         };
@@ -15,16 +16,17 @@ package stdgo._internal.crypto.tls;
         if (((_data.length) - (10 : stdgo.GoInt) : stdgo.GoInt) != (_ticketLen)) {
             return false;
         };
-        _m._ticket = (_data.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+        (@:checkr _m ?? throw "null pointer dereference")._ticket = (_data.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return true;
     }
     @:keep
+    @:tdfield
     static public function _marshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg> = _m;
-        if (_m._raw != null) {
-            return { _0 : _m._raw, _1 : (null : stdgo.Error) };
+        if ((@:checkr _m ?? throw "null pointer dereference")._raw != null) {
+            return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : (null : stdgo.Error) };
         };
-        var _ticketLen = (_m._ticket.length : stdgo.GoInt);
+        var _ticketLen = ((@:checkr _m ?? throw "null pointer dereference")._ticket.length : stdgo.GoInt);
         var _length = ((6 : stdgo.GoInt) + _ticketLen : stdgo.GoInt);
         var _x = (new stdgo.Slice<stdgo.GoUInt8>(((4 : stdgo.GoInt) + _length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _x[(0 : stdgo.GoInt)] = (4 : stdgo.GoUInt8);
@@ -33,8 +35,8 @@ package stdgo._internal.crypto.tls;
         _x[(3 : stdgo.GoInt)] = (_length : stdgo.GoUInt8);
         _x[(8 : stdgo.GoInt)] = ((_ticketLen >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(9 : stdgo.GoInt)] = (_ticketLen : stdgo.GoUInt8);
-        (_x.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_m._ticket);
-        _m._raw = _x;
-        return { _0 : _m._raw, _1 : (null : stdgo.Error) };
+        (_x.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((@:checkr _m ?? throw "null pointer dereference")._ticket);
+        (@:checkr _m ?? throw "null pointer dereference")._raw = _x;
+        return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : (null : stdgo.Error) };
     }
 }

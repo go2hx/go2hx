@@ -1,5 +1,5 @@
 package stdgo.internal.syscall.unix;
-final utime_OMIT : haxe.UInt64 = stdgo._internal.internal.syscall.unix.Unix_utime_OMIT.utime_OMIT;
+final uTIME_OMIT : haxe.UInt64 = stdgo._internal.internal.syscall.unix.Unix_uTIME_OMIT.uTIME_OMIT;
 class Unix {
     static public function fcntl(_fd:StdTypes.Int, _cmd:StdTypes.Int, _arg:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {

@@ -9,9 +9,9 @@ function _newUnit(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_T_matri
                     while ((_j < _n : Bool)) {
                         var _x = stdgo._internal.math.big.Big_newRat.newRat((0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64));
 if (_i == (_j)) {
-                            _x.setInt64((1i64 : stdgo.GoInt64));
+                            @:check2r _x.setInt64((1i64 : stdgo.GoInt64));
                         };
-_a._set(_i, _j, _x);
+@:check2r _a._set(_i, _j, _x);
                         _j++;
                     };
                 };

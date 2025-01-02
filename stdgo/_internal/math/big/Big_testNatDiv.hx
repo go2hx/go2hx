@@ -40,10 +40,10 @@ var _r = __1, _q = __0;
                     _r = __tmp__._1;
                 };
                 if (_q._cmp(_a) != ((0 : stdgo.GoInt))) {
-                    _t.fatalf(("wrong quotient: got %s; want %s for %s/%s" : stdgo.GoString), stdgo.Go.toInterface(_q._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_a._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_x._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_b._utoa((10 : stdgo.GoInt))));
+                    @:check2r _t.fatalf(("wrong quotient: got %s; want %s for %s/%s" : stdgo.GoString), stdgo.Go.toInterface(_q._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_a._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_x._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_b._utoa((10 : stdgo.GoInt))));
                 };
                 if (_r._cmp(_c) != ((0 : stdgo.GoInt))) {
-                    _t.fatalf(("wrong remainder: got %s; want %s for %s/%s" : stdgo.GoString), stdgo.Go.toInterface(_r._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_c._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_x._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_b._utoa((10 : stdgo.GoInt))));
+                    @:check2r _t.fatalf(("wrong remainder: got %s; want %s for %s/%s" : stdgo.GoString), stdgo.Go.toInterface(_r._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_c._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_x._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_b._utoa((10 : stdgo.GoInt))));
                 };
             };
         };

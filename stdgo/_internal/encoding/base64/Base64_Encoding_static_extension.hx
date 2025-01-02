@@ -1,14 +1,16 @@
 package stdgo._internal.encoding.base64;
 @:keep @:allow(stdgo._internal.encoding.base64.Base64.Encoding_asInterface) class Encoding_static_extension {
     @:keep
+    @:tdfield
     static public function decodedLen( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _n:stdgo.GoInt):stdgo.GoInt {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
-        if (_enc._padChar == ((-1 : stdgo.GoInt32))) {
+        if ((@:checkr _enc ?? throw "null pointer dereference")._padChar == ((-1 : stdgo.GoInt32))) {
             return ((_n * (6 : stdgo.GoInt) : stdgo.GoInt) / (8 : stdgo.GoInt) : stdgo.GoInt);
         };
         return ((_n / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function decode( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
@@ -20,12 +22,12 @@ package stdgo._internal.encoding.base64;
                 __tmp__;
             };
         };
-        var __blank__ = _enc._decodeMap;
+        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         var _si = (0 : stdgo.GoInt);
         while (((false && (((_src.length) - _si : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool) && (((_dst.length) - _n : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool)) {
             var _src2 = (_src.__slice__(_si, (_si + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             {
-                var __tmp__ = stdgo._internal.encoding.base64.Base64__assemble64._assemble64(_enc._decodeMap[(_src2[(0 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(1 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(2 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(3 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(4 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(5 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(6 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(7 : stdgo.GoInt)] : stdgo.GoInt)]), _dn:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.base64.Base64__assemble64._assemble64((@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(0 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(1 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(2 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(3 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(4 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(5 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(6 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(7 : stdgo.GoInt)] : stdgo.GoInt)]), _dn:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.putUint64((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _dn);
                     _n = (_n + ((6 : stdgo.GoInt)) : stdgo.GoInt);
@@ -33,7 +35,7 @@ package stdgo._internal.encoding.base64;
                 } else {
                     var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
-                        var __tmp__ = _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
+                        var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
                         _si = __tmp__._0;
                         _ninc = __tmp__._1;
                         _err = __tmp__._2;
@@ -53,7 +55,7 @@ package stdgo._internal.encoding.base64;
         while (((((_src.length) - _si : stdgo.GoInt) >= (4 : stdgo.GoInt) : Bool) && (((_dst.length) - _n : stdgo.GoInt) >= (4 : stdgo.GoInt) : Bool) : Bool)) {
             var _src2 = (_src.__slice__(_si, (_si + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             {
-                var __tmp__ = stdgo._internal.encoding.base64.Base64__assemble32._assemble32(_enc._decodeMap[(_src2[(0 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(1 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(2 : stdgo.GoInt)] : stdgo.GoInt)], _enc._decodeMap[(_src2[(3 : stdgo.GoInt)] : stdgo.GoInt)]), _dn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.base64.Base64__assemble32._assemble32((@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(0 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(1 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(2 : stdgo.GoInt)] : stdgo.GoInt)], (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_src2[(3 : stdgo.GoInt)] : stdgo.GoInt)]), _dn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.putUint32((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _dn);
                     _n = (_n + ((3 : stdgo.GoInt)) : stdgo.GoInt);
@@ -61,7 +63,7 @@ package stdgo._internal.encoding.base64;
                 } else {
                     var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
-                        var __tmp__ = _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
+                        var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
                         _si = __tmp__._0;
                         _ninc = __tmp__._1;
                         _err = __tmp__._2;
@@ -81,7 +83,7 @@ package stdgo._internal.encoding.base64;
         while ((_si < (_src.length) : Bool)) {
             var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
             {
-                var __tmp__ = _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
+                var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
                 _si = __tmp__._0;
                 _ninc = __tmp__._1;
                 _err = __tmp__._2;
@@ -104,19 +106,21 @@ package stdgo._internal.encoding.base64;
         };
     }
     @:keep
+    @:tdfield
     static public function decodeString( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _s:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
-        var _dbuf = (new stdgo.Slice<stdgo.GoUInt8>((_enc.decodedLen((_s.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var __tmp__ = _enc.decode(_dbuf, (_s : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _dbuf = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r _enc.decodedLen((_s.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        var __tmp__ = @:check2r _enc.decode(_dbuf, (_s : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : (_dbuf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
     }
     @:keep
+    @:tdfield
     static public function _decodeQuantum( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>, _si:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
         var _nsi = (0 : stdgo.GoInt), _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
         var _dlen = (4 : stdgo.GoInt);
-        var __blank__ = _enc._decodeMap;
+        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         {
             var _j = (0 : stdgo.GoInt);
             while ((_j < (_dbuf.length) : Bool)) {
@@ -129,7 +133,7 @@ package stdgo._internal.encoding.base64;
                             _err = __tmp__._2;
                             __tmp__;
                         };
-                    } else if (_j == ((1 : stdgo.GoInt)) || _enc._padChar != ((-1 : stdgo.GoInt32))) {
+                    } else if (_j == ((1 : stdgo.GoInt)) || (@:checkr _enc ?? throw "null pointer dereference")._padChar != ((-1 : stdgo.GoInt32))) {
                         return {
                             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - _j : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                             _nsi = __tmp__._0;
@@ -143,7 +147,7 @@ package stdgo._internal.encoding.base64;
                 };
 var _in = (_src[(_si : stdgo.GoInt)] : stdgo.GoUInt8);
 _si++;
-var _out = (_enc._decodeMap[(_in : stdgo.GoInt)] : stdgo.GoUInt8);
+var _out = ((@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_in : stdgo.GoInt)] : stdgo.GoUInt8);
 if (_out != ((255 : stdgo.GoUInt8))) {
                     _dbuf[(_j : stdgo.GoInt)] = _out;
                     {
@@ -158,7 +162,7 @@ if (((_in == (10 : stdgo.GoUInt8)) || (_in == (13 : stdgo.GoUInt8)) : Bool)) {
                         continue;
                     };
                 };
-if ((_in : stdgo.GoInt32) != (_enc._padChar)) {
+if ((_in : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference")._padChar)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                         _nsi = __tmp__._0;
@@ -190,7 +194,7 @@ if ((_in : stdgo.GoInt32) != (_enc._padChar)) {
                                 __tmp__;
                             };
                         };
-                        if ((_src[(_si : stdgo.GoInt)] : stdgo.GoInt32) != (_enc._padChar)) {
+                        if ((_src[(_si : stdgo.GoInt)] : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference")._padChar)) {
                             return {
                                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                                 _nsi = __tmp__._0;
@@ -246,7 +250,7 @@ break;
                         break;
                     } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (3 : stdgo.GoInt)))) {
                         _dst[(1 : stdgo.GoInt)] = _dbuf[(1 : stdgo.GoInt)];
-                        if ((_enc._strict && (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
+                        if (((@:checkr _enc ?? throw "null pointer dereference")._strict && (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
                             return {
                                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                                 _nsi = __tmp__._0;
@@ -264,7 +268,7 @@ break;
                         break;
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (2 : stdgo.GoInt)))) {
                         _dst[(0 : stdgo.GoInt)] = _dbuf[(0 : stdgo.GoInt)];
-                        if ((_enc._strict && (((_dbuf[(1 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) || (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) : Bool)) {
+                        if (((@:checkr _enc ?? throw "null pointer dereference")._strict && (((_dbuf[(1 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) || (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                             return {
                                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                                 _nsi = __tmp__._0;
@@ -289,36 +293,39 @@ break;
         };
     }
     @:keep
+    @:tdfield
     static public function encodedLen( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _n:stdgo.GoInt):stdgo.GoInt {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
-        if (_enc._padChar == ((-1 : stdgo.GoInt32))) {
+        if ((@:checkr _enc ?? throw "null pointer dereference")._padChar == ((-1 : stdgo.GoInt32))) {
             return ((((_n * (8 : stdgo.GoInt) : stdgo.GoInt) + (5 : stdgo.GoInt) : stdgo.GoInt)) / (6 : stdgo.GoInt) : stdgo.GoInt);
         };
         return ((((_n + (2 : stdgo.GoInt) : stdgo.GoInt)) / (3 : stdgo.GoInt) : stdgo.GoInt) * (4 : stdgo.GoInt) : stdgo.GoInt);
     }
     @:keep
+    @:tdfield
     static public function encodeToString( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoString {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
-        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_enc.encodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _enc.encode(_buf, _src);
+        var _buf = (new stdgo.Slice<stdgo.GoUInt8>((@:check2r _enc.encodedLen((_src.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        @:check2r _enc.encode(_buf, _src);
         return (_buf : stdgo.GoString)?.__copy__();
     }
     @:keep
+    @:tdfield
     static public function encode( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return;
         };
-        var __blank__ = _enc._encode;
+        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._encode;
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _si = __1, _di = __0;
         var _n = ((((_src.length) / (3 : stdgo.GoInt) : stdgo.GoInt)) * (3 : stdgo.GoInt) : stdgo.GoInt);
         while ((_si < _n : Bool)) {
             var _val = ((((_src[(_si + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt) | ((_src[(_si + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoUInt) | (_src[(_si + (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt) : stdgo.GoUInt);
-            _dst[(_di + (0 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (18i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-            _dst[(_di + (1 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-            _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-            _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[((_val & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+            _dst[(_di + (0 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (18i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+            _dst[(_di + (1 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+            _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+            _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[((_val & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
             _si = (_si + ((3 : stdgo.GoInt)) : stdgo.GoInt);
             _di = (_di + ((4 : stdgo.GoInt)) : stdgo.GoInt);
         };
@@ -330,30 +337,32 @@ var _si = __1, _di = __0;
         if (_remain == ((2 : stdgo.GoInt))) {
             _val = (_val | (((_src[(_si + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt)) : stdgo.GoUInt);
         };
-        _dst[(_di + (0 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (18i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-        _dst[(_di + (1 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+        _dst[(_di + (0 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (18i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+        _dst[(_di + (1 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
         {
             final __value__ = _remain;
             if (__value__ == ((2 : stdgo.GoInt))) {
-                _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = _enc._encode[(((_val >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-                if (_enc._padChar != ((-1 : stdgo.GoInt32))) {
-                    _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = (_enc._padChar : stdgo.GoUInt8);
+                _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._encode[(((_val >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+                if ((@:checkr _enc ?? throw "null pointer dereference")._padChar != ((-1 : stdgo.GoInt32))) {
+                    _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _enc ?? throw "null pointer dereference")._padChar : stdgo.GoUInt8);
                 };
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                if (_enc._padChar != ((-1 : stdgo.GoInt32))) {
-                    _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = (_enc._padChar : stdgo.GoUInt8);
-                    _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = (_enc._padChar : stdgo.GoUInt8);
+                if ((@:checkr _enc ?? throw "null pointer dereference")._padChar != ((-1 : stdgo.GoInt32))) {
+                    _dst[(_di + (2 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _enc ?? throw "null pointer dereference")._padChar : stdgo.GoUInt8);
+                    _dst[(_di + (3 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _enc ?? throw "null pointer dereference")._padChar : stdgo.GoUInt8);
                 };
             };
         };
     }
     @:keep
+    @:tdfield
     static public function strict( _enc:stdgo._internal.encoding.base64.Base64_Encoding.Encoding):stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> {
         @:recv var _enc:stdgo._internal.encoding.base64.Base64_Encoding.Encoding = _enc?.__copy__();
         _enc._strict = true;
         return (stdgo.Go.setRef(_enc) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>);
     }
     @:keep
+    @:tdfield
     static public function withPadding( _enc:stdgo._internal.encoding.base64.Base64_Encoding.Encoding, _padding:stdgo.GoInt32):stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> {
         @:recv var _enc:stdgo._internal.encoding.base64.Base64_Encoding.Encoding = _enc?.__copy__();
         if (((_padding == ((13 : stdgo.GoInt32)) || _padding == ((10 : stdgo.GoInt32)) : Bool) || (_padding > (255 : stdgo.GoInt32) : Bool) : Bool)) {

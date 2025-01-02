@@ -7,7 +7,7 @@ function _breakPatterns(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:
             {
                 var _idx = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
                 while ((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                    var _other = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
+                    var _other = (((@:notptr (stdgo.Go.pointer(_random) : stdgo._internal.sort.Sort_T_xorshiftPointer.T_xorshiftPointer).next() : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
 if ((_other >= _length : Bool)) {
                         _other = (_other - (_length) : stdgo.GoInt);
                     };

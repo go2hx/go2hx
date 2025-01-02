@@ -1,26 +1,31 @@
 package stdgo._internal.io.fs;
 @:keep @:allow(stdgo._internal.io.fs.Fs.FileMode_asInterface) class FileMode_static_extension {
     @:keep
+    @:tdfield
     static public function type( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo._internal.io.fs.Fs_FileMode.FileMode {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         return (_m & (-1893203968u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : stdgo._internal.io.fs.Fs_FileMode.FileMode);
     }
     @:keep
+    @:tdfield
     static public function perm( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo._internal.io.fs.Fs_FileMode.FileMode {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         return (_m & (511u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : stdgo._internal.io.fs.Fs_FileMode.FileMode);
     }
     @:keep
+    @:tdfield
     static public function isRegular( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):Bool {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         return (_m & (-1893203968u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : stdgo._internal.io.fs.Fs_FileMode.FileMode) == ((0u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode));
     }
     @:keep
+    @:tdfield
     static public function isDir( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):Bool {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         return (_m & (-2147483648u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : stdgo._internal.io.fs.Fs_FileMode.FileMode) != ((0u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode));
     }
     @:keep
+    @:tdfield
     static public function string( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.GoString {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         {};

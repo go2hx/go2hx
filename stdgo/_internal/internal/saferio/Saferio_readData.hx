@@ -20,7 +20,7 @@ function readData(_r:stdgo._internal.io.Io_Reader.Reader, _n:stdgo.GoUInt64):{ v
             };
             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf1.__slice__(0, _next) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                if ((((_buf.length) > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
+                if ((((_buf.length) > (0 : stdgo.GoInt) : Bool) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                     _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                 };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

@@ -1,13 +1,13 @@
 package stdgo._internal.debug.macho;
 @:structInit class RegsAMD64 {
-    public var ax : stdgo.GoUInt64 = 0;
-    public var bx : stdgo.GoUInt64 = 0;
-    public var cx : stdgo.GoUInt64 = 0;
-    public var dx : stdgo.GoUInt64 = 0;
-    public var di : stdgo.GoUInt64 = 0;
-    public var si : stdgo.GoUInt64 = 0;
-    public var bp : stdgo.GoUInt64 = 0;
-    public var sp : stdgo.GoUInt64 = 0;
+    public var aX : stdgo.GoUInt64 = 0;
+    public var bX : stdgo.GoUInt64 = 0;
+    public var cX : stdgo.GoUInt64 = 0;
+    public var dX : stdgo.GoUInt64 = 0;
+    public var dI : stdgo.GoUInt64 = 0;
+    public var sI : stdgo.GoUInt64 = 0;
+    public var bP : stdgo.GoUInt64 = 0;
+    public var sP : stdgo.GoUInt64 = 0;
     public var r8 : stdgo.GoUInt64 = 0;
     public var r9 : stdgo.GoUInt64 = 0;
     public var r10 : stdgo.GoUInt64 = 0;
@@ -16,20 +16,20 @@ package stdgo._internal.debug.macho;
     public var r13 : stdgo.GoUInt64 = 0;
     public var r14 : stdgo.GoUInt64 = 0;
     public var r15 : stdgo.GoUInt64 = 0;
-    public var ip : stdgo.GoUInt64 = 0;
-    public var flags : stdgo.GoUInt64 = 0;
-    public var cs : stdgo.GoUInt64 = 0;
-    public var fs : stdgo.GoUInt64 = 0;
-    public var gs : stdgo.GoUInt64 = 0;
-    public function new(?ax:stdgo.GoUInt64, ?bx:stdgo.GoUInt64, ?cx:stdgo.GoUInt64, ?dx:stdgo.GoUInt64, ?di:stdgo.GoUInt64, ?si:stdgo.GoUInt64, ?bp:stdgo.GoUInt64, ?sp:stdgo.GoUInt64, ?r8:stdgo.GoUInt64, ?r9:stdgo.GoUInt64, ?r10:stdgo.GoUInt64, ?r11:stdgo.GoUInt64, ?r12:stdgo.GoUInt64, ?r13:stdgo.GoUInt64, ?r14:stdgo.GoUInt64, ?r15:stdgo.GoUInt64, ?ip:stdgo.GoUInt64, ?flags:stdgo.GoUInt64, ?cs:stdgo.GoUInt64, ?fs:stdgo.GoUInt64, ?gs:stdgo.GoUInt64) {
-        if (ax != null) this.ax = ax;
-        if (bx != null) this.bx = bx;
-        if (cx != null) this.cx = cx;
-        if (dx != null) this.dx = dx;
-        if (di != null) this.di = di;
-        if (si != null) this.si = si;
-        if (bp != null) this.bp = bp;
-        if (sp != null) this.sp = sp;
+    public var iP : stdgo.GoUInt64 = 0;
+    public var fLAGS : stdgo.GoUInt64 = 0;
+    public var cS : stdgo.GoUInt64 = 0;
+    public var fS : stdgo.GoUInt64 = 0;
+    public var gS : stdgo.GoUInt64 = 0;
+    public function new(?aX:stdgo.GoUInt64, ?bX:stdgo.GoUInt64, ?cX:stdgo.GoUInt64, ?dX:stdgo.GoUInt64, ?dI:stdgo.GoUInt64, ?sI:stdgo.GoUInt64, ?bP:stdgo.GoUInt64, ?sP:stdgo.GoUInt64, ?r8:stdgo.GoUInt64, ?r9:stdgo.GoUInt64, ?r10:stdgo.GoUInt64, ?r11:stdgo.GoUInt64, ?r12:stdgo.GoUInt64, ?r13:stdgo.GoUInt64, ?r14:stdgo.GoUInt64, ?r15:stdgo.GoUInt64, ?iP:stdgo.GoUInt64, ?fLAGS:stdgo.GoUInt64, ?cS:stdgo.GoUInt64, ?fS:stdgo.GoUInt64, ?gS:stdgo.GoUInt64) {
+        if (aX != null) this.aX = aX;
+        if (bX != null) this.bX = bX;
+        if (cX != null) this.cX = cX;
+        if (dX != null) this.dX = dX;
+        if (dI != null) this.dI = dI;
+        if (sI != null) this.sI = sI;
+        if (bP != null) this.bP = bP;
+        if (sP != null) this.sP = sP;
         if (r8 != null) this.r8 = r8;
         if (r9 != null) this.r9 = r9;
         if (r10 != null) this.r10 = r10;
@@ -38,23 +38,23 @@ package stdgo._internal.debug.macho;
         if (r13 != null) this.r13 = r13;
         if (r14 != null) this.r14 = r14;
         if (r15 != null) this.r15 = r15;
-        if (ip != null) this.ip = ip;
-        if (flags != null) this.flags = flags;
-        if (cs != null) this.cs = cs;
-        if (fs != null) this.fs = fs;
-        if (gs != null) this.gs = gs;
+        if (iP != null) this.iP = iP;
+        if (fLAGS != null) this.fLAGS = fLAGS;
+        if (cS != null) this.cS = cS;
+        if (fS != null) this.fS = fS;
+        if (gS != null) this.gS = gS;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
         return new RegsAMD64(
-ax,
-bx,
-cx,
-dx,
-di,
-si,
-bp,
-sp,
+aX,
+bX,
+cX,
+dX,
+dI,
+sI,
+bP,
+sP,
 r8,
 r9,
 r10,
@@ -63,10 +63,10 @@ r12,
 r13,
 r14,
 r15,
-ip,
-flags,
-cs,
-fs,
-gs);
+iP,
+fLAGS,
+cS,
+fS,
+gS);
     }
 }

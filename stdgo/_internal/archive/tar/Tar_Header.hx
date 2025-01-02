@@ -15,9 +15,9 @@ package stdgo._internal.archive.tar;
     public var devmajor : stdgo.GoInt64 = 0;
     public var devminor : stdgo.GoInt64 = 0;
     public var xattrs : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-    public var paxrecords : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var pAXRecords : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
     public var format : stdgo._internal.archive.tar.Tar_Format.Format = ((0 : stdgo.GoInt) : stdgo._internal.archive.tar.Tar_Format.Format);
-    public function new(?typeflag:stdgo.GoUInt8, ?name:stdgo.GoString, ?linkname:stdgo.GoString, ?size:stdgo.GoInt64, ?mode:stdgo.GoInt64, ?uid:stdgo.GoInt, ?gid:stdgo.GoInt, ?uname:stdgo.GoString, ?gname:stdgo.GoString, ?modTime:stdgo._internal.time.Time_Time.Time, ?accessTime:stdgo._internal.time.Time_Time.Time, ?changeTime:stdgo._internal.time.Time_Time.Time, ?devmajor:stdgo.GoInt64, ?devminor:stdgo.GoInt64, ?xattrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?paxrecords:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?format:stdgo._internal.archive.tar.Tar_Format.Format) {
+    public function new(?typeflag:stdgo.GoUInt8, ?name:stdgo.GoString, ?linkname:stdgo.GoString, ?size:stdgo.GoInt64, ?mode:stdgo.GoInt64, ?uid:stdgo.GoInt, ?gid:stdgo.GoInt, ?uname:stdgo.GoString, ?gname:stdgo.GoString, ?modTime:stdgo._internal.time.Time_Time.Time, ?accessTime:stdgo._internal.time.Time_Time.Time, ?changeTime:stdgo._internal.time.Time_Time.Time, ?devmajor:stdgo.GoInt64, ?devminor:stdgo.GoInt64, ?xattrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?pAXRecords:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?format:stdgo._internal.archive.tar.Tar_Format.Format) {
         if (typeflag != null) this.typeflag = typeflag;
         if (name != null) this.name = name;
         if (linkname != null) this.linkname = linkname;
@@ -33,7 +33,7 @@ package stdgo._internal.archive.tar;
         if (devmajor != null) this.devmajor = devmajor;
         if (devminor != null) this.devminor = devminor;
         if (xattrs != null) this.xattrs = xattrs;
-        if (paxrecords != null) this.paxrecords = paxrecords;
+        if (pAXRecords != null) this.pAXRecords = pAXRecords;
         if (format != null) this.format = format;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -54,7 +54,7 @@ changeTime,
 devmajor,
 devminor,
 xattrs,
-paxrecords,
+pAXRecords,
 format);
     }
 }

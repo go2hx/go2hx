@@ -1,20 +1,25 @@
 package stdgo._internal.regexp;
 class T_onePassInst_asInterface {
     @:embedded
-    public dynamic function _op():stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp return __self__.value._op();
+    @:embeddededffieldsffun
+    public dynamic function _op():stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp return @:_0 __self__.value._op();
     @:embedded
-    public dynamic function string():stdgo.GoString return __self__.value.string();
+    @:embeddededffieldsffun
+    public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     @:embedded
-    public dynamic function matchRunePos(_nameOff:stdgo.GoInt32):stdgo.GoInt return __self__.value.matchRunePos(_nameOff);
+    @:embeddededffieldsffun
+    public dynamic function matchRunePos(_0:stdgo.GoInt32):stdgo.GoInt return @:_0 __self__.value.matchRunePos(_0);
     @:embedded
-    public dynamic function matchRune(_nameOff:stdgo.GoInt32):Bool return __self__.value.matchRune(_nameOff);
+    @:embeddededffieldsffun
+    public dynamic function matchRune(_0:stdgo.GoInt32):Bool return @:_0 __self__.value.matchRune(_0);
     @:embedded
-    public dynamic function matchEmptyWidth(_old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool return __self__.value.matchEmptyWidth(_old, _new);
+    @:embeddededffieldsffun
+    public dynamic function matchEmptyWidth(_0:stdgo.GoInt32, _1:stdgo.GoInt32):Bool return @:_0 __self__.value.matchEmptyWidth(_0, _1);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo.Pointer<stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst>;
+    var __self__ : stdgo._internal.regexp.Regexp_T_onePassInstPointer.T_onePassInstPointer;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

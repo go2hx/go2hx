@@ -39,7 +39,7 @@ stdgo._internal.image.Image_rect.rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 :
                 var _got = (_r.eq(_s?.__copy__()) : Bool);
                 var _want = ((_in(_r?.__copy__(), _s?.__copy__()) == null) && (_in(_s?.__copy__(), _r?.__copy__()) == null) : Bool);
                 if (_got != (_want)) {
-                    _t.errorf(("Eq: r=%s, s=%s: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                    @:check2r _t.errorf(("Eq: r=%s, s=%s: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                 };
             };
         };
@@ -49,20 +49,20 @@ stdgo._internal.image.Image_rect.rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 :
                 {
                     var _err = (_in(_a?.__copy__(), _r?.__copy__()) : stdgo.Error);
                     if (_err != null) {
-                        _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in r: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in r: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
                     var _err = (_in(_a?.__copy__(), _s?.__copy__()) : stdgo.Error);
                     if (_err != null) {
-                        _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in s: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in s: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
                     var __0 = (stdgo.Go.toInterface(_a) == stdgo.Go.toInterface(((new stdgo._internal.image.Image_Rectangle.Rectangle() : stdgo._internal.image.Image_Rectangle.Rectangle))) : Bool), __1 = (_r.overlaps(_s?.__copy__()) : Bool);
 var _overlaps = __1, _isZero = __0;
                     if (_isZero == (_overlaps)) {
-                        _t.errorf(("Intersect: r=%s, s=%s, a=%s: isZero=%t same as overlaps=%t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_isZero), stdgo.Go.toInterface(_overlaps));
+                        @:check2r _t.errorf(("Intersect: r=%s, s=%s, a=%s: isZero=%t same as overlaps=%t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_isZero), stdgo.Go.toInterface(_overlaps));
                     };
                 };
                 var _largerThanA = (new stdgo.GoArray<stdgo._internal.image.Image_Rectangle.Rectangle>(4, 4, ...[_a?.__copy__(), _a?.__copy__(), _a?.__copy__(), _a?.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image_Rectangle.Rectangle)])) : stdgo.GoArray<stdgo._internal.image.Image_Rectangle.Rectangle>);
@@ -75,7 +75,7 @@ var _overlaps = __1, _isZero = __0;
                         continue;
                     };
                     if (((_in(_b?.__copy__(), _r?.__copy__()) == null) && (_in(_b?.__copy__(), _s?.__copy__()) == null) : Bool)) {
-                        _t.errorf(("Intersect: r=%s, s=%s, a=%s, b=%s, i=%d: intersection could be larger" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
+                        @:check2r _t.errorf(("Intersect: r=%s, s=%s, a=%s, b=%s, i=%d: intersection could be larger" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
                     };
                 };
             };
@@ -86,13 +86,13 @@ var _overlaps = __1, _isZero = __0;
                 {
                     var _err = (_in(_r?.__copy__(), _a?.__copy__()) : stdgo.Error);
                     if (_err != null) {
-                        _t.errorf(("Union: r=%s, s=%s, a=%s, r not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("Union: r=%s, s=%s, a=%s, r not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
                     var _err = (_in(_s?.__copy__(), _a?.__copy__()) : stdgo.Error);
                     if (_err != null) {
-                        _t.errorf(("Union: r=%s, s=%s, a=%s, s not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
+                        @:check2r _t.errorf(("Union: r=%s, s=%s, a=%s, s not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 if (_a.empty()) {
@@ -105,7 +105,7 @@ var _overlaps = __1, _isZero = __0;
                 _smallerThanA[(3 : stdgo.GoInt)].max.y--;
                 for (_i => _b in _smallerThanA) {
                     if (((_in(_r?.__copy__(), _b?.__copy__()) == null) && (_in(_s?.__copy__(), _b?.__copy__()) == null) : Bool)) {
-                        _t.errorf(("Union: r=%s, s=%s, a=%s, b=%s, i=%d: union could be smaller" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
+                        @:check2r _t.errorf(("Union: r=%s, s=%s, a=%s, b=%s, i=%d: union could be smaller" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)), stdgo.Go.toInterface(_i));
                     };
                 };
             };

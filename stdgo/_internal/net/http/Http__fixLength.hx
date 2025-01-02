@@ -4,7 +4,7 @@ function _fixLength(_isResponse:Bool, _status:stdgo.GoInt, _requestMethod:stdgo.
         var _contentLens = (_header[("Content-Length" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>));
         if (((_contentLens.length) > (1 : stdgo.GoInt) : Bool)) {
             var _first = (stdgo._internal.net.textproto.Textproto_trimString.trimString(_contentLens[(0 : stdgo.GoInt)]?.__copy__())?.__copy__() : stdgo.GoString);
-            for (__132 => _ct in (_contentLens.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
+            for (__137 => _ct in (_contentLens.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>)) {
                 if (_first != (stdgo._internal.net.textproto.Textproto_trimString.trimString(_ct?.__copy__()))) {
                     return { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: message cannot contain multiple Content-Length headers; got %q" : stdgo.GoString), stdgo.Go.toInterface(_contentLens)) };
                 };

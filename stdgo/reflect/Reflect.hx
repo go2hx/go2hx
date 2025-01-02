@@ -39,10 +39,10 @@ private function set_callGC(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
         stdgo._internal.reflect.Reflect_callGC.callGC = v;
         return v;
     }
-var gcbits(get, set) : stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_gcbits():stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8> return _0 -> stdgo._internal.reflect.Reflect_gcbits.gcbits(_0);
-private function set_gcbits(v:stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8>):stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8> {
-        stdgo._internal.reflect.Reflect_gcbits.gcbits = v;
+var gCBits(get, set) : stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8>;
+private function get_gCBits():stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8> return _0 -> stdgo._internal.reflect.Reflect_gCBits.gCBits(_0);
+private function set_gCBits(v:stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8>):stdgo.AnyInterface -> stdgo.Slice<stdgo.GoUInt8> {
+        stdgo._internal.reflect.Reflect_gCBits.gCBits = v;
         return v;
     }
 var methodValueCallCodePtr(get, set) : () -> stdgo.GoUIntptr;
@@ -349,16 +349,19 @@ typedef Kind = stdgo._internal.reflect.Reflect_Kind.Kind;
 typedef ChanDir = stdgo._internal.reflect.Reflect_ChanDir.ChanDir;
 typedef StructTag = stdgo._internal.reflect.Reflect_StructTag.StructTag;
 typedef SelectDir = stdgo._internal.reflect.Reflect_SelectDir.SelectDir;
+typedef MethodPointer = stdgo._internal.reflect.Reflect_MethodPointer.MethodPointer;
 class Method_static_extension {
     static public function isExported(_m:Method):Bool {
         return stdgo._internal.reflect.Reflect_Method_static_extension.Method_static_extension.isExported(_m);
     }
 }
+typedef StructFieldPointer = stdgo._internal.reflect.Reflect_StructFieldPointer.StructFieldPointer;
 class StructField_static_extension {
     static public function isExported(_f:StructField):Bool {
         return stdgo._internal.reflect.Reflect_StructField_static_extension.StructField_static_extension.isExported(_f);
     }
 }
+typedef ValuePointer = stdgo._internal.reflect.Reflect_ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function equal(_v:Value, _u:Value):Bool {
         return stdgo._internal.reflect.Reflect_Value_static_extension.Value_static_extension.equal(_v, _u);
@@ -601,11 +604,13 @@ class Value_static_extension {
         return stdgo._internal.reflect.Reflect_Value_static_extension.Value_static_extension.addr(_v);
     }
 }
+typedef ValueErrorPointer = stdgo._internal.reflect.Reflect_ValueErrorPointer.ValueErrorPointer;
 class ValueError_static_extension {
     static public function error(_e:ValueError):String {
         return stdgo._internal.reflect.Reflect_ValueError_static_extension.ValueError_static_extension.error(_e);
     }
 }
+typedef MapIterPointer = stdgo._internal.reflect.Reflect_MapIterPointer.MapIterPointer;
 class MapIter_static_extension {
     static public function reset(_iter:MapIter, _v:Value):Void {
         stdgo._internal.reflect.Reflect_MapIter_static_extension.MapIter_static_extension.reset(_iter, _v);
@@ -620,16 +625,19 @@ class MapIter_static_extension {
         return stdgo._internal.reflect.Reflect_MapIter_static_extension.MapIter_static_extension.key(_iter);
     }
 }
+typedef KindPointer = stdgo._internal.reflect.Reflect_KindPointer.KindPointer;
 class Kind_static_extension {
     static public function string(_k:Kind):String {
         return stdgo._internal.reflect.Reflect_Kind_static_extension.Kind_static_extension.string(_k);
     }
 }
+typedef ChanDirPointer = stdgo._internal.reflect.Reflect_ChanDirPointer.ChanDirPointer;
 class ChanDir_static_extension {
     static public function string(_d:ChanDir):String {
         return stdgo._internal.reflect.Reflect_ChanDir_static_extension.ChanDir_static_extension.string(_d);
     }
 }
+typedef StructTagPointer = stdgo._internal.reflect.Reflect_StructTagPointer.StructTagPointer;
 class StructTag_static_extension {
     static public function lookup(_tag:StructTag, _key:String):stdgo.Tuple<String, Bool> {
         return {

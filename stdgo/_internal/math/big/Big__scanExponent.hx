@@ -3,7 +3,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
         var _exp = (0 : stdgo.GoInt64), _base = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var __tmp__ = _r.readByte(), _ch:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+            if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                 _err = (null : stdgo.Error);
             };
             return {
@@ -90,7 +90,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
                 _err = __tmp__._1;
             };
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
             _err = (null : stdgo.Error);
         };
         if (((_err == null) && !_hasDigits : Bool)) {

@@ -9,5 +9,6 @@ typedef Error = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function runtimeError():Void;
 };

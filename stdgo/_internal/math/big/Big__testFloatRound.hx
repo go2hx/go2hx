@@ -26,7 +26,7 @@ function _testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _x
             };
         };
         if (!_ok) {
-            _t.fatalf(("incorrect test data for prec = %d, %s: x = %s, r = %s" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
+            @:check2r _t.fatalf(("incorrect test data for prec = %d, %s: x = %s, r = %s" : stdgo.GoString), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
         };
         var _a = (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy);
         if ((_r < _x : Bool)) {
@@ -34,22 +34,22 @@ function _testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _x
         } else if ((_r > _x : Bool)) {
             _a = (1 : stdgo._internal.math.big.Big_Accuracy.Accuracy);
         };
-        var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setInt64(_x).setPrec(_prec);
-        var _r1 = (_f._int64() : stdgo.GoInt64);
-        var _p1 = (_f.prec() : stdgo.GoUInt);
-        var _a1 = (_f.acc() : stdgo._internal.math.big.Big_Accuracy.Accuracy);
+        var _f = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setInt64(_x).setPrec(_prec);
+        var _r1 = (@:check2r _f._int64() : stdgo.GoInt64);
+        var _p1 = (@:check2r _f.prec() : stdgo.GoUInt);
+        var _a1 = (@:check2r _f.acc() : stdgo._internal.math.big.Big_Accuracy.Accuracy);
         if (((_r1 != (_r) || _p1 != (_prec) : Bool) || (_a1 != _a) : Bool)) {
-            _t.errorf(("round %s (%d bits, %s) incorrect: got %s (%d bits, %s); want %s (%d bits, %s)" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(_p1), stdgo.Go.toInterface(stdgo.Go.asInterface(_a1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
+            @:check2r _t.errorf(("round %s (%d bits, %s) incorrect: got %s (%d bits, %s); want %s (%d bits, %s)" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(_p1), stdgo.Go.toInterface(stdgo.Go.asInterface(_a1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
             return;
         };
-        var _g = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setPrec(_prec).setInt64(_x);
+        var _g = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setPrec(_prec).setInt64(_x);
         if (!stdgo._internal.math.big.Big__alike._alike(_g, _f)) {
-            _t.errorf(("round %s (%d bits, %s) not symmetric: got %s and %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_g._int64())), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
+            @:check2r _t.errorf(("round %s (%d bits, %s) not symmetric: got %s and %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(@:check2r _g._int64())), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
             return;
         };
-        var _h = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setPrec(_prec).set(_f);
+        var _h = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setMode(_mode).setPrec(_prec).set(_f);
         if (!stdgo._internal.math.big.Big__alike._alike(_h, _f)) {
-            _t.errorf(("round %s (%d bits, %s) not idempotent: got %s and %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_h._int64())), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
+            @:check2r _t.errorf(("round %s (%d bits, %s) not idempotent: got %s and %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_x)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_mode)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(@:check2r _h._int64())), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r1)), stdgo.Go.toInterface(stdgo._internal.math.big.Big__toBinary._toBinary(_r)));
             return;
         };
     }

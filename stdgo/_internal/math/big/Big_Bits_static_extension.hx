@@ -1,6 +1,7 @@
 package stdgo._internal.math.big;
 @:keep @:allow(stdgo._internal.math.big.Big.Bits_asInterface) class Bits_static_extension {
     @:keep
+    @:tdfield
     static public function float_( _bits:stdgo._internal.math.big.Big_Bits.Bits):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {
         @:recv var _bits:stdgo._internal.math.big.Big_Bits.Bits = _bits;
         if ((_bits.length) == ((0 : stdgo.GoInt))) {
@@ -15,17 +16,17 @@ package stdgo._internal.math.big;
         var _x = stdgo._internal.math.big.Big_newInt.newInt((0i64 : stdgo.GoInt64));
         for (__8 => _b in _bits) {
             var _badj = (_b - _min : stdgo.GoInt);
-            while (_x.bit(_badj) != ((0u32 : stdgo.GoUInt))) {
-                _x.setBit(_x, _badj, (0u32 : stdgo.GoUInt));
+            while (@:check2r _x.bit(_badj) != ((0u32 : stdgo.GoUInt))) {
+                @:check2r _x.setBit(_x, _badj, (0u32 : stdgo.GoUInt));
                 _badj++;
             };
-            _x.setBit(_x, _badj, (1u32 : stdgo.GoUInt));
+            @:check2r _x.setBit(_x, _badj, (1u32 : stdgo.GoUInt));
         };
-        var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setInt(_x);
+        var _z = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setInt(_x);
         {
-            var _e = ((_z._exp : stdgo.GoInt64) + (_min : stdgo.GoInt64) : stdgo.GoInt64);
+            var _e = (((@:checkr _z ?? throw "null pointer dereference")._exp : stdgo.GoInt64) + (_min : stdgo.GoInt64) : stdgo.GoInt64);
             if ((((-2147483648i64 : stdgo.GoInt64) <= _e : Bool) && (_e <= (2147483647i64 : stdgo.GoInt64) : Bool) : Bool)) {
-                _z._exp = (_e : stdgo.GoInt32);
+                (@:checkr _z ?? throw "null pointer dereference")._exp = (_e : stdgo.GoInt32);
             } else {
                 throw stdgo.Go.toInterface(("exponent out of range" : stdgo.GoString));
             };
@@ -33,6 +34,7 @@ package stdgo._internal.math.big;
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _round( _x:stdgo._internal.math.big.Big_Bits.Bits, _prec:stdgo.GoUInt, _mode:stdgo._internal.math.big.Big_RoundingMode.RoundingMode):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {
         @:recv var _x:stdgo._internal.math.big.Big_Bits.Bits = _x;
         _x = _x._norm();
@@ -71,20 +73,21 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
             throw stdgo.Go.toInterface(("not yet implemented" : stdgo.GoString));
         };
         if ((((_mode == ((0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) && _rbit == ((1u32 : stdgo.GoUInt)) : Bool) && (((_sbit == (1u32 : stdgo.GoUInt)) || (_sbit == ((0u32 : stdgo.GoUInt)) && _bit0 != ((0u32 : stdgo.GoUInt)) : Bool) : Bool)) : Bool) || (_mode == (3 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)) : Bool)) {
-            _f.setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setPrec(_prec);
-            _f.add(_f, (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[((_r : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.math.big.Big_Bits.Bits).float_());
+            @:check2r @:check2r _f.setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setPrec(_prec);
+            @:check2r _f.add(_f, (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[((_r : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.math.big.Big_Bits.Bits).float_());
         };
         return _f;
     }
     @:keep
+    @:tdfield
     static public function _norm( _x:stdgo._internal.math.big.Big_Bits.Bits):stdgo._internal.math.big.Big_Bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_Bits.Bits = _x;
-        var _m = ({
+        var _m = (({
             final x = new stdgo.GoMap.GoIntMap<Bool>();
             x.__defaultValue__ = () -> false;
             {};
             x;
-        } : stdgo.GoMap<stdgo.GoInt, Bool>);
+        } : stdgo.GoMap<stdgo.GoInt, Bool>) : stdgo.GoMap<stdgo.GoInt, Bool>);
         for (__8 => _b in _x) {
             while ((_m[_b] ?? false)) {
                 _m[_b] = false;
@@ -102,6 +105,7 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
         return _z;
     }
     @:keep
+    @:tdfield
     static public function _mul( _x:stdgo._internal.math.big.Big_Bits.Bits, _y:stdgo._internal.math.big.Big_Bits.Bits):stdgo._internal.math.big.Big_Bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_Bits.Bits = _x;
         var _p:stdgo._internal.math.big.Big_Bits.Bits = new stdgo._internal.math.big.Big_Bits.Bits(0, 0);
@@ -113,6 +117,7 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
         return _p;
     }
     @:keep
+    @:tdfield
     static public function _add( _x:stdgo._internal.math.big.Big_Bits.Bits, _y:stdgo._internal.math.big.Big_Bits.Bits):stdgo._internal.math.big.Big_Bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_Bits.Bits = _x;
         return (_x.__append__(...(_y : Array<stdgo.GoInt>)));

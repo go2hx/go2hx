@@ -7,7 +7,7 @@ function encryptPKCS1v15(_random:stdgo._internal.io.Io_Reader.Reader, _pub:stdgo
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
-        var _k = (_pub.size() : stdgo.GoInt);
+        var _k = (@:check2r _pub.size() : stdgo.GoInt);
         if (((_msg.length) > (_k - (11 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errMessageTooLong.errMessageTooLong };
         };

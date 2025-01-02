@@ -8,13 +8,13 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
             while (true) {
                 var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
                 {
-                    var __tmp__ = _rd.readLine();
+                    var __tmp__ = @:check2r _rd.readLine();
                     _line = __tmp__._0;
                     _isPrefix = __tmp__._1;
                     _err = __tmp__._2;
                 };
                 if (_err != null) {
-                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         _err = (null : stdgo.Error);
                     };
                     return {
@@ -47,7 +47,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
             };
             while (_isPrefix) {
                 if (_err != null) {
-                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         _err = (null : stdgo.Error);
                     };
                     return {
@@ -58,7 +58,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
                     };
                 };
                 {
-                    var __tmp__ = _rd.readLine();
+                    var __tmp__ = @:check2r _rd.readLine();
                     _isPrefix = __tmp__._1;
                     _err = __tmp__._2;
                 };

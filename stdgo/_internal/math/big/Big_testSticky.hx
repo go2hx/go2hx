@@ -5,7 +5,7 @@ function testSticky(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {
                 var _got = (_x._sticky(_test._i) : stdgo.GoUInt);
                 if (_got != (_test._want)) {
-                    _t.errorf(("#%d: %s.sticky(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
+                    @:check2r _t.errorf(("#%d: %s.sticky(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
             };
             if (_test._want == ((1u32 : stdgo.GoUInt))) {
@@ -15,7 +15,7 @@ function testSticky(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                         {
                             var _got = (_x._sticky((_test._i + _d : stdgo.GoUInt)) : stdgo.GoUInt);
                             if (_got != ((1u32 : stdgo.GoUInt))) {
-                                _t.errorf(("#%d: %s.sticky(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface((_test._i + _d : stdgo.GoUInt)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((1 : stdgo.GoInt)));
+                                @:check2r _t.errorf(("#%d: %s.sticky(%d) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface((_test._i + _d : stdgo.GoUInt)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((1 : stdgo.GoInt)));
                             };
                         };
                         _d++;

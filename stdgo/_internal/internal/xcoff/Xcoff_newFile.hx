@@ -1,68 +1,68 @@
 package stdgo._internal.internal.xcoff;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>; var _1 : stdgo.Error; } {
         var _sym_3779654:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
+        var _ok_3779632:Bool = false;
+        var _numaux_3779615:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3778385:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
-        var _err_3777910:stdgo.Error = (null : stdgo.Error);
-        var _err_3781462:stdgo.Error = (null : stdgo.Error);
-        var _se_3780315:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64>);
-        var _shdr_3778454:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32>);
-        var _err_3782366:stdgo.Error = (null : stdgo.Error);
-        var _fhdr_3776988:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32>);
-        var _f_3776709:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
-        var _err_3783898:stdgo.Error = (null : stdgo.Error);
-        var _rel_3783871:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64>);
-        var _sect_3782891:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        var _offset_3777615:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _nsyms_3776893:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _err_3782726:stdgo.Error = (null : stdgo.Error);
         var _err_3782078:stdgo.Error = (null : stdgo.Error);
-        var _err_3779750:stdgo.Error = (null : stdgo.Error);
-        var _err_3779463:stdgo.Error = (null : stdgo.Error);
-        var _idxToSym_3779400;
-        var _scnptr_3778369:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _c_3778157:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nsyms_3776893:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _aux_3781615:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64>);
-        var _aux_3781434:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32>);
-        var _err_3778489:stdgo.Error = (null : stdgo.Error);
-        var _hdrsz_3776930:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _aux_3782337:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64>);
-        var _err_3781643:stdgo.Error = (null : stdgo.Error);
-        var _zeroes_3780032:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3778064:stdgo.Error = (null : stdgo.Error);
-        var _err_3777019:stdgo.Error = (null : stdgo.Error);
-        var _reloc_3783376:stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc = ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc);
-        var _r2_3779156:stdgo._internal.io.Io_ReaderAt.ReaderAt = (null : stdgo._internal.io.Io_ReaderAt.ReaderAt);
-        var _aux_3782049:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32>);
-        var _se_3779724:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32>);
-        var _numaux_3779615:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _shdr_3778834:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64>);
-        var _err_3777276:stdgo.Error = (null : stdgo.Error);
-        var _magic_3776484:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _err_3783469:stdgo.Error = (null : stdgo.Error);
-        var _err_3781873:stdgo.Error = (null : stdgo.Error);
-        var _offset_3780152:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3783238:stdgo.Error = (null : stdgo.Error);
-        var _ok_3779632:Bool = false;
-        var _nscns_3776856:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _err_3776501:stdgo.Error = (null : stdgo.Error);
-        var _c_3783032:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_3780341:stdgo.Error = (null : stdgo.Error);
-        var _st_3777906:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _err_3777812:stdgo.Error = (null : stdgo.Error);
+        var _shdr_3778454:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32>);
         var _l_3777799:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3776784:stdgo.Error = (null : stdgo.Error);
-        var _err_3778869:stdgo.Error = (null : stdgo.Error);
-        var _offset_3777615:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _i_3779579:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3778333:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _sectNum_3782882:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3777276:stdgo.Error = (null : stdgo.Error);
         var _fhdr_3777245:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64>);
-        var _symptr_3776874:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _sr_3776408:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = (null : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
-        var _needAuxFcn_3779636:Bool = false;
+        var _magic_3776484:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _i_3783330:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_3783238:stdgo.Error = (null : stdgo.Error);
+        var _err_3781462:stdgo.Error = (null : stdgo.Error);
+        var _c_3778157:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3777019:stdgo.Error = (null : stdgo.Error);
+        var _fhdr_3776988:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32>);
+        var _err_3783469:stdgo.Error = (null : stdgo.Error);
+        var _c_3783032:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r2_3779156:stdgo._internal.io.Io_ReaderAt.ReaderAt = (null : stdgo._internal.io.Io_ReaderAt.ReaderAt);
+        var _aux_3781615:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64>);
+        var _idxToSym_3779400;
+        var _err_3777910:stdgo.Error = (null : stdgo.Error);
+        var _err_3777662:stdgo.Error = (null : stdgo.Error);
+        var _f_3776709:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        var _err_3776501:stdgo.Error = (null : stdgo.Error);
+        var _sect_3782891:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        var _err_3778869:stdgo.Error = (null : stdgo.Error);
         var _opthdr_3776911:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _rel_3783442:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32>);
-        var _i_3783330:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _sectNum_3782882:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3777662:stdgo.Error = (null : stdgo.Error);
+        var _reloc_3783376:stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc = ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc);
+        var _err_3779463:stdgo.Error = (null : stdgo.Error);
+        var _se_3780315:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64>);
+        var _i_3779579:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3778489:stdgo.Error = (null : stdgo.Error);
+        var _i_3778333:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _symptr_3776874:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _rel_3783871:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64>);
+        var _aux_3782049:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32>);
+        var _err_3781643:stdgo.Error = (null : stdgo.Error);
+        var _offset_3780152:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_3781873:stdgo.Error = (null : stdgo.Error);
+        var _aux_3781434:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32>);
+        var _scnptr_3778369:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _hdrsz_3776930:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3782366:stdgo.Error = (null : stdgo.Error);
+        var _err_3779750:stdgo.Error = (null : stdgo.Error);
+        var _err_3778064:stdgo.Error = (null : stdgo.Error);
+        var _sr_3776408:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = (null : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+        var _err_3783898:stdgo.Error = (null : stdgo.Error);
+        var _zeroes_3780032:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _needAuxFcn_3779636:Bool = false;
+        var _err_3777812:stdgo.Error = (null : stdgo.Error);
+        var _aux_3782337:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64>);
+        var _shdr_3778834:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64>);
+        var _nscns_3776856:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _se_3779724:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32>);
+        var _st_3777906:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _err_3776784:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -93,10 +93,10 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3776709i32;
                 } else if (__value__ == (3776709i32)) {
                     _f_3776709 = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_File.File)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
-                    _f_3776709.fileHeader.targetMachine = _magic_3776484;
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine = _magic_3776484;
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
                             _err_3776784 = __tmp__._1;
                         };
                         if (_err_3776784 != null) {
@@ -112,7 +112,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3776941i32;
                 } else if (__value__ == (3776941i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3776967i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -135,10 +135,10 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3777019 };
                     _gotoNext = 3777105i32;
                 } else if (__value__ == (3777105i32)) {
-                    _nscns_3776856 = _fhdr_3776988.fnscns;
-                    _symptr_3776874 = (_fhdr_3776988.fsymptr : stdgo.GoUInt64);
-                    _nsyms_3776893 = _fhdr_3776988.fnsyms;
-                    _opthdr_3776911 = _fhdr_3776988.fopthdr;
+                    _nscns_3776856 = (@:checkr _fhdr_3776988 ?? throw "null pointer dereference").fnscns;
+                    _symptr_3776874 = ((@:checkr _fhdr_3776988 ?? throw "null pointer dereference").fsymptr : stdgo.GoUInt64);
+                    _nsyms_3776893 = (@:checkr _fhdr_3776988 ?? throw "null pointer dereference").fnsyms;
+                    _opthdr_3776911 = (@:checkr _fhdr_3776988 ?? throw "null pointer dereference").fopthdr;
                     _hdrsz_3776930 = (20 : stdgo.GoInt);
                     _gotoNext = 3777477i32;
                 } else if (__value__ == (3777224i32)) {
@@ -155,10 +155,10 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3777276 };
                     _gotoNext = 3777362i32;
                 } else if (__value__ == (3777362i32)) {
-                    _nscns_3776856 = _fhdr_3777245.fnscns;
-                    _symptr_3776874 = _fhdr_3777245.fsymptr;
-                    _nsyms_3776893 = _fhdr_3777245.fnsyms;
-                    _opthdr_3776911 = _fhdr_3777245.fopthdr;
+                    _nscns_3776856 = (@:checkr _fhdr_3777245 ?? throw "null pointer dereference").fnscns;
+                    _symptr_3776874 = (@:checkr _fhdr_3777245 ?? throw "null pointer dereference").fsymptr;
+                    _nsyms_3776893 = (@:checkr _fhdr_3777245 ?? throw "null pointer dereference").fnsyms;
+                    _opthdr_3776911 = (@:checkr _fhdr_3777245 ?? throw "null pointer dereference").fopthdr;
                     _hdrsz_3776930 = (24 : stdgo.GoInt);
                     _gotoNext = 3777477i32;
                 } else if (__value__ == (3777477i32)) {
@@ -174,7 +174,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _offset_3777615 = (_symptr_3776874 + ((_nsyms_3776893 : stdgo.GoUInt64) * (18i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek((_offset_3777615 : stdgo.GoInt64), (0 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek((_offset_3777615 : stdgo.GoInt64), (0 : stdgo.GoInt));
                             _err_3777662 = __tmp__._1;
                         };
                         if (_err_3777662 != null) {
@@ -220,12 +220,12 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3777910 };
                     _gotoNext = 3778009i32;
                 } else if (__value__ == (3778009i32)) {
-                    _f_3776709.stringTable = _st_3777906;
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").stringTable = _st_3777906;
                     _gotoNext = 3778058i32;
                 } else if (__value__ == (3778058i32)) {
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek(((_hdrsz_3776930 : stdgo.GoInt64) + (_opthdr_3776911 : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek(((_hdrsz_3776930 : stdgo.GoInt64) + (_opthdr_3776911 : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
                             _err_3778064 = __tmp__._1;
                         };
                         if (_err_3778064 != null) {
@@ -248,7 +248,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("too many XCOFF sections (%d)" : stdgo.GoString), stdgo.Go.toInterface(_nscns_3776856)) };
                     _gotoNext = 3778292i32;
                 } else if (__value__ == (3778292i32)) {
-                    _f_3776709.sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>((0 : stdgo.GoInt).toBasic(), _c_3778157) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>);
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>((0 : stdgo.GoInt).toBasic(), _c_3778157) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>);
                     _i_3778333 = (0 : stdgo.GoInt);
                     _gotoNext = 3778329i32;
                 } else if (__value__ == (3778329i32)) {
@@ -262,7 +262,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3778405i32;
                 } else if (__value__ == (3778405i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3778432i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -285,13 +285,13 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3778489 };
                     _gotoNext = 3778578i32;
                 } else if (__value__ == (3778578i32)) {
-                    _s_3778385.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr_3778454.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                    _s_3778385.sectionHeader.virtualAddress = (_shdr_3778454.svaddr : stdgo.GoUInt64);
-                    _s_3778385.sectionHeader.size = (_shdr_3778454.ssize : stdgo.GoUInt64);
-                    _scnptr_3778369 = (_shdr_3778454.sscnptr : stdgo.GoUInt64);
-                    _s_3778385.sectionHeader.type = _shdr_3778454.sflags;
-                    _s_3778385.sectionHeader.relptr = (_shdr_3778454.srelptr : stdgo.GoUInt64);
-                    _s_3778385.sectionHeader.nreloc = (_shdr_3778454.snreloc : stdgo.GoUInt32);
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring(((@:checkr _shdr_3778454 ?? throw "null pointer dereference").sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.virtualAddress = ((@:checkr _shdr_3778454 ?? throw "null pointer dereference").svaddr : stdgo.GoUInt64);
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.size = ((@:checkr _shdr_3778454 ?? throw "null pointer dereference").ssize : stdgo.GoUInt64);
+                    _scnptr_3778369 = ((@:checkr _shdr_3778454 ?? throw "null pointer dereference").sscnptr : stdgo.GoUInt64);
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.type = (@:checkr _shdr_3778454 ?? throw "null pointer dereference").sflags;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.relptr = ((@:checkr _shdr_3778454 ?? throw "null pointer dereference").srelptr : stdgo.GoUInt64);
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.nreloc = ((@:checkr _shdr_3778454 ?? throw "null pointer dereference").snreloc : stdgo.GoUInt32);
                     _gotoNext = 3779156i32;
                 } else if (__value__ == (3778812i32)) {
                     _shdr_3778834 = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64>);
@@ -307,13 +307,13 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3778869 };
                     _gotoNext = 3778958i32;
                 } else if (__value__ == (3778958i32)) {
-                    _s_3778385.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr_3778834.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                    _s_3778385.sectionHeader.virtualAddress = _shdr_3778834.svaddr;
-                    _s_3778385.sectionHeader.size = _shdr_3778834.ssize;
-                    _scnptr_3778369 = _shdr_3778834.sscnptr;
-                    _s_3778385.sectionHeader.type = _shdr_3778834.sflags;
-                    _s_3778385.sectionHeader.relptr = _shdr_3778834.srelptr;
-                    _s_3778385.sectionHeader.nreloc = _shdr_3778834.snreloc;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring(((@:checkr _shdr_3778834 ?? throw "null pointer dereference").sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.virtualAddress = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").svaddr;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.size = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").ssize;
+                    _scnptr_3778369 = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").sscnptr;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.type = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").sflags;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.relptr = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").srelptr;
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.nreloc = (@:checkr _shdr_3778834 ?? throw "null pointer dereference").snreloc;
                     _gotoNext = 3779156i32;
                 } else if (__value__ == (3779156i32)) {
                     _r2_3779156 = _r;
@@ -326,21 +326,21 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _r2_3779156 = stdgo.Go.asInterface((new stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt() : stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt));
                     _gotoNext = 3779237i32;
                 } else if (__value__ == (3779237i32)) {
-                    _s_3778385._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2_3779156, (_scnptr_3778369 : stdgo.GoInt64), (_s_3778385.sectionHeader.size : stdgo.GoInt64));
-                    _s_3778385.readerAt = stdgo.Go.asInterface(_s_3778385._sr);
-                    _f_3776709.sections = (_f_3776709.sections.__append__(_s_3778385));
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference")._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2_3779156, (_scnptr_3778369 : stdgo.GoInt64), ((@:checkr _s_3778385 ?? throw "null pointer dereference").sectionHeader.size : stdgo.GoInt64));
+                    (@:checkr _s_3778385 ?? throw "null pointer dereference").readerAt = stdgo.Go.asInterface((@:checkr _s_3778385 ?? throw "null pointer dereference")._sr);
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").sections = ((@:checkr _f_3776709 ?? throw "null pointer dereference").sections.__append__(_s_3778385));
                     _i_3778333++;
                     _gotoNext = 3778329i32;
                 } else if (__value__ == (3779396i32)) {
-                    _idxToSym_3779400 = ({
+                    _idxToSym_3779400 = (({
                         final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>();
                         x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
                         {};
                         x;
-                    } : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
+                    } : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>) : stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek((_symptr_3776874 : stdgo.GoInt64), (0 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek((_symptr_3776874 : stdgo.GoInt64), (0 : stdgo.GoInt));
                             _err_3779463 = __tmp__._1;
                         };
                         if (_err_3779463 != null) {
@@ -353,7 +353,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3779463 };
                     _gotoNext = 3779543i32;
                 } else if (__value__ == (3779543i32)) {
-                    _f_3776709.symbols = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>((0 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").symbols = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>((0 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
                     _i_3779579 = (0 : stdgo.GoInt);
                     _gotoNext = 3779575i32;
                 } else if (__value__ == (3779575i32)) {
@@ -370,7 +370,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3779675i32;
                 } else if (__value__ == (3779675i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3779702i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -393,26 +393,26 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3779750 };
                     _gotoNext = 3779837i32;
                 } else if (__value__ == (3779837i32)) {
-                    _numaux_3779615 = (_se_3779724.nnumaux : stdgo.GoInt);
-                    _sym_3779654.sectionNumber = (_se_3779724.nscnum : stdgo.GoInt);
-                    _sym_3779654.storageClass = (_se_3779724.nsclass : stdgo.GoInt);
-                    _sym_3779654.value = (_se_3779724.nvalue : stdgo.GoUInt64);
-                    _needAuxFcn_3779636 = (((_se_3779724.ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux_3779615 > (1 : stdgo.GoInt) : Bool) : Bool);
-                    _zeroes_3780032 = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_se_3779724.nname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                    _numaux_3779615 = ((@:checkr _se_3779724 ?? throw "null pointer dereference").nnumaux : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").sectionNumber = ((@:checkr _se_3779724 ?? throw "null pointer dereference").nscnum : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").storageClass = ((@:checkr _se_3779724 ?? throw "null pointer dereference").nsclass : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").value = ((@:checkr _se_3779724 ?? throw "null pointer dereference").nvalue : stdgo.GoUInt64);
+                    _needAuxFcn_3779636 = ((((@:checkr _se_3779724 ?? throw "null pointer dereference").ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux_3779615 > (1 : stdgo.GoInt) : Bool) : Bool);
+                    _zeroes_3780032 = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _se_3779724 ?? throw "null pointer dereference").nname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     if (_zeroes_3780032 != ((0u32 : stdgo.GoUInt32))) {
                         _gotoNext = 3780098i32;
                     } else {
                         _gotoNext = 3780146i32;
                     };
                 } else if (__value__ == (3780098i32)) {
-                    _sym_3779654.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_se_3779724.nname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring(((@:checkr _se_3779724 ?? throw "null pointer dereference").nname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
                     _gotoNext = 3780704i32;
                 } else if (__value__ == (3780146i32)) {
                     _gotoNext = 3780146i32;
-                    _offset_3780152 = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_se_3779724.nname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                    _offset_3780152 = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _se_3779724 ?? throw "null pointer dereference").nname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     {
-                        var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_f_3776709.stringTable, _offset_3780152);
-                        _sym_3779654.name = __tmp__._0?.__copy__();
+                        var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString((@:checkr _f_3776709 ?? throw "null pointer dereference").stringTable, _offset_3780152);
+                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = __tmp__._0?.__copy__();
                         _ok_3779632 = __tmp__._1;
                     };
                     if (!_ok_3779632) {
@@ -436,14 +436,14 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3780341 };
                     _gotoNext = 3780428i32;
                 } else if (__value__ == (3780428i32)) {
-                    _numaux_3779615 = (_se_3780315.nnumaux : stdgo.GoInt);
-                    _sym_3779654.sectionNumber = (_se_3780315.nscnum : stdgo.GoInt);
-                    _sym_3779654.storageClass = (_se_3780315.nsclass : stdgo.GoInt);
-                    _sym_3779654.value = _se_3780315.nvalue;
-                    _needAuxFcn_3779636 = (((_se_3780315.ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux_3779615 > (1 : stdgo.GoInt) : Bool) : Bool);
+                    _numaux_3779615 = ((@:checkr _se_3780315 ?? throw "null pointer dereference").nnumaux : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").sectionNumber = ((@:checkr _se_3780315 ?? throw "null pointer dereference").nscnum : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").storageClass = ((@:checkr _se_3780315 ?? throw "null pointer dereference").nsclass : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").value = (@:checkr _se_3780315 ?? throw "null pointer dereference").nvalue;
+                    _needAuxFcn_3779636 = ((((@:checkr _se_3780315 ?? throw "null pointer dereference").ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux_3779615 > (1 : stdgo.GoInt) : Bool) : Bool);
                     {
-                        var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_f_3776709.stringTable, _se_3780315.noffset);
-                        _sym_3779654.name = __tmp__._0?.__copy__();
+                        var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString((@:checkr _f_3776709 ?? throw "null pointer dereference").stringTable, (@:checkr _se_3780315 ?? throw "null pointer dereference").noffset);
+                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = __tmp__._0?.__copy__();
                         _ok_3779632 = __tmp__._1;
                     };
                     if (!_ok_3779632) {
@@ -454,7 +454,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3780677i32)) {
                     _gotoNext = 3782672i32;
                 } else if (__value__ == (3780704i32)) {
-                    if (((_sym_3779654.storageClass != ((2 : stdgo.GoInt)) && _sym_3779654.storageClass != ((111 : stdgo.GoInt)) : Bool) && (_sym_3779654.storageClass != (107 : stdgo.GoInt)) : Bool)) {
+                    if ((((@:checkr _sym_3779654 ?? throw "null pointer dereference").storageClass != ((2 : stdgo.GoInt)) && (@:checkr _sym_3779654 ?? throw "null pointer dereference").storageClass != ((111 : stdgo.GoInt)) : Bool) && ((@:checkr _sym_3779654 ?? throw "null pointer dereference").storageClass != (107 : stdgo.GoInt)) : Bool)) {
                         _gotoNext = 3780798i32;
                     } else {
                         _gotoNext = 3780870i32;
@@ -470,7 +470,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3780910i32)) {
                     _gotoNext = 3782672i32;
                 } else if (__value__ == (3780932i32)) {
-                    if ((_sym_3779654.sectionNumber > (_nscns_3776856 : stdgo.GoInt) : Bool)) {
+                    if (((@:checkr _sym_3779654 ?? throw "null pointer dereference").sectionNumber > (_nscns_3776856 : stdgo.GoInt) : Bool)) {
                         _gotoNext = 3780966i32;
                     } else {
                         _gotoNext = 3780987i32;
@@ -478,17 +478,17 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3780966i32)) {
                     _gotoNext = 3782672i32;
                 } else if (__value__ == (3780987i32)) {
-                    if (_sym_3779654.sectionNumber == ((0 : stdgo.GoInt))) {
+                    if ((@:checkr _sym_3779654 ?? throw "null pointer dereference").sectionNumber == ((0 : stdgo.GoInt))) {
                         _gotoNext = 3781013i32;
                     } else {
                         _gotoNext = 3781041i32;
                     };
                 } else if (__value__ == (3781013i32)) {
-                    _sym_3779654.value = (0i64 : stdgo.GoUInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").value = (0i64 : stdgo.GoUInt64);
                     _gotoNext = 3781113i32;
                 } else if (__value__ == (3781041i32)) {
                     _gotoNext = 3781041i32;
-                    _sym_3779654.value = (_sym_3779654.value - (_f_3776709.sections[(_sym_3779654.sectionNumber - (1 : stdgo.GoInt) : stdgo.GoInt)].sectionHeader.virtualAddress) : stdgo.GoUInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").value = ((@:checkr _sym_3779654 ?? throw "null pointer dereference").value - ((@:checkr (@:checkr _f_3776709 ?? throw "null pointer dereference").sections[((@:checkr _sym_3779654 ?? throw "null pointer dereference").sectionNumber - (1 : stdgo.GoInt) : stdgo.GoInt)] ?? throw "null pointer dereference").sectionHeader.virtualAddress) : stdgo.GoUInt64);
                     var __blank__ = 0i32;
                     _gotoNext = 3781113i32;
                 } else if (__value__ == (3781113i32)) {
@@ -502,7 +502,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3781383i32;
                 } else if (__value__ == (3781383i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3781411i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -525,7 +525,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3781462 };
                     _gotoNext = 3781553i32;
                 } else if (__value__ == (3781553i32)) {
-                    _sym_3779654.auxFcn.size = (_aux_3781434.xfsize : stdgo.GoInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxFcn.size = ((@:checkr _aux_3781434 ?? throw "null pointer dereference").xfsize : stdgo.GoInt64);
                     _gotoNext = 3781847i32;
                 } else if (__value__ == (3781592i32)) {
                     _aux_3781615 = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64>);
@@ -541,7 +541,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3781643 };
                     _gotoNext = 3781734i32;
                 } else if (__value__ == (3781734i32)) {
-                    _sym_3779654.auxFcn.size = (_aux_3781615.xfsize : stdgo.GoInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxFcn.size = ((@:checkr _aux_3781615 ?? throw "null pointer dereference").xfsize : stdgo.GoInt64);
                     _gotoNext = 3781847i32;
                 } else if (__value__ == (3781847i32)) {
                     if (!_needAuxFcn_3779636) {
@@ -552,7 +552,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3781862i32)) {
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek((((_numaux_3779615 - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek((((_numaux_3779615 - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
                             _err_3781873 = __tmp__._1;
                         };
                         if (_err_3781873 != null) {
@@ -570,7 +570,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3782000i32;
                 } else if (__value__ == (3782000i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3782027i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -593,9 +593,9 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3782078 };
                     _gotoNext = 3782166i32;
                 } else if (__value__ == (3782166i32)) {
-                    _sym_3779654.auxCSect.symbolType = ((_aux_3782049.xsmtyp & (7 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
-                    _sym_3779654.auxCSect.storageMappingClass = (_aux_3782049.xsmclas : stdgo.GoInt);
-                    _sym_3779654.auxCSect.length_ = (_aux_3782049.xscnlen : stdgo.GoInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.symbolType = (((@:checkr _aux_3782049 ?? throw "null pointer dereference").xsmtyp & (7 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.storageMappingClass = ((@:checkr _aux_3782049 ?? throw "null pointer dereference").xsmclas : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.length_ = ((@:checkr _aux_3782049 ?? throw "null pointer dereference").xscnlen : stdgo.GoInt64);
                     _gotoNext = 3782636i32;
                 } else if (__value__ == (3782315i32)) {
                     _aux_3782337 = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64>);
@@ -611,18 +611,18 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3782366 };
                     _gotoNext = 3782454i32;
                 } else if (__value__ == (3782454i32)) {
-                    _sym_3779654.auxCSect.symbolType = ((_aux_3782337.xsmtyp & (7 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
-                    _sym_3779654.auxCSect.storageMappingClass = (_aux_3782337.xsmclas : stdgo.GoInt);
-                    _sym_3779654.auxCSect.length_ = (((_aux_3782337.xscnlenhi : stdgo.GoInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoInt64) | (_aux_3782337.xscnlenlo : stdgo.GoInt64) : stdgo.GoInt64);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.symbolType = (((@:checkr _aux_3782337 ?? throw "null pointer dereference").xsmtyp & (7 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.storageMappingClass = ((@:checkr _aux_3782337 ?? throw "null pointer dereference").xsmclas : stdgo.GoInt);
+                    (@:checkr _sym_3779654 ?? throw "null pointer dereference").auxCSect.length_ = ((((@:checkr _aux_3782337 ?? throw "null pointer dereference").xscnlenhi : stdgo.GoInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoInt64) | ((@:checkr _aux_3782337 ?? throw "null pointer dereference").xscnlenlo : stdgo.GoInt64) : stdgo.GoInt64);
                     _gotoNext = 3782636i32;
                 } else if (__value__ == (3782636i32)) {
-                    _f_3776709.symbols = (_f_3776709.symbols.__append__(_sym_3779654));
+                    (@:checkr _f_3776709 ?? throw "null pointer dereference").symbols = ((@:checkr _f_3776709 ?? throw "null pointer dereference").symbols.__append__(_sym_3779654));
                     _gotoNext = 3782672i32;
                 } else if (__value__ == (3782672i32)) {
                     _i_3779579 = (_i_3779579 + (_numaux_3779615) : stdgo.GoInt);
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek(((_numaux_3779615 : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek(((_numaux_3779615 : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
                             _err_3782726 = __tmp__._1;
                         };
                         if (_err_3782726 != null) {
@@ -635,7 +635,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3782726 };
                     _gotoNext = 3779603i32;
                 } else if (__value__ == (3782878i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_f_3776709.sections.length)) {
+                    if ((0i32 : stdgo.GoInt) < ((@:checkr _f_3776709 ?? throw "null pointer dereference").sections.length)) {
                         _gotoNext = 3784318i32;
                     } else {
                         _gotoNext = 3784323i32;
@@ -644,8 +644,8 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _sectNum_3782882++;
                     _gotoNext = 3784319i32;
                 } else if (__value__ == (3782916i32)) {
-                    _sect_3782891 = _f_3776709.sections[(_sectNum_3782882 : stdgo.GoInt)];
-                    if (((_sect_3782891.sectionHeader.type != (32u32 : stdgo.GoUInt32)) && (_sect_3782891.sectionHeader.type != (64u32 : stdgo.GoUInt32)) : Bool)) {
+                    _sect_3782891 = (@:checkr _f_3776709 ?? throw "null pointer dereference").sections[(_sectNum_3782882 : stdgo.GoInt)];
+                    if ((((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.type != (32u32 : stdgo.GoUInt32)) && ((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.type != (64u32 : stdgo.GoUInt32)) : Bool)) {
                         _gotoNext = 3782972i32;
                     } else {
                         _gotoNext = 3782992i32;
@@ -654,7 +654,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _sectNum_3782882++;
                     _gotoNext = 3784319i32;
                 } else if (__value__ == (3782992i32)) {
-                    if (_sect_3782891.sectionHeader.relptr == ((0i64 : stdgo.GoUInt64))) {
+                    if ((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.relptr == ((0i64 : stdgo.GoUInt64))) {
                         _gotoNext = 3783012i32;
                     } else {
                         _gotoNext = 3783032i32;
@@ -663,20 +663,20 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _sectNum_3782882++;
                     _gotoNext = 3784319i32;
                 } else if (__value__ == (3783032i32)) {
-                    _c_3783032 = stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface((null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>)), (_sect_3782891.sectionHeader.nreloc : stdgo.GoUInt64));
+                    _c_3783032 = stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface((null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>)), ((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.nreloc : stdgo.GoUInt64));
                     if ((_c_3783032 < (0 : stdgo.GoInt) : Bool)) {
                         _gotoNext = 3783101i32;
                     } else {
                         _gotoNext = 3783196i32;
                     };
                 } else if (__value__ == (3783101i32)) {
-                    return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("too many relocs (%d) for section %d" : stdgo.GoString), stdgo.Go.toInterface(_sect_3782891.sectionHeader.nreloc), stdgo.Go.toInterface(_sectNum_3782882)) };
+                    return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("too many relocs (%d) for section %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.nreloc), stdgo.Go.toInterface(_sectNum_3782882)) };
                     _gotoNext = 3783196i32;
                 } else if (__value__ == (3783196i32)) {
-                    _sect_3782891.relocs = (new stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>((0 : stdgo.GoInt).toBasic(), _c_3783032, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _c_3783032 ? (0 : stdgo.GoInt).toBasic() : _c_3783032 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc)]) : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>);
+                    (@:checkr _sect_3782891 ?? throw "null pointer dereference").relocs = (new stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>((0 : stdgo.GoInt).toBasic(), _c_3783032, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _c_3783032 ? (0 : stdgo.GoInt).toBasic() : _c_3783032 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc)]) : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>);
                     {
                         {
-                            var __tmp__ = _sr_3776408.seek((_sect_3782891.sectionHeader.relptr : stdgo.GoInt64), (0 : stdgo.GoInt));
+                            var __tmp__ = @:check2r _sr_3776408.seek(((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.relptr : stdgo.GoInt64), (0 : stdgo.GoInt));
                             _err_3783238 = __tmp__._1;
                         };
                         if (_err_3783238 != null) {
@@ -691,7 +691,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3783326i32)) {
                     _i_3783330 = (0u32 : stdgo.GoUInt32);
                     _gotoNext = 3783326i32;
-                    if ((_i_3783330 < _sect_3782891.sectionHeader.nreloc : Bool)) {
+                    if ((_i_3783330 < (@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.nreloc : Bool)) {
                         _gotoNext = 3783367i32;
                     } else {
                         _gotoNext = 3782882i32;
@@ -700,7 +700,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _gotoNext = 3783391i32;
                 } else if (__value__ == (3783391i32)) {
                     {
-                        final __value__ = _f_3776709.fileHeader.targetMachine;
+                        final __value__ = (@:checkr _f_3776709 ?? throw "null pointer dereference").fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             _gotoNext = 3783419i32;
                         } else if (__value__ == ((503 : stdgo.GoUInt16))) {
@@ -723,11 +723,11 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3783469 };
                     _gotoNext = 3783560i32;
                 } else if (__value__ == (3783560i32)) {
-                    _reloc_3783376.virtualAddress = (_rel_3783442.rvaddr : stdgo.GoUInt64);
-                    _reloc_3783376.symbol = (_idxToSym_3779400[(_rel_3783442.rsymndx : stdgo.GoInt)] ?? (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>));
-                    _reloc_3783376.type = _rel_3783442.rtype;
-                    _reloc_3783376.length_ = ((_rel_3783442.rsize & (63 : stdgo.GoUInt8) : stdgo.GoUInt8) + (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                    if ((_rel_3783442.rsize & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+                    _reloc_3783376.virtualAddress = ((@:checkr _rel_3783442 ?? throw "null pointer dereference").rvaddr : stdgo.GoUInt64);
+                    _reloc_3783376.symbol = (_idxToSym_3779400[((@:checkr _rel_3783442 ?? throw "null pointer dereference").rsymndx : stdgo.GoInt)] ?? (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>));
+                    _reloc_3783376.type = (@:checkr _rel_3783442 ?? throw "null pointer dereference").rtype;
+                    _reloc_3783376.length_ = (((@:checkr _rel_3783442 ?? throw "null pointer dereference").rsize & (63 : stdgo.GoUInt8) : stdgo.GoUInt8) + (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
+                    if (((@:checkr _rel_3783442 ?? throw "null pointer dereference").rsize & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                         _gotoNext = 3783741i32;
                     } else {
                         _gotoNext = 3783778i32;
@@ -736,7 +736,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _reloc_3783376.signed = true;
                     _gotoNext = 3783778i32;
                 } else if (__value__ == (3783778i32)) {
-                    if ((_rel_3783442.rsize & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+                    if (((@:checkr _rel_3783442 ?? throw "null pointer dereference").rsize & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                         _gotoNext = 3783801i32;
                     } else {
                         _gotoNext = 3784273i32;
@@ -758,11 +758,11 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     return { _0 : null, _1 : _err_3783898 };
                     _gotoNext = 3783989i32;
                 } else if (__value__ == (3783989i32)) {
-                    _reloc_3783376.virtualAddress = _rel_3783871.rvaddr;
-                    _reloc_3783376.symbol = (_idxToSym_3779400[(_rel_3783871.rsymndx : stdgo.GoInt)] ?? (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>));
-                    _reloc_3783376.type = _rel_3783871.rtype;
-                    _reloc_3783376.length_ = ((_rel_3783871.rsize & (63 : stdgo.GoUInt8) : stdgo.GoUInt8) + (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                    if ((_rel_3783871.rsize & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+                    _reloc_3783376.virtualAddress = (@:checkr _rel_3783871 ?? throw "null pointer dereference").rvaddr;
+                    _reloc_3783376.symbol = (_idxToSym_3779400[((@:checkr _rel_3783871 ?? throw "null pointer dereference").rsymndx : stdgo.GoInt)] ?? (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>));
+                    _reloc_3783376.type = (@:checkr _rel_3783871 ?? throw "null pointer dereference").rtype;
+                    _reloc_3783376.length_ = (((@:checkr _rel_3783871 ?? throw "null pointer dereference").rsize & (63 : stdgo.GoUInt8) : stdgo.GoUInt8) + (1 : stdgo.GoUInt8) : stdgo.GoUInt8);
+                    if (((@:checkr _rel_3783871 ?? throw "null pointer dereference").rsize & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                         _gotoNext = 3784161i32;
                     } else {
                         _gotoNext = 3784198i32;
@@ -771,7 +771,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _reloc_3783376.signed = true;
                     _gotoNext = 3784198i32;
                 } else if (__value__ == (3784198i32)) {
-                    if ((_rel_3783871.rsize & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+                    if (((@:checkr _rel_3783871 ?? throw "null pointer dereference").rsize & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                         _gotoNext = 3784221i32;
                     } else {
                         _gotoNext = 3784273i32;
@@ -780,19 +780,19 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _reloc_3783376.instructionFixed = true;
                     _gotoNext = 3784273i32;
                 } else if (__value__ == (3784273i32)) {
-                    _sect_3782891.relocs = (_sect_3782891.relocs.__append__(_reloc_3783376?.__copy__()));
+                    (@:checkr _sect_3782891 ?? throw "null pointer dereference").relocs = ((@:checkr _sect_3782891 ?? throw "null pointer dereference").relocs.__append__(_reloc_3783376?.__copy__()));
                     _i_3783330++;
                     _gotoNext = 3783326i32;
                 } else if (__value__ == (3784318i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _f_3776709.sections[(0i32 : stdgo.GoInt)];
+                        final __tmp__1 = (@:checkr _f_3776709 ?? throw "null pointer dereference").sections[(0i32 : stdgo.GoInt)];
                         _sectNum_3782882 = __tmp__0;
                         _sect_3782891 = __tmp__1;
                     };
                     _gotoNext = 3784319i32;
                 } else if (__value__ == (3784319i32)) {
-                    if (_sectNum_3782882 < (_f_3776709.sections.length)) {
+                    if (_sectNum_3782882 < ((@:checkr _f_3776709 ?? throw "null pointer dereference").sections.length)) {
                         _gotoNext = 3782916i32;
                     } else {
                         _gotoNext = 3784323i32;

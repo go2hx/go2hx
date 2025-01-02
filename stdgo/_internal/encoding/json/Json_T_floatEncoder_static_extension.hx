@@ -1,13 +1,14 @@
 package stdgo._internal.encoding.json;
 @:keep @:allow(stdgo._internal.encoding.json.Json.T_floatEncoder_asInterface) class T_floatEncoder_static_extension {
     @:keep
+    @:tdfield
     static public function _encode( _bits:stdgo._internal.encoding.json.Json_T_floatEncoder.T_floatEncoder, _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void {
         @:recv var _bits:stdgo._internal.encoding.json.Json_T_floatEncoder.T_floatEncoder = _bits;
         var _f = (_v.float_() : stdgo.GoFloat64);
         if ((stdgo._internal.math.Math_isInf.isInf(_f, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_f) : Bool)) {
-            _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError(_v?.__copy__(), stdgo._internal.strconv.Strconv_formatFloat.formatFloat(_f, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (_bits : stdgo.GoInt))?.__copy__()) : stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError>)));
+            @:check2r _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError(_v?.__copy__(), stdgo._internal.strconv.Strconv_formatFloat.formatFloat(_f, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (_bits : stdgo.GoInt))?.__copy__()) : stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError>)));
         };
-        var _b = _e.availableBuffer();
+        var _b = @:check2r _e.availableBuffer();
         _b = stdgo._internal.encoding.json.Json__mayAppendQuote._mayAppendQuote(_b, _opts._quoted);
         var _abs = (stdgo._internal.math.Math_abs.abs(_f) : stdgo.GoFloat64);
         var _fmt = ((102 : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -25,6 +26,6 @@ package stdgo._internal.encoding.json;
             };
         };
         _b = stdgo._internal.encoding.json.Json__mayAppendQuote._mayAppendQuote(_b, _opts._quoted);
-        _e.write(_b);
+        @:check2r _e.write(_b);
     }
 }

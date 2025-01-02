@@ -70,11 +70,13 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
 typedef T_debugT = stdgo._internal.net.mail.Mail_T_debugT.T_debugT;
 typedef Header = stdgo._internal.net.mail.Mail_Header.Header;
 typedef T_charsetError = stdgo._internal.net.mail.Mail_T_charsetError.T_charsetError;
+typedef AddressPointer = stdgo._internal.net.mail.Mail_AddressPointer.AddressPointer;
 class Address_static_extension {
     static public function string(_a:Address):String {
         return stdgo._internal.net.mail.Mail_Address_static_extension.Address_static_extension.string(_a);
     }
 }
+typedef AddressParserPointer = stdgo._internal.net.mail.Mail_AddressParserPointer.AddressParserPointer;
 class AddressParser_static_extension {
     static public function parseList(_p:AddressParser, _list:String):stdgo.Tuple<Array<Address>, stdgo.Error> {
         return {
@@ -89,6 +91,7 @@ class AddressParser_static_extension {
         };
     }
 }
+typedef T_addrParserPointer = stdgo._internal.net.mail.Mail_T_addrParserPointer.T_addrParserPointer;
 class T_addrParser_static_extension {
     static public function _decodeRFC2047Word(_p:T_addrParser, _s:String):stdgo.Tuple.Tuple3<String, Bool, stdgo.Error> {
         return {
@@ -175,11 +178,13 @@ class T_addrParser_static_extension {
         };
     }
 }
+typedef T_debugTPointer = stdgo._internal.net.mail.Mail_T_debugTPointer.T_debugTPointer;
 class T_debugT_static_extension {
     static public function printf(_d:T_debugT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.net.mail.Mail_T_debugT_static_extension.T_debugT_static_extension.printf(_d, _format, ...[for (i in _args) i]);
     }
 }
+typedef HeaderPointer = stdgo._internal.net.mail.Mail_HeaderPointer.HeaderPointer;
 class Header_static_extension {
     static public function addressList(_h:Header, _key:String):stdgo.Tuple<Array<Address>, stdgo.Error> {
         return {
@@ -197,6 +202,7 @@ class Header_static_extension {
         return stdgo._internal.net.mail.Mail_Header_static_extension.Header_static_extension.get(_h, _key);
     }
 }
+typedef T_charsetErrorPointer = stdgo._internal.net.mail.Mail_T_charsetErrorPointer.T_charsetErrorPointer;
 class T_charsetError_static_extension {
     static public function error(_e:T_charsetError):String {
         return stdgo._internal.net.mail.Mail_T_charsetError_static_extension.T_charsetError_static_extension.error(_e);

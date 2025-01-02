@@ -11,11 +11,11 @@ function testUnsupportedValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
                             { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError>), _1 : false };
                         }, __6 = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok) {
-                            _t.errorf(("for %v, got %T want UnsupportedValueError" : stdgo.GoString), _v, stdgo.Go.toInterface(_err));
+                            @:check2r _t.errorf(("for %v, got %T want UnsupportedValueError" : stdgo.GoString), _v, stdgo.Go.toInterface(_err));
                         };
                     };
                 } else {
-                    _t.errorf(("for %v, expected error" : stdgo.GoString), _v);
+                    @:check2r _t.errorf(("for %v, expected error" : stdgo.GoString), _v);
                 };
             };
         };

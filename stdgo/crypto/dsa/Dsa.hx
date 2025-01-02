@@ -1,8 +1,8 @@
 package stdgo.crypto.dsa;
-final l1024n160 : ParameterSizes = stdgo._internal.crypto.dsa.Dsa_l1024n160.l1024n160;
-final l2048n224 = stdgo._internal.crypto.dsa.Dsa_l2048n224.l2048n224;
-final l2048n256 = stdgo._internal.crypto.dsa.Dsa_l2048n256.l2048n256;
-final l3072n256 = stdgo._internal.crypto.dsa.Dsa_l3072n256.l3072n256;
+final l1024N160 : ParameterSizes = stdgo._internal.crypto.dsa.Dsa_l1024N160.l1024N160;
+final l2048N224 = stdgo._internal.crypto.dsa.Dsa_l2048N224.l2048N224;
+final l2048N256 = stdgo._internal.crypto.dsa.Dsa_l2048N256.l2048N256;
+final l3072N256 = stdgo._internal.crypto.dsa.Dsa_l3072N256.l3072N256;
 var errInvalidPublicKey(get, set) : stdgo.Error;
 private function get_errInvalidPublicKey():stdgo.Error return stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey;
 private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
@@ -67,9 +67,11 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 typedef ParameterSizes = stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes;
+typedef PublicKeyPointer = stdgo._internal.crypto.dsa.Dsa_PublicKeyPointer.PublicKeyPointer;
 class PublicKey_static_extension {
 
 }
+typedef PrivateKeyPointer = stdgo._internal.crypto.dsa.Dsa_PrivateKeyPointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
 
 }

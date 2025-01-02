@@ -43,16 +43,16 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_h
                 __tmp__;
             };
         };
-        _nodeIndex = (_t._nextNode : stdgo.GoUInt16);
-        var _node = (stdgo.Go.setRef(_t._nodes[(_t._nextNode : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode>);
-        _t._nextNode++;
+        _nodeIndex = ((@:checkr _t ?? throw "null pointer dereference")._nextNode : stdgo.GoUInt16);
+        var _node = (stdgo.Go.setRef((@:checkr _t ?? throw "null pointer dereference")._nodes[((@:checkr _t ?? throw "null pointer dereference")._nextNode : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode>);
+        (@:checkr _t ?? throw "null pointer dereference")._nextNode++;
         if ((_left.length) == ((1 : stdgo.GoInt))) {
-            _node._left = (65535 : stdgo.GoUInt16);
-            _node._leftValue = _left[(0 : stdgo.GoInt)]._value;
+            (@:checkr _node ?? throw "null pointer dereference")._left = (65535 : stdgo.GoUInt16);
+            (@:checkr _node ?? throw "null pointer dereference")._leftValue = _left[(0 : stdgo.GoInt)]._value;
         } else {
             {
                 var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                _node._left = __tmp__._0;
+                (@:checkr _node ?? throw "null pointer dereference")._left = __tmp__._0;
                 _err = __tmp__._1;
             };
         };
@@ -60,12 +60,12 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_h
             return { _0 : _nodeIndex, _1 : _err };
         };
         if ((_right.length) == ((1 : stdgo.GoInt))) {
-            _node._right = (65535 : stdgo.GoUInt16);
-            _node._rightValue = _right[(0 : stdgo.GoInt)]._value;
+            (@:checkr _node ?? throw "null pointer dereference")._right = (65535 : stdgo.GoUInt16);
+            (@:checkr _node ?? throw "null pointer dereference")._rightValue = _right[(0 : stdgo.GoInt)]._value;
         } else {
             {
                 var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                _node._right = __tmp__._0;
+                (@:checkr _node ?? throw "null pointer dereference")._right = __tmp__._0;
                 _err = __tmp__._1;
             };
         };

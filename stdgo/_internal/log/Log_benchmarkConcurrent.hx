@@ -5,24 +5,25 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
         {
             var _i = (stdgo._internal.runtime.Runtime_numCPU.numCPU() : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                _group.add((1 : stdgo.GoInt));
+                @:check2 _group.add((1 : stdgo.GoInt));
 stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
                             {
                                 var _i = (0 : stdgo.GoInt);
-                                while ((_i < _b.n : Bool)) {
-                                    _l.output((0 : stdgo.GoInt), ("hello, world!" : stdgo.GoString));
+                                while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
+                                    @:check2r _l.output((0 : stdgo.GoInt), ("hello, world!" : stdgo.GoString));
                                     _i++;
                                 };
                             };
                             {
-                                final __f__ = _group.done;
+                                final __f__ = @:check2 _group.done;
                                 __deferstack__.unshift(() -> __f__());
                             };
                             {
                                 for (defer in __deferstack__) {
+                                    __deferstack__.remove(defer);
                                     defer();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -37,6 +38,7 @@ stdgo.Go.routine(() -> ({
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
+                                __deferstack__.remove(defer);
                                 defer();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -48,5 +50,5 @@ stdgo.Go.routine(() -> ({
                 _i--;
             };
         };
-        _group.wait_();
+        @:check2 _group.wait_();
     }

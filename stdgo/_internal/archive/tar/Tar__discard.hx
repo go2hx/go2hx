@@ -19,7 +19,7 @@ function _discard(_r:stdgo._internal.io.Io_Reader.Reader, _n:stdgo.GoInt64):stdg
             };
         };
         var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo._internal.io.Io_discard.discard, _r, (_n - _seekSkipped : stdgo.GoInt64)), _copySkipped:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) && ((_seekSkipped + _copySkipped : stdgo.GoInt64) < _n : Bool) : Bool)) {
+        if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) && ((_seekSkipped + _copySkipped : stdgo.GoInt64) < _n : Bool) : Bool)) {
             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
         };
         return _err;

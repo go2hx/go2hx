@@ -1,6 +1,7 @@
 package stdgo._internal.html.template;
 @:keep @:allow(stdgo._internal.html.template.Template.T_delim_asInterface) class T_delim_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.html.template.Template_T_delim.T_delim):stdgo.GoString {
         @:recv var _i:stdgo._internal.html.template.Template_T_delim.T_delim = _i;
         if ((_i >= ((4 : stdgo.GoInt) : stdgo._internal.html.template.Template_T_delim.T_delim) : Bool)) {

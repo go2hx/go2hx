@@ -5,7 +5,7 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         var _dec = (stdgo._internal.encoding.base64.Base64_newDecoder.newDecoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_encoded?.__copy__()))) : stdgo._internal.io.Io_Reader.Reader);
         var __tmp__ = stdgo._internal.io.Io_readAll.readAll(_dec), _res1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            @:check2r _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         _dec = stdgo._internal.encoding.base64.Base64_newDecoder.newDecoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_encodedShort?.__copy__())));
         var _res2:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -15,9 +15,9 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             _err = __tmp__._1;
         };
         if (_err != null) {
-            _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            @:check2r _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         if (!stdgo._internal.bytes.Bytes_equal.equal(_res1, _res2)) {
-            _t.error(stdgo.Go.toInterface(("Decoded results not equal" : stdgo.GoString)));
+            @:check2r _t.error(stdgo.Go.toInterface(("Decoded results not equal" : stdgo.GoString)));
         };
     }

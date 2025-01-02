@@ -1,6 +1,6 @@
 package stdgo.crypto.rsa;
-final psssaltLengthAuto : haxe.UInt64 = stdgo._internal.crypto.rsa.Rsa_psssaltLengthAuto.psssaltLengthAuto;
-final psssaltLengthEqualsHash : haxe.UInt64 = stdgo._internal.crypto.rsa.Rsa_psssaltLengthEqualsHash.psssaltLengthEqualsHash;
+final pSSSaltLengthAuto : haxe.UInt64 = stdgo._internal.crypto.rsa.Rsa_pSSSaltLengthAuto.pSSSaltLengthAuto;
+final pSSSaltLengthEqualsHash : haxe.UInt64 = stdgo._internal.crypto.rsa.Rsa_pSSSaltLengthEqualsHash.pSSSaltLengthEqualsHash;
 var errMessageTooLong(get, set) : stdgo.Error;
 private function get_errMessageTooLong():stdgo.Error return stdgo._internal.crypto.rsa.Rsa_errMessageTooLong.errMessageTooLong;
 private function set_errMessageTooLong(v:stdgo.Error):stdgo.Error {
@@ -71,10 +71,10 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
         this.hash = v;
         return v;
     }
-    public var mgfhash(get, set) : stdgo._internal.crypto.Crypto_Hash.Hash;
-    function get_mgfhash():stdgo._internal.crypto.Crypto_Hash.Hash return this.mgfhash;
-    function set_mgfhash(v:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo._internal.crypto.Crypto_Hash.Hash {
-        this.mgfhash = v;
+    public var mGFHash(get, set) : stdgo._internal.crypto.Crypto_Hash.Hash;
+    function get_mGFHash():stdgo._internal.crypto.Crypto_Hash.Hash return this.mGFHash;
+    function set_mGFHash(v:stdgo._internal.crypto.Crypto_Hash.Hash):stdgo._internal.crypto.Crypto_Hash.Hash {
+        this.mGFHash = v;
         return v;
     }
     public var label(get, set) : Array<std.UInt>;
@@ -83,7 +83,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
         this.label = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?hash:stdgo._internal.crypto.Crypto_Hash.Hash, ?mgfhash:stdgo._internal.crypto.Crypto_Hash.Hash, ?label:Array<std.UInt>) this = new stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions(hash, mgfhash, ([for (i in label) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?hash:stdgo._internal.crypto.Crypto_Hash.Hash, ?mGFHash:stdgo._internal.crypto.Crypto_Hash.Hash, ?label:Array<std.UInt>) this = new stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions(hash, mGFHash, ([for (i in label) i] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -135,10 +135,10 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
         this.qinv = v;
         return v;
     }
-    public var crtvalues(get, set) : Array<CRTValue>;
-    function get_crtvalues():Array<CRTValue> return [for (i in this.crtvalues) i];
-    function set_crtvalues(v:Array<CRTValue>):Array<CRTValue> {
-        this.crtvalues = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>);
+    public var cRTValues(get, set) : Array<CRTValue>;
+    function get_cRTValues():Array<CRTValue> return [for (i in this.cRTValues) i];
+    function set_cRTValues(v:Array<CRTValue>):Array<CRTValue> {
+        this.cRTValues = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>);
         return v;
     }
     public var _n(get, set) : _internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus;
@@ -159,7 +159,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
         this._q = v;
         return v;
     }
-    public function new(?dp:stdgo._internal.math.big.Big_Int_.Int_, ?dq:stdgo._internal.math.big.Big_Int_.Int_, ?qinv:stdgo._internal.math.big.Big_Int_.Int_, ?crtvalues:Array<CRTValue>, ?_n:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus, ?_p:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus, ?_q:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus) this = new stdgo._internal.crypto.rsa.Rsa_PrecomputedValues.PrecomputedValues(dp, dq, qinv, ([for (i in crtvalues) i] : stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>), _n, _p, _q);
+    public function new(?dp:stdgo._internal.math.big.Big_Int_.Int_, ?dq:stdgo._internal.math.big.Big_Int_.Int_, ?qinv:stdgo._internal.math.big.Big_Int_.Int_, ?cRTValues:Array<CRTValue>, ?_n:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus, ?_p:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus, ?_q:_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus) this = new stdgo._internal.crypto.rsa.Rsa_PrecomputedValues.PrecomputedValues(dp, dq, qinv, ([for (i in cRTValues) i] : stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>), _n, _p, _q);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -186,6 +186,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef PSSOptionsPointer = stdgo._internal.crypto.rsa.Rsa_PSSOptionsPointer.PSSOptionsPointer;
 class PSSOptions_static_extension {
     static public function _saltLength(_opts:PSSOptions):StdTypes.Int {
         return stdgo._internal.crypto.rsa.Rsa_PSSOptions_static_extension.PSSOptions_static_extension._saltLength(_opts);
@@ -194,6 +195,7 @@ class PSSOptions_static_extension {
         return stdgo._internal.crypto.rsa.Rsa_PSSOptions_static_extension.PSSOptions_static_extension.hashFunc(_opts);
     }
 }
+typedef PublicKeyPointer = stdgo._internal.crypto.rsa.Rsa_PublicKeyPointer.PublicKeyPointer;
 class PublicKey_static_extension {
     static public function equal(_pub:PublicKey, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
         return stdgo._internal.crypto.rsa.Rsa_PublicKey_static_extension.PublicKey_static_extension.equal(_pub, _x);
@@ -202,6 +204,7 @@ class PublicKey_static_extension {
         return stdgo._internal.crypto.rsa.Rsa_PublicKey_static_extension.PublicKey_static_extension.size(_pub);
     }
 }
+typedef PrivateKeyPointer = stdgo._internal.crypto.rsa.Rsa_PrivateKeyPointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
     static public function precompute(_priv:PrivateKey):Void {
         stdgo._internal.crypto.rsa.Rsa_PrivateKey_static_extension.PrivateKey_static_extension.precompute(_priv);

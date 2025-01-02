@@ -5,6 +5,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function prepare(_query:stdgo.GoString):{ var _0 : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt; var _1 : stdgo.Error; };
     /**
         Close invalidates and potentially stops any current
@@ -21,6 +22,7 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function close():stdgo.Error;
     /**
         Begin starts and returns a new transaction.
@@ -29,5 +31,6 @@ typedef Conn = stdgo.StructType & {
         
         
     **/
+    @:interfacetypeffun
     public dynamic function begin():{ var _0 : stdgo._internal.database.sql.driver.Driver_Tx.Tx; var _1 : stdgo.Error; };
 };

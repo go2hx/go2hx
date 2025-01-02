@@ -184,12 +184,13 @@ private function set_consume(v:(stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef XFDMutexPointer = stdgo._internal.internal.poll.Poll_XFDMutexPointer.XFDMutexPointer;
 class XFDMutex_static_extension {
-    static public function rwunlock(_mu:XFDMutex, _read:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.rwunlock(_mu, _read);
+    static public function rWUnlock(_mu:XFDMutex, _read:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.rWUnlock(_mu, _read);
     }
-    static public function rwlock(_mu:XFDMutex, _read:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.rwlock(_mu, _read);
+    static public function rWLock(_mu:XFDMutex, _read:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.rWLock(_mu, _read);
     }
     static public function decref(_mu:XFDMutex):Bool {
         return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.decref(_mu);
@@ -200,11 +201,11 @@ class XFDMutex_static_extension {
     static public function incref(_mu:XFDMutex):Bool {
         return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension.incref(_mu);
     }
-    public static function _rwunlock(__self__:stdgo._internal.internal.poll.Poll_XFDMutex.XFDMutex, __0:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._rwunlock(__self__, __0);
+    public static function _rwunlock(__self__:stdgo._internal.internal.poll.Poll_XFDMutex.XFDMutex, _0:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._rwunlock(__self__, _0);
     }
-    public static function _rwlock(__self__:stdgo._internal.internal.poll.Poll_XFDMutex.XFDMutex, __0:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._rwlock(__self__, __0);
+    public static function _rwlock(__self__:stdgo._internal.internal.poll.Poll_XFDMutex.XFDMutex, _0:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._rwlock(__self__, _0);
     }
     public static function _increfAndClose(__self__:stdgo._internal.internal.poll.Poll_XFDMutex.XFDMutex):Bool {
         return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._increfAndClose(__self__);
@@ -216,6 +217,7 @@ class XFDMutex_static_extension {
         return stdgo._internal.internal.poll.Poll_XFDMutex_static_extension.XFDMutex_static_extension._decref(__self__);
     }
 }
+typedef T_errNetClosingPointer = stdgo._internal.internal.poll.Poll_T_errNetClosingPointer.T_errNetClosingPointer;
 class T_errNetClosing_static_extension {
     static public function temporary(_e:T_errNetClosing):Bool {
         return stdgo._internal.internal.poll.Poll_T_errNetClosing_static_extension.T_errNetClosing_static_extension.temporary(_e);
@@ -227,6 +229,7 @@ class T_errNetClosing_static_extension {
         return stdgo._internal.internal.poll.Poll_T_errNetClosing_static_extension.T_errNetClosing_static_extension.error(_e);
     }
 }
+typedef DeadlineExceededErrorPointer = stdgo._internal.internal.poll.Poll_DeadlineExceededErrorPointer.DeadlineExceededErrorPointer;
 class DeadlineExceededError_static_extension {
     static public function temporary(_e:DeadlineExceededError):Bool {
         return stdgo._internal.internal.poll.Poll_DeadlineExceededError_static_extension.DeadlineExceededError_static_extension.temporary(_e);
@@ -238,6 +241,7 @@ class DeadlineExceededError_static_extension {
         return stdgo._internal.internal.poll.Poll_DeadlineExceededError_static_extension.DeadlineExceededError_static_extension.error(_e);
     }
 }
+typedef T_fdMutexPointer = stdgo._internal.internal.poll.Poll_T_fdMutexPointer.T_fdMutexPointer;
 class T_fdMutex_static_extension {
     static public function _rwunlock(_mu:T_fdMutex, _read:Bool):Bool {
         return stdgo._internal.internal.poll.Poll_T_fdMutex_static_extension.T_fdMutex_static_extension._rwunlock(_mu, _read);
@@ -255,6 +259,7 @@ class T_fdMutex_static_extension {
         return stdgo._internal.internal.poll.Poll_T_fdMutex_static_extension.T_fdMutex_static_extension._incref(_mu);
     }
 }
+typedef T_pollDescPointer = stdgo._internal.internal.poll.Poll_T_pollDescPointer.T_pollDescPointer;
 class T_pollDesc_static_extension {
     static public function _pollable(_pd:T_pollDesc):Bool {
         return stdgo._internal.internal.poll.Poll_T_pollDesc_static_extension.T_pollDesc_static_extension._pollable(_pd);
@@ -290,6 +295,7 @@ class T_pollDesc_static_extension {
         return stdgo._internal.internal.poll.Poll_T_pollDesc_static_extension.T_pollDesc_static_extension._init(_pd, _fd);
     }
 }
+typedef FDPointer = stdgo._internal.internal.poll.Poll_FDPointer.FDPointer;
 class FD_static_extension {
     static public function seek(_fd:FD, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -519,10 +525,11 @@ class FD_static_extension {
     static public function fsync(_fd:FD):stdgo.Error {
         return stdgo._internal.internal.poll.Poll_FD_static_extension.FD_static_extension.fsync(_fd);
     }
-    public static function _init(__self__:stdgo._internal.internal.poll.Poll_FD.FD) {
+    public static function _init(__self__:stdgo._internal.internal.poll.Poll_FD.FD):Void {
         stdgo._internal.internal.poll.Poll_FD_static_extension.FD_static_extension._init(__self__);
     }
 }
+typedef SysFilePointer = stdgo._internal.internal.poll.Poll_SysFilePointer.SysFilePointer;
 class SysFile_static_extension {
     static public function _destroy(_s:SysFile, _fd:StdTypes.Int):stdgo.Error {
         return stdgo._internal.internal.poll.Poll_SysFile_static_extension.SysFile_static_extension._destroy(_s, _fd);

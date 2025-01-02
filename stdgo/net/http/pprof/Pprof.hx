@@ -29,6 +29,7 @@ package stdgo.net.http.pprof;
     public function __copy__() return this.__copy__();
 }
 typedef T_handler = stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler;
+typedef T_handlerPointer = stdgo._internal.net.http.pprof.Pprof_T_handlerPointer.T_handlerPointer;
 class T_handler_static_extension {
     static public function _serveDeltaProfile(_name:T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request, _p:stdgo._internal.runtime.pprof.Pprof_Profile.Profile, _secStr:String):Void {
         stdgo._internal.net.http.pprof.Pprof_T_handler_static_extension.T_handler_static_extension._serveDeltaProfile(_name, _w, _r, _p, _secStr);

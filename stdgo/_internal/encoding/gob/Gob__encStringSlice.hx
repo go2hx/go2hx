@@ -9,9 +9,9 @@ function _encStringSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_enc
             return false;
         };
         for (__8 => _x in _slice) {
-            if (((_x != stdgo.Go.str()) || _state._sendZero : Bool)) {
-                _state._encodeUint((_x.length : stdgo.GoUInt64));
-                _state._b.writeString(_x?.__copy__());
+            if (((_x != stdgo.Go.str()) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
+                @:check2r _state._encodeUint((_x.length : stdgo.GoUInt64));
+                @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.writeString(_x?.__copy__());
             };
         };
         return true;

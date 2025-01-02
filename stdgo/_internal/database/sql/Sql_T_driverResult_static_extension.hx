@@ -1,6 +1,7 @@
 package stdgo._internal.database.sql;
 @:keep @:allow(stdgo._internal.database.sql.Sql.T_driverResult_asInterface) class T_driverResult_static_extension {
     @:keep
+    @:tdfield
     static public function rowsAffected( _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult = _dr?.__copy__();
         var __deferstack__:Array<Void -> Void> = [];
@@ -13,12 +14,14 @@ package stdgo._internal.database.sql;
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.rowsAffected();
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -33,6 +36,7 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -40,6 +44,7 @@ package stdgo._internal.database.sql;
         };
     }
     @:keep
+    @:tdfield
     static public function lastInsertId( _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult = _dr?.__copy__();
         var __deferstack__:Array<Void -> Void> = [];
@@ -52,12 +57,14 @@ package stdgo._internal.database.sql;
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.lastInsertId();
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -72,6 +79,7 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -79,7 +87,9 @@ package stdgo._internal.database.sql;
         };
     }
     @:embedded
-    public static function unlock( __self__:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult) __self__.unlock();
+    @:embeddededffieldsffun
+    public static function unlock( __self__:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):Void return @:_5 __self__.unlock();
     @:embedded
-    public static function lock( __self__:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult) __self__.lock();
+    @:embeddededffieldsffun
+    public static function lock( __self__:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):Void return @:_5 __self__.lock();
 }

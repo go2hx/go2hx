@@ -163,10 +163,12 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+typedef T__struct_0Pointer = stdgo._internal.testing.iotest.Iotest_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0;
+typedef T_writeLoggerPointer = stdgo._internal.testing.iotest.Iotest_T_writeLoggerPointer.T_writeLoggerPointer;
 class T_writeLogger_static_extension {
     static public function write(_l:T_writeLogger, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -176,6 +178,7 @@ class T_writeLogger_static_extension {
         };
     }
 }
+typedef T_readLoggerPointer = stdgo._internal.testing.iotest.Iotest_T_readLoggerPointer.T_readLoggerPointer;
 class T_readLogger_static_extension {
     static public function read(_l:T_readLogger, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -185,6 +188,7 @@ class T_readLogger_static_extension {
         };
     }
 }
+typedef T_errWriterPointer = stdgo._internal.testing.iotest.Iotest_T_errWriterPointer.T_errWriterPointer;
 class T_errWriter_static_extension {
     static public function write(_w:T_errWriter, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -194,6 +198,7 @@ class T_errWriter_static_extension {
         };
     }
 }
+typedef T_oneByteReaderPointer = stdgo._internal.testing.iotest.Iotest_T_oneByteReaderPointer.T_oneByteReaderPointer;
 class T_oneByteReader_static_extension {
     static public function read(_r:T_oneByteReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -203,6 +208,7 @@ class T_oneByteReader_static_extension {
         };
     }
 }
+typedef T_halfReaderPointer = stdgo._internal.testing.iotest.Iotest_T_halfReaderPointer.T_halfReaderPointer;
 class T_halfReader_static_extension {
     static public function read(_r:T_halfReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -212,6 +218,7 @@ class T_halfReader_static_extension {
         };
     }
 }
+typedef T_dataErrReaderPointer = stdgo._internal.testing.iotest.Iotest_T_dataErrReaderPointer.T_dataErrReaderPointer;
 class T_dataErrReader_static_extension {
     static public function read(_r:T_dataErrReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -221,6 +228,7 @@ class T_dataErrReader_static_extension {
         };
     }
 }
+typedef T_timeoutReaderPointer = stdgo._internal.testing.iotest.Iotest_T_timeoutReaderPointer.T_timeoutReaderPointer;
 class T_timeoutReader_static_extension {
     static public function read(_r:T_timeoutReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -230,6 +238,7 @@ class T_timeoutReader_static_extension {
         };
     }
 }
+typedef T_errReaderPointer = stdgo._internal.testing.iotest.Iotest_T_errReaderPointer.T_errReaderPointer;
 class T_errReader_static_extension {
     static public function read(_r:T_errReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -239,6 +248,7 @@ class T_errReader_static_extension {
         };
     }
 }
+typedef T_smallByteReaderPointer = stdgo._internal.testing.iotest.Iotest_T_smallByteReaderPointer.T_smallByteReaderPointer;
 class T_smallByteReader_static_extension {
     static public function read(_r:T_smallByteReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
@@ -248,6 +258,7 @@ class T_smallByteReader_static_extension {
         };
     }
 }
+typedef T_truncateWriterPointer = stdgo._internal.testing.iotest.Iotest_T_truncateWriterPointer.T_truncateWriterPointer;
 class T_truncateWriter_static_extension {
     static public function write(_t:T_truncateWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);

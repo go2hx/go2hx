@@ -1,12 +1,12 @@
 package stdgo.hash.crc32;
 final size : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_size.size;
-final ieee : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_ieee.ieee;
+final iEEE : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_iEEE.iEEE;
 final castagnoli : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_castagnoli.castagnoli;
 final koopman : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_koopman.koopman;
-var ieeetable(get, set) : Table;
-private function get_ieeetable():Table return stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable;
-private function set_ieeetable(v:Table):Table {
-        stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable = v;
+var iEEETable(get, set) : Table;
+private function get_iEEETable():Table return stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable;
+private function set_iEEETable(v:Table):Table {
+        stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable = v;
         return v;
     }
 @:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc32.Crc32_T_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_T_digest.T_digest to stdgo._internal.hash.crc32.Crc32_T_digest.T_digest {
@@ -28,6 +28,7 @@ private function set_ieeetable(v:Table):Table {
 }
 typedef Table = stdgo._internal.hash.crc32.Crc32_Table.Table;
 typedef T_slicing8Table = stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table;
+typedef T_digestPointer = stdgo._internal.hash.crc32.Crc32_T_digestPointer.T_digestPointer;
 class T_digest_static_extension {
     static public function sum(_d:T_digest, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);

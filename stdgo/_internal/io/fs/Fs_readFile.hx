@@ -39,12 +39,13 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
                 var __tmp__ = _file.read((_data.__slice__((_data.length), _data.capacity) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _data = (_data.__slice__(0, ((_data.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                 if (_err != null) {
-                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         _err = (null : stdgo.Error);
                     };
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _data, _1 : _err };
                         for (defer in __deferstack__) {
+                            __deferstack__.remove(defer);
                             defer();
                         };
                         return __ret__;
@@ -53,6 +54,7 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             };
             {
                 for (defer in __deferstack__) {
+                    __deferstack__.remove(defer);
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
@@ -67,6 +69,7 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
+                __deferstack__.remove(defer);
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;

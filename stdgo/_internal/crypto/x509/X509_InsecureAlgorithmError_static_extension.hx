@@ -1,6 +1,7 @@
 package stdgo._internal.crypto.x509;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.InsecureAlgorithmError_asInterface) class InsecureAlgorithmError_static_extension {
     @:keep
+    @:tdfield
     static public function error( _e:stdgo._internal.crypto.x509.X509_InsecureAlgorithmError.InsecureAlgorithmError):stdgo.GoString {
         @:recv var _e:stdgo._internal.crypto.x509.X509_InsecureAlgorithmError.InsecureAlgorithmError = _e;
         var _override:stdgo.GoString = ("" : stdgo.GoString);

@@ -17,7 +17,7 @@ function indexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt {
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (_s.length) : Bool)) {
-                            if (_as._contains(_s[(_i : stdgo.GoInt)])) {
+                            if (@:check2 _as._contains(_s[(_i : stdgo.GoInt)])) {
                                 return _i;
                             };
                             _i++;

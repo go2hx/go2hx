@@ -1,6 +1,7 @@
 package stdgo._internal.internal.xcoff;
 @:keep @:allow(stdgo._internal.internal.xcoff.Xcoff.T_zeroReaderAt_asInterface) class T_zeroReaderAt_static_extension {
     @:keep
+    @:tdfield
     static public function readAt( _w:stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt, _p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt = _w?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);

@@ -1,6 +1,7 @@
 package stdgo._internal.html.template;
 @:keep @:allow(stdgo._internal.html.template.Template.T_jsCtx_asInterface) class T_jsCtx_static_extension {
     @:keep
+    @:tdfield
     static public function string( _i:stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx):stdgo.GoString {
         @:recv var _i:stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx = _i;
         if ((_i >= ((3 : stdgo.GoInt) : stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx) : Bool)) {

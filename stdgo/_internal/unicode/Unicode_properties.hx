@@ -2,7 +2,7 @@ package stdgo._internal.unicode;
 var properties : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>> = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>>();
         x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>);
-        x.set(("ASCII_Hex_Digit" : stdgo.GoString), stdgo._internal.unicode.Unicode_ascii_Hex_Digit.ascii_Hex_Digit);
+        x.set(("ASCII_Hex_Digit" : stdgo.GoString), stdgo._internal.unicode.Unicode_aSCII_Hex_Digit.aSCII_Hex_Digit);
 x.set(("Bidi_Control" : stdgo.GoString), stdgo._internal.unicode.Unicode_bidi_Control.bidi_Control);
 x.set(("Dash" : stdgo.GoString), stdgo._internal.unicode.Unicode_dash.dash);
 x.set(("Deprecated" : stdgo.GoString), stdgo._internal.unicode.Unicode_deprecated.deprecated);
@@ -10,8 +10,8 @@ x.set(("Diacritic" : stdgo.GoString), stdgo._internal.unicode.Unicode_diacritic.
 x.set(("Extender" : stdgo.GoString), stdgo._internal.unicode.Unicode_extender.extender);
 x.set(("Hex_Digit" : stdgo.GoString), stdgo._internal.unicode.Unicode_hex_Digit.hex_Digit);
 x.set(("Hyphen" : stdgo.GoString), stdgo._internal.unicode.Unicode_hyphen.hyphen);
-x.set(("IDS_Binary_Operator" : stdgo.GoString), stdgo._internal.unicode.Unicode_ids_Binary_Operator.ids_Binary_Operator);
-x.set(("IDS_Trinary_Operator" : stdgo.GoString), stdgo._internal.unicode.Unicode_ids_Trinary_Operator.ids_Trinary_Operator);
+x.set(("IDS_Binary_Operator" : stdgo.GoString), stdgo._internal.unicode.Unicode_iDS_Binary_Operator.iDS_Binary_Operator);
+x.set(("IDS_Trinary_Operator" : stdgo.GoString), stdgo._internal.unicode.Unicode_iDS_Trinary_Operator.iDS_Trinary_Operator);
 x.set(("Ideographic" : stdgo.GoString), stdgo._internal.unicode.Unicode_ideographic.ideographic);
 x.set(("Join_Control" : stdgo.GoString), stdgo._internal.unicode.Unicode_join_Control.join_Control);
 x.set(("Logical_Order_Exception" : stdgo.GoString), stdgo._internal.unicode.Unicode_logical_Order_Exception.logical_Order_Exception);

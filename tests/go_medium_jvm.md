@@ -1,4 +1,4 @@
-# go_medium
+# go_medium_jvm
 ## convF_criteria
 ```go
 // run

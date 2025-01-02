@@ -123,5 +123,10 @@
  "js|typeswitch0",
  "js|unary0",
  "js|unsafe0",
- "js|var0"
+ "js|var0",
+ "js|deferrecoverdefer",
+ "js|mapinitfield",
+ "js|method5_0",
+ "js|nonptrmethodrecv",
+ "js|ptrrecv"
 ]

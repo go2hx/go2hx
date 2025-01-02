@@ -91,8 +91,9 @@ function main() {
 
 private function runReport() {
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
-	final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
-	if (output.length == 0)
+	final exists = FileSystem.exists('tests/$testName.json');
+	final output:Array<String> = exists ? Json.parse(File.getContent('tests/$testName.json')) : [];
+	if (!exists)
 		throw testName + " not set";
 	final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
 	var paths:Array<String> = Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);

@@ -1,4 +1,4 @@
-# yaegi_medium
+# yaegi_medium_hl
 ## a27
 ```go
 package main
@@ -12,6 +12,54 @@ func main() {
 
 // Output:
 // [hello world] [2]string
+
+```
+## defer0
+```go
+package main
+
+import "fmt"
+
+func main() {
+	println("hello")
+	defer fmt.Println("bye")
+	defer fmt.Println("au revoir")
+	println("world")
+}
+
+// Output:
+// hello
+// world
+// au revoir
+// bye
+
+```
+## defer8
+```go
+package main
+
+import "fmt"
+
+func f1(m map[string]string) {
+	defer delete(m, "foo")
+	defer delete(m, "test")
+
+	fmt.Println(m)
+}
+
+func main() {
+	m := map[string]string{
+		"foo": "bar",
+		"baz": "bat",
+	}
+	f1(m)
+
+	fmt.Println(m)
+}
+
+// Output:
+// map[baz:bat foo:bar]
+// map[baz:bat]
 
 ```
 ## gen4

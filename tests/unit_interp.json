@@ -130,5 +130,10 @@
  "interp|typeswitch0",
  "interp|unary0",
  "interp|unsafe0",
- "interp|var0"
+ "interp|var0",
+ "interp|deferrecoverdefer",
+ "interp|mapinitfield",
+ "interp|method5_0",
+ "interp|nonptrmethodrecv",
+ "interp|ptrrecv"
 ]

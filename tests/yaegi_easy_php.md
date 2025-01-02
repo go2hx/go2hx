@@ -1,4 +1,4 @@
-# yaegi_easy
+# yaegi_easy_php
 ## a1
 ```go
 package main

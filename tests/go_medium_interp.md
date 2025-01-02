@@ -1,4 +1,4 @@
-# go_medium
+# go_medium_interp
 ## clear
 ```go
 // run
@@ -95,6 +95,62 @@ func main() {
 	if bad {
 		panic("cmplxdivide failed.")
 	}
+}
+
+```
+## defer
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test defer.
+
+package main
+
+import "fmt"
+
+var result string
+
+func addInt(i int) { result += fmt.Sprint(i) }
+
+func test1helper() {
+	for i := 0; i < 10; i++ {
+		defer addInt(i)
+	}
+}
+
+func test1() {
+	result = ""
+	test1helper()
+	if result != "9876543210" {
+		fmt.Printf("test1: bad defer result (should be 9876543210): %q\n", result)
+		panic("defer")
+	}
+}
+
+func addDotDotDot(v ...interface{}) { result += fmt.Sprint(v...) }
+
+func test2helper() {
+	for i := 0; i < 10; i++ {
+		defer addDotDotDot(i)
+	}
+}
+
+func test2() {
+	result = ""
+	test2helper()
+	if result != "9876543210" {
+		fmt.Printf("test2: bad defer result (should be 9876543210): %q\n", result)
+		panic("defer")
+	}
+}
+
+func main() {
+	test1()
+	test2()
 }
 
 ```
@@ -430,6 +486,63 @@ func main() {
 }
 
 ```
+## issue28797
+```go
+// run
+
+// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+package main
+
+import (
+	"fmt"
+)
+
+// test expects f to panic, but not to run out of memory,
+// which is a non-panic fatal error.  OOM results from failure
+// to properly check negative limit.
+func test(f func()) {
+	defer func() {
+		r := recover()
+		if r == nil {
+			panic("panic wasn't recoverable")
+		}
+	}()
+	f()
+}
+
+//go:noinline
+func id(x int) int {
+	return x
+}
+
+func main() {
+	test(foo)
+	test(bar)
+}
+
+func foo() {
+	b := make([]byte, 0)
+	b = append(b, 1)
+	id(len(b))
+	id(len(b) - 2)
+	s := string(b[1 : len(b)-2])
+	fmt.Println(s)
+}
+
+func bar() {
+	b := make([]byte, 1)
+	b = append(b, 1)
+	i := id(-1)
+	if i < len(b) { // establish value is not too large.
+		s := string(b[1:i]) // should check for negative also.
+		fmt.Println(s)
+	}
+}
+
+```
 ## issue29190
 ```go
 // run
@@ -718,67 +831,113 @@ func main() {
 }
 
 ```
-## issue7863
+## issue8606
 ```go
 // run
 
-// Copyright 2014 The Go Authors. All rights reserved.
+// Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Check to make sure that we compare fields in order. See issue 8606.
+
 package main
 
-import (
-	"fmt"
-)
-
-type Foo int64
-
-func (f *Foo) F() int64 {
-	return int64(*f)
-}
-
-type Bar int64
-
-func (b Bar) F() int64 {
-	return int64(b)
-}
-
-type Baz int32
-
-func (b Baz) F() int64 {
-	return int64(b)
-}
+import "fmt"
 
 func main() {
-	foo := Foo(123)
-	f := foo.F
-	if foo.F() != f() {
-		bug()
-		fmt.Println("foo.F", foo.F(), f())
+	type A [2]interface{}
+	type A2 [6]interface{}
+	type S struct{ x, y interface{} }
+	type S2 struct{ x, y, z, a, b, c interface{} }
+	type T1 struct {
+		i interface{}
+		a int64
+		j interface{}
 	}
-	bar := Bar(123)
-	f = bar.F
-	if bar.F() != f() {
-		bug()
-		fmt.Println("bar.F", bar.F(), f()) // duh!
+	type T2 struct {
+		i       interface{}
+		a, b, c int64
+		j       interface{}
 	}
+	type T3 struct {
+		i interface{}
+		s string
+		j interface{}
+	}
+	type S3 struct {
+		f any
+		i int
+	}
+	type S4 struct {
+		a [1000]byte
+		b any
+	}
+	b := []byte{1}
+	s1 := S3{func() {}, 0}
+	s2 := S3{func() {}, 1}
 
-	baz := Baz(123)
-	f = baz.F
-	if baz.F() != f() {
-		bug()
-		fmt.Println("baz.F", baz.F(), f())
+	for _, test := range []struct {
+		panic bool
+		a, b  interface{}
+	}{
+		{false, A{1, b}, A{2, b}},
+		{true, A{b, 1}, A{b, 2}},
+		{false, A{1, b}, A{"2", b}},
+		{true, A{b, 1}, A{b, "2"}},
+
+		{false, A2{1, b}, A2{2, b}},
+		{true, A2{b, 1}, A2{b, 2}},
+		{false, A2{1, b}, A2{"2", b}},
+		{true, A2{b, 1}, A2{b, "2"}},
+
+		{false, S{1, b}, S{2, b}},
+		{true, S{b, 1}, S{b, 2}},
+		{false, S{1, b}, S{"2", b}},
+		{true, S{b, 1}, S{b, "2"}},
+
+		{false, S2{x: 1, y: b}, S2{x: 2, y: b}},
+		{true, S2{x: b, y: 1}, S2{x: b, y: 2}},
+		{false, S2{x: 1, y: b}, S2{x: "2", y: b}},
+		{true, S2{x: b, y: 1}, S2{x: b, y: "2"}},
+
+		{true, T1{i: b, a: 1}, T1{i: b, a: 2}},
+		{false, T1{a: 1, j: b}, T1{a: 2, j: b}},
+		{true, T2{i: b, a: 1}, T2{i: b, a: 2}},
+		{false, T2{a: 1, j: b}, T2{a: 2, j: b}},
+		{true, T3{i: b, s: "foo"}, T3{i: b, s: "bar"}},
+		{false, T3{s: "foo", j: b}, T3{s: "bar", j: b}},
+		{true, T3{i: b, s: "fooz"}, T3{i: b, s: "bar"}},
+		{false, T3{s: "fooz", j: b}, T3{s: "bar", j: b}},
+		{true, A{s1, s2}, A{s2, s1}},
+		{true, s1, s2},
+		{false, S4{[1000]byte{0}, func() {}}, S4{[1000]byte{1}, func() {}}},
+	} {
+		f := func() {
+			defer func() {
+				if recover() != nil {
+					panic(fmt.Sprintf("comparing %#v and %#v panicked", test.a, test.b))
+				}
+			}()
+			if test.a == test.b {
+				panic(fmt.Sprintf("values %#v and %#v should not be equal", test.a, test.b))
+			}
+		}
+		if test.panic {
+			shouldPanic(fmt.Sprintf("comparing %#v and %#v did not panic", test.a, test.b), f)
+		} else {
+			f() // should not panic
+		}
 	}
 }
 
-var bugged bool
-
-func bug() {
-	if !bugged {
-		bugged = true
-		fmt.Println("BUG")
-	}
+func shouldPanic(name string, f func()) {
+	defer func() {
+		if recover() == nil {
+			panic(name)
+		}
+	}()
+	f()
 }
 
 ```

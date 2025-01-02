@@ -130,5 +130,10 @@
  "hl|typeswitch0",
  "hl|unary0",
  "hl|unsafe0",
- "hl|var0"
+ "hl|var0",
+ "hl|deferrecoverdefer",
+ "hl|mapinitfield",
+ "hl|method5_0",
+ "hl|nonptrmethodrecv",
+ "hl|ptrrecv"
 ]

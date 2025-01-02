@@ -52,3 +52,4 @@ steps:
     with:
         message: yaegi easy tests update ::target::
         add: ./tests
+        pull: --rebase --autostash

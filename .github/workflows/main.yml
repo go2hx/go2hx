@@ -512,6 +512,7 @@ jobs:
         with:
             message: yaegi easy tests update hl
             add: ./tests
+            pull: --rebase --autostash
   yaegi-easy-jvm:
     timeout-minutes: 25
     needs: setup
@@ -568,6 +569,7 @@ jobs:
         with:
             message: yaegi easy tests update jvm
             add: ./tests
+            pull: --rebase --autostash
   yaegi-easy-interp:
     timeout-minutes: 25
     needs: setup
@@ -623,6 +625,7 @@ jobs:
         with:
             message: yaegi easy tests update interp
             add: ./tests
+            pull: --rebase --autostash
   yaegi-easy-js:
     timeout-minutes: 25
     needs: setup
@@ -678,6 +681,7 @@ jobs:
         with:
             message: yaegi easy tests update js
             add: ./tests
+            pull: --rebase --autostash
   yaegi-easy-php:
     timeout-minutes: 25
     needs: setup
@@ -735,6 +739,7 @@ jobs:
         with:
             message: yaegi easy tests update php
             add: ./tests
+            pull: --rebase --autostash
   go-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -803,6 +808,7 @@ jobs:
         with:
             message: go medium tests update hl
             add: ./tests
+            pull: --rebase --autostash
   go-medium-jvm:
     timeout-minutes: 25
     needs: setup
@@ -872,6 +878,7 @@ jobs:
         with:
             message: go medium tests update jvm
             add: ./tests
+            pull: --rebase --autostash
   go-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -940,6 +947,7 @@ jobs:
         with:
             message: go medium tests update interp
             add: ./tests
+            pull: --rebase --autostash
   go-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -1008,6 +1016,7 @@ jobs:
         with:
             message: go medium tests update js
             add: ./tests
+            pull: --rebase --autostash
   go-medium-php:
     timeout-minutes: 25
     needs: setup
@@ -1078,6 +1087,7 @@ jobs:
         with:
             message: go medium tests update php
             add: ./tests
+            pull: --rebase --autostash
   yaegi-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -1133,6 +1143,7 @@ jobs:
         with:
             message: yaegi medium tests update hl
             add: ./tests
+            pull: --rebase --autostash
   yaegi-medium-jvm:
     timeout-minutes: 25
     needs: setup
@@ -1189,6 +1200,7 @@ jobs:
         with:
             message: yaegi medium tests update jvm
             add: ./tests
+            pull: --rebase --autostash
   yaegi-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -1244,6 +1256,7 @@ jobs:
         with:
             message: yaegi medium tests update interp
             add: ./tests
+            pull: --rebase --autostash
   yaegi-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -1299,6 +1312,7 @@ jobs:
         with:
             message: yaegi medium tests update js
             add: ./tests
+            pull: --rebase --autostash
   yaegi-medium-php:
     timeout-minutes: 25
     needs: setup
@@ -1356,6 +1370,7 @@ jobs:
         with:
             message: yaegi medium tests update php
             add: ./tests
+            pull: --rebase --autostash
   build-hl:
     
     timeout-minutes: 26

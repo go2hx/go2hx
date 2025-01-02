@@ -65,3 +65,4 @@ steps:
     with:
         message: go medium tests update ::target::
         add: ./tests
+        pull: --rebase --autostash

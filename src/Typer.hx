@@ -542,7 +542,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									if (field.meta == null)
 										field.meta = [];
-									field.meta.push({name: ":embeddeddeffieldsffun", pos: null});
+									field.meta.push({name: ":embeddededffieldsffun", pos: null});
 									final expr = {expr: fun.expr.expr, pos: null};
 									final fieldName = field.name.substr("_get".length);
 									final fun:haxe.macro.Expr.Function = {
@@ -2820,7 +2820,6 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 }
 // explicit conversion
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
-	//trace(fromType,toType);
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
 			return passByCopy(toType, expr, info);
@@ -2891,6 +2890,10 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		if (!equal)
 			return translateStruct(expr, fromType, toType, info);
 	}
+	//trace(toType);
+	//trace(getUnderlying(getUnderlying(fromType)));
+	//trace(fromType);
+	//trace(isNamed(fromType), !isInterface(fromType), isInterface(toType), !isAnyInterface(toType));
 	if (isNamed(fromType) && !isInterface(fromType) && isInterface(toType) && !isAnyInterface(toType)) {
 		y = wrapperExpr(fromType, y, info);
 		return y;
@@ -7282,6 +7285,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					
 									public function __copy__() {}
 								};
+								td.meta = [{name:":onlynameref", pos: null}];
 								return td;
 							}
 						default:

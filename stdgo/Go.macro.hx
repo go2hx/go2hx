@@ -491,7 +491,17 @@ class Go {
 		}
 		run();
 		switch t {
-			case TInst(_, _):
+			case TInst(_.get() => t, params):
+				if (t.meta.has(":onlynameref")) {
+					final module = t.module.split(".");
+					final p:TypePath = {
+						sub: t.name,
+						name: module.pop(),
+						pack: module,
+						params: params.map(param -> @:privateAccess TypeTools.toTypeParam(param)),
+					};
+					return macro new $p();
+				}
 				return expr;
 			case TAbstract(_.get() => at, _):
 				final path = at.pack.join(".") + "." + at.name;

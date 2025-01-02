@@ -128,5 +128,10 @@
  "php|typeswitch0",
  "php|unary0",
  "php|unsafe0",
- "php|var0"
+ "php|var0",
+ "php|deferrecoverdefer",
+ "php|mapinitfield",
+ "php|method5_0",
+ "php|nonptrmethodrecv",
+ "php|ptrrecv"
 ]

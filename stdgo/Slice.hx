@@ -5,7 +5,7 @@ import haxe.Rest;
 import stdgo.GoArray;
 import stdgo.GoInt;
 
-@:forward(__ref__)
+@:forward(__ref__,__setData__)
 @:forward.new
 //@:generic
 abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
@@ -149,27 +149,6 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	@:to
 	public function __toArray__():Array<T> {
 		return this == null ? [] : this.toArray();
-	}
-
-	public inline function __setData__(data:GoArrayData<T>) {
-		// special cases
-		// this == null
-		// data == null
-		if (data == null) {
-			this.__nil__ = true;
-			return;
-		}
-		this.length = data.length;
-		this.capacity = data.capacity;
-		this.bytes = data.bytes;
-		this.vector = data.vector;
-		this.offset = data.offset;
-		this.__nil__ = false;
-		#if !target.static
-		@:privateAccess data.isNumber32 = data.isNumber32;
-		@:privateAccess data.isNumber64 = data.isNumber64;
-		@:privateAccess data.isString = data.isString;
-		#end
 	}
 
 	public function __copyTo__(src:Slice<T>):GoInt {

@@ -16,13 +16,11 @@ class GoArrayData<T> {
 	public var capacity:Int = 0;
 	public var __nil__:Bool = false;
 
-	#if !target.static
 	var isNumber32:Bool = false;
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
-	#end
 
-	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
+	public function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {
 				length;
@@ -31,7 +29,7 @@ class GoArrayData<T> {
 			}
 			this.length = length;
 			this.capacity = vectorLength;
-			vector = new haxe.ds.Vector<T>(vectorLength);
+			vector = new haxe.ds.Vector<T>(vectorLength,);
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
 		}else if (args.length != 0) {
@@ -43,24 +41,37 @@ class GoArrayData<T> {
 		}
 	}
 
+	public inline function __setData__(data:GoArrayData<T>) {
+		// special cases
+		// this == null
+		// data == null
+		if (data == null) {
+			this.__nil__ = true;
+			return;
+		}
+		this.length = data.length;
+		this.capacity = data.capacity;
+		this.bytes = data.bytes;
+		this.vector = data.vector;
+		this.offset = data.offset;
+		this.__nil__ = false;
+		@:privateAccess data.isNumber32 = data.isNumber32;
+		@:privateAccess data.isNumber64 = data.isNumber64;
+		@:privateAccess data.isString = data.isString;
+	}
+
 	public inline function __setNumber32__():Slice<T> {
-		#if !target.static
 		@:privateAccess this.isNumber32 = true;
-		#end
 		return this;
 	}
 
 	public inline function __setNumber64__():Slice<T> {
-		#if !target.static
 		@:privateAccess this.isNumber64 = true;
-		#end
 		return this;
 	}
 
 	public inline function __setString__():Slice<T> {
-		#if !target.static
 		@:privateAccess this.isString = true;
-		#end
 		return this;
 	}
 
@@ -78,11 +89,9 @@ class GoArrayData<T> {
 		slice.offset = this.offset;
 		if (slice.capacity == -1)
 			slice.capacity = 0;
-		#if !target.static
 		slice.isNumber32 = this.isNumber32;
 		slice.isNumber64 = this.isNumber64;
 		slice.isString = this.isString;
-		#end
 		return slice;
 	}
 
@@ -152,7 +161,7 @@ class GoArrayData<T> {
 		if (bytes != null)
 			return untyped cast bytes.get(index + offset);
 			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
-		#if !target.static
+		//#if !target.static
 		if (isNumber64) {
 			return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
 		} else if (isNumber32) {
@@ -162,9 +171,9 @@ class GoArrayData<T> {
 		} else {
 			return vector.get(index + offset);
 		}
-		#else
-		return vector.get(index + offset);
-		#end
+		//#else
+		//return vector.get(index + offset);
+		//#end
 	}
 
 	public inline function set(index:Int, value:T):T {
@@ -224,11 +233,9 @@ class GoArrayData<T> {
 			return slice;
 		}
 		slice.vector = this.vector.copy();
-		#if !target.static
 		slice.isNumber32 = this.isNumber32;
 		slice.isNumber64 = this.isNumber64;
 		slice.isString = this.isString;
-		#end
 		return slice;
 	}
 }
@@ -270,6 +277,7 @@ class GoArrayDataIterator<T> {
 
 // @:generic
 @:forward.new
+@:forward(__setData__)
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;

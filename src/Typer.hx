@@ -3094,6 +3094,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					}
 					if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType)) {
 						// set underlying not the ref
+						//trace(toType);
 						final underlyingType = getUnderlying(toType);
 						switch underlyingType {
 							case interfaceType(empty, methods):
@@ -3110,7 +3111,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									exprs.unshift(macro var __tmp__ = $y);
 									return (macro $b{exprs}).expr;
 								}
-							case sliceType(_), mapType(_, _):
+							case sliceType(_), mapType(_, _), arrayType(_, _):
 									return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
@@ -6766,7 +6767,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final t = toComplexType(elem, info);
 			macro(null : stdgo.Slice<$t>);
 		case arrayType(_.get() => elem, len):
-			final t = toComplexType(elem, info);
+			/*final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
 			if (value == null)
 				value = macro stdgo.Go.expectedValue();
@@ -6774,7 +6775,12 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final args = [lenExpr,lenExpr];
 			if (len > 0)
 				args.push(macro ...[for (i in 0...$lenExpr) $value]);
-			macro new stdgo.GoArray<$t>($a{args});
+			macro new stdgo.GoArray<$t>($a{args});*/
+			final param = toComplexType(elem, info);
+			final size = makeExpr(len);
+			final cap = size;
+			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
+			genSlice(p, elem, size, cap, e -> e, info, null);
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);

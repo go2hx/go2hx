@@ -457,68 +457,6 @@ func mustPanic(f func()) {
 }
 
 ```
-## issue26407
-```go
-// run
-
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 26407: ensure that stack variables which have
-// had their address taken and then used in a comparison,
-// but are otherwise unused, are cleared.
-
-package main
-
-func main() {
-	poison()
-	test()
-}
-
-//go:noinline
-func poison() {
-	// initialise the stack with invalid pointers
-	var large [256]uintptr
-	for i := range large {
-		large[i] = 1
-	}
-	use(large[:])
-}
-
-//go:noinline
-func test() {
-	a := 2
-	x := &a
-	if x != compare(&x) {
-		panic("not possible")
-	}
-}
-
-//go:noinline
-func compare(x **int) *int {
-	var y *int
-	if x == &y {
-		panic("not possible")
-	}
-	// grow the stack to trigger a check for invalid pointers
-	grow()
-	if x == &y {
-		panic("not possible")
-	}
-	return *x
-}
-
-//go:noinline
-func grow() {
-	var large [1 << 16]uintptr
-	use(large[:])
-}
-
-//go:noinline
-func use(_ []uintptr) { }
-
-```
 ## issue27278
 ```go
 // run
@@ -676,29 +614,6 @@ func main() {
 }
 
 ```
-## issue4353
-```go
-// run
-
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 4353. An optimizer bug in 8g triggers a runtime fault
-// instead of an out of bounds panic.
-
-package main
-
-var aib [100000]int
-var paib *[100000]int = &aib
-var i64 int64 = 100023
-
-func main() {
-	defer func() { recover() }()
-	_ = paib[i64]
-}
-
-```
 ## issue47928
 ```go
 // run -goexperiment fieldtrack
@@ -831,99 +746,6 @@ func f4() {
 
 	f().f(g())
 }
-
-```
-## issue55122
-```go
-// run
-
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	for i := 0; i < 10000; i++ {
-		h(i)
-		sink = make([]byte, 1024) // generate some garbage
-	}
-}
-
-func h(iter int) {
-	var x [32]byte
-	for i := 0; i < 32; i++ {
-		x[i] = 99
-	}
-	g(&x)
-	if x == ([32]byte{}) {
-		return
-	}
-	for i := 0; i < 32; i++ {
-		println(x[i])
-	}
-	panic(iter)
-}
-
-//go:noinline
-func g(x interface{}) {
-	switch e := x.(type) {
-	case *[32]byte:
-		var c [32]byte
-		*e = c
-	case *[]byte:
-		*e = nil
-	}
-}
-
-var sink []byte
-
-```
-## issue55122b
-```go
-// run
-
-// Copyright 2022 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	for i := 0; i < 10000; i++ {
-		h(i)
-		sink = make([]byte, 1024) // generate some garbage
-	}
-}
-
-func h(iter int) {
-	var x [32]byte
-	for i := 0; i < 32; i++ {
-		x[i] = 99
-	}
-	g(&x)
-	if x == ([32]byte{}) {
-		return
-	}
-	for i := 0; i < 32; i++ {
-		println(x[i])
-	}
-	panic(iter)
-}
-
-//go:noinline
-func g(x interface{}) {
-	switch e := x.(type) {
-	case *[32]byte:
-		var c [32]byte
-		*e = c
-	case *[3]*byte:
-		var c [3]*byte
-		*e = c
-	}
-}
-
-var sink []byte
 
 ```
 ## intcvt

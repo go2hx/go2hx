@@ -319,5 +319,9 @@
  "js|strvar",
  "js|turing",
  "js|varinit",
- "js|zombie_struct_select"
+ "js|zombie_struct_select",
+ "js|issue26407",
+ "js|issue4353",
+ "js|issue55122",
+ "js|issue55122b"
 ]

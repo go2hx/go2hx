@@ -158,22 +158,24 @@ class GoArrayData<T> {
 	}
 
 	public inline function get(index:Int):T {
-		if (bytes != null)
+		if (bytes != null) {
 			return untyped cast bytes.get(index + offset);
-			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
-		//#if !target.static
-		if (isNumber64) {
-			return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
-		} else if (isNumber32) {
-			return vector.get(index + offset) ?? untyped 0;
-		} else if (isString) {
-			return vector.get(index + offset) ?? untyped haxe.io.Bytes.alloc(0);
-		} else {
+		}else{
+				//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
+			#if !target.static
+			if (isNumber64) {
+				return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
+			} else if (isNumber32) {
+				return vector.get(index + offset) ?? untyped 0;
+			} else if (isString) {
+				return vector.get(index + offset) ?? untyped haxe.io.Bytes.alloc(0);
+			} else {
+				return vector.get(index + offset);
+			}
+			#else
 			return vector.get(index + offset);
+			#end
 		}
-		//#else
-		//return vector.get(index + offset);
-		//#end
 	}
 
 	public inline function set(index:Int, value:T):T {

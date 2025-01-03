@@ -72,5 +72,6 @@
  "hl|literal2",
  "hl|rob2",
  "hl|typeswitch1",
- "hl|utf"
+ "hl|utf",
+ "hl|issue54467"
 ]

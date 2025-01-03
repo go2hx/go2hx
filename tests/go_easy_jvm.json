@@ -155,5 +155,6 @@
  "jvm|simpvar",
  "jvm|strvar",
  "jvm|varinit",
- "jvm|zombie_struct_select"
+ "jvm|zombie_struct_select",
+ "jvm|bug336"
 ]

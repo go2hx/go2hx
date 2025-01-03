@@ -1,4 +1,4 @@
-# yaegi_medium
+# yaegi_medium_jvm
 ## a12
 ```go
 package main

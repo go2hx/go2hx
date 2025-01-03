@@ -327,5 +327,7 @@
  "hl|strvar",
  "hl|turing",
  "hl|varinit",
- "hl|zombie_struct_select"
+ "hl|zombie_struct_select",
+ "hl|issue55122",
+ "hl|issue55122b"
 ]

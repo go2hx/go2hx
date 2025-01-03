@@ -64,5 +64,6 @@
  "jvm|unary0",
  "jvm|var0",
  "jvm|nonptrmethodrecv",
- "jvm|ptrrecv"
+ "jvm|ptrrecv",
+ "jvm|rest0"
 ]

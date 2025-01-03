@@ -10,7 +10,7 @@ typedef UInt32 = #if simulate_num UInt; #elseif cpp cpp.UInt32; #elseif cs cs.sy
 typedef UInt64 = haxe.UInt64;
 typedef Float = Float64;
 typedef Float64 = #if hl hl.F64; #else StdTypes.Float; #end
-typedef Float32 = #if hl hl.F32; #else Float64; #end
+typedef Float32 = Float64;
 
 
 

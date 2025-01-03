@@ -322,5 +322,7 @@
  "interp|strvar",
  "interp|turing",
  "interp|varinit",
- "interp|zombie_struct_select"
+ "interp|zombie_struct_select",
+ "interp|issue55122",
+ "interp|issue55122b"
 ]

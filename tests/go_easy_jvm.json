@@ -156,5 +156,6 @@
  "jvm|strvar",
  "jvm|varinit",
  "jvm|zombie_struct_select",
- "jvm|bug336"
+ "jvm|bug336",
+ "jvm|issue42703"
 ]

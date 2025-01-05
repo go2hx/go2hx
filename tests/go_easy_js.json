@@ -323,5 +323,6 @@
  "js|issue26407",
  "js|issue4353",
  "js|issue55122",
- "js|issue55122b"
+ "js|issue55122b",
+ "js|slicearray"
 ]

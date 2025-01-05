@@ -380,24 +380,6 @@ func main() {
 // root: &{<nil> [] root}
 
 ```
-## map18
-```go
-package main
-
-import "fmt"
-
-var foo = make([]int, 1)
-
-func main() {
-	for _, v := range foo {
-		fmt.Println(v)
-	}
-}
-
-// Output:
-// 0
-
-```
 ## method16
 ```go
 package main
@@ -556,22 +538,6 @@ func main() {
 // true
 // true
 // true
-
-```
-## rune1
-```go
-package main
-
-import "fmt"
-
-func main() {
-	t := make([]byte, 2)
-	t[0] = '$'
-	fmt.Println(t)
-}
-
-// Output:
-// [36 0]
 
 ```
 ## struct12

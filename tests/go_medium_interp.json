@@ -72,5 +72,6 @@
  "interp|literal2",
  "interp|rob2",
  "interp|typeswitch1",
- "interp|utf"
+ "interp|utf",
+ "interp|recover2"
 ]

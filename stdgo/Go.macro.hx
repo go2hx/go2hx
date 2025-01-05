@@ -530,11 +530,7 @@ class Go {
 							final t = gtDecode(t, expr, []);
 							final keyComplexType = Context.toComplexType(params[0]);
 							final valueComplexType = Context.toComplexType(params[1]);
-							value = macro({
-								final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
-								x.t = new stdgo._internal.internal.reflect.Reflect._Type($t);
-								cast x;
-							} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+							value = macro new stdgo.GoMap<$keyComplexType, $valueComplexType>();
 						case "stdgo.Slice":
 							value = macro new stdgo.Slice(0, -1, null);
 						case "stdgo.AnyInterface":

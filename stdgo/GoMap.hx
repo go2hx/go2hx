@@ -126,7 +126,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		return new GoBoolMap<V>();
 	}
 
-	@:from static inline function fromStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
+	@:from static inline function fromGoStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
 		return cast map;
 	}
 
@@ -277,6 +277,15 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	@:to
 	static inline function toAnyInterfaceMap<K:AnyInterface, V>(t:IMap<K, V>):GoAnyInterfaceMap<V> {
 		return new GoAnyInterfaceMap<V>();
+	}
+
+	@:to
+	static inline function toGoObjectMap<K, V>(t:IMap<K, V>):GoObjectMap<K,V> {
+		return new GoObjectMap<K,V>();
+	}
+
+	@:from static inline function fromObjectMap<K,V>(map:GoObjectMap<K,V>):GoMap<K, V> {
+		return cast map;
 	}
 }
 

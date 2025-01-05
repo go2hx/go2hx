@@ -20,7 +20,7 @@ class GoArrayData<T> {
 	var isNumber64:Bool = false;
 	var isString:Bool = false;
 
-	public function new(length:Int, capacity:Int, args:Rest<T>) {
+	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
 		if (capacity != -1) {
 			final vectorLength = if (length > capacity) {
 				length;
@@ -159,9 +159,13 @@ class GoArrayData<T> {
 
 	public inline function get(index:Int):T {
 		if (bytes != null) {
+			#if target.static
 			return untyped cast bytes.get(index + offset);
+			#else
+			return untyped cast bytes.get(index + offset) ?? untyped 0;
+			#end
 		}else{
-				//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
+			//return untyped cast haxe.io.Bytes.fastGet(bytes.getData(), index + offset);
 			#if !target.static
 			if (isNumber64) {
 				return vector.get(index + offset) ?? untyped haxe.Int64.make(0, 0);
@@ -256,7 +260,7 @@ class GoArrayDataKeyValueIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestFloat32Sqrt
 	public function next():{key:GoInt, value:T} {
-		return {key: (pos : GoInt), value: (slice != null && slice.bytes != null) ? untyped cast slice.bytes.get(slice.offset + pos++) : slice.vector.get(slice.offset + pos++)};
+		return {key: (pos : GoInt), value: slice.get(pos++)};
 	}
 }
 
@@ -273,7 +277,7 @@ class GoArrayDataIterator<T> {
 	}
 	// if inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32
 	public function next():T {
-		return (slice != null && slice.bytes != null) ? untyped cast slice.bytes.get(slice.offset + pos++) : slice.vector.get(slice.offset + pos++);
+		return slice.get(pos++);
 	}
 }
 

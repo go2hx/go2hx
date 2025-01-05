@@ -6178,7 +6178,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						if (!recvPointerBool) {
 							x = macro $x.value;
 						}else{
-							final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+							final ct = toComplexType(named(path, methods, type, alias, params), info);
+							addPointerSuffix(ct);
 							x = macro @:isptr ($x : $ct);
 						}
 					default:
@@ -6211,7 +6212,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						//x = macro $x.value;
 						//x = macro (@:check $x ?? throw "null pointer dereference");
 					}else{
-						final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+						final ct = toComplexType(named(path, methods, type, alias, params), info);
+						addPointerSuffix(ct);
 						if (!isRefValue(type)) {
 							x = macro @:notptr (stdgo.Go.pointer($x) : $ct);
 						}else{
@@ -6243,9 +6245,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 								if (expr.x.id != "CallExpr")
 									x = macro (@:checkr $x ?? throw "null pointer dereference");
 							}else{
-								final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+								final ct = toComplexType(named(path, methods, type, alias, params), info);
+								addPointerSuffix(ct);
 								if (!isRefValue(type)) {
-									x = macro @:notptrr (stdgo.Go.pointer($x) : $ct);
+									x = macro @:notptrr2 (stdgo.Go.pointer($x) : $ct);
 								}else{
 									x = macro @:check2r $x;
 								}
@@ -6294,6 +6297,15 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	final e = macro $x.$sel;
 	//trace(printer.printExpr(e), kind, typeX);
 	return e.expr; // EField
+}
+
+private function addPointerSuffix(ct:ComplexType) {
+	switch ct {
+		case TPath(p):
+			p.name += "Pointer";
+			p.pack.push(p.pack.pop() + "Pointer");
+		default:
+	}
 }
 
 private function isClass(x:Ast.Expr, info:Info):Bool {

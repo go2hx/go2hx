@@ -330,5 +330,6 @@
  "hl|zombie_struct_select",
  "hl|issue55122",
  "hl|issue55122b",
- "hl|slicearray"
+ "hl|slicearray",
+ "hl|indirect"
 ]

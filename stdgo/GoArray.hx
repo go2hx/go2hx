@@ -114,10 +114,10 @@ class GoArrayData<T> {
 		final slice:GoArrayData<T> = __ref__();
 		// Don't set slice.offset to this value because it needs to be computed in the case of a grow.
 		final startOffset = slice.length;
-		final growCapacity = args.length - slice.capacity + slice.length + slice.offset + 1;
-		if (growCapacity <= 1 || (this != null && this.vector == null && this.bytes == null)) {
+		final cap = args.length - slice.capacity + slice.length + slice.offset + 1;
+		if (cap <= 1 || (this != null && this.vector == null && this.bytes == null)) {
 			if (this.vector == null && this.bytes == null)
-				slice.vector = new haxe.ds.Vector<T>(growCapacity);
+				slice.vector = new haxe.ds.Vector<T>(cap);
 			slice.length += args.length;
 			if (slice.bytes != null) {
 				for (i in 0...args.length) {
@@ -130,10 +130,36 @@ class GoArrayData<T> {
 			}
 			return slice;
 		}
+		var newcap = slice.capacity;
+		final doublecap = newcap + newcap;
+		if (cap > doublecap) {
+			newcap = cap;
+		}else{
+			final threshold = 256;
+			if (slice.capacity < 256) {
+				newcap = doublecap;
+			}else{
+				while (0 < newcap && newcap < cap) {
+					newcap += Std.int((newcap + 3 * threshold)/4);
+				}
+				if (newcap <= 0) {
+					newcap = cap;	
+				}
+				// Set newcap to the requested cap when
+				// the newcap calculation overflowed.
+				if (newcap <= 0) {
+					newcap = cap;
+				}
+			}
+		}
+		trace(slice.capacity, newcap);
+		slice.capacity = newcap;
+		
 		// grow capacity
-		slice.capacity += growCapacity;
+		//slice.capacity += growCapacity;
 		// grow by 50%
-		slice.capacity += slice.capacity >> 2;
+		//slice.capacity += slice.capacity >> 2;
+
 		slice.grow(); // allocation
 		slice.length += args.length;
 		if (slice.bytes != null) {
@@ -148,6 +174,31 @@ class GoArrayData<T> {
 		}
 		return slice;
 	}
+	/*
+	newcap := old.cap
+	doublecap := newcap + newcap
+	if cap > doublecap {
+		newcap = cap
+	} else {
+		const threshold = 256
+		if old.cap < threshold {
+			newcap = doublecap
+		} else {
+			// Check 0 < newcap to detect overflow
+			// and prevent an infinite loop.
+			for 0 < newcap && newcap < cap {
+				// Transition from growing 2x for small slices
+				// to growing 1.25x for large slices. This formula
+				// gives a smooth-ish transition between the two.
+				newcap += (newcap + 3*threshold) / 4
+			}
+			// Set newcap to the requested cap when
+			// the newcap calculation overflowed.
+			if newcap <= 0 {
+				newcap = cap
+			}
+		}
+	}*/
 
 	private inline function boundsCheck(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
@@ -283,7 +334,7 @@ class GoArrayDataIterator<T> {
 
 // @:generic
 @:forward.new
-@:forward(__setData__)
+@:forward(__setData__,__slice__)
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
@@ -340,24 +391,6 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	@:op([]) public function __get__(index:GoInt):T {
 		__boundsCheck__(index.toBasic());
 		return this.get(index.toBasic());
-	}
-
-	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt=-1):Slice<T> {
-		if (this == null)
-			return null;
-		var offset = low;
-		if (high == -1)
-			high = length.toBasic();
-		var length = high - low;
-		final obj = new stdgo.GoArray.GoArrayData<T>(0, -1,null);
-		obj.offset = offset;
-		if (max != -1) {
-			obj.capacity = max - low;
-		}
-		obj.vector = this.vector;
-		obj.length = length;
-		obj.capacity = this.capacity;
-		return obj;
 	}
 
 	public inline function __toArray__():Array<T> {

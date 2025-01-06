@@ -7657,9 +7657,20 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodName = formatHaxeFieldName(method.name,info);
 						var expr = if (fieldPointerBool) {
-							macro this.$name.value.$fieldName;
+							macro @:check4 this.$name.value.$fieldName;
 						}else{
-							macro @:check3 (this.$name ?? throw "null pointer derefrence").$fieldName;
+							switch methodRecv {
+								case pointerType(_.get() => elem):
+									if (isNamed(elem)) {
+										final ct = toComplexType(elem, info);
+										addPointerSuffix(ct);
+										macro @:check4 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
+									}else{
+										macro @:check5 (this.$name ?? throw "null pointer derefrence").$fieldName;
+									}
+								default:
+									macro @:check3 (this.$name ?? throw "null pointer derefrence").$fieldName;
+							}
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 							//expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;

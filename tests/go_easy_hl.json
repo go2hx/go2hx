@@ -332,5 +332,6 @@
  "hl|issue55122b",
  "hl|slicearray",
  "hl|indirect",
- "hl|ddd"
+ "hl|ddd",
+ "hl|noeq"
 ]

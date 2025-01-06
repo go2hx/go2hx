@@ -366,5 +366,7 @@
  "interp|var4",
  "interp|var9",
  "interp|var_",
- "interp|variadic4"
+ "interp|variadic4",
+ "interp|defer5",
+ "interp|defer6"
 ]

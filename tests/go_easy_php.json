@@ -336,5 +336,6 @@
  "php|strvar",
  "php|turing",
  "php|varinit",
- "php|zombie_struct_select"
+ "php|zombie_struct_select",
+ "php|ddd"
 ]

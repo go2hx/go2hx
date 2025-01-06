@@ -272,51 +272,49 @@ func main() {
 }
 
 ```
-## bug113
+## issue16760
 ```go
 // run
 
-// Copyright 2009 The Go Authors. All rights reserved.
+// Copyright 2016 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Make sure we don't start marshaling (writing to the stack)
+// arguments until those arguments are evaluated and known
+// not to unconditionally panic. If they unconditionally panic,
+// we write some args but never do the call. That messes up
+// the logic which decides how big the argout section needs to be.
+
 package main
 
-type I interface{}
-
-func foo1(i int) int     { return i }
-func foo2(i int32) int32 { return i }
-func main() {
-	var i I
-	i = 1
-	var v1 = i.(int)
-	if foo1(v1) != 1 {
-		panic(1)
-	}
-	var v2 = int32(i.(int))
-	if foo2(v2) != 1 {
-		panic(2)
-	}
-	
-	shouldPanic(p1)
+type W interface {
+	Write([]byte)
 }
 
-func p1() {
-	var i I
-	i = 1
-	var v3 = i.(int32) // This type conversion should fail at runtime.
-	if foo2(v3) != 1 {
-		panic(3)
-	}
-}
+type F func(W)
 
-func shouldPanic(f func()) {
+func foo(f F) {
 	defer func() {
-		if recover() == nil {
-			panic("function should panic")
+		if r := recover(); r != nil {
+			usestack(1000)
 		}
 	}()
-	f()
+	f(nil)
+}
+
+func main() {
+	foo(func(w W) {
+		var x []string
+		w.Write([]byte(x[5]))
+	})
+}
+
+func usestack(n int) {
+	if n == 0 {
+		return
+	}
+	usestack(n - 1)
 }
 
 ```
@@ -357,35 +355,6 @@ func main() {
 	if slice[y] != 255 {
 		panic("incorrect value")
 	}
-}
-
-```
-## issue19710
-```go
-// run
-
-// Copyright 2017 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 19710: mishandled defer delete(...)
-
-package main
-
-func main() {
-	if n := len(f()); n != 0 {
-		println("got", n, "want 0")
-		panic("bad defer delete")
-	}
-}
-
-func f() map[int]bool {
-	m := map[int]bool{}
-	for i := 0; i < 3; i++ {
-		m[i] = true
-		defer delete(m, i)
-	}
-	return m
 }
 
 ```
@@ -997,442 +966,6 @@ func main() {
 }
 
 ```
-## convert
-```go
-// run
-
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test, near-exhaustive, of converting numbers between types.
-// No complex numbers though.
-
-package main
-
-var i8 int8;
-var u8 uint8;
-var i16 int16;
-var u16 uint16;
-var i32 int32;
-var u32 uint32;
-var i64 int64;
-var u64 uint64;
-var f32 float32;
-var f64 float64;
-
-type	big	float64
-
-type	t	struct {
-	from, to	int
-	val		big
-}
-
-const (
-	ti8	= iota+1
-	tu8
-	ti16
-	tu16
-	ti32
-	tu32
-	ti64
-	tu64
-	tf32
-	tf64
-)
-
-var	x = []t{
-
-	/* value good in all types (10) */
-	{ ti8,  ti8,  10 }, { ti8,  tu8,  10 }, { ti8,  ti16, 10 }, { ti8,  tu16, 10 },
-	{ ti8,  ti32, 10 }, { ti8,  tu32, 10 }, { ti8,  ti64, 10 }, { ti8,  tu64, 10 },
-	{ ti8,  tf32, 10 }, { ti8,  tf64, 10 },
-
-	{ tu8,  ti8,  10 }, { tu8,  tu8,  10 }, { tu8,  ti16, 10 }, { tu8,  tu16, 10 },
-	{ tu8,  ti32, 10 }, { tu8,  tu32, 10 }, { tu8,  ti64, 10 }, { tu8,  tu64, 10 },
-	{ tu8,  tf32, 10 }, { tu8,  tf64, 10 },
-
-	{ ti16, ti8,  10 }, { ti16, tu8,  10 }, { ti16, ti16, 10 }, { ti16, tu16, 10 },
-	{ ti16, ti32, 10 }, { ti16, tu32, 10 }, { ti16, ti64, 10 }, { ti16, tu64, 10 },
-	{ ti16, tf32, 10 }, { ti16, tf64, 10 },
-
-	{ tu16, ti8,  10 }, { tu16, tu8,  10 }, { tu16, ti16, 10 }, { tu16, tu16, 10 },
-	{ tu16, ti32, 10 }, { tu16, tu32, 10 }, { tu16, ti64, 10 }, { tu16, tu64, 10 },
-	{ tu16, tf32, 10 }, { tu16, tf64, 10 },
-
-	{ ti32, ti8,  10 }, { ti32, tu8,  10 }, { ti32, ti16, 10 }, { ti32, tu16, 10 },
-	{ ti32, ti32, 10 }, { ti32, tu32, 10 }, { ti32, ti64, 10 }, { ti32, tu64, 10 },
-	{ ti32, tf32, 10 }, { ti32, tf64, 10 },
-
-	{ tu32, ti8,  10 }, { tu32, tu8,  10 }, { tu32, ti16, 10 }, { tu32, tu16, 10 },
-	{ tu32, ti32, 10 }, { tu32, tu32, 10 }, { tu32, ti64, 10 }, { tu32, tu64, 10 },
-	{ tu32, tf32, 10 }, { tu32, tf64, 10 },
-
-	{ ti64, ti8,  10 }, { ti64, tu8,  10 }, { ti64, ti16, 10 }, { ti64, tu16, 10 },
-	{ ti64, ti32, 10 }, { ti64, tu32, 10 }, { ti64, ti64, 10 }, { ti64, tu64, 10 },
-	{ ti64, tf32, 10 }, { ti64, tf64, 10 },
-
-	{ tu64, ti8,  10 }, { tu64, tu8,  10 }, { tu64, ti16, 10 }, { tu64, tu16, 10 },
-	{ tu64, ti32, 10 }, { tu64, tu32, 10 }, { tu64, ti64, 10 }, { tu64, tu64, 10 },
-	{ tu64, tf32, 10 }, { tu64, tf64, 10 },
-
-	{ tf32, ti8,  10 }, { tf32, tu8,  10 }, { tf32, ti16, 10 }, { tf32, tu16, 10 },
-	{ tf32, ti32, 10 }, { tf32, tu32, 10 }, { tf32, ti64, 10 }, { tf32, tu64, 10 },
-	{ tf32, tf32, 10 }, { tf32, tf64, 10 },
-
-	{ tf64, ti8,  10 }, { tf64, tu8,  10 }, { tf64, ti16, 10 }, { tf64, tu16, 10 },
-	{ tf64, ti32, 10 }, { tf64, tu32, 10 }, { tf64, ti64, 10 }, { tf64, tu64, 10 },
-	{ tf64, tf32, 10 }, { tf64, tf64, 10 },
-
-	/* value good in all signed types (-4) */
-	{ ti8,  ti8,  -4 }, { ti8,  ti16, -4 },
-	{ ti8,  ti32, -4 }, { ti8,  ti64, -4 },
-	{ ti8,  tf32, -4 }, { ti8,  tf64, -4 },
-
-	{ ti16, ti8,  -4 }, { ti16, ti16, -4 },
-	{ ti16, ti32, -4 }, { ti16, ti64, -4 },
-	{ ti16, tf32, -4 },
-
-	{ ti32, ti8,  -4 }, { ti32, ti16, -4 },
-	{ ti32, ti32, -4 }, { ti32, ti64, -4 },
-	{ ti32, tf32, -4 }, { ti32, tf64, -4 },
-
-	{ ti64, ti8,  -4 }, { ti64, ti16, -4 },
-	{ ti64, ti32, -4 }, { ti64, ti64, -4 },
-	{ ti64, tf32, -4 },
-
-	{ tf32, ti8,  -4 }, { tf32, ti16, -4 },
-	{ tf32, ti32, -4 }, { tf32, ti64, -4 },
-	{ tf32, tf32, -4 },
-
-	{ tf64, ti8,  -4 }, { tf64, ti16, -4 },
-	{ tf64, ti32, -4 }, { tf64, ti64, -4 },
-	{ tf64, tf32, -4 }, { tf64, tf64, -4 },
-
-	/* value good in u8 and up (175) */
-	{ tu8,  tu8,  175 }, { tu8,  ti16, 175 }, { tu8,  tu16, 175 },
-	{ tu8,  ti32, 175 }, { tu8,  tu32, 175 }, { tu8,  ti64, 175 }, { tu8,  tu64, 175 },
-	{ tu8,  tf32, 175 }, { tu8,  tf64, 175 },
-
-	{ ti16, tu8,  175 }, { ti16, ti16, 175 }, { ti16, tu16, 175 },
-	{ ti16, ti32, 175 }, { ti16, tu32, 175 }, { ti16, ti64, 175 }, { ti16, tu64, 175 },
-	{ ti16, tf32, 175 }, { ti16, tf64, 175 },
-
-	{ tu16, tu8,  175 }, { tu16, ti16, 175 }, { tu16, tu16, 175 },
-	{ tu16, ti32, 175 }, { tu16, tu32, 175 }, { tu16, ti64, 175 }, { tu16, tu64, 175 },
-	{ tu16, tf32, 175 }, { tu16, tf64, 175 },
-
-	{ ti32, tu8,  175 }, { ti32, ti16, 175 }, { ti32, tu16, 175 },
-	{ ti32, ti32, 175 }, { ti32, tu32, 175 }, { ti32, ti64, 175 }, { ti32, tu64, 175 },
-	{ ti32, tf32, 175 }, { ti32, tf64, 175 },
-
-	{ tu32, tu8,  175 }, { tu32, ti16, 175 }, { tu32, tu16, 175 },
-	{ tu32, ti32, 175 }, { tu32, tu32, 175 }, { tu32, ti64, 175 }, { tu32, tu64, 175 },
-	{ tu32, tf32, 175 }, { tu32, tf64, 175 },
-
-	{ ti64, tu8,  175 }, { ti64, ti16, 175 }, { ti64, tu16, 175 },
-	{ ti64, ti32, 175 }, { ti64, tu32, 175 }, { ti64, ti64, 175 }, { ti64, tu64, 175 },
-	{ ti64, tf32, 175 }, { ti64, tf64, 175 },
-
-	{ tu64, tu8,  175 }, { tu64, ti16, 175 }, { tu64, tu16, 175 },
-	{ tu64, ti32, 175 }, { tu64, tu32, 175 }, { tu64, ti64, 175 }, { tu64, tu64, 175 },
-	{ tu64, tf32, 175 }, { tu64, tf64, 175 },
-
-	{ tf32, tu8,  175 }, { tf32, ti16, 175 }, { tf32, tu16, 175 },
-	{ tf32, ti32, 175 }, { tf32, tu32, 175 }, { tf32, ti64, 175 }, { tf32, tu64, 175 },
-	{ tf32, tf32, 175 }, { tf32, tf64, 175 },
-
-	{ tf64, tu8,  175 }, { tf64, ti16, 175 }, { tf64, tu16, 175 },
-	{ tf64, ti32, 175 }, { tf64, tu32, 175 }, { tf64, ti64, 175 }, { tf64, tu64, 175 },
-	{ tf64, tf32, 175 }, { tf64, tf64, 175 },
-
-	/* value good in u16 and up (41259) */
-	{ tu16, tu16, 41259 },
-	{ tu16, ti32, 41259 }, { tu16, ti64, 41259 }, { tu16, tu64, 41259 },
-	{ tu16, tf32, 41259 }, { tu16, tf64, 41259 },
-
-	{ ti32, tu16, 41259 },
-	{ ti32, ti32, 41259 }, { ti32, tu32, 41259 }, { ti32, ti64, 41259 }, { ti32, tu64, 41259 },
-	{ ti32, tf32, 41259 }, { ti32, tf64, 41259 },
-
-	{ tu32, tu16, 41259 },
-	{ tu32, ti32, 41259 }, { tu32, tu32, 41259 }, { tu32, ti64, 41259 }, { tu32, tu64, 41259 },
-	{ tu32, tf32, 41259 }, { tu32, tf64, 41259 },
-
-	{ ti64, tu16, 41259 },
-	{ ti64, ti32, 41259 }, { ti64, tu32, 41259 }, { ti64, ti64, 41259 }, { ti64, tu64, 41259 },
-	{ ti64, tf32, 41259 }, { ti64, tf64, 41259 },
-
-	{ tu64, tu16, 41259 },
-	{ tu64, ti32, 41259 }, { tu64, tu32, 41259 }, { tu64, ti64, 41259 }, { tu64, tu64, 41259 },
-	{ tu64, tf32, 41259 }, { tu64, tf64, 41259 },
-
-	{ tf32, tu16, 41259 },
-	{ tf32, ti32, 41259 }, { tf32, tu32, 41259 }, { tf32, ti64, 41259 }, { tf32, tu64, 41259 },
-	{ tf32, tf32, 41259 }, { tf32, tf64, 41259 },
-
-	{ tf64, tu16, 41259 },
-	{ tf64, ti32, 41259 }, { tf64, tu32, 41259 }, { tf64, ti64, 41259 }, { tf64, tu64, 41259 },
-	{ tf64, tf32, 41259 }, { tf64, tf64, 41259 },
-
-	/* value good in u32 and up (3758096384) */
-	{ tu32, tu32, 3758096384 }, { tu32, ti64, 3758096384 }, { tu32, tu64, 3758096384 },
-	{ tu32, tf32, 3758096384 }, { tu32, tf64, 3758096384 },
-
-	{ ti64, tu32, 3758096384 }, { ti64, ti64, 3758096384 }, { ti64, tu64, 3758096384 },
-	{ ti64, tf32, 3758096384 }, { ti64, tf64, 3758096384 },
-
-	{ tu64, tu32, 3758096384 }, { tu64, ti64, 3758096384 }, { tu64, tu64, 3758096384 },
-	{ tu64, tf32, 3758096384 }, { tu64, tf64, 3758096384 },
-
-	{ tf32, tu32, 3758096384 }, { tf32, ti64, 3758096384 }, { tf32, tu64, 3758096384 },
-	{ tf32, tf32, 3758096384 }, { tf32, tf64, 3758096384 },
-
-	{ tf64, tu32, 3758096384 }, { tf64, ti64, 3758096384 }, { tf64, tu64, 3758096384 },
-	{ tf64, tf32, 3758096384 }, { tf64, tf64, 3758096384 },
-
-	/* value good in u64 and up (16717361816799281152) */
-	{ tu64, tu64, 16717361816799281152 },
-	{ tu64, tf32, 16717361816799281152 }, { tu64, tf64, 16717361816799281152 },
-
-	{ tf32, tu64, 16717361816799281152 },
-	{ tf32, tf32, 16717361816799281152 }, { tf32, tf64, 16717361816799281152 },
-
-	{ tf64, tu64, 16717361816799281152 },
-	{ tf64, tf32, 16717361816799281152 }, { tf64, tf64, 16717361816799281152 },
-}
-
-func main() {
-	for i:=0; i<len(x); i++ {
-		v := x[i].val		// input value
-		w := big(0)		// output value
-		f := x[i].from		// input type
-		t := x[i].to		// output type
-
-		i8  = 0; u8  = 0; i16 = 0; u16 = 0
-		i32 = 0; u32 = 0; i64 = 0; u64 = 0
-		f32 = 0; f64 = 0
-
-		switch f*100 + t {
-		default:
-			println("missing case", i, v, f, t)
-			w = v
-
-		case ti8*100 + ti8:
-			i8 = int8(v); i8 = int8(i8); w = big(i8)
-		case ti8*100 + tu8:
-			i8 = int8(v); u8 = uint8(i8); w = big(u8)
-		case ti8*100 + ti16:
-			i8 = int8(v); i16 = int16(i8); w = big(i16)
-		case ti8*100 + tu16:
-			i8 = int8(v); u16 = uint16(i8); w = big(u16)
-		case ti8*100 + ti32:
-			i8 = int8(v); i32 = int32(i8); w = big(i32)
-		case ti8*100 + tu32:
-			i8 = int8(v); u32 = uint32(i8); w = big(u32)
-		case ti8*100 + ti64:
-			i8 = int8(v); i64 = int64(i8); w = big(i64)
-		case ti8*100 + tu64:
-			i8 = int8(v); u64 = uint64(i8); w = big(u64)
-		case ti8*100 + tf32:
-			i8 = int8(v); f32 = float32(i8); w = big(f32)
-		case ti8*100 + tf64:
-			i8 = int8(v); f64 = float64(i8); w = big(f64)
-
-		case tu8*100 + ti8:
-			u8 = uint8(v); i8 = int8(u8); w = big(i8)
-		case tu8*100 + tu8:
-			u8 = uint8(v); u8 = uint8(u8); w = big(u8)
-		case tu8*100 + ti16:
-			u8 = uint8(v); i16 = int16(u8); w = big(i16)
-		case tu8*100 + tu16:
-			u8 = uint8(v); u16 = uint16(u8); w = big(u16)
-		case tu8*100 + ti32:
-			u8 = uint8(v); i32 = int32(u8); w = big(i32)
-		case tu8*100 + tu32:
-			u8 = uint8(v); u32 = uint32(u8); w = big(u32)
-		case tu8*100 + ti64:
-			u8 = uint8(v); i64 = int64(u8); w = big(i64)
-		case tu8*100 + tu64:
-			u8 = uint8(v); u64 = uint64(u8); w = big(u64)
-		case tu8*100 + tf32:
-			u8 = uint8(v); f32 = float32(u8); w = big(f32)
-		case tu8*100 + tf64:
-			u8 = uint8(v); f64 = float64(u8); w = big(f64)
-
-		case ti16*100 + ti8:
-			i16 = int16(v); i8 = int8(i16); w = big(i8)
-		case ti16*100 + tu8:
-			i16 = int16(v); u8 = uint8(i16); w = big(u8)
-		case ti16*100 + ti16:
-			i16 = int16(v); i16 = int16(i16); w = big(i16)
-		case ti16*100 + tu16:
-			i16 = int16(v); u16 = uint16(i16); w = big(u16)
-		case ti16*100 + ti32:
-			i16 = int16(v); i32 = int32(i16); w = big(i32)
-		case ti16*100 + tu32:
-			i16 = int16(v); u32 = uint32(i16); w = big(u32)
-		case ti16*100 + ti64:
-			i16 = int16(v); i64 = int64(i16); w = big(i64)
-		case ti16*100 + tu64:
-			i16 = int16(v); u64 = uint64(i16); w = big(u64)
-		case ti16*100 + tf32:
-			i16 = int16(v); f32 = float32(i16); w = big(f32)
-		case ti16*100 + tf64:
-			i16 = int16(v); f64 = float64(i16); w = big(f64)
-
-		case tu16*100 + ti8:
-			u16 = uint16(v); i8 = int8(u16); w = big(i8)
-		case tu16*100 + tu8:
-			u16 = uint16(v); u8 = uint8(u16); w = big(u8)
-		case tu16*100 + ti16:
-			u16 = uint16(v); i16 = int16(u16); w = big(i16)
-		case tu16*100 + tu16:
-			u16 = uint16(v); u16 = uint16(u16); w = big(u16)
-		case tu16*100 + ti32:
-			u16 = uint16(v); i32 = int32(u16); w = big(i32)
-		case tu16*100 + tu32:
-			u16 = uint16(v); u32 = uint32(u16); w = big(u32)
-		case tu16*100 + ti64:
-			u16 = uint16(v); i64 = int64(u16); w = big(i64)
-		case tu16*100 + tu64:
-			u16 = uint16(v); u64 = uint64(u16); w = big(u64)
-		case tu16*100 + tf32:
-			u16 = uint16(v); f32 = float32(u16); w = big(f32)
-		case tu16*100 + tf64:
-			u16 = uint16(v); f64 = float64(u16); w = big(f64)
-
-		case ti32*100 + ti8:
-			i32 = int32(v); i8 = int8(i32); w = big(i8)
-		case ti32*100 + tu8:
-			i32 = int32(v); u8 = uint8(i32); w = big(u8)
-		case ti32*100 + ti16:
-			i32 = int32(v); i16 = int16(i32); w = big(i16)
-		case ti32*100 + tu16:
-			i32 = int32(v); u16 = uint16(i32); w = big(u16)
-		case ti32*100 + ti32:
-			i32 = int32(v); i32 = int32(i32); w = big(i32)
-		case ti32*100 + tu32:
-			i32 = int32(v); u32 = uint32(i32); w = big(u32)
-		case ti32*100 + ti64:
-			i32 = int32(v); i64 = int64(i32); w = big(i64)
-		case ti32*100 + tu64:
-			i32 = int32(v); u64 = uint64(i32); w = big(u64)
-		case ti32*100 + tf32:
-			i32 = int32(v); f32 = float32(i32); w = big(f32)
-		case ti32*100 + tf64:
-			i32 = int32(v); f64 = float64(i32); w = big(f64)
-
-		case tu32*100 + ti8:
-			u32 = uint32(v); i8 = int8(u32); w = big(i8)
-		case tu32*100 + tu8:
-			u32 = uint32(v); u8 = uint8(u32); w = big(u8)
-		case tu32*100 + ti16:
-			u32 = uint32(v); i16 = int16(u32); w = big(i16)
-		case tu32*100 + tu16:
-			u32 = uint32(v); u16 = uint16(u32); w = big(u16)
-		case tu32*100 + ti32:
-			u32 = uint32(v); i32 = int32(u32); w = big(i32)
-		case tu32*100 + tu32:
-			u32 = uint32(v); u32 = uint32(u32); w = big(u32)
-		case tu32*100 + ti64:
-			u32 = uint32(v); i64 = int64(u32); w = big(i64)
-		case tu32*100 + tu64:
-			u32 = uint32(v); u64 = uint64(u32); w = big(u64)
-		case tu32*100 + tf32:
-			u32 = uint32(v); f32 = float32(u32); w = big(f32)
-		case tu32*100 + tf64:
-			u32 = uint32(v); f64 = float64(u32); w = big(f64)
-
-		case ti64*100 + ti8:
-			i64 = int64(v); i8 = int8(i64); w = big(i8)
-		case ti64*100 + tu8:
-			i64 = int64(v); u8 = uint8(i64); w = big(u8)
-		case ti64*100 + ti16:
-			i64 = int64(v); i16 = int16(i64); w = big(i16)
-		case ti64*100 + tu16:
-			i64 = int64(v); u16 = uint16(i64); w = big(u16)
-		case ti64*100 + ti32:
-			i64 = int64(v); i32 = int32(i64); w = big(i32)
-		case ti64*100 + tu32:
-			i64 = int64(v); u32 = uint32(i64); w = big(u32)
-		case ti64*100 + ti64:
-			i64 = int64(v); i64 = int64(i64); w = big(i64)
-		case ti64*100 + tu64:
-			i64 = int64(v); u64 = uint64(i64); w = big(u64)
-		case ti64*100 + tf32:
-			i64 = int64(v); f32 = float32(i64); w = big(f32)
-		case ti64*100 + tf64:
-			i64 = int64(v); f64 = float64(i64); w = big(f64)
-
-		case tu64*100 + ti8:
-			u64 = uint64(v); i8 = int8(u64); w = big(i8)
-		case tu64*100 + tu8:
-			u64 = uint64(v); u8 = uint8(u64); w = big(u8)
-		case tu64*100 + ti16:
-			u64 = uint64(v); i16 = int16(u64); w = big(i16)
-		case tu64*100 + tu16:
-			u64 = uint64(v); u16 = uint16(u64); w = big(u16)
-		case tu64*100 + ti32:
-			u64 = uint64(v); i32 = int32(u64); w = big(i32)
-		case tu64*100 + tu32:
-			u64 = uint64(v); u32 = uint32(u64); w = big(u32)
-		case tu64*100 + ti64:
-			u64 = uint64(v); i64 = int64(u64); w = big(i64)
-		case tu64*100 + tu64:
-			u64 = uint64(v); u64 = uint64(u64); w = big(u64)
-		case tu64*100 + tf32:
-			u64 = uint64(v); f32 = float32(u64); w = big(f32)
-		case tu64*100 + tf64:
-			u64 = uint64(v); f64 = float64(u64); w = big(f64)
-
-		case tf32*100 + ti8:
-			f32 = float32(v); i8 = int8(f32); w = big(i8)
-		case tf32*100 + tu8:
-			f32 = float32(v); u8 = uint8(f32); w = big(u8)
-		case tf32*100 + ti16:
-			f32 = float32(v); i16 = int16(f32); w = big(i16)
-		case tf32*100 + tu16:
-			f32 = float32(v); u16 = uint16(f32); w = big(u16)
-		case tf32*100 + ti32:
-			f32 = float32(v); i32 = int32(f32); w = big(i32)
-		case tf32*100 + tu32:
-			f32 = float32(v); u32 = uint32(f32); w = big(u32)
-		case tf32*100 + ti64:
-			f32 = float32(v); i64 = int64(f32); w = big(i64)
-		case tf32*100 + tu64:
-			f32 = float32(v); u64 = uint64(f32); w = big(u64)
-		case tf32*100 + tf32:
-			f32 = float32(v); f32 = float32(f32); w = big(f32)
-		case tf32*100 + tf64:
-			f32 = float32(v); f64 = float64(f32); w = big(f64)
-
-		case tf64*100 + ti8:
-			f64 = float64(v); i8 = int8(f64); w = big(i8)
-		case tf64*100 + tu8:
-			f64 = float64(v); u8 = uint8(f64); w = big(u8)
-		case tf64*100 + ti16:
-			f64 = float64(v); i16 = int16(f64); w = big(i16)
-		case tf64*100 + tu16:
-			f64 = float64(v); u16 = uint16(f64); w = big(u16)
-		case tf64*100 + ti32:
-			f64 = float64(v); i32 = int32(f64); w = big(i32)
-		case tf64*100 + tu32:
-			f64 = float64(v); u32 = uint32(f64); w = big(u32)
-		case tf64*100 + ti64:
-			f64 = float64(v); i64 = int64(f64); w = big(i64)
-		case tf64*100 + tu64:
-			f64 = float64(v); u64 = uint64(f64); w = big(u64)
-		case tf64*100 + tf32:
-			f64 = float64(v); f32 = float32(f64); w = big(f32)
-		case tf64*100 + tf64:
-			f64 = float64(v); f64 = float64(f64); w = big(f64)
-		}
-		if v != w { println(i, v, w, f, t) }
-	}
-}
-
-```
 ## cplx2
 ```go
 // run
@@ -1441,7 +974,7 @@ func main() {
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Test arithmetic on complex numbers, including multiplication and division.
+// Test simple arithmetic and assignment for complex numbers.
 
 package main
 
@@ -1449,389 +982,90 @@ const (
 	R = 5
 	I = 6i
 
-	C1 = R + I    // ADD(5,6)
-	C2 = R - I    // SUB(5,-6)
-	C3 = -(R + I) // ADD(5,6) NEG(-5,-6)
-	C4 = -(R - I) // SUB(5,-6) NEG(-5,6)
-
-	C5 = C1 + R // ADD(10,6)
-	C6 = C1 + I // ADD(5,12)
-
-	Ca = C5 + C6 // ADD(15,18)
-	Cb = C5 - C6 // SUB(5,-6)
-
-	Cc = C5 * C6 // MUL(-22,-150)
-	Cd = C5 / C6 // DIV(0.721893,-0.532544)
-	Ce = Cd * C6 // MUL(10,6) sb C5
+	C1 = R + I // ADD(5,6)
 )
 
 func main() {
+	var b bool
 
-	var r complex64 = 5 + 0i
-	if r != R {
-		println("opcode 1", r, R)
-		panic("fail")
-	}
-
-	var i complex64 = 6i
-	if i != I {
-		println("opcode 2", i, I)
+	// constants
+	b = (5 + 6i) == C1
+	if !b {
+		println("const bool 1", b)
 		panic("fail")
 	}
 
-	c1 := r + i
-	if c1 != C1 {
-		println("opcode x", c1, C1)
+	b = (5 + 6i) != C1
+	if b {
+		println("const bool 2", b)
 		panic("fail")
 	}
 
-	c2 := r - i
-	if c2 != C2 {
-		println("opcode x", c2, C2)
+	b = C1 == (5 + 6i)
+	if !b {
+		println("const bool 3", b)
 		panic("fail")
 	}
 
-	c3 := -(r + i)
-	if c3 != C3 {
-		println("opcode x", c3, C3)
+	b = C1 != (5 + 6i)
+	if b {
+		println("const bool 4", b)
 		panic("fail")
 	}
 
-	c4 := -(r - i)
-	if c4 != C4 {
-		println("opcode x", c4, C4)
-		panic("fail")
-	}
-
-	c5 := c1 + r
-	if c5 != C5 {
-		println("opcode x", c5, C5)
-		panic("fail")
-	}
-
-	c6 := c1 + i
-	if c6 != C6 {
-		println("opcode x", c6, C6)
-		panic("fail")
-	}
-
-	ca := c5 + c6
-	if ca != Ca {
-		println("opcode x", ca, Ca)
-		panic("fail")
-	}
-
-	cb := c5 - c6
-	if cb != Cb {
-		println("opcode x", cb, Cb)
-		panic("fail")
-	}
-
-	cc := c5 * c6
-	if cc != Cc {
-		println("opcode x", cc, Cc)
-		panic("fail")
-	}
-
-	cd := c5 / c6
-	if cd != Cd {
-		println("opcode x", cd, Cd)
-		panic("fail")
-	}
-
-	ce := cd * c6
-	if ce != Ce {
-		println("opcode x", ce, Ce)
-		panic("fail")
-	}
-	
-	r32 := real(complex64(ce))
-	if r32 != float32(real(Ce)) {
-		println("real(complex64(ce))", r32, real(Ce))
-		panic("fail")
-	}
-	
-	r64 := real(complex128(ce))
-	if r64 != real(Ce) {
-		println("real(complex128(ce))", r64, real(Ce))
-		panic("fail")
-	}
+	// vars passed through parameters
+	booltest(5+6i, true)
+	booltest(5+7i, false)
+	booltest(6+6i, false)
+	booltest(6+9i, false)
 }
 
-```
-## divmod
-```go
-// run
+func booltest(a complex64, r bool) {
+	var b bool
 
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test integer division and modulus.
-
-package main
-
-const (
-	// example from the spec
-	n1 = +5
-	n2 = -5
-	d1 = +3
-	d2 = -3
-
-	q1 = +1
-	q2 = -1
-	q3 = -1
-	q4 = +1
-
-	r1 = +2
-	r2 = -2
-	r3 = +2
-	r4 = -2
-)
-
-func main() {
-	/* ideals */
-	if n1/d1 != q1 || n1%d1 != r1 {
-		println("ideal-1", n1, d1, n1/d1, n1%d1)
-		panic("fail")
-	}
-	if n2/d1 != q2 || n2%d1 != r2 {
-		println("ideal-2", n2, d1, n2/d1, n2%d1)
-		panic("fail")
-	}
-	if n1/d2 != q3 || n1%d2 != r3 {
-		println("ideal-3", n1, d2, n1/d2, n1%d2)
-		panic("fail")
-	}
-	if n2/d2 != q4 || n2%d2 != r4 {
-		println("ideal-4", n2, d2, n2/d2, n2%d2)
+	b = a == C1
+	if b != r {
+		println("param bool 1", a, b, r)
 		panic("fail")
 	}
 
-	/* int */
-	var in1 int = +5
-	var in2 int = -5
-	var id1 int = +3
-	var id2 int = -3
-
-	if in1/id1 != q1 || in1%id1 != r1 {
-		println("int-1", in1, id1, in1/id1, in1%id1)
-		panic("fail")
-	}
-	if in2/id1 != q2 || in2%id1 != r2 {
-		println("int-2", in2, id1, in2/id1, in2%id1)
-		panic("fail")
-	}
-	if in1/id2 != q3 || in1%id2 != r3 {
-		println("int-3", in1, id2, in1/id2, in1%id2)
-		panic("fail")
-	}
-	if in2/id2 != q4 || in2%id2 != r4 {
-		println("int-4", in2, id2, in2/id2, in2%id2)
+	b = a != C1
+	if b == r {
+		println("param bool 2", a, b, r)
 		panic("fail")
 	}
 
-	/* int8 */
-	var bn1 int8 = +5
-	var bn2 int8 = -5
-	var bd1 int8 = +3
-	var bd2 int8 = -3
-
-	if bn1/bd1 != q1 || bn1%bd1 != r1 {
-		println("int8-1", bn1, bd1, bn1/bd1, bn1%bd1)
-		panic("fail")
-	}
-	if bn2/bd1 != q2 || bn2%bd1 != r2 {
-		println("int8-2", bn2, bd1, bn2/bd1, bn2%bd1)
-		panic("fail")
-	}
-	if bn1/bd2 != q3 || bn1%bd2 != r3 {
-		println("int8-3", bn1, bd2, bn1/bd2, bn1%bd2)
-		panic("fail")
-	}
-	if bn2/bd2 != q4 || bn2%bd2 != r4 {
-		println("int8-4", bn2, bd2, bn2/bd2, bn2%bd2)
+	b = C1 == a
+	if b != r {
+		println("param bool 3", a, b, r)
 		panic("fail")
 	}
 
-	/* int16 */
-	var sn1 int16 = +5
-	var sn2 int16 = -5
-	var sd1 int16 = +3
-	var sd2 int16 = -3
-
-	if sn1/sd1 != q1 || sn1%sd1 != r1 {
-		println("int16-1", sn1, sd1, sn1/sd1, sn1%sd1)
-		panic("fail")
-	}
-	if sn2/sd1 != q2 || sn2%sd1 != r2 {
-		println("int16-2", sn2, sd1, sn2/sd1, sn2%sd1)
-		panic("fail")
-	}
-	if sn1/sd2 != q3 || sn1%sd2 != r3 {
-		println("int16-3", sn1, sd2, sn1/sd2, sn1%sd2)
-		panic("fail")
-	}
-	if sn2/sd2 != q4 || sn2%sd2 != r4 {
-		println("int16-4", sn2, sd2, sn2/sd2, sn2%sd2)
+	b = C1 != a
+	if b == r {
+		println("param bool 4", a, b, r)
 		panic("fail")
 	}
 
-	/* int32 */
-	var ln1 int32 = +5
-	var ln2 int32 = -5
-	var ld1 int32 = +3
-	var ld2 int32 = -3
-
-	if ln1/ld1 != q1 || ln1%ld1 != r1 {
-		println("int32-1", ln1, ld1, ln1/ld1, ln1%ld1)
-		panic("fail")
+	if r {
+		if a != C1 {
+			println("param bool 5", a, b, r)
+			panic("fail")
+		}
+		if C1 != a {
+			println("param bool 6", a, b, r)
+			panic("fail")
+		}
+	} else {
+		if a == C1 {
+			println("param bool 6", a, b, r)
+			panic("fail")
+		}
+		if C1 == a {
+			println("param bool 7", a, b, r)
+			panic("fail")
+		}
 	}
-	if ln2/ld1 != q2 || ln2%ld1 != r2 {
-		println("int32-2", ln2, ld1, ln2/ld1, ln2%ld1)
-		panic("fail")
-	}
-	if ln1/ld2 != q3 || ln1%ld2 != r3 {
-		println("int32-3", ln1, ld2, ln1/ld2, ln1%ld2)
-		panic("fail")
-	}
-	if ln2/ld2 != q4 || ln2%ld2 != r4 {
-		println("int32-4", ln2, ld2, ln2/ld2, ln2%ld2)
-		panic("fail")
-	}
-
-	/* int64 */
-	var qn1 int64 = +5
-	var qn2 int64 = -5
-	var qd1 int64 = +3
-	var qd2 int64 = -3
-
-	if qn1/qd1 != q1 || qn1%qd1 != r1 {
-		println("int64-1", qn1, qd1, qn1/qd1, qn1%qd1)
-		panic("fail")
-	}
-	if qn2/qd1 != q2 || qn2%qd1 != r2 {
-		println("int64-2", qn2, qd1, qn2/qd1, qn2%qd1)
-		panic("fail")
-	}
-	if qn1/qd2 != q3 || qn1%qd2 != r3 {
-		println("int64-3", qn1, qd2, qn1/qd2, qn1%qd2)
-		panic("fail")
-	}
-	if qn2/qd2 != q4 || qn2%qd2 != r4 {
-		println("int64-4", qn2, qd2, qn2/qd2, qn2%qd2)
-		panic("fail")
-	}
-
-	if n1/qd1 != q1 || n1%qd1 != r1 {
-		println("mixed int64-1", n1, qd1, n1/qd1, n1%qd1)
-		panic("fail")
-	}
-	if n2/qd1 != q2 || n2%qd1 != r2 {
-		println("mixed int64-2", n2, qd1, n2/qd1, n2%qd1)
-		panic("fail")
-	}
-	if n1/qd2 != q3 || n1%qd2 != r3 {
-		println("mixed int64-3", n1, qd2, n1/qd2, n1%qd2)
-		panic("fail")
-	}
-	if n2/qd2 != q4 || n2%qd2 != r4 {
-		println("mixed int64-4", n2, qd2, n2/qd2, n2%qd2)
-		panic("fail")
-	}
-
-	if qn1/d1 != q1 || qn1%d1 != r1 {
-		println("mixed int64-5", qn1, d1, qn1/d1, qn1%d1)
-		panic("fail")
-	}
-	if qn2/d1 != q2 || qn2%d1 != r2 {
-		println("mixed int64-6", qn2, d1, qn2/d1, qn2%d1)
-		panic("fail")
-	}
-	if qn1/d2 != q3 || qn1%d2 != r3 {
-		println("mixed int64-7", qn1, d2, qn1/d2, qn1%d2)
-		panic("fail")
-	}
-	if qn2/d2 != q4 || qn2%d2 != r4 {
-		println("mixed int64-8", qn2, d2, qn2/d2, qn2%d2)
-		panic("fail")
-	}
-
-	/* uint */
-	var uin1 uint = +5
-	var uid1 uint = +3
-
-	if uin1/uid1 != q1 || uin1%uid1 != r1 {
-		println("uint", uin1, uid1, uin1/uid1, uin1%uid1)
-		panic("fail")
-	}
-
-	/* uint8 */
-	var ubn1 uint8 = +5
-	var ubd1 uint8 = +3
-
-	if ubn1/ubd1 != q1 || ubn1%ubd1 != r1 {
-		println("uint8", ubn1, ubd1, ubn1/ubd1, ubn1%ubd1)
-		panic("fail")
-	}
-
-	/* uint16 */
-	var usn1 uint16 = +5
-	var usd1 uint16 = +3
-
-	if usn1/usd1 != q1 || usn1%usd1 != r1 {
-		println("uint16", usn1, usd1, usn1/usd1, usn1%usd1)
-		panic("fail")
-	}
-
-	/* uint32 */
-	var uln1 uint32 = +5
-	var uld1 uint32 = +3
-
-	if uln1/uld1 != q1 || uln1%uld1 != r1 {
-		println("uint32", uln1, uld1, uln1/uld1, uln1%uld1)
-		panic("fail")
-	}
-
-	/* uint64 */
-	var uqn1 uint64 = +5
-	var uqd1 uint64 = +3
-
-	if uqn1/uqd1 != q1 || uqn1%uqd1 != r1 {
-		println("uint64", uqn1, uqd1, uqn1/uqd1, uqn1%uqd1)
-		panic("fail")
-	}
-	if n1/uqd1 != q1 || n1%uqd1 != r1 {
-		println("mixed uint64-1", n1, uqd1, n1/uqd1, n1%uqd1)
-		panic("fail")
-	}
-	if uqn1/d1 != q1 || uqn1%d1 != r1 {
-		println("mixed uint64-2", uqn1, d1, uqn1/d1, uqn1%d1)
-		panic("fail")
-	}
-}
-
-```
-## for_
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test simple for loop.
-
-package main
-
-func
-main() {
-	var t,i int;
-
-	for i=0; i<100; i=i+1 {
-		t = t+i;
-	}
-	if t != 50*99  { panic(t); }
 }
 
 ```
@@ -1843,228 +1077,204 @@ main() {
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Test literal syntax for basic types.
+// Test slicing and re-slicing.
 
 package main
 
-var nbad int
-
-func assert(cond bool, msg string) {
-	if !cond {
-		if nbad == 0 {
-			print("BUG")
-		}
-		nbad++
-		print(" ", msg)
-	}
-}
-
-func equal(a, b float32) bool {
-	return a == b
-}
+var bx []byte
+var by []byte
+var fx []float64
+var fy []float64
+var lb, hb int
+var t int
 
 func main() {
-	// bool
-	var t bool = true
-	var f bool = false
-	assert(t == !f, "bool")
 
-	// int8
-	var i00 int8 = 0
-	var i01 int8 = 1
-	var i02 int8 = -1
-	var i03 int8 = 127
-	var i04 int8 = -127
-	var i05 int8 = -128
-	var i06 int8 = +127
-	assert(i01 == i00+1, "i01")
-	assert(i02 == -i01, "i02")
-	assert(i03 == -i04, "i03")
-	assert(-(i05+1) == i06, "i05")
+	// width 1 (byte)
+	lb = 0
+	hb = 10
+	by = bx[lb:hb]
+	tstb()
+	by = bx[lb:10]
+	tstb()
+	by = bx[lb:]
+	tstb()
+	by = bx[:hb]
+	tstb()
+	by = bx[0:hb]
+	tstb()
+	by = bx[0:10]
+	tstb()
+	by = bx[0:]
+	tstb()
+	by = bx[:10]
+	tstb()
+	by = bx[:]
+	tstb()
 
-	// int16
-	var i10 int16 = 0
-	var i11 int16 = 1
-	var i12 int16 = -1
-	var i13 int16 = 32767
-	var i14 int16 = -32767
-	var i15 int16 = -32768
-	var i16 int16 = +32767
-	assert(i11 == i10+1, "i11")
-	assert(i12 == -i11, "i12")
-	assert(i13 == -i14, "i13")
-	assert(-(i15+1) == i16, "i15")
+	lb = 2
+	hb = 10
+	by = bx[lb:hb]
+	tstb()
+	by = bx[lb:10]
+	tstb()
+	by = bx[lb:]
+	tstb()
+	by = bx[2:hb]
+	tstb()
+	by = bx[2:10]
+	tstb()
+	by = bx[2:]
+	tstb()
 
-	// int32
-	var i20 int32 = 0
-	var i21 int32 = 1
-	var i22 int32 = -1
-	var i23 int32 = 2147483647
-	var i24 int32 = -2147483647
-	var i25 int32 = -2147483648
-	var i26 int32 = +2147483647
-	assert(i21 == i20+1, "i21")
-	assert(i22 == -i21, "i22")
-	assert(i23 == -i24, "i23")
-	assert(-(i25+1) == i26, "i25")
-	assert(i23 == (1<<31)-1, "i23 size")
+	lb = 0
+	hb = 8
+	by = bx[lb:hb]
+	tstb()
+	by = bx[lb:8]
+	tstb()
+	by = bx[0:hb]
+	tstb()
+	by = bx[0:8]
+	tstb()
+	by = bx[:8]
+	tstb()
+	by = bx[:hb]
+	tstb()
 
-	// int64
-	var i30 int64 = 0
-	var i31 int64 = 1
-	var i32 int64 = -1
-	var i33 int64 = 9223372036854775807
-	var i34 int64 = -9223372036854775807
-	var i35 int64 = -9223372036854775808
-	var i36 int64 = +9223372036854775807
-	assert(i31 == i30+1, "i31")
-	assert(i32 == -i31, "i32")
-	assert(i33 == -i34, "i33")
-	assert(-(i35+1) == i36, "i35")
-	assert(i33 == (1<<63)-1, "i33 size")
+	lb = 2
+	hb = 8
+	by = bx[lb:hb]
+	tstb()
+	by = bx[lb:8]
+	tstb()
+	by = bx[2:hb]
+	tstb()
+	by = bx[2:8]
+	tstb()
 
-	// uint8
-	var u00 uint8 = 0
-	var u01 uint8 = 1
-	var u02 uint8 = 255
-	var u03 uint8 = +255
-	assert(u01 == u00+1, "u01")
-	assert(u02 == u03, "u02")
-	assert(u03 == (1<<8)-1, "u03 size")
+	// width 4 (float64)
+	lb = 0
+	hb = 10
+	fy = fx[lb:hb]
+	tstf()
+	fy = fx[lb:10]
+	tstf()
+	fy = fx[lb:]
+	tstf()
+	fy = fx[:hb]
+	tstf()
+	fy = fx[0:hb]
+	tstf()
+	fy = fx[0:10]
+	tstf()
+	fy = fx[0:]
+	tstf()
+	fy = fx[:10]
+	tstf()
+	fy = fx[:]
+	tstf()
 
-	// uint16
-	var u10 uint16 = 0
-	var u11 uint16 = 1
-	var u12 uint16 = 65535
-	var u13 uint16 = +65535
-	assert(u11 == u10+1, "u11")
-	assert(u12 == u13, "u12")
+	lb = 2
+	hb = 10
+	fy = fx[lb:hb]
+	tstf()
+	fy = fx[lb:10]
+	tstf()
+	fy = fx[lb:]
+	tstf()
+	fy = fx[2:hb]
+	tstf()
+	fy = fx[2:10]
+	tstf()
+	fy = fx[2:]
+	tstf()
 
-	// uint32
-	var u20 uint32 = 0
-	var u21 uint32 = 1
-	var u22 uint32 = 4294967295
-	var u23 uint32 = +4294967295
-	assert(u21 == u20+1, "u21")
-	assert(u22 == u23, "u22")
+	lb = 0
+	hb = 8
+	fy = fx[lb:hb]
+	tstf()
+	fy = fx[lb:8]
+	tstf()
+	fy = fx[:hb]
+	tstf()
+	fy = fx[0:hb]
+	tstf()
+	fy = fx[0:8]
+	tstf()
+	fy = fx[:8]
+	tstf()
 
-	// uint64
-	var u30 uint64 = 0
-	var u31 uint64 = 1
-	var u32 uint64 = 18446744073709551615
-	var u33 uint64 = +18446744073709551615
-	_, _, _, _ = u30, u31, u32, u33
+	lb = 2
+	hb = 8
+	fy = fx[lb:hb]
+	tstf()
+	fy = fx[lb:8]
+	tstf()
+	fy = fx[2:hb]
+	tstf()
+	fy = fx[2:8]
+	tstf()
+}
 
-	// float
-	var f00 float32 = 3.14159
-	var f01 float32 = -3.14159
-	var f02 float32 = +3.14159
-	var f03 float32 = 0.0
-	var f04 float32 = .0
-	var f05 float32 = 0.
-	var f06 float32 = -0.0
-	var f07 float32 = 1e10
-	var f08 float32 = -1e10
-	var f09 float32 = 1e-10
-	var f10 float32 = 1e+10
-	var f11 float32 = 1.e-10
-	var f12 float32 = 1.e+10
-	var f13 float32 = .1e-10
-	var f14 float32 = .1e+10
-	var f15 float32 = 1.1e-10
-	var f16 float32 = 1.1e+10
-	assert(f01 == -f00, "f01")
-	assert(f02 == -f01, "f02")
-	assert(f03 == f04, "f03")
-	assert(f04 == f05, "f04")
-	assert(f05 == f06, "f05")
-	assert(f07 == -f08, "f07")
-	assert(equal(f09, 1/f10), "f09")
-	assert(f11 == f09, "f11")
-	assert(f12 == f10, "f12")
-	assert(equal(f13, f09/10.0), "f13")
-	assert(equal(f14, f12/10.0), "f14")
-	assert(equal(f15, f16/1e20), "f15")
-
-	// character
-	var c0 uint8 = 'a'
-	var c1 uint8 = 'ä'
-	var c2 uint8 = '\a'
-	var c3 uint8 = '\b'
-	var c4 uint8 = '\f'
-	var c5 uint8 = '\n'
-	var c6 uint8 = '\r'
-	var c7 uint8 = '\t'
-	var c8 uint8 = '\v'
-	// var c9 uint8 = '本' // correctly caught as error
-	var c9 uint16 = '本'
-	assert(c0 == 0x61, "c0")
-	assert(c1 == 0xe4, "c1")
-	assert(c2 == 0x07, "c2")
-	assert(c3 == 0x08, "c3")
-	assert(c4 == 0x0c, "c4")
-	assert(c5 == 0x0a, "c4")
-	assert(c6 == 0x0d, "c6")
-	assert(c7 == 0x09, "c7")
-	assert(c8 == 0x0b, "c8")
-	assert(c9 == 0x672c, "c9")
-
-	var c00 uint8 = '\000'
-	var c01 uint8 = '\007'
-	var c02 uint8 = '\177'
-	var c03 uint8 = '\377'
-	assert(c00 == 0, "c00")
-	assert(c01 == 7, "c01")
-	assert(c02 == 127, "c02")
-	assert(c03 == 255, "c03")
-
-	var cx0 uint8 = '\x00'
-	var cx1 uint8 = '\x0f'
-	var cx2 uint8 = '\xff'
-	assert(cx0 == 0, "cx0")
-	assert(cx1 == 15, "cx1")
-	assert(cx2 == 255, "cx2")
-
-	var cu0 uint16 = '\u1234'
-	var cu1 uint32 = '\U00101234'
-	assert(cu0 == 0x1234, "cu0")
-	assert(cu1 == 0x101234, "cu1")
-
-	// string
-	var s0 string = ""
-	var s1 string = "hellô"
-	assert(s1[0] == 'h', "s1-0")
-	assert(s1[4] == 0xc3, "s1-4")
-	assert(s1[5] == 0xb4, "s1-5")
-	var s2 string = "\a\b\f\n\r\t\v"
-	_, _ = s0, s2
-
-	var s00 string = "\000"
-	var s01 string = "\007"
-	var s02 string = "\377"
-	assert(s00[0] == 0, "s00")
-	assert(s01[0] == 7, "s01")
-	assert(s02[0] == 255, "s02")
-
-	var x00 string = "\x00"
-	var x01 string = "\x0f"
-	var x02 string = "\xff"
-	assert(x00[0] == 0, "x00")
-	assert(x01[0] == 15, "x01")
-	assert(x02[0] == 255, "x02")
-
-	// these are all the same string
-	var sj0 string = "日本語"
-	var sj1 string = "\u65e5\u672c\u8a9e"
-	var sj2 string = "\U000065e5\U0000672c\U00008a9e"
-	var sj3 string = "\xe6\x97\xa5\xe6\x9c\xac\xe8\xaa\x9e"
-	assert(sj0 == sj1, "sj1")
-	assert(sj0 == sj2, "sj2")
-	assert(sj0 == sj3, "sj3")
-
-	if nbad > 0 {
-		panic("literal failed")
+func tstb() {
+	t++
+	if len(by) != hb-lb {
+		println("t=", t, "lb=", lb, "hb=", hb,
+			"len=", len(by), "hb-lb=", hb-lb)
+		panic("fail")
 	}
+	if cap(by) != len(bx)-lb {
+		println("t=", t, "lb=", lb, "hb=", hb,
+			"cap=", cap(by), "len(bx)-lb=", len(bx)-lb)
+		panic("fail")
+	}
+	for i := lb; i < hb; i++ {
+		if bx[i] != by[i-lb] {
+			println("t=", t, "lb=", lb, "hb=", hb,
+				"bx[", i, "]=", bx[i],
+				"by[", i-lb, "]=", by[i-lb])
+			panic("fail")
+		}
+	}
+	by = nil
+}
+
+func tstf() {
+	t++
+	if len(fy) != hb-lb {
+		println("t=", t, "lb=", lb, "hb=", hb,
+			"len=", len(fy), "hb-lb=", hb-lb)
+		panic("fail")
+	}
+	if cap(fy) != len(fx)-lb {
+		println("t=", t, "lb=", lb, "hb=", hb,
+			"cap=", cap(fy), "len(fx)-lb=", len(fx)-lb)
+		panic("fail")
+	}
+	for i := lb; i < hb; i++ {
+		if fx[i] != fy[i-lb] {
+			println("t=", t, "lb=", lb, "hb=", hb,
+				"fx[", i, "]=", fx[i],
+				"fy[", i-lb, "]=", fy[i-lb])
+			panic("fail")
+		}
+	}
+	fy = nil
+}
+
+func init() {
+	bx = make([]byte, 10)
+	for i := 0; i < len(bx); i++ {
+		bx[i] = byte(i + 20)
+	}
+	by = nil
+
+	fx = make([]float64, 10)
+	for i := 0; i < len(fx); i++ {
+		fx[i] = float64(i + 20)
+	}
+	fy = nil
 }
 
 ```
@@ -2076,306 +1286,113 @@ func main() {
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Test simple methods of various types, with pointer and
-// value receivers.
+// Test string operations including printing.
 
 package main
 
-type S string
-type S1 string
-type I int
-type I1 int
-type T struct {
-	x int
-}
-type T1 T
-
-func (s S) val() int   { return 1 }
-func (s *S1) val() int { return 2 }
-func (i I) val() int   { return 3 }
-func (i *I1) val() int { return 4 }
-func (t T) val() int   { return 7 }
-func (t *T1) val() int { return 8 }
-
-type Val interface {
-	val() int
-}
-
-func val(v Val) int { return v.val() }
-
 func main() {
-	var s S
-	var ps *S1
-	var i I
-	var pi *I1
-	var pt *T1
-	var t T
-	var v Val
+	var c string
 
-	if s.val() != 1 {
-		println("s.val:", s.val())
-		panic("fail")
+	a := `abc`
+	b := `xyz`
+
+	/* print a literal */
+	print(`abc`)
+
+	/* print a variable */
+	print(b, "-")
+
+	/* catenate literals */
+	print(`abc`+`xyz`, "-")
+
+	/* catenate variables */
+	print(a+b, "-")
+
+	/* compare literals */
+	if `abc` == `xyz` || `abc` != "abc" || `abc` > `xyz` {
+		panic("compare literals")
 	}
-	if S.val(s) != 1 {
-		println("S.val(s):", S.val(s))
-		panic("fail")
+
+	/* compare variables */
+	if a == b || a != a || a > b {
+		panic("compare variables")
 	}
-	if (*S).val(&s) != 1 {
-		println("(*S).val(s):", (*S).val(&s))
-		panic("fail")
-	}
-	if ps.val() != 2 {
-		println("ps.val:", ps.val())
-		panic("fail")
-	}
-	if (*S1).val(ps) != 2 {
-		println("(*S1).val(ps):", (*S1).val(ps))
-		panic("fail")
-	}
-	if i.val() != 3 {
-		println("i.val:", i.val())
-		panic("fail")
-	}
-	if I.val(i) != 3 {
-		println("I.val(i):", I.val(i))
-		panic("fail")
-	}
-	if (*I).val(&i) != 3 {
-		println("(*I).val(&i):", (*I).val(&i))
-		panic("fail")
-	}
-	if pi.val() != 4 {
-		println("pi.val:", pi.val())
-		panic("fail")
-	}
-	if (*I1).val(pi) != 4 {
-		println("(*I1).val(pi):", (*I1).val(pi))
-		panic("fail")
-	}
-	if t.val() != 7 {
-		println("t.val:", t.val())
-		panic("fail")
-	}
-	if pt.val() != 8 {
-		println("pt.val:", pt.val())
-		panic("fail")
-	}
-	if (*T1).val(pt) != 8 {
-		println("(*T1).val(pt):", (*T1).val(pt))
+
+	/* cat */
+	c = a + b
+	print(c, "-")
+
+	/* catequal */
+	c = a
+	c += b
+	print(c, "-")
+
+	/* clumsy evaluation */
+	c = b
+	c = a + c
+	print(c, "-")
+
+	/* len */
+	if len(c) != 6 {
+		print("len ", len(c))
 		panic("fail")
 	}
 
-	if val(s) != 1 {
-		println("val(s):", val(s))
-		panic("fail")
-	}
-	if val(ps) != 2 {
-		println("val(ps):", val(ps))
-		panic("fail")
-	}
-	if val(i) != 3 {
-		println("val(i):", val(i))
-		panic("fail")
-	}
-	if val(pi) != 4 {
-		println("val(pi):", val(pi))
-		panic("fail")
-	}
-	if val(t) != 7 {
-		println("val(t):", val(t))
-		panic("fail")
-	}
-	if val(pt) != 8 {
-		println("val(pt):", val(pt))
-		panic("fail")
+	/* index strings */
+	for i := 0; i < len(c); i = i + 1 {
+		if c[i] != (a + b)[i] {
+			print("index ", i, " ", c[i], " ", (a + b)[i])
+			panic("fail")
+		}
 	}
 
-	if Val.val(i) != 3 {
-		println("Val.val(i):", Val.val(i))
-		panic("fail")
-	}
-	v = i
-	if Val.val(v) != 3 {
-		println("Val.val(v):", Val.val(v))
-		panic("fail")
+	/* slice strings */
+	print(c[0:3], c[3:])
+
+	print("\n")
+
+	/* create string with integer constant */
+	c = string('x')
+	if c != "x" {
+		panic("create int " + c)
 	}
 
-	var zs struct{ S }
-	var zps struct{ *S1 }
-	var zi struct{ I }
-	var zpi struct{ *I1 }
-	var zpt struct{ *T1 }
-	var zt struct{ T }
-	var zv struct{ Val }
-
-	if zs.val() != 1 {
-		println("zs.val:", zs.val())
-		panic("fail")
-	}
-	if zps.val() != 2 {
-		println("zps.val:", zps.val())
-		panic("fail")
-	}
-	if zi.val() != 3 {
-		println("zi.val:", zi.val())
-		panic("fail")
-	}
-	if zpi.val() != 4 {
-		println("zpi.val:", zpi.val())
-		panic("fail")
-	}
-	if zt.val() != 7 {
-		println("zt.val:", zt.val())
-		panic("fail")
-	}
-	if zpt.val() != 8 {
-		println("zpt.val:", zpt.val())
-		panic("fail")
+	/* create string with integer variable */
+	v := 'x'
+	c = string(v)
+	if c != "x" {
+		panic("create int " + c)
 	}
 
-	if val(zs) != 1 {
-		println("val(zs):", val(zs))
-		panic("fail")
-	}
-	if val(zps) != 2 {
-		println("val(zps):", val(zps))
-		panic("fail")
-	}
-	if val(zi) != 3 {
-		println("val(zi):", val(zi))
-		panic("fail")
-	}
-	if val(zpi) != 4 {
-		println("val(zpi):", val(zpi))
-		panic("fail")
-	}
-	if val(zt) != 7 {
-		println("val(zt):", val(zt))
-		panic("fail")
-	}
-	if val(zpt) != 8 {
-		println("val(zpt):", val(zpt))
-		panic("fail")
+	/* create string with byte array */
+	var z1 [3]byte
+	z1[0] = 'a'
+	z1[1] = 'b'
+	z1[2] = 'c'
+	c = string(z1[0:])
+	if c != "abc" {
+		panic("create byte array " + c)
 	}
 
-	zv.Val = zi
-	if zv.val() != 3 {
-		println("zv.val():", zv.val())
-		panic("fail")
+	/* create string with int array */
+	var z2 [3]rune
+	z2[0] = 'a'
+	z2[1] = '\u1234'
+	z2[2] = 'c'
+	c = string(z2[0:])
+	if c != "a\u1234c" {
+		panic("create int array " + c)
 	}
 
-	if (&zs).val() != 1 {
-		println("(&zs).val:", (&zs).val())
-		panic("fail")
+	/* create string with byte array pointer */
+	z3 := new([3]byte)
+	z3[0] = 'a'
+	z3[1] = 'b'
+	z3[2] = 'c'
+	c = string(z3[0:])
+	if c != "abc" {
+		panic("create array pointer " + c)
 	}
-	if (&zps).val() != 2 {
-		println("(&zps).val:", (&zps).val())
-		panic("fail")
-	}
-	if (&zi).val() != 3 {
-		println("(&zi).val:", (&zi).val())
-		panic("fail")
-	}
-	if (&zpi).val() != 4 {
-		println("(&zpi).val:", (&zpi).val())
-		panic("fail")
-	}
-	if (&zt).val() != 7 {
-		println("(&zt).val:", (&zt).val())
-		panic("fail")
-	}
-	if (&zpt).val() != 8 {
-		println("(&zpt).val:", (&zpt).val())
-		panic("fail")
-	}
-
-	if val(&zs) != 1 {
-		println("val(&zs):", val(&zs))
-		panic("fail")
-	}
-	if val(&zps) != 2 {
-		println("val(&zps):", val(&zps))
-		panic("fail")
-	}
-	if val(&zi) != 3 {
-		println("val(&zi):", val(&zi))
-		panic("fail")
-	}
-	if val(&zpi) != 4 {
-		println("val(&zpi):", val(&zpi))
-		panic("fail")
-	}
-	if val(&zt) != 7 {
-		println("val(&zt):", val(&zt))
-		panic("fail")
-	}
-	if val(&zpt) != 8 {
-		println("val(&zpt):", val(&zpt))
-		panic("fail")
-	}
-
-	zv.Val = &zi
-	if zv.val() != 3 {
-		println("zv.val():", zv.val())
-		panic("fail")
-	}
-
-	promotion()
-}
-
-type A struct{ B }
-type B struct {
-	C
-	*D
-}
-type C int
-
-func (C) f()  {} // value receiver, direct field of A
-func (*C) g() {} // pointer receiver
-
-type D int
-
-func (D) h()  {} // value receiver, indirect field of A
-func (*D) i() {} // pointer receiver
-
-func expectPanic() {
-	if r := recover(); r == nil {
-		panic("expected nil dereference")
-	}
-}
-
-func promotion() {
-	var a A
-	// Addressable value receiver.
-	a.f()
-	a.g()
-	func() {
-		defer expectPanic()
-		a.h() // dynamic error: nil dereference in a.B.D->f()
-	}()
-	a.i()
-
-	// Non-addressable value receiver.
-	A(a).f()
-	// A(a).g() // static error: cannot call pointer method on A literal.B.C
-	func() {
-		defer expectPanic()
-		A(a).h() // dynamic error: nil dereference in A().B.D->f()
-	}()
-	A(a).i()
-
-	// Pointer receiver.
-	(&a).f()
-	(&a).g()
-	func() {
-		defer expectPanic()
-		(&a).h() // dynamic error: nil deref: nil dereference in (&a).B.D->f()
-	}()
-	(&a).i()
-
-	c := new(C)
-	c.f() // makes a copy
-	c.g()
 }
 
 ```

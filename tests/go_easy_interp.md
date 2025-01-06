@@ -155,42 +155,6 @@ func f() map[int]bool {
 }
 
 ```
-## issue23734
-```go
-// run
-
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	m := map[interface{}]int{}
-	k := []int{}
-
-	mustPanic(func() {
-		_ = m[k]
-	})
-	mustPanic(func() {
-		_, _ = m[k]
-	})
-	mustPanic(func() {
-		delete(m, k)
-	})
-}
-
-func mustPanic(f func()) {
-	defer func() {
-		r := recover()
-		if r == nil {
-			panic("didn't panic")
-		}
-	}()
-	f()
-}
-
-```
 ## issue27718
 ```go
 // run
@@ -363,31 +327,6 @@ func main() {
 
 	p()
 }
-
-```
-## issue47928
-```go
-// run -goexperiment fieldtrack
-
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	var i interface{} = new(T)
-	if _, ok := i.(interface{ Bad() }); ok {
-		panic("FAIL")
-	}
-}
-
-type T struct{ U }
-
-type U struct{}
-
-//go:nointerface
-func (*U) Bad() {}
 
 ```
 ## issue50672

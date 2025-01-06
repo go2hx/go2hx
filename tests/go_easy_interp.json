@@ -327,5 +327,6 @@
  "interp|issue55122b",
  "interp|slicearray",
  "interp|ddd",
- "interp|noeq"
+ "interp|noeq",
+ "interp|issue23734"
 ]

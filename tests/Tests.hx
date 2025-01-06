@@ -525,6 +525,7 @@ private function excludeTest(name:String) {
 		case "issue16760": // stack panic for interp, 1000 -> 100 stack as unit test
 		case "issue47227": // go-easy cgo
 		case "issue7550": // creates a slice with too large of len: 2147483647
+		case "issue47928": // fails for golang too
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "convert4": // go-easy relies on the same underlying runtime
 		case "export0": // yaegi-easy no main func

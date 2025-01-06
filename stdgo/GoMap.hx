@@ -571,8 +571,27 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 		super.set(key, value);
 	}
 
+	override function remove(key:AnyInterface):Bool {
+		final gt = @:privateAccess key.type._common();
+		switch gt {
+			case sliceType(_):
+				throw errorString("hash of unhashable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
+			default:
+				trace(gt);
+		}
+		return super.remove(key);
+	}
+
 	override function get(key:AnyInterface):V {
 		var node = root;
+		final gt = @:privateAccess key.type._common();
+		switch gt {
+			case sliceType(_):
+				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
+			default:
+				trace(gt);
+		}
+		
 		while (node != null) {
 			var c = compare(key, node.key);
 			if (c == 0)
@@ -592,6 +611,14 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 			keysLoop(node.right, acc);
 		}
 	}
+}
+
+function errorString(s:stdgo.GoString) {
+	#if no_linkerr
+	return s;
+	#else
+	return stdgo.Go.toInterface(stdgo.Go.asInterface((s : stdgo._internal.math.bits.Bits_T_errorString.T_errorString)));
+	#end
 }
 
 

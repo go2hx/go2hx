@@ -63,5 +63,6 @@
  "js|literal2",
  "js|rob2",
  "js|typeswitch1",
- "js|utf"
+ "js|utf",
+ "js|defer"
 ]

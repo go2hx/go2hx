@@ -278,15 +278,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	static inline function toAnyInterfaceMap<K:AnyInterface, V>(t:IMap<K, V>):GoAnyInterfaceMap<V> {
 		return new GoAnyInterfaceMap<V>();
 	}
-
-	@:to
-	static inline function toGoObjectMap<K, V>(t:IMap<K, V>):GoObjectMap<K,V> {
-		return new GoObjectMap<K,V>();
-	}
-
-	@:from static inline function fromObjectMap<K,V>(map:GoObjectMap<K,V>):GoMap<K, V> {
-		return cast map;
-	}
+	// Do not add ObjectMap casting, breaks regexp/syntax GoRefMap cast at stdgo/_internal/regexp/syntax/Syntax_T_parser_static_extension.hx  
 }
 
 class GoStringMap<T> extends BalancedTree<GoString, T> {
@@ -589,9 +581,8 @@ class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 			case sliceType(_):
 				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
-				trace(gt);
 		}
-		
+
 		while (node != null) {
 			var c = compare(key, node.key);
 			if (c == 0)

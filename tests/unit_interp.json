@@ -135,5 +135,6 @@
  "interp|mapinitfield",
  "interp|method5_0",
  "interp|nonptrmethodrecv",
- "interp|ptrrecv"
+ "interp|ptrrecv",
+ "interp|ddd0"
 ]

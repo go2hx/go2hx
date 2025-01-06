@@ -325,5 +325,6 @@
  "js|issue55122",
  "js|issue55122b",
  "js|slicearray",
- "js|noeq"
+ "js|noeq",
+ "js|issue23734"
 ]

@@ -133,5 +133,7 @@
  "php|mapinitfield",
  "php|method5_0",
  "php|nonptrmethodrecv",
- "php|ptrrecv"
+ "php|ptrrecv",
+ "php|convert",
+ "php|ddd0"
 ]

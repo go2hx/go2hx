@@ -116,26 +116,27 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final name = fields[i].name;
 					if (StringTools.startsWith(name, "__blank__"))
 						continue;
-					if (!std.Reflect.hasField(bValue,name)) {
-						return false;
-					}
 					final type = fields[i].type.get();
 					final fieldValue = std.Reflect.field(aValue, name);
 					final fieldValue2 = std.Reflect.field(bValue, name);
 
-					if (fieldValue == null || fieldValue2 == null) {
+					/*if (fieldValue == null || fieldValue2 == null) {
 						if (fieldValue == null && fieldValue2 == null)
 							return true;
 						trace(fieldValue, fieldValue2);
 						trace(aValue, bValue);
 						throw "struct issue with field name1: " + name;
-					}
+					}*/
 
 					final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
-					if (AnyInterface.notEquals(a, b)) {
-						return false;
+					try {
+						if (AnyInterface.notEquals(a, b)) {
+							return false;
+						}
+					}catch(_) {
+						throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 					}
 				}
 				true;

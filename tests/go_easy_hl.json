@@ -334,5 +334,6 @@
  "hl|indirect",
  "hl|ddd",
  "hl|noeq",
- "hl|issue23734"
+ "hl|issue23734",
+ "hl|issue19710"
 ]

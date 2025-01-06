@@ -7803,7 +7803,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									}
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									final fArgs = fun.args.map(arg -> macro $i{arg.name});
-									if (args.length > 0 && isRestType(fun.args[fun.args.length - 1].type)) {
+									if (fun.args.length > 0 && isRestType(fun.args[fun.args.length - 1].type)) {
 										fArgs[fArgs.length - 1] = macro...$e{fArgs[fArgs.length - 1]};
 									}
 									fun.args.unshift({

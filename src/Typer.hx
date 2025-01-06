@@ -1083,12 +1083,33 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		switch e.expr {
 			case EBlock(exprs):
 				final last = exprs.pop();
+				//trace(printer.printExpr(macro $b{exprs}));
+				catchBlock.push(macro {
+					function f() {
+						try {
+							$b{exprs.copy()};
+						}catch(__exception__2) {
+							var exe:Dynamic = __exception__2.native;
+							if ((exe is haxe.ValueException)) exe = exe.value;
+							if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+								if (__exception__.message == "__return__") throw "__return__";
+								exe = stdgo.Go.toInterface(__exception__.message);
+							};
+							stdgo.Go.recover_exception = exe;
+							f();
+						}
+					}
+					f();
+				});
 				exprs.push(macro if (stdgo.Go.recover_exception != null)
 					throw stdgo.Go.recover_exception);
 				exprs.push(last);
-				catchBlock = catchBlock.concat(exprs);
+				catchBlock.push(macro if (stdgo.Go.recover_exception != null)
+				throw stdgo.Go.recover_exception);
+				exprs.push(last);
+				//catchBlock = catchBlock.concat(exprs);
 			default:
-				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ?throw stdgo.Go.recover_exception:$e]);
+				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ? throw stdgo.Go.recover_exception: $e]);
 		}
 		exprs.unshift(macro var __deferstack__:Array<{ran:Bool, f:Void->Void}> = []);
 		//exprs.push(typeDeferReturn(info, true));
@@ -1098,8 +1119,10 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		if (tryBool) {
 			final pos = 1 + (info.returnNamed ? 1 : 0);
 			final trydef = macro try
-				$b{exprs.slice(pos)} catch (__exception__)
-				$b{catchBlock};
+					$b{exprs.slice(pos)} 
+				catch (__exception__) {
+					$b{catchBlock};
+				};
 			// don't include recover and defer stack
 			exprs = exprs.slice(0, pos);
 			exprs.push(trydef);

@@ -135,5 +135,6 @@
  "hl|mapinitfield",
  "hl|method5_0",
  "hl|nonptrmethodrecv",
- "hl|ptrrecv"
+ "hl|ptrrecv",
+ "hl|ddd0"
 ]

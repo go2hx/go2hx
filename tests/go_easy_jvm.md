@@ -1339,54 +1339,6 @@ func main() {
 }
 
 ```
-## bug113
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-type I interface{}
-
-func foo1(i int) int     { return i }
-func foo2(i int32) int32 { return i }
-func main() {
-	var i I
-	i = 1
-	var v1 = i.(int)
-	if foo1(v1) != 1 {
-		panic(1)
-	}
-	var v2 = int32(i.(int))
-	if foo2(v2) != 1 {
-		panic(2)
-	}
-	
-	shouldPanic(p1)
-}
-
-func p1() {
-	var i I
-	i = 1
-	var v3 = i.(int32) // This type conversion should fail at runtime.
-	if foo2(v3) != 1 {
-		panic(3)
-	}
-}
-
-func shouldPanic(f func()) {
-	defer func() {
-		if recover() == nil {
-			panic("function should panic")
-		}
-	}()
-	f()
-}
-
-```
 ## bug119
 ```go
 // run
@@ -8547,7 +8499,7 @@ func main() {
 }
 
 ```
-## divmod
+## interbasic
 ```go
 // run
 
@@ -8555,275 +8507,322 @@ func main() {
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Test integer division and modulus.
+// Test embedded fields of structs, including methods.
 
 package main
 
-const (
-	// example from the spec
-	n1 = +5
-	n2 = -5
-	d1 = +3
-	d2 = -3
 
-	q1 = +1
-	q2 = -1
-	q3 = -1
-	q4 = +1
+type I interface {
+	test1() int
+	test2() int
+	test3() int
+	test4() int
+	test5() int
+	test6() int
+	test7() int
+}
 
-	r1 = +2
-	r2 = -2
-	r3 = +2
-	r4 = -2
-)
+/******
+ ******
+ ******/
+
+type SubpSubp struct {
+	a7 int
+	a  int
+}
+
+func (p *SubpSubp) test7() int {
+	if p.a != p.a7 {
+		println("SubpSubp", p, p.a7)
+		panic("fail")
+	}
+	return p.a
+}
+func (p *SubpSubp) testx() { println("SubpSubp", p, p.a7) }
+
+/******
+ ******
+ ******/
+
+type SubpSub struct {
+	a6 int
+	SubpSubp
+	a int
+}
+
+func (p *SubpSub) test6() int {
+	if p.a != p.a6 {
+		println("SubpSub", p, p.a6)
+		panic("fail")
+	}
+	return p.a
+}
+func (p *SubpSub) testx() { println("SubpSub", p, p.a6) }
+
+/******
+ ******
+ ******/
+
+type SubSubp struct {
+	a5 int
+	a  int
+}
+
+func (p *SubSubp) test5() int {
+	if p.a != p.a5 {
+		println("SubpSub", p, p.a5)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type SubSub struct {
+	a4 int
+	a  int
+}
+
+func (p *SubSub) test4() int {
+	if p.a != p.a4 {
+		println("SubpSub", p, p.a4)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type Subp struct {
+	a3 int
+	*SubpSubp
+	SubpSub
+	a int
+}
+
+func (p *Subp) test3() int {
+	if p.a != p.a3 {
+		println("SubpSub", p, p.a3)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type Sub struct {
+	a2 int
+	*SubSubp
+	SubSub
+	a int
+}
+
+func (p *Sub) test2() int {
+	if p.a != p.a2 {
+		println("SubpSub", p, p.a2)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type S struct {
+	a1 int
+	Sub
+	*Subp
+	a int
+}
+
+func (p *S) test1() int {
+	if p.a != p.a1 {
+		println("SubpSub", p, p.a1)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
 
 func main() {
-	/* ideals */
-	if n1/d1 != q1 || n1%d1 != r1 {
-		println("ideal-1", n1, d1, n1/d1, n1%d1)
+	var i I
+	var s *S
+
+	// allocate
+	s = new(S)
+	s.Subp = new(Subp)
+	s.Sub.SubSubp = new(SubSubp)
+	s.Subp.SubpSubp = new(SubpSubp)
+
+	// explicit assignment
+	s.a = 1
+	s.Sub.a = 2
+	s.Subp.a = 3
+	s.Sub.SubSub.a = 4
+	s.Sub.SubSubp.a = 5
+	s.Subp.SubpSub.a = 6
+	s.Subp.SubpSubp.a = 7
+
+	// embedded (unique) assignment
+	s.a1 = 1
+	s.a2 = 2
+	s.a3 = 3
+	s.a4 = 4
+	s.a5 = 5
+	s.a6 = 6
+	s.a7 = 7
+
+	// unique calls with explicit &
+	if s.test1() != 1 {
+		println("t1", 1)
 		panic("fail")
 	}
-	if n2/d1 != q2 || n2%d1 != r2 {
-		println("ideal-2", n2, d1, n2/d1, n2%d1)
+	if (&s.Sub).test2() != 2 {
+		println("t1", 2)
 		panic("fail")
 	}
-	if n1/d2 != q3 || n1%d2 != r3 {
-		println("ideal-3", n1, d2, n1/d2, n1%d2)
+	if s.Subp.test3() != 3 {
+		println("t1", 3)
 		panic("fail")
 	}
-	if n2/d2 != q4 || n2%d2 != r4 {
-		println("ideal-4", n2, d2, n2/d2, n2%d2)
+	if (&s.Sub.SubSub).test4() != 4 {
+		println("t1", 4)
+		panic("fail")
+	}
+	if s.Sub.SubSubp.test5() != 5 {
+		println("t1", 5)
+		panic("fail")
+	}
+	if (&s.Subp.SubpSub).test6() != 6 {
+		println("t1", 6)
+		panic("fail")
+	}
+	if s.Subp.SubpSubp.test7() != 7 {
+		println("t1", 7)
 		panic("fail")
 	}
 
-	/* int */
-	var in1 int = +5
-	var in2 int = -5
-	var id1 int = +3
-	var id2 int = -3
-
-	if in1/id1 != q1 || in1%id1 != r1 {
-		println("int-1", in1, id1, in1/id1, in1%id1)
+	// automatic &
+	if s.Sub.test2() != 2 {
+		println("t2", 2)
 		panic("fail")
 	}
-	if in2/id1 != q2 || in2%id1 != r2 {
-		println("int-2", in2, id1, in2/id1, in2%id1)
+	if s.Sub.SubSub.test4() != 4 {
+		println("t2", 4)
 		panic("fail")
 	}
-	if in1/id2 != q3 || in1%id2 != r3 {
-		println("int-3", in1, id2, in1/id2, in1%id2)
-		panic("fail")
-	}
-	if in2/id2 != q4 || in2%id2 != r4 {
-		println("int-4", in2, id2, in2/id2, in2%id2)
+	if s.Subp.SubpSub.test6() != 6 {
+		println("t2", 6)
 		panic("fail")
 	}
 
-	/* int8 */
-	var bn1 int8 = +5
-	var bn2 int8 = -5
-	var bd1 int8 = +3
-	var bd2 int8 = -3
-
-	if bn1/bd1 != q1 || bn1%bd1 != r1 {
-		println("int8-1", bn1, bd1, bn1/bd1, bn1%bd1)
+	// embedded calls
+	if s.test1() != s.a1 {
+		println("t3", 1)
 		panic("fail")
 	}
-	if bn2/bd1 != q2 || bn2%bd1 != r2 {
-		println("int8-2", bn2, bd1, bn2/bd1, bn2%bd1)
+	if s.test2() != s.a2 {
+		println("t3", 2)
 		panic("fail")
 	}
-	if bn1/bd2 != q3 || bn1%bd2 != r3 {
-		println("int8-3", bn1, bd2, bn1/bd2, bn1%bd2)
+	if s.test3() != s.a3 {
+		println("t3", 3)
 		panic("fail")
 	}
-	if bn2/bd2 != q4 || bn2%bd2 != r4 {
-		println("int8-4", bn2, bd2, bn2/bd2, bn2%bd2)
+	if s.test4() != s.a4 {
+		println("t3", 4)
 		panic("fail")
 	}
-
-	/* int16 */
-	var sn1 int16 = +5
-	var sn2 int16 = -5
-	var sd1 int16 = +3
-	var sd2 int16 = -3
-
-	if sn1/sd1 != q1 || sn1%sd1 != r1 {
-		println("int16-1", sn1, sd1, sn1/sd1, sn1%sd1)
+	if s.test5() != s.a5 {
+		println("t3", 5)
 		panic("fail")
 	}
-	if sn2/sd1 != q2 || sn2%sd1 != r2 {
-		println("int16-2", sn2, sd1, sn2/sd1, sn2%sd1)
+	if s.test6() != s.a6 {
+		println("t3", 6)
 		panic("fail")
 	}
-	if sn1/sd2 != q3 || sn1%sd2 != r3 {
-		println("int16-3", sn1, sd2, sn1/sd2, sn1%sd2)
-		panic("fail")
-	}
-	if sn2/sd2 != q4 || sn2%sd2 != r4 {
-		println("int16-4", sn2, sd2, sn2/sd2, sn2%sd2)
+	if s.test7() != s.a7 {
+		println("t3", 7)
 		panic("fail")
 	}
 
-	/* int32 */
-	var ln1 int32 = +5
-	var ln2 int32 = -5
-	var ld1 int32 = +3
-	var ld2 int32 = -3
+	// run it through an interface
+	i = s
+	s = i.(*S)
 
-	if ln1/ld1 != q1 || ln1%ld1 != r1 {
-		println("int32-1", ln1, ld1, ln1/ld1, ln1%ld1)
+	// same as t3
+	if s.test1() != s.a1 {
+		println("t4", 1)
 		panic("fail")
 	}
-	if ln2/ld1 != q2 || ln2%ld1 != r2 {
-		println("int32-2", ln2, ld1, ln2/ld1, ln2%ld1)
+	if s.test2() != s.a2 {
+		println("t4", 2)
 		panic("fail")
 	}
-	if ln1/ld2 != q3 || ln1%ld2 != r3 {
-		println("int32-3", ln1, ld2, ln1/ld2, ln1%ld2)
+	if s.test3() != s.a3 {
+		println("t4", 3)
 		panic("fail")
 	}
-	if ln2/ld2 != q4 || ln2%ld2 != r4 {
-		println("int32-4", ln2, ld2, ln2/ld2, ln2%ld2)
+	if s.test4() != s.a4 {
+		println("t4", 4)
 		panic("fail")
 	}
-
-	/* int64 */
-	var qn1 int64 = +5
-	var qn2 int64 = -5
-	var qd1 int64 = +3
-	var qd2 int64 = -3
-
-	if qn1/qd1 != q1 || qn1%qd1 != r1 {
-		println("int64-1", qn1, qd1, qn1/qd1, qn1%qd1)
+	if s.test5() != s.a5 {
+		println("t4", 5)
 		panic("fail")
 	}
-	if qn2/qd1 != q2 || qn2%qd1 != r2 {
-		println("int64-2", qn2, qd1, qn2/qd1, qn2%qd1)
+	if s.test6() != s.a6 {
+		println("t4", 6)
 		panic("fail")
 	}
-	if qn1/qd2 != q3 || qn1%qd2 != r3 {
-		println("int64-3", qn1, qd2, qn1/qd2, qn1%qd2)
-		panic("fail")
-	}
-	if qn2/qd2 != q4 || qn2%qd2 != r4 {
-		println("int64-4", qn2, qd2, qn2/qd2, qn2%qd2)
+	if s.test7() != s.a7 {
+		println("t4", 7)
 		panic("fail")
 	}
 
-	if n1/qd1 != q1 || n1%qd1 != r1 {
-		println("mixed int64-1", n1, qd1, n1/qd1, n1%qd1)
+	// call interface
+	if i.test1() != s.test1() {
+		println("t5", 1)
 		panic("fail")
 	}
-	if n2/qd1 != q2 || n2%qd1 != r2 {
-		println("mixed int64-2", n2, qd1, n2/qd1, n2%qd1)
+	if i.test2() != s.test2() {
+		println("t5", 2)
 		panic("fail")
 	}
-	if n1/qd2 != q3 || n1%qd2 != r3 {
-		println("mixed int64-3", n1, qd2, n1/qd2, n1%qd2)
+	if i.test3() != s.test3() {
+		println("t5", 3)
 		panic("fail")
 	}
-	if n2/qd2 != q4 || n2%qd2 != r4 {
-		println("mixed int64-4", n2, qd2, n2/qd2, n2%qd2)
+	if i.test4() != s.test4() {
+		println("t5", 4)
 		panic("fail")
 	}
-
-	if qn1/d1 != q1 || qn1%d1 != r1 {
-		println("mixed int64-5", qn1, d1, qn1/d1, qn1%d1)
+	if i.test5() != s.test5() {
+		println("t5", 5)
 		panic("fail")
 	}
-	if qn2/d1 != q2 || qn2%d1 != r2 {
-		println("mixed int64-6", qn2, d1, qn2/d1, qn2%d1)
+	if i.test6() != s.test6() {
+		println("t5", 6)
 		panic("fail")
 	}
-	if qn1/d2 != q3 || qn1%d2 != r3 {
-		println("mixed int64-7", qn1, d2, qn1/d2, qn1%d2)
-		panic("fail")
-	}
-	if qn2/d2 != q4 || qn2%d2 != r4 {
-		println("mixed int64-8", qn2, d2, qn2/d2, qn2%d2)
-		panic("fail")
-	}
-
-	/* uint */
-	var uin1 uint = +5
-	var uid1 uint = +3
-
-	if uin1/uid1 != q1 || uin1%uid1 != r1 {
-		println("uint", uin1, uid1, uin1/uid1, uin1%uid1)
-		panic("fail")
-	}
-
-	/* uint8 */
-	var ubn1 uint8 = +5
-	var ubd1 uint8 = +3
-
-	if ubn1/ubd1 != q1 || ubn1%ubd1 != r1 {
-		println("uint8", ubn1, ubd1, ubn1/ubd1, ubn1%ubd1)
-		panic("fail")
-	}
-
-	/* uint16 */
-	var usn1 uint16 = +5
-	var usd1 uint16 = +3
-
-	if usn1/usd1 != q1 || usn1%usd1 != r1 {
-		println("uint16", usn1, usd1, usn1/usd1, usn1%usd1)
-		panic("fail")
-	}
-
-	/* uint32 */
-	var uln1 uint32 = +5
-	var uld1 uint32 = +3
-
-	if uln1/uld1 != q1 || uln1%uld1 != r1 {
-		println("uint32", uln1, uld1, uln1/uld1, uln1%uld1)
-		panic("fail")
-	}
-
-	/* uint64 */
-	var uqn1 uint64 = +5
-	var uqd1 uint64 = +3
-
-	if uqn1/uqd1 != q1 || uqn1%uqd1 != r1 {
-		println("uint64", uqn1, uqd1, uqn1/uqd1, uqn1%uqd1)
-		panic("fail")
-	}
-	if n1/uqd1 != q1 || n1%uqd1 != r1 {
-		println("mixed uint64-1", n1, uqd1, n1/uqd1, n1%uqd1)
-		panic("fail")
-	}
-	if uqn1/d1 != q1 || uqn1%d1 != r1 {
-		println("mixed uint64-2", uqn1, d1, uqn1/d1, uqn1%d1)
+	if i.test7() != s.test7() {
+		println("t5", 7)
 		panic("fail")
 	}
 }
 
 ```
-## for_
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test simple for loop.
-
-package main
-
-func
-main() {
-	var t,i int;
-
-	for i=0; i<100; i=i+1 {
-		t = t+i;
-	}
-	if t != 50*99  { panic(t); }
-}
-
-```
-## interbasic
+## intervar
 ```go
 // run
 
@@ -9011,7 +9010,7 @@ func main() {
 }
 
 ```
-## intervar
+## range
 ```go
 // run
 
@@ -9019,72 +9018,106 @@ func main() {
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Test interface assignment.
+// Test method invocation with pointer receivers and function-valued fields.
 
 package main
 
-type	Iputs	interface {
-	puts	(s string) string;
+type C struct {
+	a	int;
+	x	func(p *C)int;
 }
 
-// ---------
-
-type	Print	struct {
-	whoami	int;
-	put	Iputs;
-}
-
-func (p *Print) dop() string {
-	r := " print " + string(p.whoami + '0')
-	return r + p.put.puts("abc");
-}
-
-// ---------
-
-type	Bio	struct {
-	whoami	int;
-	put	Iputs;
-}
-
-func (b *Bio) puts(s string) string {
-	r := " bio " + string(b.whoami + '0')
-	return r + b.put.puts(s);
-}
-
-// ---------
-
-type	File	struct {
-	whoami	int;
-	put	Iputs;
-}
-
-func (f *File) puts(s string) string {
-	return " file " + string(f.whoami + '0') + " -- " + s
+func (this *C) f()int {
+	return this.a;
 }
 
 func
 main() {
-	p := new(Print);
-	b := new(Bio);
-	f := new(File);
+	var v int;
+	var c *C;
 
-	p.whoami = 1;
-	p.put = b;
+	c = new(C);
+	c.a = 6;
+	c.x = g;
 
-	b.whoami = 2;
-	b.put = f;
+	v = g(c);
+	if v != 6 { panic(v); }
 
-	f.whoami = 3;
+	v = c.x(c);
+	if v != 6 { panic(v); }
 
-	r := p.dop();
-	expected := " print 1 bio 2 file 3 -- abc"
-	if r != expected {
-		panic(r + " != " + expected)
-	}
+	v = c.f();
+	if v != 6 { panic(v); }
+}
+
+func g(p *C)int {
+	var v int;
+
+	v = p.a;
+	if v != 6 { panic(v); }
+	return p.a;
 }
 
 ```
-## range
+## rob1
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test pointers and the . (selector) operator on structs.
+
+package main
+
+type	x2	struct { a,b,c int; d int; };
+var	g1	x2;
+var	g2	struct { a,b,c int; d x2; };
+
+func
+main() {
+	var x int;
+	var s1 *x2;
+	var s2 *struct { a,b,c int; d x2; };
+
+	s1 = &g1;
+	s2 = &g2;
+
+	s1.a = 1;
+	s1.b = 2;
+	s1.c = 3;
+	s1.d = 5;
+
+	s2.a = 7;
+	s2.b = 11;
+	s2.c = 13;
+	s2.d.a = 17;
+	s2.d.b = 19;
+	s2.d.c = 23;
+	s2.d.d = 20;
+
+	if(s2.d.c != 23) { panic(1); }
+	if(g2.d.c != 23) { panic(2); }
+
+	x =	s1.a +
+		s1.b +
+		s1.c +
+		s1.d +
+
+		s2.a +
+		s2.b +
+		s2.c +
+		s2.d.a +
+		s2.d.b +
+		s2.d.c +
+		s2.d.d;
+
+	if(x != 121) { panic(x); }
+}
+
+```
+## robfor
 ```go
 // run
 
@@ -9209,7 +9242,7 @@ func main() {
 }
 
 ```
-## rob1
+## robfunc
 ```go
 // run
 
@@ -9285,7 +9318,7 @@ func main() {
 }
 
 ```
-## robfor
+## shift
 ```go
 // run
 
@@ -9347,7 +9380,7 @@ func main() {
 }
 
 ```
-## robfunc
+## simparray
 ```go
 // run
 
@@ -9447,186 +9480,41 @@ func main() {
 }
 
 ```
-## shift
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test shift.
-
-package main
-
-var	ians	[18]int;
-var	uans	[18]uint;
-var	pass	string;
-
-func
-testi(i int, t1,t2,t3 int) {
-	n := ((t1*3) + t2)*2 + t3;
-	if i != ians[n] {
-		print("itest ", t1,t2,t3,pass,
-			" is ", i, " sb ", ians[n], "\n");
-	}
-}
-
-func
-index(t1,t2,t3 int) int {
-	return ((t1*3) + t2)*2 + t3;
-}
-
-func
-testu(u uint, t1,t2,t3 int) {
-	n := index(t1,t2,t3);
-	if u != uans[n] {
-		print("utest ", t1,t2,t3,pass,
-			" is ", u, " sb ", uans[n], "\n");
-	}
-}
-
-func
-main() {
-	var i int;
-	var u,c uint;
-
-	/*
-	 * test constant evaluations
-	 */
-	pass = "con";	// constant part
-
-	testi( int(1234) <<    0, 0,0,0);
-	testi( int(1234) >>    0, 0,0,1);
-	testi( int(1234) <<    5, 0,1,0);
-	testi( int(1234) >>    5, 0,1,1);
-
-	testi(int(-1234) <<    0, 1,0,0);
-	testi(int(-1234) >>    0, 1,0,1);
-	testi(int(-1234) <<    5, 1,1,0);
-	testi(int(-1234) >>    5, 1,1,1);
-
-	testu(uint(5678) <<    0, 2,0,0);
-	testu(uint(5678) >>    0, 2,0,1);
-	testu(uint(5678) <<    5, 2,1,0);
-	testu(uint(5678) >>    5, 2,1,1);
-
-	/*
-	 * test variable evaluations
-	 */
-	pass = "var";	// variable part
-
-	for t1:=0; t1<3; t1++ {	// +int, -int, uint
-	for t2:=0; t2<3; t2++ {	// 0, +small, +large
-	for t3:=0; t3<2; t3++ {	// <<, >>
-		switch t1 {
-		case 0:	i =  1234;
-		case 1:	i = -1234;
-		case 2:	u =  5678;
-		}
-		switch t2 {
-		case 0:	c =    0;
-		case 1:	c =    5;
-		case 2:	c = 1025;
-		}
-		switch t3 {
-		case 0:	i <<= c; u <<= c;
-		case 1:	i >>= c; u >>= c;
-		}
-		switch t1 {
-		case 0:	testi(i,t1,t2,t3);
-		case 1:	testi(i,t1,t2,t3);
-		case 2:	testu(u,t1,t2,t3);
-		}
-	}
-	}
-	}
-}
-
-func
-init() {
-	/*
-	 * set the 'correct' answer
-	 */
-
-	ians[index(0,0,0)] =   1234;
-	ians[index(0,0,1)] =   1234;
-	ians[index(0,1,0)] =  39488;
-	ians[index(0,1,1)] =     38;
-	ians[index(0,2,0)] =      0;
-	ians[index(0,2,1)] =      0;
-
-	ians[index(1,0,0)] =  -1234;
-	ians[index(1,0,1)] =  -1234;
-	ians[index(1,1,0)] = -39488;
-	ians[index(1,1,1)] =    -39;
-	ians[index(1,2,0)] =      0;
-	ians[index(1,2,1)] =     -1;
-
-	uans[index(2,0,0)] =   5678;
-	uans[index(2,0,1)] =   5678;
-	uans[index(2,1,0)] = 181696;
-	uans[index(2,1,1)] =    177;
-	uans[index(2,2,0)] =      0;
-	uans[index(2,2,1)] =      0;
-}
-
-```
-## simparray
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test simple operations on arrays.
-
-package main
-
-var b[10] float32;
-
-func
-main() {
-	var a[10] float32;
-
-	for i:=int16(5); i<10; i=i+1 {
-		a[i] = float32(i);
-	}
-
-	s1 := float32(0);
-	for i:=5; i<10; i=i+1 {
-		s1 = s1 + a[i];
-	}
-
-	if s1 != 35 { panic(s1); }
-
-	for i:=int16(5); i<10; i=i+1 {
-		b[i] = float32(i);
-	}
-
-	s2 := float32(0);
-	for i:=5; i<10; i=i+1 {
-		s2 = s2 + b[i];
-	}
-
-	if s2 != 35 { panic(s2); }
-
-	b := new([100]int);
-	for i:=0; i<100; i=i+1 {
-		b[i] = i;
-	}
-
-	s3 := 0;
-	for i:=0; i<100; i=i+1 {
-		s3 = s3+b[i];
-	}
-
-	if s3 != 4950 { panic(s3); }
-}
-
-```
 ## simpswitch
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test simple arithmetic conversion.
+
+package main
+
+type vlong int64
+type short int16
+
+func main() {
+	s1 := vlong(0)
+	for i := short(0); i < 10; i = i + 1 {
+		s1 = s1 + vlong(i)
+	}
+	if s1 != 45 {
+		panic(s1)
+	}
+
+	s2 := float64(0)
+	for i := 0; i < 10; i = i + 1 {
+		s2 = s2 + float64(i)
+	}
+	if s2 != 45 {
+		panic(s2)
+	}
+}
+
+```
+## slicearray
 ```go
 // run
 
@@ -9658,7 +9546,38 @@ func main() {
 }
 
 ```
-## slicearray
+## sliceslice
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test scoping of variables.
+
+
+package main
+
+var	x,y	int;
+
+func
+main() {
+
+	x = 15;
+	y = 20;
+	{
+		var x int;
+		x = 25;
+		y = 25;
+		_ = x;
+	}
+	x = x+y;
+	if(x != 40) { panic(x); }
+}
+
+```
+## string_
 ```go
 // run
 
@@ -9874,216 +9793,7 @@ func init() {
 }
 
 ```
-## sliceslice
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test slicing and re-slicing.
-
-package main
-
-var bx []byte
-var by []byte
-var fx []float64
-var fy []float64
-var lb, hb int
-var t int
-
-func main() {
-
-	// width 1 (byte)
-	lb = 0
-	hb = 10
-	by = bx[lb:hb]
-	tstb()
-	by = bx[lb:10]
-	tstb()
-	by = bx[lb:]
-	tstb()
-	by = bx[:hb]
-	tstb()
-	by = bx[0:hb]
-	tstb()
-	by = bx[0:10]
-	tstb()
-	by = bx[0:]
-	tstb()
-	by = bx[:10]
-	tstb()
-	by = bx[:]
-	tstb()
-
-	lb = 2
-	hb = 10
-	by = bx[lb:hb]
-	tstb()
-	by = bx[lb:10]
-	tstb()
-	by = bx[lb:]
-	tstb()
-	by = bx[2:hb]
-	tstb()
-	by = bx[2:10]
-	tstb()
-	by = bx[2:]
-	tstb()
-
-	lb = 0
-	hb = 8
-	by = bx[lb:hb]
-	tstb()
-	by = bx[lb:8]
-	tstb()
-	by = bx[0:hb]
-	tstb()
-	by = bx[0:8]
-	tstb()
-	by = bx[:8]
-	tstb()
-	by = bx[:hb]
-	tstb()
-
-	lb = 2
-	hb = 8
-	by = bx[lb:hb]
-	tstb()
-	by = bx[lb:8]
-	tstb()
-	by = bx[2:hb]
-	tstb()
-	by = bx[2:8]
-	tstb()
-
-	// width 4 (float64)
-	lb = 0
-	hb = 10
-	fy = fx[lb:hb]
-	tstf()
-	fy = fx[lb:10]
-	tstf()
-	fy = fx[lb:]
-	tstf()
-	fy = fx[:hb]
-	tstf()
-	fy = fx[0:hb]
-	tstf()
-	fy = fx[0:10]
-	tstf()
-	fy = fx[0:]
-	tstf()
-	fy = fx[:10]
-	tstf()
-	fy = fx[:]
-	tstf()
-
-	lb = 2
-	hb = 10
-	fy = fx[lb:hb]
-	tstf()
-	fy = fx[lb:10]
-	tstf()
-	fy = fx[lb:]
-	tstf()
-	fy = fx[2:hb]
-	tstf()
-	fy = fx[2:10]
-	tstf()
-	fy = fx[2:]
-	tstf()
-
-	lb = 0
-	hb = 8
-	fy = fx[lb:hb]
-	tstf()
-	fy = fx[lb:8]
-	tstf()
-	fy = fx[:hb]
-	tstf()
-	fy = fx[0:hb]
-	tstf()
-	fy = fx[0:8]
-	tstf()
-	fy = fx[:8]
-	tstf()
-
-	lb = 2
-	hb = 8
-	fy = fx[lb:hb]
-	tstf()
-	fy = fx[lb:8]
-	tstf()
-	fy = fx[2:hb]
-	tstf()
-	fy = fx[2:8]
-	tstf()
-}
-
-func tstb() {
-	t++
-	if len(by) != hb-lb {
-		println("t=", t, "lb=", lb, "hb=", hb,
-			"len=", len(by), "hb-lb=", hb-lb)
-		panic("fail")
-	}
-	if cap(by) != len(bx)-lb {
-		println("t=", t, "lb=", lb, "hb=", hb,
-			"cap=", cap(by), "len(bx)-lb=", len(bx)-lb)
-		panic("fail")
-	}
-	for i := lb; i < hb; i++ {
-		if bx[i] != by[i-lb] {
-			println("t=", t, "lb=", lb, "hb=", hb,
-				"bx[", i, "]=", bx[i],
-				"by[", i-lb, "]=", by[i-lb])
-			panic("fail")
-		}
-	}
-	by = nil
-}
-
-func tstf() {
-	t++
-	if len(fy) != hb-lb {
-		println("t=", t, "lb=", lb, "hb=", hb,
-			"len=", len(fy), "hb-lb=", hb-lb)
-		panic("fail")
-	}
-	if cap(fy) != len(fx)-lb {
-		println("t=", t, "lb=", lb, "hb=", hb,
-			"cap=", cap(fy), "len(fx)-lb=", len(fx)-lb)
-		panic("fail")
-	}
-	for i := lb; i < hb; i++ {
-		if fx[i] != fy[i-lb] {
-			println("t=", t, "lb=", lb, "hb=", hb,
-				"fx[", i, "]=", fx[i],
-				"fy[", i-lb, "]=", fy[i-lb])
-			panic("fail")
-		}
-	}
-	fy = nil
-}
-
-func init() {
-	bx = make([]byte, 10)
-	for i := 0; i < len(bx); i++ {
-		bx[i] = byte(i + 20)
-	}
-	by = nil
-
-	fx = make([]float64, 10)
-	for i := 0; i < len(fx); i++ {
-		fx[i] = float64(i + 20)
-	}
-	fy = nil
-}
-
-```
-## string_
+## literal
 ```go
 // run
 
@@ -10201,7 +9911,90 @@ func main() {
 }
 
 ```
-## literal
+## method
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test struct-valued variables (not pointers).
+
+package main
+
+type	x2	struct { a,b,c int; d int; };
+var	g1	x2;
+var	g2	struct { a,b,c int; d x2; };
+
+func
+main() {
+	var x int;
+	var s1 *x2;
+	var s2 *struct { a,b,c int; d x2; };
+	var s3 struct { a,b,c int; d x2; };
+
+	s1 = &g1;
+	s2 = &g2;
+
+	s1.a = 1;
+	s1.b = 2;
+	s1.c = 3;
+	s1.d = 5;
+
+	if(s1.c != 3) { panic(s1.c); }
+	if(g1.c != 3) { panic(g1.c); }
+
+	s2.a = 7;
+	s2.b = 11;
+	s2.c = 13;
+	s2.d.a = 17;
+	s2.d.b = 19;
+	s2.d.c = 23;
+	s2.d.d = 29;
+
+	if(s2.d.c != 23) { panic(s2.d.c); }
+	if(g2.d.c != 23) { panic(g2.d.c); }
+
+	x =	s1.a +
+		s1.b +
+		s1.c +
+		s1.d +
+
+		s2.a +
+		s2.b +
+		s2.c +
+		s2.d.a +
+		s2.d.b +
+		s2.d.c +
+		s2.d.d;
+
+	if(x != 130) { panic(x); }
+
+	// test an automatic struct
+	s3.a = 7;
+	s3.b = 11;
+	s3.c = 13;
+	s3.d.a = 17;
+	s3.d.b = 19;
+	s3.d.c = 23;
+	s3.d.d = 29;
+
+	if(s3.d.c != 23) { panic(s3.d.c); }
+
+	x =	s3.a +
+		s3.b +
+		s3.c +
+		s3.d.a +
+		s3.d.b +
+		s3.d.c +
+		s3.d.d;
+
+	if(x != 119) { panic(x); }
+}
+
+```
+## method3
 ```go
 // run
 
@@ -10434,7 +10227,7 @@ func main() {
 }
 
 ```
-## method
+## method5
 ```go
 // run
 
@@ -10745,7 +10538,7 @@ func promotion() {
 }
 
 ```
-## method3
+## method7
 ```go
 // run
 
@@ -10784,7 +10577,7 @@ func main() {
 }
 
 ```
-## method5
+## nilptr2
 ```go
 // run
 
@@ -11085,7 +10878,7 @@ func main() {
 }
 
 ```
-## method7
+## print
 ```go
 // run
 
@@ -11156,7 +10949,7 @@ func main() {
 }
 
 ```
-## nilptr2
+## printbig
 ```go
 // run
 
@@ -11291,65 +11084,7 @@ type M2 struct {
 }
 
 ```
-## print
-```go
-// run
-
-// Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test internal print routines that are generated
-// by the print builtin.  This test is not exhaustive,
-// we're just checking that the formatting is correct.
-
-package main
-
-func main() {
-	println((interface{})(nil)) // printeface
-	println((interface {        // printiface
-		f()
-	})(nil))
-	println((map[int]int)(nil)) // printpointer
-	println(([]int)(nil))       // printslice
-	println(int64(-7))          // printint
-	println(uint64(7))          // printuint
-	println(uint32(7))          // printuint
-	println(uint16(7))          // printuint
-	println(uint8(7))           // printuint
-	println(uint(7))            // printuint
-	println(uintptr(7))         // printuint
-	println(8.0)                // printfloat
-	println(complex(9.0, 10.0)) // printcomplex
-	println(true)               // printbool
-	println(false)              // printbool
-	println("hello")            // printstring
-	println("one", "two")       // printsp
-
-	// test goprintf
-	defer println((interface{})(nil))
-	defer println((interface {
-		f()
-	})(nil))
-	defer println((map[int]int)(nil))
-	defer println(([]int)(nil))
-	defer println(int64(-11))
-	defer println(uint64(12))
-	defer println(uint32(12))
-	defer println(uint16(12))
-	defer println(uint8(12))
-	defer println(uint(12))
-	defer println(uintptr(12))
-	defer println(13.0)
-	defer println(complex(14.0, 15.0))
-	defer println(true)
-	defer println(false)
-	defer println("hello")
-	defer println("one", "two")
-}
-
-```
-## printbig
+## turing
 ```go
 // run
 
@@ -11364,69 +11099,6 @@ package main
 func main() {
 	print(-(1<<63), "\n")
 	print((1<<63)-1, "\n")
-}
-
-```
-## turing
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test simulating a Turing machine, sort of.
-
-package main
-
-// brainfuck
-
-var p, pc int
-var a [30000]byte
-
-const prog = "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.!"
-
-func scan(dir int) {
-	for nest := dir; dir*nest > 0; pc += dir {
-		switch prog[pc+dir] {
-		case ']':
-			nest--
-		case '[':
-			nest++
-		}
-	}
-}
-
-func main() {
-	r := ""
-	for {
-		switch prog[pc] {
-		case '>':
-			p++
-		case '<':
-			p--
-		case '+':
-			a[p]++
-		case '-':
-			a[p]--
-		case '.':
-			r += string(a[p])
-		case '[':
-			if a[p] == 0 {
-				scan(1)
-			}
-		case ']':
-			if a[p] != 0 {
-				scan(-1)
-			}
-		default:
-			if r != "Hello World!\n" {
-				panic(r)
-			}
-			return
-		}
-		pc++
-	}
 }
 
 ```

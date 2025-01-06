@@ -247,5 +247,7 @@
  "hl|variadic5",
  "hl|variadic6",
  "hl|variadic7",
- "hl|variadic9"
+ "hl|variadic9",
+ "hl|defer0",
+ "hl|defer8"
 ]

@@ -128,5 +128,6 @@
  "js|mapinitfield",
  "js|method5_0",
  "js|nonptrmethodrecv",
- "js|ptrrecv"
+ "js|ptrrecv",
+ "js|ddd0"
 ]

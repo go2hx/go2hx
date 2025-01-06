@@ -152,12 +152,13 @@ class GoArrayData<T> {
 				}
 			}
 		}
-		slice.capacity = newcap;
+		slice.capacity += newcap;
 		
 		// grow capacity
-		//slice.capacity += growCapacity;
+		//slice.capacity += cap;
 		// grow by 50%
 		//slice.capacity += slice.capacity >> 2;
+		//trace(slice.capacity);
 
 		slice.grow(); // allocation
 		slice.length += args.length;

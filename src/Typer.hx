@@ -7669,7 +7669,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 										macro @:check5 (this.$name ?? throw "null pointer derefrence").$fieldName;
 									}
 								default:
-									macro @:check3 (this.$name ?? throw "null pointer derefrence").$fieldName;
+									//trace(getUnderlying(methodRecv));
+									if (!isRef(getUnderlying(methodRecv))) {
+										macro @:check3 (this.$name ?? throw "null pointer derefrence").$fieldName;
+									}else{
+										macro @:check3 this.$name.$fieldName;
+									}
 							}
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
@@ -7798,6 +7803,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									}
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									final fArgs = fun.args.map(arg -> macro $i{arg.name});
+									if (args.length > 0 && isRestType(fun.args[fun.args.length - 1].type)) {
+										fArgs[fArgs.length - 1] = macro...$e{fArgs[fArgs.length - 1]};
+									}
 									fun.args.unshift({
 										name: "__self__",
 										type: t,

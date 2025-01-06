@@ -1,6 +1,6 @@
 package stdgo._internal.fmt;
 function formatString(_state:stdgo._internal.fmt.Fmt_State.State, _verb:stdgo.GoInt32):stdgo.GoString {
-        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
         var _b = ((_tmp.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__((37 : stdgo.GoUInt8)));
         for (__0 => _c in (" +-#0" : stdgo.GoString)) {
             if (_state.flag((_c : stdgo.GoInt))) {

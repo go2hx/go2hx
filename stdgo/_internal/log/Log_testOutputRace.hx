@@ -9,18 +9,19 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             while ((_i < (100 : stdgo.GoInt) : Bool)) {
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
+                        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                         try {
                             {
                                 final __f__ = @:check2 _wg.done;
-                                __deferstack__.unshift(() -> __f__());
+                                __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
                             @:check2r _l.setFlags((0 : stdgo.GoInt));
                             @:check2r _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                 return;
@@ -34,8 +35,9 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;

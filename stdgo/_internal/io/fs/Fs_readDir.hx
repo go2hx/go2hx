@@ -1,6 +1,6 @@
 package stdgo._internal.io.fs;
 function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var __tmp__ = try {
@@ -18,7 +18,7 @@ function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ v
             };
             {
                 final __f__ = _file.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_file) : stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile)) : stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile), _1 : true };
@@ -29,8 +29,9 @@ function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ v
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("readdir" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("not implemented" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -42,15 +43,17 @@ function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ v
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } = { _0 : _list, _1 : _err };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>), _1 : (null : stdgo.Error) };
@@ -64,8 +67,9 @@ function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ v
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>), _1 : (null : stdgo.Error) };

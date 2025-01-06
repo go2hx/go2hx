@@ -1,17 +1,18 @@
 package stdgo._internal.database.sql;
 function _withLock(_lk:stdgo._internal.sync.Sync_Locker.Locker, _fn:() -> Void):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             _lk.lock();
             {
                 final __f__ = _lk.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             _fn();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -25,8 +26,9 @@ function _withLock(_lk:stdgo._internal.sync.Sync_Locker.Locker, _fn:() -> Void):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

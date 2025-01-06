@@ -33,7 +33,7 @@ package stdgo._internal.net.http.cgi;
     @:tdfield
     static public function serveHTTP( _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_Handler.Handler>, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_Handler.Handler> = _h;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _root = ((@:checkr _h ?? throw "null pointer dereference").root?.__copy__() : stdgo.GoString);
             if (_root == (stdgo.Go.str())) {
@@ -172,11 +172,11 @@ var _path = __1, _cwd = __0;
             };
             {
                 final __f__ = @:check2r _cmd.wait_;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = _stdoutRead.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _linebody = stdgo._internal.bufio.Bufio_newReaderSize.newReaderSize(_stdoutRead, (1024 : stdgo.GoInt));
             var _headers = ((({
@@ -195,8 +195,9 @@ var _path = __1, _cwd = __0;
                     @:check2r _h._printf(("cgi: long header line from subprocess." : stdgo.GoString));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -209,8 +210,9 @@ var _path = __1, _cwd = __0;
                     @:check2r _h._printf(("cgi: error reading headers: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -235,8 +237,9 @@ var _path = __1, _cwd = __0;
                         @:check2r _h._printf(("cgi: bogus status (short): %q" : stdgo.GoString), stdgo.Go.toInterface(_val));
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -247,8 +250,9 @@ var _path = __1, _cwd = __0;
                         @:check2r _h._printf(("cgi: line was %q" : stdgo.GoString), stdgo.Go.toInterface(_line));
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -263,8 +267,9 @@ var _path = __1, _cwd = __0;
                 @:check2r _h._printf(("cgi: no headers" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -276,8 +281,9 @@ var _path = __1, _cwd = __0;
                         @:check2r _h._handleInternalRedirect(_rw, _req, _loc?.__copy__());
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -292,8 +298,9 @@ var _path = __1, _cwd = __0;
                 @:check2r _h._printf(("cgi: missing required Content-Type in headers" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -317,8 +324,9 @@ var _path = __1, _cwd = __0;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -332,8 +340,9 @@ var _path = __1, _cwd = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

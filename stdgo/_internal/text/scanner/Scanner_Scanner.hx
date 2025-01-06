@@ -1,7 +1,7 @@
 package stdgo._internal.text.scanner;
 @:structInit @:using(stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension) class Scanner {
     public var _src : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
-    public var _srcBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1025, 1025, ...[for (i in 0 ... 1025) (0 : stdgo.GoUInt8)]);
+    public var _srcBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1025, 1025).__setNumber32__();
     public var _srcPos : stdgo.GoInt = 0;
     public var _srcEnd : stdgo.GoInt = 0;
     public var _srcBufOffset : stdgo.GoInt = 0;
@@ -45,7 +45,7 @@ package stdgo._internal.text.scanner;
     public var isValid(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_isValid():() -> Bool return @:check3 (this.position ?? throw "null pointer derefrence").isValid;
+    public function get_isValid():() -> Bool return @:check3 this.position.isValid;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun

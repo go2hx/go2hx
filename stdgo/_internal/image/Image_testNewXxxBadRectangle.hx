@@ -1,11 +1,11 @@
 package stdgo._internal.image;
 function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _call = (function(_f:stdgo._internal.image.Image_Rectangle.Rectangle -> Void, _r:stdgo._internal.image.Image_Rectangle.Rectangle):Bool {
-            var __deferstack__:Array<Void -> Void> = [];
+            var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
             var _ok = false;
             try {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             if (({
                                 final r = stdgo.Go.recover_exception;
@@ -16,21 +16,23 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                             };
                         };
                         a();
-                    }));
+                    }) });
                 };
                 _f(_r?.__copy__());
                 {
                     final __ret__:Bool = _ok = true;
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                     return _ok;
@@ -44,8 +46,9 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                 };
                 stdgo.Go.recover_exception = exe;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _ok;

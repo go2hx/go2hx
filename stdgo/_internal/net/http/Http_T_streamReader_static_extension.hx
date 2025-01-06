@@ -14,7 +14,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function read( _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_T_streamReader.T_streamReader> = _r;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             if ((@:checkr _r ?? throw "null pointer dereference")._err != null) {
@@ -41,7 +41,7 @@ var _errCh = __1, _bCh = __0;
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
                 {
                     final __f__ = _success.release;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 var _failure = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
                     _errCh.__send__(stdgo._internal.errors.Errors_new_.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
@@ -49,7 +49,7 @@ var _errCh = __1, _bCh = __0;
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
                 {
                     final __f__ = _failure.release;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 (@:checkr _r ?? throw "null pointer dereference")._stream.call(("read" : stdgo.GoString)).call(("then" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_success)), stdgo.Go.toInterface(stdgo.Go.asInterface(_failure)));
                 {
@@ -77,8 +77,9 @@ var _errCh = __1, _bCh = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -100,15 +101,17 @@ var _errCh = __1, _bCh = __0;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _n, _1 : _err };
@@ -122,8 +125,9 @@ var _errCh = __1, _bCh = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _n, _1 : _err };

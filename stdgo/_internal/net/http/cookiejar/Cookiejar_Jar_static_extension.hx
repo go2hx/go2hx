@@ -122,7 +122,7 @@ package stdgo._internal.net.http.cookiejar;
     @:tdfield
     static public function _setCookies( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _cookies:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>, _now:stdgo._internal.time.Time_Time.Time):Void {
         @:recv var _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar> = _j;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((_cookies.length) == ((0 : stdgo.GoInt))) {
                 return;
@@ -139,7 +139,7 @@ package stdgo._internal.net.http.cookiejar;
             @:check2 (@:checkr _j ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _j ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _submap = ((@:checkr _j ?? throw "null pointer dereference")._entries[_key] ?? (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>));
             var _modified = (false : Bool);
@@ -193,8 +193,9 @@ package stdgo._internal.net.http.cookiejar;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -208,8 +209,9 @@ package stdgo._internal.net.http.cookiejar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -225,7 +227,7 @@ package stdgo._internal.net.http.cookiejar;
     @:tdfield
     static public function _cookies( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _now:stdgo._internal.time.Time_Time.Time):stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> {
         @:recv var _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar> = _j;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _cookies = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
         try {
             if ((((@:checkr _u ?? throw "null pointer dereference").scheme != ("http" : stdgo.GoString)) && ((@:checkr _u ?? throw "null pointer dereference").scheme != ("https" : stdgo.GoString)) : Bool)) {
@@ -239,14 +241,15 @@ package stdgo._internal.net.http.cookiejar;
             @:check2 (@:checkr _j ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _j ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _submap = ((@:checkr _j ?? throw "null pointer dereference")._entries[_key] ?? (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>));
             if (_submap == null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _cookies;
                 };
@@ -297,15 +300,17 @@ package stdgo._internal.net.http.cookiejar;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _cookies;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _cookies;
@@ -319,8 +324,9 @@ package stdgo._internal.net.http.cookiejar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _cookies;

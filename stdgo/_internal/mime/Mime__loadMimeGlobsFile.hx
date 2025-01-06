@@ -1,6 +1,6 @@
 package stdgo._internal.mime;
 function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.os.Os_open.open(_filename?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -8,7 +8,7 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             };
             {
                 final __f__ = @:check2r _f.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _scanner = stdgo._internal.bufio.Bufio_newScanner.newScanner(stdgo.Go.asInterface(_f));
             while (@:check2r _scanner.scan()) {
@@ -39,15 +39,17 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -61,8 +63,9 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

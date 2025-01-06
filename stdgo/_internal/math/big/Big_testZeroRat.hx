@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testZeroRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __0:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat), __1:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat), __2:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat);
 var _z = __2, _y = __1, _x = __0;
@@ -42,7 +42,7 @@ var _z = __2, _y = __1, _x = __0;
                 };
             };
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _s = ({
@@ -56,13 +56,14 @@ var _z = __2, _y = __1, _x = __0;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             @:check2 _z.quo((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -76,8 +77,9 @@ var _z = __2, _y = __1, _x = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

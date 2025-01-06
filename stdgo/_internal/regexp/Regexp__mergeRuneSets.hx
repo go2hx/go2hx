@@ -1,6 +1,6 @@
 package stdgo._internal.regexp;
 function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _rightRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _leftPC:stdgo.GoUInt32, _rightPC:stdgo.GoUInt32):{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _leftLen = ((_leftRunes : stdgo.Slice<stdgo.GoInt32>).length : stdgo.GoInt);
             var _rightLen = ((_rightRunes : stdgo.Slice<stdgo.GoInt32>).length : stdgo.GoInt);
@@ -21,7 +21,7 @@ var _rx = __1, _lx = __0;
             var _next = (new stdgo.Slice<stdgo.GoUInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
             var _ok = (true : Bool);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (!_ok) {
                             _merged = (null : stdgo.Slice<stdgo.GoInt32>);
@@ -29,7 +29,7 @@ var _rx = __1, _lx = __0;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _ix = (-1 : stdgo.GoInt);
             var _extend = function(_newLow:stdgo.Pointer<stdgo.GoInt>, _newArray:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _pc:stdgo.GoUInt32):Bool {
@@ -56,8 +56,9 @@ var _rx = __1, _lx = __0;
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : stdgo._internal.regexp.Regexp__noRune._noRune, _1 : stdgo._internal.regexp.Regexp__noNext._noNext };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -66,15 +67,17 @@ var _rx = __1, _lx = __0;
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : _merged, _1 : _next };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
@@ -88,8 +91,9 @@ var _rx = __1, _lx = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };

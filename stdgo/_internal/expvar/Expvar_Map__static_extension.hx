@@ -4,12 +4,12 @@ package stdgo._internal.expvar;
     @:tdfield
     static public function do_( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>, _f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = _v;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.rLock();
             {
                 final __f__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (__36 => _k in (@:checkr _v ?? throw "null pointer dereference")._keys) {
                 var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_k)), _i:stdgo.AnyInterface = __tmp__._0, __49:Bool = __tmp__._1;
@@ -22,8 +22,9 @@ package stdgo._internal.expvar;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -37,8 +38,9 @@ package stdgo._internal.expvar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -48,12 +50,12 @@ package stdgo._internal.expvar;
     @:tdfield
     static public function delete( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>, _key:stdgo.GoString):Void {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = _v;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _i = (stdgo._internal.sort.Sort_searchStrings.searchStrings((@:checkr _v ?? throw "null pointer dereference")._keys, _key?.__copy__()) : stdgo.GoInt);
             if (((_i < ((@:checkr _v ?? throw "null pointer dereference")._keys.length) : Bool) && (_key == (@:checkr _v ?? throw "null pointer dereference")._keys[(_i : stdgo.GoInt)]) : Bool)) {
@@ -62,8 +64,9 @@ package stdgo._internal.expvar;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -77,8 +80,9 @@ package stdgo._internal.expvar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -172,12 +176,12 @@ package stdgo._internal.expvar;
     @:tdfield
     static public function _addKey( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>, _key:stdgo.GoString):Void {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = _v;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _i = (stdgo._internal.sort.Sort_searchStrings.searchStrings((@:checkr _v ?? throw "null pointer dereference")._keys, _key?.__copy__()) : stdgo.GoInt);
@@ -191,8 +195,9 @@ package stdgo._internal.expvar;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -206,8 +211,9 @@ package stdgo._internal.expvar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -217,12 +223,12 @@ package stdgo._internal.expvar;
     @:tdfield
     static public function init( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>):stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = _v;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _v ?? throw "null pointer dereference")._keys = ((@:checkr _v ?? throw "null pointer dereference")._keys.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
             @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.range(function(_k:stdgo.AnyInterface, __56:stdgo.AnyInterface):Bool {
@@ -231,15 +237,17 @@ package stdgo._internal.expvar;
             });
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _v;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
@@ -253,8 +261,9 @@ package stdgo._internal.expvar;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);

@@ -1,13 +1,13 @@
 package stdgo._internal.net.http;
 function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _req = (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>), _err = (null : stdgo.Error);
         try {
             var _tp = stdgo._internal.net.http.Http__newTextprotoReader._newTextprotoReader(_b);
             {
                 var _a0 = _tp;
                 final __f__ = stdgo._internal.net.http.Http__putTextprotoReader._putTextprotoReader;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             _req = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_Request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
             var _s:stdgo.GoString = ("" : stdgo.GoString);
@@ -26,22 +26,23 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
                 };
             };
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                             _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _ok:Bool = false;
             {
@@ -60,8 +61,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -75,8 +77,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -98,8 +101,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -124,8 +128,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -144,8 +149,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -160,8 +166,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -182,8 +189,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -200,15 +208,17 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _req, _1 : _err };
@@ -222,8 +232,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _req, _1 : _err };

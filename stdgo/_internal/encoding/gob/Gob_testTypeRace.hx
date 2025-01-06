@@ -8,11 +8,11 @@ function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
                 @:check2 _wg.add((1 : stdgo.GoInt));
 stdgo.Go.routine(() -> ({
                     var a = function(_i:stdgo.GoInt):Void {
-                        var __deferstack__:Array<Void -> Void> = [];
+                        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                         try {
                             {
                                 final __f__ = @:check2 _wg.done;
-                                __deferstack__.unshift(() -> __f__());
+                                __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
                             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
                             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
@@ -28,8 +28,9 @@ stdgo.Go.routine(() -> ({
                                     @:check2r _t.errorf(("bad i %d" : stdgo.GoString), stdgo.Go.toInterface(_i));
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return;
                                     };
@@ -48,8 +49,9 @@ stdgo.Go.routine(() -> ({
                                     @:check2r _t.error(stdgo.Go.toInterface(_err));
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return;
                                     };
@@ -61,8 +63,9 @@ stdgo.Go.routine(() -> ({
                                     @:check2r _t.error(stdgo.Go.toInterface(_err));
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return;
                                     };
@@ -74,8 +77,9 @@ stdgo.Go.routine(() -> ({
                                     @:check2r _t.error(stdgo.Go.toInterface(("decode unexpectedly succeeded" : stdgo.GoString)));
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return;
                                     };
@@ -83,8 +87,9 @@ stdgo.Go.routine(() -> ({
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                 return;
@@ -98,8 +103,9 @@ stdgo.Go.routine(() -> ({
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;

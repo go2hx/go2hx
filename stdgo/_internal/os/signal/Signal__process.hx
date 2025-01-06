@@ -1,6 +1,6 @@
 package stdgo._internal.os.signal;
 function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _n = (stdgo._internal.os.signal.Signal__signum._signum(_sig) : stdgo.GoInt);
             if ((_n < (0 : stdgo.GoInt) : Bool)) {
@@ -9,7 +9,7 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
             {
                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
                 if (@:check2r _h._want(_n)) {
@@ -55,8 +55,9 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -70,8 +71,9 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

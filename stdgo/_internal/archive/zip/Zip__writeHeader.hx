@@ -7,7 +7,7 @@ function _writeHeader(_w:stdgo._internal.io.Io_Writer.Writer, _h:stdgo.Ref<stdgo
         if ((((@:checkr _h ?? throw "null pointer dereference").fileHeader.extra.length) > (65535 : stdgo.GoInt) : Bool)) {
             return stdgo._internal.archive.zip.Zip__errLongExtra._errLongExtra;
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(30, 30, ...[for (i in 0 ... 30) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(30, 30).__setNumber32__();
         var _b = ((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.archive.zip.Zip_T_writeBuf.T_writeBuf);
         @:check2 _b._uint32((67324752u32 : stdgo.GoUInt32));
         @:check2 _b._uint16((@:checkr _h ?? throw "null pointer dereference").fileHeader.readerVersion);

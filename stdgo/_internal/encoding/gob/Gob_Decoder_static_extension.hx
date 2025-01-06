@@ -4,7 +4,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function decodeValue( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (_v.isValid()) {
                 if (((_v.kind() == (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && !_v.isNil() : Bool)) {} else if (!_v.canSet()) {
@@ -14,7 +14,7 @@ package stdgo._internal.encoding.gob;
             @:check2 (@:checkr _dec ?? throw "null pointer dereference")._mutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _dec ?? throw "null pointer dereference")._mutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2 (@:checkr _dec ?? throw "null pointer dereference")._buf.reset();
             (@:checkr _dec ?? throw "null pointer dereference")._err = (null : stdgo.Error);
@@ -25,15 +25,17 @@ package stdgo._internal.encoding.gob;
             {
                 final __ret__:stdgo.Error = (@:checkr _dec ?? throw "null pointer dereference")._err;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -47,8 +49,9 @@ package stdgo._internal.encoding.gob;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -194,19 +197,20 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _decodeValue( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _wireId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _a0 = (stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._err) : stdgo.Ref<stdgo.Error>);
                 final __f__ = stdgo._internal.encoding.gob.Gob__catchError._catchError;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             if (!_value.isValid()) {
                 @:check2r _dec._decodeIgnoredValue(_wireId);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -222,8 +226,9 @@ package stdgo._internal.encoding.gob;
             if ((@:checkr _dec ?? throw "null pointer dereference")._err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -245,8 +250,9 @@ package stdgo._internal.encoding.gob;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -260,8 +266,9 @@ package stdgo._internal.encoding.gob;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -340,13 +347,13 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _compileDec( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _remoteId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>; var _1 : stdgo.Error; } {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _engine = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>), _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 final __f__ = stdgo._internal.encoding.gob.Gob__catchError._catchError;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _rt = ((@:checkr _ut ?? throw "null pointer dereference")._base : stdgo._internal.reflect.Reflect_Type_.Type_);
             var _srt = (_rt : stdgo._internal.reflect.Reflect_Type_.Type_);
@@ -359,8 +366,9 @@ package stdgo._internal.encoding.gob;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -436,15 +444,17 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _engine, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _engine, _1 : _err };
@@ -458,8 +468,9 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _engine, _1 : _err };
@@ -530,12 +541,12 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
     @:tdfield
     static public function _typeString( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _remoteId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId):stdgo.GoString {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
             {
                 final __f__ = @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _t = (stdgo._internal.encoding.gob.Gob__idToType._idToType(_remoteId) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
@@ -543,8 +554,9 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                     {
                         final __ret__:stdgo.GoString = _t._string()?.__copy__();
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -553,15 +565,17 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             {
                 final __ret__:stdgo.GoString = @:check2r ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>))._string()?.__copy__();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return ("" : stdgo.GoString);
@@ -575,8 +589,9 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return ("" : stdgo.GoString);
@@ -1122,13 +1137,13 @@ _elemOp(_instr, _state, _v.__copy__());
     @:tdfield
     static public function _ignoreSingle( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _engine:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _state = @:check2r _dec._newDecoderState((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
                 final __f__ = @:check2r _dec._freeDecoderState;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (0 : stdgo.GoInt);
             var _delta = (@:check2r _state._decodeUint() : stdgo.GoInt);
@@ -1139,8 +1154,9 @@ _elemOp(_instr, _state, _v.__copy__());
             (@:checkr _instr ?? throw "null pointer dereference")._op(_instr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue?.__copy__());
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1154,8 +1170,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1165,13 +1182,13 @@ _elemOp(_instr, _state, _v.__copy__());
     @:tdfield
     static public function _ignoreStruct( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _engine:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _state = @:check2r _dec._newDecoderState((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
                 final __f__ = @:check2r _dec._freeDecoderState;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (-1 : stdgo.GoInt);
             while ((@:check2r (@:checkr _state ?? throw "null pointer dereference")._b.len() > (0 : stdgo.GoInt) : Bool)) {
@@ -1192,8 +1209,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1207,8 +1225,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1218,13 +1237,13 @@ _elemOp(_instr, _state, _v.__copy__());
     @:tdfield
     static public function _decodeStruct( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _engine:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _state = @:check2r _dec._newDecoderState((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
                 final __f__ = @:check2r _dec._freeDecoderState;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (-1 : stdgo.GoInt);
             while ((@:check2r (@:checkr _state ?? throw "null pointer dereference")._b.len() > (0 : stdgo.GoInt) : Bool)) {
@@ -1252,8 +1271,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1267,8 +1287,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1278,13 +1299,13 @@ _elemOp(_instr, _state, _v.__copy__());
     @:tdfield
     static public function _decodeSingle( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _engine:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _state = @:check2r _dec._newDecoderState((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
                 final __f__ = @:check2r _dec._freeDecoderState;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (0 : stdgo.GoInt);
             if (@:check2r _state._decodeUint() != ((0i64 : stdgo.GoUInt64))) {
@@ -1294,8 +1315,9 @@ _elemOp(_instr, _state, _v.__copy__());
             (@:checkr _instr ?? throw "null pointer dereference")._op(_instr, _state, _value?.__copy__());
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1309,8 +1331,9 @@ _elemOp(_instr, _state, _v.__copy__());
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

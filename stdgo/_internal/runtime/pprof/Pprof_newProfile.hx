@@ -1,11 +1,11 @@
 package stdgo._internal.runtime.pprof;
 function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
             {
                 final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (_name == (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(("pprof: NewProfile with empty name" : stdgo.GoString));
@@ -22,15 +22,17 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
             stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] = _p;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _p;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
@@ -44,8 +46,9 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);

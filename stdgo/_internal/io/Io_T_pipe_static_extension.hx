@@ -43,7 +43,7 @@ package stdgo._internal.io;
     @:tdfield
     static public function _write( _p:stdgo.Ref<stdgo._internal.io.Io_T_pipe.T_pipe>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.io.Io_T_pipe.T_pipe> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             {
@@ -68,7 +68,7 @@ package stdgo._internal.io;
                             @:check2 (@:checkr _p ?? throw "null pointer dereference")._wrMu.lock();
                             {
                                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._wrMu.unlock;
-                                __deferstack__.unshift(() -> __f__());
+                                __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
                         };
                     };
@@ -105,8 +105,9 @@ package stdgo._internal.io;
                                                 __tmp__;
                                             };
                                             for (defer in __deferstack__) {
-                                                __deferstack__.remove(defer);
-                                                defer();
+                                                if (defer.ran) continue;
+                                                defer.ran = true;
+                                                defer.f();
                                             };
                                             return __ret__;
                                         };
@@ -128,15 +129,17 @@ package stdgo._internal.io;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _n, _1 : _err };
@@ -150,8 +153,9 @@ package stdgo._internal.io;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _n, _1 : _err };

@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.gob;
 function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>, _rt:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
             {
                 final __f__ = @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _info = stdgo._internal.encoding.gob.Gob__lookupTypeInfo._lookupTypeInfo(_rt);
@@ -13,8 +13,9 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -25,8 +26,9 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -38,8 +40,9 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -83,8 +86,9 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -110,15 +114,17 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>), _1 : (null : stdgo.Error) };
@@ -132,8 +138,9 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>), _1 : (null : stdgo.Error) };

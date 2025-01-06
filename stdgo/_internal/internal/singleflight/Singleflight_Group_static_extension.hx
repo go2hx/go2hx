@@ -4,19 +4,20 @@ package stdgo._internal.internal.singleflight;
     @:tdfield
     static public function forgetUnshared( _g:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_Group.Group>, _key:stdgo.GoString):Bool {
         @:recv var _g:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_Group.Group> = _g;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.exists(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_T_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_T_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return true;
                 };
@@ -25,23 +26,26 @@ package stdgo._internal.internal.singleflight;
                 if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.remove(_key);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return true;
                 };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return false;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return false;
@@ -55,8 +59,9 @@ package stdgo._internal.internal.singleflight;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return false;

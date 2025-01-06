@@ -3,7 +3,7 @@ package stdgo._internal.mime.quotedprintable;
     public var binary : Bool = false;
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _i : stdgo.GoInt = 0;
-    public var _line : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(78, 78, ...[for (i in 0 ... 78) (0 : stdgo.GoUInt8)]);
+    public var _line : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(78, 78).__setNumber32__();
     public var _cr : Bool = false;
     public function new(?binary:Bool, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_i:stdgo.GoInt, ?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:Bool) {
         if (binary != null) this.binary = binary;

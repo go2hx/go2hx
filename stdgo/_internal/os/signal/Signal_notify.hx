@@ -1,7 +1,7 @@
 package stdgo._internal.os.signal;
 function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
         var _sig = new stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>(_sig.length, 0, ..._sig);
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (_c == null) {
                 throw stdgo.Go.toInterface(("os/signal: Notify using nil channel" : stdgo.GoString));
@@ -9,7 +9,7 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
             {
                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>));
             if ((_h == null || (_h : Dynamic).__nil__)) {
@@ -55,8 +55,9 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -70,8 +71,9 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

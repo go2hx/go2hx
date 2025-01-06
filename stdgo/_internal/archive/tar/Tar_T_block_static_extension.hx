@@ -4,7 +4,7 @@ package stdgo._internal.archive.tar;
     @:tdfield
     static public function _reset( _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block> = _b;
-        _b = (new stdgo.GoArray<stdgo.GoUInt8>(512, 512, ...[]).__setNumber32__() : stdgo._internal.archive.tar.Tar_T_block.T_block)?.__copy__();
+        (_b : stdgo._internal.archive.tar.Tar_T_block.T_block).__setData__((new stdgo.GoArray<stdgo.GoUInt8>(512, 512, ...[]).__setNumber32__() : stdgo._internal.archive.tar.Tar_T_block.T_block)?.__copy__());
     }
     @:keep
     @:tdfield

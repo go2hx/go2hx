@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _readMetaFrame( _fr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer>, _hf:stdgo.Ref<stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } {
         @:recv var _fr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer> = _fr;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _fr ?? throw "null pointer dereference").allowIllegalReads) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("illegal use of AllowIllegalReads with ReadMetaHeaders" : stdgo.GoString)) };
@@ -50,7 +50,7 @@ package stdgo._internal.net.http;
             {
                 var _a0 = function(_hf:_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField):Void {};
                 final __f__ = @:check2r _hdec.setEmitFunc;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _hc:stdgo._internal.net.http.Http_T_http2headersOrContinuation.T_http2headersOrContinuation = stdgo.Go.asInterface(_hf);
             while (true) {
@@ -61,8 +61,9 @@ package stdgo._internal.net.http;
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(((9u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -77,8 +78,9 @@ package stdgo._internal.net.http;
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -95,8 +97,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(((9u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)) };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -110,8 +113,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError((@:checkr _mh ?? throw "null pointer dereference")._http2HeadersFrame._http2FrameHeader.streamID, (1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), _invalid) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)) };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -126,8 +130,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError((@:checkr _mh ?? throw "null pointer dereference")._http2HeadersFrame._http2FrameHeader.streamID, (1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), _err) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)) };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -136,15 +141,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : _mh, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>), _1 : (null : stdgo.Error) };
@@ -158,8 +165,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>), _1 : (null : stdgo.Error) };

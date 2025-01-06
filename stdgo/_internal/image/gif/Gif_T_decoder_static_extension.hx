@@ -40,7 +40,7 @@ package stdgo._internal.image.gif;
     @:tdfield
     static public function _readImageDescriptor( _d:stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>, _keepAllFrames:Bool):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder> = _d;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = @:check2r _d._newImageFromDescriptor(), _m:stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -95,7 +95,7 @@ package stdgo._internal.image.gif;
             var _lzwr = (stdgo._internal.compress.lzw.Lzw_newReader.newReader(stdgo.Go.asInterface(_br), (0 : stdgo._internal.compress.lzw.Lzw_Order.Order), (_litWidth : stdgo.GoInt)) : stdgo._internal.io.Io_ReadCloser.ReadCloser);
             {
                 final __f__ = _lzwr.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 _err = stdgo._internal.image.gif.Gif__readFull._readFull(_lzwr, (@:checkr _m ?? throw "null pointer dereference").pix);
@@ -104,16 +104,18 @@ package stdgo._internal.image.gif;
                         {
                             final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("gif: reading image data: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
                     };
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return stdgo._internal.image.gif.Gif__errNotEnough._errNotEnough;
                     };
@@ -126,16 +128,18 @@ package stdgo._internal.image.gif;
                         {
                             final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("gif: reading image data: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
                     };
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return stdgo._internal.image.gif.Gif__errTooMuch._errTooMuch;
                     };
@@ -146,8 +150,9 @@ package stdgo._internal.image.gif;
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.image.gif.Gif__errTooMuch._errTooMuch))) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return stdgo._internal.image.gif.Gif__errTooMuch._errTooMuch;
                     };
@@ -155,8 +160,9 @@ package stdgo._internal.image.gif;
                     {
                         final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("gif: reading image data: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -167,8 +173,9 @@ package stdgo._internal.image.gif;
                     if (((_pixel : stdgo.GoInt) >= ((@:checkr _m ?? throw "null pointer dereference").palette.length) : Bool)) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return stdgo._internal.image.gif.Gif__errBadPixel._errBadPixel;
                         };
@@ -188,15 +195,17 @@ package stdgo._internal.image.gif;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -210,8 +219,9 @@ package stdgo._internal.image.gif;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

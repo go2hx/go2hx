@@ -17,11 +17,11 @@ package stdgo._internal.debug.dwarf;
     public var common(get, never) : () -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 (this.commonType ?? throw "null pointer derefrence").common;
+    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 this.commonType.common;
     public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
     @:embeddededffieldsffun
-    public function get_size():() -> stdgo.GoInt64 return @:check3 (this.commonType ?? throw "null pointer derefrence").size;
+    public function get_size():() -> stdgo.GoInt64 return @:check3 this.commonType.size;
     public function __copy__() {
         return new StructType(commonType, structName, kind, field, incomplete);
     }

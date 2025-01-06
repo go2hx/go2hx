@@ -4,11 +4,11 @@ package stdgo._internal.internal.fuzz;
     @:tdfield
     static public function _mutateBytes( _m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mutator.T_mutator>, _ptrB:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mutator.T_mutator> = _m;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _b = (_ptrB : stdgo.Slice<stdgo.GoUInt8>);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (stdgo._internal.unsafe.Unsafe_sliceData.sliceData((_ptrB : stdgo.Slice<stdgo.GoUInt8>)) != (stdgo._internal.unsafe.Unsafe_sliceData.sliceData(_b))) {
                             throw stdgo.Go.toInterface(("data moved to new address" : stdgo.GoString));
@@ -16,7 +16,7 @@ package stdgo._internal.internal.fuzz;
                         (_ptrB : stdgo.Slice<stdgo.GoUInt8>).__setData__(_b);
                     };
                     a();
-                }));
+                }) });
             };
             while (true) {
                 var _mut = (stdgo._internal.internal.fuzz.Fuzz__byteSliceMutators._byteSliceMutators[(@:check2r _m._rand((stdgo._internal.internal.fuzz.Fuzz__byteSliceMutators._byteSliceMutators.length)) : stdgo.GoInt)] : stdgo._internal.internal.fuzz.Fuzz_T_byteSliceMutator.T_byteSliceMutator);
@@ -26,8 +26,9 @@ package stdgo._internal.internal.fuzz;
                         _b = _mutated;
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -36,8 +37,9 @@ package stdgo._internal.internal.fuzz;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -51,8 +53,9 @@ package stdgo._internal.internal.fuzz;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

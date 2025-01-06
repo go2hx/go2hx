@@ -127,15 +127,15 @@ package stdgo._internal.net.http.fcgi;
     @:tdfield
     static public function _serve( _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_child.T_child>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_child.T_child> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 final __f__ = @:check2r (@:checkr _c ?? throw "null pointer dereference")._conn.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = @:check2r _c._cleanUp;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _rec:stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record = ({} : stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record);
             while (true) {
@@ -144,8 +144,9 @@ package stdgo._internal.net.http.fcgi;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -156,8 +157,9 @@ package stdgo._internal.net.http.fcgi;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -166,8 +168,9 @@ package stdgo._internal.net.http.fcgi;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -181,8 +184,9 @@ package stdgo._internal.net.http.fcgi;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

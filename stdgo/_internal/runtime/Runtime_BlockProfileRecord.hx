@@ -13,7 +13,7 @@ package stdgo._internal.runtime;
     public var stack(get, never) : () -> stdgo.Slice<stdgo.GoUIntptr>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_stack():() -> stdgo.Slice<stdgo.GoUIntptr> return @:check3 (this.stackRecord ?? throw "null pointer derefrence").stack;
+    public function get_stack():() -> stdgo.Slice<stdgo.GoUIntptr> return @:check3 this.stackRecord.stack;
     public function __copy__() {
         return new BlockProfileRecord(count, cycles, stackRecord);
     }

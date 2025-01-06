@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _name:stdgo.GoString, _modtime:stdgo._internal.time.Time_Time.Time, _sizeFunc:() -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; }, _content:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.net.http.Http__setLastModified._setLastModified(_w, _modtime?.__copy__());
             var __tmp__ = stdgo._internal.net.http.Http__checkPreconditions._checkPreconditions(_w, _r, _modtime?.__copy__()), _done:Bool = __tmp__._0, _rangeReq:stdgo.GoString = __tmp__._1;
@@ -13,7 +13,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
             if (!_haveType) {
                 _ctype = stdgo._internal.mime.Mime_typeByExtension.typeByExtension(stdgo._internal.path.filepath.Filepath_ext.ext(_name?.__copy__())?.__copy__())?.__copy__();
                 if (_ctype == (stdgo.Go.str())) {
-                    var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);
+                    var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512).__setNumber32__();
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_content, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, __137:stdgo.Error = __tmp__._1;
                     _ctype = stdgo._internal.net.http.Http_detectContentType.detectContentType((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
                     var __tmp__ = _content.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __138:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -92,7 +92,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                 _sendContent = stdgo.Go.asInterface(_pr);
                 {
                     final __f__ = @:check2r _pr.close;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
@@ -133,8 +133,9 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -148,8 +149,9 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

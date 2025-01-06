@@ -1,13 +1,13 @@
 package stdgo._internal.internal.xcoff;
 @:structInit class T_bigarMemberHeader {
-    public var arsize : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var arnxtmem : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var arprvmem : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var ardate : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12, ...[for (i in 0 ... 12) (0 : stdgo.GoUInt8)]);
-    public var aruid : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12, ...[for (i in 0 ... 12) (0 : stdgo.GoUInt8)]);
-    public var argid : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12, ...[for (i in 0 ... 12) (0 : stdgo.GoUInt8)]);
-    public var armode : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12, ...[for (i in 0 ... 12) (0 : stdgo.GoUInt8)]);
-    public var arnamlen : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var arsize : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var arnxtmem : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var arprvmem : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var ardate : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12).__setNumber32__();
+    public var aruid : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12).__setNumber32__();
+    public var argid : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12).__setNumber32__();
+    public var armode : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(12, 12).__setNumber32__();
+    public var arnamlen : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
     public function new(?arsize:stdgo.GoArray<stdgo.GoUInt8>, ?arnxtmem:stdgo.GoArray<stdgo.GoUInt8>, ?arprvmem:stdgo.GoArray<stdgo.GoUInt8>, ?ardate:stdgo.GoArray<stdgo.GoUInt8>, ?aruid:stdgo.GoArray<stdgo.GoUInt8>, ?argid:stdgo.GoArray<stdgo.GoUInt8>, ?armode:stdgo.GoArray<stdgo.GoUInt8>, ?arnamlen:stdgo.GoArray<stdgo.GoUInt8>) {
         if (arsize != null) this.arsize = arsize;
         if (arnxtmem != null) this.arnxtmem = arnxtmem;

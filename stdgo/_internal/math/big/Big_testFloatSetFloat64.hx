@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             for (__8 => _want in (new stdgo.Slice<stdgo.GoFloat64>(16, 16, ...[
 (0 : stdgo.GoFloat64),
@@ -47,7 +47,7 @@ if (_got != (_want)) {
                 };
             };
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var __tmp__ = try {
@@ -65,15 +65,16 @@ if (_got != (_want)) {
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             @:check2 _f.setFloat64(stdgo._internal.math.Math_naN.naN());
             @:check2r _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(@:check2 _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -87,8 +88,9 @@ if (_got != (_want)) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

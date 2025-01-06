@@ -4,25 +4,27 @@ package stdgo._internal.log;
     @:tdfield
     static public function writer( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>):stdgo._internal.io.Io_Writer.Writer {
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo._internal.io.Io_Writer.Writer = (@:checkr _l ?? throw "null pointer dereference")._out;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo._internal.io.Io_Writer.Writer);
@@ -36,8 +38,9 @@ package stdgo._internal.log;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo._internal.io.Io_Writer.Writer);
@@ -145,7 +148,7 @@ package stdgo._internal.log;
     @:tdfield
     static public function _output( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _pc:stdgo.GoUIntptr, _calldepth:stdgo.GoInt, _appendOutput:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (@:check2 (@:checkr _l ?? throw "null pointer dereference")._isDiscard.load()) {
                 return (null : stdgo.Error);
@@ -182,7 +185,7 @@ package stdgo._internal.log;
             {
                 var _a0 = _buf;
                 final __f__ = stdgo._internal.log.Log__putBuffer._putBuffer;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             stdgo._internal.log.Log__formatHeader._formatHeader(_buf, _now?.__copy__(), _prefix?.__copy__(), _flag, _file?.__copy__(), _line);
             (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(_appendOutput((_buf : stdgo.Slice<stdgo.GoUInt8>)));
@@ -192,20 +195,22 @@ package stdgo._internal.log;
             @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write((_buf : stdgo.Slice<stdgo.GoUInt8>)), __59:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -219,8 +224,9 @@ package stdgo._internal.log;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -239,19 +245,20 @@ package stdgo._internal.log;
     @:tdfield
     static public function setOutput( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _w:stdgo._internal.io.Io_Writer.Writer):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _l ?? throw "null pointer dereference")._out = _w;
             @:check2 (@:checkr _l ?? throw "null pointer dereference")._isDiscard.store(stdgo.Go.toInterface(_w) == (stdgo.Go.toInterface(stdgo._internal.io.Io_discard.discard)));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -265,8 +272,9 @@ package stdgo._internal.log;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

@@ -1,7 +1,7 @@
 package stdgo._internal.net.netip;
 function _parseIPv4(_s:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Netip_Addr.Addr; var _1 : stdgo.Error; } {
         var _ip = ({} : stdgo._internal.net.netip.Netip_Addr.Addr), _err = (null : stdgo.Error);
-        var _fields:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+        var _fields:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _pos = __1, _val = __0;
         var _digLen:stdgo.GoInt = (0 : stdgo.GoInt);

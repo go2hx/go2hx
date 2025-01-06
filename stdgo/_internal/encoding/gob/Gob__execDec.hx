@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.gob;
 function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _a0 = _t;
                 final __f__ = stdgo._internal.encoding.gob.Gob__testError._testError;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _v = (@:check2r _state._decodeUint() : stdgo.GoInt);
             if ((_v + (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt) != ((6 : stdgo.GoInt))) {
@@ -15,8 +15,9 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (6 : stdgo.GoInt);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -30,8 +31,9 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

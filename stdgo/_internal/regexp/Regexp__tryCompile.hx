@@ -1,10 +1,10 @@
 package stdgo._internal.regexp;
 function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _re = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>), _err = (null : stdgo.Error);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _r = ({
@@ -18,7 +18,7 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                         };
                     };
                     a();
-                }));
+                }) });
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>; var _1 : stdgo.Error; } = {
@@ -28,15 +28,17 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _re, _1 : _err };
@@ -50,8 +52,9 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _re, _1 : _err };

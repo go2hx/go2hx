@@ -252,23 +252,23 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _write( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _w:stdgo._internal.io.Io_Writer.Writer, _usingProxy:Bool, _extraHeaders:stdgo._internal.net.http.Http_Header.Header, _waitForContinue:() -> Bool):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(@:check2r _r.context());
             if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && ((@:checkr _trace ?? throw "null pointer dereference").wroteRequest != null) : Bool)) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             (@:checkr _trace ?? throw "null pointer dereference").wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             var _closed = (false : Bool);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (_closed) {
                             return;
@@ -281,7 +281,7 @@ package stdgo._internal.net.http;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _host = ((@:checkr _r ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString);
             if (_host == (stdgo.Go.str())) {
@@ -289,8 +289,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__errMissingHost._errMissingHost;
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -305,8 +306,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -318,8 +320,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("http: invalid Host header" : stdgo.GoString));
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -339,8 +342,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("net/http: can\'t write control character in Request.URL" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -364,8 +368,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -377,8 +382,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -398,8 +404,9 @@ package stdgo._internal.net.http;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -412,8 +419,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -422,8 +430,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -432,8 +441,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -443,8 +453,9 @@ package stdgo._internal.net.http;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -457,8 +468,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -478,8 +490,9 @@ package stdgo._internal.net.http;
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return _err;
                             };
@@ -495,8 +508,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -514,8 +528,9 @@ package stdgo._internal.net.http;
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return _err;
                             };
@@ -531,8 +546,9 @@ package stdgo._internal.net.http;
                 };
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -541,8 +557,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = _err = @:check2r _bw.flush();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -550,15 +567,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -572,8 +591,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

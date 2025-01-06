@@ -15,7 +15,7 @@ package stdgo._internal.os;
     public var _close(get, never) : () -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get__close():() -> stdgo.Error return @:check3 (this._file ?? throw "null pointer derefrence")._close;
+    public function get__close():() -> stdgo.Error return @:check3 this._file._close;
     public function __copy__() {
         return new File(_file, _input, _output);
     }

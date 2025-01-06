@@ -11,7 +11,7 @@ package stdgo._internal.debug.dwarf;
     public var common(get, never) : () -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 (this.commonType ?? throw "null pointer derefrence").common;
+    public function get_common():() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CommonType.CommonType> return @:check3 this.commonType.common;
     public function __copy__() {
         return new TypedefType(commonType, type);
     }

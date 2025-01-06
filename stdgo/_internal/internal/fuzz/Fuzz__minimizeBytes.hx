@@ -1,13 +1,13 @@
 package stdgo._internal.internal.fuzz;
 function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.GoUInt8> -> Bool, _shouldStop:() -> Bool):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _tmp = (new stdgo.Slice<stdgo.GoUInt8>((_v.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var _a0 = _tmp;
                 var _a1 = _v;
                 final __f__ = _a0.__copyTo__;
-                __deferstack__.unshift(() -> __f__(_a1));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a1) });
             };
             {
                 var _n = (1024 : stdgo.GoInt);
@@ -16,8 +16,9 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                         if (_shouldStop()) {
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return;
                             };
@@ -37,8 +38,9 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                     if (_shouldStop()) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -68,8 +70,9 @@ _i--;
                             if (_shouldStop()) {
                                 {
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return;
                                 };
@@ -96,8 +99,9 @@ _j = (_v.length);
                 if (_shouldStop()) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -112,8 +116,9 @@ _j = (_v.length);
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -127,8 +132,9 @@ _j = (_v.length);
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

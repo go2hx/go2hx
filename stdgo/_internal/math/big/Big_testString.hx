@@ -3,10 +3,10 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _panicStr:stdgo.GoString = ("" : stdgo.GoString);
         ({
             var a = function():Void {
-                var __deferstack__:Array<Void -> Void> = [];
+                var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                 try {
                     {
-                        __deferstack__.unshift(() -> ({
+                        __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
                                 _panicStr = (stdgo.Go.typeAssert(({
                                     final r = stdgo.Go.recover_exception;
@@ -15,13 +15,14 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                                 } : stdgo.GoString)) : stdgo.GoString)?.__copy__();
                             };
                             a();
-                        }));
+                        }) });
                     };
                     stdgo._internal.math.big.Big__natOne._natOne._utoa((1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
@@ -35,8 +36,9 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     };
                     stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                     return;

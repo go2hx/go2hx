@@ -103,26 +103,26 @@ package stdgo._internal.internal.fuzz;
     @:tdfield
     static public function _minimize( _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>, _ctx:stdgo._internal.context.Context_Context.Context, _args:stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs):stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse {
         @:recv var _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer> = _ws;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse);
         try {
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                     };
                     a();
-                }));
+                }) });
             };
             var _mem = (@:checkr _ws ?? throw "null pointer dereference")._workerComm._memMu.__get__();
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         (@:checkr _ws ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                     };
                     a();
-                }));
+                }) });
             };
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(@:check2r _mem._valueCopy()), _vals:stdgo.Slice<stdgo.AnyInterface> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -138,7 +138,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 {
                     final __f__ = _cancel;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             var __tmp__ = @:check2r _ws._minimizeInput(_ctx, _vals, _mem, _args?.__copy__()), _success:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -160,15 +160,17 @@ package stdgo._internal.internal.fuzz;
             {
                 final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse = _resp = _resp?.__copy__();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _resp;
@@ -182,8 +184,9 @@ package stdgo._internal.internal.fuzz;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _resp;
@@ -193,7 +196,7 @@ package stdgo._internal.internal.fuzz;
     @:tdfield
     static public function _fuzz( _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>, _ctx:stdgo._internal.context.Context_Context.Context, _args:stdgo._internal.internal.fuzz.Fuzz_T_fuzzArgs.T_fuzzArgs):stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse {
         @:recv var _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer> = _ws;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse);
         try {
             if (_args.coverageData != null) {
@@ -205,12 +208,12 @@ package stdgo._internal.internal.fuzz;
             };
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                     };
                     a();
-                }));
+                }) });
             };
             if (_args.timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _cancel:() -> Void = null;
@@ -221,27 +224,28 @@ package stdgo._internal.internal.fuzz;
                 };
                 {
                     final __f__ = _cancel;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             var _mem = (@:checkr _ws ?? throw "null pointer dereference")._workerComm._memMu.__get__();
             (@:checkr (@:checkr _ws ?? throw "null pointer dereference")._m ?? throw "null pointer dereference")._r._save(stdgo.Go.pointer(@:check2r _mem._header()._randState), stdgo.Go.pointer(@:check2r _mem._header()._randInc));
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         _resp.count = @:check2r _mem._header()._count;
                         (@:checkr _ws ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                     };
                     a();
-                }));
+                }) });
             };
             if (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (@:check2r _mem._header()._count >= _args.limit : Bool) : Bool)) {
                 _resp.internalErr = stdgo._internal.fmt.Fmt_sprintf.sprintf(("mem.header().count %d already exceeds args.Limit %d" : stdgo.GoString), stdgo.Go.toInterface(@:check2r _mem._header()._count), stdgo.Go.toInterface(_args.limit))?.__copy__();
                 {
                     final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -252,8 +256,9 @@ package stdgo._internal.internal.fuzz;
                 {
                     final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -309,8 +314,9 @@ package stdgo._internal.internal.fuzz;
                     {
                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -322,8 +328,9 @@ package stdgo._internal.internal.fuzz;
                 {
                     final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -340,8 +347,9 @@ package stdgo._internal.internal.fuzz;
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -362,8 +370,9 @@ package stdgo._internal.internal.fuzz;
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -374,8 +383,9 @@ package stdgo._internal.internal.fuzz;
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -384,8 +394,9 @@ package stdgo._internal.internal.fuzz;
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -399,8 +410,9 @@ package stdgo._internal.internal.fuzz;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _resp;
@@ -414,8 +426,9 @@ package stdgo._internal.internal.fuzz;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _resp;

@@ -4,11 +4,11 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _go12MapFiles( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>, _m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>>, _obj:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (true) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             ({
                                 final r = stdgo.Go.recover_exception;
@@ -17,7 +17,7 @@ package stdgo._internal.debug.gosym;
                             });
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             @:check2r _t._initFileMap();
@@ -26,8 +26,9 @@ package stdgo._internal.debug.gosym;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -41,8 +42,9 @@ package stdgo._internal.debug.gosym;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -52,18 +54,19 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _initFileMap( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _t ?? throw "null pointer dereference")._fileMap != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -98,8 +101,9 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
             (@:checkr _t ?? throw "null pointer dereference")._fileMap = _m;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -113,8 +117,9 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -124,11 +129,11 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
     @:tdfield
     static public function _go12LineToPC( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>, _file:stdgo.GoString, _line:stdgo.GoInt):stdgo.GoUInt64 {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _pc = (0 : stdgo.GoUInt64);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((true && (({
                             final r = stdgo.Go.recover_exception;
@@ -139,7 +144,7 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
                         };
                     };
                     a();
-                }));
+                }) });
             };
             @:check2r _t._initFileMap();
             var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._fileMap != null && (@:checkr _t ?? throw "null pointer dereference")._fileMap.exists(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._fileMap[_file?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _filenum:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -147,8 +152,9 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
                 {
                     final __ret__:stdgo.GoUInt64 = _pc = (0i64 : stdgo.GoUInt64);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -174,8 +180,9 @@ var _pc = (@:check2r _t._findFileLine(_entry, _filetab, _linetab, (_filenum : st
 if (_pc != ((0i64 : stdgo.GoUInt64))) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _pc;
                         };
@@ -186,15 +193,17 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             {
                 final __ret__:stdgo.GoUInt64 = _pc = (0i64 : stdgo.GoUInt64);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _pc;
@@ -208,8 +217,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _pc;
@@ -219,11 +229,11 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     @:tdfield
     static public function _go12PCToFile( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>, _pc:stdgo.GoUInt64):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _file = ("" : stdgo.GoString);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((true && (({
                             final r = stdgo.Go.recover_exception;
@@ -234,15 +244,16 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _f = (@:check2r _t._findFunc(_pc)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
             if (_f.isZero()) {
                 {
                     final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -255,8 +266,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                     {
                         final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -264,8 +276,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 {
                     final __ret__:stdgo.GoString = _file = @:check2r _t._string((@:checkr _t ?? throw "null pointer dereference")._binary.uint32(((@:checkr _t ?? throw "null pointer dereference")._filetab.__slice__(((4 : stdgo.GoInt32) * _fno : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -274,8 +287,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 {
                     final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -287,8 +301,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                     {
                         final __ret__:stdgo.GoString = _file = @:check2r _t._stringFrom((@:checkr _t ?? throw "null pointer dereference")._filetab, _fnoff)?.__copy__();
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -297,15 +312,17 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             {
                 final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _file;
@@ -319,8 +336,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _file;
@@ -330,11 +348,11 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     @:tdfield
     static public function _go12PCToLine( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>, _pc:stdgo.GoUInt64):stdgo.GoInt {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _line = (0 : stdgo.GoInt);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((true && (({
                             final r = stdgo.Go.recover_exception;
@@ -345,15 +363,16 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _f = (@:check2r _t._findFunc(_pc)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
             if (_f.isZero()) {
                 {
                     final __ret__:stdgo.GoInt = _line = (-1 : stdgo.GoInt);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -363,15 +382,17 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             {
                 final __ret__:stdgo.GoInt = _line = (@:check2r _t._pcvalue(_linetab, _entry, _pc) : stdgo.GoInt);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _line;
@@ -385,8 +406,9 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _line;
@@ -566,11 +588,11 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
     @:tdfield
     static public function _go12Funcs( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>):stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (true) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             ({
                                 final r = stdgo.Go.recover_exception;
@@ -579,7 +601,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                             });
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             var _ft = (@:check2r _t._funcTab()?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcTab.T_funcTab);
@@ -597,15 +619,17 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _funcs;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
@@ -619,8 +643,9 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
@@ -630,18 +655,19 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
     @:tdfield
     static public function _parsePclnTab( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _t ?? throw "null pointer dereference")._version != ((0 : stdgo._internal.debug.gosym.Gosym_T_version.T_version))) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -649,7 +675,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             (@:checkr _t ?? throw "null pointer dereference")._version = (1 : stdgo._internal.debug.gosym.Gosym_T_version.T_version);
             if (true) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             ({
                                 final r = stdgo.Go.recover_exception;
@@ -658,14 +684,15 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                             });
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             if ((((((((@:checkr _t ?? throw "null pointer dereference").data.length) < (16 : stdgo.GoInt) : Bool) || (@:checkr _t ?? throw "null pointer dereference").data[(4 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8)) : Bool) || (@:checkr _t ?? throw "null pointer dereference").data[(5 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8)) : Bool) || ((((@:checkr _t ?? throw "null pointer dereference").data[(6 : stdgo.GoInt)] != ((1 : stdgo.GoUInt8)) && (@:checkr _t ?? throw "null pointer dereference").data[(6 : stdgo.GoInt)] != ((2 : stdgo.GoUInt8)) : Bool) && ((@:checkr _t ?? throw "null pointer dereference").data[(6 : stdgo.GoInt)] != (4 : stdgo.GoUInt8)) : Bool)) : Bool) || ((((@:checkr _t ?? throw "null pointer dereference").data[(7 : stdgo.GoInt)] != (4 : stdgo.GoUInt8)) && ((@:checkr _t ?? throw "null pointer dereference").data[(7 : stdgo.GoInt)] != (8 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -732,8 +759,9 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             } else {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -790,8 +818,9 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -805,8 +834,9 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

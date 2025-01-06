@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>, _building:stdgo.GoMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, Bool>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine> {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((_building != null) && (_building[_info] ?? false) : Bool)) {
                 return null;
@@ -8,7 +8,7 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             @:check2 (@:checkr _info ?? throw "null pointer dereference")._encInit.lock();
             {
                 final __f__ = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encInit.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _enc = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encoder.load();
             if ((_enc == null || (_enc : Dynamic).__nil__)) {
@@ -25,15 +25,17 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _enc;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine>);
@@ -47,8 +49,9 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine>);

@@ -6,7 +6,7 @@ package stdgo._internal.net.http;
     public var _countError : stdgo.GoString -> Void = null;
     public var _lastHeaderStream : stdgo.GoUInt32 = 0;
     public var _maxReadSize : stdgo.GoUInt32 = 0;
-    public var _headerBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(9, 9, ...[for (i in 0 ... 9) (0 : stdgo.GoUInt8)]);
+    public var _headerBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(9, 9).__setNumber32__();
     public var _getReadBuf : stdgo.GoUInt32 -> stdgo.Slice<stdgo.GoUInt8> = null;
     public var _readBuf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _maxWriteSize : stdgo.GoUInt32 = 0;

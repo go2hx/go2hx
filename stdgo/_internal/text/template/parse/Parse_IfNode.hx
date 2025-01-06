@@ -13,7 +13,7 @@ package stdgo._internal.text.template.parse;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_string():() -> stdgo.GoString return @:check3 (this.branchNode ?? throw "null pointer derefrence").string;
+    public function get_string():() -> stdgo.GoString return @:check3 this.branchNode.string;
     public var type(get, never) : () -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType;
     @:embedded
     @:embeddededffieldsffun
@@ -21,11 +21,11 @@ package stdgo._internal.text.template.parse;
     public var _tree(get, never) : () -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>;
     @:embedded
     @:embeddededffieldsffun
-    public function get__tree():() -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return @:check3 (this.branchNode ?? throw "null pointer derefrence")._tree;
+    public function get__tree():() -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> return @:check3 this.branchNode._tree;
     public var _writeTo(get, never) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__writeTo():stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> -> Void return @:check3 (this.branchNode ?? throw "null pointer derefrence")._writeTo;
+    public function get__writeTo():stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> -> Void return @:check3 this.branchNode._writeTo;
     public function __copy__() {
         return new IfNode(branchNode);
     }

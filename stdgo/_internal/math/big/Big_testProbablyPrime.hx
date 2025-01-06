@@ -21,10 +21,10 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         for (__8 => _n in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             ({
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
+                    var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                     try {
                         {
-                            __deferstack__.unshift(() -> ({
+                            __deferstack__.unshift({ ran : false, f : () -> ({
                                 var a = function():Void {
                                     if (((_n < (0 : stdgo.GoInt) : Bool) && (({
                                         final r = stdgo.Go.recover_exception;
@@ -35,15 +35,16 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                                     };
                                 };
                                 a();
-                            }));
+                            }) });
                         };
                         if (!@:check2r _c.probablyPrime(_n)) {
                             @:check2r _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
                         };
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;
@@ -57,8 +58,9 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                         };
                         stdgo.Go.recover_exception = exe;
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;

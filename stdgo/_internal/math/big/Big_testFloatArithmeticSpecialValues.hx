@@ -46,10 +46,10 @@ var _f = __2, _z = __1, _op = __0;
                         var _errnan:Bool = false;
                         ({
                             var a = function():Void {
-                                var __deferstack__:Array<Void -> Void> = [];
+                                var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                                 try {
                                     {
-                                        __deferstack__.unshift(() -> ({
+                                        __deferstack__.unshift({ ran : false, f : () -> ({
                                             var a = function():Void {
                                                 {
                                                     var _p = ({
@@ -64,13 +64,14 @@ var _f = __2, _z = __1, _op = __0;
                                                 };
                                             };
                                             a();
-                                        }));
+                                        }) });
                                     };
                                     _f(_got, _xx, _yy);
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                         return;
@@ -84,8 +85,9 @@ var _f = __2, _z = __1, _op = __0;
                                     };
                                     stdgo.Go.recover_exception = exe;
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                     return;

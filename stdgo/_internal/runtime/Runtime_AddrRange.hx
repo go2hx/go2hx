@@ -21,11 +21,11 @@ package stdgo._internal.runtime;
     public var _takeFromBack(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__takeFromBack():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 (this.new ?? throw "null pointer derefrence")._takeFromBack;
+    public function get__takeFromBack():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 this.new._takeFromBack;
     public var _takeFromFront(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__takeFromFront():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 (this.new ?? throw "null pointer derefrence")._takeFromFront;
+    public function get__takeFromFront():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; } return @:check3 this.new._takeFromFront;
     public function __copy__() {
         return new AddrRange();
     }

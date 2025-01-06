@@ -2,7 +2,7 @@ package stdgo._internal.crypto.tls;
 @:structInit class T_quicState {
     public var _events : stdgo.Slice<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent> = (null : stdgo.Slice<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>);
     public var _nextEvent : stdgo.GoInt = 0;
-    public var _eventArr : stdgo.GoArray<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent> = new stdgo.GoArray<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>(8, 8, ...[for (i in 0 ... 8) ({} : stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent)]);
+    public var _eventArr : stdgo.GoArray<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent> = new stdgo.GoArray<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>(8, 8, ...[for (i in 0 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent)]);
     public var _started : Bool = false;
     public var _signalc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg> = (null : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>);
     public var _blockedc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg> = (null : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>);

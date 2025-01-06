@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _dialConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _ctx:stdgo._internal.context.Context_Context.Context, _cm:stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _pconn = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>), _err = (null : stdgo.Error);
         try {
             _pconn = (stdgo.Go.setRef(({ _t : _t, _cacheKey : @:check2 _cm._key()?.__copy__(), _reqch : (new stdgo.Chan<stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan)) : stdgo.Chan<stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan>), _writech : (new stdgo.Chan<stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest)) : stdgo.Chan<stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest>), _closech : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _writeErrCh : (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>), _writeLoopDone : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>) } : stdgo._internal.net.http.Http_T_persistConn.T_persistConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>);
@@ -183,7 +183,7 @@ package stdgo._internal.net.http;
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, (60000000000i64 : stdgo._internal.time.Time_Duration.Duration)), _newCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
                     {
                         final __f__ = _cancel;
-                        __deferstack__.unshift(() -> __f__());
+                        __deferstack__.unshift({ ran : false, f : () -> __f__() });
                     };
                     _connectCtx = _newCtx;
                 };
@@ -192,18 +192,19 @@ package stdgo._internal.net.http;
 var _err = __1, _resp = __0;
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
+                        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                         try {
                             {
                                 var _a0 = _didReadResponse;
-                                __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
+                                __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.__close__() });
                             };
                             _err = @:check2r _connectReq.write(_conn);
                             if (_err != null) {
                                 {
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return;
                                 };
@@ -216,8 +217,9 @@ var _err = __1, _resp = __0;
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                 return;
@@ -231,8 +233,9 @@ var _err = __1, _resp = __0;
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;
@@ -258,8 +261,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -286,8 +290,9 @@ var _err = __1, _resp = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -303,8 +308,9 @@ var _err = __1, _resp = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -322,8 +328,9 @@ var _err = __1, _resp = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -336,8 +343,9 @@ var _err = __1, _resp = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -355,8 +363,9 @@ var _err = __1, _resp = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -385,8 +394,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -400,8 +410,9 @@ var _err = __1, _resp = __0;
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -421,15 +432,17 @@ var _err = __1, _resp = __0;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _pconn, _1 : _err };
@@ -443,8 +456,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _pconn, _1 : _err };
@@ -454,7 +468,7 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _decConnsPerHost( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _key:stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference").maxConnsPerHost <= (0 : stdgo.GoInt) : Bool)) {
                 return;
@@ -462,7 +476,7 @@ var _err = __1, _resp = __0;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._connsPerHostMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._connsPerHostMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _n = ((@:checkr _t ?? throw "null pointer dereference")._connsPerHost[_key] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
             if (_n == ((0 : stdgo.GoInt))) {
@@ -488,8 +502,9 @@ var _err = __1, _resp = __0;
                     if (_done) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -506,8 +521,9 @@ var _err = __1, _resp = __0;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -521,8 +537,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -532,11 +549,11 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _dialConnFor( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 final __f__ = (@:checkr _w ?? throw "null pointer dereference")._afterDial;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = @:check2r _t._dialConn((@:checkr _w ?? throw "null pointer dereference")._ctx, (@:checkr _w ?? throw "null pointer dereference")._cm?.__copy__()), _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             var _delivered = (@:check2r _w._tryDeliver(_pc, _err) : Bool);
@@ -548,8 +565,9 @@ var _err = __1, _resp = __0;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -563,8 +581,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -574,7 +593,7 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _queueForDial( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             (@:checkr _w ?? throw "null pointer dereference")._beforeDial();
             if (((@:checkr _t ?? throw "null pointer dereference").maxConnsPerHost <= (0 : stdgo.GoInt) : Bool)) {
@@ -584,7 +603,7 @@ var _err = __1, _resp = __0;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._connsPerHostMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._connsPerHostMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _n = ((@:checkr _t ?? throw "null pointer dereference")._connsPerHost[(@:checkr _w ?? throw "null pointer dereference")._key] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
@@ -602,8 +621,9 @@ var _err = __1, _resp = __0;
                     stdgo.Go.routine(() -> @:check2r _t._dialConnFor(_w));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -624,8 +644,9 @@ var _err = __1, _resp = __0;
             (@:checkr _t ?? throw "null pointer dereference")._connsPerHostWait[(@:checkr _w ?? throw "null pointer dereference")._key] = _q?.__copy__();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -639,8 +660,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -650,7 +672,7 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _getConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _treq:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest>, _cm:stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _pc = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>), _err = (null : stdgo.Error);
         try {
             var _req = (@:checkr _treq ?? throw "null pointer dereference").request;
@@ -661,14 +683,14 @@ var _err = __1, _resp = __0;
             };
             var _w = (stdgo.Go.setRef(({ _cm : _cm?.__copy__(), _key : @:check2 _cm._key()?.__copy__(), _ctx : _ctx, _ready : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _beforeDial : stdgo._internal.net.http.Http__testHookPrePendingDial._testHookPrePendingDial, _afterDial : stdgo._internal.net.http.Http__testHookPostPendingDial._testHookPostPendingDial } : stdgo._internal.net.http.Http_T_wantConn.T_wantConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (_err != null) {
                             @:check2r _w._cancel(_t, _err);
                         };
                     };
                     a();
-                }));
+                }) });
             };
             {
                 var _delivered = (@:check2r _t._queueForIdleConn(_w) : Bool);
@@ -686,8 +708,9 @@ var _err = __1, _resp = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -727,8 +750,9 @@ var _err = __1, _resp = __0;
                                                                     __tmp__;
                                                                 };
                                                                 for (defer in __deferstack__) {
-                                                                    __deferstack__.remove(defer);
-                                                                    defer();
+                                                                    if (defer.ran) continue;
+                                                                    defer.ran = true;
+                                                                    defer.f();
                                                                 };
                                                                 return __ret__;
                                                             };
@@ -747,8 +771,9 @@ var _err = __1, _resp = __0;
                                                                     __tmp__;
                                                                 };
                                                                 for (defer in __deferstack__) {
-                                                                    __deferstack__.remove(defer);
-                                                                    defer();
+                                                                    if (defer.ran) continue;
+                                                                    defer.ran = true;
+                                                                    defer.f();
                                                                 };
                                                                 return __ret__;
                                                             };
@@ -770,8 +795,9 @@ var _err = __1, _resp = __0;
                                                                     __tmp__;
                                                                 };
                                                                 for (defer in __deferstack__) {
-                                                                    __deferstack__.remove(defer);
-                                                                    defer();
+                                                                    if (defer.ran) continue;
+                                                                    defer.ran = true;
+                                                                    defer.f();
                                                                 };
                                                                 return __ret__;
                                                             };
@@ -794,8 +820,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -814,8 +841,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -834,8 +862,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -857,8 +886,9 @@ var _err = __1, _resp = __0;
                                             __tmp__;
                                         };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -871,16 +901,18 @@ var _err = __1, _resp = __0;
                 };
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return { _0 : _pc, _1 : _err };
                 };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _pc, _1 : _err };
@@ -894,8 +926,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _pc, _1 : _err };
@@ -948,19 +981,20 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _replaceReqCanceler( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _key:stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, _fn:stdgo.Error -> Void):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._reqCanceler != null && (@:checkr _t ?? throw "null pointer dereference")._reqCanceler.exists(_key?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._reqCanceler[_key?.__copy__()], _1 : true } : { _0 : null, _1 : false }), __35633:stdgo.Error -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return false;
                 };
@@ -972,15 +1006,17 @@ var _err = __1, _resp = __0;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return true;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return false;
@@ -994,8 +1030,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return false;
@@ -1005,12 +1042,12 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _setReqCanceler( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _key:stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, _fn:stdgo.Error -> Void):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _t ?? throw "null pointer dereference")._reqCanceler == null) {
                 (@:checkr _t ?? throw "null pointer dereference")._reqCanceler = (({
@@ -1409,8 +1446,9 @@ var _err = __1, _resp = __0;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1424,8 +1462,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1478,25 +1517,27 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _removeIdleConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _pconn:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:Bool = @:check2r _t._removeIdleConnLocked(_pconn);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return false;
@@ -1510,8 +1551,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return false;
@@ -1521,7 +1563,7 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _queueForIdleConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _w:stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _delivered = false;
         try {
             if ((@:checkr _t ?? throw "null pointer dereference").disableKeepAlives) {
@@ -1530,15 +1572,16 @@ var _err = __1, _resp = __0;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _t ?? throw "null pointer dereference")._closeIdle = false;
             if ((_w == null || (_w : Dynamic).__nil__)) {
                 {
                     final __ret__:Bool = _delivered = false;
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1579,8 +1622,9 @@ var _err = __1, _resp = __0;
                     if (_stop) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _delivered;
                         };
@@ -1603,15 +1647,17 @@ var _err = __1, _resp = __0;
             {
                 final __ret__:Bool = _delivered = false;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _delivered;
@@ -1625,8 +1671,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _delivered;
@@ -1636,7 +1683,7 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _tryPutIdleConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _pconn:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference").disableKeepAlives || ((@:checkr _t ?? throw "null pointer dereference").maxIdleConnsPerHost < (0 : stdgo.GoInt) : Bool) : Bool)) {
                 return stdgo._internal.net.http.Http__errKeepAlivesDisabled._errKeepAlivesDisabled;
@@ -1648,14 +1695,15 @@ var _err = __1, _resp = __0;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((((@:checkr _pconn ?? throw "null pointer dereference")._alt != null) && (((@:checkr _t ?? throw "null pointer dereference")._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) != null && (((@:checkr _t ?? throw "null pointer dereference")._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference")._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__)) : Bool)) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1688,8 +1736,9 @@ var _err = __1, _resp = __0;
                         {
                             final __ret__:stdgo.Error = (null : stdgo.Error);
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -1699,8 +1748,9 @@ var _err = __1, _resp = __0;
             if ((@:checkr _t ?? throw "null pointer dereference")._closeIdle) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return stdgo._internal.net.http.Http__errCloseIdle._errCloseIdle;
                 };
@@ -1718,8 +1768,9 @@ var _err = __1, _resp = __0;
             if (((_idles.length) >= @:check2r _t._maxIdleConnsPerHost() : Bool)) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return stdgo._internal.net.http.Http__errTooManyIdleHost._errTooManyIdleHost;
                 };
@@ -1747,15 +1798,17 @@ var _err = __1, _resp = __0;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1769,8 +1822,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1825,12 +1879,12 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function _cancelRequest( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _key:stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, _err:stdgo.Error):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._reqMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _cancel = ((@:checkr _t ?? throw "null pointer dereference")._reqCanceler[_key] ?? null : stdgo.Error -> Void);
             if ((@:checkr _t ?? throw "null pointer dereference")._reqCanceler != null) (@:checkr _t ?? throw "null pointer dereference")._reqCanceler.remove(_key);
@@ -1840,15 +1894,17 @@ var _err = __1, _resp = __0;
             {
                 final __ret__:Bool = _cancel != null;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return false;
@@ -1862,8 +1918,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return false;
@@ -1902,12 +1959,12 @@ var _err = __1, _resp = __0;
     @:tdfield
     static public function registerProtocol( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _scheme:stdgo.GoString, _rt:stdgo._internal.net.http.Http_RoundTripper.RoundTripper):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._altMu.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._altMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((@:check2 (@:checkr _t ?? throw "null pointer dereference")._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : true };
@@ -1933,8 +1990,9 @@ var _err = __1, _resp = __0;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._altProto.store(stdgo.Go.toInterface(_newMap));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1948,8 +2006,9 @@ var _err = __1, _resp = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

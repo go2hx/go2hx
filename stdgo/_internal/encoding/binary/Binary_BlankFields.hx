@@ -5,12 +5,12 @@ package stdgo._internal.encoding.binary;
     public var __4 : stdgo.GoInt32 = 0;
     public var b : stdgo.GoFloat64 = 0;
     @:optional
-    public var __5 : stdgo.GoArray<stdgo.GoInt16> = new stdgo.GoArray<stdgo.GoInt16>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoInt16)]);
+    public var __5 : stdgo.GoArray<stdgo.GoInt16> = new stdgo.GoArray<stdgo.GoInt16>(4, 4).__setNumber32__();
     public var c : stdgo.GoUInt8 = 0;
     @:optional
-    public var __6 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(7, 7, ...[for (i in 0 ... 7) (0 : stdgo.GoUInt8)]);
+    public var __6 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(7, 7).__setNumber32__();
     @:optional
-    public var __7 : { var _f : stdgo.GoArray<stdgo.GoFloat32>; } = { _f : new stdgo.GoArray<stdgo.GoFloat32>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoFloat32)]) };
+    public var __7 : { var _f : stdgo.GoArray<stdgo.GoFloat32>; } = { _f : new stdgo.GoArray<stdgo.GoFloat32>(8, 8).__setNumber32__() };
     public function new(?a:stdgo.GoUInt32, ?__4:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?__5:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?__6:stdgo.GoArray<stdgo.GoUInt8>, ?__7:{ var _f : stdgo.GoArray<stdgo.GoFloat32>; }) {
         if (a != null) this.a = a;
         if (__4 != null) this.__4 = __4;

@@ -4,7 +4,7 @@ package stdgo._internal.net.http.pprof;
     @:tdfield
     static public function _serveDeltaProfile( _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>, _secStr:stdgo.GoString):Void {
         @:recv var _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler = _name;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_secStr?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _sec:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || (_sec <= (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
@@ -32,7 +32,7 @@ package stdgo._internal.net.http.pprof;
             var _t = stdgo._internal.time.Time_newTimer.newTimer(((_sec : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration));
             {
                 final __f__ = @:check2r _t.stop;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var __select__ = true;
@@ -50,8 +50,9 @@ package stdgo._internal.net.http.pprof;
                                 };
                                 {
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return;
                                 };
@@ -73,8 +74,9 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to collect profile" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -91,8 +93,9 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to compute delta" : stdgo.GoString));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -104,8 +107,9 @@ package stdgo._internal.net.http.pprof;
             @:check2r _p1.write(_w);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -119,8 +123,9 @@ package stdgo._internal.net.http.pprof;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

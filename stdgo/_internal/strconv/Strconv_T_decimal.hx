@@ -1,6 +1,6 @@
 package stdgo._internal.strconv;
 @:structInit @:using(stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension) class T_decimal {
-    public var _d : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(800, 800, ...[for (i in 0 ... 800) (0 : stdgo.GoUInt8)]);
+    public var _d : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(800, 800).__setNumber32__();
     public var _nd : stdgo.GoInt = 0;
     public var _dp : stdgo.GoInt = 0;
     public var _neg : Bool = false;

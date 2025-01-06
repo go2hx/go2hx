@@ -17,7 +17,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function encode( _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>, _v:stdgo.AnyInterface):stdgo.Error {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder> = _enc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _enc ?? throw "null pointer dereference")._err != null) {
                 return (@:checkr _enc ?? throw "null pointer dereference")._err;
@@ -26,14 +26,15 @@ package stdgo._internal.encoding.json;
             {
                 var _a0 = _e;
                 final __f__ = @:check2 stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
-                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))) });
             };
             var _err = (@:check2r _e._marshal(_v, ({ _escapeHTML : (@:checkr _enc ?? throw "null pointer dereference")._escapeHTML } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -49,8 +50,9 @@ package stdgo._internal.encoding.json;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -68,15 +70,17 @@ package stdgo._internal.encoding.json;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -90,8 +94,9 @@ package stdgo._internal.encoding.json;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

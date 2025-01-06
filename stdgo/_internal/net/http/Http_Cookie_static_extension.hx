@@ -69,7 +69,7 @@ package stdgo._internal.net.http;
                 stdgo._internal.log.Log_printf.printf(("net/http: invalid Cookie.Domain %q; dropping domain attribute" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").domain));
             };
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29, ...[for (i in 0 ... 29) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29).__setNumber32__();
         if (stdgo._internal.net.http.Http__validCookieExpires._validCookieExpires((@:checkr _c ?? throw "null pointer dereference").expires?.__copy__())) {
             @:check2 _b.writeString(("; Expires=" : stdgo.GoString));
             @:check2 _b.write((@:checkr _c ?? throw "null pointer dereference").expires.uTC().appendFormat((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ("Mon, 02 Jan 2006 15:04:05 GMT" : stdgo.GoString)));

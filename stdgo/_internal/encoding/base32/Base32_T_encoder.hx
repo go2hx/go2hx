@@ -3,9 +3,9 @@ package stdgo._internal.encoding.base32;
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _enc : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding> = (null : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>);
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(5, 5, ...[for (i in 0 ... 5) (0 : stdgo.GoUInt8)]);
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(5, 5).__setNumber32__();
     public var _nbuf : stdgo.GoInt = 0;
-    public var _out : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024, ...[for (i in 0 ... 1024) (0 : stdgo.GoUInt8)]);
+    public var _out : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024).__setNumber32__();
     public function new(?_err:stdgo.Error, ?_enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_err != null) this._err = _err;
         if (_enc != null) this._enc = _enc;

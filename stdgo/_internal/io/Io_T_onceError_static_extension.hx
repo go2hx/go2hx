@@ -4,25 +4,27 @@ package stdgo._internal.io;
     @:tdfield
     static public function load( _a:stdgo.Ref<stdgo._internal.io.Io_T_onceError.T_onceError>):stdgo.Error {
         @:recv var _a:stdgo.Ref<stdgo._internal.io.Io_T_onceError.T_onceError> = _a;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _a.lock();
             {
                 final __f__ = @:check2r _a.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo.Error = (@:checkr _a ?? throw "null pointer dereference")._err;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -36,8 +38,9 @@ package stdgo._internal.io;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -47,18 +50,19 @@ package stdgo._internal.io;
     @:tdfield
     static public function store( _a:stdgo.Ref<stdgo._internal.io.Io_T_onceError.T_onceError>, _err:stdgo.Error):Void {
         @:recv var _a:stdgo.Ref<stdgo._internal.io.Io_T_onceError.T_onceError> = _a;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _a.lock();
             {
                 final __f__ = @:check2r _a.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _a ?? throw "null pointer dereference")._err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -66,8 +70,9 @@ package stdgo._internal.io;
             (@:checkr _a ?? throw "null pointer dereference")._err = _err;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -81,8 +86,9 @@ package stdgo._internal.io;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

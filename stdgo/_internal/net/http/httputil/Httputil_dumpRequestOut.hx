@@ -1,6 +1,6 @@
 package stdgo._internal.net.http.httputil;
 function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _body:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _save = ((@:checkr _req ?? throw "null pointer dereference").body : stdgo._internal.io.Io_ReadCloser.ReadCloser);
             var _dummyBody = (false : Bool);
@@ -73,11 +73,11 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             var __tmp__ = stdgo._internal.io.Io_pipe.pipe(), _pr:stdgo.Ref<stdgo._internal.io.Io_PipeReader.PipeReader> = __tmp__._0, _pw:stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter> = __tmp__._1;
             {
                 final __f__ = @:check2r _pr.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = @:check2r _pw.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _dr = (stdgo.Go.setRef(({ _c : (new stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>(0, () -> (null : stdgo._internal.io.Io_Reader.Reader)) : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>) } : stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader>);
             var _t = (stdgo.Go.setRef(({ dial : function(_net:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
@@ -85,7 +85,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             } } : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>);
             {
                 final __f__ = @:check2r _t.closeIdleConnections;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _quitReadCh = (new stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>(0, () -> ({} : stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody)) : stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>);
             stdgo.Go.routine(() -> ({
@@ -129,8 +129,9 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -147,15 +148,17 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _dump, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
@@ -169,8 +172,9 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };

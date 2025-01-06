@@ -4,7 +4,7 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function _encode( _me:stdgo._internal.encoding.json.Json_T_mapEncoder.T_mapEncoder, _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void {
         @:recv var _me:stdgo._internal.encoding.json.Json_T_mapEncoder.T_mapEncoder = _me?.__copy__();
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (_v.isNil()) {
                 @:check2r _e.writeString(("null" : stdgo.GoString));
@@ -24,7 +24,7 @@ package stdgo._internal.encoding.json;
                     {
                         var _a0 = (@:checkr _e ?? throw "null pointer dereference")._ptrSeen;
                         var _a1 = _ptr;
-                        __deferstack__.unshift(() -> if (_a0 != null) _a0.remove(stdgo.Go.toInterface(_a1)));
+                        __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.remove(stdgo.Go.toInterface(_a1)) });
                     };
                 };
             };
@@ -60,8 +60,9 @@ _sv[(_i : stdgo.GoInt)]._v = @:check2r _mi.value().__copy__();
             (@:checkr _e ?? throw "null pointer dereference")._ptrLevel--;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -75,8 +76,9 @@ _sv[(_i : stdgo.GoInt)]._v = @:check2r _mi.value().__copy__();
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

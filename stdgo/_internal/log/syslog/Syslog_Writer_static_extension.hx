@@ -18,13 +18,13 @@ package stdgo._internal.log.syslog;
     @:tdfield
     static public function _writeAndRetry( _w:stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>, _p:stdgo._internal.log.syslog.Syslog_Priority.Priority, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer> = _w;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _pr = ((((@:checkr _w ?? throw "null pointer dereference")._priority & (248 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : stdgo._internal.log.syslog.Syslog_Priority.Priority)) | ((_p & (7 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : stdgo._internal.log.syslog.Syslog_Priority.Priority)) : stdgo._internal.log.syslog.Syslog_Priority.Priority);
             @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _w ?? throw "null pointer dereference")._conn != null) {
                 {
@@ -33,8 +33,9 @@ package stdgo._internal.log.syslog;
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -47,8 +48,9 @@ package stdgo._internal.log.syslog;
                     {
                         final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -57,15 +59,17 @@ package stdgo._internal.log.syslog;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write(_pr, _s?.__copy__());
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -79,8 +83,9 @@ package stdgo._internal.log.syslog;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -146,20 +151,21 @@ package stdgo._internal.log.syslog;
     @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer> = _w;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _w ?? throw "null pointer dereference")._conn != null) {
                 var _err = ((@:checkr _w ?? throw "null pointer dereference")._conn._close() : stdgo.Error);
                 (@:checkr _w ?? throw "null pointer dereference")._conn = (null : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -167,15 +173,17 @@ package stdgo._internal.log.syslog;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -189,8 +197,9 @@ package stdgo._internal.log.syslog;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

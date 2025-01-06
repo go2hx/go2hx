@@ -4,7 +4,7 @@ package stdgo._internal.net.http.httputil;
     @:tdfield
     static public function _handleUpgradeResponse( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _reqUpType = (stdgo._internal.net.http.httputil.Httputil__upgradeType._upgradeType((@:checkr _req ?? throw "null pointer dereference").header)?.__copy__() : stdgo.GoString);
             var _resUpType = (stdgo._internal.net.http.httputil.Httputil__upgradeType._upgradeType((@:checkr _res ?? throw "null pointer dereference").header)?.__copy__() : stdgo.GoString);
@@ -59,21 +59,22 @@ package stdgo._internal.net.http.httputil;
             }));
             {
                 var _a0 = _backConnCloseCh;
-                __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
+                __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.__close__() });
             };
             if (_hijackErr != null) {
                 @:check2r _p._getErrorHandler()(_rw, _req, stdgo._internal.fmt.Fmt_errorf.errorf(("Hijack failed on protocol switch: %v" : stdgo.GoString), stdgo.Go.toInterface(_hijackErr)));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
             };
             {
                 final __f__ = _conn.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.net.http.httputil.Httputil__copyHeader._copyHeader(_rw.header(), (@:checkr _res ?? throw "null pointer dereference").header);
             (@:checkr _res ?? throw "null pointer dereference").header = _rw.header();
@@ -84,8 +85,9 @@ package stdgo._internal.net.http.httputil;
                     @:check2r _p._getErrorHandler()(_rw, _req, stdgo._internal.fmt.Fmt_errorf.errorf(("response write: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -97,8 +99,9 @@ package stdgo._internal.net.http.httputil;
                     @:check2r _p._getErrorHandler()(_rw, _req, stdgo._internal.fmt.Fmt_errorf.errorf(("response flush: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -111,8 +114,9 @@ package stdgo._internal.net.http.httputil;
             _errc.__get__();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -126,8 +130,9 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -181,14 +186,14 @@ package stdgo._internal.net.http.httputil;
     @:tdfield
     static public function _copyResponse( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>, _dst:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _src:stdgo._internal.io.Io_Reader.Reader, _flushInterval:stdgo._internal.time.Time_Duration.Duration):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _w:stdgo._internal.io.Io_Writer.Writer = _dst;
             if (_flushInterval != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _mlw = (stdgo.Go.setRef(({ _dst : _dst, _flush : @:check2r stdgo._internal.net.http.Http_newResponseController.newResponseController(_dst).flush, _latency : _flushInterval } : stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>);
                 {
                     final __f__ = @:check2r _mlw._stop;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 (@:checkr _mlw ?? throw "null pointer dereference")._flushPending = true;
                 (@:checkr _mlw ?? throw "null pointer dereference")._t = stdgo._internal.time.Time_afterFunc.afterFunc(_flushInterval, @:check2r _mlw._delayedFlush);
@@ -200,21 +205,23 @@ package stdgo._internal.net.http.httputil;
                 {
                     var _a0 = _buf;
                     final __f__ = (@:checkr _p ?? throw "null pointer dereference").bufferPool.put;
-                    __deferstack__.unshift(() -> __f__(_a0));
+                    __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
                 };
             };
             var __tmp__ = @:check2r _p._copyBuffer(_w, _src, _buf), __16:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -228,8 +235,9 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -255,7 +263,7 @@ package stdgo._internal.net.http.httputil;
     @:tdfield
     static public function serveHTTP( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _transport = ((@:checkr _p ?? throw "null pointer dereference").transport : stdgo._internal.net.http.Http_RoundTripper.RoundTripper);
             if (_transport == null) {
@@ -277,7 +285,7 @@ package stdgo._internal.net.http.httputil;
                     };
                     {
                         final __f__ = _cancel;
-                        __deferstack__.unshift(() -> __f__());
+                        __deferstack__.unshift({ ran : false, f : () -> __f__() });
                     };
                     var _notifyChan = _cn.closeNotify();
                     stdgo.Go.routine(() -> ({
@@ -316,7 +324,7 @@ package stdgo._internal.net.http.httputil;
             if ((@:checkr _outreq ?? throw "null pointer dereference").body != null) {
                 {
                     final __f__ = (@:checkr _outreq ?? throw "null pointer dereference").body.close;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             if ((@:checkr _outreq ?? throw "null pointer dereference").header == null) {
@@ -331,8 +339,9 @@ package stdgo._internal.net.http.httputil;
                 @:check2r _p._getErrorHandler()(_rw, _req, stdgo._internal.errors.Errors_new_.new_(("ReverseProxy must have exactly one of Director or Rewrite set" : stdgo.GoString)));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -349,8 +358,9 @@ package stdgo._internal.net.http.httputil;
                 @:check2r _p._getErrorHandler()(_rw, _req, stdgo._internal.fmt.Fmt_errorf.errorf(("client tried to switch to invalid protocol %q" : stdgo.GoString), stdgo.Go.toInterface(_reqUpType)));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -408,8 +418,9 @@ package stdgo._internal.net.http.httputil;
                 @:check2r _p._getErrorHandler()(_rw, _outreq, _err);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -418,8 +429,9 @@ package stdgo._internal.net.http.httputil;
                 if (!@:check2r _p._modifyResponse(_rw, _res, _outreq)) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -427,8 +439,9 @@ package stdgo._internal.net.http.httputil;
                 @:check2r _p._handleUpgradeResponse(_rw, _outreq, _res);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -437,8 +450,9 @@ package stdgo._internal.net.http.httputil;
             if (!@:check2r _p._modifyResponse(_rw, _res, _outreq)) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -457,14 +471,15 @@ package stdgo._internal.net.http.httputil;
             if (_err != null) {
                 {
                     final __f__ = (@:checkr _res ?? throw "null pointer dereference").body.close;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 if (!stdgo._internal.net.http.httputil.Httputil__shouldPanicOnCopyError._shouldPanicOnCopyError(_req)) {
                     @:check2r _p._logf(("suppressing panic for copyResponse error in test; copy error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -479,8 +494,9 @@ package stdgo._internal.net.http.httputil;
                 stdgo._internal.net.http.httputil.Httputil__copyHeader._copyHeader(_rw.header(), (@:checkr _res ?? throw "null pointer dereference").trailer);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -493,8 +509,9 @@ package stdgo._internal.net.http.httputil;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -508,8 +525,9 @@ package stdgo._internal.net.http.httputil;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

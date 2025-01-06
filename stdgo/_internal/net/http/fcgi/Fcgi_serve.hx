@@ -1,6 +1,6 @@
 package stdgo._internal.net.http.fcgi;
 function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._internal.net.http.Http_Handler.Handler):stdgo.Error {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (_l == null) {
                 var _err:stdgo.Error = (null : stdgo.Error);
@@ -14,7 +14,7 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                 };
                 {
                     final __f__ = _l.close;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             if (_handler == null) {
@@ -25,8 +25,9 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -36,8 +37,9 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -51,8 +53,9 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

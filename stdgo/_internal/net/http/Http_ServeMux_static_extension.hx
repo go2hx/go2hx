@@ -13,12 +13,12 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function handle( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _pattern:stdgo.GoString, _handler:stdgo._internal.net.http.Http_Handler.Handler):Void {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (_pattern == (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(("http: invalid pattern" : stdgo.GoString));
@@ -50,8 +50,9 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -65,8 +66,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -90,13 +92,13 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _handler( _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>, _host:stdgo.GoString, _path:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } {
         @:recv var _mux:stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> = _mux;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
         try {
             @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rLock();
             {
                 final __f__ = @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _mux ?? throw "null pointer dereference")._hosts) {
                 {
@@ -122,15 +124,17 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _h, _1 : _pattern };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _h, _1 : _pattern };
@@ -144,8 +148,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _h, _1 : _pattern };

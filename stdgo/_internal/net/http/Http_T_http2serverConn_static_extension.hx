@@ -199,16 +199,16 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _runHandler( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>, _rw:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _handler:(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) -> Void):Void {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _a0 = stdgo._internal.net.http.Http__http2handlerDoneMsg._http2handlerDoneMsg;
                 final __f__ = @:check2r _sc._sendServeMsg;
-                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(stdgo.Go.toInterface(_a0)) });
             };
             var _didPanic = (true : Bool);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         (@:checkr (@:checkr (@:checkr _rw ?? throw "null pointer dereference")._rws ?? throw "null pointer dereference")._stream ?? throw "null pointer dereference")._cancelCtx();
                         if (((@:checkr _req ?? throw "null pointer dereference").multipartForm != null && (((@:checkr _req ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__))) {
@@ -232,14 +232,15 @@ package stdgo._internal.net.http;
                         @:check2r _rw._handlerDone();
                     };
                     a();
-                }));
+                }) });
             };
             _handler(stdgo.Go.asInterface(_rw), _req);
             _didPanic = false;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -253,8 +254,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1342,7 +1344,7 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
     @:tdfield
     static public function _readPreface( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):stdgo.Error {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _sc ?? throw "null pointer dereference")._sawClientPreface) {
                 return (null : stdgo.Error);
@@ -1367,7 +1369,7 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             var _timer = stdgo._internal.time.Time_newTimer.newTimer((10000000000i64 : stdgo._internal.time.Time_Duration.Duration));
             {
                 final __f__ = @:check2r _timer.stop;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 {
@@ -1380,8 +1382,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                                 {
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return stdgo._internal.net.http.Http__http2errPrefaceTimeout._http2errPrefaceTimeout;
                                     };
@@ -1399,8 +1402,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                                     };
                                     {
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return _err;
                                     };
@@ -1413,16 +1417,18 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                 };
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return (null : stdgo.Error);
                 };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1436,8 +1442,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1518,28 +1525,28 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
     @:tdfield
     static public function _serve( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             (@:checkr _sc ?? throw "null pointer dereference")._serveG._check();
             {
                 final __f__ = @:check2r _sc._notePanic;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = (@:checkr _sc ?? throw "null pointer dereference")._conn.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = @:check2r _sc._closeAllStreamsOnConnClose;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = @:check2r _sc._stopShutdownTimer;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _a0 = (@:checkr _sc ?? throw "null pointer dereference")._doneServing;
-                __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
+                __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.__close__() });
             };
             if (stdgo._internal.net.http.Http__http2VerboseLogs._http2VerboseLogs) {
                 @:check2r _sc._vlogf(("http2: server connection from %v on %p" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _sc ?? throw "null pointer dereference")._conn.remoteAddr()), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _sc ?? throw "null pointer dereference")._hs)));
@@ -1558,8 +1565,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                     @:check2r _sc._condlogf(_err, ("http2: server: error reading preface from client %v: %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _sc ?? throw "null pointer dereference")._conn.remoteAddr()), stdgo.Go.toInterface(_err));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -1571,14 +1579,14 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                 (@:checkr _sc ?? throw "null pointer dereference")._idleTimer = stdgo._internal.time.Time_afterFunc.afterFunc((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._srv ?? throw "null pointer dereference").idleTimeout, @:check2r _sc._onIdleTimer);
                 {
                     final __f__ = @:check2r (@:checkr _sc ?? throw "null pointer dereference")._idleTimer.stop;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             stdgo.Go.routine(() -> @:check2r _sc._readFrames());
             var _settingsTimer = stdgo._internal.time.Time_afterFunc.afterFunc((2000000000i64 : stdgo._internal.time.Time_Duration.Duration), @:check2r _sc._onSettingsTimer);
             {
                 final __f__ = @:check2r _settingsTimer.stop;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _loopNum = (0 : stdgo.GoInt);
             while (true) {
@@ -1642,8 +1650,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                                     if (!@:check2r _sc._processFrameFromReader(_res?.__copy__())) {
                                         {
                                             for (defer in __deferstack__) {
-                                                __deferstack__.remove(defer);
-                                                defer();
+                                                if (defer.ran) continue;
+                                                defer.ran = true;
+                                                defer.f();
                                             };
                                             return;
                                         };
@@ -1681,8 +1690,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                                                     @:check2r _sc._logf(("timeout waiting for SETTINGS frames from %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _sc ?? throw "null pointer dereference")._conn.remoteAddr()));
                                                     {
                                                         for (defer in __deferstack__) {
-                                                            __deferstack__.remove(defer);
-                                                            defer();
+                                                            if (defer.ran) continue;
+                                                            defer.ran = true;
+                                                            defer.f();
                                                         };
                                                         return;
                                                     };
@@ -1693,8 +1703,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                                                     @:check2r _sc._vlogf(("GOAWAY close timer fired; closing conn from %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _sc ?? throw "null pointer dereference")._conn.remoteAddr()));
                                                     {
                                                         for (defer in __deferstack__) {
-                                                            __deferstack__.remove(defer);
-                                                            defer();
+                                                            if (defer.ran) continue;
+                                                            defer.ran = true;
+                                                            defer.f();
                                                         };
                                                         return;
                                                     };
@@ -1728,8 +1739,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                     @:check2r _sc._vlogf(("http2: too many control frames in send queue, closing connection" : stdgo.GoString));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -1742,8 +1754,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1757,8 +1770,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -1768,13 +1782,13 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
     @:tdfield
     static public function _notePanic( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu != null && ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__ == null || !(stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__))) {
                 @:check2r stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.lock();
                 {
                     final __f__ = @:check2r stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.unlock;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             if (stdgo._internal.net.http.Http__http2testHookOnPanic._http2testHookOnPanic != null) {
@@ -1793,8 +1807,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -1808,8 +1823,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

@@ -36,18 +36,19 @@ var _u = __1, _t = __0;
     @:tdfield
     static public function remove( _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>, _value:stdgo.AnyInterface):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _p ?? throw "null pointer dereference")._m != null) (@:checkr _p ?? throw "null pointer dereference")._m.remove(_value);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -61,8 +62,9 @@ var _u = __1, _t = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -72,7 +74,7 @@ var _u = __1, _t = __0;
     @:tdfield
     static public function add( _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>, _value:stdgo.AnyInterface, _skip:stdgo.GoInt):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _p ?? throw "null pointer dereference")._name == (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(("pprof: use of uninitialized Profile" : stdgo.GoString));
@@ -89,7 +91,7 @@ var _u = __1, _t = __0;
             @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (((@:checkr _p ?? throw "null pointer dereference")._m[_value] ?? (null : stdgo.Slice<stdgo.GoUIntptr>)) != null) {
                 throw stdgo.Go.toInterface(("pprof: Profile.Add of duplicate value" : stdgo.GoString));
@@ -97,8 +99,9 @@ var _u = __1, _t = __0;
             (@:checkr _p ?? throw "null pointer dereference")._m[_value] = _stk;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -112,8 +115,9 @@ var _u = __1, _t = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -123,19 +127,20 @@ var _u = __1, _t = __0;
     @:tdfield
     static public function count( _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>):stdgo.GoInt {
         @:recv var _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _p ?? throw "null pointer dereference")._count != null) {
                 {
                     final __ret__:stdgo.GoInt = (@:checkr _p ?? throw "null pointer dereference")._count();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -143,15 +148,17 @@ var _u = __1, _t = __0;
             {
                 final __ret__:stdgo.GoInt = ((@:checkr _p ?? throw "null pointer dereference")._m.length);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (0 : stdgo.GoInt);
@@ -165,8 +172,9 @@ var _u = __1, _t = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (0 : stdgo.GoInt);

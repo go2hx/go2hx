@@ -12,10 +12,10 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
         var _unique = (true : Bool);
         ({
             var a = function():Void {
-                var __deferstack__:Array<Void -> Void> = [];
+                var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                 try {
                     {
-                        __deferstack__.unshift(() -> ({
+                        __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
                                 var __blank__ = ({
                                     final r = stdgo.Go.recover_exception;
@@ -24,15 +24,16 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                                 });
                             };
                             a();
-                        }));
+                        }) });
                     };
                     if (stdgo.Go.toInterface((@:checkr _hm ?? throw "null pointer dereference")._outer) == (stdgo.Go.toInterface((@:checkr _hm ?? throw "null pointer dereference")._inner))) {
                         _unique = false;
                     };
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
@@ -46,8 +47,9 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                     };
                     stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                     return;

@@ -6,7 +6,7 @@ package stdgo._internal.compress.gzip;
     public var _decompressor : stdgo._internal.io.Io_ReadCloser.ReadCloser = (null : stdgo._internal.io.Io_ReadCloser.ReadCloser);
     public var _digest : stdgo.GoUInt32 = 0;
     public var _size : stdgo.GoUInt32 = 0;
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512).__setNumber32__();
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _multistream : Bool = false;
     public function new(?header:stdgo._internal.compress.gzip.Gzip_Header.Header, ?_r:stdgo._internal.compress.flate.Flate_Reader.Reader, ?_decompressor:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:stdgo.Error, ?_multistream:Bool) {

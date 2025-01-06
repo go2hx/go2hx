@@ -160,10 +160,10 @@ package stdgo._internal.net.mail;
     static public function _consumeAtom( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>, _dot:Bool, _permissive:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var loopBreak = false;
         var _i_4212292:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4212318:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4212315:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -297,12 +297,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
+        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -482,13 +482,13 @@ package stdgo._internal.net.mail;
     @:tdfield
     static public function _consumeAddrSpec( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _spec = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         try {
             stdgo._internal.net.mail.Mail__debug._debug.printf(("consumeAddrSpec: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._s));
             var _orig = ((_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)?.__copy__() : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (_err != null) {
                             {
@@ -500,7 +500,7 @@ package stdgo._internal.net.mail;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _localPart:stdgo.GoString = ("" : stdgo.GoString);
             @:check2r _p._skipSpace();
@@ -513,8 +513,9 @@ package stdgo._internal.net.mail;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -547,8 +548,9 @@ package stdgo._internal.net.mail;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -562,8 +564,9 @@ package stdgo._internal.net.mail;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -579,8 +582,9 @@ package stdgo._internal.net.mail;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -599,8 +603,9 @@ package stdgo._internal.net.mail;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -613,15 +618,17 @@ package stdgo._internal.net.mail;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _spec, _1 : _err };
@@ -635,8 +642,9 @@ package stdgo._internal.net.mail;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _spec, _1 : _err };

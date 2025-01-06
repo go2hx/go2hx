@@ -16,11 +16,11 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function _marshal( _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo.AnyInterface, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):stdgo.Error {
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState> = _e;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _r = ({
@@ -45,21 +45,23 @@ package stdgo._internal.encoding.json;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             @:check2r _e._reflectValue(stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__(), _opts?.__copy__());
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -73,8 +75,9 @@ package stdgo._internal.encoding.json;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

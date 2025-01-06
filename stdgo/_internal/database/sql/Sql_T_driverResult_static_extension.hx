@@ -4,25 +4,27 @@ package stdgo._internal.database.sql;
     @:tdfield
     static public function rowsAffected( _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult = _dr?.__copy__();
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             _dr.lock();
             {
                 final __f__ = _dr.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.rowsAffected();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
@@ -36,8 +38,9 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
@@ -47,25 +50,27 @@ package stdgo._internal.database.sql;
     @:tdfield
     static public function lastInsertId( _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _dr:stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult = _dr?.__copy__();
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             _dr.lock();
             {
                 final __f__ = _dr.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.lastInsertId();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
@@ -79,8 +84,9 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };

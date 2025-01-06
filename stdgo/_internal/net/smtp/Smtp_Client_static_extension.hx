@@ -279,7 +279,7 @@ package stdgo._internal.net.smtp;
     static public function _cmd( _c:stdgo.Ref<stdgo._internal.net.smtp.Smtp_Client.Client>, _expectCode:stdgo.GoInt, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.net.smtp.Smtp_Client.Client> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference").text.cmd(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)), _id:stdgo.GoUInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -289,21 +289,23 @@ package stdgo._internal.net.smtp;
             {
                 var _a0 = _id;
                 final __f__ = @:check2r (@:checkr _c ?? throw "null pointer dereference").text.endResponse;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference").text.readResponse(_expectCode), _code:stdgo.GoInt = __tmp__._0, _msg:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _code, _1 : _msg?.__copy__(), _2 : _err };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };
@@ -317,8 +319,9 @@ package stdgo._internal.net.smtp;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };

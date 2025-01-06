@@ -2,7 +2,7 @@ package stdgo._internal.net.http;
 @:structInit @:using(stdgo._internal.net.http.Http_T_http2PingFrame_static_extension.T_http2PingFrame_static_extension) class T_http2PingFrame {
     @:embedded
     public var _http2FrameHeader : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader = ({} : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader);
-    public var data : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
+    public var data : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public function new(?_http2FrameHeader:stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader, ?data:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_http2FrameHeader != null) this._http2FrameHeader = _http2FrameHeader;
         if (data != null) this.data = data;
@@ -19,11 +19,11 @@ package stdgo._internal.net.http;
     public var _checkValid(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__checkValid():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._checkValid;
+    public function get__checkValid():() -> Void return @:check3 this._http2FrameHeader._checkValid;
     public var _invalidate(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__invalidate():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._invalidate;
+    public function get__invalidate():() -> Void return @:check3 this._http2FrameHeader._invalidate;
     public var _writeDebug(get, never) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void;
     @:embedded
     @:embeddededffieldsffun

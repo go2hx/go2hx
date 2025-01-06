@@ -4,7 +4,7 @@ package stdgo._internal.image.png;
     @:tdfield
     static public function encode( _enc:stdgo.Ref<stdgo._internal.image.png.Png_Encoder.Encoder>, _w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image):stdgo.Error {
         @:recv var _enc:stdgo.Ref<stdgo._internal.image.png.Png_Encoder.Encoder> = _enc;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __0 = (_m.bounds().dx() : stdgo.GoInt64), __1 = (_m.bounds().dy() : stdgo.GoInt64);
 var _mh = __1, _mw = __0;
@@ -29,7 +29,7 @@ var _mh = __1, _mw = __0;
                         ({ _enc : e._enc, _w : e._w, _m : e._m, _cb : e._cb, _err : e._err, _header : e._header, _footer : e._footer, _tmp : e._tmp, _cr : e._cr, _pr : e._pr, _zw : e._zw, _zwLevel : e._zwLevel, _bw : e._bw } : stdgo._internal.image.png.Png_EncoderBuffer.EncoderBuffer);
                     }));
                     final __f__ = (@:checkr _enc ?? throw "null pointer dereference").bufferPool.put;
-                    __deferstack__.unshift(() -> __f__(_a0));
+                    __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
                 };
             };
             (@:checkr _e ?? throw "null pointer dereference")._enc = _enc;
@@ -98,15 +98,17 @@ var _mh = __1, _mw = __0;
             {
                 final __ret__:stdgo.Error = (@:checkr _e ?? throw "null pointer dereference")._err;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -120,8 +122,9 @@ var _mh = __1, _mw = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

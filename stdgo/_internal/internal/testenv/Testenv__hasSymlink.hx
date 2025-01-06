@@ -1,6 +1,6 @@
 package stdgo._internal.internal.testenv;
 function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _ok = false, _reason = ("" : stdgo.GoString);
         try {
             {
@@ -23,12 +23,12 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         };
                     };
                     {
-                        __deferstack__.unshift(() -> ({
+                        __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
                                 var __blank__ = stdgo._internal.os.Os_removeAll.removeAll(_dir?.__copy__());
                             };
                             a();
-                        }));
+                        }) });
                     };
                     var _fpath = (stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     {
@@ -42,8 +42,9 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -61,8 +62,9 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                         __tmp__;
                                     };
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return __ret__;
                                 };
@@ -75,8 +77,9 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -92,15 +95,17 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _ok, _1 : _reason };
@@ -114,8 +119,9 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _ok, _1 : _reason };

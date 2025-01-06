@@ -4,14 +4,14 @@ package stdgo._internal.text.tabwriter;
     @:tdfield
     static public function write( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Write" : stdgo.GoString);
                 final __f__ = @:check2r _b._handlePanic;
-                __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0, _a1?.__copy__()) });
             };
             _n = (0 : stdgo.GoInt);
             for (_i => _ch in _buf) {
@@ -65,15 +65,17 @@ package stdgo._internal.text.tabwriter;
             _n = (_buf.length);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _n, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _n, _1 : _err };
@@ -87,8 +89,9 @@ package stdgo._internal.text.tabwriter;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _n, _1 : _err };
@@ -111,28 +114,30 @@ package stdgo._internal.text.tabwriter;
     @:tdfield
     static public function _flush( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>):stdgo.Error {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer> = _b;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Flush" : stdgo.GoString);
                 final __f__ = @:check2r _b._handlePanic;
-                __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0, _a1?.__copy__()) });
             };
             @:check2r _b._flushNoDefers();
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -146,8 +151,9 @@ package stdgo._internal.text.tabwriter;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

@@ -87,7 +87,7 @@ package stdgo._internal.mime.multipart;
     @:tdfield
     static public function _readForm( _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>, _maxMemory:stdgo.GoInt64):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = _r;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _0 = (null : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>), _err = (null : stdgo.Error);
         try {
             var _form = (stdgo.Go.setRef((new stdgo._internal.mime.multipart.Multipart_Form.Form((({
@@ -123,7 +123,7 @@ var _fileOff = __1, _file = __0;
             };
             var _maxHeaders = (stdgo._internal.mime.multipart.Multipart__maxMIMEHeaders._maxMIMEHeaders() : stdgo.GoInt64);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
                             {
@@ -148,7 +148,7 @@ var _fileOff = __1, _file = __0;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _maxFileMemoryBytes = (_maxMemory : stdgo.GoInt64);
             if (_maxFileMemoryBytes == ((9223372036854775807i64 : stdgo.GoInt64))) {
@@ -177,8 +177,9 @@ var _fileOff = __1, _file = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -192,8 +193,9 @@ var _fileOff = __1, _file = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -216,8 +218,9 @@ var _fileOff = __1, _file = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -234,8 +237,9 @@ var _fileOff = __1, _file = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -250,8 +254,9 @@ var _fileOff = __1, _file = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -272,8 +277,9 @@ var _fileOff = __1, _file = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -292,8 +298,9 @@ var _fileOff = __1, _file = __0;
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -314,8 +321,9 @@ var _fileOff = __1, _file = __0;
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -333,8 +341,9 @@ var _fileOff = __1, _file = __0;
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -354,8 +363,9 @@ var _fileOff = __1, _file = __0;
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -376,8 +386,9 @@ var _fileOff = __1, _file = __0;
                                         __tmp__;
                                     };
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return __ret__;
                                 };
@@ -401,15 +412,17 @@ var _fileOff = __1, _file = __0;
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _0, _1 : _err };
@@ -423,8 +436,9 @@ var _fileOff = __1, _file = __0;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _0, _1 : _err };

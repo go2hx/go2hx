@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     public var _conn : stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn> = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn>);
     public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _hasByte : Bool = false;
-    public var _byteBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1, ...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
+    public var _byteBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1).__setNumber32__();
     public var _cond : stdgo.Ref<stdgo._internal.sync.Sync_Cond.Cond> = (null : stdgo.Ref<stdgo._internal.sync.Sync_Cond.Cond>);
     public var _inRead : Bool = false;
     public var _aborted : Bool = false;

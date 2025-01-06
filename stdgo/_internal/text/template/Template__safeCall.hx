@@ -1,10 +1,10 @@
 package stdgo._internal.text.template;
 function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>):{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _val = ({} : stdgo._internal.reflect.Reflect_Value.Value), _err = (null : stdgo.Error);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
@@ -25,7 +25,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _ret = _fun.call(_args);
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
@@ -37,8 +37,9 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -51,15 +52,17 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _val, _1 : _err };
@@ -73,8 +76,9 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _val, _1 : _err };

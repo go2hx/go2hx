@@ -619,11 +619,11 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _walkRange( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _dot:stdgo._internal.reflect.Reflect_Value.Value, _r:stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _s._at(stdgo.Go.asInterface(_r));
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
@@ -633,17 +633,17 @@ package stdgo._internal.text.template;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             {
                 var _a0 = @:check2r _s._mark();
                 final __f__ = @:check2r _s._pop;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(@:check2r _s._evalPipeline(_dot?.__copy__(), (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe)?.__copy__()), _val:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __40:Bool = __tmp__._1;
             var _mark = (@:check2r _s._mark() : stdgo.GoInt);
             var _oneIteration = (function(_index:stdgo._internal.reflect.Reflect_Value.Value, _elem:stdgo._internal.reflect.Reflect_Value.Value):Void {
-                var __deferstack__:Array<Void -> Void> = [];
+                var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                 try {
                     if ((((@:checkr (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe ?? throw "null pointer dereference").decl.length) > (0 : stdgo.GoInt) : Bool)) {
                         if ((@:checkr (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe ?? throw "null pointer dereference").isAssign) {
@@ -666,10 +666,10 @@ package stdgo._internal.text.template;
                     {
                         var _a0 = _mark;
                         final __f__ = @:check2r _s._pop;
-                        __deferstack__.unshift(() -> __f__(_a0));
+                        __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
                     };
                     {
-                        __deferstack__.unshift(() -> ({
+                        __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
                                 {
                                     var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
@@ -679,13 +679,14 @@ package stdgo._internal.text.template;
                                 };
                             };
                             a();
-                        }));
+                        }) });
                     };
                     @:check2r _s._walk(_elem?.__copy__(), stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference").branchNode.list));
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
@@ -699,8 +700,9 @@ package stdgo._internal.text.template;
                     };
                     stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                     return;
@@ -726,8 +728,9 @@ package stdgo._internal.text.template;
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return;
                             };
@@ -742,8 +745,9 @@ package stdgo._internal.text.template;
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return;
                             };
@@ -770,8 +774,9 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return;
                             };
@@ -791,8 +796,9 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -806,8 +812,9 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -817,12 +824,12 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
     @:tdfield
     static public function _walkIfOrWith( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _typ:stdgo._internal.text.template.parse.Parse_NodeType.NodeType, _dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>, _list:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _elseList:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _a0 = @:check2r _s._mark();
                 final __f__ = @:check2r _s._pop;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _val = (@:check2r _s._evalPipeline(_dot?.__copy__(), _pipe)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var __tmp__ = stdgo._internal.text.template.Template__isTrue._isTrue(stdgo._internal.text.template.Template__indirectInterface._indirectInterface(_val?.__copy__())?.__copy__()), _truth:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -840,8 +847,9 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -855,8 +863,9 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

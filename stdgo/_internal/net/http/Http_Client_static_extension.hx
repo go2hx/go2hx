@@ -126,17 +126,17 @@ var _icookies = __1, _ireqhdr = __0;
     @:tdfield
     static public function _do( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _retres = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _reterr = (null : stdgo.Error);
         try {
             if (stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult != null) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             if (((@:checkr _req ?? throw "null pointer dereference").uRL == null || ((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) {
@@ -149,8 +149,9 @@ var _icookies = __1, _ireqhdr = __0;
                         __tmp__;
                     };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -181,8 +182,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -198,8 +200,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -236,8 +239,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                     __tmp__;
                                 };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -261,8 +265,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -283,8 +288,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -313,8 +319,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -336,8 +343,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -346,8 +354,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _retres, _1 : _reterr };
@@ -361,8 +370,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _retres, _1 : _reterr };

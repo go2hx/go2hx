@@ -101,12 +101,12 @@ package stdgo._internal.net.rpc;
     @:tdfield
     static public function _send( _client:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>, _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>):Void {
         @:recv var _client:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client> = _client;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _client ?? throw "null pointer dereference")._reqMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _client ?? throw "null pointer dereference")._reqMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2 (@:checkr _client ?? throw "null pointer dereference")._mutex.lock();
             if (((@:checkr _client ?? throw "null pointer dereference")._shutdown || (@:checkr _client ?? throw "null pointer dereference")._closing : Bool)) {
@@ -115,8 +115,9 @@ package stdgo._internal.net.rpc;
                 @:check2r _call._done();
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -140,8 +141,9 @@ package stdgo._internal.net.rpc;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -155,8 +157,9 @@ package stdgo._internal.net.rpc;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

@@ -47,10 +47,10 @@ _b[(_i : stdgo.GoInt)] = (_b[(_i : stdgo.GoInt)] ^ ((_j : stdgo.GoUInt8)) : stdg
 var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.gob.Gob_DT.DT);
 ({
                         var a = function():Void {
-                            var __deferstack__:Array<Void -> Void> = [];
+                            var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                             try {
                                 {
-                                    __deferstack__.unshift(() -> ({
+                                    __deferstack__.unshift({ ran : false, f : () -> ({
                                         var a = function():Void {
                                             {
                                                 var _p = ({
@@ -65,14 +65,15 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                             };
                                         };
                                         a();
-                                    }));
+                                    }) });
                                 };
                                 var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                     return;
@@ -86,8 +87,9 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                 };
                                 stdgo.Go.recover_exception = exe;
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                 return;

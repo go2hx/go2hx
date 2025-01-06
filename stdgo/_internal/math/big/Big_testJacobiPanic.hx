@@ -1,10 +1,10 @@
 package stdgo._internal.math.big;
 function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {};
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         var _msg = ({
                             final r = stdgo.Go.recover_exception;
@@ -17,7 +17,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                         @:check2r _t.log(_msg);
                     };
                     a();
-                }));
+                }) });
             };
             var _x = stdgo._internal.math.big.Big_newInt.newInt((1i64 : stdgo.GoInt64));
             var _y = stdgo._internal.math.big.Big_newInt.newInt((2i64 : stdgo.GoInt64));
@@ -25,8 +25,9 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             throw stdgo.Go.toInterface(("test failure" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -40,8 +41,9 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

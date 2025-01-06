@@ -4,13 +4,13 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _doScanf( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _numProcessed = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 final __f__ = stdgo._internal.fmt.Fmt__errorHandler._errorHandler;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _end = ((_format.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             {
@@ -69,15 +69,17 @@ package stdgo._internal.fmt;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _numProcessed, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _numProcessed, _1 : _err };
@@ -91,8 +93,9 @@ package stdgo._internal.fmt;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _numProcessed, _1 : _err };
@@ -177,13 +180,13 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
     @:tdfield
     static public function _doScan( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _a:stdgo.Slice<stdgo.AnyInterface>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _numProcessed = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 final __f__ = stdgo._internal.fmt.Fmt__errorHandler._errorHandler;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             for (__0 => _arg in _a) {
                 @:check2r _s._scanOne((118 : stdgo.GoInt32), _arg);
@@ -203,15 +206,17 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _numProcessed, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _numProcessed, _1 : _err };
@@ -225,8 +230,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _numProcessed, _1 : _err };
@@ -930,11 +936,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
     @:tdfield
     static public function token( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _tok = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _e = ({
@@ -959,7 +965,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                         };
                     };
                     a();
-                }));
+                }) });
             };
             if (_f == null) {
                 _f = stdgo._internal.fmt.Fmt__notSpace._notSpace;
@@ -968,15 +974,17 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             _tok = @:check2r _s._token(_skipSpace, _f);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _tok, _1 : _err };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _tok, _1 : _err };
@@ -990,8 +998,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _tok, _1 : _err };

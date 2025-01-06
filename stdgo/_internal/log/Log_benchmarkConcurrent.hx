@@ -8,7 +8,7 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
                 @:check2 _group.add((1 : stdgo.GoInt));
 stdgo.Go.routine(() -> ({
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
+                        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
                         try {
                             {
                                 var _i = (0 : stdgo.GoInt);
@@ -19,12 +19,13 @@ stdgo.Go.routine(() -> ({
                             };
                             {
                                 final __f__ = @:check2 _group.done;
-                                __deferstack__.unshift(() -> __f__());
+                                __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                                 return;
@@ -38,8 +39,9 @@ stdgo.Go.routine(() -> ({
                             };
                             stdgo.Go.recover_exception = exe;
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;

@@ -4,12 +4,12 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function serveConn( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>, _c:stdgo._internal.net.Net_Conn.Conn, _opts:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ServeConnOpts.T_http2ServeConnOpts>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.net.http.Http__http2serverConnBaseContext._http2serverConnBaseContext(_c, _opts), _baseCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:() -> Void = __tmp__._1;
             {
                 final __f__ = _cancel;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _sc = (stdgo.Go.setRef(({ _srv : _s, _hs : @:check2r _opts._baseConfig(), _conn : _c, _baseCtx : _baseCtx, _remoteAddrStr : (_c.remoteAddr().string() : stdgo.GoString)?.__copy__(), _bw : stdgo._internal.net.http.Http__http2newBufferedWriter._http2newBufferedWriter(_c), _handler : @:check2r _opts._handler(), _streams : (({
                 final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>>();
@@ -21,7 +21,7 @@ package stdgo._internal.net.http;
             {
                 var _a0 = _sc;
                 final __f__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._state._unregisterConn;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             if ((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._hs ?? throw "null pointer dereference").writeTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 (@:checkr _sc ?? throw "null pointer dereference")._conn.setWriteDeadline((new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time));
@@ -72,8 +72,9 @@ package stdgo._internal.net.http;
                         @:check2r _sc._rejectConn((12u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), ("TLS version too low" : stdgo.GoString));
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -83,8 +84,9 @@ package stdgo._internal.net.http;
                         @:check2r _sc._rejectConn((12u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), stdgo._internal.fmt.Fmt_sprintf.sprintf(("Prohibited TLS 1.2 Cipher Suite: %x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite))?.__copy__());
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -99,8 +101,9 @@ package stdgo._internal.net.http;
                         @:check2r _sc._rejectConn((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), ("invalid settings" : stdgo.GoString));
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -121,8 +124,9 @@ package stdgo._internal.net.http;
             @:check2r _sc._serve();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -136,8 +140,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

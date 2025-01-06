@@ -40,7 +40,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function handleData( _q:stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn>, _level:stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _q:stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn> = _q;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _c = (@:checkr _q ?? throw "null pointer dereference")._conn;
             if ((@:checkr _c ?? throw "null pointer dereference")._in._level != (_level)) {
@@ -55,7 +55,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._hand.write((@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._readbuf);
             (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._readbuf = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -70,8 +70,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -87,8 +88,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = stdgo._internal.crypto.tls.Tls__quicError._quicError((@:checkr (@:checkr _q ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._handshakeErr);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -96,15 +98,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -118,8 +122,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

@@ -1,6 +1,6 @@
 package stdgo._internal.compress.flate;
 @:structInit @:using(stdgo._internal.compress.flate.Flate_T_deflateFast_static_extension.T_deflateFast_static_extension) class T_deflateFast {
-    public var _table : stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry> = new stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry>(16384, 16384, ...[for (i in 0 ... 16384) ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry)]);
+    public var _table : stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry> = new stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry>(16384, 16384, ...[for (i in 0 ... (16384 > 16384 ? 16384 : 16384 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry)]);
     public var _prev : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _cur : stdgo.GoInt32 = 0;
     public function new(?_table:stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry>, ?_prev:stdgo.Slice<stdgo.GoUInt8>, ?_cur:stdgo.GoInt32) {

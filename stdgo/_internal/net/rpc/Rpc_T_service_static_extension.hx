@@ -4,12 +4,12 @@ package stdgo._internal.net.rpc;
     @:tdfield
     static public function _call( _s:stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>, _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>, _sending:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>, _wg:stdgo.Ref<stdgo._internal.sync.Sync_WaitGroup.WaitGroup>, _mtype:stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>, _req:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>, _argv:stdgo._internal.reflect.Reflect_Value.Value, _replyv:stdgo._internal.reflect.Reflect_Value.Value, _codec:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((_wg != null && ((_wg : Dynamic).__nil__ == null || !(_wg : Dynamic).__nil__))) {
                 {
                     final __f__ = @:check2r _wg.done;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             @:check2r _mtype.lock();
@@ -26,8 +26,9 @@ package stdgo._internal.net.rpc;
             @:check2r _server._freeRequest(_req);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -41,8 +42,9 @@ package stdgo._internal.net.rpc;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

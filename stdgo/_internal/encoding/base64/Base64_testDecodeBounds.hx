@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.base64;
 function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
             var _s = (@:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.encodeToString((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _err = ({
@@ -19,7 +19,7 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decode((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_s : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_n != (_buf.length)) || (_err != null) : Bool)) {
@@ -27,8 +27,9 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -42,8 +43,9 @@ function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

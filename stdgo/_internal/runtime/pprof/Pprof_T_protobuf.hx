@@ -1,7 +1,7 @@
 package stdgo._internal.runtime.pprof;
 @:structInit @:using(stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension) class T_protobuf {
     public var _data : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
     public var _nest : stdgo.GoInt = 0;
     public function new(?_data:stdgo.Slice<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_nest:stdgo.GoInt) {
         if (_data != null) this._data = _data;

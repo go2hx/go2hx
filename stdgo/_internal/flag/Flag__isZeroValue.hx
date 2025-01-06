@@ -1,6 +1,6 @@
 package stdgo._internal.flag;
 function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _value:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _ok = false, _err = (null : stdgo.Error);
         try {
             var _typ = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((@:checkr _flag ?? throw "null pointer dereference").value)) : stdgo._internal.reflect.Reflect_Type_.Type_);
@@ -11,7 +11,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                 _z = stdgo._internal.reflect.Reflect_zero.zero(_typ)?.__copy__();
             };
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
                             var _e = ({
@@ -28,7 +28,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                         };
                     };
                     a();
-                }));
+                }) });
             };
             {
                 final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = {
@@ -38,15 +38,17 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _ok, _1 : _err };
@@ -60,8 +62,9 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _ok, _1 : _err };

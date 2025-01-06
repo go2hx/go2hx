@@ -29,7 +29,7 @@ package stdgo._internal.io.fs;
     static public function string( _m:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.GoString {
         @:recv var _m:stdgo._internal.io.fs.Fs_FileMode.FileMode = _m;
         {};
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         var _w = (0 : stdgo.GoInt);
         for (_i => _c in ("dalTLDpSugct?" : stdgo.GoString)) {
             if ((_m & (((1u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) << (((31 : stdgo.GoInt) - _i : stdgo.GoInt) : stdgo.GoUInt) : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo._internal.io.fs.Fs_FileMode.FileMode) != ((0u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode))) {

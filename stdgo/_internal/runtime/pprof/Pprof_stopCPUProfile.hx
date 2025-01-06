@@ -1,17 +1,18 @@
 package stdgo._internal.runtime.pprof;
 function stopCPUProfile():Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu.lock();
             {
                 final __f__ = stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (!stdgo._internal.runtime.pprof.Pprof__cpu._cpu._profiling) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -21,8 +22,9 @@ function stopCPUProfile():Void {
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done.__get__();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -36,8 +38,9 @@ function stopCPUProfile():Void {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

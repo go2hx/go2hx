@@ -28,7 +28,7 @@ package stdgo._internal.image.png;
     @:tdfield
     static public function _writeImage( _e:stdgo.Ref<stdgo._internal.image.png.Png_T_encoder.T_encoder>, _w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _cb:stdgo.GoInt, _level:stdgo.GoInt):stdgo.Error {
         @:recv var _e:stdgo.Ref<stdgo._internal.image.png.Png_T_encoder.T_encoder> = _e;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((((@:checkr _e ?? throw "null pointer dereference")._zw == null || ((@:checkr _e ?? throw "null pointer dereference")._zw : Dynamic).__nil__) || ((@:checkr _e ?? throw "null pointer dereference")._zwLevel != _level) : Bool)) {
                 var __tmp__ = stdgo._internal.compress.zlib.Zlib_newWriterLevel.newWriterLevel(_w, _level), _zw:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_Writer.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -42,7 +42,7 @@ package stdgo._internal.image.png;
             };
             {
                 final __f__ = @:check2r (@:checkr _e ?? throw "null pointer dereference")._zw.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _bitsPerPixel = (0 : stdgo.GoInt);
             {
@@ -315,8 +315,9 @@ if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && 
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return _err;
                             };
@@ -336,15 +337,17 @@ if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && 
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -358,8 +361,9 @@ if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && 
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

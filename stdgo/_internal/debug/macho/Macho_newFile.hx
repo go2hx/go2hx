@@ -2,7 +2,7 @@ package stdgo._internal.debug.macho;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>; var _1 : stdgo.Error; } {
         var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_File.File)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
-        var _ident:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+        var _ident:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
         {
             var __tmp__ = _r.readAt((_ident.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __4:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

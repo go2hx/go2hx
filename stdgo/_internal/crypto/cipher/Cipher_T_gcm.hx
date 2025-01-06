@@ -3,7 +3,7 @@ package stdgo._internal.crypto.cipher;
     public var _cipher : stdgo._internal.crypto.cipher.Cipher_Block.Block = (null : stdgo._internal.crypto.cipher.Cipher_Block.Block);
     public var _nonceSize : stdgo.GoInt = 0;
     public var _tagSize : stdgo.GoInt = 0;
-    public var _productTable : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement> = new stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>(16, 16, ...[for (i in 0 ... 16) ({} : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement)]);
+    public var _productTable : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement> = new stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>(16, 16, ...[for (i in 0 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement)]);
     public function new(?_cipher:stdgo._internal.crypto.cipher.Cipher_Block.Block, ?_nonceSize:stdgo.GoInt, ?_tagSize:stdgo.GoInt, ?_productTable:stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>) {
         if (_cipher != null) this._cipher = _cipher;
         if (_nonceSize != null) this._nonceSize = _nonceSize;

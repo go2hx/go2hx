@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.gob;
 function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
             {
                 final __f__ = @:check2 stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(_name?.__copy__(), _rt), _t:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -13,15 +13,17 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _t;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
@@ -35,8 +37,9 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);

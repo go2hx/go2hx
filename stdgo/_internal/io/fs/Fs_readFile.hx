@@ -1,6 +1,6 @@
 package stdgo._internal.io.fs;
 function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var __tmp__ = try {
@@ -18,7 +18,7 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             };
             {
                 final __f__ = _file.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _size:stdgo.GoInt = (0 : stdgo.GoInt);
             {
@@ -45,8 +45,9 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
                     {
                         final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _data, _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -54,8 +55,9 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
@@ -69,8 +71,9 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };

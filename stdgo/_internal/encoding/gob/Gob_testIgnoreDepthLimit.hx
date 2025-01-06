@@ -1,16 +1,16 @@
 package stdgo._internal.encoding.gob;
 function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _oldNestingDepth = (stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth : stdgo.GoInt);
             stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth = (100 : stdgo.GoInt);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth = _oldNestingDepth;
                     };
                     a();
-                }));
+                }) });
             };
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
@@ -36,8 +36,9 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -51,8 +52,9 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

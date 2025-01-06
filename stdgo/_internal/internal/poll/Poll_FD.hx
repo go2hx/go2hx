@@ -25,7 +25,7 @@ package stdgo._internal.internal.poll;
     public var _init(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__init():() -> Void return @:check3 (this.sysFile ?? throw "null pointer derefrence")._init;
+    public function get__init():() -> Void return @:check3 this.sysFile._init;
     public function __copy__() {
         return new FD(_fdmu, sysfd, sysFile, _pd, _csema, _isBlocking, isStream, zeroReadIsEOF, _isFile);
     }

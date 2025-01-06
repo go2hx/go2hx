@@ -10,12 +10,12 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _quicWaitForSignal( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var __select__ = true;
@@ -34,8 +34,9 @@ package stdgo._internal.crypto.tls;
                                 {
                                     final __ret__:stdgo.Error = @:check2r _c._sendAlertLocked((0 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return __ret__;
                                 };
@@ -66,8 +67,9 @@ package stdgo._internal.crypto.tls;
                                 {
                                     final __ret__:stdgo.Error = @:check2r _c._sendAlertLocked((0 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                                     for (defer in __deferstack__) {
-                                        __deferstack__.remove(defer);
-                                        defer();
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
                                     };
                                     return __ret__;
                                 };
@@ -81,15 +83,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -103,8 +107,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -777,7 +782,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _clientHandshake( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             if (((@:checkr _c ?? throw "null pointer dereference")._config == null || ((@:checkr _c ?? throw "null pointer dereference")._config : Dynamic).__nil__)) {
@@ -795,7 +800,7 @@ package stdgo._internal.crypto.tls;
             };
             if ((_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__))) {
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             if (_err != null) {
                                 {
@@ -807,7 +812,7 @@ package stdgo._internal.crypto.tls;
                             };
                         };
                         a();
-                    }));
+                    }) });
                 };
             };
             {
@@ -815,8 +820,9 @@ package stdgo._internal.crypto.tls;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -830,8 +836,9 @@ package stdgo._internal.crypto.tls;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _err;
                         };
@@ -844,8 +851,9 @@ package stdgo._internal.crypto.tls;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -860,8 +868,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = _err = stdgo._internal.crypto.tls.Tls__unexpectedMessageError._unexpectedMessageError(stdgo.Go.toInterface(stdgo.Go.asInterface(_serverHello)), _msg);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -871,8 +880,9 @@ package stdgo._internal.crypto.tls;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -886,8 +896,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("tls: downgrade attempt detected, possibly due to a MitM attack or a broken middlebox" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -897,8 +908,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = _err = @:check2r _hs._handshake();
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -909,8 +921,9 @@ package stdgo._internal.crypto.tls;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -919,15 +932,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -941,8 +956,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;
@@ -1060,19 +1076,20 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function verifyHostname( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _host:stdgo.GoString):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (!(@:checkr _c ?? throw "null pointer dereference")._isClient) {
                 {
                     final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("tls: VerifyHostname called on TLS server connection" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1081,8 +1098,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("tls: handshake has not yet been performed" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1091,8 +1109,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("tls: handshake did not verify certificate chain" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1100,15 +1119,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = @:check2r (@:checkr _c ?? throw "null pointer dereference")._peerCertificates[(0 : stdgo.GoInt)].verifyHostname(_host?.__copy__());
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1122,8 +1143,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1133,25 +1155,27 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function oCSPResponse( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo.Slice<stdgo.GoUInt8> = (@:checkr _c ?? throw "null pointer dereference")._ocspResponse;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -1165,8 +1189,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -1206,25 +1231,27 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function connectionState( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState = @:check2r _c._connectionStateLocked()?.__copy__();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return ({} : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
@@ -1238,8 +1265,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return ({} : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
@@ -1249,7 +1277,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _handshakeContext( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _ret = (null : stdgo.Error);
         try {
             if (@:check2 (@:checkr _c ?? throw "null pointer dereference")._isHandshakeComplete.load()) {
@@ -1258,7 +1286,7 @@ package stdgo._internal.crypto.tls;
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _handshakeCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
             {
                 final __f__ = _cancel;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (((@:checkr _c ?? throw "null pointer dereference")._quic != null && (((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__))) {
                 (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._cancelc = _handshakeCtx.done();
@@ -1267,7 +1295,7 @@ package stdgo._internal.crypto.tls;
                 var _done = (new stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>(0, () -> ({} : stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg)) : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>);
                 var _interruptRes = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
                 {
-                    __deferstack__.unshift(() -> ({
+                    __deferstack__.unshift({ ran : false, f : () -> ({
                         var a = function():Void {
                             if (_done != null) _done.__close__();
                             {
@@ -1278,7 +1306,7 @@ package stdgo._internal.crypto.tls;
                             };
                         };
                         a();
-                    }));
+                    }) });
                 };
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
@@ -1314,7 +1342,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _err = ((@:checkr _c ?? throw "null pointer dereference")._handshakeErr : stdgo.Error);
@@ -1322,8 +1350,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:stdgo.Error = _ret = _err;
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -1333,8 +1362,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:stdgo.Error = _ret = (null : stdgo.Error);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1342,7 +1372,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._in.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._in.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _c ?? throw "null pointer dereference")._handshakeErr = (@:checkr _c ?? throw "null pointer dereference")._handshakeFn(_handshakeCtx);
             if ((@:checkr _c ?? throw "null pointer dereference")._handshakeErr == null) {
@@ -1376,15 +1406,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = _ret = (@:checkr _c ?? throw "null pointer dereference")._handshakeErr;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _ret;
@@ -1398,8 +1430,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _ret;
@@ -1421,12 +1454,12 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _closeNotify( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (!(@:checkr _c ?? throw "null pointer dereference")._closeNotifySent) {
                 @:check2r _c.setWriteDeadline(stdgo._internal.time.Time_now.now().add((5000000000i64 : stdgo._internal.time.Time_Duration.Duration))?.__copy__());
@@ -1437,15 +1470,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = (@:checkr _c ?? throw "null pointer dereference")._closeNotifyErr;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1459,8 +1494,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1513,7 +1549,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function read( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _err = (@:check2r _c.handshake() : stdgo.Error);
@@ -1527,7 +1563,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._in.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._in.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             while (@:check2 (@:checkr _c ?? throw "null pointer dereference")._input.len() == ((0 : stdgo.GoInt))) {
                 {
@@ -1536,8 +1572,9 @@ package stdgo._internal.crypto.tls;
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -1550,8 +1587,9 @@ package stdgo._internal.crypto.tls;
                             {
                                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -1567,8 +1605,9 @@ package stdgo._internal.crypto.tls;
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -1578,15 +1617,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -1600,8 +1641,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -1611,7 +1653,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _handleKeyUpdate( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _keyUpdate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _c ?? throw "null pointer dereference")._quic != null && (((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__))) {
                 @:check2r _c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -1627,15 +1669,16 @@ package stdgo._internal.crypto.tls;
                 @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
                 {
                     final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 var _msg = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg() : stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg>);
                 var __tmp__ = @:check2r _msg._marshal(), _msgBytes:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -1649,8 +1692,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -1661,15 +1705,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1683,8 +1729,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1723,7 +1770,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _handleRenegotiation( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _c ?? throw "null pointer dereference")._vers == ((772 : stdgo.GoUInt16))) {
                 return stdgo._internal.errors.Errors_new_.new_(("tls: internal error: unexpected renegotiation" : stdgo.GoString));
@@ -1760,7 +1807,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._handshakeMutex.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._isHandshakeComplete.store(false);
             {
@@ -1772,15 +1819,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:stdgo.Error = (@:checkr _c ?? throw "null pointer dereference")._handshakeErr;
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -1794,8 +1843,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -1805,7 +1855,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function write( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             while (true) {
                 var _x = (@:check2 (@:checkr _c ?? throw "null pointer dereference")._activeCall.load() : stdgo.GoInt32);
@@ -1819,7 +1869,7 @@ package stdgo._internal.crypto.tls;
             {
                 var _a0 = (-2 : stdgo.GoInt32);
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._activeCall.add;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             {
                 var _err = (@:check2r _c.handshake() : stdgo.Error);
@@ -1827,8 +1877,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -1837,7 +1888,7 @@ package stdgo._internal.crypto.tls;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _err = ((@:checkr _c ?? throw "null pointer dereference")._out._err : stdgo.Error);
@@ -1845,8 +1896,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -1856,8 +1908,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)) };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1866,8 +1919,9 @@ package stdgo._internal.crypto.tls;
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.crypto.tls.Tls__errShutdown._errShutdown };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -1886,8 +1940,9 @@ package stdgo._internal.crypto.tls;
                             {
                                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2 (@:checkr _c ?? throw "null pointer dereference")._out._setErrorLocked(_err) };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -1905,15 +1960,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_n + _m : stdgo.GoInt), _1 : @:check2 (@:checkr _c ?? throw "null pointer dereference")._out._setErrorLocked(_err) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -1927,8 +1984,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -2042,25 +2100,27 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _writeChangeCipherRecord( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = @:check2r _c._writeRecordLocked((20 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __89:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -2074,8 +2134,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -2085,20 +2146,21 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _writeHandshakeRecord( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _msg:stdgo._internal.crypto.tls.Tls_T_handshakeMessage.T_handshakeMessage, _transcript:stdgo._internal.crypto.tls.Tls_T_transcriptHash.T_transcriptHash):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = _msg._marshal(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -2109,15 +2171,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _c._writeRecordLocked((22 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), _data);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -2131,8 +2195,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -2142,7 +2207,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _writeRecordLocked( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _typ:stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _c ?? throw "null pointer dereference")._quic != null && (((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__))) {
                 if (_typ != ((22 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType))) {
@@ -2162,13 +2227,13 @@ package stdgo._internal.crypto.tls;
             var _outBufPtr = (stdgo.Go.typeAssert((@:check2 stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _outBuf = (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
                         @:check2 stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
                     };
                     a();
-                }));
+                }) });
             };
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             while (((_data.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -2204,8 +2269,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -2216,8 +2282,9 @@ package stdgo._internal.crypto.tls;
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -2233,8 +2300,9 @@ package stdgo._internal.crypto.tls;
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _c._sendAlertLocked((stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)) : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -2244,15 +2312,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -2266,8 +2336,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
@@ -2347,25 +2418,27 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _sendAlert( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _err:stdgo._internal.crypto.tls.Tls_T_alert.T_alert):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo.Error = @:check2r _c._sendAlertLocked(_err);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -2379,8 +2452,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

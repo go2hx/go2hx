@@ -104,7 +104,7 @@ package stdgo._internal.image.png;
         if ((_length > (2147483647u32 : stdgo.GoUInt32) : Bool)) {
             return stdgo.Go.asInterface((stdgo._internal.fmt.Fmt_sprintf.sprintf(("Bad chunk length: %d" : stdgo.GoString), stdgo.Go.toInterface(_length)) : stdgo._internal.image.png.Png_FormatError.FormatError));
         };
-        var _ignored:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]);
+        var _ignored:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__();
         while ((_length > (0u32 : stdgo.GoUInt32) : Bool)) {
             var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _d ?? throw "null pointer dereference")._r, (_ignored.__slice__(0, stdgo._internal.image.png.Png__min._min((_ignored.length), (_length : stdgo.GoInt))) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -782,7 +782,7 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
     @:tdfield
     static public function _decode( _d:stdgo.Ref<stdgo._internal.image.png.Png_T_decoder.T_decoder>):{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.png.Png_T_decoder.T_decoder> = _d;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.compress.zlib.Zlib_newReader.newReader(stdgo.Go.asInterface(_d)), _r:stdgo._internal.io.Io_ReadCloser.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -790,7 +790,7 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
             };
             {
                 final __f__ = _r.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _img:stdgo._internal.image.Image_Image.Image = (null : stdgo._internal.image.Image_Image.Image);
             if ((@:checkr _d ?? throw "null pointer dereference")._interlace == ((0 : stdgo.GoInt))) {
@@ -803,8 +803,9 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
                     {
                         final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -819,8 +820,9 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
                     {
                         final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : _err };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -833,8 +835,9 @@ if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -854,8 +857,9 @@ if (_imagePass != null) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : stdgo._internal.io.Io_errNoProgress.errNoProgress };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -872,8 +876,9 @@ if (_imagePass != null) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : stdgo.Go.asInterface((_err.error() : stdgo._internal.image.png.Png_FormatError.FormatError)) };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -882,8 +887,9 @@ if (_imagePass != null) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : stdgo.Go.asInterface((("too much pixel data" : stdgo.GoString) : stdgo._internal.image.png.Png_FormatError.FormatError)) };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -891,15 +897,17 @@ if (_imagePass != null) {
             {
                 final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : _img, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
@@ -913,8 +921,9 @@ if (_imagePass != null) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };

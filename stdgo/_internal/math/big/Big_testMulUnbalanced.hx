@@ -1,11 +1,11 @@
 package stdgo._internal.math.big;
 function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var _a0 = stdgo._internal.runtime.Runtime_gOMAXPROCS.gOMAXPROCS((1 : stdgo.GoInt));
                 final __f__ = stdgo._internal.runtime.Runtime_gOMAXPROCS.gOMAXPROCS;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var _x = (stdgo._internal.math.big.Big__rndNat._rndNat((50000 : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
             var _y = (stdgo._internal.math.big.Big__rndNat._rndNat((40 : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
@@ -21,8 +21,9 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -36,8 +37,9 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

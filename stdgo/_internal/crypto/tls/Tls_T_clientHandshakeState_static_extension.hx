@@ -132,7 +132,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         if ((((@:checkr _c ?? throw "null pointer dereference")._handshakes > (0 : stdgo.GoInt) : Bool) && (@:checkr _c ?? throw "null pointer dereference")._secureRenegotiation : Bool)) {
-            var _expectedSecureRenegotiation:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24, ...[for (i in 0 ... 24) (0 : stdgo.GoUInt8)]);
+            var _expectedSecureRenegotiation:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24).__setNumber32__();
             (_expectedSecureRenegotiation.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _c ?? throw "null pointer dereference")._clientFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
             (_expectedSecureRenegotiation.__slice__((12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _c ?? throw "null pointer dereference")._serverFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
             if (!stdgo._internal.bytes.Bytes_equal.equal((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._serverHello ?? throw "null pointer dereference")._secureRenegotiation, (_expectedSecureRenegotiation.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))) {

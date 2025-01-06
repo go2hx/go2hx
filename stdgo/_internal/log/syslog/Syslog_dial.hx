@@ -1,6 +1,6 @@
 package stdgo._internal.log.syslog;
 function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._internal.log.syslog.Syslog_Priority.Priority, _tag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((_priority < (0 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : Bool) || (_priority > (191 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : Bool) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("log/syslog: invalid priority" : stdgo.GoString)) };
@@ -13,15 +13,16 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _err = (@:check2r _w._connect() : stdgo.Error);
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -29,15 +30,17 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } = { _0 : _w, _1 : _err };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>), _1 : (null : stdgo.Error) };
@@ -51,8 +54,9 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>), _1 : (null : stdgo.Error) };

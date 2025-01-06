@@ -1,6 +1,6 @@
 package stdgo._internal.mime;
 function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _mixExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.mime.Mime__clearSyncMap._clearSyncMap((stdgo.Go.setRef(stdgo._internal.mime.Mime__mimeTypes._mimeTypes) : stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>));
             stdgo._internal.mime.Mime__clearSyncMap._clearSyncMap((stdgo.Go.setRef(stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower) : stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>));
@@ -14,7 +14,7 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
             @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
             {
                 final __f__ = @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_k => _v in _lowerExt) {
                 var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v?.__copy__()), _justType:stdgo.GoString = __tmp__._0, __0:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -32,8 +32,9 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -47,8 +48,9 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

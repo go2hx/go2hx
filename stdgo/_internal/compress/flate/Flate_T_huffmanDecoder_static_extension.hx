@@ -15,7 +15,7 @@ package stdgo._internal.compress.flate;
                 x._linkMask = __tmp__._linkMask;
             };
         };
-        var _count:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoInt)]);
+        var _count:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16).__setNumber32__();
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _max = __1, _min = __0;
         for (__0 => _n in _lengths) {
@@ -34,7 +34,7 @@ var _max = __1, _min = __0;
             return true;
         };
         var _code = (0 : stdgo.GoInt);
-        var _nextcode:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoInt)]);
+        var _nextcode:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16).__setNumber32__();
         {
             var _i = (_min : stdgo.GoInt);
             while ((_i <= _max : Bool)) {

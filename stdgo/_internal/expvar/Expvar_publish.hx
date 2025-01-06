@@ -1,6 +1,6 @@
 package stdgo._internal.expvar;
 function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
                 var __tmp__ = @:check2 stdgo._internal.expvar.Expvar__vars._vars.loadOrStore(stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_v)), __8:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
@@ -11,14 +11,15 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
             @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.lock();
             {
                 final __f__ = @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.expvar.Expvar__varKeys._varKeys = (stdgo._internal.expvar.Expvar__varKeys._varKeys.__append__(_name?.__copy__()));
             stdgo._internal.sort.Sort_strings.strings(stdgo._internal.expvar.Expvar__varKeys._varKeys);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -32,8 +33,9 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

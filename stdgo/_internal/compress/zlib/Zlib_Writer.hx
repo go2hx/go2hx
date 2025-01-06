@@ -6,7 +6,7 @@ package stdgo._internal.compress.zlib;
     public var _compressor : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer> = (null : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
     public var _digest : stdgo._internal.hash.Hash_Hash32.Hash32 = (null : stdgo._internal.hash.Hash_Hash32.Hash32);
     public var _err : stdgo.Error = (null : stdgo.Error);
-    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
+    public var _scratch : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
     public var _wroteHeader : Bool = false;
     public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>, ?_digest:stdgo._internal.hash.Hash_Hash32.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool) {
         if (_w != null) this._w = _w;

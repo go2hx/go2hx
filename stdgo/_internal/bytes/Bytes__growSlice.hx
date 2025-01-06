@@ -1,9 +1,9 @@
 package stdgo._internal.bytes;
 function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (({
                             final r = stdgo.Go.recover_exception;
@@ -14,7 +14,7 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _c = ((_b.length) + _n : stdgo.GoInt);
             if ((_c < ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt) : Bool)) {
@@ -25,15 +25,17 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
             {
                 final __ret__:stdgo.Slice<stdgo.GoUInt8> = (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -47,8 +49,9 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Slice<stdgo.GoUInt8>);

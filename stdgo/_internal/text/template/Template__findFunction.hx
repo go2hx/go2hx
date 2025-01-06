@@ -1,13 +1,13 @@
 package stdgo._internal.text.template;
 function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>):{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_Value.Value), _isBuiltin = false, _ok = false;
         try {
             if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && ((@:checkr _tmpl ?? throw "null pointer dereference")._common != null && (((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__ == null || !((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__)) : Bool)) {
                 @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
                 {
                     final __f__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 {
                     var _fn = (((@:checkr _tmpl ?? throw "null pointer dereference")._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
@@ -21,8 +21,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                                 __tmp__;
                             };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -41,8 +42,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -57,15 +59,17 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     __tmp__;
                 };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _v, _1 : _isBuiltin, _2 : _ok };
@@ -79,8 +83,9 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _v, _1 : _isBuiltin, _2 : _ok };

@@ -1,6 +1,6 @@
 package stdgo._internal.path.filepath;
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _m = (null : stdgo.Slice<stdgo.GoString>), _e = (null : stdgo.Error);
         try {
             _m = _matches;
@@ -17,7 +17,7 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             };
             {
                 final __f__ = @:check2r _d.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = @:check2r _d.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             stdgo._internal.sort.Sort_strings.strings(_names);
@@ -32,8 +32,9 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                             __tmp__;
                         };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -44,15 +45,17 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return { _0 : _m, _1 : _e };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : _m, _1 : _e };
@@ -66,8 +69,9 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : _m, _1 : _e };

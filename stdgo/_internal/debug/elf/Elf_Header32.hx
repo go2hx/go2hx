@@ -1,6 +1,6 @@
 package stdgo._internal.debug.elf;
 @:structInit class Header32 {
-    public var ident : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+    public var ident : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
     public var type : stdgo.GoUInt16 = 0;
     public var machine : stdgo.GoUInt16 = 0;
     public var version : stdgo.GoUInt32 = 0;

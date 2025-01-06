@@ -2,9 +2,9 @@ package stdgo._internal.encoding.gob;
 function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _i = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_Indirect.Indirect)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>);
         (@:checkr _i ?? throw "null pointer dereference").a = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>));
-        (@:checkr _i ?? throw "null pointer dereference").a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
-        (@:checkr _i ?? throw "null pointer dereference").a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>);
-        (@:checkr _i ?? throw "null pointer dereference").a.value = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
+        (@:checkr _i ?? throw "null pointer dereference").a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3).__setNumber32__()) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
+        (@:checkr _i ?? throw "null pointer dereference").a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3).__setNumber32__()) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>);
+        (((@:checkr _i ?? throw "null pointer dereference").a.value : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>) : stdgo.GoArray<stdgo.GoInt>).__setData__((new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__());
         (@:checkr _i ?? throw "null pointer dereference").s = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>));
         (@:checkr _i ?? throw "null pointer dereference").s.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>);
         (@:checkr _i ?? throw "null pointer dereference").s.value = (stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoInt>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>);

@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.x509;
 function _marshalKeyUsage(_ku:stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage):{ var _0 : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension; var _1 : stdgo.Error; } {
         var _ext = ({ id : stdgo._internal.crypto.x509.X509__oidExtensionKeyUsage._oidExtensionKeyUsage, critical : true } : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension);
-        var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2, 2, ...[for (i in 0 ... 2) (0 : stdgo.GoUInt8)]);
+        var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2, 2).__setNumber32__();
         _a[(0 : stdgo.GoInt)] = stdgo._internal.crypto.x509.X509__reverseBitsInAByte._reverseBitsInAByte((_ku : stdgo.GoUInt8));
         _a[(1 : stdgo.GoInt)] = stdgo._internal.crypto.x509.X509__reverseBitsInAByte._reverseBitsInAByte(((_ku >> (8i64 : stdgo.GoUInt64) : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage) : stdgo.GoUInt8));
         var _l = (1 : stdgo.GoInt);

@@ -1,12 +1,12 @@
 package stdgo._internal.internal.xcoff;
 @:structInit class T_bigarFileHeader {
-    public var flmagic : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
-    public var flmemoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var flgstoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var flgst64off : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var flfstmoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var fllstmoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
-    public var flfreeoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
+    public var flmagic : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var flmemoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var flgstoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var flgst64off : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var flfstmoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var fllstmoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+    public var flfreeoff : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
     public function new(?flmagic:stdgo.GoArray<stdgo.GoUInt8>, ?flmemoff:stdgo.GoArray<stdgo.GoUInt8>, ?flgstoff:stdgo.GoArray<stdgo.GoUInt8>, ?flgst64off:stdgo.GoArray<stdgo.GoUInt8>, ?flfstmoff:stdgo.GoArray<stdgo.GoUInt8>, ?fllstmoff:stdgo.GoArray<stdgo.GoUInt8>, ?flfreeoff:stdgo.GoArray<stdgo.GoUInt8>) {
         if (flmagic != null) this.flmagic = flmagic;
         if (flmemoff != null) this.flmemoff = flmemoff;

@@ -64,7 +64,7 @@ package stdgo._internal.net.http;
             x.tLS = __tmp__.tLS;
         };
         if ((((@:checkr _r1 ?? throw "null pointer dereference").contentLength == (0i64 : stdgo.GoInt64)) && ((@:checkr _r1 ?? throw "null pointer dereference").body != null) : Bool)) {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1, ...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1).__setNumber32__();
             var __tmp__ = (@:checkr _r1 ?? throw "null pointer dereference").body.read((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                 return _err;

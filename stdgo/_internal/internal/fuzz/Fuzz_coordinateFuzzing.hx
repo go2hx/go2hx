@@ -1,6 +1,6 @@
 package stdgo._internal.internal.fuzz;
 function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context, _opts:stdgo._internal.internal.fuzz.Fuzz_CoordinateFuzzingOpts.CoordinateFuzzingOpts):stdgo.Error {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             {
@@ -31,13 +31,13 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 };
                 {
                     final __f__ = _cancel;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _fuzzCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancelWorkers:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
             {
                 final __f__ = _cancelWorkers;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _doneC = _ctx.done();
             var _fuzzErr:stdgo.Error = (null : stdgo.Error);
@@ -66,7 +66,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             } : stdgo.Error -> Void);
             var _crashWritten = (false : Bool);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
                             return;
@@ -81,7 +81,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _dir = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
             var _binPath = (stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
@@ -99,8 +99,9 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -127,11 +128,11 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             var _statTicker = stdgo._internal.time.Time_newTicker.newTicker((3000000000i64 : stdgo._internal.time.Time_Duration.Duration));
             {
                 final __f__ = @:check2r _statTicker.stop;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __f__ = @:check2r _c._logStats;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2r _c._logStats();
             while (true) {
@@ -170,8 +171,9 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                         {
                                             final __ret__:stdgo.Error = _err = _fuzzErr;
                                             for (defer in __deferstack__) {
-                                                __deferstack__.remove(defer);
-                                                defer();
+                                                if (defer.ran) continue;
+                                                defer.ran = true;
+                                                defer.f();
                                             };
                                             return __ret__;
                                         };
@@ -302,8 +304,9 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -317,8 +320,9 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

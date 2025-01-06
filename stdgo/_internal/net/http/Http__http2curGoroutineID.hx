@@ -1,12 +1,12 @@
 package stdgo._internal.net.http;
 function _http2curGoroutineID():stdgo.GoUInt64 {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _bp = (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__http2littleBuf._http2littleBuf.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
                 var _a0 = _bp;
                 final __f__ = @:check2 stdgo._internal.net.http.Http__http2littleBuf._http2littleBuf.put;
-                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(stdgo.Go.toInterface(_a0)) });
             };
             var _b = (_bp : stdgo.Slice<stdgo.GoUInt8>);
             _b = (_b.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_b, false)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -22,15 +22,17 @@ function _http2curGoroutineID():stdgo.GoUInt64 {
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _n;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (0 : stdgo.GoUInt64);
@@ -44,8 +46,9 @@ function _http2curGoroutineID():stdgo.GoUInt64 {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (0 : stdgo.GoUInt64);

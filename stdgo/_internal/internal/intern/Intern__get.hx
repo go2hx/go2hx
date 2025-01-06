@@ -1,11 +1,11 @@
 package stdgo._internal.internal.intern;
 function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 stdgo._internal.internal.intern.Intern__mu._mu.lock();
             {
                 final __f__ = @:check2 stdgo._internal.internal.intern.Intern__mu._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             if (stdgo._internal.internal.intern.Intern__valSafe._valSafe != null) {
@@ -20,8 +20,9 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
             if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _v;
                 };
@@ -35,15 +36,17 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _v;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
@@ -57,8 +60,9 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);

@@ -26,14 +26,14 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function _emitLocation( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>):stdgo.GoUInt64 {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder> = _b;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _b ?? throw "null pointer dereference")._deck._pcs.length) == ((0 : stdgo.GoInt))) {
                 return (0i64 : stdgo.GoUInt64);
             };
             {
                 final __f__ = @:check2 (@:checkr _b ?? throw "null pointer dereference")._deck._reset;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _addr = ((@:checkr _b ?? throw "null pointer dereference")._deck._pcs[(0 : stdgo.GoInt)] : stdgo.GoUIntptr);
             var _firstFrame = ((@:checkr _b ?? throw "null pointer dereference")._deck._frames[(0 : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
@@ -75,15 +75,17 @@ package stdgo._internal.runtime.pprof;
             @:check2r _b._flush();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _id;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (0 : stdgo.GoUInt64);
@@ -97,8 +99,9 @@ package stdgo._internal.runtime.pprof;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (0 : stdgo.GoUInt64);

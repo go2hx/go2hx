@@ -41,7 +41,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function lookup( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
                 return null;
@@ -49,20 +49,22 @@ package stdgo._internal.text.template;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>));
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
@@ -76,8 +78,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
@@ -87,27 +90,29 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function funcs( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _funcMap:stdgo._internal.text.template.Template_FuncMap.FuncMap):stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _t._init();
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             stdgo._internal.text.template.Template__addValueFuncs._addValueFuncs((@:checkr _t ?? throw "null pointer dereference")._common._execFuncs, _funcMap);
             stdgo._internal.text.template.Template__addFuncs._addFuncs((@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, _funcMap);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _t;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
@@ -121,8 +126,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
@@ -141,7 +147,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function templates( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>):stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
@@ -149,7 +155,7 @@ package stdgo._internal.text.template;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
             for (__56 => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
@@ -157,15 +163,17 @@ package stdgo._internal.text.template;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _m;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
@@ -179,8 +187,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
@@ -190,13 +199,13 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function addParseTree( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _name:stdgo.GoString, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _t._init();
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.lock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _nt = _t;
             if (_name != ((@:checkr _t ?? throw "null pointer dereference")._name)) {
@@ -208,15 +217,17 @@ package stdgo._internal.text.template;
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
@@ -230,8 +241,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
@@ -247,7 +259,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function clone( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _nt = @:check2r _t._copy(null);
             @:check2r _nt._init();
@@ -257,7 +269,7 @@ package stdgo._internal.text.template;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
                 if (_k == ((@:checkr _t ?? throw "null pointer dereference")._name)) {
@@ -270,7 +282,7 @@ package stdgo._internal.text.template;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs) {
                 (@:checkr _nt ?? throw "null pointer dereference")._common._parseFuncs[_k] = _v;
@@ -281,15 +293,17 @@ package stdgo._internal.text.template;
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _nt, _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
@@ -303,8 +317,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
@@ -421,7 +436,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function definedTemplates( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
                 return stdgo.Go.str()?.__copy__();
@@ -430,7 +445,7 @@ package stdgo._internal.text.template;
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
             {
                 final __f__ = @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rUnlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_name => _tmpl in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
                 if ((((@:checkr _tmpl ?? throw "null pointer dereference").tree == null || ((@:checkr _tmpl ?? throw "null pointer dereference").tree : Dynamic).__nil__) || ((@:checkr _tmpl ?? throw "null pointer dereference").tree.root == null || ((@:checkr _tmpl ?? throw "null pointer dereference").tree.root : Dynamic).__nil__) : Bool)) {
@@ -446,15 +461,17 @@ package stdgo._internal.text.template;
             {
                 final __ret__:stdgo.GoString = (@:check2 _b.string() : stdgo.GoString)?.__copy__();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return ("" : stdgo.GoString);
@@ -468,8 +485,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return ("" : stdgo.GoString);
@@ -479,13 +497,13 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _execute( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _wr:stdgo._internal.io.Io_Writer.Writer, _data:stdgo.AnyInterface):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 final __f__ = stdgo._internal.text.template.Template__errRecover._errRecover;
-                __deferstack__.unshift(() -> __f__(_a0));
+                __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_data : stdgo._internal.reflect.Reflect_Value.Value)) : stdgo._internal.reflect.Reflect_Value.Value), _1 : true };
@@ -502,15 +520,17 @@ package stdgo._internal.text.template;
             @:check2r _state._walk(_value?.__copy__(), stdgo.Go.asInterface((@:checkr _t ?? throw "null pointer dereference").tree.root));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -524,8 +544,9 @@ package stdgo._internal.text.template;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

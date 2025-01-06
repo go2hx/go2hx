@@ -83,7 +83,7 @@ package stdgo._internal.sync;
     @:tdfield
     static public function compareAndSwap( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_> = _m;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _read = (@:check2r _m._loadReadOnly()?.__copy__() : stdgo._internal.sync.Sync_T_readOnly.T_readOnly);
             {
@@ -97,7 +97,7 @@ package stdgo._internal.sync;
             @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             _read = @:check2r _m._loadReadOnly()?.__copy__();
             var _swapped = (false : Bool);
@@ -115,15 +115,17 @@ package stdgo._internal.sync;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _swapped;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return false;
@@ -137,8 +139,9 @@ package stdgo._internal.sync;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return false;

@@ -1,6 +1,6 @@
 package stdgo._internal.regexp;
 function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:stdgo.GoString):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.os.Os_open.open(_file?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -8,7 +8,7 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:std
             };
             {
                 final __f__ = @:check2r _f.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _txt:stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
             if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_file?.__copy__(), (".bz2" : stdgo.GoString))) {
@@ -164,8 +164,9 @@ if (_line == (stdgo.Go.str())) {
             @:check2r _t.logf(("%d cases tested" : stdgo.GoString), stdgo.Go.toInterface(_ncase));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -179,8 +180,9 @@ if (_line == (stdgo.Go.str())) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

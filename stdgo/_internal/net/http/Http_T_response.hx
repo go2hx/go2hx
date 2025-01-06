@@ -22,9 +22,9 @@ package stdgo._internal.net.http;
     public var _requestBodyLimitHit : Bool = false;
     public var _trailers : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var _handlerDone : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_);
-    public var _dateBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29, ...[for (i in 0 ... 29) (0 : stdgo.GoUInt8)]);
-    public var _clenBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
-    public var _statusBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoUInt8)]);
+    public var _dateBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29).__setNumber32__();
+    public var _clenBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__();
+    public var _statusBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3).__setNumber32__();
     public var _closeNotifyCh : stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>);
     public var _didCloseNotify : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_);
     public function new(?_conn:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn>, ?_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, ?_reqBody:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_cancelCtx:stdgo._internal.context.Context_CancelFunc.CancelFunc, ?_wroteHeader:Bool, ?_wroteContinue:Bool, ?_wants10KeepAlive:Bool, ?_wantsClose:Bool, ?_canWriteContinue:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_writeContinueMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_w:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, ?_cw:stdgo._internal.net.http.Http_T_chunkWriter.T_chunkWriter, ?_handlerHeader:stdgo._internal.net.http.Http_Header.Header, ?_calledHeader:Bool, ?_written:stdgo.GoInt64, ?_contentLength:stdgo.GoInt64, ?_status:stdgo.GoInt, ?_closeAfterReply:Bool, ?_fullDuplex:Bool, ?_requestBodyLimitHit:Bool, ?_trailers:stdgo.Slice<stdgo.GoString>, ?_handlerDone:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_dateBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_clenBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_statusBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_closeNotifyCh:stdgo.Chan<Bool>, ?_didCloseNotify:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_) {

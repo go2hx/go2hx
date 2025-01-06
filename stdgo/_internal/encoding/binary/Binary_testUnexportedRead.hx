@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.binary;
 function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
             var _u1 = ({ _a : (1 : stdgo.GoInt32) } : stdgo._internal.encoding.binary.Binary_Unexported.Unexported);
@@ -11,7 +11,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                 };
             };
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (({
                             final r = stdgo.Go.recover_exception;
@@ -22,14 +22,15 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                         };
                     };
                     a();
-                }));
+                }) });
             };
             var _u2:stdgo._internal.encoding.binary.Binary_Unexported.Unexported = ({} : stdgo._internal.encoding.binary.Binary_Unexported.Unexported);
             stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>)));
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -43,8 +44,9 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

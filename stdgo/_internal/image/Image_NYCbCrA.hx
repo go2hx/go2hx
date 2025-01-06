@@ -13,19 +13,19 @@ package stdgo._internal.image;
     public var bounds(get, never) : () -> stdgo._internal.image.Image_Rectangle.Rectangle;
     @:embedded
     @:embeddededffieldsffun
-    public function get_bounds():() -> stdgo._internal.image.Image_Rectangle.Rectangle return @:check3 (this.yCbCr ?? throw "null pointer derefrence").bounds;
+    public function get_bounds():() -> stdgo._internal.image.Image_Rectangle.Rectangle return @:check3 this.yCbCr.bounds;
     public var cOffset(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get_cOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 (this.yCbCr ?? throw "null pointer derefrence").cOffset;
+    public function get_cOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 this.yCbCr.cOffset;
     public var yCbCrAt(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo._internal.image.color.Color_YCbCr.YCbCr;
     @:embedded
     @:embeddededffieldsffun
-    public function get_yCbCrAt():(stdgo.GoInt, stdgo.GoInt) -> stdgo._internal.image.color.Color_YCbCr.YCbCr return @:check3 (this.yCbCr ?? throw "null pointer derefrence").yCbCrAt;
+    public function get_yCbCrAt():(stdgo.GoInt, stdgo.GoInt) -> stdgo._internal.image.color.Color_YCbCr.YCbCr return @:check3 this.yCbCr.yCbCrAt;
     public var yOffset(get, never) : (stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get_yOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 (this.yCbCr ?? throw "null pointer derefrence").yOffset;
+    public function get_yOffset():(stdgo.GoInt, stdgo.GoInt) -> stdgo.GoInt return @:check3 this.yCbCr.yOffset;
     public function __copy__() {
         return new NYCbCrA(yCbCr, a, aStride);
     }

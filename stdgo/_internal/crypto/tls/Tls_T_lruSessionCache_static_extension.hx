@@ -4,12 +4,12 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function get( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache>, _sessionKey:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>; var _1 : Bool; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _c.lock();
             {
                 final __f__ = @:check2r _c.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.exists(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -18,8 +18,9 @@ package stdgo._internal.crypto.tls;
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>; var _1 : Bool; } = { _0 : (@:checkr (stdgo.Go.typeAssert(((@:checkr _elem ?? throw "null pointer dereference").value : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry>) ?? throw "null pointer dereference")._state, _1 : true };
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -28,15 +29,17 @@ package stdgo._internal.crypto.tls;
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>; var _1 : Bool; } = { _0 : null, _1 : false };
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>), _1 : false };
@@ -50,8 +53,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>), _1 : false };
@@ -61,12 +65,12 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function put( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache>, _sessionKey:stdgo.GoString, _cs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2r _c.lock();
             {
                 final __f__ = @:check2r _c.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.exists(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -81,8 +85,9 @@ package stdgo._internal.crypto.tls;
                     };
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -93,8 +98,9 @@ package stdgo._internal.crypto.tls;
                 (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey] = @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.pushFront(stdgo.Go.toInterface(_entry));
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -108,8 +114,9 @@ package stdgo._internal.crypto.tls;
             (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey] = _elem;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -123,8 +130,9 @@ package stdgo._internal.crypto.tls;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

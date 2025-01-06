@@ -21,31 +21,31 @@ package stdgo._internal.archive.zip;
     public var fileInfo(get, never) : () -> stdgo._internal.io.fs.Fs_FileInfo.FileInfo;
     @:embedded
     @:embeddededffieldsffun
-    public function get_fileInfo():() -> stdgo._internal.io.fs.Fs_FileInfo.FileInfo return @:check3 (this._header ?? throw "null pointer derefrence").fileInfo;
+    public function get_fileInfo():() -> stdgo._internal.io.fs.Fs_FileInfo.FileInfo return @:check3 this._header.fileInfo;
     public var modTime(get, never) : () -> stdgo._internal.time.Time_Time.Time;
     @:embedded
     @:embeddededffieldsffun
-    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check3 (this._header ?? throw "null pointer derefrence").modTime;
+    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check3 this._header.modTime;
     public var mode(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
     @:embeddededffieldsffun
-    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 (this._header ?? throw "null pointer derefrence").mode;
+    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 this._header.mode;
     public var setModTime(get, never) : stdgo._internal.time.Time_Time.Time -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setModTime():stdgo._internal.time.Time_Time.Time -> Void return @:check3 (this._header ?? throw "null pointer derefrence").setModTime;
+    public function get_setModTime():stdgo._internal.time.Time_Time.Time -> Void return @:check3 this._header.setModTime;
     public var setMode(get, never) : stdgo._internal.io.fs.Fs_FileMode.FileMode -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setMode():stdgo._internal.io.fs.Fs_FileMode.FileMode -> Void return @:check3 (this._header ?? throw "null pointer derefrence").setMode;
+    public function get_setMode():stdgo._internal.io.fs.Fs_FileMode.FileMode -> Void return @:check3 this._header.setMode;
     public var _hasDataDescriptor(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get__hasDataDescriptor():() -> Bool return @:check3 (this._header ?? throw "null pointer derefrence")._hasDataDescriptor;
+    public function get__hasDataDescriptor():() -> Bool return @:check3 this._header._hasDataDescriptor;
     public var _isZip64(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get__isZip64():() -> Bool return @:check3 (this._header ?? throw "null pointer derefrence")._isZip64;
+    public function get__isZip64():() -> Bool return @:check3 this._header._isZip64;
     public function __copy__() {
         return new T_fileWriter(_header, _zipw, _rawCount, _comp, _compCount, _crc32, _closed);
     }

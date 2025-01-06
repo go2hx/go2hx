@@ -10,14 +10,14 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _processPing( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2PingFrame.T_http2PingFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (@:check2r _f.isAck()) {
                 var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
                 @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
                 {
                     final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 {
                     var __tmp__ = ((@:checkr _cc ?? throw "null pointer dereference")._pings != null && (@:checkr _cc ?? throw "null pointer dereference")._pings.exists((@:checkr _f ?? throw "null pointer dereference").data?.__copy__()) ? { _0 : (@:checkr _cc ?? throw "null pointer dereference")._pings[(@:checkr _f ?? throw "null pointer dereference").data?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), _c:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -29,8 +29,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -39,15 +40,16 @@ package stdgo._internal.net.http;
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
             {
                 final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _err = (@:check2r (@:checkr _cc ?? throw "null pointer dereference")._fr.writePing(true, (@:checkr _f ?? throw "null pointer dereference").data?.__copy__()) : stdgo.Error);
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -56,15 +58,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = @:check2r (@:checkr _cc ?? throw "null pointer dereference")._bw.flush();
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -78,8 +82,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -112,7 +117,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _processWindowUpdate( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2WindowUpdateFrame.T_http2WindowUpdateFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
             var _cs = @:check2r _rl._streamByID((@:checkr _f ?? throw "null pointer dereference")._http2FrameHeader.streamID);
@@ -122,7 +127,7 @@ package stdgo._internal.net.http;
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _fl = (stdgo.Go.setRef((@:checkr _cc ?? throw "null pointer dereference")._flow) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>);
             if ((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__))) {
@@ -132,8 +137,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = stdgo.Go.asInterface(((3u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -142,15 +148,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -164,8 +172,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -175,13 +184,13 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _processSettingsNoWrite( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (@:check2r _f.isAck()) {
                 if ((@:checkr _cc ?? throw "null pointer dereference")._wantSettingsAck) {
@@ -189,8 +198,9 @@ package stdgo._internal.net.http;
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -198,8 +208,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -237,8 +248,9 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _err;
                 };
@@ -252,15 +264,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -274,8 +288,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -285,21 +300,22 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _processSettings( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.lock();
             {
                 final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._wmu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _err = (@:check2r _rl._processSettingsNoWrite(_f) : stdgo.Error);
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -312,15 +328,17 @@ package stdgo._internal.net.http;
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -334,8 +352,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -363,34 +382,37 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _streamByID( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _id:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream> {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr (@:checkr _rl ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.lock();
             {
                 final __f__ = @:check2 (@:checkr (@:checkr _rl ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _cs = ((@:checkr (@:checkr _rl ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._streams[_id] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>));
             if (((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) && !(@:checkr _cs ?? throw "null pointer dereference")._readAborted : Bool)) {
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return _cs;
                 };
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return null;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>);
@@ -404,8 +426,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>);
@@ -422,22 +445,23 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _endStream( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):Void {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (!(@:checkr _cs ?? throw "null pointer dereference")._readClosed) {
                 (@:checkr _cs ?? throw "null pointer dereference")._readClosed = true;
                 @:check2 (@:checkr (@:checkr _rl ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.lock();
                 {
                     final __f__ = @:check2 (@:checkr (@:checkr _rl ?? throw "null pointer dereference")._cc ?? throw "null pointer dereference")._mu.unlock;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
                 @:check2 (@:checkr _cs ?? throw "null pointer dereference")._bufPipe._closeWithErrorAndCode(stdgo._internal.io.Io_eOF.eOF, @:check2r _cs._copyTrailers);
                 if ((@:checkr _cs ?? throw "null pointer dereference")._peerClosed != null) (@:checkr _cs ?? throw "null pointer dereference")._peerClosed.__close__();
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -451,8 +475,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;
@@ -777,7 +802,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _run( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
             var _gotSettings = (false : Bool);
@@ -787,7 +812,7 @@ package stdgo._internal.net.http;
                 _t = stdgo._internal.time.Time_afterFunc.afterFunc(_readIdleTimeout, @:check2r _cc._healthCheck);
                 {
                     final __f__ = @:check2r _t.stop;
-                    __deferstack__.unshift(() -> __f__());
+                    __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
             };
             while (true) {
@@ -819,8 +844,9 @@ package stdgo._internal.net.http;
                         @:check2r _cc._countReadFrameError(_err);
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _err;
                         };
@@ -841,8 +867,9 @@ package stdgo._internal.net.http;
                             {
                                 final __ret__:stdgo.Error = stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError));
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -887,8 +914,9 @@ package stdgo._internal.net.http;
                     };
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -896,8 +924,9 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -911,8 +940,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -922,17 +952,17 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _cleanup( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>):Void {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _cc = (@:checkr _rl ?? throw "null pointer dereference")._cc;
             @:check2r (@:checkr _cc ?? throw "null pointer dereference")._t._connPool().markDead(_cc);
             {
                 final __f__ = @:check2r _cc._closeConn;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
                 var _a0 = (@:checkr _cc ?? throw "null pointer dereference")._readerDone;
-                __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
+                __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.__close__() });
             };
             if (((@:checkr _cc ?? throw "null pointer dereference")._idleTimer != null && (((@:checkr _cc ?? throw "null pointer dereference")._idleTimer : Dynamic).__nil__ == null || !((@:checkr _cc ?? throw "null pointer dereference")._idleTimer : Dynamic).__nil__))) {
                 @:check2r (@:checkr _cc ?? throw "null pointer dereference")._idleTimer.stop();
@@ -970,8 +1000,9 @@ package stdgo._internal.net.http;
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -985,8 +1016,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

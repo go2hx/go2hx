@@ -19,7 +19,7 @@ function _newGCMWithNonceAndTagSize(_cipher:stdgo._internal.crypto.cipher.Cipher
         if (_cipher.blockSize() != ((16 : stdgo.GoInt))) {
             return { _0 : (null : stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD), _1 : stdgo._internal.errors.Errors_new_.new_(("cipher: NewGCM requires 128-bit block cipher" : stdgo.GoString)) };
         };
-        var _key:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
+        var _key:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
         _cipher.encrypt((_key.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_key.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _g = (stdgo.Go.setRef(({ _cipher : _cipher, _nonceSize : _nonceSize, _tagSize : _tagSize } : stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm)) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
         var _x = (new stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint64((_key.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint64((_key.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement);

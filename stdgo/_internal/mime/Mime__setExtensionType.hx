@@ -1,6 +1,6 @@
 package stdgo._internal.mime;
 function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):stdgo.Error {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_mimeType?.__copy__()), _justType:stdgo.GoString = __tmp__._0, _param:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
@@ -16,7 +16,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
             {
                 final __f__ = @:check2 stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _exts:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             {
@@ -30,8 +30,9 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return __ret__;
                     };
@@ -41,15 +42,17 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -63,8 +66,9 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

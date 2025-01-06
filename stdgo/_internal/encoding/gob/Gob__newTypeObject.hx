@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>, _rt:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if ((@:checkr _ut ?? throw "null pointer dereference")._externalEnc != ((0 : stdgo.GoInt))) {
                 return { _0 : stdgo.Go.asInterface(stdgo._internal.encoding.gob.Gob__newGobEncoderType._newGobEncoderType(_name?.__copy__())), _1 : (null : stdgo.Error) };
@@ -9,14 +9,14 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<stdgo._internal.enco
             var __0:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), __1:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
 var _type1 = __1, _type0 = __0;
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (_err != null) {
                             if (stdgo._internal.encoding.gob.Gob__types._types != null) stdgo._internal.encoding.gob.Gob__types._types.remove(_rt);
                         };
                     };
                     a();
-                }));
+                }) });
             };
             {
                 var _t = (_rt : stdgo._internal.reflect.Reflect_Type_.Type_);
@@ -26,8 +26,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tBool._tBool._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -35,8 +36,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tInt._tInt._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -44,8 +46,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tUint._tUint._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -53,8 +56,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tFloat._tFloat._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -62,8 +66,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tComplex._tComplex._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -71,8 +76,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tString._tString._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -80,8 +86,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tInterface._tInterface._gobType(), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -97,8 +104,9 @@ var _type1 = __1, _type0 = __0;
                             {
                                 final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -107,8 +115,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_at), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -124,8 +133,9 @@ var _type1 = __1, _type0 = __0;
                             {
                                 final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -139,8 +149,9 @@ var _type1 = __1, _type0 = __0;
                             {
                                 final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -149,8 +160,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_mt), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -159,8 +171,9 @@ var _type1 = __1, _type0 = __0;
                             {
                                 final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo._internal.encoding.gob.Gob__tBytes._tBytes._gobType(), _1 : (null : stdgo.Error) };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -176,8 +189,9 @@ var _type1 = __1, _type0 = __0;
                             {
                                 final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return __ret__;
                             };
@@ -186,8 +200,9 @@ var _type1 = __1, _type0 = __0;
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -216,8 +231,9 @@ if (_err != null) {
                                     {
                                         final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                         for (defer in __deferstack__) {
-                                            __deferstack__.remove(defer);
-                                            defer();
+                                            if (defer.ran) continue;
+                                            defer.ran = true;
+                                            defer.f();
                                         };
                                         return __ret__;
                                     };
@@ -232,8 +248,9 @@ if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -241,8 +258,9 @@ if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : stdgo._internal.errors.Errors_new_.new_((("gob NewTypeObject can\'t handle type: " : stdgo.GoString) + (_rt.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return __ret__;
                         };
@@ -251,8 +269,9 @@ if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };
@@ -266,8 +285,9 @@ if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };

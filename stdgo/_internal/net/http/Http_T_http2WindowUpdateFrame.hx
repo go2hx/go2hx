@@ -19,11 +19,11 @@ package stdgo._internal.net.http;
     public var _checkValid(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__checkValid():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._checkValid;
+    public function get__checkValid():() -> Void return @:check3 this._http2FrameHeader._checkValid;
     public var _invalidate(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__invalidate():() -> Void return @:check3 (this._http2FrameHeader ?? throw "null pointer derefrence")._invalidate;
+    public function get__invalidate():() -> Void return @:check3 this._http2FrameHeader._invalidate;
     public var _writeDebug(get, never) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void;
     @:embedded
     @:embeddededffieldsffun

@@ -1,12 +1,12 @@
 package stdgo._internal.runtime.pprof;
 function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {};
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu.lock();
             {
                 final __f__ = stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if (stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done == null) {
                 stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
@@ -15,8 +15,9 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
                 {
                     final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("cpu profiling already in use" : stdgo.GoString));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -27,15 +28,17 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
             {
                 final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return __ret__;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -49,8 +52,9 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);

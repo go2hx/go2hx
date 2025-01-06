@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _fs:stdgo._internal.net.http.Http_FileSystem.FileSystem, _name:stdgo.GoString, _redirect:Bool):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {};
             if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__(), ("/index.html" : stdgo.GoString))) {
@@ -15,7 +15,7 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
             };
             {
                 final __f__ = _f.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = _f.stat(), _d:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -23,8 +23,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 stdgo._internal.net.http.Http_error.error(_w, _msg?.__copy__(), _code);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -36,8 +37,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                         stdgo._internal.net.http.Http__localRedirect._localRedirect(_w, _r, (stdgo._internal.path.Path_base.base(_url?.__copy__()) + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -47,8 +49,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                         stdgo._internal.net.http.Http__localRedirect._localRedirect(_w, _r, (("../" : stdgo.GoString) + stdgo._internal.path.Path_base.base(_url?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return;
                         };
@@ -61,8 +64,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                     stdgo._internal.net.http.Http__localRedirect._localRedirect(_w, _r, (stdgo._internal.path.Path_base.base(_url?.__copy__()) + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -72,7 +76,7 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 if (_err == null) {
                     {
                         final __f__ = _ff.close;
-                        __deferstack__.unshift(() -> __f__());
+                        __deferstack__.unshift({ ran : false, f : () -> __f__() });
                     };
                     var __tmp__ = _ff.stat(), _dd:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err == null) {
@@ -86,8 +90,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                     stdgo._internal.net.http.Http__writeNotModified._writeNotModified(_w);
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return;
                     };
@@ -96,8 +101,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 stdgo._internal.net.http.Http__dirList._dirList(_w, _r, _f);
                 {
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return;
                 };
@@ -108,8 +114,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
             stdgo._internal.net.http.Http__serveContent._serveContent(_w, _r, _d.name()?.__copy__(), _d.modTime()?.__copy__(), _sizeFunc, _f);
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -123,8 +130,9 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

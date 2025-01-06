@@ -10,7 +10,7 @@ package stdgo._internal.database.sql;
     @:tdfield
     static public function _close( _c:stdgo.Ref<stdgo._internal.database.sql.Sql_Conn.Conn>, _err:stdgo.Error):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.database.sql.Sql_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (!@:check2 (@:checkr _c ?? throw "null pointer dereference")._done.compareAndSwap(false, true)) {
                 return stdgo._internal.database.sql.Sql_errConnDone.errConnDone;
@@ -18,22 +18,24 @@ package stdgo._internal.database.sql;
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._closemu.lock();
             {
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._closemu.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             @:check2r (@:checkr _c ?? throw "null pointer dereference")._dc._releaseConn(_err);
             (@:checkr _c ?? throw "null pointer dereference")._dc = null;
             (@:checkr _c ?? throw "null pointer dereference")._db = null;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return (null : stdgo.Error);
@@ -47,8 +49,9 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return (null : stdgo.Error);
@@ -83,7 +86,7 @@ package stdgo._internal.database.sql;
     @:tdfield
     static public function raw( _c:stdgo.Ref<stdgo._internal.database.sql.Sql_Conn.Conn>, _f:stdgo.AnyInterface -> stdgo.Error):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.database.sql.Sql_Conn.Conn> = _c;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             var _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>);
@@ -100,7 +103,7 @@ package stdgo._internal.database.sql;
             var _fPanic = (true : Bool);
             @:check2 (@:checkr _dc ?? throw "null pointer dereference").mutex.lock();
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         @:check2 (@:checkr _dc ?? throw "null pointer dereference").mutex.unlock();
                         if (_fPanic) {
@@ -109,21 +112,23 @@ package stdgo._internal.database.sql;
                         _release(_err);
                     };
                     a();
-                }));
+                }) });
             };
             _err = _f(stdgo.Go.toInterface((@:checkr _dc ?? throw "null pointer dereference")._ci));
             _fPanic = false;
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -137,8 +142,9 @@ package stdgo._internal.database.sql;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;

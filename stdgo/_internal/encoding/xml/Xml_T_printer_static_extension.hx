@@ -240,7 +240,7 @@ package stdgo._internal.encoding.xml;
                             continue;
                         };
                     };
-                    var _scratch:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
+                    var _scratch:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
                     _vf = stdgo._internal.encoding.xml.Xml__indirect._indirect(_vf?.__copy__())?.__copy__();
                     {
                         final __value__ = _vf.kind();

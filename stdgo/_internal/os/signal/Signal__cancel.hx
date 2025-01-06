@@ -1,11 +1,11 @@
 package stdgo._internal.os.signal;
 function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action:stdgo.GoInt -> Void):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
             {
                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _remove = (function(_n:stdgo.GoInt):Void {
                 var _zerohandler:stdgo._internal.os.signal.Signal_T_handler.T_handler = ({} : stdgo._internal.os.signal.Signal_T_handler.T_handler);
@@ -35,8 +35,9 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -50,8 +51,9 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

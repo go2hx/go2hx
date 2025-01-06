@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {};
             var _ts = stdgo._internal.net.http.httptest.Httptest_newServer.newServer(stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
@@ -8,7 +8,7 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             } : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
             {
                 final __f__ = @:check2r _ts.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var __tmp__ = stdgo._internal.net.http.Http_get.get((@:checkr _ts ?? throw "null pointer dereference").uRL?.__copy__()), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -16,7 +16,7 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             {
                 final __f__ = (@:checkr _res ?? throw "null pointer dereference").body.close;
-                __deferstack__.unshift(() -> __f__());
+                __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _foo = ({ foo : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44);
             var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder((@:checkr _res ?? throw "null pointer dereference").body);
@@ -33,8 +33,9 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return;
@@ -48,8 +49,9 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return;

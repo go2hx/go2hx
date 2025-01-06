@@ -42,13 +42,13 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function _writeBody( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter>, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter> = _t;
-        var __deferstack__:Array<Void -> Void> = [];
+        var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _err = (null : stdgo.Error);
         try {
             var _ncopy:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             var _closed = (false : Bool);
             {
-                __deferstack__.unshift(() -> ({
+                __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if ((_closed || ((@:checkr _t ?? throw "null pointer dereference").bodyCloser == null) : Bool)) {
                             return;
@@ -61,7 +61,7 @@ package stdgo._internal.net.http;
                         };
                     };
                     a();
-                }));
+                }) });
             };
             if ((@:checkr _t ?? throw "null pointer dereference").body != null) {
                 var _body = @:check2r _t._unwrapBody();
@@ -103,8 +103,9 @@ package stdgo._internal.net.http;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _err;
                         };
@@ -120,8 +121,9 @@ package stdgo._internal.net.http;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
-                            __deferstack__.remove(defer);
-                            defer();
+                            if (defer.ran) continue;
+                            defer.ran = true;
+                            defer.f();
                         };
                         return _err;
                     };
@@ -134,8 +136,9 @@ package stdgo._internal.net.http;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
-                                __deferstack__.remove(defer);
-                                defer();
+                                if (defer.ran) continue;
+                                defer.ran = true;
+                                defer.f();
                             };
                             return _err;
                         };
@@ -146,8 +149,9 @@ package stdgo._internal.net.http;
                 {
                     final __ret__:stdgo.Error = _err = stdgo._internal.fmt.Fmt_errorf.errorf(("http: ContentLength=%d with Body length %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference").contentLength), stdgo.Go.toInterface(_ncopy));
                     for (defer in __deferstack__) {
-                        __deferstack__.remove(defer);
-                        defer();
+                        if (defer.ran) continue;
+                        defer.ran = true;
+                        defer.f();
                     };
                     return __ret__;
                 };
@@ -159,8 +163,9 @@ package stdgo._internal.net.http;
                         if (_err != null) {
                             {
                                 for (defer in __deferstack__) {
-                                    __deferstack__.remove(defer);
-                                    defer();
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
                                 };
                                 return _err;
                             };
@@ -174,15 +179,17 @@ package stdgo._internal.net.http;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 return _err;
             };
             {
                 for (defer in __deferstack__) {
-                    __deferstack__.remove(defer);
-                    defer();
+                    if (defer.ran) continue;
+                    defer.ran = true;
+                    defer.f();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _err;
@@ -196,8 +203,9 @@ package stdgo._internal.net.http;
             };
             stdgo.Go.recover_exception = exe;
             for (defer in __deferstack__) {
-                __deferstack__.remove(defer);
-                defer();
+                if (defer.ran) continue;
+                defer.ran = true;
+                defer.f();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
             return _err;
@@ -303,7 +311,7 @@ package stdgo._internal.net.http;
         (@:checkr _t ?? throw "null pointer dereference").byteReadCh = (new stdgo.Chan<stdgo._internal.net.http.Http_T_readResult.T_readResult>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_readResult.T_readResult)) : stdgo.Chan<stdgo._internal.net.http.Http_T_readResult.T_readResult>);
         stdgo.Go.routine(() -> ({
             var a = function(_body:stdgo._internal.io.Io_Reader.Reader):Void {
-                var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1, ...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
+                var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1).__setNumber32__();
                 var _rres:stdgo._internal.net.http.Http_T_readResult.T_readResult = ({} : stdgo._internal.net.http.Http_T_readResult.T_readResult);
                 {
                     var __tmp__ = _body.read((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));

@@ -245,5 +245,9 @@
  "interp|variadic7",
  "interp|variadic9",
  "interp|map18",
- "interp|rune1"
+ "interp|rune1",
+ "interp|copy0",
+ "interp|copy1",
+ "interp|defer0",
+ "interp|defer8"
 ]

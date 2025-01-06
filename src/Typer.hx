@@ -1090,7 +1090,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			default:
 				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ?throw stdgo.Go.recover_exception:$e]);
 		}
-		exprs.unshift(macro var __deferstack__:Array<Void->Void> = []);
+		exprs.unshift(macro var __deferstack__:Array<{ran:Bool, f:Void->Void}> = []);
 		//exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
@@ -1465,7 +1465,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	}
 
 	info.localIdents = info.localIdents.slice(0, info.localIdents.length - localIdents.length);
-	var e = macro __deferstack__.unshift(() -> $call);
+	var e = macro __deferstack__.unshift({ran: false, f: () -> $call});
 	return EBlock(exprs.concat([e]));
 }
 
@@ -6397,8 +6397,10 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 
 private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	return macro for (defer in __deferstack__) {
-		__deferstack__.remove(defer);
-		defer();
+		if (defer.ran)
+			continue;
+		defer.ran = true;
+		defer.f();
 	};
 }
 

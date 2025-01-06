@@ -108,8 +108,10 @@ private function runReport() {
 			continue;
 		final path = sanatize(parts[1]);
 		final index = tests.indexOf(path);
-		tests.remove(tests[index]);
-		paths.remove(paths[index]);
+		final testValue = tests[index];
+		final pathValue = paths[index];
+		while (tests.remove(testValue))
+			paths.remove(pathValue);
 	}
 	for (i in 0...tests.length) {
 		if (excludeTest(tests[i])) {
@@ -525,6 +527,7 @@ private function excludeTest(name:String) {
 		case "issue16760": // stack panic for interp, 1000 -> 100 stack as unit test
 		case "issue47227": // go-easy cgo
 		case "issue7550": // creates a slice with too large of len: 2147483647
+		case "bug113": // p1 type conversion is int64 target depedent
 		case "issue47928": // fails for golang too
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "convert4": // go-easy relies on the same underlying runtime

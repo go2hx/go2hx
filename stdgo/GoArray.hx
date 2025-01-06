@@ -152,7 +152,6 @@ class GoArrayData<T> {
 				}
 			}
 		}
-		trace(slice.capacity, newcap);
 		slice.capacity = newcap;
 		
 		// grow capacity

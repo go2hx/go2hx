@@ -9,15 +9,15 @@ package stdgo._internal.encoding.gob;
     public var _id(get, never) : () -> stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId;
     @:embedded
     @:embeddededffieldsffun
-    public function get__id():() -> stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId return @:check3 this.commonType._id;
+    public function get__id():() -> stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId return @:check32 this.commonType._id;
     public var _name(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get__name():() -> stdgo.GoString return @:check3 this.commonType._name;
+    public function get__name():() -> stdgo.GoString return @:check32 this.commonType._name;
     public var _setId(get, never) : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__setId():stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId -> Void return @:check3 this.commonType._setId;
+    public function get__setId():stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId -> Void return @:check32 this.commonType._setId;
     public function __copy__() {
         return new T_gobEncoderType(commonType);
     }

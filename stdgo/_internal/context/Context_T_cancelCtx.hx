@@ -19,7 +19,7 @@ package stdgo._internal.context;
     public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check3 (this.context ?? throw "null pointer derefrence").deadline;
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check31 (this.context ?? throw "null pointer derefrence").deadline;
     public function __copy__() {
         return new T_cancelCtx(context, _mu, _done, _children, _err, _cause);
     }

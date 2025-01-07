@@ -5,11 +5,11 @@ package stdgo._internal.runtime;
     public var _next(get, never) : (stdgo.GoFloat64, stdgo.GoFloat64, stdgo.GoFloat64) -> { var _0 : stdgo.GoFloat64; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__next():(stdgo.GoFloat64, stdgo.GoFloat64, stdgo.GoFloat64) -> { var _0 : stdgo.GoFloat64; var _1 : Bool; } return @:check3 this.new._next;
+    public function get__next():(stdgo.GoFloat64, stdgo.GoFloat64, stdgo.GoFloat64) -> { var _0 : stdgo.GoFloat64; var _1 : Bool; } return @:check32 this.new._next;
     public var _reset(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__reset():() -> Void return @:check3 this.new._reset;
+    public function get__reset():() -> Void return @:check32 this.new._reset;
     public function __copy__() {
         return new PIController();
     }

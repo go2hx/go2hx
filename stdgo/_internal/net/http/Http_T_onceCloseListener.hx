@@ -13,11 +13,11 @@ package stdgo._internal.net.http;
     public var accept(get, never) : () -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_accept():() -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } return @:check3 (this.listener ?? throw "null pointer derefrence").accept;
+    public function get_accept():() -> { var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } return @:check31 (this.listener ?? throw "null pointer derefrence").accept;
     public var addr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
     @:embeddededffieldsffun
-    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check3 (this.listener ?? throw "null pointer derefrence").addr;
+    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.listener ?? throw "null pointer derefrence").addr;
     public function __copy__() {
         return new T_onceCloseListener(listener, _once, _closeErr);
     }

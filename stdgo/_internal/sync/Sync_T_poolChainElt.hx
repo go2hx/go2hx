@@ -13,35 +13,35 @@ package stdgo._internal.sync;
     public var popHead(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 this._poolDequeue.popHead;
+    public function get_popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check32 this._poolDequeue.popHead;
     public var popTail(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 this._poolDequeue.popTail;
+    public function get_popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check32 this._poolDequeue.popTail;
     public var pushHead(get, never) : stdgo.AnyInterface -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_pushHead():stdgo.AnyInterface -> Bool return @:check3 this._poolDequeue.pushHead;
+    public function get_pushHead():stdgo.AnyInterface -> Bool return @:check32 this._poolDequeue.pushHead;
     public var _pack(get, never) : (stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt64;
     @:embedded
     @:embeddededffieldsffun
-    public function get__pack():(stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt64 return @:check3 this._poolDequeue._pack;
+    public function get__pack():(stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt64 return @:check32 this._poolDequeue._pack;
     public var _popHead(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 this._poolDequeue._popHead;
+    public function get__popHead():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check32 this._poolDequeue._popHead;
     public var _popTail(get, never) : () -> { var _0 : stdgo.AnyInterface; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check3 this._poolDequeue._popTail;
+    public function get__popTail():() -> { var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:check32 this._poolDequeue._popTail;
     public var _pushHead(get, never) : stdgo.AnyInterface -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get__pushHead():stdgo.AnyInterface -> Bool return @:check3 this._poolDequeue._pushHead;
+    public function get__pushHead():stdgo.AnyInterface -> Bool return @:check32 this._poolDequeue._pushHead;
     public var _unpack(get, never) : stdgo.GoUInt64 -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__unpack():stdgo.GoUInt64 -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } return @:check3 this._poolDequeue._unpack;
+    public function get__unpack():stdgo.GoUInt64 -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } return @:check32 this._poolDequeue._unpack;
     public function __copy__() {
         return new T_poolChainElt(_poolDequeue, _next, _prev);
     }

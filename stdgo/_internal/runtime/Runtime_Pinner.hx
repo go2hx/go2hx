@@ -5,7 +5,7 @@ package stdgo._internal.runtime;
     public var _unpin(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__unpin():() -> Void return @:check3 this.new._unpin;
+    public function get__unpin():() -> Void return @:check32 this.new._unpin;
     public function __copy__() {
         return new Pinner();
     }

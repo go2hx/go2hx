@@ -23,23 +23,23 @@ package stdgo._internal.debug.gosym;
     public var baseName(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_baseName():() -> stdgo.GoString return @:check3 this.sym.baseName;
+    public function get_baseName():() -> stdgo.GoString return @:check32 this.sym.baseName;
     public var packageName(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_packageName():() -> stdgo.GoString return @:check3 this.sym.packageName;
+    public function get_packageName():() -> stdgo.GoString return @:check32 this.sym.packageName;
     public var receiverName(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_receiverName():() -> stdgo.GoString return @:check3 this.sym.receiverName;
+    public function get_receiverName():() -> stdgo.GoString return @:check32 this.sym.receiverName;
     public var static_(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_static_():() -> Bool return @:check3 this.sym.static_;
+    public function get_static_():() -> Bool return @:check32 this.sym.static_;
     public var _nameWithoutInst(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get__nameWithoutInst():() -> stdgo.GoString return @:check3 this.sym._nameWithoutInst;
+    public function get__nameWithoutInst():() -> stdgo.GoString return @:check32 this.sym._nameWithoutInst;
     public function __copy__() {
         return new Func(entry, sym, end, params, locals, frameSize, lineTable, obj);
     }

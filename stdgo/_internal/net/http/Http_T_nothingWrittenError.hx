@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
     public var error(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_error():() -> stdgo.GoString return @:check3 (this._error ?? throw "null pointer derefrence").error;
+    public function get_error():() -> stdgo.GoString return @:check31 (this._error ?? throw "null pointer derefrence").error;
     public function __copy__() {
         return new T_nothingWrittenError(_error);
     }

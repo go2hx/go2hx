@@ -13,39 +13,39 @@ package stdgo._internal.testing.fstest;
     public var info(get, never) : () -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_info():() -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check3 this._mapFileInfo.info;
+    public function get_info():() -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:check32 this._mapFileInfo.info;
     public var isDir(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_isDir():() -> Bool return @:check3 this._mapFileInfo.isDir;
+    public function get_isDir():() -> Bool return @:check32 this._mapFileInfo.isDir;
     public var modTime(get, never) : () -> stdgo._internal.time.Time_Time.Time;
     @:embedded
     @:embeddededffieldsffun
-    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check3 this._mapFileInfo.modTime;
+    public function get_modTime():() -> stdgo._internal.time.Time_Time.Time return @:check32 this._mapFileInfo.modTime;
     public var mode(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
     @:embeddededffieldsffun
-    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 this._mapFileInfo.mode;
+    public function get_mode():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check32 this._mapFileInfo.mode;
     public var name(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_name():() -> stdgo.GoString return @:check3 this._mapFileInfo.name;
+    public function get_name():() -> stdgo.GoString return @:check32 this._mapFileInfo.name;
     public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
     @:embeddededffieldsffun
-    public function get_size():() -> stdgo.GoInt64 return @:check3 this._mapFileInfo.size;
+    public function get_size():() -> stdgo.GoInt64 return @:check32 this._mapFileInfo.size;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_string():() -> stdgo.GoString return @:check3 this._mapFileInfo.string;
+    public function get_string():() -> stdgo.GoString return @:check32 this._mapFileInfo.string;
     public var sys(get, never) : () -> stdgo.AnyInterface;
     @:embedded
     @:embeddededffieldsffun
-    public function get_sys():() -> stdgo.AnyInterface return @:check3 this._mapFileInfo.sys;
+    public function get_sys():() -> stdgo.AnyInterface return @:check32 this._mapFileInfo.sys;
     public var type(get, never) : () -> stdgo._internal.io.fs.Fs_FileMode.FileMode;
     @:embedded
     @:embeddededffieldsffun
-    public function get_type():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check3 this._mapFileInfo.type;
+    public function get_type():() -> stdgo._internal.io.fs.Fs_FileMode.FileMode return @:check32 this._mapFileInfo.type;
     public function __copy__() {
         return new T_openMapFile(_path, _mapFileInfo, _offset);
     }

@@ -11,23 +11,23 @@ package stdgo._internal.io;
     public var lock(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_lock():() -> Void return @:check3 this.mutex.lock;
+    public function get_lock():() -> Void return @:check32 this.mutex.lock;
     public var tryLock(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_tryLock():() -> Bool return @:check3 this.mutex.tryLock;
+    public function get_tryLock():() -> Bool return @:check32 this.mutex.tryLock;
     public var unlock(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_unlock():() -> Void return @:check3 this.mutex.unlock;
+    public function get_unlock():() -> Void return @:check32 this.mutex.unlock;
     public var _lockSlow(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__lockSlow():() -> Void return @:check3 this.mutex._lockSlow;
+    public function get__lockSlow():() -> Void return @:check32 this.mutex._lockSlow;
     public var _unlockSlow(get, never) : stdgo.GoInt32 -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__unlockSlow():stdgo.GoInt32 -> Void return @:check3 this.mutex._unlockSlow;
+    public function get__unlockSlow():stdgo.GoInt32 -> Void return @:check32 this.mutex._unlockSlow;
     public function __copy__() {
         return new T_onceError(mutex, _err);
     }

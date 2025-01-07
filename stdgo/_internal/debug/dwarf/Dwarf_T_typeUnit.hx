@@ -15,15 +15,15 @@ package stdgo._internal.debug.dwarf;
     public var _addrsize(get, never) : () -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get__addrsize():() -> stdgo.GoInt return @:check3 this._unit._addrsize;
+    public function get__addrsize():() -> stdgo.GoInt return @:check32 this._unit._addrsize;
     public var _dwarf64(get, never) : () -> { var _0 : Bool; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__dwarf64():() -> { var _0 : Bool; var _1 : Bool; } return @:check3 this._unit._dwarf64;
+    public function get__dwarf64():() -> { var _0 : Bool; var _1 : Bool; } return @:check32 this._unit._dwarf64;
     public var _version(get, never) : () -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get__version():() -> stdgo.GoInt return @:check3 this._unit._version;
+    public function get__version():() -> stdgo.GoInt return @:check32 this._unit._version;
     public function __copy__() {
         return new T_typeUnit(_unit, _toff, _name, _cache);
     }

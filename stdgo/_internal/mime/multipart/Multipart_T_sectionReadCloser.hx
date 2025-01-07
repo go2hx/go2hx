@@ -12,19 +12,19 @@ package stdgo._internal.mime.multipart;
     public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 this.sectionReader.read;
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.sectionReader.read;
     public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check3 this.sectionReader.readAt;
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.sectionReader.readAt;
     public var seek(get, never) : (stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_seek():(stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check3 this.sectionReader.seek;
+    public function get_seek():(stdgo.GoInt64, stdgo.GoInt) -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return @:check32 this.sectionReader.seek;
     public var size(get, never) : () -> stdgo.GoInt64;
     @:embedded
     @:embeddededffieldsffun
-    public function get_size():() -> stdgo.GoInt64 return @:check3 this.sectionReader.size;
+    public function get_size():() -> stdgo.GoInt64 return @:check32 this.sectionReader.size;
     public function __copy__() {
         return new T_sectionReadCloser(sectionReader, closer);
     }

@@ -15,7 +15,7 @@ package stdgo._internal.crypto.rsa;
     public var size(get, never) : () -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get_size():() -> stdgo.GoInt return @:check3 this.publicKey.size;
+    public function get_size():() -> stdgo.GoInt return @:check32 this.publicKey.size;
     public function __copy__() {
         return new PrivateKey(publicKey, d, primes, precomputed);
     }

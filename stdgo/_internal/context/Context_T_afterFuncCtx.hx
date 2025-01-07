@@ -13,27 +13,27 @@ package stdgo._internal.context;
     public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check3 (this._cancelCtx ?? throw "null pointer derefrence").deadline;
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check31 (this._cancelCtx ?? throw "null pointer derefrence").deadline;
     public var done(get, never) : () -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_done():() -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return @:check3 this._cancelCtx.done;
+    public function get_done():() -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError> return @:check32 this._cancelCtx.done;
     public var err(get, never) : () -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_err():() -> stdgo.Error return @:check3 this._cancelCtx.err;
+    public function get_err():() -> stdgo.Error return @:check32 this._cancelCtx.err;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_string():() -> stdgo.GoString return @:check3 this._cancelCtx.string;
+    public function get_string():() -> stdgo.GoString return @:check32 this._cancelCtx.string;
     public var value(get, never) : stdgo.AnyInterface -> stdgo.AnyInterface;
     @:embedded
     @:embeddededffieldsffun
-    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check3 this._cancelCtx.value;
+    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check32 this._cancelCtx.value;
     public var _propagateCancel(get, never) : (stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_T_canceler.T_canceler) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__propagateCancel():(stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_T_canceler.T_canceler) -> Void return @:check3 this._cancelCtx._propagateCancel;
+    public function get__propagateCancel():(stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_T_canceler.T_canceler) -> Void return @:check32 this._cancelCtx._propagateCancel;
     public function __copy__() {
         return new T_afterFuncCtx(_cancelCtx, _once, _f);
     }

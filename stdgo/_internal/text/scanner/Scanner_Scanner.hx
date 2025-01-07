@@ -45,11 +45,11 @@ package stdgo._internal.text.scanner;
     public var isValid(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_isValid():() -> Bool return @:check3 this.position.isValid;
+    public function get_isValid():() -> Bool return @:check32 this.position.isValid;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_string():() -> stdgo.GoString return @:check3 (this.position ?? throw "null pointer derefrence").string;
+    public function get_string():() -> stdgo.GoString return @:check31 (this.position ?? throw "null pointer derefrence").string;
     public function __copy__() {
         return new Scanner(
 _src,

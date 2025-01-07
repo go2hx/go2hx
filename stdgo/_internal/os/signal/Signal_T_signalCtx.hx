@@ -15,19 +15,19 @@ package stdgo._internal.os.signal;
     public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check3 (this.context ?? throw "null pointer derefrence").deadline;
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check31 (this.context ?? throw "null pointer derefrence").deadline;
     public var done(get, never) : () -> stdgo.Chan<{ }>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_done():() -> stdgo.Chan<{ }> return @:check3 (this.context ?? throw "null pointer derefrence").done;
+    public function get_done():() -> stdgo.Chan<{ }> return @:check31 (this.context ?? throw "null pointer derefrence").done;
     public var err(get, never) : () -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_err():() -> stdgo.Error return @:check3 (this.context ?? throw "null pointer derefrence").err;
+    public function get_err():() -> stdgo.Error return @:check31 (this.context ?? throw "null pointer derefrence").err;
     public var value(get, never) : stdgo.AnyInterface -> stdgo.AnyInterface;
     @:embedded
     @:embeddededffieldsffun
-    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check3 (this.context ?? throw "null pointer derefrence").value;
+    public function get_value():stdgo.AnyInterface -> stdgo.AnyInterface return @:check31 (this.context ?? throw "null pointer derefrence").value;
     public function __copy__() {
         return new T_signalCtx(context, _cancel, _signals, _ch);
     }

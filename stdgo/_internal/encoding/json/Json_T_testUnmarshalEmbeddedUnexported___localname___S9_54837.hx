@@ -10,7 +10,7 @@ package stdgo._internal.encoding.json;
     public var f(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_f():() -> Void return @:check3 (this._unexportedWithMethods ?? throw "null pointer derefrence").f;
+    public function get_f():() -> Void return @:check31 (this._unexportedWithMethods ?? throw "null pointer derefrence").f;
     public function __copy__() {
         return new T_testUnmarshalEmbeddedUnexported___localname___S9_54837(_unexportedWithMethods);
     }

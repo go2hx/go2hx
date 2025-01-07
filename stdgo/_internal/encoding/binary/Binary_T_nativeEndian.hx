@@ -9,39 +9,39 @@ package stdgo._internal.encoding.binary;
     public var appendUint16(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_appendUint16():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this._littleEndian ?? throw "null pointer derefrence").appendUint16;
+    public function get_appendUint16():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this._littleEndian ?? throw "null pointer derefrence").appendUint16;
     public var appendUint32(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_appendUint32():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this._littleEndian ?? throw "null pointer derefrence").appendUint32;
+    public function get_appendUint32():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this._littleEndian ?? throw "null pointer derefrence").appendUint32;
     public var appendUint64(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_appendUint64():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> stdgo.Slice<stdgo.GoUInt8> return @:check3 (this._littleEndian ?? throw "null pointer derefrence").appendUint64;
+    public function get_appendUint64():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this._littleEndian ?? throw "null pointer derefrence").appendUint64;
     public var putUint16(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_putUint16():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> Void return @:check3 (this._littleEndian ?? throw "null pointer derefrence").putUint16;
+    public function get_putUint16():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt16) -> Void return @:check31 (this._littleEndian ?? throw "null pointer derefrence").putUint16;
     public var putUint32(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_putUint32():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> Void return @:check3 (this._littleEndian ?? throw "null pointer derefrence").putUint32;
+    public function get_putUint32():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt32) -> Void return @:check31 (this._littleEndian ?? throw "null pointer derefrence").putUint32;
     public var putUint64(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_putUint64():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> Void return @:check3 (this._littleEndian ?? throw "null pointer derefrence").putUint64;
+    public function get_putUint64():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt64) -> Void return @:check31 (this._littleEndian ?? throw "null pointer derefrence").putUint64;
     public var uint16(get, never) : stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt16;
     @:embedded
     @:embeddededffieldsffun
-    public function get_uint16():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt16 return @:check3 (this._littleEndian ?? throw "null pointer derefrence").uint16;
+    public function get_uint16():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt16 return @:check31 (this._littleEndian ?? throw "null pointer derefrence").uint16;
     public var uint32(get, never) : stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt32;
     @:embedded
     @:embeddededffieldsffun
-    public function get_uint32():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt32 return @:check3 (this._littleEndian ?? throw "null pointer derefrence").uint32;
+    public function get_uint32():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt32 return @:check31 (this._littleEndian ?? throw "null pointer derefrence").uint32;
     public var uint64(get, never) : stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt64;
     @:embedded
     @:embeddededffieldsffun
-    public function get_uint64():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt64 return @:check3 (this._littleEndian ?? throw "null pointer derefrence").uint64;
+    public function get_uint64():stdgo.Slice<stdgo.GoUInt8> -> stdgo.GoUInt64 return @:check31 (this._littleEndian ?? throw "null pointer derefrence").uint64;
     public function __copy__() {
         return new T_nativeEndian(_littleEndian);
     }

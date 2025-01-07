@@ -5,7 +5,7 @@ package stdgo._internal.runtime;
     public var _rootFor(get, never) : stdgo.Pointer<stdgo.GoUInt32> -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_semaRoot.T_semaRoot>;
     @:embedded
     @:embeddededffieldsffun
-    public function get__rootFor():stdgo.Pointer<stdgo.GoUInt32> -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_semaRoot.T_semaRoot> return @:check3 this.new._rootFor;
+    public function get__rootFor():stdgo.Pointer<stdgo.GoUInt32> -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_semaRoot.T_semaRoot> return @:check32 this.new._rootFor;
     public function __copy__() {
         return new SemTable();
     }

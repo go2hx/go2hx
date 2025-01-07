@@ -21,99 +21,99 @@ package stdgo._internal.testing;
     public var cleanup(get, never) : (() -> Void) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_cleanup():(() -> Void) -> Void return @:check3 this._common.cleanup;
+    public function get_cleanup():(() -> Void) -> Void return @:check32 this._common.cleanup;
     public var error(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_error():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 this._common.error;
+    public function get_error():haxe.Rest<stdgo.AnyInterface> -> Void return @:check32 this._common.error;
     public var errorf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_errorf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 this._common.errorf;
+    public function get_errorf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check32 this._common.errorf;
     public var failNow(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_failNow():() -> Void return @:check3 this._common.failNow;
+    public function get_failNow():() -> Void return @:check32 this._common.failNow;
     public var failed(get, never) : () -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get_failed():() -> Bool return @:check3 this._common.failed;
+    public function get_failed():() -> Bool return @:check32 this._common.failed;
     public var fatal(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_fatal():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 this._common.fatal;
+    public function get_fatal():haxe.Rest<stdgo.AnyInterface> -> Void return @:check32 this._common.fatal;
     public var fatalf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_fatalf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 this._common.fatalf;
+    public function get_fatalf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check32 this._common.fatalf;
     public var log(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_log():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 this._common.log;
+    public function get_log():haxe.Rest<stdgo.AnyInterface> -> Void return @:check32 this._common.log;
     public var logf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_logf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 this._common.logf;
+    public function get_logf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check32 this._common.logf;
     public var name(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_name():() -> stdgo.GoString return @:check3 this._common.name;
+    public function get_name():() -> stdgo.GoString return @:check32 this._common.name;
     public var setenv(get, never) : (stdgo.GoString, stdgo.GoString) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setenv():(stdgo.GoString, stdgo.GoString) -> Void return @:check3 this._common.setenv;
+    public function get_setenv():(stdgo.GoString, stdgo.GoString) -> Void return @:check32 this._common.setenv;
     public var skip(get, never) : haxe.Rest<stdgo.AnyInterface> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_skip():haxe.Rest<stdgo.AnyInterface> -> Void return @:check3 this._common.skip;
+    public function get_skip():haxe.Rest<stdgo.AnyInterface> -> Void return @:check32 this._common.skip;
     public var skipNow(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_skipNow():() -> Void return @:check3 this._common.skipNow;
+    public function get_skipNow():() -> Void return @:check32 this._common.skipNow;
     public var skipf(get, never) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_skipf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 this._common.skipf;
+    public function get_skipf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check32 this._common.skipf;
     public var tempDir(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_tempDir():() -> stdgo.GoString return @:check3 this._common.tempDir;
+    public function get_tempDir():() -> stdgo.GoString return @:check32 this._common.tempDir;
     public var _checkFuzzFn(get, never) : stdgo.GoString -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__checkFuzzFn():stdgo.GoString -> Void return @:check3 this._common._checkFuzzFn;
+    public function get__checkFuzzFn():stdgo.GoString -> Void return @:check32 this._common._checkFuzzFn;
     public var _decorate(get, never) : (stdgo.GoString, stdgo.GoInt) -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get__decorate():(stdgo.GoString, stdgo.GoInt) -> stdgo.GoString return @:check3 this._common._decorate;
+    public function get__decorate():(stdgo.GoString, stdgo.GoInt) -> stdgo.GoString return @:check32 this._common._decorate;
     public var _flushToParent(get, never) : (stdgo.GoString, stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__flushToParent():(stdgo.GoString, stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check3 this._common._flushToParent;
+    public function get__flushToParent():(stdgo.GoString, stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void return @:check32 this._common._flushToParent;
     public var _frameSkip(get, never) : stdgo.GoInt -> stdgo._internal.runtime.Runtime_Frame.Frame;
     @:embedded
     @:embeddededffieldsffun
-    public function get__frameSkip():stdgo.GoInt -> stdgo._internal.runtime.Runtime_Frame.Frame return @:check3 this._common._frameSkip;
+    public function get__frameSkip():stdgo.GoInt -> stdgo._internal.runtime.Runtime_Frame.Frame return @:check32 this._common._frameSkip;
     public var _log(get, never) : stdgo.GoString -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__log():stdgo.GoString -> Void return @:check3 this._common._log;
+    public function get__log():stdgo.GoString -> Void return @:check32 this._common._log;
     public var _logDepth(get, never) : (stdgo.GoString, stdgo.GoInt) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__logDepth():(stdgo.GoString, stdgo.GoInt) -> Void return @:check3 this._common._logDepth;
+    public function get__logDepth():(stdgo.GoString, stdgo.GoInt) -> Void return @:check32 this._common._logDepth;
     public var _private(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__private():() -> Void return @:check3 this._common._private;
+    public function get__private():() -> Void return @:check32 this._common._private;
     public var _runCleanup(get, never) : stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling -> stdgo.AnyInterface;
     @:embedded
     @:embeddededffieldsffun
-    public function get__runCleanup():stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling -> stdgo.AnyInterface return @:check3 this._common._runCleanup;
+    public function get__runCleanup():stdgo._internal.testing.Testing_T_panicHandling.T_panicHandling -> stdgo.AnyInterface return @:check32 this._common._runCleanup;
     public var _setRan(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__setRan():() -> Void return @:check3 this._common._setRan;
+    public function get__setRan():() -> Void return @:check32 this._common._setRan;
     public function __copy__() {
         return new F(_common, _fuzzContext, _testContext, _inFuzzFn, _corpus, _result, _fuzzCalled);
     }

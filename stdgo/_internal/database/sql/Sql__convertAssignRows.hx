@@ -104,8 +104,9 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                     if (stdgo.Go.typeEquals((__type__ : stdgo._internal.database.sql.Sql_T_decimalCompose.T_decimalCompose))) {
                         var _d:stdgo._internal.database.sql.Sql_T_decimalCompose.T_decimalCompose = __type__ == null ? (null : stdgo._internal.database.sql.Sql_T_decimalCompose.T_decimalCompose) : __type__.__underlying__() == null ? (null : stdgo._internal.database.sql.Sql_T_decimalCompose.T_decimalCompose) : __type__ == null ? (null : stdgo._internal.database.sql.Sql_T_decimalCompose.T_decimalCompose) : __type__.__underlying__().value;
                         return ({
+                            var __f__ = _d.compose;
                             var __tmp__ = _s.decompose((null : stdgo.Slice<stdgo.GoUInt8>));
-                            _d.compose((__tmp__._0 : stdgo.GoUInt8), (__tmp__._1 : Bool), (__tmp__._2 : stdgo.Slice<stdgo.GoUInt8>), (__tmp__._3 : stdgo.GoInt32));
+                            __f__((__tmp__._0 : stdgo.GoUInt8), (__tmp__._1 : Bool), (__tmp__._2 : stdgo.Slice<stdgo.GoUInt8>), (__tmp__._3 : stdgo.GoInt32));
                         });
                     };
                 };

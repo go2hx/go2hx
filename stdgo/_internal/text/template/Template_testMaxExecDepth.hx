@@ -4,8 +4,9 @@ function testMaxExecDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             @:check2r _t.skip(stdgo.Go.toInterface(("skipping in -short mode" : stdgo.GoString)));
         };
         var _tmpl = ({
+            var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(("{{template \"tmpl\" .}}" : stdgo.GoString));
-            stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
+            __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         var _err = (@:check2r _tmpl.execute(stdgo._internal.io.Io_discard.discard, (null : stdgo.AnyInterface)) : stdgo.Error);
         var _got = ("<nil>" : stdgo.GoString);

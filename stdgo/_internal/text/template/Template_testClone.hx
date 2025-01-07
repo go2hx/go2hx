@@ -12,8 +12,9 @@ function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _clone = ({
+            var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r _root.clone();
-            stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
+            __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         {
             var __tmp__ = @:check2r _root.parse(("{{define \"c\"}}root{{end}}" : stdgo.GoString));

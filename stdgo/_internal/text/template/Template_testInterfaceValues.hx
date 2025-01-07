@@ -33,8 +33,9 @@ function testInterfaceValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
 ({ _text : ("{{lt (index .Slice 1) .Zero}}" : stdgo.GoString), _out : ("false" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_5.T__struct_5)].concat([for (i in 30 ... (30 > 30 ? 30 : 30 : stdgo.GoInt).toBasic()) ({ _text : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_5.T__struct_5)])) : stdgo.Slice<stdgo._internal.text.template.Template_T__struct_5.T__struct_5>);
         for (__8 => _tt in _tests) {
             var _tmpl = ({
+                var __f__ = stdgo._internal.text.template.Template_must.must;
                 var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("tmpl" : stdgo.GoString)).parse(_tt._text?.__copy__());
-                stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
+                __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
             });
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             var _err = (@:check2r _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(({

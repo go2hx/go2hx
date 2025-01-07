@@ -2,8 +2,9 @@ package stdgo._internal.text.template;
 function testIssue43065(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _tmp = ({
+            var __f__ = stdgo._internal.text.template.Template_must.must;
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{range .}}{{end}}" : stdgo.GoString));
-            stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
+            __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         var _ch = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
         var _err = (@:check2r _tmp.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.toInterface(_ch)) : stdgo.Error);

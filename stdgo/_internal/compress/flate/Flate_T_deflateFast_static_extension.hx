@@ -81,23 +81,23 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _encode( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>, _dst:stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token> {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast> = _e;
-        var _x_3673114:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _candidate_3670995:stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
-        var _s_3670045:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextEmit_3670023:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _currHash_3673264:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _prevHash_3673139:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _bytesBetweenHashLookups_3671040:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _cv_3670060:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _offset_3671374:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextS_3670978:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextHash_3670082:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _sLimit_3669912:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _l_3672474:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _t_3672437:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _offset_3673418:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _now_3671248:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _skip_3670957:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextHash_3670082:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _s_3670045:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _offset_3673418:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _currHash_3673264:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_3673114:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _t_3672437:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _cv_3670060:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _sLimit_3669912:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _prevHash_3673139:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _offset_3671374:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _bytesBetweenHashLookups_3671040:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _candidate_3670995:stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
+        var _nextS_3670978:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextEmit_3670023:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

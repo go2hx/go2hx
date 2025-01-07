@@ -10625,152 +10625,152 @@ class T_socksReply_static_extension {
 /**
     /|*{
     	if bitSize == 0 {
-    		gotoNext = 7595877
-    		_ = gotoNext == 7595877
+    		gotoNext = 7748605
+    		_ = gotoNext == 7748605
     		bitSize = int(32)
-    		gotoNext = 7595917
+    		gotoNext = 7748645
     	} else {
-    		gotoNext = 7595917
+    		gotoNext = 7748645
     	}
-    	_ = gotoNext == 7595917
-    	s0_7595917 = s
-    	gotoNext = 7595926
-    	_ = gotoNext == 7595926
+    	_ = gotoNext == 7748645
+    	s0_7748645 = s
+    	gotoNext = 7748654
+    	_ = gotoNext == 7748654
     	switch {
     	case len(s) < 1:
-    		gotoNext = 7595936
-    		_ = gotoNext == 7595936
+    		gotoNext = 7748664
+    		_ = gotoNext == 7748664
     		err = strconv.ErrSyntax
-    		gotoNext = 7597126
-    		gotoNext = 7596422
+    		gotoNext = 7749854
+    		gotoNext = 7749150
     	case 2 <= base && base <= 36:
-    		gotoNext = 7595994
-    		_ = gotoNext == 7595994
-    		gotoNext = 7596422
+    		gotoNext = 7748722
+    		_ = gotoNext == 7748722
+    		gotoNext = 7749150
     	case base == 0:
-    		gotoNext = 7596057
-    		_ = gotoNext == 7596057
-    		gotoNext = 7596108
-    		_ = gotoNext == 7596108
+    		gotoNext = 7748785
+    		_ = gotoNext == 7748785
+    		gotoNext = 7748836
+    		_ = gotoNext == 7748836
     		switch {
     		case s[0] == 48 && len(s) > 1 && (s[1] == 120 || s[1] == 88):
-    			gotoNext = 7596119
-    			_ = gotoNext == 7596119
+    			gotoNext = 7748847
+    			_ = gotoNext == 7748847
     			base = 16
     			s = s[2:]
     			if len(s) < 1 {
-    				gotoNext = 7596226
-    				_ = gotoNext == 7596226
+    				gotoNext = 7748954
+    				_ = gotoNext == 7748954
     				err = strconv.ErrSyntax
-    				gotoNext = 7597126
-    				gotoNext = 7596422
+    				gotoNext = 7749854
+    				gotoNext = 7749150
     			} else {
-    				gotoNext = 7596422
+    				gotoNext = 7749150
     			}
-    			gotoNext = 7596422
+    			gotoNext = 7749150
     		case s[0] == 48:
-    			gotoNext = 7596278
-    			_ = gotoNext == 7596278
+    			gotoNext = 7749006
+    			_ = gotoNext == 7749006
     			base = 8
-    			gotoNext = 7596422
+    			gotoNext = 7749150
     		default:
-    			gotoNext = 7596310
-    			_ = gotoNext == 7596310
+    			gotoNext = 7749038
+    			_ = gotoNext == 7749038
     			base = 10
-    			gotoNext = 7596422
+    			gotoNext = 7749150
     		}
-    		gotoNext = 7596422
+    		gotoNext = 7749150
     	default:
-    		gotoNext = 7596338
-    		_ = gotoNext == 7596338
+    		gotoNext = 7749066
+    		_ = gotoNext == 7749066
     		err = errors.New("invalid base " + strconv.Itoa(base))
-    		gotoNext = 7597126
-    		gotoNext = 7596422
+    		gotoNext = 7749854
+    		gotoNext = 7749150
     	}
-    	_ = gotoNext == 7596422
+    	_ = gotoNext == 7749150
     	n = 0
-    	cutoff_7595837 = http2cutoff64(base)
-    	maxVal_7595845 = 1<<uint(bitSize) - 1
-    	i_7596495 = 0
-    	gotoNext = 7596491
-    	_ = gotoNext == 7596491
-    	if i_7596495 < len(s) {
-    		gotoNext = 7596519
-    		_ = gotoNext == 7596519
-    		d_7596536 = s[i_7596495]
-    		gotoNext = 7596548
-    		_ = gotoNext == 7596548
+    	cutoff_7748565 = http2cutoff64(base)
+    	maxVal_7748573 = 1<<uint(bitSize) - 1
+    	i_7749223 = 0
+    	gotoNext = 7749219
+    	_ = gotoNext == 7749219
+    	if i_7749223 < len(s) {
+    		gotoNext = 7749247
+    		_ = gotoNext == 7749247
+    		d_7749264 = s[i_7749223]
+    		gotoNext = 7749276
+    		_ = gotoNext == 7749276
     		switch {
-    		case 48 <= d_7596536 && d_7596536 <= 57:
-    			gotoNext = 7596559
-    			_ = gotoNext == 7596559
-    			v_7596527 = d_7596536 - 48
-    			gotoNext = 7596766
-    		case 97 <= d_7596536 && d_7596536 <= 122:
-    			gotoNext = 7596603
-    			_ = gotoNext == 7596603
-    			v_7596527 = d_7596536 - 97 + 10
-    			gotoNext = 7596766
-    		case 65 <= d_7596536 && d_7596536 <= 90:
-    			gotoNext = 7596652
-    			_ = gotoNext == 7596652
-    			v_7596527 = d_7596536 - 65 + 10
-    			gotoNext = 7596766
+    		case 48 <= d_7749264 && d_7749264 <= 57:
+    			gotoNext = 7749287
+    			_ = gotoNext == 7749287
+    			v_7749255 = d_7749264 - 48
+    			gotoNext = 7749494
+    		case 97 <= d_7749264 && d_7749264 <= 122:
+    			gotoNext = 7749331
+    			_ = gotoNext == 7749331
+    			v_7749255 = d_7749264 - 97 + 10
+    			gotoNext = 7749494
+    		case 65 <= d_7749264 && d_7749264 <= 90:
+    			gotoNext = 7749380
+    			_ = gotoNext == 7749380
+    			v_7749255 = d_7749264 - 65 + 10
+    			gotoNext = 7749494
     		default:
-    			gotoNext = 7596701
-    			_ = gotoNext == 7596701
+    			gotoNext = 7749429
+    			_ = gotoNext == 7749429
     			n = 0
     			err = strconv.ErrSyntax
-    			gotoNext = 7597126
-    			gotoNext = 7596766
+    			gotoNext = 7749854
+    			gotoNext = 7749494
     		}
-    		_ = gotoNext == 7596766
-    		if int(v_7596527) >= base {
-    			gotoNext = 7596784
-    			_ = gotoNext == 7596784
+    		_ = gotoNext == 7749494
+    		if int(v_7749255) >= base {
+    			gotoNext = 7749512
+    			_ = gotoNext == 7749512
     			n = 0
     			err = strconv.ErrSyntax
-    			gotoNext = 7597126
-    			gotoNext = 7596843
+    			gotoNext = 7749854
+    			gotoNext = 7749571
     		} else {
-    			gotoNext = 7596843
+    			gotoNext = 7749571
     		}
-    		_ = gotoNext == 7596843
-    		if n >= cutoff_7595837 {
-    			gotoNext = 7596858
-    			_ = gotoNext == 7596858
+    		_ = gotoNext == 7749571
+    		if n >= cutoff_7748565 {
+    			gotoNext = 7749586
+    			_ = gotoNext == 7749586
     			n = 18446744073709551615
     			err = strconv.ErrRange
-    			gotoNext = 7597126
-    			gotoNext = 7596946
+    			gotoNext = 7749854
+    			gotoNext = 7749674
     		} else {
-    			gotoNext = 7596946
+    			gotoNext = 7749674
     		}
-    		_ = gotoNext == 7596946
+    		_ = gotoNext == 7749674
     		n *= uint64(base)
-    		n1_7596967 = n + uint64(v_7596527)
-    		if n1_7596967 < n || n1_7596967 > maxVal_7595845 {
-    			gotoNext = 7597014
-    			_ = gotoNext == 7597014
+    		n1_7749695 = n + uint64(v_7749255)
+    		if n1_7749695 < n || n1_7749695 > maxVal_7748573 {
+    			gotoNext = 7749742
+    			_ = gotoNext == 7749742
     			n = 18446744073709551615
     			err = strconv.ErrRange
-    			gotoNext = 7597126
-    			gotoNext = 7597099
+    			gotoNext = 7749854
+    			gotoNext = 7749827
     		} else {
-    			gotoNext = 7597099
+    			gotoNext = 7749827
     		}
-    		_ = gotoNext == 7597099
-    		n = n1_7596967
-    		i_7596495++
-    		gotoNext = 7596491
+    		_ = gotoNext == 7749827
+    		n = n1_7749695
+    		i_7749223++
+    		gotoNext = 7749219
     	} else {
-    		gotoNext = 7597111
+    		gotoNext = 7749839
     	}
-    	_ = gotoNext == 7597111
+    	_ = gotoNext == 7749839
     	return n, nil
-    	gotoNext = 7597126
-    	_ = gotoNext == 7597126
-    	return n, &strconv.NumError{Func: "ParseUint", Num: string(s0_7595917), Err: err}
+    	gotoNext = 7749854
+    	_ = gotoNext == 7749854
+    	return n, &strconv.NumError{Func: "ParseUint", Num: string(s0_7748645), Err: err}
     	gotoNext = -1
     }*|/
 **/

@@ -224,9 +224,11 @@ function directlyAssignable(t:Type, v:Type):Bool {
 			/*var bType = new stdgo._internal.internal.reflect.Reflect._Type(vgt);
 			final b = new stdgo._internal.internal.reflect.Reflect._Type(tgt).implements_(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), bType));
 			b;*/
-		case signature(_, _.get() => input, _.get() => output, _):
+		case signature(variadic, _.get() => input, _.get() => output, _):
 			switch vgt {
-				case signature(_, _.get() => input2, _.get() => output2, _):
+				case signature(variadic2, _.get() => input2, _.get() => output2, _):
+					if (variadic != variadic2)
+						return false;
 					if (input.length != input2.length)
 						return false;
 					if (output.length != output2.length)
@@ -377,12 +379,18 @@ function implementsMethod(t:Type, v:Type):Bool {
 	var interfacePath = "";
 	var gt:GoType = (t : Dynamic)._common();
 	var vgt:GoType = (v : Dynamic)._common();
-	if (isPointer(gt) || isRef(gt))
+	var gtIsPointer = false;
+	var vgtIsPointer = false;
+	if (isPointer(gt) || isRef(gt)) {
+		gtIsPointer = true;
 		gt = getElem(gt);
-	if (isPointer(vgt) || isRef(vgt))
+	}
+	if (isPointer(vgt) || isRef(vgt)) {
+		vgtIsPointer = true;
 		vgt = getElem(vgt);
+	}
 	//trace("n0:", gt);
-	//trace("n1:", vgt);
+	// trace("n1:", vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, interfaceType(_, _), _):
 			if (methods == null || methods.length == 0)
@@ -395,8 +403,12 @@ function implementsMethod(t:Type, v:Type):Bool {
 					var found = false;
 					for (i in 0...methods.length) {
 						found = false;
+						if (isPointer(methods[i].recv.get()) != gtIsPointer)
+							continue;
 						for (j in 0...methods2.length) {
 							if (methods[i].name != methods2[j].name)
+								continue;
+							if (isPointer(methods2[i].recv.get()) != vgtIsPointer)
 								continue;
 							if (!new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
 								new _Type(methods2[j].type.get())))) {
@@ -1079,10 +1091,10 @@ class _Type {
 		//trace("-SPLIT-");
 		final b = t.implements_(_u);
 		final c = a || b;
-		/*trace("----");
-		trace(t.string());
-		trace(a);
-		trace(b);*/
+		// trace("----");
+		// trace(t.string());
+		// trace(a);
+		// trace(b);
 		return c;
 	}
 

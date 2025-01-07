@@ -1056,7 +1056,9 @@ class Go {
 											}
 											// final embedded = field.meta.has(":embedded") ? macro true : macro false;
 											final t = gtDecode(field.type, null, marked);
-											methods.push(macro {name: $v{field.name}, type: {get: () -> $t}, recv: {get: () -> null}});
+											if (field.meta.has(":pointer"))
+												ret = macro stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> $ret});
+											methods.push(macro {name: $v{field.name}, type: {get: () -> $t}, recv: {get: () -> $ret}});
 										}
 										final empty = methods.length == 0;
 										Go.nameTypes[path] = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods},
@@ -1118,10 +1120,15 @@ class Go {
 																}
 															default:
 														}
+														if (field.meta.has(":pointer"))
+															ret = macro stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> $ret});
 														final t = gtDecode(field.type, expr, marked.copy(), ret);
-														// trace(new haxe.macro.Printer().printExpr(t));
+														//trace(new haxe.macro.Printer().printExpr(t));
 														final method = macro new stdgo._internal.internal.reflect.Reflect.MethodType($v{field.name}, {get: () -> $t},
-															{get: () -> null});
+														// recv
+															{get: () -> $ret});
+														//trace(field.meta.has(":pointer"));
+														//trace(field.type);
 														methods.push(method);
 													default:
 												}

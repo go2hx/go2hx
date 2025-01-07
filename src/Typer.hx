@@ -7702,23 +7702,40 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}
 						final methodName = formatHaxeFieldName(method.name,info);
 						var expr = if (fieldPointerBool) {
-							macro @:check4 this.$name.value.$fieldName;
+							//trace(methodRecv);
+							//macro @:check41 this.$name.value.$fieldName;
+							switch methodRecv {
+								case pointerType(_.get() => elem):
+									if (isNamed(elem)) {
+										final ct = toComplexType(elem, info);
+										addPointerSuffix(ct);
+										macro @:check420 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
+									}else{
+										macro @:check50 (this.$name ?? throw "null pointer derefrence").$fieldName;
+									}
+								default:
+									if (!isRef(getUnderlying(methodRecv))) {
+										macro @:check310 (this.$name ?? throw "null pointer derefrence").value.$fieldName;
+									}else{
+										macro @:check320 this.$name.value.$fieldName;
+									}
+							}
 						}else{
 							switch methodRecv {
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct);
-										macro @:check4 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
+										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
 									}else{
 										macro @:check5 (this.$name ?? throw "null pointer derefrence").$fieldName;
 									}
 								default:
 									//trace(getUnderlying(methodRecv));
 									if (!isRef(getUnderlying(methodRecv))) {
-										macro @:check3 (this.$name ?? throw "null pointer derefrence").$fieldName;
+										macro @:check31 (this.$name ?? throw "null pointer derefrence").$fieldName;
 									}else{
-										macro @:check3 this.$name.$fieldName;
+										macro @:check32 this.$name.$fieldName;
 									}
 							}
 						}

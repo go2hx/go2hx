@@ -11,11 +11,11 @@ package stdgo._internal.crypto.tls;
     public var addr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
     @:embeddededffieldsffun
-    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.listener ?? throw "null pointer derefrence").addr;
+    public function get_addr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.listener ?? throw "null pointer dereference").addr;
     public var close(get, never) : () -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_close():() -> stdgo.Error return @:check31 (this.listener ?? throw "null pointer derefrence").close;
+    public function get_close():() -> stdgo.Error return @:check31 (this.listener ?? throw "null pointer dereference").close;
     public function __copy__() {
         return new T_listener(listener, _config);
     }

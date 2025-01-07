@@ -9,7 +9,7 @@ package stdgo._internal.text.template.parse;
     public var position(get, never) : () -> stdgo._internal.text.template.parse.Parse_Pos.Pos;
     @:embedded
     @:embeddededffieldsffun
-    public function get_position():() -> stdgo._internal.text.template.parse.Parse_Pos.Pos return @:check31 (this.branchNode ?? throw "null pointer derefrence").position;
+    public function get_position():() -> stdgo._internal.text.template.parse.Parse_Pos.Pos return @:check31 (this.branchNode ?? throw "null pointer dereference").position;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
@@ -17,7 +17,7 @@ package stdgo._internal.text.template.parse;
     public var type(get, never) : () -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType;
     @:embedded
     @:embeddededffieldsffun
-    public function get_type():() -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:check31 (this.branchNode ?? throw "null pointer derefrence").type;
+    public function get_type():() -> stdgo._internal.text.template.parse.Parse_NodeType.NodeType return @:check31 (this.branchNode ?? throw "null pointer dereference").type;
     public var _tree(get, never) : () -> stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>;
     @:embedded
     @:embeddededffieldsffun

@@ -9,7 +9,7 @@ package stdgo._internal.io;
     public var read(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.reader ?? throw "null pointer derefrence").read;
+    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.reader ?? throw "null pointer dereference").read;
     public function __copy__() {
         return new T_nopCloserWriterTo(reader);
     }

@@ -11,23 +11,23 @@ package stdgo._internal.net.http;
     public var localAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
     @:embeddededffieldsffun
-    public function get_localAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.conn ?? throw "null pointer derefrence").localAddr;
+    public function get_localAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.conn ?? throw "null pointer dereference").localAddr;
     public var remoteAddr(get, never) : () -> stdgo._internal.net.Net_Addr.Addr;
     @:embedded
     @:embeddededffieldsffun
-    public function get_remoteAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.conn ?? throw "null pointer derefrence").remoteAddr;
+    public function get_remoteAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check31 (this.conn ?? throw "null pointer dereference").remoteAddr;
     public var setDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer derefrence").setDeadline;
+    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer dereference").setDeadline;
     public var setReadDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer derefrence").setReadDeadline;
+    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer dereference").setReadDeadline;
     public var setWriteDeadline(get, never) : stdgo._internal.time.Time_Time.Time -> stdgo.Error;
     @:embedded
     @:embeddededffieldsffun
-    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer derefrence").setWriteDeadline;
+    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check31 (this.conn ?? throw "null pointer dereference").setWriteDeadline;
     public function __copy__() {
         return new T_loggingConn(_name, conn);
     }

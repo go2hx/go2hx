@@ -13,7 +13,7 @@ package stdgo._internal.context;
     public var deadline(get, never) : () -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check31 (this._cancelCtx ?? throw "null pointer derefrence").deadline;
+    public function get_deadline():() -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return @:check31 (this._cancelCtx ?? throw "null pointer dereference").deadline;
     public var done(get, never) : () -> stdgo.Chan<stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>;
     @:embedded
     @:embeddededffieldsffun

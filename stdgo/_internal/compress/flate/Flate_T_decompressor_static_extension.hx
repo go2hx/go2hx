@@ -171,16 +171,16 @@ var _b = __1, _nb = __0;
     @:tdfield
     static public function _huffmanBlock( _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> = _f;
-        var _extra_3707060:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _cnt_3707630:stdgo.GoInt = (0 : stdgo.GoInt);
         var _dist_3706615:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3705617:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _v_3705538:stdgo.GoInt = (0 : stdgo.GoInt);
         var _stateInit_3705282;
-        var _cnt_3707630:stdgo.GoInt = (0 : stdgo.GoInt);
         var _nb_3706983:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _length_3705654:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3705617:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _err_3705541:stdgo.Error = (null : stdgo.Error);
         var _stateDict_3705333;
+        var _extra_3707060:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

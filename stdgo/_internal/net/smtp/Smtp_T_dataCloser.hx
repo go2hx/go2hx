@@ -11,7 +11,7 @@ package stdgo._internal.net.smtp;
     public var write(get, never) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.writeCloser ?? throw "null pointer derefrence").write;
+    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.writeCloser ?? throw "null pointer dereference").write;
     public function __copy__() {
         return new T_dataCloser(_c, writeCloser);
     }

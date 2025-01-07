@@ -5,19 +5,19 @@ package stdgo._internal.runtime;
     public var _contains(get, never) : stdgo.GoUIntptr -> Bool;
     @:embedded
     @:embeddededffieldsffun
-    public function get__contains():stdgo.GoUIntptr -> Bool return @:check31 (this.new ?? throw "null pointer derefrence")._contains;
+    public function get__contains():stdgo.GoUIntptr -> Bool return @:check31 (this.new ?? throw "null pointer dereference")._contains;
     public var _removeGreaterEqual(get, never) : stdgo.GoUIntptr -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange;
     @:embedded
     @:embeddededffieldsffun
-    public function get__removeGreaterEqual():stdgo.GoUIntptr -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check31 (this.new ?? throw "null pointer derefrence")._removeGreaterEqual;
+    public function get__removeGreaterEqual():stdgo.GoUIntptr -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check31 (this.new ?? throw "null pointer dereference")._removeGreaterEqual;
     public var _size(get, never) : () -> stdgo.GoUIntptr;
     @:embedded
     @:embeddededffieldsffun
-    public function get__size():() -> stdgo.GoUIntptr return @:check31 (this.new ?? throw "null pointer derefrence")._size;
+    public function get__size():() -> stdgo.GoUIntptr return @:check31 (this.new ?? throw "null pointer dereference")._size;
     public var _subtract(get, never) : stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange;
     @:embedded
     @:embeddededffieldsffun
-    public function get__subtract():stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check31 (this.new ?? throw "null pointer derefrence")._subtract;
+    public function get__subtract():stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange -> stdgo._internal.runtime.Runtime_T_addrRange.T_addrRange return @:check31 (this.new ?? throw "null pointer dereference")._subtract;
     public var _takeFromBack(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.GoUIntptr; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun

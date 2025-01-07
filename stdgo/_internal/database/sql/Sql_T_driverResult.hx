@@ -11,11 +11,11 @@ package stdgo._internal.database.sql;
     public var lock(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_lock():() -> Void return @:check31 (this.locker ?? throw "null pointer derefrence").lock;
+    public function get_lock():() -> Void return @:check31 (this.locker ?? throw "null pointer dereference").lock;
     public var unlock(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_unlock():() -> Void return @:check31 (this.locker ?? throw "null pointer derefrence").unlock;
+    public function get_unlock():() -> Void return @:check31 (this.locker ?? throw "null pointer dereference").unlock;
     public function __copy__() {
         return new T_driverResult(locker, _resi);
     }

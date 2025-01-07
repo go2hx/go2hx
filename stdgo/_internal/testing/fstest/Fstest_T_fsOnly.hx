@@ -9,7 +9,7 @@ package stdgo._internal.testing.fstest;
     public var open(get, never) : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_open():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return @:check31 (this.fS ?? throw "null pointer derefrence").open;
+    public function get_open():stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } return @:check31 (this.fS ?? throw "null pointer dereference").open;
     public function __copy__() {
         return new T_fsOnly(fS);
     }

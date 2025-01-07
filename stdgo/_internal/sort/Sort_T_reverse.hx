@@ -9,11 +9,11 @@ package stdgo._internal.sort;
     public var len(get, never) : () -> stdgo.GoInt;
     @:embedded
     @:embeddededffieldsffun
-    public function get_len():() -> stdgo.GoInt return @:check31 (this.interface_ ?? throw "null pointer derefrence").len;
+    public function get_len():() -> stdgo.GoInt return @:check31 (this.interface_ ?? throw "null pointer dereference").len;
     public var swap(get, never) : (stdgo.GoInt, stdgo.GoInt) -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get_swap():(stdgo.GoInt, stdgo.GoInt) -> Void return @:check31 (this.interface_ ?? throw "null pointer derefrence").swap;
+    public function get_swap():(stdgo.GoInt, stdgo.GoInt) -> Void return @:check31 (this.interface_ ?? throw "null pointer dereference").swap;
     public function __copy__() {
         return new T_reverse(interface_);
     }

@@ -17,11 +17,11 @@ package stdgo._internal.debug.macho;
     public var raw(get, never) : () -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this.loadBytes ?? throw "null pointer derefrence").raw;
+    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this.loadBytes ?? throw "null pointer dereference").raw;
     public var readAt(get, never) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.readerAt ?? throw "null pointer derefrence").readAt;
+    public function get_readAt():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt64) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.readerAt ?? throw "null pointer dereference").readAt;
     public function __copy__() {
         return new Segment(loadBytes, segmentHeader, readerAt, _sr);
     }

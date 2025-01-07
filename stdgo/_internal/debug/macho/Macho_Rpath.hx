@@ -11,7 +11,7 @@ package stdgo._internal.debug.macho;
     public var raw(get, never) : () -> stdgo.Slice<stdgo.GoUInt8>;
     @:embedded
     @:embeddededffieldsffun
-    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this.loadBytes ?? throw "null pointer derefrence").raw;
+    public function get_raw():() -> stdgo.Slice<stdgo.GoUInt8> return @:check31 (this.loadBytes ?? throw "null pointer dereference").raw;
     public function __copy__() {
         return new Rpath(loadBytes, path);
     }

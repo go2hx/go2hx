@@ -11,11 +11,11 @@ package stdgo._internal.net.http;
     public var header(get, never) : () -> stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader;
     @:embedded
     @:embeddededffieldsffun
-    public function get_header():() -> stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return @:check31 (this._http2FrameHeader ?? throw "null pointer derefrence").header;
+    public function get_header():() -> stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader return @:check31 (this._http2FrameHeader ?? throw "null pointer dereference").header;
     public var string(get, never) : () -> stdgo.GoString;
     @:embedded
     @:embeddededffieldsffun
-    public function get_string():() -> stdgo.GoString return @:check31 (this._http2FrameHeader ?? throw "null pointer derefrence").string;
+    public function get_string():() -> stdgo.GoString return @:check31 (this._http2FrameHeader ?? throw "null pointer dereference").string;
     public var _checkValid(get, never) : () -> Void;
     @:embedded
     @:embeddededffieldsffun
@@ -27,7 +27,7 @@ package stdgo._internal.net.http;
     public var _writeDebug(get, never) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void;
     @:embedded
     @:embeddededffieldsffun
-    public function get__writeDebug():stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void return @:check31 (this._http2FrameHeader ?? throw "null pointer derefrence")._writeDebug;
+    public function get__writeDebug():stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> -> Void return @:check31 (this._http2FrameHeader ?? throw "null pointer dereference")._writeDebug;
     public function __copy__() {
         return new T_http2RSTStreamFrame(_http2FrameHeader, errCode);
     }

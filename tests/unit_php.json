@@ -135,5 +135,6 @@
  "php|nonptrmethodrecv",
  "php|ptrrecv",
  "php|convert",
- "php|ddd0"
+ "php|ddd0",
+ "php|ptrrecv1"
 ]

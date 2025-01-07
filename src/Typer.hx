@@ -254,7 +254,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			var values = [];
 			// trace(declGens.length);
 			for (gen in declGens) {
-				// variables after so that all types can be refrenced by a value and have it exist.
+				// variables after so that all types can be referenced by a value and have it exist.
 				info.lastValue = null;
 				info.lastType = null;
 				final constant = gen.tok == CONST;
@@ -4978,7 +4978,7 @@ private function getGlobalPath(info:Info):String {
 	}
 	final globalPathOld = globalPath;
 	globalPath = "_internal." + globalPath;
-	if (stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(toGoPath(globalPathOld)) != -1) { // haxe only type, otherwise the go code references Haxe
 		globalPath = "stdgo." + globalPath;
 	}
 	return globalPath;
@@ -5022,7 +5022,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pack = path.split("/");
 	pack.unshift("_internal");
 	final path = toGoPath(path);
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
 		pack.unshift("stdgo");
 	}
 	if (last == 0 && split == -1) {
@@ -5979,7 +5979,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	var typeY = typeof(expr.y, info, false);
 
 	switch expr.op { // operators that don't exist in haxe need to be handled here
-		case AND_NOT: // &^ refrenced from Tardisgo
+		case AND_NOT: // &^ referenced from Tardisgo
 			return typeBinaryExpr({
 				x: expr.x,
 				y: {
@@ -6211,8 +6211,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							x = macro $x.value;
 						}else{
 							final ct = toComplexType(named(path, methods, type, alias, params), info);
-							addPointerSuffix(ct);
-							x = macro @:isptr ($x : $ct);
+							//addPointerSuffix(ct);
+							x = macro @:isptr stdgo.Go.namedPointerAlias($x);
 						}
 					default:
 						//throw "needs to be named type: " + elem;
@@ -6245,9 +6245,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						//x = macro (@:check $x ?? throw "null pointer dereference");
 					}else{
 						final ct = toComplexType(named(path, methods, type, alias, params), info);
-						addPointerSuffix(ct);
+						//addPointerSuffix(ct);
 						if (!isRefValue(type)) {
-							x = macro @:notptr (stdgo.Go.pointer($x) : $ct);
+							x = macro @:notptr (stdgo.Go.pointer($x));
 						}else{
 							x = macro @:check2 $x;
 						}
@@ -6278,9 +6278,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 									x = macro (@:checkr $x ?? throw "null pointer dereference");
 							}else{
 								final ct = toComplexType(named(path, methods, type, alias, params), info);
-								addPointerSuffix(ct);
+								//addPointerSuffix(ct);
 								if (!isRefValue(type)) {
-									x = macro @:notptrr2 (stdgo.Go.pointer($x) : $ct);
+									x = macro @:notptrr2 (stdgo.Go.pointer($x));
 								}else{
 									x = macro @:check2r $x;
 								}
@@ -6365,7 +6365,7 @@ private function isClass(x:Ast.Expr, info:Info):Bool {
 private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	final xType = typeof(expr.x, info, false);
-	if (isPointer(xType)) // get pointer refrence of slice/array if pointer type
+	if (isPointer(xType)) // get pointer reference of slice/array if pointer type
 		x = macro $x.value;
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
@@ -7708,14 +7708,15 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
-										addPointerSuffix(ct);
-										macro @:check420 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
+										//addPointerSuffix(ct);
+										// remove null pointer reference suffix
+										macro @:check420 (stdgo.Go.pointer(this.$name)).$fieldName;
 									}else{
-										macro @:check50 (this.$name ?? throw "null pointer derefrence").$fieldName;
+										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
 								default:
 									if (!isRef(getUnderlying(methodRecv))) {
-										macro @:check310 (this.$name ?? throw "null pointer derefrence").value.$fieldName;
+										macro @:check310 (this.$name ?? throw "null pointer dereference").value.$fieldName;
 									}else{
 										macro @:check320 this.$name.value.$fieldName;
 									}
@@ -7724,16 +7725,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							switch methodRecv {
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
+										//trace(elem);
 										final ct = toComplexType(elem, info);
-										addPointerSuffix(ct);
-										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer derefrence").$fieldName;
+										//addPointerSuffix(ct);
+										macro @:check42 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}else{
-										macro @:check5 (this.$name ?? throw "null pointer derefrence").$fieldName;
+										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
 								default:
 									//trace(getUnderlying(methodRecv));
 									if (!isRef(getUnderlying(methodRecv))) {
-										macro @:check31 (this.$name ?? throw "null pointer derefrence").$fieldName;
+										macro @:check31 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}else{
 										macro @:check32 this.$name.$fieldName;
 									}
@@ -7813,6 +7815,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					isExtern: true,
 					meta: [
 						{name: ":keep", pos: null},
+						{name: ":follow", pos: null},
 					],
 				};
 				info.data.defs.push(aliasPointer);
@@ -8102,7 +8105,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	path = toGoPath(path);
 	final pack = path.split("/");
 	pack.unshift("_internal");
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
 		pack.unshift("stdgo");
 	}
 	final name = pack[pack.length - 1];
@@ -8329,7 +8332,7 @@ private function getRestrictedName(name:String, info:Info):String { // all funct
 			if (def.name == name) {
 				final pack = info.global.module.path.split(".");
 				pack.unshift("_internal");
-				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code refrences Haxe
+				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code references Haxe
 					pack.unshift("stdgo");
 				}
 				final name = pack[pack.length - 1];
@@ -8426,7 +8429,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		final pack  = path.split("/");
 		pack.unshift("_internal");
 		final path = toGoPath(path);
-		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code references Haxe
 			pack.unshift("stdgo");
 		}
 		final filePath = pack.pop();

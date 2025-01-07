@@ -58,6 +58,8 @@ class Go {
 
 	public static macro function typeEquals(expr:Expr):Expr;
 
+	public static macro function namedPointerAlias(expr:Expr):Expr;
+
 	public static macro function pointer(expr:Expr, hasSet:Bool = false):Expr;
 
 	public static macro function asInterface(expr:Expr):Expr;

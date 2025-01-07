@@ -330,5 +330,6 @@
  "interp|noeq",
  "interp|issue23734",
  "interp|issue19710",
- "interp|method_wrapper"
+ "interp|method_wrapper",
+ "interp|receiver"
 ]

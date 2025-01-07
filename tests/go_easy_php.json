@@ -337,5 +337,6 @@
  "php|turing",
  "php|varinit",
  "php|zombie_struct_select",
- "php|ddd"
+ "php|ddd",
+ "php|method_wrapper"
 ]

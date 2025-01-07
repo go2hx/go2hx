@@ -6211,8 +6211,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							x = macro $x.value;
 						}else{
 							final ct = toComplexType(named(path, methods, type, alias, params), info);
-							//addPointerSuffix(ct);
-							x = macro @:isptr stdgo.Go.namedPointerAlias($x);
+							addPointerSuffix(ct);
+							x = macro @:isptr ($x : $ct);
 						}
 					default:
 						//throw "needs to be named type: " + elem;
@@ -6245,9 +6245,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						//x = macro (@:check $x ?? throw "null pointer dereference");
 					}else{
 						final ct = toComplexType(named(path, methods, type, alias, params), info);
-						//addPointerSuffix(ct);
+						addPointerSuffix(ct);
 						if (!isRefValue(type)) {
-							x = macro @:notptr (stdgo.Go.pointer($x));
+							x = macro @:notptr (stdgo.Go.pointer($x) : $ct);
 						}else{
 							x = macro @:check2 $x;
 						}
@@ -6278,9 +6278,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 									x = macro (@:checkr $x ?? throw "null pointer dereference");
 							}else{
 								final ct = toComplexType(named(path, methods, type, alias, params), info);
-								//addPointerSuffix(ct);
+								addPointerSuffix(ct);
 								if (!isRefValue(type)) {
-									x = macro @:notptrr2 (stdgo.Go.pointer($x));
+									x = macro @:notptrr2 (stdgo.Go.pointer($x) : $ct);
 								}else{
 									x = macro @:check2r $x;
 								}
@@ -7708,9 +7708,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
-										//addPointerSuffix(ct);
-										// remove null pointer reference suffix
-										macro @:check420 (stdgo.Go.pointer(this.$name)).$fieldName;
+										addPointerSuffix(ct);
+										macro @:check420 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									}else{
 										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
@@ -7725,10 +7724,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							switch methodRecv {
 								case pointerType(_.get() => elem):
 									if (isNamed(elem)) {
-										//trace(elem);
 										final ct = toComplexType(elem, info);
-										//addPointerSuffix(ct);
-										macro @:check42 (this.$name ?? throw "null pointer dereference").$fieldName;
+										addPointerSuffix(ct);
+										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									}else{
 										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}
@@ -7815,7 +7813,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					isExtern: true,
 					meta: [
 						{name: ":keep", pos: null},
-						{name: ":follow", pos: null},
 					],
 				};
 				info.data.defs.push(aliasPointer);

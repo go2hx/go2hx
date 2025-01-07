@@ -827,42 +827,6 @@ class Go {
 		}
 	}
 
-	public static macro function namedPointerAlias(e:Expr):Expr {
-		var t = Context.toComplexType(Context.typeof(e));
-		// addPointerSuffix
-		switch t {
-			case TPath(p):
-				//trace("HERE? : " + p.name, p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Pointer");
-				if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Pointer" || p.name == "Ref") {
-					switch p.params[0] {
-						case TPType(t2):
-							t = t2;
-						default:
-					}
-				}
-				//trace("after: " + t);
-			default:
-		}
-		switch t {
-			case TPath(p):
-				if (p.sub != null) {
-					p.name += "Pointer";
-					p.sub += "Pointer";
-				}
-			default:
-		}
-		var ct:ComplexType = null;
-		try {
-			Context.getType(new haxe.macro.Printer().printComplexType(t));
-			ct = t;
-		}catch(e) {
-			//trace("NOT FOUND " + e);
-		}
-		if (ct != null)
-			return macro @:pos(Context.currentPos()) ($e : $ct);
-		return e;
-	}
-
 	public static macro function pointer(expr:Expr, hasSet:Bool = false) {
 		expr = escapeParens(expr);
 		var p:TypePath = {name: "Pointer", pack: ["stdgo"]};
@@ -879,42 +843,7 @@ class Go {
 				}
 			}
 		}
-		function returnExpr(e:Expr) {
-			var t = Context.toComplexType(Context.typeof(expr));
-			// addPointerSuffix
-			switch t {
-				case TPath(p):
-					//trace("HERE? : " + p.name, p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Pointer");
-					if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Pointer" || p.name == "Ref") {
-						switch p.params[0] {
-							case TPType(t2):
-								t = t2;
-							default:
-						}
-					}
-					//trace("after: " + t);
-				default:
-			}
-			switch t {
-				case TPath(p):
-					if (p.sub != null) {
-						p.name += "Pointer";
-						p.sub += "Pointer";
-					}
-				default:
-			}
-			var ct:ComplexType = null;
-			try {
-				Context.getType(new haxe.macro.Printer().printComplexType(t));
-				ct = t;
-			}catch(e) {
-				//trace("NOT FOUND " + e);
-			}
-			//trace(new haxe.macro.Printer().printComplexType(ct));
-			if (ct != null)
-				return macro @:pos(Context.currentPos()) ($e : $ct);
-			return e;
-		}
+
 		var declare:Bool = false;
 		switch expr.expr {
 			case EConst(c):
@@ -952,11 +881,11 @@ class Go {
 					macro null;
 				}
 				// trace(new haxe.macro.Printer().printExpr(expr));
-				return returnExpr(macro {
+				return macro {
 					final underlying = $e;
 					final underlyingIndex = $v{field};
 					new $p(() -> $expr, v -> $expr = v, false, null, underlying, underlyingIndex);
-				});
+				};
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
 				switch t {
@@ -986,7 +915,7 @@ class Go {
 									ptr;
 								};
 								// trace(new haxe.macro.Printer().printExpr(expr));
-								return returnExpr(expr);
+								return expr;
 						}
 					default:
 				}
@@ -994,11 +923,11 @@ class Go {
 				declare = true;
 		}
 		if (declare)
-			return returnExpr(macro {
+			return macro {
 				var e = $expr;
 				new $p(() -> e, v -> e = v, $v{hasSet});
-			});
-		return returnExpr(macro new $p(() -> $expr, (__tmp__) -> $expr = __tmp__, $v{hasSet}));
+			};
+		return macro new $p(() -> $expr, (__tmp__) -> $expr = __tmp__, $v{hasSet});
 	}
 
 	public static macro function cfor(cond, post, expr) {

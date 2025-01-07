@@ -1106,7 +1106,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 				exprs.push(last);
 				catchBlock.push(macro if (stdgo.Go.recover_exception != null)
 				throw stdgo.Go.recover_exception);
-				exprs.push(last);
+				catchBlock.push(last);
 				//catchBlock = catchBlock.concat(exprs);
 			default:
 				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ? throw stdgo.Go.recover_exception: $e]);
@@ -6325,8 +6325,19 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 private function addPointerSuffix(ct:ComplexType) {
 	switch ct {
 		case TPath(p):
-			p.name += "Pointer";
+			if (p.name.indexOf(".") != -1) {
+				if (p.pack.length == 0) {
+					final parts = p.name.split(".");
+					final last = parts.pop() + "Pointer";
+					final lastPack = parts.pop() + "Pointer";
+					parts.push(lastPack);
+					parts.push(last);
+					p.name = parts.join(".");
+				}
+			}else{
+				p.name += "Pointer";
 			p.pack.push(p.pack.pop() + "Pointer");
+			}
 		default:
 	}
 }

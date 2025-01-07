@@ -53,3 +53,4 @@ steps:
         message: yaegi easy tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    continue-on-error: true

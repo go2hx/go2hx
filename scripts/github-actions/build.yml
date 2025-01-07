@@ -16,7 +16,6 @@ steps:
   # non self-host setup
     continue-on-error: true
   - uses: actions/setup-go@v3
-    continue-on-error: true
     with:
       go-version: '1.21.3' # The Go version to download (if necessary) and use.
 ::support::
@@ -50,6 +49,7 @@ steps:
         message: go easy tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    continue-on-error: true
   - name: Run std
     run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
   - uses: EndBug/add-and-commit@v9
@@ -57,3 +57,4 @@ steps:
         message: build std tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    continue-on-error: true

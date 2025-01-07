@@ -179,6 +179,7 @@ jobs:
             message: go easy tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-easy-jvm:
     timeout-minutes: 25
     needs: setup
@@ -249,6 +250,7 @@ jobs:
             message: go easy tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-easy-interp:
     timeout-minutes: 25
     needs: setup
@@ -318,6 +320,7 @@ jobs:
             message: go easy tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-easy-js:
     timeout-minutes: 25
     needs: setup
@@ -387,6 +390,7 @@ jobs:
             message: go easy tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-easy-php:
     timeout-minutes: 25
     needs: setup
@@ -458,6 +462,7 @@ jobs:
             message: go easy tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -514,6 +519,7 @@ jobs:
             message: yaegi easy tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-easy-jvm:
     timeout-minutes: 25
     needs: setup
@@ -571,6 +577,7 @@ jobs:
             message: yaegi easy tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-easy-interp:
     timeout-minutes: 25
     needs: setup
@@ -627,6 +634,7 @@ jobs:
             message: yaegi easy tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-easy-js:
     timeout-minutes: 25
     needs: setup
@@ -683,6 +691,7 @@ jobs:
             message: yaegi easy tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-easy-php:
     timeout-minutes: 25
     needs: setup
@@ -741,6 +750,7 @@ jobs:
             message: yaegi easy tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -810,6 +820,7 @@ jobs:
             message: go medium tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-medium-jvm:
     timeout-minutes: 25
     needs: setup
@@ -880,6 +891,7 @@ jobs:
             message: go medium tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -949,6 +961,7 @@ jobs:
             message: go medium tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -1018,6 +1031,7 @@ jobs:
             message: go medium tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   go-medium-php:
     timeout-minutes: 25
     needs: setup
@@ -1089,6 +1103,7 @@ jobs:
             message: go medium tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -1145,6 +1160,7 @@ jobs:
             message: yaegi medium tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-medium-jvm:
     timeout-minutes: 25
     needs: setup
@@ -1202,6 +1218,7 @@ jobs:
             message: yaegi medium tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -1258,6 +1275,7 @@ jobs:
             message: yaegi medium tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -1314,6 +1332,7 @@ jobs:
             message: yaegi medium tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   yaegi-medium-php:
     timeout-minutes: 25
     needs: setup
@@ -1372,6 +1391,7 @@ jobs:
             message: yaegi medium tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   build-hl:
     
     timeout-minutes: 26
@@ -1391,7 +1411,6 @@ jobs:
       # non self-host setup
         continue-on-error: true
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
@@ -1425,6 +1444,7 @@ jobs:
             message: go easy tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1432,6 +1452,7 @@ jobs:
             message: build std tests update hl
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   build-jvm:
     
     timeout-minutes: 26
@@ -1451,7 +1472,6 @@ jobs:
       # non self-host setup
         continue-on-error: true
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - name: setup jvm 
@@ -1486,6 +1506,7 @@ jobs:
             message: go easy tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1493,6 +1514,7 @@ jobs:
             message: build std tests update jvm
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   build-interp:
     
     timeout-minutes: 26
@@ -1512,7 +1534,6 @@ jobs:
       # non self-host setup
         continue-on-error: true
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
     
@@ -1546,6 +1567,7 @@ jobs:
             message: go easy tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1553,6 +1575,7 @@ jobs:
             message: build std tests update interp
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   build-js:
     
     timeout-minutes: 26
@@ -1572,7 +1595,6 @@ jobs:
       # non self-host setup
         continue-on-error: true
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
     
@@ -1606,6 +1628,7 @@ jobs:
             message: go easy tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1613,6 +1636,7 @@ jobs:
             message: build std tests update js
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
   build-php:
     
     timeout-minutes: 26
@@ -1632,7 +1656,6 @@ jobs:
       # non self-host setup
         continue-on-error: true
       - uses: actions/setup-go@v3
-        continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - uses: nanasess/setup-php@v4
@@ -1668,6 +1691,7 @@ jobs:
             message: go easy tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
       - uses: EndBug/add-and-commit@v9
@@ -1675,3 +1699,4 @@ jobs:
             message: build std tests update php
             add: ./tests
             pull: --rebase --autostash
+        continue-on-error: true

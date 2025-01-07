@@ -336,5 +336,6 @@
  "hl|noeq",
  "hl|issue23734",
  "hl|issue19710",
- "hl|method_wrapper"
+ "hl|method_wrapper",
+ "hl|receiver"
 ]

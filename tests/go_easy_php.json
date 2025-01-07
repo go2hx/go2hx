@@ -338,5 +338,6 @@
  "php|varinit",
  "php|zombie_struct_select",
  "php|ddd",
- "php|method_wrapper"
+ "php|method_wrapper",
+ "php|receiver"
 ]

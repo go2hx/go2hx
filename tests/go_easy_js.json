@@ -327,5 +327,6 @@
  "js|slicearray",
  "js|noeq",
  "js|issue23734",
- "js|issue19710"
+ "js|issue19710",
+ "js|method_wrapper"
 ]

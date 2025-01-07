@@ -112,32 +112,46 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					throw "struct equals a value null, b value: " + bValue;
 				if (bValue == null)
 					throw "struct equals b value null, a value: " + aValue;
-				for (i in 0...fields.length) {
-					final name = fields[i].name;
-					if (StringTools.startsWith(name, "__blank__"))
-						continue;
-					final type = fields[i].type.get();
-					final fieldValue = std.Reflect.field(aValue, name);
-					final fieldValue2 = std.Reflect.field(bValue, name);
+				switch gt2 {
+					case structType(fields2):
+						for (i in 0...fields.length) {
+							final name = fields[i].name;
+							if (name != fields2[i].name)
+								return false;
+							if (StringTools.startsWith(name, "__blank__"))
+								continue;
+							final type2 = fields2[i].type.get();
+							final type = fields[i].type.get();
+							// trace(fields2[i].toString());
+							// trace(fields[i].toString());
+							// trace(fields2);
+							// trace(fields);
+							// trace(type);
+							// trace(type2);
+							final fieldValue = std.Reflect.field(aValue, name);
+							final fieldValue2 = std.Reflect.field(bValue, name);
 
-					/*if (fieldValue == null || fieldValue2 == null) {
-						if (fieldValue == null && fieldValue2 == null)
-							return true;
-						trace(fieldValue, fieldValue2);
-						trace(aValue, bValue);
-						throw "struct issue with field name1: " + name;
-					}*/
+							/*if (fieldValue == null || fieldValue2 == null) {
+								if (fieldValue == null && fieldValue2 == null)
+									return true;
+								trace(fieldValue, fieldValue2);
+								trace(aValue, bValue);
+								throw "struct issue with field name1: " + name;
+							}*/
 
-					final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
-					final a = new AnyInterface(fieldValue, type);
-					final b = new AnyInterface(fieldValue2, type);
-					try {
-						if (AnyInterface.notEquals(a, b)) {
-							return false;
+							final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
+							final type2 = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type2));
+							final a = new AnyInterface(fieldValue, type);
+							final b = new AnyInterface(fieldValue2, type2);
+							try {
+								if (AnyInterface.notEquals(a, b)) {
+									return false;
+								}
+							}catch(_) {
+								throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
+							}
 						}
-					}catch(_) {
-						throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
-					}
+					default:
 				}
 				true;
 			case invalidType:

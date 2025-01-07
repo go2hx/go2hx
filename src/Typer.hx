@@ -3981,11 +3981,20 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			default:
 		}
 		if (tupleArg != null) {
+			var fvar = macro {};
+			switch e.expr {
+				case ECall(f,args):
+					fvar = macro var __f__ = $f;
+					e = macro __f__($a{args});
+				default:
+			}
 			switch tupleArg.expr {
 				case EBlock(exprs):
+					exprs.unshift(fvar);
 					exprs.unshift(macro var __tmp__ = $tupleArg);
 				default:
 					e = macro ({
+						$fvar;
 						var __tmp__ = $tupleArg;
 						$e;
 					});

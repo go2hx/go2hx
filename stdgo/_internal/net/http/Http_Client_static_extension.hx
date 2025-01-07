@@ -362,20 +362,40 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                 return { _0 : _retres, _1 : _reterr };
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return { _0 : _retres, _1 : _reterr };
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return { _0 : _retres, _1 : _reterr };
         };
     }
     @:keep

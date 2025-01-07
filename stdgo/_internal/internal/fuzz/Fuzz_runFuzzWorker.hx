@@ -35,20 +35,40 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                     return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
                 };
             } catch(__exception__) {
-                var exe:Dynamic = __exception__.native;
-                if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                    if (__exception__.message == "__return__") throw "__return__";
-                    exe = stdgo.Go.toInterface(__exception__.message);
+                {
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                        if (__exception__.message == "__return__") throw "__return__";
+                        exe = stdgo.Go.toInterface(__exception__.message);
+                    };
+                    stdgo.Go.recover_exception = exe;
+                    {
+                        function f() {
+                            try {
+                                {
+                                    for (defer in __deferstack__) {
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
+                                    };
+                                };
+                            } catch(__exception__2) {
+                                var exe:Dynamic = __exception__2.native;
+                                if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                    if (__exception__.message == "__return__") throw "__return__";
+                                    exe = stdgo.Go.toInterface(__exception__.message);
+                                };
+                                stdgo.Go.recover_exception = exe;
+                                f();
+                            };
+                        };
+                        f();
+                    };
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
                 };
-                stdgo.Go.recover_exception = exe;
-                for (defer in __deferstack__) {
-                    if (defer.ran) continue;
-                    defer.ran = true;
-                    defer.f();
-                };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
             };
         }, _m : stdgo._internal.internal.fuzz.Fuzz__newMutator._newMutator() } : stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>);
         return @:check2r _srv._serve(_ctx);

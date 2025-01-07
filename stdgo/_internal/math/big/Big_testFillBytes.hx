@@ -42,20 +42,40 @@ function testFillBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
                     return _panic;
                 };
             } catch(__exception__) {
-                var exe:Dynamic = __exception__.native;
-                if ((exe is haxe.ValueException)) exe = exe.value;
-                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                    if (__exception__.message == "__return__") throw "__return__";
-                    exe = stdgo.Go.toInterface(__exception__.message);
+                {
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                        if (__exception__.message == "__return__") throw "__return__";
+                        exe = stdgo.Go.toInterface(__exception__.message);
+                    };
+                    stdgo.Go.recover_exception = exe;
+                    {
+                        function f() {
+                            try {
+                                {
+                                    for (defer in __deferstack__) {
+                                        if (defer.ran) continue;
+                                        defer.ran = true;
+                                        defer.f();
+                                    };
+                                };
+                            } catch(__exception__2) {
+                                var exe:Dynamic = __exception__2.native;
+                                if ((exe is haxe.ValueException)) exe = exe.value;
+                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                    if (__exception__.message == "__return__") throw "__return__";
+                                    exe = stdgo.Go.toInterface(__exception__.message);
+                                };
+                                stdgo.Go.recover_exception = exe;
+                                f();
+                            };
+                        };
+                        f();
+                    };
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return _panic;
                 };
-                stdgo.Go.recover_exception = exe;
-                for (defer in __deferstack__) {
-                    if (defer.ran) continue;
-                    defer.ran = true;
-                    defer.f();
-                };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return _panic;
             };
         } : (() -> Void) -> Bool);
         for (__8 => _n in (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1000" : stdgo.GoString), ("0xffffffff" : stdgo.GoString), ("-0xffffffff" : stdgo.GoString), ("0xffffffffffffffff" : stdgo.GoString), ("0x10000000000000000" : stdgo.GoString), ("0xabababababababababababababababababababababababababa" : stdgo.GoString), ("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {

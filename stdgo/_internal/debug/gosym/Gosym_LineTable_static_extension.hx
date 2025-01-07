@@ -34,20 +34,40 @@ package stdgo._internal.debug.gosym;
                 return;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return;
         };
     }
     @:keep
@@ -109,20 +129,40 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
                 return;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return;
         };
     }
     @:keep
@@ -209,20 +249,40 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 return _pc;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return _pc;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return _pc;
         };
     }
     @:keep
@@ -328,20 +388,40 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 return _file;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return _file;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return _file;
         };
     }
     @:keep
@@ -398,20 +478,40 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 return _line;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return _line;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return _line;
         };
     }
     @:keep
@@ -635,20 +735,40 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
         };
     }
     @:keep
@@ -826,20 +946,40 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 return;
             };
         } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
+            {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                {
+                    function f() {
+                        try {
+                            {
+                                for (defer in __deferstack__) {
+                                    if (defer.ran) continue;
+                                    defer.ran = true;
+                                    defer.f();
+                                };
+                            };
+                        } catch(__exception__2) {
+                            var exe:Dynamic = __exception__2.native;
+                            if ((exe is haxe.ValueException)) exe = exe.value;
+                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                                if (__exception__.message == "__return__") throw "__return__";
+                                exe = stdgo.Go.toInterface(__exception__.message);
+                            };
+                            stdgo.Go.recover_exception = exe;
+                            f();
+                        };
+                    };
+                    f();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
             };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                if (defer.ran) continue;
-                defer.ran = true;
-                defer.f();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return;
         };
     }
     @:keep

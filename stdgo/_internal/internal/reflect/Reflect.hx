@@ -403,13 +403,13 @@ function implementsMethod(t:Type, v:Type):Bool {
 					var found = false;
 					for (i in 0...methods.length) {
 						found = false;
-						if (!gtIsPointer && isPointer(methods[i].recv.get()) != gtIsPointer)
-							continue;
+						// if (!gtIsPointer && isPointer(methods[i].recv.get()) != gtIsPointer)
+						// 	continue;
 						for (j in 0...methods2.length) {
 							if (methods[i].name != methods2[j].name)
 								continue;
-							if (!vgtIsPointer && isPointer(methods2[i].recv.get()) != vgtIsPointer)
-								continue;
+							// if (!vgtIsPointer && isPointer(methods2[i].recv.get()) != vgtIsPointer)
+							// 	continue;
 							if (!new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
 								new _Type(methods2[j].type.get())))) {
 								return false;

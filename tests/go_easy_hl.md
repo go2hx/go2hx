@@ -1,101 +1,159 @@
 # go_easy_hl
-## bug113
+## convert4
 ```go
 // run
 
-// Copyright 2009 The Go Authors. All rights reserved.
+// Copyright 2020 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Test conversion from slice to array pointer.
+
 package main
 
-type I interface{}
-
-func foo1(i int) int     { return i }
-func foo2(i int32) int32 { return i }
-func main() {
-	var i I
-	i = 1
-	var v1 = i.(int)
-	if foo1(v1) != 1 {
-		panic(1)
-	}
-	var v2 = int32(i.(int))
-	if foo2(v2) != 1 {
-		panic(2)
-	}
-	
-	shouldPanic(p1)
-}
-
-func p1() {
-	var i I
-	i = 1
-	var v3 = i.(int32) // This type conversion should fail at runtime.
-	if foo2(v3) != 1 {
-		panic(3)
-	}
-}
-
-func shouldPanic(f func()) {
+func wantPanic(fn func(), s string) {
 	defer func() {
-		if recover() == nil {
-			panic("function should panic")
+		err := recover()
+		if err == nil {
+			panic("expected panic")
+		}
+		if got := err.(error).Error(); got != s {
+			panic("expected panic " + s + " got " + got)
 		}
 	}()
-	f()
+	fn()
+}
+
+func main() {
+	s := make([]byte, 8, 10)
+	for i := range s {
+		s[i] = byte(i)
+	}
+	if p := (*[8]byte)(s); &p[0] != &s[0] {
+		panic("*[8]byte conversion failed")
+	}
+	if [8]byte(s) != *(*[8]byte)(s) {
+		panic("[8]byte conversion failed")
+	}
+	wantPanic(
+		func() {
+			_ = (*[9]byte)(s)
+		},
+		"runtime error: cannot convert slice with length 8 to array or pointer to array with length 9",
+	)
+	wantPanic(
+		func() {
+			_ = [9]byte(s)
+		},
+		"runtime error: cannot convert slice with length 8 to array or pointer to array with length 9",
+	)
+
+	var n []byte
+	if p := (*[0]byte)(n); p != nil {
+		panic("nil slice converted to *[0]byte should be nil")
+	}
+	_ = [0]byte(n)
+
+	z := make([]byte, 0)
+	if p := (*[0]byte)(z); p == nil {
+		panic("empty slice converted to *[0]byte should be non-nil")
+	}
+	_ = [0]byte(z)
+
+	var p *[]byte
+	wantPanic(
+		func() {
+			_ = [0]byte(*p) // evaluating *p should still panic
+		},
+		"runtime error: invalid memory address or nil pointer dereference",
+	)
+
+	// Test with named types
+	type Slice []int
+	type Int4 [4]int
+	type PInt4 *[4]int
+	ii := make(Slice, 4)
+	if p := (*Int4)(ii); &p[0] != &ii[0] {
+		panic("*Int4 conversion failed")
+	}
+	if p := PInt4(ii); &p[0] != &ii[0] {
+		panic("PInt4 conversion failed")
+	}
+}
+
+// test static variable conversion
+
+var (
+	ss  = make([]string, 10)
+	s5  = (*[5]string)(ss)
+	s10 = (*[10]string)(ss)
+
+	ns  []string
+	ns0 = (*[0]string)(ns)
+
+	zs  = make([]string, 0)
+	zs0 = (*[0]string)(zs)
+)
+
+func init() {
+	if &ss[0] != &s5[0] {
+		panic("s5 conversion failed")
+	}
+	if &ss[0] != &s10[0] {
+		panic("s5 conversion failed")
+	}
+	if ns0 != nil {
+		panic("ns0 should be nil")
+	}
+	if zs0 == nil {
+		panic("zs0 should not be nil")
+	}
 }
 
 ```
-## issue32288
+## issue16760
 ```go
 // run
 
-// Copyright 2019 The Go Authors. All rights reserved.
+// Copyright 2016 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Make sure we don't start marshaling (writing to the stack)
+// arguments until those arguments are evaluated and known
+// not to unconditionally panic. If they unconditionally panic,
+// we write some args but never do the call. That messes up
+// the logic which decides how big the argout section needs to be.
+
 package main
 
-type T struct {
-	s   [1]string
-	pad [16]uintptr
+type W interface {
+	Write([]byte)
 }
 
-//go:noinline
-func f(t *int, p *int) []T {
-	var res []T
-	for {
-		var e *T
-		res = append(res, *e)
-	}
+type F func(W)
+
+func foo(f F) {
+	defer func() {
+		if r := recover(); r != nil {
+			usestack(1000)
+		}
+	}()
+	f(nil)
 }
 
 func main() {
-	defer func() {
-		useStack(100) // force a stack copy
-		// We're expecting a panic.
-		// The bug in this issue causes a throw, which this recover() will not squash.
-		recover()
-	}()
-	junk() // fill the stack with invalid pointers
-	f(nil, nil)
+	foo(func(w W) {
+		var x []string
+		w.Write([]byte(x[5]))
+	})
 }
 
-func useStack(n int) {
+func usestack(n int) {
 	if n == 0 {
 		return
 	}
-	useStack(n - 1)
-}
-
-//go:noinline
-func junk() uintptr {
-	var a [128]uintptr // 1k of bad pointers on the stack
-	for i := range a {
-		a[i] = 0xaa
-	}
-	return a[12]
+	usestack(n - 1)
 }
 
 ```

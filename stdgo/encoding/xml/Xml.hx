@@ -864,361 +864,361 @@ class Directive_static_extension {
 /**
     /|*{
     	d.buf.Reset()
-    	gotoNext = 3723870
-    	_ = gotoNext == 3723870
+    	gotoNext = 3733732
+    	_ = gotoNext == 3733732
     	_ = 0
     	InputBreak = false
-    	gotoNext = 3723878
-    	_ = gotoNext == 3723878
+    	gotoNext = 3733740
+    	_ = gotoNext == 3733740
     	if !InputBreak {
-    		gotoNext = 3723882
-    		_ = gotoNext == 3723882
-    		b_3723886, ok_3723889 = d.getc()
-    		if !ok_3723889 {
-    			gotoNext = 3723913
-    			_ = gotoNext == 3723913
+    		gotoNext = 3733744
+    		_ = gotoNext == 3733744
+    		b_3733748, ok_3733751 = d.getc()
+    		if !ok_3733751 {
+    			gotoNext = 3733775
+    			_ = gotoNext == 3733775
     			if cdata {
-    				gotoNext = 3723927
-    				_ = gotoNext == 3723927
+    				gotoNext = 3733789
+    				_ = gotoNext == 3733789
     				if d.err == io.EOF {
-    					gotoNext = 3723952
-    					_ = gotoNext == 3723952
+    					gotoNext = 3733814
+    					_ = gotoNext == 3733814
     					d.err = d.syntaxError("unexpected EOF in CDATA section")
-    					gotoNext = 3724026
+    					gotoNext = 3733888
     				} else {
-    					gotoNext = 3724026
+    					gotoNext = 3733888
     				}
-    				_ = gotoNext == 3724026
+    				_ = gotoNext == 3733888
     				return nil
-    				gotoNext = 3724045
+    				gotoNext = 3733907
     			} else {
-    				gotoNext = 3724045
+    				gotoNext = 3733907
     			}
-    			_ = gotoNext == 3724045
+    			_ = gotoNext == 3733907
     			InputBreak = true
-    			gotoNext = 3723878
-    			gotoNext = 3724158
+    			gotoNext = 3733740
+    			gotoNext = 3734020
     		} else {
-    			gotoNext = 3724158
+    			gotoNext = 3734020
     		}
-    		_ = gotoNext == 3724158
-    		if b0_3723828 == 93 && b1_3723832 == 93 && b_3723886 == 62 {
-    			gotoNext = 3724196
-    			_ = gotoNext == 3724196
+    		_ = gotoNext == 3734020
+    		if b0_3733690 == 93 && b1_3733694 == 93 && b_3733748 == 62 {
+    			gotoNext = 3734058
+    			_ = gotoNext == 3734058
     			if cdata {
-    				gotoNext = 3724210
-    				_ = gotoNext == 3724210
-    				trunc_3723845 = 2
+    				gotoNext = 3734072
+    				_ = gotoNext == 3734072
+    				trunc_3733707 = 2
     				InputBreak = true
-    				gotoNext = 3723878
-    				gotoNext = 3724250
+    				gotoNext = 3733740
+    				gotoNext = 3734112
     			} else {
-    				gotoNext = 3724250
+    				gotoNext = 3734112
     			}
-    			_ = gotoNext == 3724250
+    			_ = gotoNext == 3734112
     			d.err = d.syntaxError("unescaped ]]> not in CDATA section")
     			return nil
-    			gotoNext = 3724369
+    			gotoNext = 3734231
     		} else {
-    			gotoNext = 3724369
+    			gotoNext = 3734231
     		}
-    		_ = gotoNext == 3724369
-    		if b_3723886 == 60 && !cdata {
-    			gotoNext = 3724391
-    			_ = gotoNext == 3724391
+    		_ = gotoNext == 3734231
+    		if b_3733748 == 60 && !cdata {
+    			gotoNext = 3734253
+    			_ = gotoNext == 3734253
     			if quote >= 0 {
-    				gotoNext = 3724410
-    				_ = gotoNext == 3724410
+    				gotoNext = 3734272
+    				_ = gotoNext == 3734272
     				d.err = d.syntaxError("unescaped < inside quoted string")
     				return nil
-    				gotoNext = 3724497
+    				gotoNext = 3734359
     			} else {
-    				gotoNext = 3724497
+    				gotoNext = 3734359
     			}
-    			_ = gotoNext == 3724497
+    			_ = gotoNext == 3734359
     			d.ungetc(60)
     			InputBreak = true
-    			gotoNext = 3723878
-    			gotoNext = 3724532
+    			gotoNext = 3733740
+    			gotoNext = 3734394
     		} else {
-    			gotoNext = 3724532
+    			gotoNext = 3734394
     		}
-    		_ = gotoNext == 3724532
-    		if quote >= 0 && b_3723886 == byte(quote) {
-    			gotoNext = 3724566
-    			_ = gotoNext == 3724566
+    		_ = gotoNext == 3734394
+    		if quote >= 0 && b_3733748 == byte(quote) {
+    			gotoNext = 3734428
+    			_ = gotoNext == 3734428
     			InputBreak = true
-    			gotoNext = 3723878
-    			gotoNext = 3724589
+    			gotoNext = 3733740
+    			gotoNext = 3734451
     		} else {
-    			gotoNext = 3724589
+    			gotoNext = 3734451
     		}
-    		_ = gotoNext == 3724589
-    		if b_3723886 == 38 && !cdata {
-    			gotoNext = 3724611
-    			_ = gotoNext == 3724611
-    			before_3724908 = d.buf.Len()
+    		_ = gotoNext == 3734451
+    		if b_3733748 == 38 && !cdata {
+    			gotoNext = 3734473
+    			_ = gotoNext == 3734473
+    			before_3734770 = d.buf.Len()
     			d.buf.WriteByte(38)
-    			if b_3723886, ok_3724961 = d.mustgetc(); !ok_3724961 {
-    				gotoNext = 3725041
-    				_ = gotoNext == 3725041
+    			if b_3733748, ok_3734823 = d.mustgetc(); !ok_3734823 {
+    				gotoNext = 3734903
+    				_ = gotoNext == 3734903
     				return nil
-    				gotoNext = 3725066
+    				gotoNext = 3734928
     			} else {
-    				gotoNext = 3725066
+    				gotoNext = 3734928
     			}
-    			_ = gotoNext == 3725066
-    			if b_3723886 == 35 {
-    				gotoNext = 3725078
-    				_ = gotoNext == 3725078
-    				d.buf.WriteByte(b_3723886)
-    				if b_3723886, ok_3724961 = d.mustgetc(); !ok_3724961 {
-    					gotoNext = 3725136
-    					_ = gotoNext == 3725136
+    			_ = gotoNext == 3734928
+    			if b_3733748 == 35 {
+    				gotoNext = 3734940
+    				_ = gotoNext == 3734940
+    				d.buf.WriteByte(b_3733748)
+    				if b_3733748, ok_3734823 = d.mustgetc(); !ok_3734823 {
+    					gotoNext = 3734998
+    					_ = gotoNext == 3734998
     					return nil
-    					gotoNext = 3725164
+    					gotoNext = 3735026
     				} else {
-    					gotoNext = 3725164
+    					gotoNext = 3735026
     				}
-    				_ = gotoNext == 3725164
-    				base_3725164 = 10
-    				if b_3723886 == 120 {
-    					gotoNext = 3725191
-    					_ = gotoNext == 3725191
-    					base_3725164 = 16
-    					d.buf.WriteByte(b_3723886)
-    					if b_3723886, ok_3724961 = d.mustgetc(); !ok_3724961 {
-    						gotoNext = 3725266
-    						_ = gotoNext == 3725266
+    				_ = gotoNext == 3735026
+    				base_3735026 = 10
+    				if b_3733748 == 120 {
+    					gotoNext = 3735053
+    					_ = gotoNext == 3735053
+    					base_3735026 = 16
+    					d.buf.WriteByte(b_3733748)
+    					if b_3733748, ok_3734823 = d.mustgetc(); !ok_3734823 {
+    						gotoNext = 3735128
+    						_ = gotoNext == 3735128
     						return nil
-    						gotoNext = 3725302
+    						gotoNext = 3735164
     					} else {
-    						gotoNext = 3725302
+    						gotoNext = 3735164
     					}
-    					gotoNext = 3725302
+    					gotoNext = 3735164
     				} else {
-    					gotoNext = 3725302
+    					gotoNext = 3735164
     				}
-    				_ = gotoNext == 3725302
-    				start_3725302 = d.buf.Len()
+    				_ = gotoNext == 3735164
+    				start_3735164 = d.buf.Len()
     				_ = 0
-    				gotoNext = 3725327
-    				_ = gotoNext == 3725327
-    				if 48 <= b_3723886 && b_3723886 <= 57 || base_3725164 == 16 && 97 <= b_3723886 && b_3723886 <= 102 || base_3725164 == 16 && 65 <= b_3723886 && b_3723886 <= 70 {
-    					gotoNext = 3725438
-    					_ = gotoNext == 3725438
-    					d.buf.WriteByte(b_3723886)
-    					if b_3723886, ok_3724961 = d.mustgetc(); !ok_3724961 {
-    						gotoNext = 3725498
-    						_ = gotoNext == 3725498
+    				gotoNext = 3735189
+    				_ = gotoNext == 3735189
+    				if 48 <= b_3733748 && b_3733748 <= 57 || base_3735026 == 16 && 97 <= b_3733748 && b_3733748 <= 102 || base_3735026 == 16 && 65 <= b_3733748 && b_3733748 <= 70 {
+    					gotoNext = 3735300
+    					_ = gotoNext == 3735300
+    					d.buf.WriteByte(b_3733748)
+    					if b_3733748, ok_3734823 = d.mustgetc(); !ok_3734823 {
+    						gotoNext = 3735360
+    						_ = gotoNext == 3735360
     						return nil
-    						gotoNext = 3725327
+    						gotoNext = 3735189
     					} else {
-    						gotoNext = 3725327
+    						gotoNext = 3735189
     					}
-    					gotoNext = 3725327
+    					gotoNext = 3735189
     				} else {
-    					gotoNext = 3725534
+    					gotoNext = 3735396
     				}
-    				_ = gotoNext == 3725534
-    				if b_3723886 != 59 {
-    					gotoNext = 3725546
-    					_ = gotoNext == 3725546
-    					d.ungetc(b_3723886)
-    					gotoNext = 3726300
+    				_ = gotoNext == 3735396
+    				if b_3733748 != 59 {
+    					gotoNext = 3735408
+    					_ = gotoNext == 3735408
+    					d.ungetc(b_3733748)
+    					gotoNext = 3736162
     				} else {
-    					gotoNext = 3725576
-    					_ = gotoNext == 3725576
-    					gotoNext = 3725576
-    					_ = gotoNext == 3725576
-    					s_3725583 = string(d.buf.Bytes()[start_3725302:])
+    					gotoNext = 3735438
+    					_ = gotoNext == 3735438
+    					gotoNext = 3735438
+    					_ = gotoNext == 3735438
+    					s_3735445 = string(d.buf.Bytes()[start_3735164:])
     					d.buf.WriteByte(59)
-    					n_3725649, err_3725652 = strconv.ParseUint(s_3725583, base_3725164, 64)
-    					if err_3725652 == nil && n_3725649 <= 1114111 {
-    						gotoNext = 3725733
-    						_ = gotoNext == 3725733
-    						text_3724976 = string(rune(n_3725649))
-    						haveText_3724995 = true
-    						gotoNext = 3726300
+    					n_3735511, err_3735514 = strconv.ParseUint(s_3735445, base_3735026, 64)
+    					if err_3735514 == nil && n_3735511 <= 1114111 {
+    						gotoNext = 3735595
+    						_ = gotoNext == 3735595
+    						text_3734838 = string(rune(n_3735511))
+    						haveText_3734857 = true
+    						gotoNext = 3736162
     					} else {
-    						gotoNext = 3726300
+    						gotoNext = 3736162
     					}
     					_ = 0
-    					gotoNext = 3726300
+    					gotoNext = 3736162
     				}
-    				gotoNext = 3726300
+    				gotoNext = 3736162
     			} else {
-    				gotoNext = 3725809
-    				_ = gotoNext == 3725809
-    				gotoNext = 3725809
-    				_ = gotoNext == 3725809
-    				d.ungetc(b_3723886)
+    				gotoNext = 3735671
+    				_ = gotoNext == 3735671
+    				gotoNext = 3735671
+    				_ = gotoNext == 3735671
+    				d.ungetc(b_3733748)
     				if !d.readName() {
-    					gotoNext = 3725848
-    					_ = gotoNext == 3725848
+    					gotoNext = 3735710
+    					_ = gotoNext == 3735710
     					if d.err != nil {
-    						gotoNext = 3725871
-    						_ = gotoNext == 3725871
+    						gotoNext = 3735733
+    						_ = gotoNext == 3735733
     						return nil
-    						gotoNext = 3725907
+    						gotoNext = 3735769
     					} else {
-    						gotoNext = 3725907
+    						gotoNext = 3735769
     					}
-    					gotoNext = 3725907
+    					gotoNext = 3735769
     				} else {
-    					gotoNext = 3725907
+    					gotoNext = 3735769
     				}
-    				_ = gotoNext == 3725907
-    				if b_3723886, ok_3724961 = d.mustgetc(); !ok_3724961 {
-    					gotoNext = 3725936
-    					_ = gotoNext == 3725936
+    				_ = gotoNext == 3735769
+    				if b_3733748, ok_3734823 = d.mustgetc(); !ok_3734823 {
+    					gotoNext = 3735798
+    					_ = gotoNext == 3735798
     					return nil
-    					gotoNext = 3725964
+    					gotoNext = 3735826
     				} else {
-    					gotoNext = 3725964
+    					gotoNext = 3735826
     				}
-    				_ = gotoNext == 3725964
-    				if b_3723886 != 59 {
-    					gotoNext = 3725976
-    					_ = gotoNext == 3725976
-    					d.ungetc(b_3723886)
-    					gotoNext = 3726300
+    				_ = gotoNext == 3735826
+    				if b_3733748 != 59 {
+    					gotoNext = 3735838
+    					_ = gotoNext == 3735838
+    					d.ungetc(b_3733748)
+    					gotoNext = 3736162
     				} else {
-    					gotoNext = 3726006
-    					_ = gotoNext == 3726006
-    					gotoNext = 3726006
-    					_ = gotoNext == 3726006
-    					name_3726013 = d.buf.Bytes()[before_3724908+1:]
+    					gotoNext = 3735868
+    					_ = gotoNext == 3735868
+    					gotoNext = 3735868
+    					_ = gotoNext == 3735868
+    					name_3735875 = d.buf.Bytes()[before_3734770+1:]
     					d.buf.WriteByte(59)
-    					if isName(name_3726013) {
-    						gotoNext = 3726093
-    						_ = gotoNext == 3726093
-    						s_3726101 = string(name_3726013)
-    						if r_3726128, ok_3726131 = entity[s_3726101]; ok_3726131 {
-    							gotoNext = 3726151
-    							_ = gotoNext == 3726151
-    							text_3724976 = string(r_3726128)
-    							haveText_3724995 = true
-    							gotoNext = 3726300
+    					if isName(name_3735875) {
+    						gotoNext = 3735955
+    						_ = gotoNext == 3735955
+    						s_3735963 = string(name_3735875)
+    						if r_3735990, ok_3735993 = entity[s_3735963]; ok_3735993 {
+    							gotoNext = 3736013
+    							_ = gotoNext == 3736013
+    							text_3734838 = string(r_3735990)
+    							haveText_3734857 = true
+    							gotoNext = 3736162
     						} else if d.Entity != nil {
-    							gotoNext = 3726232
-    							_ = gotoNext == 3726232
-    							text_3724976, haveText_3724995 = d.Entity[s_3726101]
-    							gotoNext = 3726300
+    							gotoNext = 3736094
+    							_ = gotoNext == 3736094
+    							text_3734838, haveText_3734857 = d.Entity[s_3735963]
+    							gotoNext = 3736162
     						} else {
-    							gotoNext = 3726300
+    							gotoNext = 3736162
     						}
-    						gotoNext = 3726300
+    						gotoNext = 3736162
     					} else {
-    						gotoNext = 3726300
+    						gotoNext = 3736162
     					}
     					_ = 0
-    					gotoNext = 3726300
+    					gotoNext = 3736162
     				}
     				_ = 0
-    				gotoNext = 3726300
+    				gotoNext = 3736162
     			}
-    			_ = gotoNext == 3726300
-    			if haveText_3724995 {
-    				gotoNext = 3726312
-    				_ = gotoNext == 3726312
-    				d.buf.Truncate(before_3724908)
-    				d.buf.WriteString(text_3724976)
-    				b0_3723828, b1_3723832 = 0, 0
-    				gotoNext = 3723878
-    				gotoNext = 3726414
+    			_ = gotoNext == 3736162
+    			if haveText_3734857 {
+    				gotoNext = 3736174
+    				_ = gotoNext == 3736174
+    				d.buf.Truncate(before_3734770)
+    				d.buf.WriteString(text_3734838)
+    				b0_3733690, b1_3733694 = 0, 0
+    				gotoNext = 3733740
+    				gotoNext = 3736276
     			} else {
-    				gotoNext = 3726414
+    				gotoNext = 3736276
     			}
-    			_ = gotoNext == 3726414
+    			_ = gotoNext == 3736276
     			if !d.Strict {
-    				gotoNext = 3726427
-    				_ = gotoNext == 3726427
-    				b0_3723828, b1_3723832 = 0, 0
-    				gotoNext = 3723878
-    				gotoNext = 3726474
+    				gotoNext = 3736289
+    				_ = gotoNext == 3736289
+    				b0_3733690, b1_3733694 = 0, 0
+    				gotoNext = 3733740
+    				gotoNext = 3736336
     			} else {
-    				gotoNext = 3726474
+    				gotoNext = 3736336
     			}
-    			_ = gotoNext == 3726474
-    			ent_3726474 = string(d.buf.Bytes()[before_3724908:])
-    			if ent_3726474[len(ent_3726474)-1] != 59 {
-    				gotoNext = 3726541
-    				_ = gotoNext == 3726541
-    				ent_3726474 += " (no semicolon)"
-    				gotoNext = 3726580
+    			_ = gotoNext == 3736336
+    			ent_3736336 = string(d.buf.Bytes()[before_3734770:])
+    			if ent_3736336[len(ent_3736336)-1] != 59 {
+    				gotoNext = 3736403
+    				_ = gotoNext == 3736403
+    				ent_3736336 += " (no semicolon)"
+    				gotoNext = 3736442
     			} else {
-    				gotoNext = 3726580
+    				gotoNext = 3736442
     			}
-    			_ = gotoNext == 3726580
-    			d.err = d.syntaxError("invalid character entity " + ent_3726474)
+    			_ = gotoNext == 3736442
+    			d.err = d.syntaxError("invalid character entity " + ent_3736336)
     			return nil
-    			gotoNext = 3726710
+    			gotoNext = 3736572
     		} else {
-    			gotoNext = 3726710
+    			gotoNext = 3736572
     		}
-    		_ = gotoNext == 3726710
-    		if b_3723886 == 13 {
-    			gotoNext = 3726723
-    			_ = gotoNext == 3726723
+    		_ = gotoNext == 3736572
+    		if b_3733748 == 13 {
+    			gotoNext = 3736585
+    			_ = gotoNext == 3736585
     			d.buf.WriteByte(10)
-    			gotoNext = 3726866
-    		} else if b1_3723832 == 13 && b_3723886 == 10 {
-    			gotoNext = 3726786
-    			_ = gotoNext == 3726786
-    			gotoNext = 3726866
+    			gotoNext = 3736728
+    		} else if b1_3733694 == 13 && b_3733748 == 10 {
+    			gotoNext = 3736648
+    			_ = gotoNext == 3736648
+    			gotoNext = 3736728
     		} else {
-    			gotoNext = 3726835
-    			_ = gotoNext == 3726835
-    			gotoNext = 3726835
-    			_ = gotoNext == 3726835
-    			d.buf.WriteByte(b_3723886)
+    			gotoNext = 3736697
+    			_ = gotoNext == 3736697
+    			gotoNext = 3736697
+    			_ = gotoNext == 3736697
+    			d.buf.WriteByte(b_3733748)
     			_ = 0
-    			gotoNext = 3726866
+    			gotoNext = 3736728
     		}
-    		_ = gotoNext == 3726866
-    		b0_3723828, b1_3723832 = b1_3723832, b_3723886
-    		gotoNext = 3723878
+    		_ = gotoNext == 3736728
+    		b0_3733690, b1_3733694 = b1_3733694, b_3733748
+    		gotoNext = 3733740
     	} else {
-    		gotoNext = 3726885
+    		gotoNext = 3736747
     	}
-    	_ = gotoNext == 3726885
-    	data_3726885 = d.buf.Bytes()
-    	data_3726885 = data_3726885[0 : len(data_3726885)-trunc_3723845]
-    	buf_3726999 = data_3726885
+    	_ = gotoNext == 3736747
+    	data_3736747 = d.buf.Bytes()
+    	data_3736747 = data_3736747[0 : len(data_3736747)-trunc_3733707]
+    	buf_3736861 = data_3736747
     	_ = 0
-    	gotoNext = 3727012
-    	_ = gotoNext == 3727012
-    	if len(buf_3726999) > 0 {
-    		gotoNext = 3727029
-    		_ = gotoNext == 3727029
-    		r_3727033, size_3727036 = utf8.DecodeRune(buf_3726999)
-    		if r_3727033 == 65533 && size_3727036 == 1 {
-    			gotoNext = 3727103
-    			_ = gotoNext == 3727103
+    	gotoNext = 3736874
+    	_ = gotoNext == 3736874
+    	if len(buf_3736861) > 0 {
+    		gotoNext = 3736891
+    		_ = gotoNext == 3736891
+    		r_3736895, size_3736898 = utf8.DecodeRune(buf_3736861)
+    		if r_3736895 == 65533 && size_3736898 == 1 {
+    			gotoNext = 3736965
+    			_ = gotoNext == 3736965
     			d.err = d.syntaxError("invalid UTF-8")
     			return nil
-    			gotoNext = 3727167
+    			gotoNext = 3737029
     		} else {
-    			gotoNext = 3727167
+    			gotoNext = 3737029
     		}
-    		_ = gotoNext == 3727167
-    		buf_3726999 = buf_3726999[size_3727036:]
-    		if !isInCharacterRange(r_3727033) {
-    			gotoNext = 3727212
-    			_ = gotoNext == 3727212
-    			d.err = d.syntaxError(fmt.Sprintf("illegal character code %U", r_3727033))
+    		_ = gotoNext == 3737029
+    		buf_3736861 = buf_3736861[size_3736898:]
+    		if !isInCharacterRange(r_3736895) {
+    			gotoNext = 3737074
+    			_ = gotoNext == 3737074
+    			d.err = d.syntaxError(fmt.Sprintf("illegal character code %U", r_3736895))
     			return nil
-    			gotoNext = 3727012
+    			gotoNext = 3736874
     		} else {
-    			gotoNext = 3727012
+    			gotoNext = 3736874
     		}
-    		gotoNext = 3727012
+    		gotoNext = 3736874
     	} else {
-    		gotoNext = 3727307
+    		gotoNext = 3737169
     	}
-    	_ = gotoNext == 3727307
-    	return data_3726885
+    	_ = gotoNext == 3737169
+    	return data_3736747
     	gotoNext = -1
     }*|/
 **/

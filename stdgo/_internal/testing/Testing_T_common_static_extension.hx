@@ -93,7 +93,6 @@ package stdgo._internal.testing;
     static public function fail( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
         _c._failed = true;
-        #if (sys || hxnodejs) Sys.exit(1) #else null #end;
     }
     @:keep
     @:tdfield

@@ -41,7 +41,7 @@ package stdgo._internal.testing;
             final format = "--- %s: %s (%s)\n";
             if (t.failed() || error) {
                 Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
-                Sys.exit(1);
+                _m._exitCode = 1;
             } else if (chatty) {
                 if (t.skipped()) {
                     Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');

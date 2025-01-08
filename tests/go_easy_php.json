@@ -339,5 +339,6 @@
  "php|zombie_struct_select",
  "php|ddd",
  "php|method_wrapper",
- "php|receiver"
+ "php|receiver",
+ "php|convert4"
 ]

@@ -671,6 +671,9 @@ final list = [
 				throw "unsupported: " + gt;
 		};
 	},
+	"reflect.StructTag.get" => macro {
+		return "";
+	},
 	"reflect.Value:bytes" => macro {
 		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
@@ -1458,7 +1461,7 @@ final list = [
 	"testing.T_common:skipped" => macro return false,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
-		@:define("(sys || hxnodejs)") Sys.exit(1);
+		//@:define("(sys || hxnodejs)") Sys.exit(1);
 	},
 	"testing.T_common:skip" => macro {},
 	"testing.T_common:helper" => macro {},
@@ -1499,7 +1502,8 @@ final list = [
 			final format = "--- %s: %s (%s)\n";
 			if (t.failed() || error) {
 				Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
-				Sys.exit(1);
+				_m._exitCode = 1;
+				//Sys.exit(1);
 			} else if (chatty) {
 				if (t.skipped()) {
 					Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');

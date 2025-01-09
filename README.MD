@@ -20,6 +20,7 @@ go2hx is a haxe compiler, that compiles go code to haxe
   - [Options](#options)
 - [Examples](#examples)
 - [Project status](#project-status)
+  - [Test status](#test-status)
   - [Goals](#goals)
   - [Known issues](#known-issues)
   - [Upcoming](#upcoming)
@@ -162,8 +163,16 @@ Target:
 
 # Project status
 
-The project is currently in a prealpha state. Not able to compile most go code. Most go language features are extensivly tested and will likely work, that are not explicited excluded such as: generics, goroutines, channels, unsafe
+The project is currently in a prealpha state. Not able to compile most go code. Most go language features are extensivly tested and will likely work in isolation, that are not explicited excluded such as: generics, goroutines, channels, unsafe
 
+The project is on the verge of having larger 3rd party libraries working.
+For example ``regexp/syntax`` now passes as well as [regexp2](https://github.com/dlclark/regexp2)
+
+Lots of compiled code is on the verge of running correctly but has been put on hold in order to focus on the tests.
+
+Other code requires adding code into ``src/Patch.hx`` to patch in code into the Haxe version of a go stdlib.
+
+## Test status
 The project is driven by testing. Test suites are broken into categories for an [incremental approach](http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf).
 
 * Easy: are tests that use no stdlibs and exclude non supported language features.
@@ -171,8 +180,6 @@ The project is driven by testing. Test suites are broken into categories for an 
 * Mediumn: are tests with the same language feature constraints as easy, but allow passing stdlibs to be imported
 
 * Hard: all other tests
-
-## Test status
 *(hashlink only)*
 - [Yaegi](https://github.com/traefik/yaegi/tree/master/_test) easy tests 100% passing
 - Go easy 97.68% passing
@@ -247,9 +254,9 @@ After you have [setup from source](#setup-from-source) and **ran the compiler at
 
 # Similar Projects
 
-- (reflaxe_go)[https://github.com/neimanpinchas/reflaxe_go] is a go target for haxe
-- (tardisgo)[https://github.com/tardisgo/tardisgo] go to haxe compiler that this project is the spiritual sucessor to
-- (gopherjs)[https://github.com/gopherjs/gopherjs] go to js compiler
+- [reflaxe_go](https://github.com/neimanpinchas/reflaxe_go) is a go target for haxe
+- [tardisgo](https://github.com/tardisgo/tardisgo) go to haxe compiler that this project is the spiritual sucessor to
+- [gopherjs](https://github.com/gopherjs/gopherjs) go to js compiler
 
 # Credits
 

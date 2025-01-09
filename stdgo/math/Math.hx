@@ -62,191 +62,191 @@ private function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; 
     }
 /**
     /|*{
-    	Euler_453433 = 0.5772156649015329
-    	gotoNext = 453524
-    	_ = gotoNext == 453524
+    	Euler_324130 = 0.5772156649015329
+    	gotoNext = 324221
+    	_ = gotoNext == 324221
     	switch {
     	case isNegInt(x) || IsInf(x, -1) || IsNaN(x):
-    		gotoNext = 453534
-    		_ = gotoNext == 453534
+    		gotoNext = 324231
+    		_ = gotoNext == 324231
     		return NaN()
-    		gotoNext = 453704
+    		gotoNext = 324401
     	case IsInf(x, 1):
-    		gotoNext = 453596
-    		_ = gotoNext == 453596
+    		gotoNext = 324293
+    		_ = gotoNext == 324293
     		return Inf(1)
-    		gotoNext = 453704
+    		gotoNext = 324401
     	case x == 0:
-    		gotoNext = 453631
-    		_ = gotoNext == 453631
+    		gotoNext = 324328
+    		_ = gotoNext == 324328
     		if Signbit(x) {
-    			gotoNext = 453660
-    			_ = gotoNext == 453660
+    			gotoNext = 324357
+    			_ = gotoNext == 324357
     			return Inf(-1)
-    			gotoNext = 453686
+    			gotoNext = 324383
     		} else {
-    			gotoNext = 453686
+    			gotoNext = 324383
     		}
-    		_ = gotoNext == 453686
+    		_ = gotoNext == 324383
     		return Inf(1)
-    		gotoNext = 453704
+    		gotoNext = 324401
     	default:
-    		gotoNext = 453704
+    		gotoNext = 324401
     	}
-    	_ = gotoNext == 453704
-    	q_453704 = Abs(x)
-    	p_453717 = Floor(q_453704)
-    	if q_453704 > 33 {
-    		gotoNext = 453742
-    		_ = gotoNext == 453742
+    	_ = gotoNext == 324401
+    	q_324401 = Abs(x)
+    	p_324414 = Floor(q_324401)
+    	if q_324401 > 33 {
+    		gotoNext = 324439
+    		_ = gotoNext == 324439
     		if x >= 0 {
-    			gotoNext = 453756
-    			_ = gotoNext == 453756
-    			y1_453761, y2_453765 = stirling(x)
-    			return y1_453761 * y2_453765
-    			gotoNext = 454006
+    			gotoNext = 324453
+    			_ = gotoNext == 324453
+    			y1_324458, y2_324462 = stirling(x)
+    			return y1_324458 * y2_324462
+    			gotoNext = 324703
     		} else {
-    			gotoNext = 454006
+    			gotoNext = 324703
     		}
-    		_ = gotoNext == 454006
-    		signgam_454006 = 1
-    		if ip_454024 = int64(p_453717); ip_454024&1 == 0 {
-    			gotoNext = 454050
-    			_ = gotoNext == 454050
-    			signgam_454006 = -1
-    			gotoNext = 454074
+    		_ = gotoNext == 324703
+    		signgam_324703 = 1
+    		if ip_324721 = int64(p_324414); ip_324721&1 == 0 {
+    			gotoNext = 324747
+    			_ = gotoNext == 324747
+    			signgam_324703 = -1
+    			gotoNext = 324771
     		} else {
-    			gotoNext = 454074
+    			gotoNext = 324771
     		}
-    		_ = gotoNext == 454074
-    		z_454074 = q_453704 - p_453717
-    		if z_454074 > 0.5 {
-    			gotoNext = 454098
-    			_ = gotoNext == 454098
-    			p_453717 = p_453717 + 1
-    			z_454074 = q_453704 - p_453717
-    			gotoNext = 454132
+    		_ = gotoNext == 324771
+    		z_324771 = q_324401 - p_324414
+    		if z_324771 > 0.5 {
+    			gotoNext = 324795
+    			_ = gotoNext == 324795
+    			p_324414 = p_324414 + 1
+    			z_324771 = q_324401 - p_324414
+    			gotoNext = 324829
     		} else {
-    			gotoNext = 454132
+    			gotoNext = 324829
     		}
-    		_ = gotoNext == 454132
-    		z_454074 = q_453704 * Sin(3.141592653589793*z_454074)
-    		if z_454074 == 0 {
-    			gotoNext = 454162
-    			_ = gotoNext == 454162
-    			return Inf(signgam_454006)
-    			gotoNext = 454193
+    		_ = gotoNext == 324829
+    		z_324771 = q_324401 * Sin(3.141592653589793*z_324771)
+    		if z_324771 == 0 {
+    			gotoNext = 324859
+    			_ = gotoNext == 324859
+    			return Inf(signgam_324703)
+    			gotoNext = 324890
     		} else {
-    			gotoNext = 454193
+    			gotoNext = 324890
     		}
-    		_ = gotoNext == 454193
-    		sq1_454193, sq2_454198 = stirling(q_453704)
-    		absz_454219 = Abs(z_454074)
-    		d_454236 = absz_454219 * sq1_454193 * sq2_454198
-    		if IsInf(d_454236, 0) {
-    			gotoNext = 454275
-    			_ = gotoNext == 454275
-    			z_454074 = 3.141592653589793 / absz_454219 / sq1_454193 / sq2_454198
-    			gotoNext = 454337
+    		_ = gotoNext == 324890
+    		sq1_324890, sq2_324895 = stirling(q_324401)
+    		absz_324916 = Abs(z_324771)
+    		d_324933 = absz_324916 * sq1_324890 * sq2_324895
+    		if IsInf(d_324933, 0) {
+    			gotoNext = 324972
+    			_ = gotoNext == 324972
+    			z_324771 = 3.141592653589793 / absz_324916 / sq1_324890 / sq2_324895
+    			gotoNext = 325034
     		} else {
-    			gotoNext = 454315
-    			_ = gotoNext == 454315
-    			gotoNext = 454315
-    			_ = gotoNext == 454315
-    			z_454074 = 3.141592653589793 / d_454236
+    			gotoNext = 325012
+    			_ = gotoNext == 325012
+    			gotoNext = 325012
+    			_ = gotoNext == 325012
+    			z_324771 = 3.141592653589793 / d_324933
     			_ = 0
-    			gotoNext = 454337
+    			gotoNext = 325034
     		}
-    		_ = gotoNext == 454337
-    		return float64(signgam_454006) * z_454074
-    		gotoNext = 454390
+    		_ = gotoNext == 325034
+    		return float64(signgam_324703) * z_324771
+    		gotoNext = 325087
     	} else {
-    		gotoNext = 454390
+    		gotoNext = 325087
     	}
-    	_ = gotoNext == 454390
-    	z_454390 = 1
+    	_ = gotoNext == 325087
+    	z_325087 = 1
     	_ = 0
-    	gotoNext = 454400
-    	_ = gotoNext == 454400
+    	gotoNext = 325097
+    	_ = gotoNext == 325097
     	if x >= 3 {
-    		gotoNext = 454411
-    		_ = gotoNext == 454411
+    		gotoNext = 325108
+    		_ = gotoNext == 325108
     		x = x - 1
-    		z_454390 = z_454390 * x
-    		gotoNext = 454400
+    		z_325087 = z_325087 * x
+    		gotoNext = 325097
     	} else {
-    		gotoNext = 454441
+    		gotoNext = 325138
     	}
-    	_ = gotoNext == 454441
+    	_ = gotoNext == 325138
     	_ = 0
-    	gotoNext = 454441
-    	_ = gotoNext == 454441
+    	gotoNext = 325138
+    	_ = gotoNext == 325138
     	if x < 0 {
-    		gotoNext = 454451
-    		_ = gotoNext == 454451
+    		gotoNext = 325148
+    		_ = gotoNext == 325148
     		if x > -1e-09 {
-    			gotoNext = 454469
-    			_ = gotoNext == 454469
-    			gotoNext = 454847
-    			gotoNext = 454491
+    			gotoNext = 325166
+    			_ = gotoNext == 325166
+    			gotoNext = 325544
+    			gotoNext = 325188
     		} else {
-    			gotoNext = 454491
+    			gotoNext = 325188
     		}
-    		_ = gotoNext == 454491
-    		z_454390 = z_454390 / x
+    		_ = gotoNext == 325188
+    		z_325087 = z_325087 / x
     		x = x + 1
-    		gotoNext = 454441
+    		gotoNext = 325138
     	} else {
-    		gotoNext = 454517
+    		gotoNext = 325214
     	}
-    	_ = gotoNext == 454517
+    	_ = gotoNext == 325214
     	_ = 0
-    	gotoNext = 454517
-    	_ = gotoNext == 454517
+    	gotoNext = 325214
+    	_ = gotoNext == 325214
     	if x < 2 {
-    		gotoNext = 454527
-    		_ = gotoNext == 454527
+    		gotoNext = 325224
+    		_ = gotoNext == 325224
     		if x < 1e-09 {
-    			gotoNext = 454544
-    			_ = gotoNext == 454544
-    			gotoNext = 454847
-    			gotoNext = 454566
+    			gotoNext = 325241
+    			_ = gotoNext == 325241
+    			gotoNext = 325544
+    			gotoNext = 325263
     		} else {
-    			gotoNext = 454566
+    			gotoNext = 325263
     		}
-    		_ = gotoNext == 454566
-    		z_454390 = z_454390 / x
+    		_ = gotoNext == 325263
+    		z_325087 = z_325087 / x
     		x = x + 1
-    		gotoNext = 454517
+    		gotoNext = 325214
     	} else {
-    		gotoNext = 454593
+    		gotoNext = 325290
     	}
-    	_ = gotoNext == 454593
+    	_ = gotoNext == 325290
     	if x == 2 {
-    		gotoNext = 454603
-    		_ = gotoNext == 454603
-    		return z_454390
-    		gotoNext = 454621
+    		gotoNext = 325300
+    		_ = gotoNext == 325300
+    		return z_325087
+    		gotoNext = 325318
     	} else {
-    		gotoNext = 454621
+    		gotoNext = 325318
     	}
-    	_ = gotoNext == 454621
+    	_ = gotoNext == 325318
     	x = x - 2
-    	p_453717 = (((((x*_gamP[0]+_gamP[1])*x+_gamP[2])*x+_gamP[3])*x+_gamP[4])*x+_gamP[5])*x + _gamP[6]
-    	q_453704 = ((((((x*_gamQ[0]+_gamQ[1])*x+_gamQ[2])*x+_gamQ[3])*x+_gamQ[4])*x+_gamQ[5])*x+_gamQ[6])*x + _gamQ[7]
-    	return z_454390 * p_453717 / q_453704
-    	gotoNext = 454847
-    	_ = gotoNext == 454847
+    	p_324414 = (((((x*_gamP[0]+_gamP[1])*x+_gamP[2])*x+_gamP[3])*x+_gamP[4])*x+_gamP[5])*x + _gamP[6]
+    	q_324401 = ((((((x*_gamQ[0]+_gamQ[1])*x+_gamQ[2])*x+_gamQ[3])*x+_gamQ[4])*x+_gamQ[5])*x+_gamQ[6])*x + _gamQ[7]
+    	return z_325087 * p_324414 / q_324401
+    	gotoNext = 325544
+    	_ = gotoNext == 325544
     	if x == 0 {
-    		gotoNext = 454865
-    		_ = gotoNext == 454865
+    		gotoNext = 325562
+    		_ = gotoNext == 325562
     		return Inf(1)
-    		gotoNext = 454887
+    		gotoNext = 325584
     	} else {
-    		gotoNext = 454887
+    		gotoNext = 325584
     	}
-    	_ = gotoNext == 454887
-    	return z_454390 / ((1 + 0.5772156649015329*x) * x)
+    	_ = gotoNext == 325584
+    	return z_325087 / ((1 + 0.5772156649015329*x) * x)
     	gotoNext = -1
     }*|/
 **/

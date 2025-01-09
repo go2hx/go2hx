@@ -87,9 +87,10 @@ All code compiled by default will be in `golibs` folder
 
 The file to interface with the code from Haxe is `golibs/stdgo/unicode/Unicode.hx`
 
-Include golibs folder in your hxml:
+Include golibs folder in your hxml along with -lib go2hx for the init macro:
 ```hxml
 -cp golibs
+-lib go2hx
 ```
 Then run an example such as:
 ```haxe

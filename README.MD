@@ -5,7 +5,7 @@
 go2hx is a haxe compiler, that compiles go code to haxe
 
 > [!WARNING]  
-> prealpha version, most compiled go code to haxe will not compile, let alone run.
+> prealpha version, not able to compile most go code correctly
 
 # Table of contents
 

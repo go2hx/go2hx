@@ -10,8 +10,8 @@ function _encComplex64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_
         };
         for (__8 => _x in _slice) {
             if (((_x != ((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
-                var _rpart = (stdgo._internal.encoding.gob.Gob__floatBits._floatBits((_x.real : stdgo.GoFloat64)) : stdgo.GoUInt64);
-                var _ipart = (stdgo._internal.encoding.gob.Gob__floatBits._floatBits((_x.imag : stdgo.GoFloat64)) : stdgo.GoUInt64);
+                var _rpart = (stdgo._internal.encoding.gob.Gob__floatBits._floatBits(((_x : stdgo.GoComplex128).real : stdgo.GoFloat64)) : stdgo.GoUInt64);
+                var _ipart = (stdgo._internal.encoding.gob.Gob__floatBits._floatBits(((_x : stdgo.GoComplex128).imag : stdgo.GoFloat64)) : stdgo.GoUInt64);
                 @:check2r _state._encodeUint(_rpart);
                 @:check2r _state._encodeUint(_ipart);
             };

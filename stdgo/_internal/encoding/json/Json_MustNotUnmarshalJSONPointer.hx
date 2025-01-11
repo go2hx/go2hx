@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.json;
-@:keep @:using(stdgo._internal.encoding.json.Json_MustNotUnmarshalJSON_static_extension.MustNotUnmarshalJSON_static_extension) typedef MustNotUnmarshalJSONPointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_MustNotUnmarshalJSON.MustNotUnmarshalJSON>;
+@:keep @:follow @:using(stdgo._internal.encoding.json.Json_MustNotUnmarshalJSON_static_extension.MustNotUnmarshalJSON_static_extension) typedef MustNotUnmarshalJSONPointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_MustNotUnmarshalJSON.MustNotUnmarshalJSON>;

@@ -1,2 +1,2 @@
 package stdgo._internal.internal.abi;
-@:keep @:using(stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension) typedef ChanTypePointer = stdgo.Pointer<stdgo._internal.internal.abi.Abi_ChanType.ChanType>;
+@:keep @:follow @:using(stdgo._internal.internal.abi.Abi_ChanType_static_extension.ChanType_static_extension) typedef ChanTypePointer = stdgo.Pointer<stdgo._internal.internal.abi.Abi_ChanType.ChanType>;

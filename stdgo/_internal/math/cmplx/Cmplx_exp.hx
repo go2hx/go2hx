@@ -1,7 +1,7 @@
 package stdgo._internal.math.cmplx;
 function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         {
-            var __0 = (_x.real : stdgo.GoFloat64), __1 = (_x.imag : stdgo.GoFloat64);
+            var __0 = ((_x : stdgo.GoComplex128).real : stdgo.GoFloat64), __1 = ((_x : stdgo.GoComplex128).imag : stdgo.GoFloat64);
 var _im = __1, _re = __0;
             if (stdgo._internal.math.Math_isInf.isInf(_re, (0 : stdgo.GoInt))) {
                 if (((_re > (0 : stdgo.GoFloat64) : Bool) && (_im == (0 : stdgo.GoFloat64)) : Bool)) {
@@ -19,7 +19,7 @@ var _im = __1, _re = __0;
                 };
             };
         };
-        var _r = (stdgo._internal.math.Math_exp.exp(_x.real) : stdgo.GoFloat64);
-        var __tmp__ = stdgo._internal.math.Math_sincos.sincos(_x.imag), _s:stdgo.GoFloat64 = __tmp__._0, _c:stdgo.GoFloat64 = __tmp__._1;
+        var _r = (stdgo._internal.math.Math_exp.exp((_x : stdgo.GoComplex128).real) : stdgo.GoFloat64);
+        var __tmp__ = stdgo._internal.math.Math_sincos.sincos((_x : stdgo.GoComplex128).imag), _s:stdgo.GoFloat64 = __tmp__._0, _c:stdgo.GoFloat64 = __tmp__._1;
         return new stdgo.GoComplex128((_r * _c : stdgo.GoFloat64), (_r * _s : stdgo.GoFloat64));
     }

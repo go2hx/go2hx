@@ -1,2 +1,2 @@
 package stdgo._internal.net;
-@:keep @:using(stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension) typedef UDPConnPointer = stdgo.Pointer<stdgo._internal.net.Net_UDPConn.UDPConn>;
+@:keep @:follow @:using(stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension) typedef UDPConnPointer = stdgo.Pointer<stdgo._internal.net.Net_UDPConn.UDPConn>;

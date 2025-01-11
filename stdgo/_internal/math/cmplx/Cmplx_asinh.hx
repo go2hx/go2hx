@@ -1,7 +1,7 @@
 package stdgo._internal.math.cmplx;
 function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         {
-            var __0 = (_x.real : stdgo.GoFloat64), __1 = (_x.imag : stdgo.GoFloat64);
+            var __0 = ((_x : stdgo.GoComplex128).real : stdgo.GoFloat64), __1 = ((_x : stdgo.GoComplex128).imag : stdgo.GoFloat64);
 var _im = __1, _re = __0;
             if (((_im == (0 : stdgo.GoFloat64)) && (stdgo._internal.math.Math_abs.abs(_re) <= (1 : stdgo.GoFloat64) : Bool) : Bool)) {
                 return new stdgo.GoComplex128(stdgo._internal.math.Math_asinh.asinh(_re), _im);
@@ -28,6 +28,6 @@ var _im = __1, _re = __0;
             };
         };
         var _xx = (_x * _x : stdgo.GoComplex128);
-        var _x1 = (new stdgo.GoComplex128(((1 : stdgo.GoFloat64) + _xx.real : stdgo.GoFloat64), _xx.imag) : stdgo.GoComplex128);
+        var _x1 = (new stdgo.GoComplex128(((1 : stdgo.GoFloat64) + (_xx : stdgo.GoComplex128).real : stdgo.GoFloat64), (_xx : stdgo.GoComplex128).imag) : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_log.log((_x + stdgo._internal.math.cmplx.Cmplx_sqrt.sqrt(_x1) : stdgo.GoComplex128));
     }

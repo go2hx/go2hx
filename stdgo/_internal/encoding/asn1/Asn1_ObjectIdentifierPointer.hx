@@ -1,2 +1,2 @@
 package stdgo._internal.encoding.asn1;
-@:keep @:using(stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension) typedef ObjectIdentifierPointer = stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>;
+@:keep @:follow @:using(stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension) typedef ObjectIdentifierPointer = stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>;

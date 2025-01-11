@@ -94,12 +94,12 @@ package stdgo._internal.encoding.binary;
                     final __value__ = _v.type().kind();
                     if (__value__ == ((15u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                         var _x = (_v.complex() : stdgo.GoComplex128);
-                        @:check2r _e._uint32(stdgo._internal.math.Math_float32bits.float32bits((_x.real : stdgo.GoFloat32)));
-                        @:check2r _e._uint32(stdgo._internal.math.Math_float32bits.float32bits((_x.imag : stdgo.GoFloat32)));
+                        @:check2r _e._uint32(stdgo._internal.math.Math_float32bits.float32bits(((_x : stdgo.GoComplex128).real : stdgo.GoFloat32)));
+                        @:check2r _e._uint32(stdgo._internal.math.Math_float32bits.float32bits(((_x : stdgo.GoComplex128).imag : stdgo.GoFloat32)));
                     } else if (__value__ == ((16u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                         var _x = (_v.complex() : stdgo.GoComplex128);
-                        @:check2r _e._uint64(stdgo._internal.math.Math_float64bits.float64bits(_x.real));
-                        @:check2r _e._uint64(stdgo._internal.math.Math_float64bits.float64bits(_x.imag));
+                        @:check2r _e._uint64(stdgo._internal.math.Math_float64bits.float64bits((_x : stdgo.GoComplex128).real));
+                        @:check2r _e._uint64(stdgo._internal.math.Math_float64bits.float64bits((_x : stdgo.GoComplex128).imag));
                     };
                 };
             };

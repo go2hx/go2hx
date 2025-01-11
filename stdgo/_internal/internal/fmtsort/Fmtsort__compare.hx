@@ -43,12 +43,12 @@ var _b = __1, _a = __0;
                 var __0 = (_aVal.complex() : stdgo.GoComplex128), __1 = (_bVal.complex() : stdgo.GoComplex128);
 var _b = __1, _a = __0;
                 {
-                    var _c = (stdgo._internal.internal.fmtsort.Fmtsort__floatCompare._floatCompare(_a.real, _b.real) : stdgo.GoInt);
+                    var _c = (stdgo._internal.internal.fmtsort.Fmtsort__floatCompare._floatCompare((_a : stdgo.GoComplex128).real, (_b : stdgo.GoComplex128).real) : stdgo.GoInt);
                     if (_c != ((0 : stdgo.GoInt))) {
                         return _c;
                     };
                 };
-                return stdgo._internal.internal.fmtsort.Fmtsort__floatCompare._floatCompare(_a.imag, _b.imag);
+                return stdgo._internal.internal.fmtsort.Fmtsort__floatCompare._floatCompare((_a : stdgo.GoComplex128).imag, (_b : stdgo.GoComplex128).imag);
             } else if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 var __0 = (_aVal.bool_() : Bool), __1 = (_bVal.bool_() : Bool);
 var _b = __1, _a = __0;

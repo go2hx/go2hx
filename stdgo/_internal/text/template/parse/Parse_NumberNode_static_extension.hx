@@ -45,9 +45,9 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function _simplifyComplex( _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode> = _n;
-        (@:checkr _n ?? throw "null pointer dereference").isFloat = (@:checkr _n ?? throw "null pointer dereference").complex128.imag == (0 : stdgo.GoFloat64);
+        (@:checkr _n ?? throw "null pointer dereference").isFloat = ((@:checkr _n ?? throw "null pointer dereference").complex128 : stdgo.GoComplex128).imag == (0 : stdgo.GoFloat64);
         if ((@:checkr _n ?? throw "null pointer dereference").isFloat) {
-            (@:checkr _n ?? throw "null pointer dereference").float64 = (@:checkr _n ?? throw "null pointer dereference").complex128.real;
+            (@:checkr _n ?? throw "null pointer dereference").float64 = ((@:checkr _n ?? throw "null pointer dereference").complex128 : stdgo.GoComplex128).real;
             (@:checkr _n ?? throw "null pointer dereference").isInt = (((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64) : stdgo.GoFloat64) == ((@:checkr _n ?? throw "null pointer dereference").float64);
             if ((@:checkr _n ?? throw "null pointer dereference").isInt) {
                 (@:checkr _n ?? throw "null pointer dereference").int64 = ((@:checkr _n ?? throw "null pointer dereference").float64 : stdgo.GoInt64);

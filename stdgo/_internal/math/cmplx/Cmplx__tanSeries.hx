@@ -1,8 +1,8 @@
 package stdgo._internal.math.cmplx;
 function _tanSeries(_z:stdgo.GoComplex128):stdgo.GoFloat64 {
         {};
-        var _x = (stdgo._internal.math.Math_abs.abs(((2 : stdgo.GoFloat64) * _z.real : stdgo.GoFloat64)) : stdgo.GoFloat64);
-        var _y = (stdgo._internal.math.Math_abs.abs(((2 : stdgo.GoFloat64) * _z.imag : stdgo.GoFloat64)) : stdgo.GoFloat64);
+        var _x = (stdgo._internal.math.Math_abs.abs(((2 : stdgo.GoFloat64) * (_z : stdgo.GoComplex128).real : stdgo.GoFloat64)) : stdgo.GoFloat64);
+        var _y = (stdgo._internal.math.Math_abs.abs(((2 : stdgo.GoFloat64) * (_z : stdgo.GoComplex128).imag : stdgo.GoFloat64)) : stdgo.GoFloat64);
         _x = stdgo._internal.math.cmplx.Cmplx__reducePi._reducePi(_x);
         _x = (_x * _x : stdgo.GoFloat64);
         _y = (_y * _y : stdgo.GoFloat64);

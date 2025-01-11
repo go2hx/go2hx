@@ -19,7 +19,7 @@ function testAcosh(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     @:check2r _t.errorf(("Acosh(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_v._in), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_v._want));
                 };
             };
-            if ((stdgo._internal.math.Math_isNaN.isNaN(_v._in.imag) || stdgo._internal.math.Math_isNaN.isNaN(_v._want.imag) : Bool)) {
+            if ((stdgo._internal.math.Math_isNaN.isNaN((_v._in : stdgo.GoComplex128).imag) || stdgo._internal.math.Math_isNaN.isNaN((_v._want : stdgo.GoComplex128).imag) : Bool)) {
                 continue;
             };
             {

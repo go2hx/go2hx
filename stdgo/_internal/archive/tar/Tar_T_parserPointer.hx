@@ -1,2 +1,2 @@
 package stdgo._internal.archive.tar;
-@:keep @:using(stdgo._internal.archive.tar.Tar_T_parser_static_extension.T_parser_static_extension) typedef T_parserPointer = stdgo.Pointer<stdgo._internal.archive.tar.Tar_T_parser.T_parser>;
+@:keep @:follow @:using(stdgo._internal.archive.tar.Tar_T_parser_static_extension.T_parser_static_extension) typedef T_parserPointer = stdgo.Pointer<stdgo._internal.archive.tar.Tar_T_parser.T_parser>;

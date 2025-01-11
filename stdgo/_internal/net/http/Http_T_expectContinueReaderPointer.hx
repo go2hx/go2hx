@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-@:keep @:using(stdgo._internal.net.http.Http_T_expectContinueReader_static_extension.T_expectContinueReader_static_extension) typedef T_expectContinueReaderPointer = stdgo.Pointer<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader>;
+@:keep @:follow @:using(stdgo._internal.net.http.Http_T_expectContinueReader_static_extension.T_expectContinueReader_static_extension) typedef T_expectContinueReaderPointer = stdgo.Pointer<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader>;

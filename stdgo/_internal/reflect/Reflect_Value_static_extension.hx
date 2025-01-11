@@ -843,5 +843,10 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
     };
     @:keep
     @:tdfield
-    static public function addr( _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value throw "Value:reflect.addr is not yet implemented";
+    static public function addr( _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value {
+        @:recv var _v:stdgo._internal.reflect.Reflect_Value.Value = _v?.__copy__();
+        final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> _v.value.type._common() });
+        final t = new stdgo._internal.internal.reflect.Reflect._Type(gt);
+        return new stdgo._internal.reflect.Reflect_Value.Value(new stdgo.AnyInterface(stdgo.Go.pointer(@:privateAccess _v.value.value), t));
+    }
 }

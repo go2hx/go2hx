@@ -486,6 +486,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					isExtern: true,
 					meta: [
 						{name: ":keep", pos: null},
+						{name: ":follow", pos: null},
 					],
 				};
 				info.data.defs.push(aliasPointer);
@@ -4273,10 +4274,16 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case "real":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
+						final toType = GoType.basic(complex128_kind);
+						final ct = toComplexType(toType, info);
+						e = checkType(e, ct, t, toType, info);
 						return returnExpr(macro $e.real).expr;
 					case "imag":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
+						final toType = GoType.basic(complex128_kind);
+						final ct = toComplexType(toType, info);
+						e = checkType(e, ct, t, toType, info);
 						return returnExpr(macro $e.imag).expr;
 					case "close":
 						var e = typeExpr(expr.args[0], info);
@@ -7688,8 +7695,14 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final methodRecv = typeof(method.recv, info, false);
 						final methodPointer = isPointer(methodRecv);
 						var fieldPointerBool = false;
+						//var elemType:ComplexType = null;
 						switch field.kind {
-							case FVar(TPath({name: "Pointer", pack: ["stdgo"], params: _}), _):
+							case FVar(TPath({name: "Pointer", pack: ["stdgo"], params: params}), _):
+								switch params[0] {
+									case TPType(TPath(p)):
+										//elemType = TPath({name: p.name, pack: p.pack.copy(), sub: p.sub});
+									default:
+								}
 								fieldPointerBool = true;
 							default:
 						}
@@ -7813,6 +7826,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					isExtern: true,
 					meta: [
 						{name: ":keep", pos: null},
+						{name: ":follow", pos: null},
 					],
 				};
 				info.data.defs.push(aliasPointer);

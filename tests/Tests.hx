@@ -59,6 +59,7 @@ function main() {
 	tinygoBool = Compiler.getDefine("tinygo") != null;
 	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
 	final reportBool = Compiler.getDefine("report") != null;
+	final listAllBool = Compiler.getDefine("listAll") != null;
 	final countStr = Compiler.getDefine("count");
 	testCount = countStr != null ? Std.parseInt(countStr) : 0;
 	final offsetStr = Compiler.getDefine("offset");
@@ -67,6 +68,10 @@ function main() {
 	runOnly = Compiler.getDefine("runonly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
+	if (listAllBool) {
+		createTestLists();
+		Sys.exit(0);
+	}
 	if (!unitBool && !stdBool && !goBool && !yaegiBool) {
 		trace("no tests specified");
 		close();
@@ -97,7 +102,7 @@ private function runReport() {
 		throw testName + " not set";
 	final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
 	var paths:Array<String> = Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
-	var tests:Array<String> = paths.map(s -> Path.withoutExtension(Path.withoutDirectory(s)));
+	var tests:Array<String> = paths.map(s -> toName(s));
 	tests = tests.map(s -> sanatize(s));
 	for (i in 0...output.length) {
 		final v = output[i];
@@ -492,9 +497,6 @@ private function sortDataToTests(sortData:SortData) {
 		switch sortMode {
 			case "easy":
 				tempTests = sortData.easy;
-				// does not have a main func
-				tempTests.remove("tests/yaegi/_test/export0.go\n");
-				tempTests.remove("tests/yaegi/_test/sieve.go"); // SIGNAL 15 Channel buffer pop
 			case "medium":
 				tempTests = sortData.medium;
 			case "hard":
@@ -508,7 +510,7 @@ private function sortDataToTests(sortData:SortData) {
 			throw "invalid sort data";
 		final path = data.substr(0, index);
 		final output = data.substr(index + 1);
-		final name = Path.withoutExtension(Path.withoutDirectory(path));
+		final name = toName(path);
 		
 		if (excludeTest(name))
 			continue;
@@ -524,13 +526,14 @@ private function excludeTest(name:String) {
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func
-		case "issue16760": // stack panic for interp, 1000 -> 100 stack as unit test
+		case "issue16760": // go-easy stack panic for interp, 1000 -> 100 stack as unit test
 		case "issue47227": // go-easy cgo
-		case "issue7550": // creates a slice with too large of len: 2147483647
+		case "issue7550": // go-easy creates a slice with too large of len: 2147483647
 		case "bug113": // go-easy p1 type conversion is int64 target depedent
-		case "issue47928": // fails for golang too
+		case "issue47928": // go-easy fails for golang too
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "export0": // yaegi-easy no main func
+		case "sieve": // yaegi-easy SIGNAL 15 Channel buffer pop
 		default:
 			return false;
 	}
@@ -552,6 +555,27 @@ private function testUnit() {
 		tests.push(path);
 	}
 	// go run ./tests/unit/append0.go
+}
+
+private function createTestLists() {
+	trace("create test lists");
+	final modes = ["easy","medium", "hard"];
+	final testNames = ["go", "yaegi"];
+	for (testName in testNames) {
+		for (mode in modes) {
+			sortMode = mode;
+			sortDataToTests(Json.parse(File.getContent('tests/sort_$testName.json')));
+			tests = tests.map(path -> toName(path));
+			final path = 'tests/${testName}_$mode.json';
+			trace("create file: " + path);
+			File.saveContent(path, Json.stringify(tests, null, "    "));
+			tests = [];
+		}
+	}
+}
+
+function toName(path:String):String {
+	return Path.withoutExtension(Path.withoutDirectory(path));
 }
 
 @:structInit

@@ -14,6 +14,14 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	public inline function toBasic():UInt64
 		return this;
 
+	@:to inline function toComplex128():GoComplex128 {
+		return toFloat64() + new GoComplex128(0,0);
+	}
+
+	@:to inline function toComplex64():GoComplex64 {
+		return toFloat32() + new GoComplex64(0,0);
+	}
+
 	@:to inline function toInt():GoInt
 		return toIntInt64(this);
 

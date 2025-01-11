@@ -109,3 +109,27 @@ jobs:
         with:
             message: stdgo automatic compile
             pull: --rebase --autostash
+  create-test-lists:
+    timeout-minutes: 15
+    needs: []
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - uses: actions/checkout@v4
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      - name: Sort tests
+        run: go run ./scripts/sortTests ci
+      - name: Create test lists
+        run: haxe tests/test -D ci -D listAll
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: create test lists
+            pull: --rebase --autostash
+            add: ./tests

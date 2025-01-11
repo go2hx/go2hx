@@ -463,6 +463,14 @@ final list = [
 	"reflect.Value:canInterface" => macro {
 		return true;
 	},
+	"reflect.Value:addr" => macro {
+		/*if (@:privateAccess !_v.canAddrBool) {
+			throw "can't address bool";
+		}*/
+		final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> _v.value.type._common()});
+		final t = new stdgo._internal.internal.reflect.Reflect._Type(gt);
+		return new $newValue(new stdgo.AnyInterface(stdgo.Go.pointer(@:privateAccess  _v.value.value), t));
+	},
 	// Call calls the function v with the input arguments in.
 	// For example, if len(in) == 3, v.Call(in) represents the Go call v(in[0], in[1], in[2]).
 	// Call panics if v's Kind is not Func.

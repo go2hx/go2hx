@@ -9,4 +9,4 @@ Called from stdgo._internal.encoding.binary._Binary__testRead.$Binary__testRead_
 Called from stdgo._internal.encoding.binary._Binary_testLittleEndianRead.$Binary_testLittleEndianRead_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testLittleEndianRead.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
--- FAIL: TestLittleEndianRead (0.00172591209411621)
+-- FAIL: TestLittleEndianRead (0.00208115577697754)

@@ -1,6 +1,6 @@
 === RUN  TestOpenFileLimit
 open rlimit.go: no such file or directory
--- FAIL: TestOpenFileLimit (0.000667810440063477)
+-- FAIL: TestOpenFileLimit (0.000665903091430664)
 
 === RUN  TestEnv
 Exception: :syscall.setenv is not yet implemented
@@ -9,4 +9,4 @@ Called from _internal.syscall_test._Syscall_test__testSetGetenv.$Syscall_test__t
 Called from _internal.syscall_test._Syscall_test_testEnv.$Syscall_test_testEnv_Fields_.testEnv (_internal/syscall_test/Syscall_test_testEnv.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Fields_.main (_internal/syscall_dot_test/Syscall_dot_test.hx line 4)
--- FAIL: TestEnv (0.00014495849609375)
+-- FAIL: TestEnv (0.00017094612121582)

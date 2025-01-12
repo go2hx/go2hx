@@ -4,4 +4,4 @@ Called from stdgo._internal.os._Os_isNotExist.$Os_isNotExist_Fields_.isNotExist 
 Called from _internal.internal.godebugs_test._Godebugs_test_testAll.$Godebugs_test_testAll_Fields_.testAll (_internal/internal/godebugs_test/Godebugs_test_testAll.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.godebugs_dot_test._Godebugs_dot_test.$Godebugs_dot_test_Fields_.main (_internal/internal/godebugs_dot_test/Godebugs_dot_test.hx line 4)
--- FAIL: TestAll (0.000833988189697266)
+-- FAIL: TestAll (0.000228166580200195)

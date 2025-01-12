@@ -293,7 +293,7 @@ function update() {
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}
 			}else{
-				if (task.runtime) {
+				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
 					trace("CLOSE: " + code);
@@ -506,7 +506,29 @@ private function close() {
 			log('         regression results: ');
 			for (obj in output)
 				log(obj);
-		}
+
+			// stdlogs output
+			if (!FileSystem.exists("tests/stdlogs"))
+				FileSystem.createDirectory("tests/stdlogs");
+			if (type == "std") {
+				final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+				final analyzeDataFileName = "tests/stdlogs/"  + name + ".json";
+				final data = analyzeStdLog(output);
+				File.saveContent("tests/stdlogs/" + name + ".log", output);
+				var failed = false;
+				if (FileSystem.exists(analyzeDataFileName)) {
+					final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+					for (pass in previousData.passes) {
+						if (data.passes.indexOf(pass) == -1) {
+							trace("REGRESSION");
+							suite.regressionTestError(task, pass);
+							failed = true;
+						}
+					}
+				}
+				if (!failed)
+					File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
+			}
 		if (regressionTestLines.length > 0) {
 			log("regression test funcs:");
 			log("    " + regressionTestLines.join("    \n"));

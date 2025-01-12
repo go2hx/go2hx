@@ -27,32 +27,32 @@ package stdgo._internal.testing;
             var exit = false;
             final output = new StringBuf();
             var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-            final stamp = Sys.time();
-            Sys.println("=== RUN  " + test.name.toString());
+            final stamp = #if sys std.Sys.time() #else haxe.Timer.stamp() #end;
+            stdgo.Go.println("=== RUN  " + test.name.toString());
             try {
                 test.f(t);
             } catch(e) {
                 if (e.message != "__fail__") {
-                    Sys.println(e.details());
+                    stdgo.Go.println(e.details());
                     exit = true;
                 };
                 error = true;
             };
-            final dstr = Sys.time() - stamp;
+            final dstr = (#if sys std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
-                Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
+                stdgo.Go.println('-- FAIL: ${test.name.toString()} ($dstr)');
                 _m._exitCode = 1;
                 if (exit) {
                     Sys.exit(1);
                 };
             } else if (chatty) {
                 if (t.skipped()) {
-                    Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');
+                    stdgo.Go.println('-- SKIP: ${test.name.toString()} ($dstr)');
                 } else {
-                    Sys.println('-- PASS: ${test.name.toString()} ($dstr)');
+                    stdgo.Go.println('-- PASS: ${test.name.toString()} ($dstr)');
                 };
             };
-            Sys.println(output.toString());
+            stdgo.Go.println(output.toString());
         };
         return _m._exitCode;
     }

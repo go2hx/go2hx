@@ -537,189 +537,189 @@ class T_huffmanLUT_static_extension {
 /**
     /|*{
     	if zigStart == 0 {
-    		gotoNext = 2973343
-    		_ = gotoNext == 2973343
+    		gotoNext = 2997390
+    		_ = gotoNext == 2997390
     		if zigEnd != 0 {
-    			gotoNext = 2973362
-    			_ = gotoNext == 2973362
+    			gotoNext = 2997409
+    			_ = gotoNext == 2997409
     			panic("unreachable")
-    			gotoNext = 2973394
+    			gotoNext = 2997441
     		} else {
-    			gotoNext = 2973394
+    			gotoNext = 2997441
     		}
-    		_ = gotoNext == 2973394
-    		bit_2973394, err_2973399 = d.decodeBit()
-    		if err_2973399 != nil {
-    			gotoNext = 2973436
-    			_ = gotoNext == 2973436
-    			return err_2973399
-    			gotoNext = 2973458
+    		_ = gotoNext == 2997441
+    		bit_2997441, err_2997446 = d.decodeBit()
+    		if err_2997446 != nil {
+    			gotoNext = 2997483
+    			_ = gotoNext == 2997483
+    			return err_2997446
+    			gotoNext = 2997505
     		} else {
-    			gotoNext = 2973458
+    			gotoNext = 2997505
     		}
-    		_ = gotoNext == 2973458
-    		if bit_2973394 {
-    			gotoNext = 2973465
-    			_ = gotoNext == 2973465
+    		_ = gotoNext == 2997505
+    		if bit_2997441 {
+    			gotoNext = 2997512
+    			_ = gotoNext == 2997512
     			b[0] |= delta
-    			gotoNext = 2973490
+    			gotoNext = 2997537
     		} else {
-    			gotoNext = 2973490
+    			gotoNext = 2997537
     		}
-    		_ = gotoNext == 2973490
+    		_ = gotoNext == 2997537
     		return nil
-    		gotoNext = 2973588
+    		gotoNext = 2997635
     	} else {
-    		gotoNext = 2973588
+    		gotoNext = 2997635
     	}
-    	_ = gotoNext == 2973588
-    	zig_2973588 = zigStart
+    	_ = gotoNext == 2997635
+    	zig_2997635 = zigStart
     	if d.eobRun == 0 {
-    		gotoNext = 2973622
-    		_ = gotoNext == 2973622
-    		gotoNext = 2973625
-    		_ = gotoNext == 2973625
+    		gotoNext = 2997669
+    		_ = gotoNext == 2997669
+    		gotoNext = 2997672
+    		_ = gotoNext == 2997672
     		_ = 0
     		loopBreak = false
-    		gotoNext = 2973633
-    		_ = gotoNext == 2973633
-    		if !loopBreak && (zig_2973588 <= zigEnd) {
-    			gotoNext = 2973660
-    			_ = gotoNext == 2973660
-    			z_2973665 = int32(0)
-    			value_2973682, err_2973689 = d.decodeHuffman(h)
-    			if err_2973689 != nil {
-    				gotoNext = 2973732
-    				_ = gotoNext == 2973732
-    				return err_2973689
-    				gotoNext = 2973757
+    		gotoNext = 2997680
+    		_ = gotoNext == 2997680
+    		if !loopBreak && (zig_2997635 <= zigEnd) {
+    			gotoNext = 2997707
+    			_ = gotoNext == 2997707
+    			z_2997712 = int32(0)
+    			value_2997729, err_2997736 = d.decodeHuffman(h)
+    			if err_2997736 != nil {
+    				gotoNext = 2997779
+    				_ = gotoNext == 2997779
+    				return err_2997736
+    				gotoNext = 2997804
     			} else {
-    				gotoNext = 2973757
+    				gotoNext = 2997804
     			}
-    			_ = gotoNext == 2973757
-    			val0_2973757 = value_2973682 >> 4
-    			val1_2973779 = value_2973682 & 15
-    			gotoNext = 2973804
-    			_ = gotoNext == 2973804
-    			switch val1_2973779 {
+    			_ = gotoNext == 2997804
+    			val0_2997804 = value_2997729 >> 4
+    			val1_2997826 = value_2997729 & 15
+    			gotoNext = 2997851
+    			_ = gotoNext == 2997851
+    			switch val1_2997826 {
     			case 0:
-    				gotoNext = 2973821
-    				_ = gotoNext == 2973821
-    				if val0_2973757 != 15 {
-    					gotoNext = 2973849
-    					_ = gotoNext == 2973849
-    					d.eobRun = uint16(1 << val0_2973757)
-    					if val0_2973757 != 0 {
-    						gotoNext = 2973903
-    						_ = gotoNext == 2973903
-    						bits_2973911, err_2973917 = d.decodeBits(int32(val0_2973757))
-    						if err_2973917 != nil {
-    							gotoNext = 2973970
-    							_ = gotoNext == 2973970
-    							return err_2973917
-    							gotoNext = 2974004
+    				gotoNext = 2997868
+    				_ = gotoNext == 2997868
+    				if val0_2997804 != 15 {
+    					gotoNext = 2997896
+    					_ = gotoNext == 2997896
+    					d.eobRun = uint16(1 << val0_2997804)
+    					if val0_2997804 != 0 {
+    						gotoNext = 2997950
+    						_ = gotoNext == 2997950
+    						bits_2997958, err_2997964 = d.decodeBits(int32(val0_2997804))
+    						if err_2997964 != nil {
+    							gotoNext = 2998017
+    							_ = gotoNext == 2998017
+    							return err_2997964
+    							gotoNext = 2998051
     						} else {
-    							gotoNext = 2974004
+    							gotoNext = 2998051
     						}
-    						_ = gotoNext == 2974004
-    						d.eobRun |= uint16(bits_2973911)
-    						gotoNext = 2974041
+    						_ = gotoNext == 2998051
+    						d.eobRun |= uint16(bits_2997958)
+    						gotoNext = 2998088
     					} else {
-    						gotoNext = 2974041
+    						gotoNext = 2998088
     					}
-    					_ = gotoNext == 2974041
+    					_ = gotoNext == 2998088
     					loopBreak = true
-    					gotoNext = 2973633
-    					gotoNext = 2974258
+    					gotoNext = 2997680
+    					gotoNext = 2998305
     				} else {
-    					gotoNext = 2974258
+    					gotoNext = 2998305
     				}
-    				gotoNext = 2974258
+    				gotoNext = 2998305
     			case 1:
-    				gotoNext = 2974061
-    				_ = gotoNext == 2974061
-    				z_2973665 = delta
-    				bit_2974087, err_2974092 = d.decodeBit()
-    				if err_2974092 != nil {
-    					gotoNext = 2974131
-    					_ = gotoNext == 2974131
-    					return err_2974092
-    					gotoNext = 2974159
+    				gotoNext = 2998108
+    				_ = gotoNext == 2998108
+    				z_2997712 = delta
+    				bit_2998134, err_2998139 = d.decodeBit()
+    				if err_2998139 != nil {
+    					gotoNext = 2998178
+    					_ = gotoNext == 2998178
+    					return err_2998139
+    					gotoNext = 2998206
     				} else {
-    					gotoNext = 2974159
+    					gotoNext = 2998206
     				}
-    				_ = gotoNext == 2974159
-    				if !bit_2974087 {
-    					gotoNext = 2974167
-    					_ = gotoNext == 2974167
-    					z_2973665 = -z_2973665
-    					gotoNext = 2974258
+    				_ = gotoNext == 2998206
+    				if !bit_2998134 {
+    					gotoNext = 2998214
+    					_ = gotoNext == 2998214
+    					z_2997712 = -z_2997712
+    					gotoNext = 2998305
     				} else {
-    					gotoNext = 2974258
+    					gotoNext = 2998305
     				}
-    				gotoNext = 2974258
+    				gotoNext = 2998305
     			default:
-    				gotoNext = 2974190
-    				_ = gotoNext == 2974190
+    				gotoNext = 2998237
+    				_ = gotoNext == 2998237
     				return FormatError("unexpected Huffman code")
-    				gotoNext = 2974258
+    				gotoNext = 2998305
     			}
-    			_ = gotoNext == 2974258
-    			zig_2973588, err_2973689 = d.refineNonZeroes(b, zig_2973588, zigEnd, int32(val0_2973757), delta)
-    			if err_2973689 != nil {
-    				gotoNext = 2974340
-    				_ = gotoNext == 2974340
-    				return err_2973689
-    				gotoNext = 2974365
+    			_ = gotoNext == 2998305
+    			zig_2997635, err_2997736 = d.refineNonZeroes(b, zig_2997635, zigEnd, int32(val0_2997804), delta)
+    			if err_2997736 != nil {
+    				gotoNext = 2998387
+    				_ = gotoNext == 2998387
+    				return err_2997736
+    				gotoNext = 2998412
     			} else {
-    				gotoNext = 2974365
+    				gotoNext = 2998412
     			}
-    			_ = gotoNext == 2974365
-    			if zig_2973588 > zigEnd {
-    				gotoNext = 2974381
-    				_ = gotoNext == 2974381
+    			_ = gotoNext == 2998412
+    			if zig_2997635 > zigEnd {
+    				gotoNext = 2998428
+    				_ = gotoNext == 2998428
     				return FormatError("too many coefficients")
-    				gotoNext = 2974439
+    				gotoNext = 2998486
     			} else {
-    				gotoNext = 2974439
+    				gotoNext = 2998486
     			}
-    			_ = gotoNext == 2974439
-    			if z_2973665 != 0 {
-    				gotoNext = 2974449
-    				_ = gotoNext == 2974449
-    				b[unzig[zig_2973588]] = z_2973665
-    				gotoNext = 2973654
+    			_ = gotoNext == 2998486
+    			if z_2997712 != 0 {
+    				gotoNext = 2998496
+    				_ = gotoNext == 2998496
+    				b[unzig[zig_2997635]] = z_2997712
+    				gotoNext = 2997701
     			} else {
-    				gotoNext = 2973654
+    				gotoNext = 2997701
     			}
-    			_ = gotoNext == 2973654
-    			zig_2973588++
-    			gotoNext = 2973633
+    			_ = gotoNext == 2997701
+    			zig_2997635++
+    			gotoNext = 2997680
     		} else {
-    			gotoNext = 2974486
+    			gotoNext = 2998533
     		}
-    		gotoNext = 2974486
+    		gotoNext = 2998533
     	} else {
-    		gotoNext = 2974486
+    		gotoNext = 2998533
     	}
-    	_ = gotoNext == 2974486
+    	_ = gotoNext == 2998533
     	if d.eobRun > 0 {
-    		gotoNext = 2974502
-    		_ = gotoNext == 2974502
+    		gotoNext = 2998549
+    		_ = gotoNext == 2998549
     		d.eobRun--
-    		if _, err_2974525 = d.refineNonZeroes(b, zig_2973588, zigEnd, -1, delta); err_2974525 != nil {
-    			gotoNext = 2974589
-    			_ = gotoNext == 2974589
-    			return err_2974525
-    			gotoNext = 2974613
+    		if _, err_2998572 = d.refineNonZeroes(b, zig_2997635, zigEnd, -1, delta); err_2998572 != nil {
+    			gotoNext = 2998636
+    			_ = gotoNext == 2998636
+    			return err_2998572
+    			gotoNext = 2998660
     		} else {
-    			gotoNext = 2974613
+    			gotoNext = 2998660
     		}
-    		gotoNext = 2974613
+    		gotoNext = 2998660
     	} else {
-    		gotoNext = 2974613
+    		gotoNext = 2998660
     	}
-    	_ = gotoNext == 2974613
+    	_ = gotoNext == 2998660
     	return nil
     	gotoNext = -1
     }*|/

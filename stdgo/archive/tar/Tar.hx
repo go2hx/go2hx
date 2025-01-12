@@ -20,33 +20,33 @@ final formatGNU = stdgo._internal.archive.tar.Tar_formatGNU.formatGNU;
 var errHeader(get, set) : stdgo.Error;
 private function get_errHeader():stdgo.Error return stdgo._internal.archive.tar.Tar_errHeader.errHeader;
 private function set_errHeader(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.archive.tar.Tar_errHeader.errHeader = v;
-        return v;
-    }
+    stdgo._internal.archive.tar.Tar_errHeader.errHeader = v;
+    return v;
+}
 var errWriteTooLong(get, set) : stdgo.Error;
 private function get_errWriteTooLong():stdgo.Error return stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong;
 private function set_errWriteTooLong(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong = v;
-        return v;
-    }
+    stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong = v;
+    return v;
+}
 var errFieldTooLong(get, set) : stdgo.Error;
 private function get_errFieldTooLong():stdgo.Error return stdgo._internal.archive.tar.Tar_errFieldTooLong.errFieldTooLong;
 private function set_errFieldTooLong(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.archive.tar.Tar_errFieldTooLong.errFieldTooLong = v;
-        return v;
-    }
+    stdgo._internal.archive.tar.Tar_errFieldTooLong.errFieldTooLong = v;
+    return v;
+}
 var errWriteAfterClose(get, set) : stdgo.Error;
 private function get_errWriteAfterClose():stdgo.Error return stdgo._internal.archive.tar.Tar_errWriteAfterClose.errWriteAfterClose;
 private function set_errWriteAfterClose(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.archive.tar.Tar_errWriteAfterClose.errWriteAfterClose = v;
-        return v;
-    }
+    stdgo._internal.archive.tar.Tar_errWriteAfterClose.errWriteAfterClose = v;
+    return v;
+}
 var errInsecurePath(get, set) : stdgo.Error;
 private function get_errInsecurePath():stdgo.Error return stdgo._internal.archive.tar.Tar_errInsecurePath.errInsecurePath;
 private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.archive.tar.Tar_errInsecurePath.errInsecurePath = v;
-        return v;
-    }
+    stdgo._internal.archive.tar.Tar_errInsecurePath.errInsecurePath = v;
+    return v;
+}
 class T_fileState_static_extension {
     static public function _physicalRemaining(t:stdgo._internal.archive.tar.Tar_T_fileState.T_fileState):haxe.Int64 {
         return stdgo._internal.archive.tar.Tar_T_fileState_static_extension.T_fileState_static_extension._physicalRemaining(t);

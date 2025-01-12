@@ -1,0 +1,9 @@
+{
+    "passes": [],
+    "fails": [
+        "TestCheckEqual"
+    ],
+    "runs": [
+        "TestCheckEqual"
+    ]
+}

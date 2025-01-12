@@ -1,0 +1,12 @@
+{
+    "passes": [
+        "TestReadError"
+    ],
+    "fails": [
+        "TestMutexLock"
+    ],
+    "runs": [
+        "TestReadError",
+        "TestMutexLock"
+    ]
+}

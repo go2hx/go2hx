@@ -1,0 +1,12 @@
+[30;41m ERROR [0m ./stdgo/_internal/os/Os_dirFS.hx:2: characters 68-73
+
+ 2 | [2mfunction dirFS(_dir:stdgo.GoString):stdgo._internal.io.fs.Fs_FS.FS [0m[1mthrow[0m[2m ":os.dirFS is not yet implemented";[0m
+   |                                                                    [31m^^^^^[0m
+   | Uncaught exception :os.dirFS is not yet implemented
+
+   [30;41m -> [0m ./_internal/io/fs_test/Fs_test__globTests.hx:2: characters 176-233
+
+    2 | [2mvar _globTests : stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2> = (new stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2>(5, 5, ...[({ _fs : [0m[1mstdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString))[0m[2m, _pattern : ("glob.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("gl?b.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("gl\\ob.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("*" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS((".." : stdgo.GoString)), _pattern : ("*/glob.go" : stdgo.GoString), _result : ("fs/glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _fs : (null : stdgo._internal.io.fs.Fs_FS.FS), _pattern : ("" : stdgo.GoString), _result : ("" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2)])) : stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2>);[0m
+      |                                                                                                                                                                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Called from here
+

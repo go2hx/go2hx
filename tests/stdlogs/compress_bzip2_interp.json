@@ -1,0 +1,14 @@
+{
+    "passes": [
+        "TestBitReader",
+        "TestMTF",
+        "TestZeroRead"
+    ],
+    "fails": [],
+    "runs": [
+        "TestReader",
+        "TestBitReader",
+        "TestMTF",
+        "TestZeroRead"
+    ]
+}

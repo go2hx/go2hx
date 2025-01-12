@@ -1,0 +1,11 @@
+=== RUN  TestLittleEndianRead
+Exception: generic function is not supported
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from stdgo._internal.encoding.binary._Binary_testLittleEndianRead.Binary_testLittleEndianRead_Fields_.testLittleEndianRead (./stdgo/_internal/encoding/binary/Binary_testLittleEndianRead.hx line 3 column 9)
+Called from stdgo._internal.encoding.binary._Binary__testRead.Binary__testRead_Fields_._testRead (./stdgo/_internal/encoding/binary/Binary__testRead.hx line 4 column 20)
+Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.read (./stdgo/_internal/encoding/binary/Binary_read.hx line 117 column 25)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15 column 44)
+Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 365 column 32)
+Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 405 column 31)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14 column 141)
+-- FAIL: TestLittleEndianRead (0.000706911087036132812)

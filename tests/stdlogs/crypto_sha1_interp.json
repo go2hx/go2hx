@@ -1,0 +1,18 @@
+{
+    "passes": [
+        "TestGolden",
+        "TestGoldenMarshal",
+        "TestSize",
+        "TestBlockSize"
+    ],
+    "fails": [
+        "TestBlockGeneric"
+    ],
+    "runs": [
+        "TestGolden",
+        "TestGoldenMarshal",
+        "TestSize",
+        "TestBlockSize",
+        "TestBlockGeneric"
+    ]
+}

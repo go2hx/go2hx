@@ -1,0 +1,11 @@
+=== RUN  TestCheckEqual
+Exception: field access on null
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.quick._Quick_testCheckEqual.Quick_testCheckEqual_Fields_.testCheckEqual (./stdgo/_internal/testing/quick/Quick_testCheckEqual.hx line 3 column 100)
+Called from stdgo._internal.testing.quick._Quick_checkEqual.Quick_checkEqual_Fields_.checkEqual (./stdgo/_internal/testing/quick/Quick_checkEqual.hx line 23 column 28)
+Called from stdgo._internal.testing.quick._Quick__arbitraryValues.Quick__arbitraryValues_Fields_._arbitraryValues (./stdgo/_internal/testing/quick/Quick__arbitraryValues.hx line 13 column 35)
+Called from stdgo._internal.testing.quick._Quick_value.Quick_value_Fields_.value (./stdgo/_internal/testing/quick/Quick_value.hx line 5 column 102)
+Called from stdgo._internal.testing.quick._Quick__sizedValue.Quick__sizedValue_Fields_._sizedValue (./stdgo/_internal/testing/quick/Quick__sizedValue.hx line 125 column 1)
+Called from stdgo._internal.reflect.Value_static_extension.set (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 291 column 17)
+Called from StringTools.endsWith (/home/runner/haxe/versions/c4868e5/std/StringTools.hx line 260 column 14)
+-- FAIL: TestCheckEqual (0.00967693328857421875)

@@ -1,0 +1,12 @@
+[30;41m ERROR [0m ./stdgo/_internal/syscall/js/Js_global.hx:2: characters 61-66
+
+ 2 | [2mfunction global():stdgo._internal.syscall.js.Js_Value.Value [0m[1mthrow[0m[2m ":syscall.js.global is not yet implemented";[0m
+   |                                                             [31m^^^^^[0m
+   | Uncaught exception :syscall.js.global is not yet implemented
+
+   [30;41m -> [0m ./_internal/syscall/js_test/Js_test__dummys.hx:2: characters 59-104
+
+    2 | [2mvar _dummys : stdgo._internal.syscall.js.Js_Value.Value = [0m[1mstdgo._internal.syscall.js.Js_global.global()[0m[2m.call(("eval" : stdgo.GoString), stdgo.Go.toInterface(("({\n\tsomeBool: true,\n\tsomeString: \"abc\\u1234\",\n\tsomeInt: 42,\n\tsomeFloat: 42.123,\n\tsomeArray: [41, 42, 43],\n\tsomeDate: new Date(),\n\tadd: function(a, b) {\n\t\treturn a + b;\n\t},\n\tzero: 0,\n\tstringZero: \"0\",\n\tNaN: NaN,\n\temptyObj: {},\n\temptyArray: [],\n\tInfinity: Infinity,\n\tNegInfinity: -Infinity,\n\tobjNumber0: new Number(0),\n\tobjBooleanFalse: new Boolean(false),\n})" : stdgo.GoString)));[0m
+      |                                                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Called from here
+

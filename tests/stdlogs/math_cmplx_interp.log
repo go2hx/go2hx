@@ -1,0 +1,72 @@
+=== RUN  TestAbs
+-- PASS: TestAbs (0.000109910964965820312)
+
+=== RUN  TestAcos
+Acos((2-0i)) not continuous, got (0-1.3169578969248164i) want (0+1.3169578969248166i)Acos((-2+0i)) not continuous, got (3.141592653589793+1.3169578969248166i) want (3.141592653589793-1.3169578969248164i)-- FAIL: TestAcos (0.0104038715362548828)
+
+=== RUN  TestAcosh
+Acosh((-2+0i)) not continuous, got (1.3169578969248166-3.141592653589793i) want (1.3169578969248164+3.141592653589793i)-- FAIL: TestAcosh (0.00493907928466796875)
+
+=== RUN  TestAsin
+Asin((2-0i)) not continuous, got (1.5707963267948966+1.3169578969248164i) want (1.5707963267948966-1.3169578969248166i)Asin((-2+0i)) not continuous, got (-1.5707963267948966-1.3169578969248166i) want (-1.5707963267948966+1.3169578969248164i)-- FAIL: TestAsin (0.00843286514282226562)
+
+=== RUN  TestAsinh
+Asinh((0-2i)) not continuous, got (-1.3169578969248164-1.5707963267948966i) want (1.3169578969248166-1.5707963267948966i)-- FAIL: TestAsinh (0.00482201576232910156)
+
+=== RUN  TestAtan
+-- PASS: TestAtan (0.00124883651733398438)
+
+=== RUN  TestAtanh
+Atanh((0+0i)) = (0-0i), want (0+0i)Atanh((1+0i)) = (+Inf-0i), want (+Inf+0i)-- FAIL: TestAtanh (0.00290417671203613281)
+
+=== RUN  TestConj
+-- PASS: TestConj (0.00018405914306640625)
+
+=== RUN  TestCos
+Cos((0-0i)) = (1+0i), want (1-0i)Cos((-0-0i)) = (1+0i), want (1-0i)Cos((0-Infi)) = (+Inf+0i), want (+Inf-0i)Cos((-0-Infi)) = (+Inf+0i), want (+Inf-0i)-- FAIL: TestCos (0.00531911849975585938)
+
+=== RUN  TestCosh
+-- PASS: TestCosh (0.00149488449096679688)
+
+=== RUN  TestExp
+-- PASS: TestExp (0.00131916999816894531)
+
+=== RUN  TestIsNaN
+-- PASS: TestIsNaN (4.1961669921875e-05)
+
+=== RUN  TestLog
+-- PASS: TestLog (0.00133609771728515625)
+
+=== RUN  TestLog10
+-- PASS: TestLog10 (0.000693798065185546875)
+
+=== RUN  TestPolar
+-- PASS: TestPolar (8.20159912109375e-05)
+
+=== RUN  TestPow
+-- PASS: TestPow (0.00140309333801269531)
+
+=== RUN  TestRect
+-- PASS: TestRect (0.00125598907470703125)
+
+=== RUN  TestSin
+-- PASS: TestSin (0.001049041748046875)
+
+=== RUN  TestSinh
+-- PASS: TestSinh (0.00127506256103515625)
+
+=== RUN  TestSqrt
+-- PASS: TestSqrt (0.00111413002014160156)
+
+=== RUN  TestTan
+Tan((7.738872474578105-0.2768800571920016i)) = (1.2424126853628314-3.171496938827881i), want (1.2424126853641837-3.171496938831334i)-- FAIL: TestTan (0.00608205795288085938)
+
+=== RUN  TestTanh
+-- PASS: TestTanh (0.00126099586486816406)
+
+=== RUN  TestInfiniteLoopIntanSeries
+Cot(0): got (0-0i), want (+Inf+Infi)-- FAIL: TestInfiniteLoopIntanSeries (0.000712871551513671875)
+
+=== RUN  TestTanHuge
+Tan((2.037035976334486e+90+0i)) = (4.609012876777886+0i), want (4.60901287677811+0i)Tan((-3.1217485503159922e+144+0i)) = (3.3913596505435195+0i), want (3.391359650547799+0i)-- FAIL: TestTanHuge (0.00697588920593261719)
+

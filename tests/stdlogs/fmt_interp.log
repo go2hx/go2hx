@@ -1,0 +1,7 @@
+[30;41m ERROR [0m ./_internal/fmt_test/Fmt_test_testReorder.hx:4: characters 88-141
+
+ 4 | [2m            var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(_tt._fmt?.__copy__(), ...[0m[1m(_tt._val : Array<_internal.fmt_test.Fmt_test_SE.SE>)[0m[2m)?.__copy__() : stdgo.GoString);[0m
+   |                                                                                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | _internal.fmt_test.SE should be Array<_internal.fmt_test.SE>
+   | For function argument '_a'
+

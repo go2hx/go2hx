@@ -199,10 +199,7 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		@:define("(sys || hxnodejs)") {
-			return ((std.Sys.time() * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
-		}
-		return 0;
+		return (((@:define("sys", haxe.Timer.stamp()) std.Sys.time()) * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
 	},
 	"time:_now" => macro {
 		final n = stdgo._internal.time.Time__runtimeNano._runtimeNano();
@@ -1496,32 +1493,32 @@ final list = [
 			var exit = false;
 			final output = new StringBuf();
 			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-			final stamp = Sys.time();
-			Sys.println("=== RUN  " + test.name.toString());
+			final stamp = @:define("sys", haxe.Timer.stamp()) std.Sys.time();
+			stdgo.Go.println("=== RUN  " + test.name.toString());
 			try {
 				test.f(t);
 			} catch (e) {
 				if (e.message != "__fail__") {
-					Sys.println(e.details());
+					stdgo.Go.println(e.details());
 					exit = true;
 				}
 				error = true;
 			}
-			final dstr = Sys.time() - stamp; // duration
+			final dstr = (@:define("sys", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
-				Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
+				stdgo.Go.println('-- FAIL: ${test.name.toString()} ($dstr)');
 				_m._exitCode = 1;
 				if (exit) {
 					Sys.exit(1);
 				}
 			} else if (chatty) {
 				if (t.skipped()) {
-					Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');
+					stdgo.Go.println('-- SKIP: ${test.name.toString()} ($dstr)');
 				} else {
-					Sys.println('-- PASS: ${test.name.toString()} ($dstr)');
+					stdgo.Go.println('-- PASS: ${test.name.toString()} ($dstr)');
 				}
 			}
-			Sys.println(output.toString());
+			stdgo.Go.println(output.toString());
 		}
 		return _m._exitCode;
 	},

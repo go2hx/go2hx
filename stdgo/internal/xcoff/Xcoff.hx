@@ -1456,637 +1456,637 @@ class T_zeroReaderAt_static_extension {
 }
 /**
     /|*{
-    	sr_3770646 = io.NewSectionReader(r, 0, 9223372036854775807)
-    	magic_3770722 = &magic_3770722
-    	if err_3770739 = binary.Read(sr_3770646, binary.BigEndian, magic_3770722); err_3770739 != nil {
-    		gotoNext = 3770800
-    		_ = gotoNext == 3770800
-    		return nil, err_3770739
-    		gotoNext = 3770824
+    	sr_3776408 = io.NewSectionReader(r, 0, 9223372036854775807)
+    	magic_3776484 = &magic_3776484
+    	if err_3776501 = binary.Read(sr_3776408, binary.BigEndian, magic_3776484); err_3776501 != nil {
+    		gotoNext = 3776562
+    		_ = gotoNext == 3776562
+    		return nil, err_3776501
+    		gotoNext = 3776586
     	} else {
-    		gotoNext = 3770824
+    		gotoNext = 3776586
     	}
-    	_ = gotoNext == 3770824
-    	if magic_3770722 != 479 && magic_3770722 != 503 {
-    		gotoNext = 3770874
-    		_ = gotoNext == 3770874
-    		return nil, fmt.Errorf("unrecognised XCOFF magic: 0x%x", magic_3770722)
-    		gotoNext = 3770947
+    	_ = gotoNext == 3776586
+    	if magic_3776484 != 479 && magic_3776484 != 503 {
+    		gotoNext = 3776636
+    		_ = gotoNext == 3776636
+    		return nil, fmt.Errorf("unrecognised XCOFF magic: 0x%x", magic_3776484)
+    		gotoNext = 3776709
     	} else {
-    		gotoNext = 3770947
+    		gotoNext = 3776709
     	}
-    	_ = gotoNext == 3770947
-    	f_3770947 = new(File)
-    	f_3770947.TargetMachine = magic_3770722
-    	if _, err_3771022 = sr_3770646.Seek(0, 0); err_3771022 != nil {
-    		gotoNext = 3771066
-    		_ = gotoNext == 3771066
-    		return nil, err_3771022
-    		gotoNext = 3771090
+    	_ = gotoNext == 3776709
+    	f_3776709 = new(File)
+    	f_3776709.TargetMachine = magic_3776484
+    	if _, err_3776784 = sr_3776408.Seek(0, 0); err_3776784 != nil {
+    		gotoNext = 3776828
+    		_ = gotoNext == 3776828
+    		return nil, err_3776784
+    		gotoNext = 3776852
     	} else {
-    		gotoNext = 3771090
+    		gotoNext = 3776852
     	}
-    	_ = gotoNext == 3771090
-    	gotoNext = 3771179
-    	_ = gotoNext == 3771179
-    	switch f_3770947.TargetMachine {
+    	_ = gotoNext == 3776852
+    	gotoNext = 3776941
+    	_ = gotoNext == 3776941
+    	switch f_3776709.TargetMachine {
     	case 479:
-    		gotoNext = 3771205
-    		_ = gotoNext == 3771205
-    		fhdr_3771226 = new(FileHeader32)
-    		if err_3771257 = binary.Read(sr_3770646, binary.BigEndian, fhdr_3771226); err_3771257 != nil {
-    			gotoNext = 3771316
-    			_ = gotoNext == 3771316
-    			return nil, err_3771257
-    			gotoNext = 3771343
+    		gotoNext = 3776967
+    		_ = gotoNext == 3776967
+    		fhdr_3776988 = new(FileHeader32)
+    		if err_3777019 = binary.Read(sr_3776408, binary.BigEndian, fhdr_3776988); err_3777019 != nil {
+    			gotoNext = 3777078
+    			_ = gotoNext == 3777078
+    			return nil, err_3777019
+    			gotoNext = 3777105
     		} else {
-    			gotoNext = 3771343
+    			gotoNext = 3777105
     		}
-    		_ = gotoNext == 3771343
-    		nscns_3771094 = fhdr_3771226.Fnscns
-    		symptr_3771112 = uint64(fhdr_3771226.Fsymptr)
-    		nsyms_3771131 = fhdr_3771226.Fnsyms
-    		opthdr_3771149 = fhdr_3771226.Fopthdr
-    		hdrsz_3771168 = 20
-    		gotoNext = 3771715
+    		_ = gotoNext == 3777105
+    		nscns_3776856 = fhdr_3776988.Fnscns
+    		symptr_3776874 = uint64(fhdr_3776988.Fsymptr)
+    		nsyms_3776893 = fhdr_3776988.Fnsyms
+    		opthdr_3776911 = fhdr_3776988.Fopthdr
+    		hdrsz_3776930 = 20
+    		gotoNext = 3777477
     	case 503:
-    		gotoNext = 3771462
-    		_ = gotoNext == 3771462
-    		fhdr_3771483 = new(FileHeader64)
-    		if err_3771514 = binary.Read(sr_3770646, binary.BigEndian, fhdr_3771483); err_3771514 != nil {
-    			gotoNext = 3771573
-    			_ = gotoNext == 3771573
-    			return nil, err_3771514
-    			gotoNext = 3771600
+    		gotoNext = 3777224
+    		_ = gotoNext == 3777224
+    		fhdr_3777245 = new(FileHeader64)
+    		if err_3777276 = binary.Read(sr_3776408, binary.BigEndian, fhdr_3777245); err_3777276 != nil {
+    			gotoNext = 3777335
+    			_ = gotoNext == 3777335
+    			return nil, err_3777276
+    			gotoNext = 3777362
     		} else {
-    			gotoNext = 3771600
+    			gotoNext = 3777362
     		}
-    		_ = gotoNext == 3771600
-    		nscns_3771094 = fhdr_3771483.Fnscns
-    		symptr_3771112 = fhdr_3771483.Fsymptr
-    		nsyms_3771131 = fhdr_3771483.Fnsyms
-    		opthdr_3771149 = fhdr_3771483.Fopthdr
-    		hdrsz_3771168 = 24
-    		gotoNext = 3771715
+    		_ = gotoNext == 3777362
+    		nscns_3776856 = fhdr_3777245.Fnscns
+    		symptr_3776874 = fhdr_3777245.Fsymptr
+    		nsyms_3776893 = fhdr_3777245.Fnsyms
+    		opthdr_3776911 = fhdr_3777245.Fopthdr
+    		hdrsz_3776930 = 24
+    		gotoNext = 3777477
     	default:
-    		gotoNext = 3771715
+    		gotoNext = 3777477
     	}
-    	_ = gotoNext == 3771715
-    	if symptr_3771112 == 0 || nsyms_3771131 <= 0 {
-    		gotoNext = 3771744
-    		_ = gotoNext == 3771744
+    	_ = gotoNext == 3777477
+    	if symptr_3776874 == 0 || nsyms_3776893 <= 0 {
+    		gotoNext = 3777506
+    		_ = gotoNext == 3777506
     		return nil, fmt.Errorf("no symbol table")
-    		gotoNext = 3771853
+    		gotoNext = 3777615
     	} else {
-    		gotoNext = 3771853
+    		gotoNext = 3777615
     	}
-    	_ = gotoNext == 3771853
-    	offset_3771853 = symptr_3771112 + uint64(nsyms_3771131)*18
-    	if _, err_3771900 = sr_3770646.Seek(int64(offset_3771853), 0); err_3771900 != nil {
-    		gotoNext = 3771956
-    		_ = gotoNext == 3771956
-    		return nil, err_3771900
-    		gotoNext = 3772033
+    	_ = gotoNext == 3777615
+    	offset_3777615 = symptr_3776874 + uint64(nsyms_3776893)*18
+    	if _, err_3777662 = sr_3776408.Seek(int64(offset_3777615), 0); err_3777662 != nil {
+    		gotoNext = 3777718
+    		_ = gotoNext == 3777718
+    		return nil, err_3777662
+    		gotoNext = 3777795
     	} else {
-    		gotoNext = 3772033
+    		gotoNext = 3777795
     	}
-    	_ = gotoNext == 3772033
-    	l_3772037 = &l_3772037
-    	if err_3772050 = binary.Read(sr_3770646, binary.BigEndian, l_3772037); err_3772050 != nil {
-    		gotoNext = 3772107
-    		_ = gotoNext == 3772107
-    		return nil, err_3772050
-    		gotoNext = 3772131
+    	_ = gotoNext == 3777795
+    	l_3777799 = &l_3777799
+    	if err_3777812 = binary.Read(sr_3776408, binary.BigEndian, l_3777799); err_3777812 != nil {
+    		gotoNext = 3777869
+    		_ = gotoNext == 3777869
+    		return nil, err_3777812
+    		gotoNext = 3777893
     	} else {
-    		gotoNext = 3772131
+    		gotoNext = 3777893
     	}
-    	_ = gotoNext == 3772131
-    	if l_3772037 > 4 {
-    		gotoNext = 3772140
-    		_ = gotoNext == 3772140
-    		st_3772144, err_3772148 = saferio.ReadDataAt(sr_3770646, uint64(l_3772037), int64(offset_3771853))
-    		if err_3772148 != nil {
-    			gotoNext = 3772220
-    			_ = gotoNext == 3772220
-    			return nil, err_3772148
-    			gotoNext = 3772247
+    	_ = gotoNext == 3777893
+    	if l_3777799 > 4 {
+    		gotoNext = 3777902
+    		_ = gotoNext == 3777902
+    		st_3777906, err_3777910 = saferio.ReadDataAt(sr_3776408, uint64(l_3777799), int64(offset_3777615))
+    		if err_3777910 != nil {
+    			gotoNext = 3777982
+    			_ = gotoNext == 3777982
+    			return nil, err_3777910
+    			gotoNext = 3778009
     		} else {
-    			gotoNext = 3772247
+    			gotoNext = 3778009
     		}
-    		_ = gotoNext == 3772247
-    		f_3770947.StringTable = st_3772144
-    		gotoNext = 3772296
+    		_ = gotoNext == 3778009
+    		f_3776709.StringTable = st_3777906
+    		gotoNext = 3778058
     	} else {
-    		gotoNext = 3772296
+    		gotoNext = 3778058
     	}
-    	_ = gotoNext == 3772296
-    	if _, err_3772302 = sr_3770646.Seek(int64(hdrsz_3771168)+int64(opthdr_3771149), 0); err_3772302 != nil {
-    		gotoNext = 3772371
-    		_ = gotoNext == 3772371
-    		return nil, err_3772302
-    		gotoNext = 3772395
+    	_ = gotoNext == 3778058
+    	if _, err_3778064 = sr_3776408.Seek(int64(hdrsz_3776930)+int64(opthdr_3776911), 0); err_3778064 != nil {
+    		gotoNext = 3778133
+    		_ = gotoNext == 3778133
+    		return nil, err_3778064
+    		gotoNext = 3778157
     	} else {
-    		gotoNext = 3772395
+    		gotoNext = 3778157
     	}
-    	_ = gotoNext == 3772395
-    	c_3772395 = saferio.SliceCap((**Section)(nil), uint64(nscns_3771094))
-    	if c_3772395 < 0 {
-    		gotoNext = 3772460
-    		_ = gotoNext == 3772460
-    		return nil, fmt.Errorf("too many XCOFF sections (%d)", nscns_3771094)
-    		gotoNext = 3772530
+    	_ = gotoNext == 3778157
+    	c_3778157 = saferio.SliceCap((**Section)(nil), uint64(nscns_3776856))
+    	if c_3778157 < 0 {
+    		gotoNext = 3778222
+    		_ = gotoNext == 3778222
+    		return nil, fmt.Errorf("too many XCOFF sections (%d)", nscns_3776856)
+    		gotoNext = 3778292
     	} else {
-    		gotoNext = 3772530
+    		gotoNext = 3778292
     	}
-    	_ = gotoNext == 3772530
-    	f_3770947.Sections = make([]*Section, 0, c_3772395)
-    	i_3772571 = 0
-    	gotoNext = 3772567
-    	_ = gotoNext == 3772567
-    	if i_3772571 < int(nscns_3771094) {
-    		gotoNext = 3772599
-    		_ = gotoNext == 3772599
-    		s_3772623 = new(Section)
-    		gotoNext = 3772643
-    		_ = gotoNext == 3772643
-    		switch f_3770947.TargetMachine {
+    	_ = gotoNext == 3778292
+    	f_3776709.Sections = make([]*Section, 0, c_3778157)
+    	i_3778333 = 0
+    	gotoNext = 3778329
+    	_ = gotoNext == 3778329
+    	if i_3778333 < int(nscns_3776856) {
+    		gotoNext = 3778361
+    		_ = gotoNext == 3778361
+    		s_3778385 = new(Section)
+    		gotoNext = 3778405
+    		_ = gotoNext == 3778405
+    		switch f_3776709.TargetMachine {
     		case 479:
-    			gotoNext = 3772670
-    			_ = gotoNext == 3772670
-    			shdr_3772692 = new(SectionHeader32)
-    			if err_3772727 = binary.Read(sr_3770646, binary.BigEndian, shdr_3772692); err_3772727 != nil {
-    				gotoNext = 3772786
-    				_ = gotoNext == 3772786
-    				return nil, err_3772727
-    				gotoNext = 3772816
+    			gotoNext = 3778432
+    			_ = gotoNext == 3778432
+    			shdr_3778454 = new(SectionHeader32)
+    			if err_3778489 = binary.Read(sr_3776408, binary.BigEndian, shdr_3778454); err_3778489 != nil {
+    				gotoNext = 3778548
+    				_ = gotoNext == 3778548
+    				return nil, err_3778489
+    				gotoNext = 3778578
     			} else {
-    				gotoNext = 3772816
+    				gotoNext = 3778578
     			}
-    			_ = gotoNext == 3772816
-    			s_3772623.Name = cstring(shdr_3772692.Sname[:])
-    			s_3772623.VirtualAddress = uint64(shdr_3772692.Svaddr)
-    			s_3772623.Size = uint64(shdr_3772692.Ssize)
-    			scnptr_3772607 = uint64(shdr_3772692.Sscnptr)
-    			s_3772623.Type = shdr_3772692.Sflags
-    			s_3772623.Relptr = uint64(shdr_3772692.Srelptr)
-    			s_3772623.Nreloc = uint32(shdr_3772692.Snreloc)
-    			gotoNext = 3773394
+    			_ = gotoNext == 3778578
+    			s_3778385.Name = cstring(shdr_3778454.Sname[:])
+    			s_3778385.VirtualAddress = uint64(shdr_3778454.Svaddr)
+    			s_3778385.Size = uint64(shdr_3778454.Ssize)
+    			scnptr_3778369 = uint64(shdr_3778454.Sscnptr)
+    			s_3778385.Type = shdr_3778454.Sflags
+    			s_3778385.Relptr = uint64(shdr_3778454.Srelptr)
+    			s_3778385.Nreloc = uint32(shdr_3778454.Snreloc)
+    			gotoNext = 3779156
     		case 503:
-    			gotoNext = 3773050
-    			_ = gotoNext == 3773050
-    			shdr_3773072 = new(SectionHeader64)
-    			if err_3773107 = binary.Read(sr_3770646, binary.BigEndian, shdr_3773072); err_3773107 != nil {
-    				gotoNext = 3773166
-    				_ = gotoNext == 3773166
-    				return nil, err_3773107
-    				gotoNext = 3773196
+    			gotoNext = 3778812
+    			_ = gotoNext == 3778812
+    			shdr_3778834 = new(SectionHeader64)
+    			if err_3778869 = binary.Read(sr_3776408, binary.BigEndian, shdr_3778834); err_3778869 != nil {
+    				gotoNext = 3778928
+    				_ = gotoNext == 3778928
+    				return nil, err_3778869
+    				gotoNext = 3778958
     			} else {
-    				gotoNext = 3773196
+    				gotoNext = 3778958
     			}
-    			_ = gotoNext == 3773196
-    			s_3772623.Name = cstring(shdr_3773072.Sname[:])
-    			s_3772623.VirtualAddress = shdr_3773072.Svaddr
-    			s_3772623.Size = shdr_3773072.Ssize
-    			scnptr_3772607 = shdr_3773072.Sscnptr
-    			s_3772623.Type = shdr_3773072.Sflags
-    			s_3772623.Relptr = shdr_3773072.Srelptr
-    			s_3772623.Nreloc = shdr_3773072.Snreloc
-    			gotoNext = 3773394
+    			_ = gotoNext == 3778958
+    			s_3778385.Name = cstring(shdr_3778834.Sname[:])
+    			s_3778385.VirtualAddress = shdr_3778834.Svaddr
+    			s_3778385.Size = shdr_3778834.Ssize
+    			scnptr_3778369 = shdr_3778834.Sscnptr
+    			s_3778385.Type = shdr_3778834.Sflags
+    			s_3778385.Relptr = shdr_3778834.Srelptr
+    			s_3778385.Nreloc = shdr_3778834.Snreloc
+    			gotoNext = 3779156
     		default:
-    			gotoNext = 3773394
+    			gotoNext = 3779156
     		}
-    		_ = gotoNext == 3773394
-    		r2_3773394 = r
-    		if scnptr_3772607 == 0 {
-    			gotoNext = 3773419
-    			_ = gotoNext == 3773419
-    			r2_3773394 = zeroReaderAt{}
-    			gotoNext = 3773475
+    		_ = gotoNext == 3779156
+    		r2_3779156 = r
+    		if scnptr_3778369 == 0 {
+    			gotoNext = 3779181
+    			_ = gotoNext == 3779181
+    			r2_3779156 = zeroReaderAt{}
+    			gotoNext = 3779237
     		} else {
-    			gotoNext = 3773475
+    			gotoNext = 3779237
     		}
-    		_ = gotoNext == 3773475
-    		s_3772623.sr = io.NewSectionReader(r2_3773394, int64(scnptr_3772607), int64(s_3772623.Size))
-    		s_3772623.ReaderAt = s_3772623.sr
-    		f_3770947.Sections = append(f_3770947.Sections, s_3772623)
-    		i_3772571++
-    		gotoNext = 3772567
+    		_ = gotoNext == 3779237
+    		s_3778385.sr = io.NewSectionReader(r2_3779156, int64(scnptr_3778369), int64(s_3778385.Size))
+    		s_3778385.ReaderAt = s_3778385.sr
+    		f_3776709.Sections = append(f_3776709.Sections, s_3778385)
+    		i_3778333++
+    		gotoNext = 3778329
     	} else {
-    		gotoNext = 3773634
+    		gotoNext = 3779396
     	}
-    	_ = gotoNext == 3773634
-    	idxToSym_3773638 = make(map[int]*Symbol)
-    	if _, err_3773701 = sr_3770646.Seek(int64(symptr_3771112), 0); err_3773701 != nil {
-    		gotoNext = 3773757
-    		_ = gotoNext == 3773757
-    		return nil, err_3773701
-    		gotoNext = 3773781
+    	_ = gotoNext == 3779396
+    	idxToSym_3779400 = make(map[int]*Symbol)
+    	if _, err_3779463 = sr_3776408.Seek(int64(symptr_3776874), 0); err_3779463 != nil {
+    		gotoNext = 3779519
+    		_ = gotoNext == 3779519
+    		return nil, err_3779463
+    		gotoNext = 3779543
     	} else {
-    		gotoNext = 3773781
+    		gotoNext = 3779543
     	}
-    	_ = gotoNext == 3773781
-    	f_3770947.Symbols = make([]*Symbol, 0)
-    	i_3773817 = 0
-    	gotoNext = 3773813
-    	_ = gotoNext == 3773813
-    	if i_3773817 < int(nsyms_3771131) {
-    		gotoNext = 3773845
-    		_ = gotoNext == 3773845
-    		sym_3773892 = new(Symbol)
-    		gotoNext = 3773913
-    		_ = gotoNext == 3773913
-    		switch f_3770947.TargetMachine {
+    	_ = gotoNext == 3779543
+    	f_3776709.Symbols = make([]*Symbol, 0)
+    	i_3779579 = 0
+    	gotoNext = 3779575
+    	_ = gotoNext == 3779575
+    	if i_3779579 < int(nsyms_3776893) {
+    		gotoNext = 3779607
+    		_ = gotoNext == 3779607
+    		sym_3779654 = new(Symbol)
+    		gotoNext = 3779675
+    		_ = gotoNext == 3779675
+    		switch f_3776709.TargetMachine {
     		case 479:
-    			gotoNext = 3773940
-    			_ = gotoNext == 3773940
-    			se_3773962 = new(SymEnt32)
-    			if err_3773988 = binary.Read(sr_3770646, binary.BigEndian, se_3773962); err_3773988 != nil {
-    				gotoNext = 3774045
-    				_ = gotoNext == 3774045
-    				return nil, err_3773988
-    				gotoNext = 3774075
+    			gotoNext = 3779702
+    			_ = gotoNext == 3779702
+    			se_3779724 = new(SymEnt32)
+    			if err_3779750 = binary.Read(sr_3776408, binary.BigEndian, se_3779724); err_3779750 != nil {
+    				gotoNext = 3779807
+    				_ = gotoNext == 3779807
+    				return nil, err_3779750
+    				gotoNext = 3779837
     			} else {
-    				gotoNext = 3774075
+    				gotoNext = 3779837
     			}
-    			_ = gotoNext == 3774075
-    			numaux_3773853 = int(se_3773962.Nnumaux)
-    			sym_3773892.SectionNumber = int(se_3773962.Nscnum)
-    			sym_3773892.StorageClass = int(se_3773962.Nsclass)
-    			sym_3773892.Value = uint64(se_3773962.Nvalue)
-    			needAuxFcn_3773874 = se_3773962.Ntype&32 != 0 && numaux_3773853 > 1
-    			zeroes_3774270 = binary.BigEndian.Uint32(se_3773962.Nname[:4])
-    			if zeroes_3774270 != 0 {
-    				gotoNext = 3774336
-    				_ = gotoNext == 3774336
-    				sym_3773892.Name = cstring(se_3773962.Nname[:])
-    				gotoNext = 3774942
+    			_ = gotoNext == 3779837
+    			numaux_3779615 = int(se_3779724.Nnumaux)
+    			sym_3779654.SectionNumber = int(se_3779724.Nscnum)
+    			sym_3779654.StorageClass = int(se_3779724.Nsclass)
+    			sym_3779654.Value = uint64(se_3779724.Nvalue)
+    			needAuxFcn_3779636 = se_3779724.Ntype&32 != 0 && numaux_3779615 > 1
+    			zeroes_3780032 = binary.BigEndian.Uint32(se_3779724.Nname[:4])
+    			if zeroes_3780032 != 0 {
+    				gotoNext = 3780098
+    				_ = gotoNext == 3780098
+    				sym_3779654.Name = cstring(se_3779724.Nname[:])
+    				gotoNext = 3780704
     			} else {
-    				gotoNext = 3774384
-    				_ = gotoNext == 3774384
-    				gotoNext = 3774384
-    				_ = gotoNext == 3774384
-    				offset_3774390 = binary.BigEndian.Uint32(se_3773962.Nname[4:])
-    				sym_3773892.Name, ok_3773870 = getString(f_3770947.StringTable, offset_3774390)
-    				if !ok_3773870 {
-    					gotoNext = 3774501
-    					_ = gotoNext == 3774501
-    					gotoNext = 3776910
-    					gotoNext = 3774942
+    				gotoNext = 3780146
+    				_ = gotoNext == 3780146
+    				gotoNext = 3780146
+    				_ = gotoNext == 3780146
+    				offset_3780152 = binary.BigEndian.Uint32(se_3779724.Nname[4:])
+    				sym_3779654.Name, ok_3779632 = getString(f_3776709.StringTable, offset_3780152)
+    				if !ok_3779632 {
+    					gotoNext = 3780263
+    					_ = gotoNext == 3780263
+    					gotoNext = 3782672
+    					gotoNext = 3780704
     				} else {
-    					gotoNext = 3774942
+    					gotoNext = 3780704
     				}
     				_ = 0
-    				gotoNext = 3774942
+    				gotoNext = 3780704
     			}
-    			gotoNext = 3774942
+    			gotoNext = 3780704
     		case 503:
-    			gotoNext = 3774531
-    			_ = gotoNext == 3774531
-    			se_3774553 = new(SymEnt64)
-    			if err_3774579 = binary.Read(sr_3770646, binary.BigEndian, se_3774553); err_3774579 != nil {
-    				gotoNext = 3774636
-    				_ = gotoNext == 3774636
-    				return nil, err_3774579
-    				gotoNext = 3774666
+    			gotoNext = 3780293
+    			_ = gotoNext == 3780293
+    			se_3780315 = new(SymEnt64)
+    			if err_3780341 = binary.Read(sr_3776408, binary.BigEndian, se_3780315); err_3780341 != nil {
+    				gotoNext = 3780398
+    				_ = gotoNext == 3780398
+    				return nil, err_3780341
+    				gotoNext = 3780428
     			} else {
-    				gotoNext = 3774666
+    				gotoNext = 3780428
     			}
-    			_ = gotoNext == 3774666
-    			numaux_3773853 = int(se_3774553.Nnumaux)
-    			sym_3773892.SectionNumber = int(se_3774553.Nscnum)
-    			sym_3773892.StorageClass = int(se_3774553.Nsclass)
-    			sym_3773892.Value = se_3774553.Nvalue
-    			needAuxFcn_3773874 = se_3774553.Ntype&32 != 0 && numaux_3773853 > 1
-    			sym_3773892.Name, ok_3773870 = getString(f_3770947.StringTable, se_3774553.Noffset)
-    			if !ok_3773870 {
-    				gotoNext = 3774915
-    				_ = gotoNext == 3774915
-    				gotoNext = 3776910
-    				gotoNext = 3774942
+    			_ = gotoNext == 3780428
+    			numaux_3779615 = int(se_3780315.Nnumaux)
+    			sym_3779654.SectionNumber = int(se_3780315.Nscnum)
+    			sym_3779654.StorageClass = int(se_3780315.Nsclass)
+    			sym_3779654.Value = se_3780315.Nvalue
+    			needAuxFcn_3779636 = se_3780315.Ntype&32 != 0 && numaux_3779615 > 1
+    			sym_3779654.Name, ok_3779632 = getString(f_3776709.StringTable, se_3780315.Noffset)
+    			if !ok_3779632 {
+    				gotoNext = 3780677
+    				_ = gotoNext == 3780677
+    				gotoNext = 3782672
+    				gotoNext = 3780704
     			} else {
-    				gotoNext = 3774942
+    				gotoNext = 3780704
     			}
-    			gotoNext = 3774942
+    			gotoNext = 3780704
     		default:
-    			gotoNext = 3774942
+    			gotoNext = 3780704
     		}
-    		_ = gotoNext == 3774942
-    		if sym_3773892.StorageClass != 2 && sym_3773892.StorageClass != 111 && sym_3773892.StorageClass != 107 {
-    			gotoNext = 3775036
-    			_ = gotoNext == 3775036
-    			gotoNext = 3776910
-    			gotoNext = 3775108
+    		_ = gotoNext == 3780704
+    		if sym_3779654.StorageClass != 2 && sym_3779654.StorageClass != 111 && sym_3779654.StorageClass != 107 {
+    			gotoNext = 3780798
+    			_ = gotoNext == 3780798
+    			gotoNext = 3782672
+    			gotoNext = 3780870
     		} else {
-    			gotoNext = 3775108
+    			gotoNext = 3780870
     		}
-    		_ = gotoNext == 3775108
-    		if numaux_3773853 < 1 || i_3773817+numaux_3773853 >= int(nsyms_3771131) {
-    			gotoNext = 3775148
-    			_ = gotoNext == 3775148
-    			gotoNext = 3776910
-    			gotoNext = 3775170
+    		_ = gotoNext == 3780870
+    		if numaux_3779615 < 1 || i_3779579+numaux_3779615 >= int(nsyms_3776893) {
+    			gotoNext = 3780910
+    			_ = gotoNext == 3780910
+    			gotoNext = 3782672
+    			gotoNext = 3780932
     		} else {
-    			gotoNext = 3775170
+    			gotoNext = 3780932
     		}
-    		_ = gotoNext == 3775170
-    		if sym_3773892.SectionNumber > int(nscns_3771094) {
-    			gotoNext = 3775204
-    			_ = gotoNext == 3775204
-    			gotoNext = 3776910
-    			gotoNext = 3775225
+    		_ = gotoNext == 3780932
+    		if sym_3779654.SectionNumber > int(nscns_3776856) {
+    			gotoNext = 3780966
+    			_ = gotoNext == 3780966
+    			gotoNext = 3782672
+    			gotoNext = 3780987
     		} else {
-    			gotoNext = 3775225
+    			gotoNext = 3780987
     		}
-    		_ = gotoNext == 3775225
-    		if sym_3773892.SectionNumber == 0 {
-    			gotoNext = 3775251
-    			_ = gotoNext == 3775251
-    			sym_3773892.Value = 0
-    			gotoNext = 3775351
+    		_ = gotoNext == 3780987
+    		if sym_3779654.SectionNumber == 0 {
+    			gotoNext = 3781013
+    			_ = gotoNext == 3781013
+    			sym_3779654.Value = 0
+    			gotoNext = 3781113
     		} else {
-    			gotoNext = 3775279
-    			_ = gotoNext == 3775279
-    			gotoNext = 3775279
-    			_ = gotoNext == 3775279
-    			sym_3773892.Value -= f_3770947.Sections[sym_3773892.SectionNumber-1].VirtualAddress
+    			gotoNext = 3781041
+    			_ = gotoNext == 3781041
+    			gotoNext = 3781041
+    			_ = gotoNext == 3781041
+    			sym_3779654.Value -= f_3776709.Sections[sym_3779654.SectionNumber-1].VirtualAddress
     			_ = 0
-    			gotoNext = 3775351
+    			gotoNext = 3781113
     		}
-    		_ = gotoNext == 3775351
-    		idxToSym_3773638[i_3773817] = sym_3773892
-    		if needAuxFcn_3773874 {
-    			gotoNext = 3775616
-    			_ = gotoNext == 3775616
-    			gotoNext = 3775621
-    			_ = gotoNext == 3775621
-    			switch f_3770947.TargetMachine {
+    		_ = gotoNext == 3781113
+    		idxToSym_3779400[i_3779579] = sym_3779654
+    		if needAuxFcn_3779636 {
+    			gotoNext = 3781378
+    			_ = gotoNext == 3781378
+    			gotoNext = 3781383
+    			_ = gotoNext == 3781383
+    			switch f_3776709.TargetMachine {
     			case 479:
-    				gotoNext = 3775649
-    				_ = gotoNext == 3775649
-    				aux_3775672 = new(AuxFcn32)
-    				if err_3775700 = binary.Read(sr_3770646, binary.BigEndian, aux_3775672); err_3775700 != nil {
-    					gotoNext = 3775758
-    					_ = gotoNext == 3775758
-    					return nil, err_3775700
-    					gotoNext = 3775791
+    				gotoNext = 3781411
+    				_ = gotoNext == 3781411
+    				aux_3781434 = new(AuxFcn32)
+    				if err_3781462 = binary.Read(sr_3776408, binary.BigEndian, aux_3781434); err_3781462 != nil {
+    					gotoNext = 3781520
+    					_ = gotoNext == 3781520
+    					return nil, err_3781462
+    					gotoNext = 3781553
     				} else {
-    					gotoNext = 3775791
+    					gotoNext = 3781553
     				}
-    				_ = gotoNext == 3775791
-    				sym_3773892.AuxFcn.Size = int64(aux_3775672.Xfsize)
-    				gotoNext = 3776085
+    				_ = gotoNext == 3781553
+    				sym_3779654.AuxFcn.Size = int64(aux_3781434.Xfsize)
+    				gotoNext = 3781847
     			case 503:
-    				gotoNext = 3775830
-    				_ = gotoNext == 3775830
-    				aux_3775853 = new(AuxFcn64)
-    				if err_3775881 = binary.Read(sr_3770646, binary.BigEndian, aux_3775853); err_3775881 != nil {
-    					gotoNext = 3775939
-    					_ = gotoNext == 3775939
-    					return nil, err_3775881
-    					gotoNext = 3775972
+    				gotoNext = 3781592
+    				_ = gotoNext == 3781592
+    				aux_3781615 = new(AuxFcn64)
+    				if err_3781643 = binary.Read(sr_3776408, binary.BigEndian, aux_3781615); err_3781643 != nil {
+    					gotoNext = 3781701
+    					_ = gotoNext == 3781701
+    					return nil, err_3781643
+    					gotoNext = 3781734
     				} else {
-    					gotoNext = 3775972
+    					gotoNext = 3781734
     				}
-    				_ = gotoNext == 3775972
-    				sym_3773892.AuxFcn.Size = int64(aux_3775853.Xfsize)
-    				gotoNext = 3776085
+    				_ = gotoNext == 3781734
+    				sym_3779654.AuxFcn.Size = int64(aux_3781615.Xfsize)
+    				gotoNext = 3781847
     			default:
-    				gotoNext = 3776085
+    				gotoNext = 3781847
     			}
-    			gotoNext = 3776085
+    			gotoNext = 3781847
     		} else {
-    			gotoNext = 3776085
+    			gotoNext = 3781847
     		}
-    		_ = gotoNext == 3776085
-    		if !needAuxFcn_3773874 {
-    			gotoNext = 3776100
-    			_ = gotoNext == 3776100
-    			if _, err_3776111 = sr_3770646.Seek(int64(numaux_3773853-1)*18, 1); err_3776111 != nil {
-    				gotoNext = 3776178
-    				_ = gotoNext == 3776178
-    				return nil, err_3776111
-    				gotoNext = 3776211
+    		_ = gotoNext == 3781847
+    		if !needAuxFcn_3779636 {
+    			gotoNext = 3781862
+    			_ = gotoNext == 3781862
+    			if _, err_3781873 = sr_3776408.Seek(int64(numaux_3779615-1)*18, 1); err_3781873 != nil {
+    				gotoNext = 3781940
+    				_ = gotoNext == 3781940
+    				return nil, err_3781873
+    				gotoNext = 3781973
     			} else {
-    				gotoNext = 3776211
+    				gotoNext = 3781973
     			}
-    			gotoNext = 3776211
+    			gotoNext = 3781973
     		} else {
-    			gotoNext = 3776211
+    			gotoNext = 3781973
     		}
-    		_ = gotoNext == 3776211
-    		i_3773817 += numaux_3773853
-    		numaux_3773853 = 0
-    		gotoNext = 3776238
-    		_ = gotoNext == 3776238
-    		switch f_3770947.TargetMachine {
+    		_ = gotoNext == 3781973
+    		i_3779579 += numaux_3779615
+    		numaux_3779615 = 0
+    		gotoNext = 3782000
+    		_ = gotoNext == 3782000
+    		switch f_3776709.TargetMachine {
     		case 479:
-    			gotoNext = 3776265
-    			_ = gotoNext == 3776265
-    			aux_3776287 = new(AuxCSect32)
-    			if err_3776316 = binary.Read(sr_3770646, binary.BigEndian, aux_3776287); err_3776316 != nil {
-    				gotoNext = 3776374
-    				_ = gotoNext == 3776374
-    				return nil, err_3776316
-    				gotoNext = 3776404
+    			gotoNext = 3782027
+    			_ = gotoNext == 3782027
+    			aux_3782049 = new(AuxCSect32)
+    			if err_3782078 = binary.Read(sr_3776408, binary.BigEndian, aux_3782049); err_3782078 != nil {
+    				gotoNext = 3782136
+    				_ = gotoNext == 3782136
+    				return nil, err_3782078
+    				gotoNext = 3782166
     			} else {
-    				gotoNext = 3776404
+    				gotoNext = 3782166
     			}
-    			_ = gotoNext == 3776404
-    			sym_3773892.AuxCSect.SymbolType = int(aux_3776287.Xsmtyp & 7)
-    			sym_3773892.AuxCSect.StorageMappingClass = int(aux_3776287.Xsmclas)
-    			sym_3773892.AuxCSect.Length = int64(aux_3776287.Xscnlen)
-    			gotoNext = 3776874
+    			_ = gotoNext == 3782166
+    			sym_3779654.AuxCSect.SymbolType = int(aux_3782049.Xsmtyp & 7)
+    			sym_3779654.AuxCSect.StorageMappingClass = int(aux_3782049.Xsmclas)
+    			sym_3779654.AuxCSect.Length = int64(aux_3782049.Xscnlen)
+    			gotoNext = 3782636
     		case 503:
-    			gotoNext = 3776553
-    			_ = gotoNext == 3776553
-    			aux_3776575 = new(AuxCSect64)
-    			if err_3776604 = binary.Read(sr_3770646, binary.BigEndian, aux_3776575); err_3776604 != nil {
-    				gotoNext = 3776662
-    				_ = gotoNext == 3776662
-    				return nil, err_3776604
-    				gotoNext = 3776692
+    			gotoNext = 3782315
+    			_ = gotoNext == 3782315
+    			aux_3782337 = new(AuxCSect64)
+    			if err_3782366 = binary.Read(sr_3776408, binary.BigEndian, aux_3782337); err_3782366 != nil {
+    				gotoNext = 3782424
+    				_ = gotoNext == 3782424
+    				return nil, err_3782366
+    				gotoNext = 3782454
     			} else {
-    				gotoNext = 3776692
+    				gotoNext = 3782454
     			}
-    			_ = gotoNext == 3776692
-    			sym_3773892.AuxCSect.SymbolType = int(aux_3776575.Xsmtyp & 7)
-    			sym_3773892.AuxCSect.StorageMappingClass = int(aux_3776575.Xsmclas)
-    			sym_3773892.AuxCSect.Length = int64(aux_3776575.Xscnlenhi)<<32 | int64(aux_3776575.Xscnlenlo)
-    			gotoNext = 3776874
+    			_ = gotoNext == 3782454
+    			sym_3779654.AuxCSect.SymbolType = int(aux_3782337.Xsmtyp & 7)
+    			sym_3779654.AuxCSect.StorageMappingClass = int(aux_3782337.Xsmclas)
+    			sym_3779654.AuxCSect.Length = int64(aux_3782337.Xscnlenhi)<<32 | int64(aux_3782337.Xscnlenlo)
+    			gotoNext = 3782636
     		default:
-    			gotoNext = 3776874
+    			gotoNext = 3782636
     		}
-    		_ = gotoNext == 3776874
-    		f_3770947.Symbols = append(f_3770947.Symbols, sym_3773892)
-    		gotoNext = 3776910
-    		_ = gotoNext == 3776910
-    		i_3773817 += numaux_3773853
-    		if _, err_3776964 = sr_3770646.Seek(int64(numaux_3773853)*18, 1); err_3776964 != nil {
-    			gotoNext = 3777029
-    			_ = gotoNext == 3777029
-    			return nil, err_3776964
-    			gotoNext = 3773841
+    		_ = gotoNext == 3782636
+    		f_3776709.Symbols = append(f_3776709.Symbols, sym_3779654)
+    		gotoNext = 3782672
+    		_ = gotoNext == 3782672
+    		i_3779579 += numaux_3779615
+    		if _, err_3782726 = sr_3776408.Seek(int64(numaux_3779615)*18, 1); err_3782726 != nil {
+    			gotoNext = 3782791
+    			_ = gotoNext == 3782791
+    			return nil, err_3782726
+    			gotoNext = 3779603
     		} else {
-    			gotoNext = 3773841
+    			gotoNext = 3779603
     		}
-    		_ = gotoNext == 3773841
-    		i_3773817++
-    		gotoNext = 3773813
+    		_ = gotoNext == 3779603
+    		i_3779579++
+    		gotoNext = 3779575
     	} else {
-    		gotoNext = 3777116
+    		gotoNext = 3782878
     	}
-    	_ = gotoNext == 3777116
-    	if 0 < len(f_3770947.Sections) {
-    		gotoNext = 3778556
-    		_ = gotoNext == 3778556
-    		sectNum_3777120, sect_3777129 = 0, f_3770947.Sections[0]
-    		gotoNext = 3778557
-    		_ = gotoNext == 3778557
-    		if sectNum_3777120 < len(f_3770947.Sections) {
-    			gotoNext = 3777154
-    			_ = gotoNext == 3777154
-    			sect_3777129 = f_3770947.Sections[sectNum_3777120]
-    			if sect_3777129.Type != 32 && sect_3777129.Type != 64 {
-    				gotoNext = 3777210
-    				_ = gotoNext == 3777210
-    				sectNum_3777120++
-    				gotoNext = 3778557
-    				gotoNext = 3777230
+    	_ = gotoNext == 3782878
+    	if 0 < len(f_3776709.Sections) {
+    		gotoNext = 3784318
+    		_ = gotoNext == 3784318
+    		sectNum_3782882, sect_3782891 = 0, f_3776709.Sections[0]
+    		gotoNext = 3784319
+    		_ = gotoNext == 3784319
+    		if sectNum_3782882 < len(f_3776709.Sections) {
+    			gotoNext = 3782916
+    			_ = gotoNext == 3782916
+    			sect_3782891 = f_3776709.Sections[sectNum_3782882]
+    			if sect_3782891.Type != 32 && sect_3782891.Type != 64 {
+    				gotoNext = 3782972
+    				_ = gotoNext == 3782972
+    				sectNum_3782882++
+    				gotoNext = 3784319
+    				gotoNext = 3782992
     			} else {
-    				gotoNext = 3777230
+    				gotoNext = 3782992
     			}
-    			_ = gotoNext == 3777230
-    			if sect_3777129.Relptr == 0 {
-    				gotoNext = 3777250
-    				_ = gotoNext == 3777250
-    				sectNum_3777120++
-    				gotoNext = 3778557
-    				gotoNext = 3777270
+    			_ = gotoNext == 3782992
+    			if sect_3782891.Relptr == 0 {
+    				gotoNext = 3783012
+    				_ = gotoNext == 3783012
+    				sectNum_3782882++
+    				gotoNext = 3784319
+    				gotoNext = 3783032
     			} else {
-    				gotoNext = 3777270
+    				gotoNext = 3783032
     			}
-    			_ = gotoNext == 3777270
-    			c_3777270 = saferio.SliceCap((*Reloc)(nil), uint64(sect_3777129.Nreloc))
-    			if c_3777270 < 0 {
-    				gotoNext = 3777339
-    				_ = gotoNext == 3777339
-    				return nil, fmt.Errorf("too many relocs (%d) for section %d", sect_3777129.Nreloc, sectNum_3777120)
-    				gotoNext = 3777434
+    			_ = gotoNext == 3783032
+    			c_3783032 = saferio.SliceCap((*Reloc)(nil), uint64(sect_3782891.Nreloc))
+    			if c_3783032 < 0 {
+    				gotoNext = 3783101
+    				_ = gotoNext == 3783101
+    				return nil, fmt.Errorf("too many relocs (%d) for section %d", sect_3782891.Nreloc, sectNum_3782882)
+    				gotoNext = 3783196
     			} else {
-    				gotoNext = 3777434
+    				gotoNext = 3783196
     			}
-    			_ = gotoNext == 3777434
-    			sect_3777129.Relocs = make([]Reloc, 0, c_3777270)
-    			if _, err_3777476 = sr_3770646.Seek(int64(sect_3777129.Relptr), 0); err_3777476 != nil {
-    				gotoNext = 3777537
-    				_ = gotoNext == 3777537
-    				return nil, err_3777476
-    				gotoNext = 3777564
+    			_ = gotoNext == 3783196
+    			sect_3782891.Relocs = make([]Reloc, 0, c_3783032)
+    			if _, err_3783238 = sr_3776408.Seek(int64(sect_3782891.Relptr), 0); err_3783238 != nil {
+    				gotoNext = 3783299
+    				_ = gotoNext == 3783299
+    				return nil, err_3783238
+    				gotoNext = 3783326
     			} else {
-    				gotoNext = 3777564
+    				gotoNext = 3783326
     			}
-    			_ = gotoNext == 3777564
-    			i_3777568 = uint32(0)
-    			gotoNext = 3777564
-    			_ = gotoNext == 3777564
-    			if i_3777568 < sect_3777129.Nreloc {
-    				gotoNext = 3777605
-    				_ = gotoNext == 3777605
-    				gotoNext = 3777629
-    				_ = gotoNext == 3777629
-    				switch f_3770947.TargetMachine {
+    			_ = gotoNext == 3783326
+    			i_3783330 = uint32(0)
+    			gotoNext = 3783326
+    			_ = gotoNext == 3783326
+    			if i_3783330 < sect_3782891.Nreloc {
+    				gotoNext = 3783367
+    				_ = gotoNext == 3783367
+    				gotoNext = 3783391
+    				_ = gotoNext == 3783391
+    				switch f_3776709.TargetMachine {
     				case 479:
-    					gotoNext = 3777657
-    					_ = gotoNext == 3777657
-    					rel_3777680 = new(Reloc32)
-    					if err_3777707 = binary.Read(sr_3770646, binary.BigEndian, rel_3777680); err_3777707 != nil {
-    						gotoNext = 3777765
-    						_ = gotoNext == 3777765
-    						return nil, err_3777707
-    						gotoNext = 3777798
+    					gotoNext = 3783419
+    					_ = gotoNext == 3783419
+    					rel_3783442 = new(Reloc32)
+    					if err_3783469 = binary.Read(sr_3776408, binary.BigEndian, rel_3783442); err_3783469 != nil {
+    						gotoNext = 3783527
+    						_ = gotoNext == 3783527
+    						return nil, err_3783469
+    						gotoNext = 3783560
     					} else {
-    						gotoNext = 3777798
+    						gotoNext = 3783560
     					}
-    					_ = gotoNext == 3777798
-    					reloc_3777614.VirtualAddress = uint64(rel_3777680.Rvaddr)
-    					reloc_3777614.Symbol = idxToSym_3773638[int(rel_3777680.Rsymndx)]
-    					reloc_3777614.Type = rel_3777680.Rtype
-    					reloc_3777614.Length = rel_3777680.Rsize&63 + 1
-    					if rel_3777680.Rsize&128 != 0 {
-    						gotoNext = 3777979
-    						_ = gotoNext == 3777979
-    						reloc_3777614.Signed = true
-    						gotoNext = 3778016
+    					_ = gotoNext == 3783560
+    					reloc_3783376.VirtualAddress = uint64(rel_3783442.Rvaddr)
+    					reloc_3783376.Symbol = idxToSym_3779400[int(rel_3783442.Rsymndx)]
+    					reloc_3783376.Type = rel_3783442.Rtype
+    					reloc_3783376.Length = rel_3783442.Rsize&63 + 1
+    					if rel_3783442.Rsize&128 != 0 {
+    						gotoNext = 3783741
+    						_ = gotoNext == 3783741
+    						reloc_3783376.Signed = true
+    						gotoNext = 3783778
     					} else {
-    						gotoNext = 3778016
+    						gotoNext = 3783778
     					}
-    					_ = gotoNext == 3778016
-    					if rel_3777680.Rsize&64 != 0 {
-    						gotoNext = 3778039
-    						_ = gotoNext == 3778039
-    						reloc_3777614.InstructionFixed = true
-    						gotoNext = 3778511
+    					_ = gotoNext == 3783778
+    					if rel_3783442.Rsize&64 != 0 {
+    						gotoNext = 3783801
+    						_ = gotoNext == 3783801
+    						reloc_3783376.InstructionFixed = true
+    						gotoNext = 3784273
     					} else {
-    						gotoNext = 3778511
+    						gotoNext = 3784273
     					}
-    					gotoNext = 3778511
+    					gotoNext = 3784273
     				case 503:
-    					gotoNext = 3778086
-    					_ = gotoNext == 3778086
-    					rel_3778109 = new(Reloc64)
-    					if err_3778136 = binary.Read(sr_3770646, binary.BigEndian, rel_3778109); err_3778136 != nil {
-    						gotoNext = 3778194
-    						_ = gotoNext == 3778194
-    						return nil, err_3778136
-    						gotoNext = 3778227
+    					gotoNext = 3783848
+    					_ = gotoNext == 3783848
+    					rel_3783871 = new(Reloc64)
+    					if err_3783898 = binary.Read(sr_3776408, binary.BigEndian, rel_3783871); err_3783898 != nil {
+    						gotoNext = 3783956
+    						_ = gotoNext == 3783956
+    						return nil, err_3783898
+    						gotoNext = 3783989
     					} else {
-    						gotoNext = 3778227
+    						gotoNext = 3783989
     					}
-    					_ = gotoNext == 3778227
-    					reloc_3777614.VirtualAddress = rel_3778109.Rvaddr
-    					reloc_3777614.Symbol = idxToSym_3773638[int(rel_3778109.Rsymndx)]
-    					reloc_3777614.Type = rel_3778109.Rtype
-    					reloc_3777614.Length = rel_3778109.Rsize&63 + 1
-    					if rel_3778109.Rsize&128 != 0 {
-    						gotoNext = 3778399
-    						_ = gotoNext == 3778399
-    						reloc_3777614.Signed = true
-    						gotoNext = 3778436
+    					_ = gotoNext == 3783989
+    					reloc_3783376.VirtualAddress = rel_3783871.Rvaddr
+    					reloc_3783376.Symbol = idxToSym_3779400[int(rel_3783871.Rsymndx)]
+    					reloc_3783376.Type = rel_3783871.Rtype
+    					reloc_3783376.Length = rel_3783871.Rsize&63 + 1
+    					if rel_3783871.Rsize&128 != 0 {
+    						gotoNext = 3784161
+    						_ = gotoNext == 3784161
+    						reloc_3783376.Signed = true
+    						gotoNext = 3784198
     					} else {
-    						gotoNext = 3778436
+    						gotoNext = 3784198
     					}
-    					_ = gotoNext == 3778436
-    					if rel_3778109.Rsize&64 != 0 {
-    						gotoNext = 3778459
-    						_ = gotoNext == 3778459
-    						reloc_3777614.InstructionFixed = true
-    						gotoNext = 3778511
+    					_ = gotoNext == 3784198
+    					if rel_3783871.Rsize&64 != 0 {
+    						gotoNext = 3784221
+    						_ = gotoNext == 3784221
+    						reloc_3783376.InstructionFixed = true
+    						gotoNext = 3784273
     					} else {
-    						gotoNext = 3778511
+    						gotoNext = 3784273
     					}
-    					gotoNext = 3778511
+    					gotoNext = 3784273
     				default:
-    					gotoNext = 3778511
+    					gotoNext = 3784273
     				}
-    				_ = gotoNext == 3778511
-    				sect_3777129.Relocs = append(sect_3777129.Relocs, reloc_3777614)
-    				i_3777568++
-    				gotoNext = 3777564
+    				_ = gotoNext == 3784273
+    				sect_3782891.Relocs = append(sect_3782891.Relocs, reloc_3783376)
+    				i_3783330++
+    				gotoNext = 3783326
     			} else {
-    				gotoNext = 3777120
+    				gotoNext = 3782882
     			}
-    			_ = gotoNext == 3777120
-    			sectNum_3777120++
-    			gotoNext = 3778557
+    			_ = gotoNext == 3782882
+    			sectNum_3782882++
+    			gotoNext = 3784319
     		} else {
-    			gotoNext = 3778561
+    			gotoNext = 3784323
     		}
-    		gotoNext = 3778561
+    		gotoNext = 3784323
     	} else {
-    		gotoNext = 3778561
+    		gotoNext = 3784323
     	}
-    	_ = gotoNext == 3778561
-    	return f_3770947, nil
+    	_ = gotoNext == 3784323
+    	return f_3776709, nil
     	gotoNext = -1
     }*|/
 **/

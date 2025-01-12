@@ -2160,89 +2160,89 @@ class Class__static_extension {
 }
 /**
     /|*{
-    	if t_3690187, ok_3690190 = typeCache[off]; ok_3690190 {
-    		gotoNext = 3690215
-    		_ = gotoNext == 3690215
-    		return t_3690187, nil
-    		gotoNext = 3690237
+    	if t_3716015, ok_3716018 = typeCache[off]; ok_3716018 {
+    		gotoNext = 3716043
+    		_ = gotoNext == 3716043
+    		return t_3716015, nil
+    		gotoNext = 3716065
     	} else {
-    		gotoNext = 3690237
+    		gotoNext = 3716065
     	}
-    	_ = gotoNext == 3690237
+    	_ = gotoNext == 3716065
     	r.Seek(off)
-    	e_3690250, err_3690253 = r.Next()
-    	if err_3690253 != nil {
-    		gotoNext = 3690284
-    		_ = gotoNext == 3690284
-    		return nil, err_3690253
-    		gotoNext = 3690308
+    	e_3716078, err_3716081 = r.Next()
+    	if err_3716081 != nil {
+    		gotoNext = 3716112
+    		_ = gotoNext == 3716112
+    		return nil, err_3716081
+    		gotoNext = 3716136
     	} else {
-    		gotoNext = 3690308
+    		gotoNext = 3716136
     	}
-    	_ = gotoNext == 3690308
-    	addressSize_3690308 = r.AddressSize()
-    	if e_3690250 == nil || e_3690250.Offset != off {
-    		gotoNext = 3690371
-    		_ = gotoNext == 3690371
+    	_ = gotoNext == 3716136
+    	addressSize_3716136 = r.AddressSize()
+    	if e_3716078 == nil || e_3716078.Offset != off {
+    		gotoNext = 3716199
+    		_ = gotoNext == 3716199
     		return nil, DecodeError{name, off, "no type at offset"}
-    		gotoNext = 3690724
+    		gotoNext = 3716552
     	} else {
-    		gotoNext = 3690724
+    		gotoNext = 3716552
     	}
-    	_ = gotoNext == 3690724
+    	_ = gotoNext == 3716552
     	if fixups == nil {
-    		gotoNext = 3690741
-    		_ = gotoNext == 3690741
+    		gotoNext = 3716569
+    		_ = gotoNext == 3716569
     		defer func() {
-    			fixer_3690749.apply()
+    			fixer_3716577.apply()
     		}()
-    		fixups = &fixer_3690749
-    		gotoNext = 3690969
+    		fixups = &fixer_3716577
+    		gotoNext = 3716797
     	} else {
-    		gotoNext = 3690969
+    		gotoNext = 3716797
     	}
-    	_ = gotoNext == 3690969
-    	nextDepth_3690984 = 0
-    	next_3691047 = func() *Entry {
-    		if !e_3690250.Children {
+    	_ = gotoNext == 3716797
+    	nextDepth_3716812 = 0
+    	next_3716875 = func() *Entry {
+    		if !e_3716078.Children {
     			return nil
     		}
     		for {
     			kid, err1 := r.Next()
     			if err1 != nil {
-    				err_3690253 = err1
+    				err_3716081 = err1
     				return nil
     			}
     			if kid == nil {
-    				err_3690253 = DecodeError{name, r.offset(), "unexpected end of DWARF entries"}
+    				err_3716081 = DecodeError{name, r.offset(), "unexpected end of DWARF entries"}
     				return nil
     			}
     			if kid.Tag == 0 {
-    				if nextDepth_3690984 > 0 {
-    					nextDepth_3690984--
+    				if nextDepth_3716812 > 0 {
+    					nextDepth_3716812--
     					continue
     				}
     				return nil
     			}
     			if kid.Children {
-    				nextDepth_3690984++
+    				nextDepth_3716812++
     			}
-    			if nextDepth_3690984 > 0 {
+    			if nextDepth_3716812 > 0 {
     				continue
     			}
     			return kid
     		}
     	}
-    	typeOf_3691850 = func(e *Entry) Type {
+    	typeOf_3717678 = func(e *Entry) Type {
     		tval := e.Val(73)
     		var t Type
     		switch toff := tval.(type) {
     		case Offset:
-    			if t, err_3690253 = d.readType(name, r.clone(), toff, typeCache, fixups); err_3690253 != nil {
+    			if t, err_3716081 = d.readType(name, r.clone(), toff, typeCache, fixups); err_3716081 != nil {
     				return nil
     			}
     		case uint64:
-    			if t, err_3690253 = d.sigToType(toff); err_3690253 != nil {
+    			if t, err_3716081 = d.sigToType(toff); err_3716081 != nil {
     				return nil
     			}
     		default:
@@ -2250,598 +2250,598 @@ class Class__static_extension {
     		}
     		return t
     	}
-    	gotoNext = 3692250
-    	_ = gotoNext == 3692250
-    	switch e_3690250.Tag {
+    	gotoNext = 3718078
+    	_ = gotoNext == 3718078
+    	switch e_3716078.Tag {
     	case 1:
-    		gotoNext = 3692266
-    		_ = gotoNext == 3692266
-    		t_3692612 = new(ArrayType)
-    		typ_3690973 = t_3692612
-    		typeCache[off] = t_3692612
-    		if t_3692612.Type = typeOf_3691850(e_3690250); err_3690253 != nil {
-    			gotoNext = 3692699
-    			_ = gotoNext == 3692699
-    			gotoNext = 3702098
-    			gotoNext = 3692721
+    		gotoNext = 3718094
+    		_ = gotoNext == 3718094
+    		t_3718440 = new(ArrayType)
+    		typ_3716801 = t_3718440
+    		typeCache[off] = t_3718440
+    		if t_3718440.Type = typeOf_3717678(e_3716078); err_3716081 != nil {
+    			gotoNext = 3718527
+    			_ = gotoNext == 3718527
+    			gotoNext = 3727926
+    			gotoNext = 3718549
     		} else {
-    			gotoNext = 3692721
+    			gotoNext = 3718549
     		}
-    		_ = gotoNext == 3692721
-    		t_3692612.StrideBitSize, _ = e_3690250.Val(46).(int64)
-    		kid_3692826 = next_3691047()
-    		gotoNext = 3692822
-    		_ = gotoNext == 3692822
-    		if kid_3692826 != nil {
-    			gotoNext = 3692866
-    			_ = gotoNext == 3692866
-    			gotoNext = 3692964
-    			_ = gotoNext == 3692964
-    			switch kid_3692826.Tag {
+    		_ = gotoNext == 3718549
+    		t_3718440.StrideBitSize, _ = e_3716078.Val(46).(int64)
+    		kid_3718654 = next_3716875()
+    		gotoNext = 3718650
+    		_ = gotoNext == 3718650
+    		if kid_3718654 != nil {
+    			gotoNext = 3718694
+    			_ = gotoNext == 3718694
+    			gotoNext = 3718792
+    			_ = gotoNext == 3718792
+    			switch kid_3718654.Tag {
     			case 33:
-    				gotoNext = 3692984
-    				_ = gotoNext == 3692984
-    				count_3693010, ok_3693017 = kid_3692826.Val(55).(int64)
-    				if !ok_3693017 {
-    					gotoNext = 3693061
-    					_ = gotoNext == 3693061
-    					count_3693010, ok_3693017 = kid_3692826.Val(47).(int64)
-    					if ok_3693017 {
-    						gotoNext = 3693177
-    						_ = gotoNext == 3693177
-    						count_3693010++
-    						gotoNext = 3693313
-    					} else if len(dims_3692807) == 0 {
-    						gotoNext = 3693263
-    						_ = gotoNext == 3693263
-    						count_3693010 = -1
-    						gotoNext = 3693313
+    				gotoNext = 3718812
+    				_ = gotoNext == 3718812
+    				count_3718838, ok_3718845 = kid_3718654.Val(55).(int64)
+    				if !ok_3718845 {
+    					gotoNext = 3718889
+    					_ = gotoNext == 3718889
+    					count_3718838, ok_3718845 = kid_3718654.Val(47).(int64)
+    					if ok_3718845 {
+    						gotoNext = 3719005
+    						_ = gotoNext == 3719005
+    						count_3718838++
+    						gotoNext = 3719141
+    					} else if len(dims_3718635) == 0 {
+    						gotoNext = 3719091
+    						_ = gotoNext == 3719091
+    						count_3718838 = -1
+    						gotoNext = 3719141
     					} else {
-    						gotoNext = 3693313
+    						gotoNext = 3719141
     					}
-    					gotoNext = 3693313
+    					gotoNext = 3719141
     				} else {
-    					gotoNext = 3693313
+    					gotoNext = 3719141
     				}
-    				_ = gotoNext == 3693313
-    				dims_3692807 = append(dims_3692807, count_3693010)
-    				gotoNext = 3692853
+    				_ = gotoNext == 3719141
+    				dims_3718635 = append(dims_3718635, count_3718838)
+    				gotoNext = 3718681
     			case 4:
-    				gotoNext = 3693343
-    				_ = gotoNext == 3693343
-    				err_3690253 = DecodeError{name, kid_3692826.Offset, "cannot handle enumeration type as array bound"}
-    				gotoNext = 3702098
-    				gotoNext = 3692853
+    				gotoNext = 3719171
+    				_ = gotoNext == 3719171
+    				err_3716081 = DecodeError{name, kid_3718654.Offset, "cannot handle enumeration type as array bound"}
+    				gotoNext = 3727926
+    				gotoNext = 3718681
     			default:
-    				gotoNext = 3692853
+    				gotoNext = 3718681
     			}
-    			_ = gotoNext == 3692853
-    			kid_3692826 = next_3691047()
-    			gotoNext = 3692822
+    			_ = gotoNext == 3718681
+    			kid_3718654 = next_3716875()
+    			gotoNext = 3718650
     		} else {
-    			gotoNext = 3693483
+    			gotoNext = 3719311
     		}
-    		_ = gotoNext == 3693483
-    		if len(dims_3692807) == 0 {
-    			gotoNext = 3693501
-    			_ = gotoNext == 3693501
-    			dims_3692807 = []int64{-1}
-    			gotoNext = 3693567
+    		_ = gotoNext == 3719311
+    		if len(dims_3718635) == 0 {
+    			gotoNext = 3719329
+    			_ = gotoNext == 3719329
+    			dims_3718635 = []int64{-1}
+    			gotoNext = 3719395
     		} else {
-    			gotoNext = 3693567
+    			gotoNext = 3719395
     		}
-    		_ = gotoNext == 3693567
-    		t_3692612.Count = dims_3692807[0]
-    		i_3693591 = len(dims_3692807) - 1
-    		gotoNext = 3693587
-    		_ = gotoNext == 3693587
-    		if i_3693591 >= 1 {
-    			gotoNext = 3693623
-    			_ = gotoNext == 3693623
-    			t_3692612.Type = &ArrayType{Type: t_3692612.Type, Count: dims_3692807[i_3693591]}
-    			i_3693591--
-    			gotoNext = 3693587
+    		_ = gotoNext == 3719395
+    		t_3718440.Count = dims_3718635[0]
+    		i_3719419 = len(dims_3718635) - 1
+    		gotoNext = 3719415
+    		_ = gotoNext == 3719415
+    		if i_3719419 >= 1 {
+    			gotoNext = 3719451
+    			_ = gotoNext == 3719451
+    			t_3718440.Type = &ArrayType{Type: t_3718440.Type, Count: dims_3718635[i_3719419]}
+    			i_3719419--
+    			gotoNext = 3719415
     		} else {
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 36:
-    		gotoNext = 3693684
-    		_ = gotoNext == 3693684
-    		name_3694248, _ = e_3690250.Val(3).(string)
-    		enc_3694286, ok_3694291 = e_3690250.Val(62).(int64)
-    		if !ok_3694291 {
-    			gotoNext = 3694334
-    			_ = gotoNext == 3694334
-    			err_3690253 = DecodeError{name_3694248, e_3690250.Offset, "missing encoding attribute for " + name_3694248}
-    			gotoNext = 3702098
-    			gotoNext = 3694435
+    		gotoNext = 3719512
+    		_ = gotoNext == 3719512
+    		name_3720076, _ = e_3716078.Val(3).(string)
+    		enc_3720114, ok_3720119 = e_3716078.Val(62).(int64)
+    		if !ok_3720119 {
+    			gotoNext = 3720162
+    			_ = gotoNext == 3720162
+    			err_3716081 = DecodeError{name_3720076, e_3716078.Offset, "missing encoding attribute for " + name_3720076}
+    			gotoNext = 3727926
+    			gotoNext = 3720263
     		} else {
-    			gotoNext = 3694435
+    			gotoNext = 3720263
     		}
-    		_ = gotoNext == 3694435
-    		gotoNext = 3694435
-    		_ = gotoNext == 3694435
-    		switch enc_3694286 {
+    		_ = gotoNext == 3720263
+    		gotoNext = 3720263
+    		_ = gotoNext == 3720263
+    		switch enc_3720114 {
     		default:
-    			gotoNext = 3694450
-    			_ = gotoNext == 3694450
-    			err_3690253 = DecodeError{name_3694248, e_3690250.Offset, "unrecognized encoding attribute value"}
-    			gotoNext = 3702098
-    			gotoNext = 3695272
+    			gotoNext = 3720278
+    			_ = gotoNext == 3720278
+    			err_3716081 = DecodeError{name_3720076, e_3716078.Offset, "unrecognized encoding attribute value"}
+    			gotoNext = 3727926
+    			gotoNext = 3721100
     		case 1:
-    			gotoNext = 3694554
-    			_ = gotoNext == 3694554
-    			typ_3690973 = new(AddrType)
-    			gotoNext = 3695272
+    			gotoNext = 3720382
+    			_ = gotoNext == 3720382
+    			typ_3716801 = new(AddrType)
+    			gotoNext = 3721100
     		case 2:
-    			gotoNext = 3694596
-    			_ = gotoNext == 3694596
-    			typ_3690973 = new(BoolType)
-    			gotoNext = 3695272
+    			gotoNext = 3720424
+    			_ = gotoNext == 3720424
+    			typ_3716801 = new(BoolType)
+    			gotoNext = 3721100
     		case 3:
-    			gotoNext = 3694638
-    			_ = gotoNext == 3694638
-    			typ_3690973 = new(ComplexType)
-    			if name_3694248 == "complex" {
-    				gotoNext = 3694710
-    				_ = gotoNext == 3694710
-    				gotoNext = 3694894
-    				_ = gotoNext == 3694894
-    				switch byteSize_3694901, _ = e_3690250.Val(11).(int64); byteSize_3694901 {
+    			gotoNext = 3720466
+    			_ = gotoNext == 3720466
+    			typ_3716801 = new(ComplexType)
+    			if name_3720076 == "complex" {
+    				gotoNext = 3720538
+    				_ = gotoNext == 3720538
+    				gotoNext = 3720722
+    				_ = gotoNext == 3720722
+    				switch byteSize_3720729, _ = e_3716078.Val(11).(int64); byteSize_3720729 {
     				case 8:
-    					gotoNext = 3694960
-    					_ = gotoNext == 3694960
-    					name_3694248 = "complex float"
-    					gotoNext = 3695272
+    					gotoNext = 3720788
+    					_ = gotoNext == 3720788
+    					name_3720076 = "complex float"
+    					gotoNext = 3721100
     				case 16:
-    					gotoNext = 3695000
-    					_ = gotoNext == 3695000
-    					name_3694248 = "complex double"
-    					gotoNext = 3695272
+    					gotoNext = 3720828
+    					_ = gotoNext == 3720828
+    					name_3720076 = "complex double"
+    					gotoNext = 3721100
     				default:
-    					gotoNext = 3695272
+    					gotoNext = 3721100
     				}
-    				gotoNext = 3695272
+    				gotoNext = 3721100
     			} else {
-    				gotoNext = 3695272
+    				gotoNext = 3721100
     			}
-    			gotoNext = 3695272
+    			gotoNext = 3721100
     		case 4:
-    			gotoNext = 3695051
-    			_ = gotoNext == 3695051
-    			typ_3690973 = new(FloatType)
-    			gotoNext = 3695272
+    			gotoNext = 3720879
+    			_ = gotoNext == 3720879
+    			typ_3716801 = new(FloatType)
+    			gotoNext = 3721100
     		case 5:
-    			gotoNext = 3695092
-    			_ = gotoNext == 3695092
-    			typ_3690973 = new(IntType)
-    			gotoNext = 3695272
+    			gotoNext = 3720920
+    			_ = gotoNext == 3720920
+    			typ_3716801 = new(IntType)
+    			gotoNext = 3721100
     		case 7:
-    			gotoNext = 3695132
-    			_ = gotoNext == 3695132
-    			typ_3690973 = new(UintType)
-    			gotoNext = 3695272
+    			gotoNext = 3720960
+    			_ = gotoNext == 3720960
+    			typ_3716801 = new(UintType)
+    			gotoNext = 3721100
     		case 6:
-    			gotoNext = 3695175
-    			_ = gotoNext == 3695175
-    			typ_3690973 = new(CharType)
-    			gotoNext = 3695272
+    			gotoNext = 3721003
+    			_ = gotoNext == 3721003
+    			typ_3716801 = new(CharType)
+    			gotoNext = 3721100
     		case 8:
-    			gotoNext = 3695220
-    			_ = gotoNext == 3695220
-    			typ_3690973 = new(UcharType)
-    			gotoNext = 3695272
+    			gotoNext = 3721048
+    			_ = gotoNext == 3721048
+    			typ_3716801 = new(UcharType)
+    			gotoNext = 3721100
     		}
-    		_ = gotoNext == 3695272
-    		typeCache[off] = typ_3690973
-    		t_3695295 = typ_3690973.(_interface_0).Basic()
-    		t_3695295.Name = name_3694248
-    		t_3695295.BitSize, _ = e_3690250.Val(13).(int64)
-    		haveBitOffset_3695414 = false
-    		haveDataBitOffset_3695439 = false
-    		t_3695295.BitOffset, haveBitOffset_3695414 = e_3690250.Val(12).(int64)
-    		t_3695295.DataBitOffset, haveDataBitOffset_3695439 = e_3690250.Val(107).(int64)
-    		if haveBitOffset_3695414 && haveDataBitOffset_3695439 {
-    			gotoNext = 3695638
-    			_ = gotoNext == 3695638
-    			err_3690253 = DecodeError{name_3694248, e_3690250.Offset, "duplicate bit offset attributes"}
-    			gotoNext = 3702098
-    			gotoNext = 3701695
+    		_ = gotoNext == 3721100
+    		typeCache[off] = typ_3716801
+    		t_3721123 = typ_3716801.(_interface_0).Basic()
+    		t_3721123.Name = name_3720076
+    		t_3721123.BitSize, _ = e_3716078.Val(13).(int64)
+    		haveBitOffset_3721242 = false
+    		haveDataBitOffset_3721267 = false
+    		t_3721123.BitOffset, haveBitOffset_3721242 = e_3716078.Val(12).(int64)
+    		t_3721123.DataBitOffset, haveDataBitOffset_3721267 = e_3716078.Val(107).(int64)
+    		if haveBitOffset_3721242 && haveDataBitOffset_3721267 {
+    			gotoNext = 3721466
+    			_ = gotoNext == 3721466
+    			err_3716081 = DecodeError{name_3720076, e_3716078.Offset, "duplicate bit offset attributes"}
+    			gotoNext = 3727926
+    			gotoNext = 3727523
     		} else {
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 2, 19, 23:
-    		gotoNext = 3695732
-    		_ = gotoNext == 3695732
-    		t_3696485 = new(StructType)
-    		typ_3690973 = t_3696485
-    		typeCache[off] = t_3696485
-    		gotoNext = 3696539
-    		_ = gotoNext == 3696539
-    		switch e_3690250.Tag {
+    		gotoNext = 3721560
+    		_ = gotoNext == 3721560
+    		t_3722313 = new(StructType)
+    		typ_3716801 = t_3722313
+    		typeCache[off] = t_3722313
+    		gotoNext = 3722367
+    		_ = gotoNext == 3722367
+    		switch e_3716078.Tag {
     		case 2:
-    			gotoNext = 3696556
-    			_ = gotoNext == 3696556
-    			t_3696485.Kind = "class"
-    			gotoNext = 3696685
+    			gotoNext = 3722384
+    			_ = gotoNext == 3722384
+    			t_3722313.Kind = "class"
+    			gotoNext = 3722513
     		case 19:
-    			gotoNext = 3696597
-    			_ = gotoNext == 3696597
-    			t_3696485.Kind = "struct"
-    			gotoNext = 3696685
+    			gotoNext = 3722425
+    			_ = gotoNext == 3722425
+    			t_3722313.Kind = "struct"
+    			gotoNext = 3722513
     		case 23:
-    			gotoNext = 3696640
-    			_ = gotoNext == 3696640
-    			t_3696485.Kind = "union"
-    			gotoNext = 3696685
+    			gotoNext = 3722468
+    			_ = gotoNext == 3722468
+    			t_3722313.Kind = "union"
+    			gotoNext = 3722513
     		default:
-    			gotoNext = 3696685
+    			gotoNext = 3722513
     		}
-    		_ = gotoNext == 3696685
-    		t_3696485.StructName, _ = e_3690250.Val(3).(string)
-    		t_3696485.Incomplete = e_3690250.Val(60) != nil
-    		t_3696485.Field = make([]*StructField, 0, 8)
-    		kid_3696907 = next_3691047()
-    		gotoNext = 3696903
-    		_ = gotoNext == 3696903
-    		if kid_3696907 != nil {
-    			gotoNext = 3696947
-    			_ = gotoNext == 3696947
-    			if kid_3696907.Tag != 13 {
-    				gotoNext = 3696976
-    				_ = gotoNext == 3696976
-    				kid_3696907 = next_3691047()
-    				gotoNext = 3696903
-    				gotoNext = 3696999
+    		_ = gotoNext == 3722513
+    		t_3722313.StructName, _ = e_3716078.Val(3).(string)
+    		t_3722313.Incomplete = e_3716078.Val(60) != nil
+    		t_3722313.Field = make([]*StructField, 0, 8)
+    		kid_3722735 = next_3716875()
+    		gotoNext = 3722731
+    		_ = gotoNext == 3722731
+    		if kid_3722735 != nil {
+    			gotoNext = 3722775
+    			_ = gotoNext == 3722775
+    			if kid_3722735.Tag != 13 {
+    				gotoNext = 3722804
+    				_ = gotoNext == 3722804
+    				kid_3722735 = next_3716875()
+    				gotoNext = 3722731
+    				gotoNext = 3722827
     			} else {
-    				gotoNext = 3696999
+    				gotoNext = 3722827
     			}
-    			_ = gotoNext == 3696999
-    			f_3696999 = new(StructField)
-    			if f_3696999.Type = typeOf_3691850(kid_3696907); err_3690253 != nil {
-    				gotoNext = 3697060
-    				_ = gotoNext == 3697060
-    				gotoNext = 3702098
-    				gotoNext = 3697085
+    			_ = gotoNext == 3722827
+    			f_3722827 = new(StructField)
+    			if f_3722827.Type = typeOf_3717678(kid_3722735); err_3716081 != nil {
+    				gotoNext = 3722888
+    				_ = gotoNext == 3722888
+    				gotoNext = 3727926
+    				gotoNext = 3722913
     			} else {
-    				gotoNext = 3697085
+    				gotoNext = 3722913
     			}
-    			_ = gotoNext == 3697085
+    			_ = gotoNext == 3722913
     			_ = 0
-    			gotoNext = 3697085
-    			_ = gotoNext == 3697085
-    			switch loc := kid_3696907.Val(56).(type) {
+    			gotoNext = 3722913
+    			_ = gotoNext == 3722913
+    			switch loc := kid_3722735.Val(56).(type) {
     			case []byte:
-    				loc_3697149 = loc
-    				gotoNext = 3697138
-    				_ = gotoNext == 3697138
-    				b_3697238 = makeBuf(d, unknownFormat{}, "location", 0, loc_3697149)
-    				if b_3697238.uint8() != 35 {
-    					gotoNext = 3697324
-    					_ = gotoNext == 3697324
-    					err_3690253 = DecodeError{name, kid_3696907.Offset, "unexpected opcode"}
-    					gotoNext = 3702098
-    					gotoNext = 3697414
+    				loc_3722977 = loc
+    				gotoNext = 3722966
+    				_ = gotoNext == 3722966
+    				b_3723066 = makeBuf(d, unknownFormat{}, "location", 0, loc_3722977)
+    				if b_3723066.uint8() != 35 {
+    					gotoNext = 3723152
+    					_ = gotoNext == 3723152
+    					err_3716081 = DecodeError{name, kid_3722735.Offset, "unexpected opcode"}
+    					gotoNext = 3727926
+    					gotoNext = 3723242
     				} else {
-    					gotoNext = 3697414
+    					gotoNext = 3723242
     				}
-    				_ = gotoNext == 3697414
-    				f_3696999.ByteOffset = int64(b_3697238.uint())
-    				if b_3697238.err != nil {
-    					gotoNext = 3697465
-    					_ = gotoNext == 3697465
-    					err_3690253 = b_3697238.err
-    					gotoNext = 3702098
+    				_ = gotoNext == 3723242
+    				f_3722827.ByteOffset = int64(b_3723066.uint())
+    				if b_3723066.err != nil {
+    					gotoNext = 3723293
+    					_ = gotoNext == 3723293
+    					err_3716081 = b_3723066.err
+    					gotoNext = 3727926
     					gotoNext = 0
     				} else {
     					gotoNext = 0
     				}
     				_ = gotoNext == 0
-    				_ = loc_3697149
-    				gotoNext = 3697553
+    				_ = loc_3722977
+    				gotoNext = 3723381
     			case int64:
-    				loc_3697519 = loc
-    				gotoNext = 3697509
-    				_ = gotoNext == 3697509
-    				f_3696999.ByteOffset = loc_3697519
-    				_ = loc_3697519
-    				gotoNext = 3697553
+    				loc_3723347 = loc
+    				gotoNext = 3723337
+    				_ = gotoNext == 3723337
+    				f_3722827.ByteOffset = loc_3723347
+    				_ = loc_3723347
+    				gotoNext = 3723381
     			default:
-    				gotoNext = 3697553
+    				gotoNext = 3723381
     			}
-    			_ = gotoNext == 3697553
-    			f_3696999.Name, _ = kid_3696907.Val(3).(string)
-    			f_3696999.ByteSize, _ = kid_3696907.Val(11).(int64)
-    			haveBitOffset_3697644 = false
-    			haveDataBitOffset_3697670 = false
-    			f_3696999.BitOffset, haveBitOffset_3697644 = kid_3696907.Val(12).(int64)
-    			f_3696999.DataBitOffset, haveDataBitOffset_3697670 = kid_3696907.Val(107).(int64)
-    			if haveBitOffset_3697644 && haveDataBitOffset_3697670 {
-    				gotoNext = 3697876
-    				_ = gotoNext == 3697876
-    				err_3690253 = DecodeError{name, e_3690250.Offset, "duplicate bit offset attributes"}
-    				gotoNext = 3702098
-    				gotoNext = 3697974
+    			_ = gotoNext == 3723381
+    			f_3722827.Name, _ = kid_3722735.Val(3).(string)
+    			f_3722827.ByteSize, _ = kid_3722735.Val(11).(int64)
+    			haveBitOffset_3723472 = false
+    			haveDataBitOffset_3723498 = false
+    			f_3722827.BitOffset, haveBitOffset_3723472 = kid_3722735.Val(12).(int64)
+    			f_3722827.DataBitOffset, haveDataBitOffset_3723498 = kid_3722735.Val(107).(int64)
+    			if haveBitOffset_3723472 && haveDataBitOffset_3723498 {
+    				gotoNext = 3723704
+    				_ = gotoNext == 3723704
+    				err_3716081 = DecodeError{name, e_3716078.Offset, "duplicate bit offset attributes"}
+    				gotoNext = 3727926
+    				gotoNext = 3723802
     			} else {
-    				gotoNext = 3697974
+    				gotoNext = 3723802
     			}
-    			_ = gotoNext == 3697974
-    			f_3696999.BitSize, _ = kid_3696907.Val(13).(int64)
-    			t_3696485.Field = append(t_3696485.Field, f_3696999)
-    			if lastFieldBitSize_3696846 == 0 && lastFieldByteOffset_3696875 == f_3696999.ByteOffset && t_3696485.Kind != "union" {
-    				gotoNext = 3698139
-    				_ = gotoNext == 3698139
-    				fixups.recordArrayType(lastFieldType_3696820)
-    				gotoNext = 3698318
+    			_ = gotoNext == 3723802
+    			f_3722827.BitSize, _ = kid_3722735.Val(13).(int64)
+    			t_3722313.Field = append(t_3722313.Field, f_3722827)
+    			if lastFieldBitSize_3722674 == 0 && lastFieldByteOffset_3722703 == f_3722827.ByteOffset && t_3722313.Kind != "union" {
+    				gotoNext = 3723967
+    				_ = gotoNext == 3723967
+    				fixups.recordArrayType(lastFieldType_3722648)
+    				gotoNext = 3724146
     			} else {
-    				gotoNext = 3698318
+    				gotoNext = 3724146
     			}
-    			_ = gotoNext == 3698318
-    			lastFieldType_3696820 = &f_3696999.Type
-    			lastFieldByteOffset_3696875 = f_3696999.ByteOffset
-    			lastFieldBitSize_3696846 = f_3696999.BitSize
-    			kid_3696907 = next_3691047()
-    			gotoNext = 3696903
+    			_ = gotoNext == 3724146
+    			lastFieldType_3722648 = &f_3722827.Type
+    			lastFieldByteOffset_3722703 = f_3722827.ByteOffset
+    			lastFieldBitSize_3722674 = f_3722827.BitSize
+    			kid_3722735 = next_3716875()
+    			gotoNext = 3722731
     		} else {
-    			gotoNext = 3698418
+    			gotoNext = 3724246
     		}
-    		_ = gotoNext == 3698418
-    		if t_3696485.Kind != "union" {
-    			gotoNext = 3698439
-    			_ = gotoNext == 3698439
-    			b_3698444, ok_3698447 = e_3690250.Val(11).(int64)
-    			if ok_3698447 && b_3698444 == lastFieldByteOffset_3696875 {
-    				gotoNext = 3698518
-    				_ = gotoNext == 3698518
-    				fixups.recordArrayType(lastFieldType_3696820)
-    				gotoNext = 3701695
+    		_ = gotoNext == 3724246
+    		if t_3722313.Kind != "union" {
+    			gotoNext = 3724267
+    			_ = gotoNext == 3724267
+    			b_3724272, ok_3724275 = e_3716078.Val(11).(int64)
+    			if ok_3724275 && b_3724272 == lastFieldByteOffset_3722703 {
+    				gotoNext = 3724346
+    				_ = gotoNext == 3724346
+    				fixups.recordArrayType(lastFieldType_3722648)
+    				gotoNext = 3727523
     			} else {
-    				gotoNext = 3701695
+    				gotoNext = 3727523
     			}
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		} else {
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 38, 53, 55:
-    		gotoNext = 3698630
-    		_ = gotoNext == 3698630
-    		t_3698761 = new(QualType)
-    		typ_3690973 = t_3698761
-    		typeCache[off] = t_3698761
-    		if t_3698761.Type = typeOf_3691850(e_3690250); err_3690253 != nil {
-    			gotoNext = 3698847
-    			_ = gotoNext == 3698847
-    			gotoNext = 3702098
-    			gotoNext = 3698869
+    		gotoNext = 3724458
+    		_ = gotoNext == 3724458
+    		t_3724589 = new(QualType)
+    		typ_3716801 = t_3724589
+    		typeCache[off] = t_3724589
+    		if t_3724589.Type = typeOf_3717678(e_3716078); err_3716081 != nil {
+    			gotoNext = 3724675
+    			_ = gotoNext == 3724675
+    			gotoNext = 3727926
+    			gotoNext = 3724697
     		} else {
-    			gotoNext = 3698869
+    			gotoNext = 3724697
     		}
-    		_ = gotoNext == 3698869
-    		gotoNext = 3698869
-    		_ = gotoNext == 3698869
-    		switch e_3690250.Tag {
+    		_ = gotoNext == 3724697
+    		gotoNext = 3724697
+    		_ = gotoNext == 3724697
+    		switch e_3716078.Tag {
     		case 38:
-    			gotoNext = 3698886
-    			_ = gotoNext == 3698886
-    			t_3698761.Qual = "const"
-    			gotoNext = 3701695
+    			gotoNext = 3724714
+    			_ = gotoNext == 3724714
+    			t_3724589.Qual = "const"
+    			gotoNext = 3727523
     		case 55:
-    			gotoNext = 3698927
-    			_ = gotoNext == 3698927
-    			t_3698761.Qual = "restrict"
-    			gotoNext = 3701695
+    			gotoNext = 3724755
+    			_ = gotoNext == 3724755
+    			t_3724589.Qual = "restrict"
+    			gotoNext = 3727523
     		case 53:
-    			gotoNext = 3698974
-    			_ = gotoNext == 3698974
-    			t_3698761.Qual = "volatile"
-    			gotoNext = 3701695
+    			gotoNext = 3724802
+    			_ = gotoNext == 3724802
+    			t_3724589.Qual = "volatile"
+    			gotoNext = 3727523
     		default:
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 4:
-    		gotoNext = 3699025
-    		_ = gotoNext == 3699025
-    		t_3699309 = new(EnumType)
-    		typ_3690973 = t_3699309
-    		typeCache[off] = t_3699309
-    		t_3699309.EnumName, _ = e_3690250.Val(3).(string)
-    		t_3699309.Val = make([]*EnumValue, 0, 8)
-    		kid_3699443 = next_3691047()
-    		gotoNext = 3699439
-    		_ = gotoNext == 3699439
-    		if kid_3699443 != nil {
-    			gotoNext = 3699483
-    			_ = gotoNext == 3699483
-    			if kid_3699443.Tag == 40 {
-    				gotoNext = 3699516
-    				_ = gotoNext == 3699516
-    				f_3699522 = new(EnumValue)
-    				f_3699522.Name, _ = kid_3699443.Val(3).(string)
-    				f_3699522.Val, _ = kid_3699443.Val(28).(int64)
-    				n_3699636 = len(t_3699309.Val)
-    				if n_3699636 >= cap(t_3699309.Val) {
-    					gotoNext = 3699675
-    					_ = gotoNext == 3699675
-    					val_3699682 = make([]*EnumValue, n_3699636, n_3699636*2)
-    					copy(val_3699682, t_3699309.Val)
-    					t_3699309.Val = val_3699682
-    					gotoNext = 3699765
+    		gotoNext = 3724853
+    		_ = gotoNext == 3724853
+    		t_3725137 = new(EnumType)
+    		typ_3716801 = t_3725137
+    		typeCache[off] = t_3725137
+    		t_3725137.EnumName, _ = e_3716078.Val(3).(string)
+    		t_3725137.Val = make([]*EnumValue, 0, 8)
+    		kid_3725271 = next_3716875()
+    		gotoNext = 3725267
+    		_ = gotoNext == 3725267
+    		if kid_3725271 != nil {
+    			gotoNext = 3725311
+    			_ = gotoNext == 3725311
+    			if kid_3725271.Tag == 40 {
+    				gotoNext = 3725344
+    				_ = gotoNext == 3725344
+    				f_3725350 = new(EnumValue)
+    				f_3725350.Name, _ = kid_3725271.Val(3).(string)
+    				f_3725350.Val, _ = kid_3725271.Val(28).(int64)
+    				n_3725464 = len(t_3725137.Val)
+    				if n_3725464 >= cap(t_3725137.Val) {
+    					gotoNext = 3725503
+    					_ = gotoNext == 3725503
+    					val_3725510 = make([]*EnumValue, n_3725464, n_3725464*2)
+    					copy(val_3725510, t_3725137.Val)
+    					t_3725137.Val = val_3725510
+    					gotoNext = 3725593
     				} else {
-    					gotoNext = 3699765
+    					gotoNext = 3725593
     				}
-    				_ = gotoNext == 3699765
-    				t_3699309.Val = t_3699309.Val[0 : n_3699636+1]
-    				t_3699309.Val[n_3699636] = f_3699522
-    				gotoNext = 3699470
+    				_ = gotoNext == 3725593
+    				t_3725137.Val = t_3725137.Val[0 : n_3725464+1]
+    				t_3725137.Val[n_3725464] = f_3725350
+    				gotoNext = 3725298
     			} else {
-    				gotoNext = 3699470
+    				gotoNext = 3725298
     			}
-    			_ = gotoNext == 3699470
-    			kid_3699443 = next_3691047()
-    			gotoNext = 3699439
+    			_ = gotoNext == 3725298
+    			kid_3725271 = next_3716875()
+    			gotoNext = 3725267
     		} else {
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 15:
-    		gotoNext = 3699816
-    		_ = gotoNext == 3699816
-    		t_3699998 = new(PtrType)
-    		typ_3690973 = t_3699998
-    		typeCache[off] = t_3699998
-    		if e_3690250.Val(73) == nil {
-    			gotoNext = 3700075
-    			_ = gotoNext == 3700075
-    			t_3699998.Type = &VoidType{}
-    			gotoNext = 3701695
-    			gotoNext = 3700116
+    		gotoNext = 3725644
+    		_ = gotoNext == 3725644
+    		t_3725826 = new(PtrType)
+    		typ_3716801 = t_3725826
+    		typeCache[off] = t_3725826
+    		if e_3716078.Val(73) == nil {
+    			gotoNext = 3725903
+    			_ = gotoNext == 3725903
+    			t_3725826.Type = &VoidType{}
+    			gotoNext = 3727523
+    			gotoNext = 3725944
     		} else {
-    			gotoNext = 3700116
+    			gotoNext = 3725944
     		}
-    		_ = gotoNext == 3700116
-    		t_3699998.Type = typeOf_3691850(e_3690250)
-    		gotoNext = 3701695
+    		_ = gotoNext == 3725944
+    		t_3725826.Type = typeOf_3717678(e_3716078)
+    		gotoNext = 3727523
     	case 21:
-    		gotoNext = 3700137
-    		_ = gotoNext == 3700137
-    		t_3700501 = new(FuncType)
-    		typ_3690973 = t_3700501
-    		typeCache[off] = t_3700501
-    		if t_3700501.ReturnType = typeOf_3691850(e_3690250); err_3690253 != nil {
-    			gotoNext = 3700593
-    			_ = gotoNext == 3700593
-    			gotoNext = 3702098
-    			gotoNext = 3700615
+    		gotoNext = 3725965
+    		_ = gotoNext == 3725965
+    		t_3726329 = new(FuncType)
+    		typ_3716801 = t_3726329
+    		typeCache[off] = t_3726329
+    		if t_3726329.ReturnType = typeOf_3717678(e_3716078); err_3716081 != nil {
+    			gotoNext = 3726421
+    			_ = gotoNext == 3726421
+    			gotoNext = 3727926
+    			gotoNext = 3726443
     		} else {
-    			gotoNext = 3700615
+    			gotoNext = 3726443
     		}
-    		_ = gotoNext == 3700615
-    		t_3700501.ParamType = make([]Type, 0, 8)
-    		kid_3700654 = next_3691047()
-    		gotoNext = 3700650
-    		_ = gotoNext == 3700650
-    		if kid_3700654 != nil {
-    			gotoNext = 3700694
-    			_ = gotoNext == 3700694
-    			gotoNext = 3700716
-    			_ = gotoNext == 3700716
-    			switch kid_3700654.Tag {
+    		_ = gotoNext == 3726443
+    		t_3726329.ParamType = make([]Type, 0, 8)
+    		kid_3726482 = next_3716875()
+    		gotoNext = 3726478
+    		_ = gotoNext == 3726478
+    		if kid_3726482 != nil {
+    			gotoNext = 3726522
+    			_ = gotoNext == 3726522
+    			gotoNext = 3726544
+    			_ = gotoNext == 3726544
+    			switch kid_3726482.Tag {
     			default:
-    				gotoNext = 3700736
-    				_ = gotoNext == 3700736
-    				kid_3700654 = next_3691047()
-    				gotoNext = 3700650
-    				gotoNext = 3700918
+    				gotoNext = 3726564
+    				_ = gotoNext == 3726564
+    				kid_3726482 = next_3716875()
+    				gotoNext = 3726478
+    				gotoNext = 3726746
     			case 5:
-    				gotoNext = 3700761
-    				_ = gotoNext == 3700761
-    				if tkid_3700703 = typeOf_3691850(kid_3700654); err_3690253 != nil {
-    					gotoNext = 3700824
-    					_ = gotoNext == 3700824
-    					gotoNext = 3702098
-    					gotoNext = 3700918
+    				gotoNext = 3726589
+    				_ = gotoNext == 3726589
+    				if tkid_3726531 = typeOf_3717678(kid_3726482); err_3716081 != nil {
+    					gotoNext = 3726652
+    					_ = gotoNext == 3726652
+    					gotoNext = 3727926
+    					gotoNext = 3726746
     				} else {
-    					gotoNext = 3700918
+    					gotoNext = 3726746
     				}
-    				gotoNext = 3700918
+    				gotoNext = 3726746
     			case 24:
-    				gotoNext = 3700851
-    				_ = gotoNext == 3700851
-    				tkid_3700703 = &DotDotDotType{}
-    				gotoNext = 3700918
+    				gotoNext = 3726679
+    				_ = gotoNext == 3726679
+    				tkid_3726531 = &DotDotDotType{}
+    				gotoNext = 3726746
     			}
-    			_ = gotoNext == 3700918
-    			t_3700501.ParamType = append(t_3700501.ParamType, tkid_3700703)
-    			kid_3700654 = next_3691047()
-    			gotoNext = 3700650
+    			_ = gotoNext == 3726746
+    			t_3726329.ParamType = append(t_3726329.ParamType, tkid_3726531)
+    			kid_3726482 = next_3716875()
+    			gotoNext = 3726478
     		} else {
-    			gotoNext = 3701695
+    			gotoNext = 3727523
     		}
-    		gotoNext = 3701695
+    		gotoNext = 3727523
     	case 22:
-    		gotoNext = 3700964
-    		_ = gotoNext == 3700964
-    		t_3701103 = new(TypedefType)
-    		typ_3690973 = t_3701103
-    		typeCache[off] = t_3701103
-    		t_3701103.Name, _ = e_3690250.Val(3).(string)
-    		t_3701103.Type = typeOf_3691850(e_3690250)
-    		gotoNext = 3701695
+    		gotoNext = 3726792
+    		_ = gotoNext == 3726792
+    		t_3726931 = new(TypedefType)
+    		typ_3716801 = t_3726931
+    		typeCache[off] = t_3726931
+    		t_3726931.Name, _ = e_3716078.Val(3).(string)
+    		t_3726931.Type = typeOf_3717678(e_3716078)
+    		gotoNext = 3727523
     	case 59:
-    		gotoNext = 3701218
-    		_ = gotoNext == 3701218
-    		t_3701321 = new(UnspecifiedType)
-    		typ_3690973 = t_3701321
-    		typeCache[off] = t_3701321
-    		t_3701321.Name, _ = e_3690250.Val(3).(string)
-    		gotoNext = 3701695
+    		gotoNext = 3727046
+    		_ = gotoNext == 3727046
+    		t_3727149 = new(UnspecifiedType)
+    		typ_3716801 = t_3727149
+    		typeCache[off] = t_3727149
+    		t_3727149.Name, _ = e_3716078.Val(3).(string)
+    		gotoNext = 3727523
     	default:
-    		gotoNext = 3701419
-    		_ = gotoNext == 3701419
-    		t_3701578 = new(UnsupportedType)
-    		typ_3690973 = t_3701578
-    		typeCache[off] = t_3701578
-    		t_3701578.Tag = e_3690250.Tag
-    		t_3701578.Name, _ = e_3690250.Val(3).(string)
-    		gotoNext = 3701695
+    		gotoNext = 3727247
+    		_ = gotoNext == 3727247
+    		t_3727406 = new(UnsupportedType)
+    		typ_3716801 = t_3727406
+    		typeCache[off] = t_3727406
+    		t_3727406.Tag = e_3716078.Tag
+    		t_3727406.Name, _ = e_3716078.Val(3).(string)
+    		gotoNext = 3727523
     	}
-    	_ = gotoNext == 3701695
-    	if err_3690253 != nil {
-    		gotoNext = 3701709
-    		_ = gotoNext == 3701709
-    		gotoNext = 3702098
-    		gotoNext = 3701729
+    	_ = gotoNext == 3727523
+    	if err_3716081 != nil {
+    		gotoNext = 3727537
+    		_ = gotoNext == 3727537
+    		gotoNext = 3727926
+    		gotoNext = 3727557
     	} else {
-    		gotoNext = 3701729
+    		gotoNext = 3727557
     	}
-    	_ = gotoNext == 3701729
+    	_ = gotoNext == 3727557
     	{
-    		gotoNext = 3701729
-    		_ = gotoNext == 3701729
-    		b_3701733, ok_3701736 = e_3690250.Val(11).(int64)
-    		if !ok_3701736 {
-    			gotoNext = 3701779
-    			_ = gotoNext == 3701779
-    			b_3701733 = -1
+    		gotoNext = 3727557
+    		_ = gotoNext == 3727557
+    		b_3727561, ok_3727564 = e_3716078.Val(11).(int64)
+    		if !ok_3727564 {
+    			gotoNext = 3727607
+    			_ = gotoNext == 3727607
+    			b_3727561 = -1
     			_ = 0
-    			gotoNext = 3701794
-    			_ = gotoNext == 3701794
-    			switch t := typ_3690973.(type) {
+    			gotoNext = 3727622
+    			_ = gotoNext == 3727622
+    			switch t := typ_3716801.(type) {
     			case *TypedefType:
-    				t_3701839 = t
-    				gotoNext = 3701822
-    				_ = gotoNext == 3701822
-    				fixups.typedefs = append(fixups.typedefs, t_3701839)
-    				_ = t_3701839
-    				gotoNext = 3702051
+    				t_3727667 = t
+    				gotoNext = 3727650
+    				_ = gotoNext == 3727650
+    				fixups.typedefs = append(fixups.typedefs, t_3727667)
+    				_ = t_3727667
+    				gotoNext = 3727879
     			case *PtrType:
-    				t_3702011 = t
-    				gotoNext = 3701998
-    				_ = gotoNext == 3701998
-    				b_3701733 = int64(addressSize_3690308)
-    				_ = t_3702011
-    				gotoNext = 3702051
+    				t_3727839 = t
+    				gotoNext = 3727826
+    				_ = gotoNext == 3727826
+    				b_3727561 = int64(addressSize_3716136)
+    				_ = t_3727839
+    				gotoNext = 3727879
     			default:
-    				gotoNext = 3702051
+    				gotoNext = 3727879
     			}
-    			gotoNext = 3702051
+    			gotoNext = 3727879
     		} else {
-    			gotoNext = 3702051
+    			gotoNext = 3727879
     		}
-    		_ = gotoNext == 3702051
-    		typ_3690973.Common().ByteSize = b_3701733
-    		gotoNext = 3702081
+    		_ = gotoNext == 3727879
+    		typ_3716801.Common().ByteSize = b_3727561
+    		gotoNext = 3727909
     	}
-    	_ = gotoNext == 3702081
-    	return typ_3690973, nil
-    	gotoNext = 3702098
-    	_ = gotoNext == 3702098
+    	_ = gotoNext == 3727909
+    	return typ_3716801, nil
+    	gotoNext = 3727926
+    	_ = gotoNext == 3727926
     	delete(typeCache, off)
-    	return nil, err_3690253
+    	return nil, err_3716081
     	gotoNext = -1
     }*|/
 **/

@@ -24,6 +24,7 @@ package stdgo._internal.testing;
         _m._numRun++;
         for (test in _m._tests) {
             var error = false;
+            var exit = false;
             final output = new StringBuf();
             var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
             final stamp = Sys.time();
@@ -33,15 +34,17 @@ package stdgo._internal.testing;
             } catch(e) {
                 if (e.message != "__fail__") {
                     Sys.println(e.details());
+                    exit = true;
                 };
-                Sys.exit(1);
                 error = true;
             };
             final dstr = Sys.time() - stamp;
-            final format = "--- %s: %s (%s)\n";
             if (t.failed() || error) {
                 Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
                 _m._exitCode = 1;
+                if (exit) {
+                    Sys.exit(1);
+                };
             } else if (chatty) {
                 if (t.skipped()) {
                     Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');

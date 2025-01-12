@@ -318,6 +318,7 @@ function update() {
 						}
 						if (!failed)
 							File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
+					
 					}
 					suite.runtimeError(task);
 				}else{
@@ -506,29 +507,7 @@ private function close() {
 			log('         regression results: ');
 			for (obj in output)
 				log(obj);
-
-			// stdlogs output
-			if (!FileSystem.exists("tests/stdlogs"))
-				FileSystem.createDirectory("tests/stdlogs");
-			if (type == "std") {
-				final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
-				final analyzeDataFileName = "tests/stdlogs/"  + name + ".json";
-				final data = analyzeStdLog(output);
-				File.saveContent("tests/stdlogs/" + name + ".log", output);
-				var failed = false;
-				if (FileSystem.exists(analyzeDataFileName)) {
-					final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
-					for (pass in previousData.passes) {
-						if (data.passes.indexOf(pass) == -1) {
-							trace("REGRESSION");
-							suite.regressionTestError(task, pass);
-							failed = true;
-						}
-					}
-				}
-				if (!failed)
-					File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
-			}
+		}
 		if (regressionTestLines.length > 0) {
 			log("regression test funcs:");
 			log("    " + regressionTestLines.join("    \n"));

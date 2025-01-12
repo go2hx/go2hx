@@ -73,3 +73,4 @@ sort_*.json
 prebuild
 _internal/*
 analysis/tests/unitmod/*
+!tests/stdlogs/*.log

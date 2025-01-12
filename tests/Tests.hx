@@ -67,7 +67,7 @@ function main() {
 	run = Compiler.getDefine("run") ?? "";
 	runOnly = Compiler.getDefine("runonly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
-	var startStamp = 0.0;
+	startStamp = haxe.Timer.stamp();
 	if (listAllBool) {
 		createTestLists();
 		Sys.exit(0);
@@ -88,7 +88,6 @@ function main() {
 	if (!dryRun) {
 		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
-		startStamp = haxe.Timer.stamp();
 		final timer = new haxe.Timer(100);
 		timer.run = update;
 	}
@@ -176,7 +175,7 @@ private function runTests() {
 var runningCount = 0;
 var instance:InstanceData = null;
 var timeout = 0;
-var retryFailedCount = 3;
+var retryFailedCount = 2;
 var failedRegressionTasks:Array<TaskData> = [];
 
 function update() {
@@ -260,11 +259,12 @@ function update() {
 			timeout = 0;
 		});
 		ls.on('close', function(code) {
+			final output = task.output;
+			// if good close
 			if (code == 0) {
 				if (task.runtime || task.target == "interp") {
 					final wanted = outputMap[type + "_" + task.path];
 					if (wanted != null && wanted != "") {
-						final output = task.output;
 						function sanatize(s:String):String {
 							if (s.charAt(s.length - 1) == "\n")
 								s = s.substr(0, s.length - 1);
@@ -294,10 +294,34 @@ function update() {
 				}
 			}else{
 				if (task.runtime) {
-					trace("runtime error: " + task.command + " " + task.args);
+					trace("runtime error: " + task.command + " " + task.args.join(" "));
+					// runtime error
+					trace("CLOSE: " + code);
+					// stdlogs output
+					if (!FileSystem.exists("tests/stdlogs"))
+						FileSystem.createDirectory("tests/stdlogs");
+					if (type == "std") {
+						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+						final analyzeDataFileName = "tests/stdlogs/"  + name + ".json";
+						final data = analyzeStdLog(output);
+						File.saveContent("tests/stdlogs/" + name + ".log", output);
+						var failed = false;
+						if (FileSystem.exists(analyzeDataFileName)) {
+							final previousData:{passes:Array<String>, runs:Array<String>, fails:Array<String>} = Json.parse(File.getContent(analyzeDataFileName));
+							for (pass in previousData.passes) {
+								if (data.passes.indexOf(pass) == -1) {
+									trace("REGRESSION");
+									suite.regressionTestError(task, pass);
+									failed = true;
+								}
+							}
+						}
+						if (!failed)
+							File.saveContent(analyzeDataFileName, Json.stringify(data, null, "    "));
+					}
 					suite.runtimeError(task);
 				}else{
-					trace("build error: " + task.command + " " + task.args);
+					trace("build error: " + task.command + " " + task.args.join(" "));
 					suite.buildError(task);
 				}
 			}
@@ -308,6 +332,26 @@ function update() {
 			completeBool = true;
 		});
 	}
+}
+
+private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array<String>, fails:Array<String>} {
+	final lines = content.split("\n");
+	final runPrefix = "=== RUN  ";
+	final passPrefix = "-- PASS: ";
+	final failPrefix = "-- FAIL: ";
+	final runs:Array<String> = [];
+	final passes:Array<String> = [];
+	final fails:Array<String> = [];
+	for (line in lines) {
+		if (StringTools.startsWith(line, passPrefix)) {
+			passes.push(line.substr(passPrefix.length).split(" ")[0]);
+		}else if (StringTools.startsWith(line, runPrefix)){
+			runs.push(line.substr(runPrefix.length).split(" ")[0]);
+		}else if (StringTools.startsWith(line, failPrefix)) {
+			fails.push(line.substr(failPrefix.length).split(" ")[0]);
+		}
+	}
+	return {passes: passes, fails: fails, runs: runs};
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
@@ -423,7 +467,12 @@ private function close() {
 	log('        test results:');
 	final testData:Map<String, String> = [];
 	final testFailingCount:Map<String, Int> = [];
+	var regressionTestLines = [];
 	for (data in suite.dataList) {
+		if (data.regressionTestName != "") {
+			regressionTestLines.push(data.path + ":" + data.regressionTestName);
+			continue;
+		}
 		if (!testFailingCount.exists(data.path))
 			testFailingCount[data.path] = 0;
 		if (!testData.exists(data.path))
@@ -452,10 +501,16 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (failedRegressionTasks.length > 0) {
-		log('         regression results: ');
-		for (obj in output)
-			log(obj);
+	if (failedRegressionTasks.length > 0 || regressionTestLines.length > 0) {
+		if (failedRegressionTasks.length > 0) {
+			log('         regression results: ');
+			for (obj in output)
+				log(obj);
+		}
+		if (regressionTestLines.length > 0) {
+			log("regression test funcs:");
+			log("    " + regressionTestLines.join("    \n"));
+		}
 		code = 1;
 		// retry failed tests
 		if (retryFailedCount-- > 0) {
@@ -587,7 +642,8 @@ class TestSuiteData {
 	public var correct:Bool = false;
 	public var incorrect:Bool = false;
 	public var task:TaskData = null;
-	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool,correct:Bool, incorrect:Bool) {
+	public var regressionTestName = "";
+	public function new(path:String,target:String, passing:Bool,task:TaskData,build:Bool,correct:Bool, incorrect:Bool, regressionTestName:String="") {
 		this.path = path;
 		this.target = target;
 		this.passing = passing;
@@ -595,6 +651,7 @@ class TestSuiteData {
 		this.correct = correct;
 		this.incorrect = incorrect;
 		this.task = task;
+		this.regressionTestName = regressionTestName;
 	}
 }
 
@@ -614,6 +671,10 @@ class TestSuite {
 		addData({path: task.path, target: task.target, build: false, task: task, passing: false, incorrect: false, correct: false});
 		buildErrorCount++;
 		count++;
+	}
+
+	public function regressionTestError(task:TaskData, testName:String) {
+		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false, regressionTestName: testName});
 	}
 
 	public function runtimeError(task:TaskData) {
@@ -643,8 +704,10 @@ class TestSuite {
 	private function addData(data:TestSuiteData) {
 		for (i in 0...dataList.length) {
 			if (dataList[i].target == data.target && dataList[i].path == data.path) {
-				dataList[i] = data;
-				return;
+				if (dataList[i].regressionTestName == data.regressionTestName) {
+					dataList[i] = data;
+					return;
+				}
 			}
 		}
 		dataList.push(data);

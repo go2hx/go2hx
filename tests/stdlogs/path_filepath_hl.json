@@ -1,0 +1,12 @@
+{
+    "passes": [
+        "TestMatch"
+    ],
+    "fails": [
+        "TestGlob"
+    ],
+    "runs": [
+        "TestMatch",
+        "TestGlob"
+    ]
+}

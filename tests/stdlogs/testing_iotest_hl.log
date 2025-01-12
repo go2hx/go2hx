@@ -1,0 +1,9 @@
+=== RUN  TestWriteLogger
+-- PASS: TestWriteLogger (5.91278076171875e-05)
+
+=== RUN  TestWriteLogger_errorOnWrite
+Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
+Called from stdgo._internal.testing.iotest._Iotest_testWriteLogger_errorOnWrite.$Iotest_testWriteLogger_errorOnWrite_Fields_.testWriteLogger_errorOnWrite (stdgo/_internal/testing/iotest/Iotest_testWriteLogger_errorOnWrite.hx line 2)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+-- FAIL: TestWriteLogger_errorOnWrite (0.000118017196655273)

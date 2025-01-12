@@ -1,0 +1,9 @@
+=== RUN  TestFuncPC
+./stdgo/_internal/internal/abi/Abi_funcPCABI0.hx:3: funclit
+Exception: not implemented: funcPCABI0
+Called from stdgo._internal.internal.abi._Abi_funcPCABI0.$Abi_funcPCABI0_Fields_.funcPCABI0 (stdgo/_internal/internal/abi/Abi_funcPCABI0.hx line 4)
+Called from stdgo._internal.internal.abi._Abi_funcPCTest.$Abi_funcPCTest_Fields_.funcPCTest (stdgo/_internal/internal/abi/Abi_funcPCTest.hx line 3)
+Called from _internal.internal.abi_test._Abi_test_testFuncPC.$Abi_test_testFuncPC_Fields_.testFuncPC (_internal/internal/abi_test/Abi_test_testFuncPC.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from _internal.internal.abi_dot_test._Abi_dot_test.$Abi_dot_test_Fields_.main (_internal/internal/abi_dot_test/Abi_dot_test.hx line 4)
+-- FAIL: TestFuncPC (0.00148296356201172)

@@ -1,0 +1,10 @@
+=== RUN  TestDisableAllCapabilities
+Exception: T_common:testing.skipf is not yet implemented
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28)
+Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_T_.hx line 75)
+Called from _internal.internal.cpu_test._Cpu_test_mustHaveDebugOptionsSupport.$Cpu_test_mustHaveDebugOptionsSupport_Fields_.mustHaveDebugOptionsSupport (_internal/internal/cpu_test/Cpu_test_mustHaveDebugOptionsSupport.hx line 4)
+Called from _internal.internal.cpu_test._Cpu_test__runDebugOptionsTest.$Cpu_test__runDebugOptionsTest_Fields_._runDebugOptionsTest (_internal/internal/cpu_test/Cpu_test__runDebugOptionsTest.hx line 3)
+Called from _internal.internal.cpu_test._Cpu_test_testDisableAllCapabilities.$Cpu_test_testDisableAllCapabilities_Fields_.testDisableAllCapabilities (_internal/internal/cpu_test/Cpu_test_testDisableAllCapabilities.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from _internal.internal.cpu_dot_test._Cpu_dot_test.$Cpu_dot_test_Fields_.main (_internal/internal/cpu_dot_test/Cpu_dot_test.hx line 4)
+-- FAIL: TestDisableAllCapabilities (0.00221395492553711)

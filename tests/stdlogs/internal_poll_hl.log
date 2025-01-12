@@ -1,0 +1,10 @@
+=== RUN  TestReadError
+-- PASS: TestReadError (0.00177407264709473)
+
+=== RUN  TestMutexLock
+Exception: XFDMutex:internal.poll.incref is not yet implemented
+Called from stdgo._internal.internal.poll.$XFDMutex_static_extension.incref (stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexLock.$Poll_test_testMutexLock_Fields_.testMutexLock (_internal/internal/poll_test/Poll_test_testMutexLock.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+-- FAIL: TestMutexLock (0.000150918960571289)

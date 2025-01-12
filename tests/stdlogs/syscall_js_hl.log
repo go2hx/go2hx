@@ -1,0 +1,3 @@
+Uncaught exception: :syscall.js.global is not yet implemented
+Called from stdgo._internal.syscall.js._Js_global.$Js_global_Fields_.global(stdgo/_internal/syscall/js/Js_global.hx:2)
+Called from .init(_internal/syscall/js_test/Js_test__dummys.hx:2)

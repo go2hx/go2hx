@@ -1,0 +1,12 @@
+{
+    "passes": [
+        "TestWriteLogger"
+    ],
+    "fails": [
+        "TestWriteLogger_errorOnWrite"
+    ],
+    "runs": [
+        "TestWriteLogger",
+        "TestWriteLogger_errorOnWrite"
+    ]
+}

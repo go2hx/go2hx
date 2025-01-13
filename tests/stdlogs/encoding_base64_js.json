@@ -1,0 +1,34 @@
+{
+    "passes": [
+        "TestEncode",
+        "TestEncoder",
+        "TestEncoderBuffering",
+        "TestDecode",
+        "TestDecoder",
+        "TestDecoderBuffering",
+        "TestDecodeCorrupt",
+        "TestDecodeBounds",
+        "TestEncodedLen",
+        "TestDecodedLen",
+        "TestBig",
+        "TestNewLineCharacters"
+    ],
+    "fails": [
+        "TestDecoderIssue3577"
+    ],
+    "runs": [
+        "TestEncode",
+        "TestEncoder",
+        "TestEncoderBuffering",
+        "TestDecode",
+        "TestDecoder",
+        "TestDecoderBuffering",
+        "TestDecodeCorrupt",
+        "TestDecodeBounds",
+        "TestEncodedLen",
+        "TestDecodedLen",
+        "TestBig",
+        "TestNewLineCharacters",
+        "TestDecoderIssue3577"
+    ]
+}

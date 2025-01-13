@@ -1,0 +1,102 @@
+=== RUN  TestNewBuffer
+-- PASS: TestNewBuffer (0.013034059000005982)
+
+=== RUN  TestNewBufferString
+-- PASS: TestNewBufferString (0.00024528099999088226)
+
+=== RUN  TestBasicOperations
+-- PASS: TestBasicOperations (0.007379209000021092)
+
+=== RUN  TestLargeStringWrites
+-- PASS: TestLargeStringWrites (0.10680088999998816)
+
+=== RUN  TestLargeByteWrites
+-- PASS: TestLargeByteWrites (0.08123448599997118)
+
+=== RUN  TestLargeStringReads
+-- PASS: TestLargeStringReads (0.01136465400003317)
+
+=== RUN  TestLargeByteReads
+-- PASS: TestLargeByteReads (0.01672093299998778)
+
+=== RUN  TestMixedReadsAndWrites
+-- PASS: TestMixedReadsAndWrites (0.07921709700002566)
+
+=== RUN  TestCapWithPreallocatedSlice
+-- PASS: TestCapWithPreallocatedSlice (0.00021940199997061427)
+
+=== RUN  TestCapWithSliceAndWrittenData
+-- PASS: TestCapWithSliceAndWrittenData (0.000106980999987627)
+
+=== RUN  TestNil
+-- PASS: TestNil (0.00008782499998005733)
+
+=== RUN  TestReadFrom
+-- PASS: TestReadFrom (0.029580594999970344)
+
+=== RUN  TestReadFromPanicReader
+-- PASS: TestReadFromPanicReader (0.01191981599998826)
+
+=== RUN  TestReadFromNegativeReader
+-- PASS: TestReadFromNegativeReader (0.0013444150000054833)
+
+=== RUN  TestWriteTo
+-- PASS: TestWriteTo (0.017429283000012674)
+
+=== RUN  TestWriteAppend
+-- PASS: TestWriteAppend (0.09072480999998334)
+
+=== RUN  TestRuneIO
+-- PASS: TestRuneIO (0.026841271000023426)
+
+=== RUN  TestWriteInvalidRune
+-- PASS: TestWriteInvalidRune (0.006738285000039923)
+
+=== RUN  TestNext
+-- PASS: TestNext (0.0014205379999907564)
+
+=== RUN  TestReadBytes
+-- PASS: TestReadBytes (0.0008347680000042601)
+
+=== RUN  TestReadString
+-- PASS: TestReadString (0.0004728580000232796)
+
+=== RUN  TestGrow
+./_internal/bytes_test/Bytes_test_testGrow.hx:3: testGrow skip function
+-- PASS: TestGrow (0.0014261580000152208)
+
+=== RUN  TestGrowOverflow
+-- PASS: TestGrowOverflow (0.0005781159999855845)
+
+=== RUN  TestReadEmptyAtEOF
+-- PASS: TestReadEmptyAtEOF (0.0003037509999899157)
+
+=== RUN  TestUnreadByte
+-- PASS: TestUnreadByte (0.0010709919999953854)
+
+=== RUN  TestBufferGrowth
+-- PASS: TestBufferGrowth (0.22593439600001375)
+
+=== RUN  TestEqual
+-- PASS: TestEqual (0.0001497819999940475)
+
+=== RUN  TestEqualExhaustive
+-- PASS: TestEqualExhaustive (0.04298454899998205)
+
+=== RUN  TestNotEqual
+-- PASS: TestNotEqual (0.34049026300004925)
+
+=== RUN  TestIndex
+Exception: Cannot read properties of undefined (reading '_common')
+Called from module TypeError: Cannot read properties of undefined (reading '_common')
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 18796 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 19262 column 70)
+Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 28949 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 25228 column 69)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 26398 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 24491 column 50)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 43715 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 44671 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 54547 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bytes.js:53835:58
+-- FAIL: TestIndex (0.015493919000050482)

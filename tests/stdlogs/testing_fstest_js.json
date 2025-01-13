@@ -1,0 +1,12 @@
+{
+    "passes": [
+        "TestMapFS"
+    ],
+    "fails": [
+        "TestMapFSChmodDot"
+    ],
+    "runs": [
+        "TestMapFS",
+        "TestMapFSChmodDot"
+    ]
+}

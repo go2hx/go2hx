@@ -1,0 +1,50 @@
+=== RUN  TestEncode
+-- PASS: TestEncode (0.036813029000029474)
+
+=== RUN  TestEncoder
+-- PASS: TestEncoder (0.005065932000036355)
+
+=== RUN  TestEncoderBuffering
+-- PASS: TestEncoderBuffering (0.005071541999996043)
+
+=== RUN  TestDecode
+-- PASS: TestDecode (0.03704208900001049)
+
+=== RUN  TestDecoder
+-- PASS: TestDecoder (0.00829156800000419)
+
+=== RUN  TestDecoderBuffering
+-- PASS: TestDecoderBuffering (0.004923173999998198)
+
+=== RUN  TestDecodeCorrupt
+-- PASS: TestDecodeCorrupt (0.0014249660000018594)
+
+=== RUN  TestDecodeBounds
+-- PASS: TestDecodeBounds (0.0004921639999793115)
+
+=== RUN  TestEncodedLen
+-- PASS: TestEncodedLen (0.00023805799997944632)
+
+=== RUN  TestDecodedLen
+-- PASS: TestDecodedLen (0.0001941950000059478)
+
+=== RUN  TestBig
+-- PASS: TestBig (0.03709430699996119)
+
+=== RUN  TestNewLineCharacters
+-- PASS: TestNewLineCharacters (0.0004834370000139643)
+
+=== RUN  TestDecoderIssue3577
+Exception: Cannot read properties of undefined (reading '_common')
+Called from module TypeError: Cannot read properties of undefined (reading '_common')
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 17127 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 17593 column 70)
+Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 21766 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 26381 column 69)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 27551 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 25644 column 50)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 35374 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 35355 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 47168 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_base64.js:46456:58
+-- FAIL: TestDecoderIssue3577 (0.028077848000009453)

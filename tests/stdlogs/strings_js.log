@@ -1,0 +1,107 @@
+=== RUN  TestBuilder
+-- PASS: TestBuilder (0.005978517000016836)
+
+=== RUN  TestBuilderString
+-- PASS: TestBuilderString (0.0002417740000169033)
+
+=== RUN  TestBuilderReset
+-- PASS: TestBuilderReset (0.0002908060000095247)
+
+=== RUN  TestBuilderGrow
+./_internal/strings_test/Strings_test_testBuilderGrow.hx:3: testBuilderGrow skip function
+-- PASS: TestBuilderGrow (0.0013730989999771737)
+
+=== RUN  TestBuilderWrite2
+-- PASS: TestBuilderWrite2 (0.00042230299999346244)
+
+=== RUN  TestBuilderWriteByte
+-- PASS: TestBuilderWriteByte (0.0003254410000295138)
+
+=== RUN  TestBuilderAllocs
+./_internal/strings_test/Strings_test_testBuilderAllocs.hx:3: testBuilderAllocs skip function
+-- PASS: TestBuilderAllocs (0.0002475449999792545)
+
+=== RUN  TestBuilderCopyPanic
+./_internal/strings_test/Strings_test_testBuilderCopyPanic.hx:3: testBuilderCopyPanic skip function
+-- PASS: TestBuilderCopyPanic (0.00020356200002424885)
+
+=== RUN  TestBuilderWriteInvalidRune
+-- PASS: TestBuilderWriteInvalidRune (0.0005942250000430249)
+
+=== RUN  TestClone
+./_internal/strings_test/Strings_test_testClone.hx:3: testClone skip function
+-- PASS: TestClone (0.0001084239999613601)
+
+=== RUN  TestCompare
+-- PASS: TestCompare (0.00026792299996714064)
+
+=== RUN  TestCompareIdenticalString
+-- PASS: TestCompareIdenticalString (0.00012102800002367076)
+
+=== RUN  TestCompareStrings
+./_internal/strings_test/Strings_test_testCompareStrings.hx:3: testCompareStrings skip function
+-- PASS: TestCompareStrings (0.00009516900001926842)
+
+=== RUN  TestReader
+-- PASS: TestReader (0.002592208999999457)
+
+=== RUN  TestReadAfterBigSeek
+-- PASS: TestReadAfterBigSeek (0.00022393099999362676)
+
+=== RUN  TestReaderAt
+-- PASS: TestReaderAt (0.01908162600000196)
+
+=== RUN  TestReaderAtConcurrent
+-- PASS: TestReaderAtConcurrent (0.0007082799999693634)
+
+=== RUN  TestEmptyReaderConcurrent
+-- PASS: TestEmptyReaderConcurrent (0.0008836590000100841)
+
+=== RUN  TestWriteTo
+-- PASS: TestWriteTo (0.002285292000010486)
+
+=== RUN  TestReaderLenSize
+./_internal/strings_test/Strings_test_testReaderLenSize.hx:3: testReaderLenSize skip function
+-- PASS: TestReaderLenSize (0.0002085819999706473)
+
+=== RUN  TestReaderReset
+-- PASS: TestReaderReset (0.0014448529999526727)
+
+=== RUN  TestReaderZero
+-- PASS: TestReaderZero (0.0006506619999981922)
+
+=== RUN  TestReplacer
+./_internal/strings_test/Strings_test_testReplacer.hx:3: testReplacer skip function
+-- PASS: TestReplacer (0.00010132099998827471)
+
+=== RUN  TestPickAlgorithm
+./_internal/strings_test/Strings_test_testPickAlgorithm.hx:3: testPickAlgorithm skip function
+-- PASS: TestPickAlgorithm (0.0000873540000156936)
+
+=== RUN  TestWriteStringError
+-- PASS: TestWriteStringError (0.0070935520000148244)
+
+=== RUN  TestGenericTrieBuilding
+./_internal/strings_test/Strings_test_testGenericTrieBuilding.hx:3: testGenericTrieBuilding skip function
+-- PASS: TestGenericTrieBuilding (0.0001436599999919963)
+
+=== RUN  TestFinderNext
+-- PASS: TestFinderNext (0.003501104999998006)
+
+=== RUN  TestFinderCreation
+-- PASS: TestFinderCreation (0.0034134300000232543)
+
+=== RUN  TestIndex
+Exception: Cannot read properties of undefined (reading '_common')
+Called from module TypeError: Cannot read properties of undefined (reading '_common')
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 15713 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 16179 column 70)
+Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 27115 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 23373 column 69)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 24543 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 22636 column 50)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 43966 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 44093 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 52537 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strings.js:52020:58
+-- FAIL: TestIndex (0.0036226440000177718)

@@ -1,0 +1,26 @@
+=== RUN  TestGolden
+-- PASS: TestGolden (0.2217792679999775)
+
+=== RUN  TestGoldenMarshal
+-- PASS: TestGoldenMarshal (0.042982167000047866)
+
+=== RUN  TestSize
+-- PASS: TestSize (0.00033544100000426624)
+
+=== RUN  TestBlockSize
+-- PASS: TestBlockSize (0.00040422899996883643)
+
+=== RUN  TestBlockGeneric
+Exception: Cannot read properties of null (reading 'read')
+Called from module TypeError: Cannot read properties of null (reading 'read')
+Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31926 column 21)
+Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31909 column 16)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31901 column 16)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testBlockGeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:31885:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40884 column 9)
+Called from ._$internal_crypto_sha1_$dot_$test_Sha1_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34232 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52499:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52500:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
+-- FAIL: TestBlockGeneric (0.0020438689999764392)

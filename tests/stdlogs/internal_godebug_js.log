@@ -1,0 +1,11 @@
+=== RUN  TestGet
+Exception: T_:testing.setenv is not yet implemented
+Called from stdgo__$internal_testing_T_$_$static_$extension.setenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 12773 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testGet_testGet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:12038:51)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 40934 column 9)
+Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 32908 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49724:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49725:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
+-- FAIL: TestGet (0.01902436000000307)

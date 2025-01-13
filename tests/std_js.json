@@ -1,1 +1,14 @@
-[]
+[
+ "js|encoding/hex",
+ "js|errors",
+ "js|hash",
+ "js|internal/saferio",
+ "js|math",
+ "js|path",
+ "js|regexp/syntax",
+ "js|sort",
+ "js|text/scanner",
+ "js|unicode",
+ "js|unicode/utf16",
+ "js|unicode/utf8"
+]

@@ -1,0 +1,26 @@
+{
+    "passes": [
+        "TestUintSize",
+        "TestLeadingZeros",
+        "TestTrailingZeros",
+        "TestOnesCount",
+        "TestRotateLeft",
+        "TestReverse",
+        "TestReverseBytes",
+        "TestLen"
+    ],
+    "fails": [
+        "TestAddSubUint"
+    ],
+    "runs": [
+        "TestUintSize",
+        "TestLeadingZeros",
+        "TestTrailingZeros",
+        "TestOnesCount",
+        "TestRotateLeft",
+        "TestReverse",
+        "TestReverseBytes",
+        "TestLen",
+        "TestAddSubUint"
+    ]
+}

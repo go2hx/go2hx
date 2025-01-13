@@ -957,11 +957,11 @@ class Go {
 
 	#if macro
 	// reflect decode
-	private static function gtParams(params:Array<haxe.macro.Type>, marked:Map<String, Bool>):Array<Expr> {
+	private static function gtParams(params:Array<haxe.macro.Type>, marked:Map<String, Bool>, ?expr:Expr):Array<Expr> {
 		var pTypes = [];
 		for (i in 0...params.length) {
 			final param = params[i];
-			pTypes.push(gtDecode(param, null, marked));
+			pTypes.push(gtDecode(param, expr, marked));
 		}
 		return pTypes;
 	}
@@ -1188,7 +1188,7 @@ class Go {
 						final param = gtParams(params, marked)[0];
 						ret = macro stdgo._internal.internal.reflect.Reflect.GoType.sliceType({get: () -> $param});
 					case "stdgo.GoArray":
-						var len = macro - 1;
+						var len = macro -1;
 						if (expr != null) { // check for stdgo.reflect.Value
 							final t = Context.follow(Context.typeof(expr));
 							switch t {
@@ -1260,7 +1260,7 @@ class Go {
 						ret = macro stdgo._internal.internal.reflect.Reflect.GoType.signature(false, {get: () -> []}, {get: () -> []},
 							{get: () -> stdgo._internal.internal.reflect.Reflect.GoType.invalidType});
 					case "Null":
-						final param = gtParams(params, marked)[0];
+						final param = gtParams(params, marked, expr)[0];
 						ret = param;
 					case "Void":
 						ret = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76

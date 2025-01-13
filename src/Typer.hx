@@ -4036,7 +4036,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
 			if (elem != null)
-				t = elem;
+				t = GoType.sliceType({get: () -> elem});
 			last = typeRest(last, t, info);
 			args.push(last);
 		}

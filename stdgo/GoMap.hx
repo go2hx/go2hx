@@ -369,9 +369,18 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 	}
 }*/
 
-class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
+class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
+	public var bt:BalancedTree<GoFloat64, T>;
 	public var __defaultValue__:Void->T;
-	override function compare(k1:GoFloat64, k2:GoFloat64):Int {
+	var root(get,set):TreeNode<GoFloat64, T>;
+	function get_root()
+		return @:privateAccess bt.root;
+	function set_root(root)
+		return @:privateAccess bt.root = root;
+	public function new () {
+		bt = new BalancedTree();
+	}
+	function compare(k1:GoFloat64, k2:GoFloat64):Int {
 		return if (k1 == k2) {
 			0;
 		} else if (k1 > k2) {
@@ -380,7 +389,9 @@ class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
 			-1;
 		}
 	}
-	override function get(key:GoFloat64):T {
+	public function set(key,value)
+		return bt.set(key,value);
+	public function get(key:GoFloat64):T {
 		var node = root;
 		while (node != null) {
 			var c = compare(key, node.key);
@@ -393,7 +404,74 @@ class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
 		}
 		return __defaultValue__();
 	}
+
+	public function remove(key)
+		return bt.remove(key);
+
+	public function toString()
+		return bt.toString();
+
+	public function iterator()
+		return bt.iterator();
+
+	public function copy()
+		return bt.copy();
+
+	public function exists(key)
+		return bt.exists(key);
+
+	public function clear()
+		bt.clear();
+
+
+	public function values():Iterator<T> {
+		var ret = [];
+		@:privateAccess BalancedTree.iteratorLoop(root, ret);
+		return ret.iterator();
+	}
+
+	public function keys()
+		return bt.keys();
+
+	public function keyValueIterator():KeyValueIterator<GoFloat64, T> {
+		//super.iterator();
+		return new GoFloat64MapMapKeyValueIterator(this);
+	}
+	
 }
+
+/**
+	This Key/Value iterator can be used to iterate across maps.
+**/
+@:ifFeature("anon_read.keyValueIterator", "dynamic_read.keyValueIterator")
+class GoFloat64MapMapKeyValueIterator<V> {
+	var map:GoFloat64Map<V>;
+	var keys:Iterator<GoFloat64>;
+	var values:Iterator<V>;
+
+	public inline function new(map:GoFloat64Map<V>) {
+		this.map = map;
+		this.keys = map.keys();
+		this.values = map.values();
+	}
+
+	/**
+		See `Iterator.hasNext`
+	**/
+	public inline function hasNext():Bool {
+		return keys.hasNext();
+	}
+
+	/**
+		See `Iterator.next`
+	**/
+	public inline function next():{key:GoFloat64, value:V} {
+		var key = keys.next();
+		var value = values.next();
+		return {value: value, key: key};
+	}
+}
+
 
 // int
 typedef GoInt8Map<T> = IntMap<T>;

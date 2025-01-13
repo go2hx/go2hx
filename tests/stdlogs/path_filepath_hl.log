@@ -1,13 +1,19 @@
-=== RUN  TestMatch
--- PASS: TestMatch (0.00366401672363281)
+[30;41m ERROR [0m ./stdgo/_internal/os/Os_lstat.hx:4: characters 18-35
 
-=== RUN  TestGlob
-Exception: :os.lstat is not yet implemented
-Called from stdgo._internal.os._Os_lstat.$Os_lstat_Fields_.lstat (stdgo/_internal/os/Os_lstat.hx line 2)
-Called from stdgo._internal.path.filepath._Filepath__globWithLimit.$Filepath__globWithLimit_Fields_._globWithLimit (stdgo/_internal/path/filepath/Filepath__globWithLimit.hx line 27)
-Called from stdgo._internal.path.filepath._Filepath_glob.$Filepath_glob_Fields_.glob (stdgo/_internal/path/filepath/Filepath_glob.hx line 5)
-Called from _internal.path.filepath_test._Filepath_test_testGlob.$Filepath_test_testGlob_Fields_.testGlob (_internal/path/filepath_test/Filepath_test_testGlob.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 4)
+ 4 | [2m            if (![0m[1msys.io.FileSystem[0m[2m.exists(_name)) return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory") };[0m
+   |                  [31m^^^^^^^^^^^^^^^^^[0m
+   | Type not found : sys.io.FileSystem
 
--- FAIL: TestGlob (0.000200986862182617)
+[30;41m ERROR [0m ./stdgo/_internal/os/Os_lstat.hx:6: characters 23-138
+
+ 6 | [2m        return { _0 : [0m[1m{ name : () -> _name, size : () -> 0, mode : () -> 0, modTime : () -> null, isDir : () -> false, sys : () -> null }[0m[2m, _1 : null };[0m
+   |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Object requires field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/os/Os_lstat.hx:6: characters 23-138
+
+ 6 | [2m        return { _0 : [0m[1m{ name : () -> _name, size : () -> 0, mode : () -> 0, modTime : () -> null, isDir : () -> false, sys : () -> null }[0m[2m, _1 : null };[0m
+   |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | { sys : () -> stdgo.AnyInterface, size : () -> stdgo.GoInt64, name : () -> stdgo.GoString, mode : () -> stdgo._internal.io.fs.FileMode, modTime : () -> stdgo._internal.time.Time, isDir : () -> Bool } should be stdgo._internal.io.fs.FileInfo
+   | { sys : () -> stdgo.AnyInterface, size : () -> stdgo.GoInt64, name : () -> stdgo.GoString, mode : () -> stdgo._internal.io.fs.FileMode, modTime : (... has no field __underlying__
+

@@ -5,4 +5,4 @@ Called from _internal.internal.godebug_test._Godebug_test_testGet.$Godebug_test_
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
 
--- FAIL: TestGet (0.000957965850830078)
+-- FAIL: TestGet (0.00213098526000977)

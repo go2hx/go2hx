@@ -1,14 +1,14 @@
 === RUN  TestGolden
--- PASS: TestGolden (0.136079072952271)
+-- PASS: TestGolden (0.161213874816895)
 
 === RUN  TestGoldenMarshal
--- PASS: TestGoldenMarshal (0.0183680057525635)
+-- PASS: TestGoldenMarshal (0.0201680660247803)
 
 === RUN  TestSize
--- PASS: TestSize (1.69277191162109e-05)
+-- PASS: TestSize (1.59740447998047e-05)
 
 === RUN  TestBlockSize
--- PASS: TestBlockSize (1.40666961669922e-05)
+-- PASS: TestBlockSize (1.28746032714844e-05)
 
 === RUN  TestBlockGeneric
 Exception: Null access .read
@@ -19,4 +19,4 @@ Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.$Sha1_testBlockGe
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.crypto.sha1_dot_test._Sha1_dot_test.$Sha1_dot_test_Fields_.main (_internal/crypto/sha1_dot_test/Sha1_dot_test.hx line 4)
 
--- FAIL: TestBlockGeneric (0.000233173370361328)
+-- FAIL: TestBlockGeneric (0.000513792037963867)

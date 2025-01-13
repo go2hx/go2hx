@@ -42,22 +42,28 @@ final list = [
 		return slice;
 	},
 	"os:lstat" => macro {
-		@:define("sys") {
-			if (!sys.io.FileSystem.exists(_name))
+		@:define("(sys || hxnodejs)") {
+			if (!sys.FileSystem.exists(_name))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 		}
-		return {_0: {
-			name: () -> _name,
-			size: () -> 0,
-			mode: () -> 0,
-			modTime: () -> null,
-			isDir: () -> false,
-			sys: () -> null,
-		}, _1: null};
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
+	},
+	"os:stat" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (!sys.FileSystem.exists(_name))
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
+		}
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
+	},
+	"os.T_fileStat:isDir" => macro {
+		@:define("(sys || hxnodejs)") {
+			return std.sys.FileSystem.isDirectory(_fs._name);
+		}
+		return false;
 	},
 	"os:isPathSeparator" => macro {
 		@:define("js") return _c == "/";
-		@:define("sys") {
+		@:define("(sys || hxnodejs)") {
 			final sep = switch Sys.systemName() {
 				case "Windows":
 					"\\\\".code;
@@ -93,6 +99,9 @@ final list = [
 				}
 			}
 		};
+	},
+	"os:open" => macro {
+		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);
 	},
 	"os:openFile" => macro {
 		return @:define("(sys || hxnodejs)") {
@@ -213,7 +222,7 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		return (((@:define("sys", haxe.Timer.stamp()) std.Sys.time()) * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
+		return (((@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
 	},
 	"time:_now" => macro {
 		final n = stdgo._internal.time.Time__runtimeNano._runtimeNano();
@@ -386,14 +395,6 @@ final list = [
 	"math:_cos" => macro return stdgo._internal.math.Math_cos.cos(_x),
 	"math:_sin" => macro return stdgo._internal.math.Math_sin.sin(_x),
 	// stdgo/os
-	"os:open" => macro {
-		return @:define("(sys || hxnodejs)") {
-		if (!sys.FileSystem.exists(_name))
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("open " + _name + ": no such file or directory")};
-		throw "os.open is not yet implemented";
-		return {_0: null, _1: null};
-		};
-	},
 	/*"regexp:_notab" => macro null,
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
@@ -1507,7 +1508,7 @@ final list = [
 			var exit = false;
 			final output = new StringBuf();
 			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-			final stamp = @:define("sys", haxe.Timer.stamp()) std.Sys.time();
+			final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
 			stdgo.Go.println("=== RUN  " + test.name.toString());
 			try {
 				test.f(t);
@@ -1518,12 +1519,12 @@ final list = [
 				}
 				error = true;
 			}
-			final dstr = (@:define("sys", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
+			final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
 				stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
 				_m._exitCode = 1;
 				if (exit) {
-					@:define("sys") Sys.exit(1);
+					@:define("(sys || hxnodejs)") Sys.exit(1);
 					@:define("hxnodejs") js.Node.process.exit(1);
 				}
 			} else if (chatty) {

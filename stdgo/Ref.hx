@@ -1,3 +1,3 @@
 package stdgo;
 
-typedef Ref<T> = T; // refrence type used only for macro reflection type info purposes, has no overhead
+typedef Ref<T> = T; // reference type used only for macro reflection type info purposes, has no overhead

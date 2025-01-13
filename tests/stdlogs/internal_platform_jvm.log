@@ -1,3 +1,9 @@
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
+
+  43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
+
 [30;41m ERROR [0m ./stdgo/_internal/text/template/Template_Template_static_extension.hx:25: characters 23-68
 
   25 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse((@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
@@ -87,4 +93,28 @@
      | Type not found : stdgo._internal.text.template.Template__recover
 
           | For function argument 'x'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:44: characters 92-96
+
+  44 | [2m                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                            [31m^^^^[0m
+     | Unknown identifier : dstr
+
+          | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:52: characters 94-98
+
+  52 | [2m                    stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                              [31m^^^^[0m
+     | Unknown identifier : dstr
+
+          | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:54: characters 94-98
+
+  54 | [2m                    stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                              [31m^^^^[0m
+     | Unknown identifier : dstr
+
+          | For function argument 'args'
 

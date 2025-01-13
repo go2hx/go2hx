@@ -1,3 +1,27 @@
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:44: characters 92-96
+
+ 44 | [2m                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                            [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:52: characters 94-98
+
+ 52 | [2m                    stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                              [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:54: characters 94-98
+
+ 54 | [2m                    stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                              [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
+
 [30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/ast/Ast__summary.hx:44: characters 21-58
 
  44 | [2m                    [0m[1mstdgo._internal.go.ast.Ast__loopBreak[0m[2m._loopBreak = true;[0m

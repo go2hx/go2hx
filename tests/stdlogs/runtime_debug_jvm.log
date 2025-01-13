@@ -1,32 +1,38 @@
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
+
+ 43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
+    |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
+
 [30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test_GPointer.hx:2: characters 137-180
 
- 2 | [2m@:keep @:follow @:using(_internal.runtime.debug_test.Debug_test_G_static_extension.G_static_extension) typedef GPointer = stdgo.Pointer<[0m[1m_internal.runtime.debug_test.Debug_test_G.G[0m[2m>;[0m
-   |                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Not enough type parameters for _internal.runtime.debug_test.G
+  2 | [2m@:keep @:follow @:using(_internal.runtime.debug_test.Debug_test_G_static_extension.G_static_extension) typedef GPointer = stdgo.Pointer<[0m[1m_internal.runtime.debug_test.Debug_test_G.G[0m[2m>;[0m
+    |                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Not enough type parameters for _internal.runtime.debug_test.G
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:329: characters 10-35
+    [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:329: characters 10-35
 
-    329 | [2m  return [0m[1mload("get_type", 1)(name)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+     329 | [2m  return [0m[1mload("get_type", 1)(name)[0m[2m;[0m
+         |          [31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
 
-   [30;41m -> [0m stdgo/Go.macro.hx:352: characters 14-55
+    [30;41m -> [0m stdgo/Go.macro.hx:352: characters 14-55
 
-    352 | [2m   final t = [0m[1mContext.getType(printer.printTypePath(p))[0m[2m;[0m
-        |              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+     352 | [2m   final t = [0m[1mContext.getType(printer.printTypePath(p))[0m[2m;[0m
+         |              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
 
-    439 | [2m     [0m[1mf(ct, params)[0m[2m;[0m
-        |      [31m^^^^^^^^^^^^^[0m
-        | Called from here
+     439 | [2m     [0m[1mf(ct, params)[0m[2m;[0m
+         |      [31m^^^^^^^^^^^^^[0m
+         | Called from here
 
-    465 | [2m  return [0m[1mrun()[0m[2m;[0m
-        |          [31m^^^^^[0m
-        | Called from here
+     465 | [2m  return [0m[1mrun()[0m[2m;[0m
+         |          [31m^^^^^[0m
+         | Called from here
 
-   [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 60-205
+    [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 60-205
 
-      2 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>))[0m[2m;[0m
-        |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+       2 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>))[0m[2m;[0m
+         |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
 

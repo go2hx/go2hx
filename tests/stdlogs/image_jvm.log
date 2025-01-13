@@ -1,36 +1,66 @@
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:63: characters 21-63
 
-  63 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+  63 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
 
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:82: characters 21-63
 
-  82 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+  82 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
 
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:93: characters 21-63
 
-  93 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+  93 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
 
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:126: characters 21-63
 
- 126 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+ 126 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
 
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:150: characters 21-63
 
- 150 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+ 150 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
 
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:160: characters 21-63
 
- 160 | [2m                    [0m[1m_internal.image_test.Image_test__i_5381559[0m[2m._i_5381559++;[0m
+ 160 | [2m                    [0m[1m_internal.image_test.Image_test__i_5378918[0m[2m._i_5378918++;[0m
      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5381559
+     | Type not found : _internal.image_test.Image_test__i_5378918
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:44: characters 92-96
+
+  44 | [2m                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                            [31m^^^^[0m
+     | Unknown identifier : dstr
+
+         | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:52: characters 94-98
+
+  52 | [2m                    stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                              [31m^^^^[0m
+     | Unknown identifier : dstr
+
+         | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:54: characters 94-98
+
+  54 | [2m                    stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+     |                                                                                              [31m^^^^[0m
+     | Unknown identifier : dstr
+
+         | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
+
+  43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
 

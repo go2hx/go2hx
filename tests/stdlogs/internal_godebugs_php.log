@@ -1,7 +1,37 @@
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
+
+ 43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
+    |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
+
 [30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
 
  19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
     |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
     | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:44: characters 92-96
+
+ 44 | [2m                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                            [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:52: characters 94-98
+
+ 52 | [2m                    stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                              [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:54: characters 94-98
+
+ 54 | [2m                    stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($[0m[1mdstr[0m[2m)' : ''));[0m
+    |                                                                                              [31m^^^^[0m
+    | Unknown identifier : dstr
+
+        | For function argument 'args'
 

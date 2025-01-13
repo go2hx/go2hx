@@ -12,6 +12,12 @@
      | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
      | For function argument 'args'
 
+[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
+
+  43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
+
 [30;41m ERROR [0m ./_internal/fmt_test/Fmt_test__fmtTests.hx:741: characters 109-304
 
  741 | [2m({ _fmt : ("%v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoComplex64>(3, 3, ...[0m[1m[((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((2f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))][0m[2m) : stdgo.Slice<stdgo.GoComplex64>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : stdgo.GoString) } : _internal.fmt_test.Fmt_test_T__struct_2.T__struct_2),[0m

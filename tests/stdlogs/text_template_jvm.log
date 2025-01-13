@@ -88,9 +88,29 @@
 
           | For function argument 'x'
 
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/os/Os_lstat.hx:4: characters 18-35
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__testBadFuncName.hx:9: characters 25-72
 
-   4 | [2m            if (![0m[1msys.io.FileSystem[0m[2m.exists(_name)) return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory") };[0m
-     |                  [31m^^^^^^^^^^^^^^^^^[0m
-     | Type not found : sys.io.FileSystem
+   9 | [2m                        [0m[1mstdgo._internal.text.template.Template__recover[0m[2m._recover();[0m
+     |                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.text.template.Template__recover
+
+          | For function argument 'x'
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template_testAddParseTree.hx:14: characters 23-68
+
+  14 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse(("cloneText3" : stdgo.GoString), ("{{define \"c\"}}root{{end}}" : stdgo.GoString), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), stdgo._internal.text.template.Template__builtins._builtins()), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.text.template.Template__parse
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template_testAddParseTreeToUnparsedTemplate.hx:5: characters 23-68
+
+   5 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse(("master" : stdgo.GoString), _master?.__copy__(), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.text.template.Template__parse
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template_testAddToZeroTemplate.hx:3: characters 23-68
+
+   3 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse(("c" : stdgo.GoString), ("{{define \"c\"}}root{{end}}" : stdgo.GoString), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), stdgo._internal.text.template.Template__builtins._builtins()), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.text.template.Template__parse
 

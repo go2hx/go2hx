@@ -5,12 +5,6 @@
     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
     | For function argument 'args'
 
-[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
-
- 43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
-    |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
-
 [30;41m ERROR [0m ./stdgo/_internal/go/token/Token__tokens.hx:3: characters 92-116
 
   3 | [2m        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(89, 89, ...[0m[1m[for (i in 0 ... 89) ""][0m[2m);[0m

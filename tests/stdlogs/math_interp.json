@@ -76,7 +76,9 @@
         "TestHugeSinCos",
         "TestHugeTan"
     ],
-    "fails": [],
+    "fails": [
+        "TestPow"
+    ],
     "runs": [
         "TestNaN",
         "TestAcos",

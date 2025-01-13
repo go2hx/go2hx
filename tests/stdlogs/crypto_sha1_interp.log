@@ -1,14 +1,14 @@
 === RUN  TestGolden
--- PASS: TestGolden (0.629198074340820312)
+-- PASS: TestGolden (0.601346015930175781)
 
 === RUN  TestGoldenMarshal
--- PASS: TestGoldenMarshal (0.129997968673706055)
+-- PASS: TestGoldenMarshal (0.137431144714355469)
 
 === RUN  TestSize
--- PASS: TestSize (3.719329833984375e-05)
+-- PASS: TestSize (4.1961669921875e-05)
 
 === RUN  TestBlockSize
--- PASS: TestBlockSize (3.60012054443359375e-05)
+-- PASS: TestBlockSize (3.910064697265625e-05)
 
 === RUN  TestBlockGeneric
 Exception: Null Access
@@ -17,4 +17,5 @@ Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.Sha1_testBlockGen
 Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 5 column 77)
 Called from stdgo._internal.io._Io_readFull.Io_readFull_Fields_.readFull (./stdgo/_internal/io/Io_readFull.hx line 5 column 77)
 Called from stdgo._internal.io._Io_readAtLeast.Io_readAtLeast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readAtLeast.hx line 15 column 31)
--- FAIL: TestBlockGeneric (0.000257968902587890625)
+
+-- FAIL: TestBlockGeneric (0.00028896331787109375)

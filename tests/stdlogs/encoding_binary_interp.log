@@ -8,4 +8,5 @@ Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_F
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 365 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 405 column 31)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14 column 141)
--- FAIL: TestLittleEndianRead (0.00080394744873046875)
+
+-- FAIL: TestLittleEndianRead (0.000681161880493164062)

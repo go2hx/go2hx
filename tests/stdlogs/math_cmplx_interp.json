@@ -16,7 +16,17 @@
         "TestSqrt",
         "TestTanh"
     ],
-    "fails": [],
+    "fails": [
+        "TestAcos",
+        "TestAcosh",
+        "TestAsin",
+        "TestAsinh",
+        "TestAtanh",
+        "TestCos",
+        "TestTan",
+        "TestInfiniteLoopIntanSeries",
+        "TestTanHuge"
+    ],
     "runs": [
         "TestAbs",
         "TestAcos",

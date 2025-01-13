@@ -3,4 +3,5 @@ Exception: T_:testing.setenv is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
 Called from _internal.internal.godebug_test._Godebug_test_testGet.Godebug_test_testGet_Fields_.testGet (./_internal/internal/godebug_test/Godebug_test_testGet.hx line 18 column 23)
 Called from stdgo._internal.testing.T__static_extension.setenv (./stdgo/_internal/testing/Testing_T__static_extension.hx line 14 column 138)
--- FAIL: TestGet (0.000215768814086914062)
+
+-- FAIL: TestGet (0.000200033187866210938)

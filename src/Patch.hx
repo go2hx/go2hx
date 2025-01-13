@@ -681,7 +681,15 @@ final list = [
 			case structType(fields):
 				final field = fields[_i.toBasic()];
 				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo._internal.internal.reflect.Reflect._Type_asInterface).__type__;
-				var fieldValue = std.Reflect.field(@:privateAccess _v.value.value, field.name);
+				var value = @:privateAccess _v.value.value;
+				switch std.Type.typeof(value) {
+					case TClass(c):
+						final name = std.Type.getClassName(c);
+						if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__underlying__().value;
+					default:
+						final _ = false;
+				};
+				var fieldValue = std.Reflect.field(value, field.name);
 				fieldValue = stdgo._internal.internal.reflect.Reflect.asInterfaceValue(fieldValue, t._common());
 				final valueType = new $newValue(new stdgo.AnyInterface(fieldValue, t));
 				if (field.name.charAt(0) == "_")
@@ -1488,7 +1496,7 @@ final list = [
 		_c.skipNow();
 	},
 	"testing.T_common:skip" => macro {
-		stdgo._internal.fmt.Fmt_printf.print(...[for (arg in _args) arg]);
+		stdgo._internal.fmt.Fmt_print.print(...[for (arg in _args) arg]);
 		_c.skipNow();
 	},
 	"testing.T_common:skipNow" => macro {

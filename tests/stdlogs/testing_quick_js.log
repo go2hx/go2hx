@@ -12,4 +12,4 @@ Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work
 Called from ._$internal_testing_quick_$dot_$test_Quick_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 41664 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59282:1
 
--- FAIL: TestCheckEqual (0.033055585999989034)
+-- FAIL: TestCheckEqual (0.027247101000000384)

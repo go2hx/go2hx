@@ -1,5 +1,5 @@
 === RUN  TestMapFS
--- PASS: TestMapFS (0.006932019999965178)
+-- PASS: TestMapFS (0.006908932999976969)
 
 === RUN  TestMapFSChmodDot
 Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
@@ -12,4 +12,4 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 1
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
 
--- FAIL: TestMapFSChmodDot (0.01205289899996842)
+-- FAIL: TestMapFSChmodDot (0.00882917799998495)

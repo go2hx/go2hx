@@ -9,4 +9,4 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
--- FAIL: TestGet (0.019830296000009184)
+-- FAIL: TestGet (0.01530523600001743)

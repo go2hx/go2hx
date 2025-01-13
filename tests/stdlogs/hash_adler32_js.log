@@ -12,4 +12,4 @@ Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go
 Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_adler32.js line 38666 column 42)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_adler32.js:37954:58
 
--- FAIL: TestGolden (0.025053743999990274)
+-- FAIL: TestGolden (0.036786267000024964)

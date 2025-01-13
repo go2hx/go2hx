@@ -1,38 +1,38 @@
 === RUN  TestEncode
--- PASS: TestEncode (0.02959910400005583)
+-- PASS: TestEncode (0.03635817400004271)
 
 === RUN  TestEncoder
--- PASS: TestEncoder (0.0027059320000262232)
+-- PASS: TestEncoder (0.004972177000013289)
 
 === RUN  TestEncoderBuffering
--- PASS: TestEncoderBuffering (0.0073181610000006)
+-- PASS: TestEncoderBuffering (0.00501433600004475)
 
 === RUN  TestDecode
--- PASS: TestDecode (0.027191780000009658)
+-- PASS: TestDecode (0.03324383800003261)
 
 === RUN  TestDecoder
--- PASS: TestDecoder (0.00671965399999408)
+-- PASS: TestDecoder (0.005888863999985006)
 
 === RUN  TestDecoderBuffering
--- PASS: TestDecoderBuffering (0.005599689999996826)
+-- PASS: TestDecoderBuffering (0.004469982999978583)
 
 === RUN  TestDecodeCorrupt
--- PASS: TestDecodeCorrupt (0.0016270570000074258)
+-- PASS: TestDecodeCorrupt (0.0014079420000143728)
 
 === RUN  TestDecodeBounds
--- PASS: TestDecodeBounds (0.0006015829999910238)
+-- PASS: TestDecodeBounds (0.0004718079999861402)
 
 === RUN  TestEncodedLen
--- PASS: TestEncodedLen (0.00024597899999889705)
+-- PASS: TestEncodedLen (0.00023419599995122553)
 
 === RUN  TestDecodedLen
--- PASS: TestDecodedLen (0.00016836399998965135)
+-- PASS: TestDecodedLen (0.00018218900004285388)
 
 === RUN  TestBig
--- PASS: TestBig (0.034828034999975443)
+-- PASS: TestBig (0.035755391999998665)
 
 === RUN  TestNewLineCharacters
--- PASS: TestNewLineCharacters (0.0004976890000421008)
+-- PASS: TestNewLineCharacters (0.0004801430000043183)
 
 === RUN  TestDecoderIssue3577
 Exception: Cannot read properties of undefined (reading '_common')
@@ -48,4 +48,4 @@ Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go
 Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 47168 column 42)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_base64.js:46456:58
 
--- FAIL: TestDecoderIssue3577 (0.026669434999973873)
+-- FAIL: TestDecoderIssue3577 (0.03362455500001715)

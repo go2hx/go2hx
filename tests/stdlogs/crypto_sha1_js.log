@@ -1,14 +1,14 @@
 === RUN  TestGolden
--- PASS: TestGolden (0.20340873599997167)
+-- PASS: TestGolden (0.18028528899998264)
 
 === RUN  TestGoldenMarshal
--- PASS: TestGoldenMarshal (0.026390532999982952)
+-- PASS: TestGoldenMarshal (0.04017982499999562)
 
 === RUN  TestSize
--- PASS: TestSize (0.00028933999999480875)
+-- PASS: TestSize (0.0003233920000411672)
 
 === RUN  TestBlockSize
--- PASS: TestBlockSize (0.0002033300000334748)
+-- PASS: TestBlockSize (0.0002115340000159449)
 
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
@@ -24,4 +24,4 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
--- FAIL: TestBlockGeneric (0.0019146850000311133)
+-- FAIL: TestBlockGeneric (0.0019643250000171975)

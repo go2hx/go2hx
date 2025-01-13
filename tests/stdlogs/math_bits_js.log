@@ -1,26 +1,26 @@
 === RUN  TestUintSize
--- PASS: TestUintSize (0.010370069000032345)
+-- PASS: TestUintSize (0.007263991999991504)
 
 === RUN  TestLeadingZeros
--- PASS: TestLeadingZeros (0.3883910959999639)
+-- PASS: TestLeadingZeros (0.3879228199999716)
 
 === RUN  TestTrailingZeros
--- PASS: TestTrailingZeros (0.047041185000011865)
+-- PASS: TestTrailingZeros (0.0454897970000161)
 
 === RUN  TestOnesCount
--- PASS: TestOnesCount (1.2146283330000074)
+-- PASS: TestOnesCount (1.2680597450000164)
 
 === RUN  TestRotateLeft
--- PASS: TestRotateLeft (0.003637449999985165)
+-- PASS: TestRotateLeft (0.005255079999983536)
 
 === RUN  TestReverse
--- PASS: TestReverse (0.04262909400000581)
+-- PASS: TestReverse (0.03822836099999449)
 
 === RUN  TestReverseBytes
--- PASS: TestReverseBytes (0.0005346080000094844)
+-- PASS: TestReverseBytes (0.0006019799999990028)
 
 === RUN  TestLen
--- PASS: TestLen (0.34212135699999635)
+-- PASS: TestLen (0.3465738839999517)
 
 === RUN  TestAddSubUint
 Exception: Cannot read properties of undefined (reading '_common')
@@ -36,4 +36,4 @@ Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go
 Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 44127 column 42)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bits.js:43415:58
 
--- FAIL: TestAddSubUint (0.014972912000018823)
+-- FAIL: TestAddSubUint (0.018838255999980902)

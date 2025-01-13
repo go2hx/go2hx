@@ -1,5 +1,5 @@
 === RUN  TestWriteLogger
--- PASS: TestWriteLogger (0.0067842240000004495)
+-- PASS: TestWriteLogger (0.007000634000007722)
 
 === RUN  TestWriteLogger_errorOnWrite
 Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
@@ -12,4 +12,4 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 1
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
 
--- FAIL: TestWriteLogger_errorOnWrite (0.009472011000013936)
+-- FAIL: TestWriteLogger_errorOnWrite (0.009157209000022704)

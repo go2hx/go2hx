@@ -250,5 +250,15 @@
  "interp|copy1",
  "interp|defer0",
  "interp|defer8",
- "interp|a27"
+ "interp|a27",
+ "interp|interface1",
+ "interp|interface2",
+ "interp|interface3",
+ "interp|interface4",
+ "interp|method28",
+ "interp|method31",
+ "interp|named0",
+ "interp|switch15",
+ "interp|switch16",
+ "interp|switch17"
 ]

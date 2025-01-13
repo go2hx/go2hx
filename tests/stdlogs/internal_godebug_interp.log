@@ -4,4 +4,4 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from _internal.internal.godebug_test._Godebug_test_testGet.Godebug_test_testGet_Fields_.testGet (./_internal/internal/godebug_test/Godebug_test_testGet.hx line 18 column 23)
 Called from stdgo._internal.testing.T__static_extension.setenv (./stdgo/_internal/testing/Testing_T__static_extension.hx line 14 column 138)
 
--- FAIL: TestGet (0.000200033187866210938)
+-- FAIL: TestGet (0.000214099884033203125)

@@ -5,4 +5,4 @@ Called from _internal.fmt_test._Fmt_test_testErrorf.Fmt_test_testErrorf_Fields_.
 Called from stdgo._internal.reflect._Reflect_deepEqual.Reflect_deepEqual_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepEqual.hx line 4 column 20)
 Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.hx line 181 column 5)
 
--- FAIL: TestErrorf (0.0121281147003173828)
+-- FAIL: TestErrorf (0.0110869407653808594)

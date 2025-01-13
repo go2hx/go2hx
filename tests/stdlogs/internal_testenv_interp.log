@@ -5,4 +5,4 @@ Called from _internal.internal.testenv_test._Testenv_test_testGoToolLocation.Tes
 Called from stdgo._internal.internal.testenv._Testenv_mustHaveGoBuild.Testenv_mustHaveGoBuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_mustHaveGoBuild.hx line 3 column 13)
 Called from stdgo._internal.os._Os_getenv.Os_getenv_Fields_.getenv (./stdgo/_internal/os/Os_getenv.hx line 2 column 53)
 
--- FAIL: TestGoToolLocation (0.000189065933227539062)
+-- FAIL: TestGoToolLocation (0.00107097625732421875)

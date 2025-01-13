@@ -1,12 +1,23 @@
 === RUN  TestMatch
--- PASS: TestMatch (0.00564098358154296875)
+-- PASS: TestMatch (0.00625300407409668)
 
 === RUN  TestGlob
-Exception: :os.lstat is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testGlob.Filepath_test_testGlob_Fields_.testGlob (./_internal/path/filepath_test/Filepath_test_testGlob.hx line 10 column 27)
-Called from stdgo._internal.path.filepath._Filepath_glob.Filepath_glob_Fields_.glob (./stdgo/_internal/path/filepath/Filepath_glob.hx line 5 column 93)
-Called from stdgo._internal.path.filepath._Filepath__globWithLimit.Filepath__globWithLimit_Fields_._globWithLimit (./stdgo/_internal/path/filepath/Filepath__globWithLimit.hx line 27 column 35)
-Called from stdgo._internal.os._Os_lstat.Os_lstat_Fields_.lstat (./stdgo/_internal/os/Os_lstat.hx line 2 column 117)
+Glob(`match.go`) = []string(nil) want match.goGlob(`mat?h.go`) = []string(nil) want match.goGlob(`*`) = []string(nil) want match.goGlob(`../*/match.go`) = []string(nil) want ../filepath/match.go
+-- FAIL: TestGlob (0.0124049186706542969)
 
--- FAIL: TestGlob (0.000360012054443359375)
+=== RUN  TestCVE202230632
+-- PASS: TestCVE202230632 (5.64940905570983887)
+
+=== RUN  TestGlobError
+-- PASS: TestGlobError (0.00125408172607421875)
+
+=== RUN  TestGlobUNC
+-- PASS: TestGlobUNC (0.000272989273071289062)
+
+=== RUN  TestGlobSymlink
+Exception: os.create is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testGlobSymlink.Filepath_test_testGlobSymlink_Fields_.testGlobSymlink (./_internal/path/filepath_test/Filepath_test_testGlobSymlink.hx line 8 column 27)
+Called from stdgo._internal.os._Os_create.Os_create_Fields_.create (./stdgo/_internal/os/Os_create.hx line 3 column 9)
+
+-- FAIL: TestGlobSymlink (0.0004291534423828125)

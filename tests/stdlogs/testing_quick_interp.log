@@ -9,4 +9,4 @@ Called from stdgo._internal.testing.quick._Quick__sizedValue.Quick__sizedValue_F
 Called from stdgo._internal.reflect.Value_static_extension.set (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 291 column 17)
 Called from StringTools.endsWith (/home/runner/haxe/versions/c4868e5/std/StringTools.hx line 260 column 14)
 
--- FAIL: TestCheckEqual (0.0110039710998535156)
+-- FAIL: TestCheckEqual (0.0118708610534667969)

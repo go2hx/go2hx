@@ -5,13 +5,6 @@
     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
     | For function argument 'args'
 
-[30;41m ERROR [0m ./stdgo/_internal/io/Io_multiWriter.hx:13: characters 62-151
-
- 13 | [2m                    _allWriters = (_allWriters.__append__(...[0m[1m((@:checkr _mw ?? throw "null pointer dereference")._writers : Array<stdgo.AnyInterface>)[0m[2m));[0m
-    |                                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | stdgo.Slice<stdgo._internal.io.Writer> should be Array<stdgo.AnyInterface>
-    | For function argument 'args'
-
 [30;41m ERROR [0m ./_internal/io_test/Io_test_testMultiReaderCopy.hx:3: characters 85-194
 
   3 | [2m        var _slice = (new stdgo.Slice<stdgo._internal.io.Io_Reader.Reader>(1, 1, ...[0m[1m[stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(("hello world" : stdgo.GoString)))][0m[2m) : stdgo.Slice<stdgo._internal.io.Io_Reader.Reader>);[0m

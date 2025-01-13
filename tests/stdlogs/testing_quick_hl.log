@@ -9,4 +9,4 @@ Called from stdgo._internal.testing.quick._Quick_checkEqual.$Quick_checkEqual_Fi
 Called from stdgo._internal.testing.quick._Quick_testCheckEqual.$Quick_testCheckEqual_Fields_.testCheckEqual (stdgo/_internal/testing/quick/Quick_testCheckEqual.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.testing.quick_dot_test._Quick_dot_test.$Quick_dot_test_Fields_.main (_internal/testing/quick_dot_test/Quick_dot_test.hx line 4)
--- FAIL: TestCheckEqual (0.000753164291381836)
+-- FAIL: TestCheckEqual (0.000803947448730469)

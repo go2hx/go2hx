@@ -425,7 +425,8 @@ private function testStd() { // standard library package tests
 			continue;
 		final main = name;
 		final out = createTargetOutput(target, type, name);
-		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
+		final targetLibs = Main.targetLibs(target);
+		final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
 		final args = [hxml].concat(outCmd);
 		if (ciBool)
 			args.unshift("haxe");

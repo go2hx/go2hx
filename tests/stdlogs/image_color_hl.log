@@ -1,8 +1,9 @@
 === RUN  TestSqDiff
-Exception: not implemented reflect.Value:call: signature(false,{get : function#55D91F516A48},{get : function#55D91F516A68},{get : function#55D91F516A88},null)
+Exception: not implemented reflect.Value:call: signature(false,{get : function#55E83E69CA48},{get : function#55E83E69CA68},{get : function#55E83E69CA88},null)
 Called from stdgo._internal.reflect.$Value_static_extension.call (stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 763)
 Called from stdgo._internal.testing.quick._Quick_checkEqual.$Quick_checkEqual_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkEqual.hx line 27)
 Called from stdgo._internal.image.color._Color_testSqDiff.$Color_testSqDiff_Fields_.testSqDiff (stdgo/_internal/image/color/Color_testSqDiff.hx line 37)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.image.color_dot_test._Color_dot_test.$Color_dot_test_Fields_.main (_internal/image/color_dot_test/Color_dot_test.hx line 4)
--- FAIL: TestSqDiff (0.000849008560180664)
+
+-- FAIL: TestSqDiff (0.00109004974365234)

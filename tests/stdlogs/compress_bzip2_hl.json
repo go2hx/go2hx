@@ -4,7 +4,9 @@
         "TestMTF",
         "TestZeroRead"
     ],
-    "fails": [],
+    "fails": [
+        "TestReader"
+    ],
     "runs": [
         "TestReader",
         "TestBitReader",

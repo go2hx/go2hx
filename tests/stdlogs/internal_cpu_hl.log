@@ -7,4 +7,5 @@ Called from _internal.internal.cpu_test._Cpu_test__runDebugOptionsTest.$Cpu_test
 Called from _internal.internal.cpu_test._Cpu_test_testDisableAllCapabilities.$Cpu_test_testDisableAllCapabilities_Fields_.testDisableAllCapabilities (_internal/internal/cpu_test/Cpu_test_testDisableAllCapabilities.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.cpu_dot_test._Cpu_dot_test.$Cpu_dot_test_Fields_.main (_internal/internal/cpu_dot_test/Cpu_dot_test.hx line 4)
--- FAIL: TestDisableAllCapabilities (0.000167131423950195)
+
+-- FAIL: TestDisableAllCapabilities (0.000846147537231445)

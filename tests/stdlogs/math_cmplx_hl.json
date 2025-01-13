@@ -1,0 +1,53 @@
+{
+    "passes": [
+        "TestAbs",
+        "TestAcos",
+        "TestAcosh",
+        "TestAsin",
+        "TestAsinh",
+        "TestConj",
+        "TestIsNaN",
+        "TestLog",
+        "TestLog10",
+        "TestPolar",
+        "TestPow",
+        "TestRect",
+        "TestSin",
+        "TestSinh",
+        "TestSqrt"
+    ],
+    "fails": [
+        "TestAtan",
+        "TestAtanh",
+        "TestCos",
+        "TestCosh",
+        "TestExp",
+        "TestTan",
+        "TestTanh"
+    ],
+    "runs": [
+        "TestAbs",
+        "TestAcos",
+        "TestAcosh",
+        "TestAsin",
+        "TestAsinh",
+        "TestAtan",
+        "TestAtanh",
+        "TestConj",
+        "TestCos",
+        "TestCosh",
+        "TestExp",
+        "TestIsNaN",
+        "TestLog",
+        "TestLog10",
+        "TestPolar",
+        "TestPow",
+        "TestRect",
+        "TestSin",
+        "TestSinh",
+        "TestSqrt",
+        "TestTan",
+        "TestTanh",
+        "TestInfiniteLoopIntanSeries"
+    ]
+}

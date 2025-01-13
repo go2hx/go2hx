@@ -130,7 +130,7 @@ function getArrayElem(type:GoType):GoType {
 		case arrayType(_.get() => elem, _), sliceType(_.get() => elem):
 			elem;
 		default:
-			throw "did not get ArrayElem";
+			type;
 	}
 }
 

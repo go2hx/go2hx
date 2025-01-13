@@ -324,6 +324,10 @@ function update() {
 				}else{
 					trace("build error: " + task.command + " " + task.args.join(" "));
 					suite.buildError(task);
+					if (type == "std") {
+						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
+						File.saveContent("tests/stdlogs/" + name + ".log", output);
+					}
 				}
 			}
 			runningCount--;

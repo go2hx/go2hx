@@ -125,10 +125,12 @@ function getArrayElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
+		case named(_, _, elem, _, _):
+			getArrayElem(elem);
 		case arrayType(_.get() => elem, _), sliceType(_.get() => elem):
 			elem;
 		default:
-			type;
+			throw "did not get ArrayElem";
 	}
 }
 

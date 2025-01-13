@@ -1,0 +1,7 @@
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/build/constraint/Constraint_plusBuildLines.hx:32: characters 46-98
+
+ 32 | [2m                _lits = (_lits.__append__(...[0m[1m(_or[(0 : stdgo.GoInt)] : Array<stdgo.AnyInterface>)[0m[2m));[0m
+    |                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | stdgo.Slice<stdgo._internal.go.build.constraint.Expr> should be Array<stdgo.AnyInterface>
+    | For function argument 'args'
+

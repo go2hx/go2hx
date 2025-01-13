@@ -1,0 +1,14 @@
+[30;41m ERROR [0m ./stdgo/_internal/go/token/Token_FileSet_static_extension.hx:13: characters 487-665
+
+ 13 | [2m            _files[(_i : stdgo.GoInt)] = ({ name : (@:checkr _f ?? throw "null pointer dereference")._name?.__copy__(), base : (@:checkr _f ?? throw "null pointer dereference")._base, size : (@:checkr _f ?? throw "null pointer dereference")._size, lines : ((null : stdgo.Slice<stdgo.GoInt>).__append__(...((@:checkr _f ?? throw "null pointer dereference")._lines : Array<stdgo.GoInt>))), infos : ((null : stdgo.Slice<stdgo._internal.go.token.Token_T_lineInfo.T_lineInfo>).__append__(...[0m[1m((@:checkr _f ?? throw "null pointer dereference")._infos : Array<{ var offset : stdgo.GoInt; var filename : stdgo.GoString; var line : stdgo.GoInt; var column : stdgo.GoInt; }>)[0m[2m)) } : stdgo._internal.go.token.Token_T_serializedFile.T_serializedFile);[0m
+    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | stdgo.Slice<stdgo._internal.go.token.T_lineInfo> should be Array<{ offset : stdgo.GoInt, line : stdgo.GoInt, filename : stdgo.GoString, column : stdgo.GoInt }>
+    | For function argument 'args'
+
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/build/constraint/Constraint_plusBuildLines.hx:32: characters 46-98
+
+ 32 | [2m                _lits = (_lits.__append__(...[0m[1m(_or[(0 : stdgo.GoInt)] : Array<stdgo.AnyInterface>)[0m[2m));[0m
+    |                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | stdgo.Slice<stdgo._internal.go.build.constraint.Expr> should be Array<stdgo.AnyInterface>
+    | For function argument 'args'
+

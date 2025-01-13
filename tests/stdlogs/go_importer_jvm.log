@@ -1,0 +1,34 @@
+[30;41m ERROR [0m ./stdgo/_internal/internal/buildcfg/Buildcfg_ExperimentFlags.hx:4: characters 24-80
+
+    4 | [2m    public var flags : [0m[1m_internal.internal.goexperiment.Goexperiment_Flags.Flags[0m[2m = ({} : _internal.internal.goexperiment.Goexperiment_Flags.Flags);[0m
+      |                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : _internal.internal.goexperiment.Goexperiment_Flags
+
+[30;41m ERROR [0m ./stdgo/_internal/go/build/Build_Context_static_extension.hx:804: lines 804-806
+
+  804 | [2m                        [0m[1mif (((!_ok || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_sub?.__copy__(), ("src/" : stdgo.GoString)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_sub?.__copy__(), ("/testdata/" : stdgo.GoString)) : Bool)) {[0m
+  805 | [1m                            return false;[0m
+  806 | [1m                        }[0m[2m;[0m
+      |
+      | Missing return: Bool
+
+[30;41m ERROR [0m ./stdgo/_internal/go/build/Build__readGoInfo.hx:108: characters 164-276
+
+  108 | [2m                        (@:checkr _info ?? throw "null pointer dereference")._embeds = ((@:checkr _info ?? throw "null pointer dereference")._embeds.__append__(...[0m[1m(_embs : Array<{ var _pattern : stdgo.GoString; var _pos : stdgo._internal.go.token.Token_Position.Position; }>)[0m[2m));[0m
+      |                                                                                                                                                                    [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | stdgo.Slice<stdgo._internal.go.build.T_fileEmbed> should be Array<{ _pos : stdgo._internal.go.token.Position, _pattern : stdgo.GoString }>
+      | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/go/build/Build_Context_static_extension.hx:1601: characters 224-398
+
+ 1601 | [2m                    (_directives_4395024 : stdgo.Slice<stdgo._internal.go.build.Build_Directive.Directive>).__setData__(((_directives_4395024 : stdgo.Slice<stdgo._internal.go.build.Build_Directive.Directive>).__append__(...[0m[1m((@:checkr _info_4391881 ?? throw "null pointer dereference")._directives : Array<{ var text : stdgo.GoString; var pos : stdgo._internal.go.token.Token_Position.Position; }>)[0m[2m)));[0m
+      |                                                                                                                                                                                                                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | stdgo.Slice<stdgo._internal.go.build.Directive> should be Array<{ text : stdgo.GoString, pos : stdgo._internal.go.token.Position }>
+      | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Checker_static_extension.hx:1836: character 39
+
+ 1836 | [2m        var _keys_6148606:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+      |                                       [31m^[0m
+      | Invalid character '#'
+

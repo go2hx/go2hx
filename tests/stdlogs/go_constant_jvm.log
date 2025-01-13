@@ -1,0 +1,38 @@
+[30;41m ERROR [0m ./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:442: characters 16-25
+
+ 442 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
+     |                [31m^^^^^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+
+[30;41m ERROR [0m ./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:444: characters 16-29
+
+ 444 | [2m            _q.[0m[1m_divRecursive[0m[2m(_u, _v);[0m
+     |                [31m^^^^^^^^^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divRecursive
+
+[30;41m ERROR [0m ./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:447: characters 17-22
+
+ 447 | [2m        _q = _q.[0m[1m_norm[0m[2m();[0m
+     |                 [31m^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _norm
+
+[30;41m ERROR [0m stdgo/Go.macro.hx:426: characters 18-19
+
+ 426 | [2m   return switch [0m[1mt[0m[2m {[0m
+     |                  [31m^[0m
+     | Uncaught exception Null Access
+
+      443 | [2m      return [0m[1mrun()[0m[2m;[0m
+          |              [31m^^^^^[0m
+          | Called from here
+
+      465 | [2m  return [0m[1mrun()[0m[2m;[0m
+          |          [31m^^^^^[0m
+          | Called from here
+
+     [30;41m -> [0m ./stdgo/_internal/go/constant/Constant_unaryOp.hx:207: characters 28-61
+
+      207 | [2m                    return [0m[1mstdgo.Go.asInterface(!_y_5310915)[0m[2m;[0m
+          |                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+

@@ -1,0 +1,8 @@
+[30;41m ERROR [0m ./_internal/sync/atomic_test/Atomic_test_testValueConcurrent.hx:60: characters 58-98
+
+ 60 | [2m                                            while ((_j < [0m[1m_internal.sync.atomic_test.Atomic_test_n[0m[2m.n : Bool)) {[0m
+    |                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.sync.atomic_test.Atomic_test_n
+
+        | For function argument 'func'
+

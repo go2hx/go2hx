@@ -1,10 +1,3 @@
-[30;41m ERROR [0m ./stdgo/_internal/io/Io_multiWriter.hx:13: characters 62-151
-
- 13 | [2m                    _allWriters = (_allWriters.__append__(...[0m[1m((@:checkr _mw ?? throw "null pointer dereference")._writers : Array<stdgo.AnyInterface>)[0m[2m));[0m
-    |                                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | stdgo.Slice<stdgo._internal.io.Writer> should be Array<stdgo.AnyInterface>
-    | For function argument 'args'
-
 [30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe2.hx:5: characters 32-64
 
   5 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_reader[0m[2m.reader(_t, stdgo.Go.asInterface(_r), _c));[0m

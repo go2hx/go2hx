@@ -1,7 +1,8 @@
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/build/constraint/Constraint_plusBuildLines.hx:32: characters 46-98
+[30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer__idents.hx:6: characters 75-77
 
- 32 | [2m                _lits = (_lits.__append__(...[0m[1m(_or[(0 : stdgo.GoInt)] : Array<stdgo.AnyInterface>)[0m[2m));[0m
-    |                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | stdgo.Slice<stdgo._internal.go.build.constraint.Expr> should be Array<stdgo.AnyInterface>
-    | For function argument 'args'
+ 6 | [2m                stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface([0m[1m_v[0m[2m), stdgo.Go.asInterface(_f));[0m
+   |                                                                           [31m^^[0m
+   | Unknown identifier : _v
+
+      | For function argument 'dir'
 

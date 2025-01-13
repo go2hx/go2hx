@@ -1156,7 +1156,7 @@ class _Type {
 	static private function formatGoPath(path:String):String {
 		if (useHaxePath)
 			return path;
-		final stdgo = "stdgo.";
+		final stdgo = "stdgo._internal";
 		var index = path.indexOf(stdgo);
 		if (index == 0)
 			path = path.substr(stdgo.length);
@@ -1167,6 +1167,7 @@ class _Type {
 
 		final localName = "___localname___";
 		index = cl.indexOf(localName);
+		//trace(cl, index);
 		if (index != -1) {
 			cl = cl.substr(index + localName.length);
 		}

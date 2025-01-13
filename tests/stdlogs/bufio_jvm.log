@@ -1,18 +1,12 @@
 [30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testUnreadByteOthers.hx:3: characters 188-267
 
-  3 | [2m        var _readers = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[[0m[1m_internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension[0m[2m.readBytes, _internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension.readSlice, function(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {[0m
-    |                                                                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.bufio_test.Bufio_test_Reader_static_extension
+ 3 | [2m        var _readers = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[[0m[1m_internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension[0m[2m.readBytes, _internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension.readSlice, function(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {[0m
+   |                                                                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : _internal.bufio_test.Bufio_test_Reader_static_extension
 
 [30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testUnreadByteOthers.hx:7: characters 31-39
 
-  7 | [2m        for (_rno => _read in [0m[1m_readers[0m[2m) {[0m
-    |                               [31m^^^^^^^^[0m
-    | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
-
-[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
-
- 43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
-    |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
+ 7 | [2m        for (_rno => _read in [0m[1m_readers[0m[2m) {[0m
+   |                               [31m^^^^^^^^[0m
+   | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
 

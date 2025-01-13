@@ -96,12 +96,6 @@
 
           | For function argument 'x'
 
-[30;41m ERROR [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:43: characters 9-39
-
-  43 | [2m        [0m[1mstdgo._internal.fmt.Fmt_printf[0m[2m.print(...[for (arg in _args) arg]);[0m
-     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Module stdgo._internal.fmt.Fmt_printf does not define type Fmt_printf
-
 [30;41m ERROR [0m ./stdgo/_internal/text/template/Template_testAddParseTree.hx:14: characters 23-68
 
   14 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse(("cloneText3" : stdgo.GoString), ("{{define \"c\"}}root{{end}}" : stdgo.GoString), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), stdgo._internal.text.template.Template__builtins._builtins()), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m

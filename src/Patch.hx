@@ -62,7 +62,7 @@ final list = [
 		return false;
 	},
 	"os:isPathSeparator" => macro {
-		@:define("js") return _c == "/";
+		@:define("js") return _c == "/".code;
 		@:define("(sys || hxnodejs)") {
 			final sep = switch Sys.systemName() {
 				case "Windows":

@@ -1520,7 +1520,7 @@ final list = [
 			var exit = false;
 			final output = new StringBuf();
 			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-			//final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
+			final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
 			stdgo.Go.println("=== RUN  " + test.name.toString());
 			try {
 				test.f(t);
@@ -1533,7 +1533,7 @@ final list = [
 					error = true;
 				}
 			}
-			//final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
+			final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
 				stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				_m._exitCode = 1;

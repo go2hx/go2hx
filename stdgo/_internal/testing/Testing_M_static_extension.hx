@@ -40,10 +40,11 @@ package stdgo._internal.testing;
             };
             final dstr = (#if sys std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
-                stdgo.Go.println('-- FAIL: ${test.name.toString()} ($dstr)');
+                stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
                 _m._exitCode = 1;
                 if (exit) {
-                    Sys.exit(1);
+                    #if sys Sys.exit(1) #else null #end;
+                    #if hxnodejs js.Node.process.exit(1) #else null #end;
                 };
             } else if (chatty) {
                 if (t.skipped()) {

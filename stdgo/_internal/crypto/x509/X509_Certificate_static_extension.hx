@@ -214,7 +214,7 @@ var _hintCert = __1, _hintErr = __0;
                         _childChains = __tmp__._0;
                         _err = __tmp__._1;
                     };
-                    _chains = (_chains.__append__(...(_childChains : Array<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>)));
+                    _chains = (_chains.__append__(...(_childChains : Array<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>)));
                 };
             };
         };

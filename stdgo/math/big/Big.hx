@@ -1799,88 +1799,88 @@ class T_nat_static_extension {
 }
 /**
     /|*{
-    	nm1_4470182 = nat(nil).sub(n, natOne)
-    	k_4470256 = nm1_4470182.trailingZeroBits()
-    	q_4470285 = nat(nil).shr(nm1_4470182, k_4470256)
-    	nm3_4470313 = nat(nil).sub(nm1_4470182, natTwo)
-    	rand_4470347 = rand.New(rand.NewSource(int64(n[0])))
-    	nm3Len_4470419 = nm3_4470313.bitLen()
-    	gotoNext = 4470443
-    	_ = gotoNext == 4470443
-    	i_4470460 = 0
+    	nm1_4210402 = nat(nil).sub(n, natOne)
+    	k_4210476 = nm1_4210402.trailingZeroBits()
+    	q_4210505 = nat(nil).shr(nm1_4210402, k_4210476)
+    	nm3_4210533 = nat(nil).sub(nm1_4210402, natTwo)
+    	rand_4210567 = rand.New(rand.NewSource(int64(n[0])))
+    	nm3Len_4210639 = nm3_4210533.bitLen()
+    	gotoNext = 4210663
+    	_ = gotoNext == 4210663
+    	i_4210680 = 0
     	NextRandomBreak = false
-    	gotoNext = 4470456
-    	_ = gotoNext == 4470456
-    	if !NextRandomBreak && (i_4470460 < reps) {
-    		gotoNext = 4470482
-    		_ = gotoNext == 4470482
-    		if i_4470460 == reps-1 && force2 {
-    			gotoNext = 4470511
-    			_ = gotoNext == 4470511
-    			x_4470399 = x_4470399.set(natTwo)
-    			gotoNext = 4470610
+    	gotoNext = 4210676
+    	_ = gotoNext == 4210676
+    	if !NextRandomBreak && (i_4210680 < reps) {
+    		gotoNext = 4210702
+    		_ = gotoNext == 4210702
+    		if i_4210680 == reps-1 && force2 {
+    			gotoNext = 4210731
+    			_ = gotoNext == 4210731
+    			x_4210619 = x_4210619.set(natTwo)
+    			gotoNext = 4210830
     		} else {
-    			gotoNext = 4470543
-    			_ = gotoNext == 4470543
-    			gotoNext = 4470543
-    			_ = gotoNext == 4470543
-    			x_4470399 = x_4470399.random(rand_4470347, nm3_4470313, nm3Len_4470419)
-    			x_4470399 = x_4470399.add(x_4470399, natTwo)
+    			gotoNext = 4210763
+    			_ = gotoNext == 4210763
+    			gotoNext = 4210763
+    			_ = gotoNext == 4210763
+    			x_4210619 = x_4210619.random(rand_4210567, nm3_4210533, nm3Len_4210639)
+    			x_4210619 = x_4210619.add(x_4210619, natTwo)
     			_ = 0
-    			gotoNext = 4470610
+    			gotoNext = 4210830
     		}
-    		_ = gotoNext == 4470610
-    		y_4470402 = y_4470402.expNN(x_4470399, q_4470285, n, false)
-    		if y_4470402.cmp(natOne) == 0 || y_4470402.cmp(nm1_4470182) == 0 {
-    			gotoNext = 4470681
-    			_ = gotoNext == 4470681
-    			i_4470460++
-    			gotoNext = 4470456
-    			gotoNext = 4470701
+    		_ = gotoNext == 4210830
+    		y_4210622 = y_4210622.expNN(x_4210619, q_4210505, n, false)
+    		if y_4210622.cmp(natOne) == 0 || y_4210622.cmp(nm1_4210402) == 0 {
+    			gotoNext = 4210901
+    			_ = gotoNext == 4210901
+    			i_4210680++
+    			gotoNext = 4210676
+    			gotoNext = 4210921
     		} else {
-    			gotoNext = 4470701
+    			gotoNext = 4210921
     		}
-    		_ = gotoNext == 4470701
-    		j_4470705 = uint(1)
-    		gotoNext = 4470701
-    		_ = gotoNext == 4470701
-    		if j_4470705 < k_4470256 {
-    			gotoNext = 4470730
-    			_ = gotoNext == 4470730
-    			y_4470402 = y_4470402.sqr(y_4470402)
-    			quotient_4470405, y_4470402 = quotient_4470405.div(y_4470402, y_4470402, n)
-    			if y_4470402.cmp(nm1_4470182) == 0 {
-    				gotoNext = 4470809
-    				_ = gotoNext == 4470809
-    				i_4470460++
-    				gotoNext = 4470456
-    				gotoNext = 4470843
+    		_ = gotoNext == 4210921
+    		j_4210925 = uint(1)
+    		gotoNext = 4210921
+    		_ = gotoNext == 4210921
+    		if j_4210925 < k_4210476 {
+    			gotoNext = 4210950
+    			_ = gotoNext == 4210950
+    			y_4210622 = y_4210622.sqr(y_4210622)
+    			quotient_4210625, y_4210622 = quotient_4210625.div(y_4210622, y_4210622, n)
+    			if y_4210622.cmp(nm1_4210402) == 0 {
+    				gotoNext = 4211029
+    				_ = gotoNext == 4211029
+    				i_4210680++
+    				gotoNext = 4210676
+    				gotoNext = 4211063
     			} else {
-    				gotoNext = 4470843
+    				gotoNext = 4211063
     			}
-    			_ = gotoNext == 4470843
-    			if y_4470402.cmp(natOne) == 0 {
-    				gotoNext = 4470865
-    				_ = gotoNext == 4470865
+    			_ = gotoNext == 4211063
+    			if y_4210622.cmp(natOne) == 0 {
+    				gotoNext = 4211085
+    				_ = gotoNext == 4211085
     				return false
-    				gotoNext = 4470726
+    				gotoNext = 4210946
     			} else {
-    				gotoNext = 4470726
+    				gotoNext = 4210946
     			}
-    			_ = gotoNext == 4470726
-    			j_4470705++
-    			gotoNext = 4470701
+    			_ = gotoNext == 4210946
+    			j_4210925++
+    			gotoNext = 4210921
     		} else {
-    			gotoNext = 4470895
+    			gotoNext = 4211115
     		}
-    		_ = gotoNext == 4470895
+    		_ = gotoNext == 4211115
     		return false
-    		i_4470460++
-    		gotoNext = 4470456
+    		i_4210680++
+    		gotoNext = 4210676
     	} else {
-    		gotoNext = 4470913
+    		gotoNext = 4211133
     	}
-    	_ = gotoNext == 4470913
+    	_ = gotoNext == 4211133
     	return true
     	gotoNext = -1
     }*|/

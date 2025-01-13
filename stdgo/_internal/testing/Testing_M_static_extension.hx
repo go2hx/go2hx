@@ -27,7 +27,7 @@ package stdgo._internal.testing;
             var exit = false;
             final output = new StringBuf();
             var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-            final stamp = #if sys std.Sys.time() #else haxe.Timer.stamp() #end;
+            final stamp = #if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end;
             stdgo.Go.println("=== RUN  " + test.name.toString());
             try {
                 test.f(t);
@@ -38,12 +38,12 @@ package stdgo._internal.testing;
                 };
                 error = true;
             };
-            final dstr = (#if sys std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
+            final dstr = (#if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
                 stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
                 _m._exitCode = 1;
                 if (exit) {
-                    #if sys Sys.exit(1) #else null #end;
+                    #if (sys || hxnodejs) Sys.exit(1) #else null #end;
                     #if hxnodejs js.Node.process.exit(1) #else null #end;
                 };
             } else if (chatty) {

@@ -14,7 +14,13 @@ package stdgo._internal.os;
     static public function size( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.GoInt64 throw "T_fileStat:os.size is not yet implemented";
     @:keep
     @:tdfield
-    static public function isDir( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):Bool throw "T_fileStat:os.isDir is not yet implemented";
+    static public function isDir( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):Bool {
+        @:recv var _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat> = _fs;
+        #if (sys || hxnodejs) {
+            return std.sys.FileSystem.isDirectory(_fs._name);
+        } #else null #end;
+        return false;
+    }
     @:keep
     @:tdfield
     static public function name( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.GoString throw "T_fileStat:os.name is not yet implemented";

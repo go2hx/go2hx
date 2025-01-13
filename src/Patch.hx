@@ -676,11 +676,13 @@ final list = [
 		return value != null ? 1 : 0;
 	},
 	"reflect.Value:field" => macro {
-		final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
+		final initgt = @:privateAccess _v.value.type._common();
+		final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.getUnderlying(initgt);
 		return switch gt {
 			case structType(fields):
 				final field = fields[_i.toBasic()];
-				final t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo._internal.internal.reflect.Reflect._Type_asInterface).__type__;
+				var t = @:privateAccess (cast _v.value.type.field(_i).type : stdgo._internal.internal.reflect.Reflect._Type_asInterface).__type__;
+				t = new stdgo._internal.internal.reflect.Reflect._Type(@:privateAccess stdgo._internal.internal.reflect.Reflect.unroll(initgt, t._common()));
 				var value = @:privateAccess _v.value.value;
 				switch std.Type.typeof(value) {
 					case TClass(c):
@@ -1178,7 +1180,7 @@ final list = [
 				case TClass(c):
 					final name = std.Type.getClassName(c);
 					if (std.StringTools.endsWith(name, "_asInterface")) {
-						@:privateAccess _v.value.type.gt = stdgo._internal.internal.reflect.Reflect.getElem(t);
+						@:privateAccess _v.value.type.gt = stdgo._internal.internal.reflect.Reflect.unroll(t, stdgo._internal.internal.reflect.Reflect.getElem(t));
 						value = (value : Dynamic).__underlying__().value;
 					}
 				default:
@@ -1188,7 +1190,7 @@ final list = [
 		var k = _v.kind();
 		switch k {
 			case stdgo._internal.internal.reflect.Reflect.KindType.pointer:
-				final t = stdgo._internal.internal.reflect.Reflect.getUnderlying(t);
+				final t = @:privateAccess stdgo._internal.internal.reflect.Reflect.unroll(t, stdgo._internal.internal.reflect.Reflect.getUnderlying(t));
 				switch t {
 					case stdgo._internal.internal.reflect.Reflect.GoType.refType(_.get() => elem):
 						final value = new $newValue(new stdgo.AnyInterface(value, new stdgo._internal.internal.reflect.Reflect._Type(elem)), null);

@@ -88,9 +88,9 @@
 
           | For function argument 'x'
 
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/os/Os_lstat.hx:6: characters 23-138
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/os/Os_isPathSeparator.hx:3: characters 23-32
 
-   6 | [2m        return { _0 : [0m[1m{ name : () -> _name, size : () -> 0, mode : () -> 0, modTime : () -> null, isDir : () -> false, sys : () -> null }[0m[2m, _1 : null };[0m
-     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Object requires field __underlying__
+   3 | [2m        #if js return [0m[1m_c == "/"[0m[2m #else null #end;[0m
+     |                       [31m^^^^^^^^^[0m
+     | String should be stdgo.GoUInt8
 

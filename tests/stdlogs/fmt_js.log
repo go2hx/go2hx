@@ -25,10 +25,10 @@ Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmt.
 Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 28440 column 24)
 Called from .stdgo__$internal_reflect_Reflect_$deepEqual_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 42347 column 29)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testErrorf_testErrorf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:41288:7)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 86718 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 86717 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 76751 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106376:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106377:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106374:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106375:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 
--- FAIL: TestErrorf (0.05788516500001606)
+-- FAIL: TestErrorf (0.054000139236450195)

@@ -1,15 +1,15 @@
 === RUN  TestOpenFileLimit
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 13991 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 14457 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 23069 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 18797 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 19967 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintln (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 17739 column 49)
-Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34993 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$println_println (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 35036 column 60)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.error (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40548 column 44)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:39812:58
+-- PASS: TestOpenFileLimit (0.12299990653991699)
 
--- FAIL: TestOpenFileLimit (0.02211648600001581)
+=== RUN  TestEnv
+Exception: :syscall.setenv is not yet implemented
+Called from .stdgo__$internal_syscall_Syscall_$setenv_setenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 12848 column 23)
+Called from ._$internal_syscall_$test_Syscall_$test_$_$testSetGetenv__testSetGetenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 12833 column 13)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testEnv_testEnv [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:12826:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 39844 column 9)
+Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 32040 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48719:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48720:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+
+-- FAIL: TestEnv (0.009000062942504883)

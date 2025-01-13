@@ -1,14 +1,14 @@
 === RUN  TestGolden
--- PASS: TestGolden (0.18028528899998264)
+-- PASS: TestGolden (0.22300004959106445)
 
 === RUN  TestGoldenMarshal
--- PASS: TestGoldenMarshal (0.04017982499999562)
+-- PASS: TestGoldenMarshal (0.037000179290771484)
 
 === RUN  TestSize
--- PASS: TestSize (0.0003233920000411672)
+-- PASS: TestSize (0)
 
 === RUN  TestBlockSize
--- PASS: TestBlockSize (0.0002115340000159449)
+-- PASS: TestBlockSize (0)
 
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
@@ -17,11 +17,11 @@ Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/
 Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31909 column 16)
 Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31901 column 16)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testBlockGeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:31885:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40884 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40883 column 9)
 Called from ._$internal_crypto_sha1_$dot_$test_Sha1_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34232 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52499:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52500:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52497:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52498:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
--- FAIL: TestBlockGeneric (0.0019643250000171975)
+-- FAIL: TestBlockGeneric (0.006000041961669922)

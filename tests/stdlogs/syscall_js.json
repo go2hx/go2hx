@@ -1,9 +1,12 @@
 {
-    "passes": [],
-    "fails": [
+    "passes": [
         "TestOpenFileLimit"
     ],
+    "fails": [
+        "TestEnv"
+    ],
     "runs": [
-        "TestOpenFileLimit"
+        "TestOpenFileLimit",
+        "TestEnv"
     ]
 }

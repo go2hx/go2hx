@@ -1,15 +1,15 @@
 === RUN  TestMapFS
--- PASS: TestMapFS (0.006908932999976969)
+-- PASS: TestMapFS (0.008999824523925781)
 
 === RUN  TestMapFSChmodDot
 Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testMapFSChmodDot_testMapFSChmodDot [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:10438:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 36456 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 36455 column 9)
 Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 10840 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:45787:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:45788:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:45785:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:45786:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
 
--- FAIL: TestMapFSChmodDot (0.00882917799998495)
+-- FAIL: TestMapFSChmodDot (0.008999824523925781)

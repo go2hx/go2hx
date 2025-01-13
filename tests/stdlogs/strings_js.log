@@ -1,95 +1,95 @@
 === RUN  TestBuilder
--- PASS: TestBuilder (0.006636345000003985)
+-- PASS: TestBuilder (0.007999897003173828)
 
 === RUN  TestBuilderString
--- PASS: TestBuilderString (0.0002813739999965037)
+-- PASS: TestBuilderString (0.0009999275207519531)
 
 === RUN  TestBuilderReset
--- PASS: TestBuilderReset (0.000778730000035921)
+-- PASS: TestBuilderReset (0.0010001659393310547)
 
 === RUN  TestBuilderGrow
 ./_internal/strings_test/Strings_test_testBuilderGrow.hx:3: testBuilderGrow skip function
--- PASS: TestBuilderGrow (0.0024622440000143797)
+-- PASS: TestBuilderGrow (0.0009999275207519531)
 
 === RUN  TestBuilderWrite2
--- PASS: TestBuilderWrite2 (0.00031156000000009954)
+-- PASS: TestBuilderWrite2 (0)
 
 === RUN  TestBuilderWriteByte
--- PASS: TestBuilderWriteByte (0.0001947220000033667)
+-- PASS: TestBuilderWriteByte (0)
 
 === RUN  TestBuilderAllocs
 ./_internal/strings_test/Strings_test_testBuilderAllocs.hx:3: testBuilderAllocs skip function
--- PASS: TestBuilderAllocs (0.0001644459999852188)
+-- PASS: TestBuilderAllocs (0.0009999275207519531)
 
 === RUN  TestBuilderCopyPanic
 ./_internal/strings_test/Strings_test_testBuilderCopyPanic.hx:3: testBuilderCopyPanic skip function
--- PASS: TestBuilderCopyPanic (0.00011293000000023312)
+-- PASS: TestBuilderCopyPanic (0)
 
 === RUN  TestBuilderWriteInvalidRune
--- PASS: TestBuilderWriteInvalidRune (0.0005447440000239112)
+-- PASS: TestBuilderWriteInvalidRune (0.0009999275207519531)
 
 === RUN  TestClone
 ./_internal/strings_test/Strings_test_testClone.hx:3: testClone skip function
--- PASS: TestClone (0.00011579599998867707)
+-- PASS: TestClone (0)
 
 === RUN  TestCompare
--- PASS: TestCompare (0.0002947389999690131)
+-- PASS: TestCompare (0)
 
 === RUN  TestCompareIdenticalString
--- PASS: TestCompareIdenticalString (0.00039579700001013407)
+-- PASS: TestCompareIdenticalString (0.0010001659393310547)
 
 === RUN  TestCompareStrings
 ./_internal/strings_test/Strings_test_testCompareStrings.hx:3: testCompareStrings skip function
--- PASS: TestCompareStrings (0.0006044350000138365)
+-- PASS: TestCompareStrings (0)
 
 === RUN  TestReader
--- PASS: TestReader (0.0030952120000051764)
+-- PASS: TestReader (0.003000020980834961)
 
 === RUN  TestReadAfterBigSeek
--- PASS: TestReadAfterBigSeek (0.0002386840000099255)
+-- PASS: TestReadAfterBigSeek (0)
 
 === RUN  TestReaderAt
--- PASS: TestReaderAt (0.02097537800000282)
+-- PASS: TestReaderAt (0.02200007438659668)
 
 === RUN  TestReaderAtConcurrent
--- PASS: TestReaderAtConcurrent (0.0007914229999528288)
+-- PASS: TestReaderAtConcurrent (0)
 
 === RUN  TestEmptyReaderConcurrent
--- PASS: TestEmptyReaderConcurrent (0.0008896159999949305)
+-- PASS: TestEmptyReaderConcurrent (0.0009999275207519531)
 
 === RUN  TestWriteTo
--- PASS: TestWriteTo (0.0023283250000076805)
+-- PASS: TestWriteTo (0.002000093460083008)
 
 === RUN  TestReaderLenSize
 ./_internal/strings_test/Strings_test_testReaderLenSize.hx:3: testReaderLenSize skip function
--- PASS: TestReaderLenSize (0.0004490460000283747)
+-- PASS: TestReaderLenSize (0)
 
 === RUN  TestReaderReset
--- PASS: TestReaderReset (0.0010502850000193575)
+-- PASS: TestReaderReset (0.0010001659393310547)
 
 === RUN  TestReaderZero
--- PASS: TestReaderZero (0.0006840739999915968)
+-- PASS: TestReaderZero (0.0009999275207519531)
 
 === RUN  TestReplacer
 ./_internal/strings_test/Strings_test_testReplacer.hx:3: testReplacer skip function
--- PASS: TestReplacer (0.00010302200001888195)
+-- PASS: TestReplacer (0)
 
 === RUN  TestPickAlgorithm
 ./_internal/strings_test/Strings_test_testPickAlgorithm.hx:3: testPickAlgorithm skip function
--- PASS: TestPickAlgorithm (0.00010722900003656832)
+-- PASS: TestPickAlgorithm (0)
 
 === RUN  TestWriteStringError
--- PASS: TestWriteStringError (0.01112535099997558)
+-- PASS: TestWriteStringError (0.00800013542175293)
 
 === RUN  TestGenericTrieBuilding
 ./_internal/strings_test/Strings_test_testGenericTrieBuilding.hx:3: testGenericTrieBuilding skip function
--- PASS: TestGenericTrieBuilding (0.00021133300003839395)
+-- PASS: TestGenericTrieBuilding (0.0009999275207519531)
 
 === RUN  TestFinderNext
--- PASS: TestFinderNext (0.0035126890000469757)
+-- PASS: TestFinderNext (0.003000020980834961)
 
 === RUN  TestFinderCreation
--- PASS: TestFinderCreation (0.003739251000013155)
+-- PASS: TestFinderCreation (0.003999948501586914)
 
 === RUN  TestIndex
 Exception: Cannot read properties of undefined (reading '_common')
@@ -102,7 +102,7 @@ Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runne
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 22636 column 50)
 Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 43966 column 48)
 Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 44093 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 52537 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strings.js:52020:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 52536 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strings.js:52019:58
 
--- FAIL: TestIndex (0.008076024000047255)
+-- FAIL: TestIndex (0.003000020980834961)

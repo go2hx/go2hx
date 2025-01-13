@@ -1,26 +1,26 @@
 === RUN  TestUintSize
--- PASS: TestUintSize (0.007263991999991504)
+-- PASS: TestUintSize (0.006000041961669922)
 
 === RUN  TestLeadingZeros
--- PASS: TestLeadingZeros (0.3879228199999716)
+-- PASS: TestLeadingZeros (0.3599998950958252)
 
 === RUN  TestTrailingZeros
--- PASS: TestTrailingZeros (0.0454897970000161)
+-- PASS: TestTrailingZeros (0.0559999942779541)
 
 === RUN  TestOnesCount
--- PASS: TestOnesCount (1.2680597450000164)
+-- PASS: TestOnesCount (1.187999963760376)
 
 === RUN  TestRotateLeft
--- PASS: TestRotateLeft (0.005255079999983536)
+-- PASS: TestRotateLeft (0.003999948501586914)
 
 === RUN  TestReverse
--- PASS: TestReverse (0.03822836099999449)
+-- PASS: TestReverse (0.03399991989135742)
 
 === RUN  TestReverseBytes
--- PASS: TestReverseBytes (0.0006019799999990028)
+-- PASS: TestReverseBytes (0.0009999275207519531)
 
 === RUN  TestLen
--- PASS: TestLen (0.3465738839999517)
+-- PASS: TestLen (0.28299999237060547)
 
 === RUN  TestAddSubUint
 Exception: Cannot read properties of undefined (reading '_common')
@@ -33,7 +33,7 @@ Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runne
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 24433 column 50)
 Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 21830 column 48)
 Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 21811 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 44127 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bits.js:43415:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 44126 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bits.js:43414:58
 
--- FAIL: TestAddSubUint (0.018838255999980902)
+-- FAIL: TestAddSubUint (0.01100015640258789)

@@ -11,9 +11,9 @@
      | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
      | For function argument 'args'
 
-[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Named_static_extension.hx:170: character 39
+[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Named_static_extension.hx:162: character 39
 
- 170 | [2m        var _keys_6416682:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+ 162 | [2m        var _keys_6693628:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
      |                                       [31m^[0m
      | Invalid character '#'
 

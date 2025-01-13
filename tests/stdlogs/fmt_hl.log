@@ -6,4 +6,4 @@ Called from _internal.fmt_test._Fmt_test_testErrorf.$Fmt_test_testErrorf_Fields_
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.fmt_dot_test._Fmt_dot_test.$Fmt_dot_test_Fields_.main (_internal/fmt_dot_test/Fmt_dot_test.hx line 4)
 
--- FAIL: TestErrorf (0.01969313621521)
+-- FAIL: TestErrorf (0.0215990543365479)

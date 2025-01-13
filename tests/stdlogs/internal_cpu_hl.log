@@ -8,4 +8,4 @@ Called from _internal.internal.cpu_test._Cpu_test_testDisableAllCapabilities.$Cp
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.cpu_dot_test._Cpu_dot_test.$Cpu_dot_test_Fields_.main (_internal/internal/cpu_dot_test/Cpu_dot_test.hx line 4)
 
--- FAIL: TestDisableAllCapabilities (0.000221014022827148)
+-- FAIL: TestDisableAllCapabilities (0.000226974487304688)

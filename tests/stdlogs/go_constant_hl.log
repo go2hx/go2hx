@@ -32,7 +32,7 @@
 
      [30;41m -> [0m ./stdgo/_internal/go/constant/Constant_unaryOp.hx:207: characters 28-61
 
-      207 | [2m                    return [0m[1mstdgo.Go.asInterface(!_y_4973144)[0m[2m;[0m
+      207 | [2m                    return [0m[1mstdgo.Go.asInterface(!_y_5111878)[0m[2m;[0m
           |                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 

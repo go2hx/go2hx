@@ -5,4 +5,4 @@ Called from _internal.internal.godebugs_test._Godebugs_test_testAll.$Godebugs_te
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.godebugs_dot_test._Godebugs_dot_test.$Godebugs_dot_test_Fields_.main (_internal/internal/godebugs_dot_test/Godebugs_dot_test.hx line 4)
 
--- FAIL: TestAll (0.000854015350341797)
+-- FAIL: TestAll (0.000217914581298828)

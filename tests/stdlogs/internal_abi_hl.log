@@ -7,4 +7,4 @@ Called from _internal.internal.abi_test._Abi_test_testFuncPC.$Abi_test_testFuncP
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
 Called from _internal.internal.abi_dot_test._Abi_dot_test.$Abi_dot_test_Fields_.main (_internal/internal/abi_dot_test/Abi_dot_test.hx line 4)
 
--- FAIL: TestFuncPC (0.00153899192810059)
+-- FAIL: TestFuncPC (0.00138401985168457)

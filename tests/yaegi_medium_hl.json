@@ -250,5 +250,15 @@
  "hl|variadic9",
  "hl|defer0",
  "hl|defer8",
- "hl|a27"
+ "hl|a27",
+ "hl|interface1",
+ "hl|interface2",
+ "hl|interface3",
+ "hl|interface4",
+ "hl|method28",
+ "hl|method31",
+ "hl|named0",
+ "hl|switch15",
+ "hl|switch16",
+ "hl|switch17"
 ]

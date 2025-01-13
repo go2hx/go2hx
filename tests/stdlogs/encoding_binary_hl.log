@@ -7,7 +7,7 @@ Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
 Called from stdgo._internal.encoding.binary._Binary__testRead.$Binary__testRead_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testRead.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testLittleEndianRead.$Binary_testLittleEndianRead_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testLittleEndianRead.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
--- FAIL: TestLittleEndianRead (0.00154614448547363)
+-- FAIL: TestLittleEndianRead

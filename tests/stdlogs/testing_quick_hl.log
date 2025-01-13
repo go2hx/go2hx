@@ -7,7 +7,7 @@ Called from stdgo._internal.testing.quick._Quick_value.$Quick_value_Fields_.valu
 Called from stdgo._internal.testing.quick._Quick__arbitraryValues.$Quick__arbitraryValues_Fields_._arbitraryValues (stdgo/_internal/testing/quick/Quick__arbitraryValues.hx line 13)
 Called from stdgo._internal.testing.quick._Quick_checkEqual.$Quick_checkEqual_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkEqual.hx line 23)
 Called from stdgo._internal.testing.quick._Quick_testCheckEqual.$Quick_testCheckEqual_Fields_.testCheckEqual (stdgo/_internal/testing/quick/Quick_testCheckEqual.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.testing.quick_dot_test._Quick_dot_test.$Quick_dot_test_Fields_.main (_internal/testing/quick_dot_test/Quick_dot_test.hx line 4)
 
--- FAIL: TestCheckEqual (0.00723099708557129)
+-- FAIL: TestCheckEqual

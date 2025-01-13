@@ -1,8 +1,8 @@
 === RUN  TestMatch
--- PASS: TestMatch (0.00295591354370117)
+-- PASS: TestMatch
 
 === RUN  TestGlob
 Glob(`match.go`) = []string(nil) want match.goGlob(`mat?h.go`) = []string(nil) want match.goGlob(`*`) = []string(nil) want match.goGlob(`../*/match.go`) = []string(nil) want ../filepath/match.go
--- FAIL: TestGlob (0.00638794898986816)
+-- FAIL: TestGlob
 
 === RUN  TestCVE202230632

@@ -4,4 +4,4 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from _internal.internal.testenv_test._Testenv_test_testGoToolLocation.Testenv_test_testGoToolLocation_Fields_.testGoToolLocation (./_internal/internal/testenv_test/Testenv_test_testGoToolLocation.hx line 3 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_mustHaveGoBuild.Testenv_mustHaveGoBuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_mustHaveGoBuild.hx line 3 column 13)
 Called from stdgo._internal.os._Os_getenv.Os_getenv_Fields_.getenv (./stdgo/_internal/os/Os_getenv.hx line 2 column 53)
--- FAIL: TestGoToolLocation (0.000175952911376953125)
+-- FAIL: TestGoToolLocation (0.000169038772583007812)

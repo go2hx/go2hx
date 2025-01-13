@@ -6,4 +6,4 @@ Called from _internal.internal.cpu_test._Cpu_test__runDebugOptionsTest.Cpu_test_
 Called from _internal.internal.cpu_test._Cpu_test_mustHaveDebugOptionsSupport.Cpu_test_mustHaveDebugOptionsSupport_Fields_.mustHaveDebugOptionsSupport (./_internal/internal/cpu_test/Cpu_test_mustHaveDebugOptionsSupport.hx line 4 column 32)
 Called from local function #1 (./stdgo/_internal/testing/Testing_T_.hx line 75 column 106)
 Called from stdgo._internal.testing.T_common_static_extension.skipf (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28 column 166)
--- FAIL: TestDisableAllCapabilities (0.000186920166015625)
+-- FAIL: TestDisableAllCapabilities (0.00086688995361328125)

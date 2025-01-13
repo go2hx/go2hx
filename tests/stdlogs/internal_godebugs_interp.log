@@ -3,4 +3,4 @@ Exception: :os.isNotExist is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
 Called from _internal.internal.godebugs_test._Godebugs_test_testAll.Godebugs_test_testAll_Fields_.testAll (./_internal/internal/godebugs_test/Godebugs_test_testAll.hx line 5 column 18)
 Called from stdgo._internal.os._Os_isNotExist.Os_isNotExist_Fields_.isNotExist (./stdgo/_internal/os/Os_isNotExist.hx line 2 column 44)
--- FAIL: TestAll (0.00121593475341796875)
+-- FAIL: TestAll (0.000217914581298828125)

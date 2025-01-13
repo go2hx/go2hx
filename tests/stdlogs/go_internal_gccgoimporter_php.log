@@ -1,0 +1,13 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+  19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+     |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+     | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Named_static_extension.hx:175: character 39
+
+ 175 | [2m        var _keys_6703395:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+     |                                       [31m^[0m
+     | Invalid character '#'
+

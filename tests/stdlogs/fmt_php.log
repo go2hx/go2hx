@@ -1,0 +1,41 @@
+[30;41m ERROR [0m ./_internal/fmt_test/Fmt_test_testErrorf.hx:15: characters 431-635
+
+  15 | [2m({ _err : _noVetErrorf(("wrapped two errors: %w %w" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((("1" : stdgo.GoString) : _internal.fmt_test.Fmt_test_T_errString.T_errString))), stdgo.Go.toInterface(stdgo.Go.asInterface((("2" : stdgo.GoString) : _internal.fmt_test.Fmt_test_T_errString.T_errString)))), _wantText : ("wrapped two errors: 1 2" : stdgo.GoString), _wantSplit : (new stdgo.Slice<stdgo.Error>(2, 2, ...[0m[1m[stdgo.Go.asInterface((("1" : stdgo.GoString) : _internal.fmt_test.Fmt_test_T_errString.T_errString)), stdgo.Go.asInterface((("2" : stdgo.GoString) : _internal.fmt_test.Fmt_test_T_errString.T_errString))][0m[2m) : stdgo.Slice<stdgo.Error>), _wantUnwrap : (null : stdgo.Error) } : _internal.fmt_test.Fmt_test_T__struct_0.T__struct_0),[0m
+     |                                                                                                                                                                                                                                                                                                                                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<_internal.fmt_test.T_errString_asInterface> should be haxe.Rest<stdgo.Error>
+     | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+  19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+     |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+     | For function argument 'args'
+
+[30;41m ERROR [0m ./_internal/fmt_test/Fmt_test__fmtTests.hx:741: characters 109-304
+
+ 741 | [2m({ _fmt : ("%v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoComplex64>(3, 3, ...[0m[1m[((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((2f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))][0m[2m) : stdgo.Slice<stdgo.GoComplex64>)), _out : ("[(1+0i) (2+0i) (3+0i)]" : stdgo.GoString) } : _internal.fmt_test.Fmt_test_T__struct_2.T__struct_2),[0m
+     |                                                                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<stdgo.GoComplex128> should be haxe.Rest<stdgo.GoComplex64>
+     | For function argument 'args'
+
+     [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+
+      504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
+          |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+     [30;41m -> [0m stdgo/Go.macro.hx:652: characters 11-31
+
+      652 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
+          |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+     [30;41m -> [0m ./_internal/fmt_test/Fmt_test__fmtTests.hx:741: characters 43-340
+
+      741 | [2m({ _fmt : ("%v" : stdgo.GoString), _val : [0m[1mstdgo.Go.toInterface((new stdgo.Slice<stdgo.GoComplex64>(3, 3, ...[((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((2f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))]) : stdgo.Slice<stdgo.GoComplex64>))[0m[2m, _out : ("[(1+0i) (2+0i) (3+0i)]" : stdgo.GoString) } : _internal.fmt_test.Fmt_test_T__struct_2.T__struct_2),[0m
+          |                                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+          | For function argument 'args'
+

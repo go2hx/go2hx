@@ -1,0 +1,16 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+ 19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+    |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+    | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/image/Image__testImages.hx:19: characters 291-431
+
+ 19 | [2m        return stdgo.Go.asInterface(stdgo._internal.image.Image_newPaletted.newPaletted(stdgo._internal.image.Image_rect.rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(), (new stdgo.Slice<stdgo._internal.image.color.Color_Color.Color>(2, 2, ...[0m[1m[stdgo.Go.asInterface(stdgo._internal.image.Image_transparent.transparent), stdgo.Go.asInterface(stdgo._internal.image.Image_opaque.opaque)][0m[2m) : stdgo._internal.image.color.Color_Palette.Palette)));[0m
+    |                                                                                                                                                                                                                                                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<stdgo._internal.image.Uniform_asInterface> should be haxe.Rest<stdgo._internal.image.color.Color>
+    | For function argument 'args'
+
+        | For function argument 'args'
+

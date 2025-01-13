@@ -1,0 +1,37 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+ 19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+    |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+    | For function argument 'args'
+
+[30;41m ERROR [0m ./_internal/errors_test/Errors_test_testIs.hx:37: characters 71-101
+
+ 37 | [2m({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, ...[0m[1m[stdgo.Go.asInterface(_poser)][0m[2m) : _internal.errors_test.Errors_test_T_multiErr.T_multiErr)), _target : _err1, _match : true } : _internal.errors_test.Errors_test_T__struct_2.T__struct_2),[0m
+    |                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<_internal.errors_test.T_poser_asInterface> should be haxe.Rest<stdgo.Error>
+    | For function argument 'args'
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./_internal/errors_test/Errors_test_testIs.hx:40: characters 28-38
+
+ 40 | [2m        for (__0 => _tc in [0m[1m_testCases[0m[2m) {[0m
+    |                            [31m^^^^^^^^^^[0m
+    | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+
+[30;41m ERROR [0m ./_internal/errors_test/Errors_test_testAs.hx:24: characters 71-389
+
+ 24 | [2m({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(2, 2, ...[0m[1m[stdgo.Go.asInterface((new _internal.errors_test.Errors_test_T_errorT.T_errorT(("a" : stdgo.GoString)) : _internal.errors_test.Errors_test_T_errorT.T_errorT)), stdgo.Go.asInterface((new _internal.errors_test.Errors_test_T_errorT.T_errorT(("b" : stdgo.GoString)) : _internal.errors_test.Errors_test_T_errorT.T_errorT))][0m[2m) : _internal.errors_test.Errors_test_T_multiErr.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<_internal.errors_test.Errors_test_T_errorT.T_errorT>))), _match : true, _want : stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.errors_test.Errors_test_T_errorT.T_errorT(("a" : stdgo.GoString)) : _internal.errors_test.Errors_test_T_errorT.T_errorT))) } : _internal.errors_test.Errors_test_T__struct_3.T__struct_3),[0m
+    |                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<_internal.errors_test.T_errorT_asInterface> should be haxe.Rest<stdgo.Error>
+    | For function argument 'args'
+
+        | For function argument 'args'
+
+[30;41m ERROR [0m ./_internal/errors_test/Errors_test_testAs.hx:28: characters 27-37
+
+ 28 | [2m        for (_i => _tc in [0m[1m_testCases[0m[2m) {[0m
+    |                           [31m^^^^^^^^^^[0m
+    | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+

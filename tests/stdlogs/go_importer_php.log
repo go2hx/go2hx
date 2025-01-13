@@ -1,0 +1,35 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+  19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+     |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+     | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/internal/buildcfg/Buildcfg_ExperimentFlags.hx:4: characters 24-80
+
+   4 | [2m    public var flags : [0m[1m_internal.internal.goexperiment.Goexperiment_Flags.Flags[0m[2m = ({} : _internal.internal.goexperiment.Goexperiment_Flags.Flags);[0m
+     |                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.internal.goexperiment.Goexperiment_Flags
+
+[30;41m ERROR [0m ./stdgo/_internal/go/build/Build_Context_static_extension.hx:804: lines 804-806
+
+ 804 | [2m                        [0m[1mif (((!_ok || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_sub?.__copy__(), ("src/" : stdgo.GoString)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_sub?.__copy__(), ("/testdata/" : stdgo.GoString)) : Bool)) {[0m
+ 805 | [1m                            return false;[0m
+ 806 | [1m                        }[0m[2m;[0m
+     |
+     | Missing return: Bool
+
+[30;41m ERROR [0m ./stdgo/_internal/go/token/Token__tokens.hx:3: characters 92-116
+
+   3 | [2m        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(89, 89, ...[0m[1m[for (i in 0 ... 89) ""][0m[2m);[0m
+     |                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<String> should be haxe.Rest<stdgo.GoString>
+     | For function argument 'args'
+
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/ast/Ast__objKindStrings.hx:3: characters 90-113
+
+   3 | [2m        var s:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(7, 7, ...[0m[1m[for (i in 0 ... 7) ""][0m[2m);[0m
+     |                                                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<String> should be haxe.Rest<stdgo.GoString>
+     | For function argument 'args'
+

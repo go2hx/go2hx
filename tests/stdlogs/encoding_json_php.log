@@ -1,0 +1,9 @@
+[30;41m ERROR [0m ./stdgo/_internal/strconv/Strconv__float32pow10.hx:2: lines 2-13
+
+  2 | [2mvar _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (new stdgo.Slice<stdgo.GoFloat32>(11, 11, ...[0m[1m[[0m
+  - | [2m  [...][0m
+ 13 | [1m(1e+10 : stdgo.GoFloat64)][0m[2m).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>);[0m
+    |
+    | Array<stdgo.GoFloat64> should be haxe.Rest<stdgo.GoFloat32>
+    | For function argument 'args'
+

@@ -1,0 +1,57 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+ 19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+    |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+    | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/gob/Gob_testInterface.hx:7: characters 343-370
+
+  7 | [2m        var _item1 = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_InterfaceItem.InterfaceItem((1 : stdgo.GoInt), stdgo.Go.asInterface(_iVal), stdgo.Go.asInterface(_fVal), stdgo.Go.asInterface(_vVal), (11.5 : stdgo.GoFloat64), (new stdgo.Slice<stdgo._internal.encoding.gob.Gob_Squarer.Squarer>(4, 4, ...[stdgo.Go.asInterface(_iVal), [0m[1mstdgo.Go.asInterface(_fVal)[0m[2m, (null : stdgo._internal.encoding.gob.Gob_Squarer.Squarer), stdgo.Go.asInterface(_vVal)]) : stdgo.Slice<stdgo._internal.encoding.gob.Gob_Squarer.Squarer>)) : stdgo._internal.encoding.gob.Gob_InterfaceItem.InterfaceItem)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_InterfaceItem.InterfaceItem>);[0m
+    |                                                                                                                                                                                                                                                                                                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Arrays of mixed types are only allowed if the type is forced to Array<Dynamic>
+
+         | For function argument 'args'
+
+         | stdgo._internal.encoding.gob.Float__asInterface should be stdgo._internal.encoding.gob.Int__asInterface
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/gob/Gob_testInterface.hx:38: characters 27-83
+
+ 38 | [2m        for (_i => _v1 in [0m[1m(@:checkr _item1 ?? throw "null pointer dereference").sq[0m[2m) {[0m
+    |                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/gob/Gob_testInterface.hx:45: characters 141-144
+
+ 45 | [2m                @:check2r _t.errorf(("item %d inconsistent values: %v %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface([0m[1m_v1[0m[2m), stdgo.Go.toInterface(_v2));[0m
+    |                                                                                                                                             [31m^^^[0m
+    | Any should be { square : () -> stdgo.GoInt }
+    | For function argument 'value'
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/gob/Gob__singletons.hx:2: characters 550-628
+
+  2 | [2mvar _singletons : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(8, 8, ...[stdgo.Go.toInterface(true), stdgo.Go.toInterface((7 : stdgo.GoInt)), stdgo.Go.toInterface((10u32 : stdgo.GoUInt)), stdgo.Go.toInterface((3.2 : stdgo.GoFloat64)), stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(11 : stdgo.GoInt), (22 : stdgo.GoInt), (33 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoFloat32>(3, 3, ...[0m[1m[(0.5 : stdgo.GoFloat64), (0.25 : stdgo.GoFloat64), (0.125 : stdgo.GoFloat64)][0m[2m).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>)), stdgo.Go.toInterface(({[0m
+    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<stdgo.GoFloat64> should be haxe.Rest<stdgo.GoFloat32>
+    | For function argument 'args'
+
+    [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+
+     504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
+         |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
+
+    [30;41m -> [0m stdgo/Go.macro.hx:652: characters 11-31
+
+     652 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
+         |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
+
+    [30;41m -> [0m ./stdgo/_internal/encoding/gob/Gob__singletons.hx:2: characters 486-680
+
+       2 | [2mvar _singletons : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(8, 8, ...[stdgo.Go.toInterface(true), stdgo.Go.toInterface((7 : stdgo.GoInt)), stdgo.Go.toInterface((10u32 : stdgo.GoUInt)), stdgo.Go.toInterface((3.2 : stdgo.GoFloat64)), stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(11 : stdgo.GoInt), (22 : stdgo.GoInt), (33 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)), [0m[1mstdgo.Go.toInterface((new stdgo.Slice<stdgo.GoFloat32>(3, 3, ...[(0.5 : stdgo.GoFloat64), (0.25 : stdgo.GoFloat64), (0.125 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>))[0m[2m, stdgo.Go.toInterface(({[0m
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
+
+         | For function argument 'args'
+

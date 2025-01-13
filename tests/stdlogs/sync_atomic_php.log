@@ -1,0 +1,24 @@
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+  19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+     |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+     | For function argument 'args'
+
+[30;41m ERROR [0m ./_internal/sync/atomic_test/Atomic_test_testValueConcurrent.hx:60: characters 58-98
+
+  60 | [2m                                            while ((_j < [0m[1m_internal.sync.atomic_test.Atomic_test_n[0m[2m.n : Bool)) {[0m
+     |                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.sync.atomic_test.Atomic_test_n
+
+         | For function argument 'func'
+
+[30;41m ERROR [0m ./stdgo/_internal/math/rand/Rand__wn.hx:2: lines 2-130
+
+   2 | [2mvar _wn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[0m[1m[[0m
+   - | [2m  [...][0m
+ 130 | [1m(1.6030947680434338e-09 : stdgo.GoFloat64)][0m[2m).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat32>);[0m
+     |
+     | Array<stdgo.GoFloat64> should be haxe.Rest<stdgo.GoFloat32>
+     | For function argument 'args'
+

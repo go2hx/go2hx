@@ -1,0 +1,76 @@
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template_Template_static_extension.hx:25: characters 23-68
+
+ 25 | [2m        var __tmp__ = [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.parse((@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.text.template.Template__parse
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template_Template_static_extension.hx:12: characters 104-149
+
+ 12 | [2m            if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {[0m
+    |                                                                                                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.text.template.Template__parse
+
+[30;41m ERROR [0m ./stdgo/_internal/time/Time__initLocal.hx:19: characters 129-200
+
+ 19 | [2m        stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[0m[1m[{ _name : (name : stdgo.GoString), _offset : offset, _isDST : false }][0m[2m);[0m
+    |                                                                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Array<{ _offset : Int, _name : stdgo.GoString, _isDST : Bool }> should be haxe.Rest<stdgo._internal.time.T_zone>
+    | For function argument 'args'
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:3: characters 19-66
+
+  3 | [2m        var _e = ([0m[1mstdgo._internal.text.template.Template__recover[0m[2m._recover() : stdgo.AnyInterface);[0m
+    |                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.text.template.Template__recover
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:8: characters 159-173
+
+  8 | [2m                    var _err:stdgo._internal.runtime.Runtime_Error.Error = __type__ == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__ == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__.__underlying__().value;[0m
+    |                                                                                                                                                               [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:8: characters 324-338
+
+  8 | [2m                    var _err:stdgo._internal.runtime.Runtime_Error.Error = __type__ == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__.__underlying__() == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__ == null ? (null : stdgo._internal.runtime.Runtime_Error.Error) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+    |                                                                                                                                                                                                                                                                                                                                    [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:11: characters 199-213
+
+ 11 | [2m                    var _err:stdgo._internal.text.template.Template_T_writeError.T_writeError = __type__ == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__.[0m[1m__underlying__[0m[2m() == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__.__underlying__().value;[0m
+    |                                                                                                                                                                                                       [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:11: characters 402-416
+
+ 11 | [2m                    var _err:stdgo._internal.text.template.Template_T_writeError.T_writeError = __type__ == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_T_writeError.T_writeError) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+    |                                                                                                                                                                                                                                                                                                                                                                                                                  [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:18: characters 187-201
+
+ 18 | [2m                    var _err:stdgo._internal.text.template.Template_ExecError.ExecError = __type__ == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__.[0m[1m__underlying__[0m[2m() == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__.__underlying__().value;[0m
+    |                                                                                                                                                                                           [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:18: characters 378-392
+
+ 18 | [2m                    var _err:stdgo._internal.text.template.Template_ExecError.ExecError = __type__ == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_ExecError.ExecError) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+    |                                                                                                                                                                                                                                                                                                                                                                                          [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/text/template/Template__errRecover.hx:25: characters 61-75
+
+ 25 | [2m                    var _err:stdgo.AnyInterface = __type__?.[0m[1m__underlying__[0m[2m();[0m
+    |                                                             [31m^^^^^^^^^^^^^^[0m
+    | Any has no field __underlying__
+
+[30;41m ERROR [0m ./stdgo/_internal/strconv/Strconv__float32pow10.hx:2: lines 2-13
+
+  2 | [2mvar _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (new stdgo.Slice<stdgo.GoFloat32>(11, 11, ...[0m[1m[[0m
+  - | [2m  [...][0m
+ 13 | [1m(1e+10 : stdgo.GoFloat64)][0m[2m).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>);[0m
+    |
+    | Array<stdgo.GoFloat64> should be haxe.Rest<stdgo.GoFloat32>
+    | For function argument 'args'
+

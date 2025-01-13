@@ -400,8 +400,8 @@ final list = [
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,*/
 	"os:create" => macro {
-		throw "os.create is not yet implemented";
-		//new stdgo._internal.os.Os_File.File()
+		//O_RDWR|O_CREATE|O_TRUNC
+		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);
 	},
 	"os:stdin" => macro {
 		final input:haxe.io.Input = @:define("(sys || hxnodejs)") std.Sys.stdin();
@@ -1478,12 +1478,23 @@ final list = [
 	"testing.T_common:fatal" => macro {},
 	"testing.T_common:fatalf" => macro {},
 	"testing.T_common:tempDir" => macro return "temp",
-	"testing.T_common:skipped" => macro return false,
+	"testing.T_common:skipped" => macro return _c._skipped,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
 		//@:define("(sys || hxnodejs)") Sys.exit(1);
 	},
-	"testing.T_common:skip" => macro {},
+	"testing.T_common:skipf" => macro {
+		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+		_c.skipNow();
+	},
+	"testing.T_common:skip" => macro {
+		stdgo._internal.fmt.Fmt_printf.print(...[for (arg in _args) arg]);
+		_c.skipNow();
+	},
+	"testing.T_common:skipNow" => macro {
+		_c._skipped = true;
+		throw "__skip__";
+	},
 	"testing.T_common:helper" => macro {},
 	"testing.T_common:failNow" => macro {
 		_c._failed = true;
@@ -1500,6 +1511,7 @@ final list = [
 	},
 	"testing.M:run" => macro {
 		final chatty = true;
+		final chattyTimes = false;
 		// use go version of path for passing go tests
 		stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
 		_m._numRun++;
@@ -1508,7 +1520,7 @@ final list = [
 			var exit = false;
 			final output = new StringBuf();
 			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
-			final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
+			//final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
 			stdgo.Go.println("=== RUN  " + test.name.toString());
 			try {
 				test.f(t);
@@ -1517,11 +1529,13 @@ final list = [
 					stdgo.Go.println(e.details());
 					exit = true;
 				}
-				error = true;
+				if (e.message != "__skip__") {
+					error = true;
+				}
 			}
-			final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
+			//final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
-				stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
+				stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				_m._exitCode = 1;
 				if (exit) {
 					@:define("(sys || hxnodejs)") Sys.exit(1);
@@ -1529,9 +1543,9 @@ final list = [
 				}
 			} else if (chatty) {
 				if (t.skipped()) {
-					stdgo.Go.println('-- SKIP: ${test.name.toString()} ($dstr)');
+					stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				} else {
-					stdgo.Go.println('-- PASS: ${test.name.toString()} ($dstr)');
+					stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				}
 			}
 			stdgo.Go.println(output.toString());
@@ -1547,6 +1561,11 @@ final list = [
 	"internal.testenv:builder" => macro return "",
 	"internal.testenv:hasGoBuild" => macro return false,
 	"internal.testenv:hasGoRun" => macro return false,
+	"internal.testenv:hasSrc" => macro return false,
+	"internal.testenv:hasExternalNetwork" => macro return false,
+	"internal.testenv:hasCGO" => macro return false,
+	"internal.testenv:hasSymlink" => macro return false,
+	"internal.testenv:haslink" => macro return false,
 	"internal.testenv:hasParallelism" => macro return false,
 	"internal.testenv:canInternalLink" => macro return false,
 ];

@@ -11,4 +11,5 @@ Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/
 Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_bzip2.js line 39577 column 58)
 Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bzip2.js line 45706 column 42)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bzip2.js:44994:58
--- FAIL: TestReader (0.12567280899997968)
+
+-- FAIL: TestReader (0.1189030760000378)

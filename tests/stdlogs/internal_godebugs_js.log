@@ -8,4 +8,5 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46085
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46086:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
--- FAIL: TestAll (0.020604258999981084)
+
+-- FAIL: TestAll (0.01767268899999408)

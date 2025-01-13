@@ -1,0 +1,12 @@
+[30;41m ERROR [0m ./stdgo/_internal/os/Os_isPathSeparator.hx:3: characters 23-32
+
+   3 | [2m        #if js return [0m[1m_c == "/"[0m[2m #else null #end;[0m
+     |                       [31m^^^^^^^^^[0m
+     | String should be stdgo.GoUInt8
+
+[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Named_static_extension.hx:174: character 39
+
+ 174 | [2m        var _keys_6583687:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+     |                                       [31m^[0m
+     | Invalid character '#'
+

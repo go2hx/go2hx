@@ -1,106 +1,106 @@
 === RUN  TestParseBool
--- PASS: TestParseBool (0.013212935000012749)
+-- PASS: TestParseBool (0.015361986000016259)
 
 === RUN  TestFormatBool
--- PASS: TestFormatBool (0.00030619499995054866)
+-- PASS: TestFormatBool (0.00034233899998525885)
 
 === RUN  TestAppendBool
--- PASS: TestAppendBool (0.0016942820000167558)
+-- PASS: TestAppendBool (0.0004961250000405926)
 
 === RUN  TestParseComplex
--- PASS: TestParseComplex (0.15788799199998493)
+-- PASS: TestParseComplex (0.14922517600001584)
 
 === RUN  TestParseComplexIncorrectBitSize
--- PASS: TestParseComplexIncorrectBitSize (0.0006907579999619884)
+-- PASS: TestParseComplexIncorrectBitSize (0.001001637000001665)
 
 === RUN  TestParseFloatPrefix
--- PASS: TestParseFloatPrefix (0.30640975999995135)
+-- PASS: TestParseFloatPrefix (0.2830469709999761)
 
 === RUN  TestAtof
 ./_internal/strconv_test/Strconv_test_testAtof.hx:3: testAtof skip function
--- PASS: TestAtof (0.0036443149999740854)
+-- PASS: TestAtof (0.0014839060000326754)
 
 === RUN  TestAtofSlow
 ./_internal/strconv_test/Strconv_test_testAtofSlow.hx:3: testAtofSlow skip function
--- PASS: TestAtofSlow (0.0001356050000254072)
+-- PASS: TestAtofSlow (0.00013014300003533208)
 
 === RUN  TestAtofRandom
 ./_internal/strconv_test/Strconv_test_testAtofRandom.hx:3: testAtofRandom skip function
--- PASS: TestAtofRandom (0.00010278299998844886)
+-- PASS: TestAtofRandom (0.00012444200001482386)
 
 === RUN  TestRoundTrip
--- PASS: TestRoundTrip (0.010735562000036225)
+-- PASS: TestRoundTrip (0.010192038000013781)
 
 === RUN  TestRoundTrip32
 ./_internal/strconv_test/Strconv_test_testRoundTrip32.hx:4: testRoundTrip32 skip targets: interp, js
--- PASS: TestRoundTrip32 (0.0001371480000216252)
+-- PASS: TestRoundTrip32 (0.00014266599998791207)
 
 === RUN  TestParseFloatIncorrectBitSize
--- PASS: TestParseFloatIncorrectBitSize (0.0004200689999720453)
+-- PASS: TestParseFloatIncorrectBitSize (0.0034186620000014045)
 
 === RUN  TestParseUint32
--- PASS: TestParseUint32 (0.001287057000013192)
+-- PASS: TestParseUint32 (0.0013178969999785295)
 
 === RUN  TestParseUint64
--- PASS: TestParseUint64 (0.0010824029999980667)
+-- PASS: TestParseUint64 (0.0011332720000041263)
 
 === RUN  TestParseUint64Base
--- PASS: TestParseUint64Base (0.012674363000030553)
+-- PASS: TestParseUint64Base (0.010776057000043693)
 
 === RUN  TestParseInt32
--- PASS: TestParseInt32 (0.0033908280000218838)
+-- PASS: TestParseInt32 (0.0026547190000201226)
 
 === RUN  TestParseInt64
--- PASS: TestParseInt64 (0.0019205469999974412)
+-- PASS: TestParseInt64 (0.0019323020000001634)
 
 === RUN  TestParseInt64Base
--- PASS: TestParseInt64Base (0.005993505999981608)
+-- PASS: TestParseInt64Base (0.008262392000006002)
 
 === RUN  TestParseUint
--- PASS: TestParseUint (0.0007816579999939677)
+-- PASS: TestParseUint (0.0019051210000498031)
 
 === RUN  TestParseInt
--- PASS: TestParseInt (0.0024659410000253956)
+-- PASS: TestParseInt (0.0012527449999879536)
 
 === RUN  TestAtoi
--- PASS: TestAtoi (0.01623511099995767)
+-- PASS: TestAtoi (0.014012790000037967)
 
 === RUN  TestParseIntBitSize
--- PASS: TestParseIntBitSize (0.0035967950000213023)
+-- PASS: TestParseIntBitSize (0.002804377000018121)
 
 === RUN  TestParseUintBitSize
--- PASS: TestParseUintBitSize (0.0010844669999983125)
+-- PASS: TestParseUintBitSize (0.0005412790000036694)
 
 === RUN  TestParseIntBase
--- PASS: TestParseIntBase (0.0013542439999696398)
+-- PASS: TestParseIntBase (0.0011879749999934575)
 
 === RUN  TestParseUintBase
--- PASS: TestParseUintBase (0.0009832669999809696)
+-- PASS: TestParseUintBase (0.006775209000011273)
 
 === RUN  TestNumError
--- PASS: TestNumError (0.0004982649999760724)
+-- PASS: TestNumError (0.000411377000034463)
 
 === RUN  TestNumErrorUnwrap
--- PASS: TestNumErrorUnwrap (0.001218167999979869)
+-- PASS: TestNumErrorUnwrap (0.0013170639999771083)
 
 === RUN  TestFormatComplex
--- PASS: TestFormatComplex (0.0050066029999698)
+-- PASS: TestFormatComplex (0.005734821000032753)
 
 === RUN  TestFormatComplexInvalidBitSize
--- PASS: TestFormatComplexInvalidBitSize (0.0005690990000175589)
+-- PASS: TestFormatComplexInvalidBitSize (0.0004982489999747486)
 
 === RUN  TestDecimalShift
--- PASS: TestDecimalShift (0.0013441140000054475)
+-- PASS: TestDecimalShift (0.004220758000030855)
 
 === RUN  TestDecimalRound
--- PASS: TestDecimalRound (0.003950809999992089)
+-- PASS: TestDecimalRound (0.002987780000012208)
 
 === RUN  TestDecimalRoundedInteger
--- PASS: TestDecimalRoundedInteger (0.0012596949999874596)
+-- PASS: TestDecimalRoundedInteger (0.0002796919999923375)
 
 === RUN  TestFp
 ./_internal/strconv_test/Strconv_test_testFp.hx:3: testFp skip function
--- PASS: TestFp (0.00017635099999324666)
+-- PASS: TestFp (0.00012488300001223251)
 
 === RUN  TestFtoa
 Exception: Cannot read properties of undefined (reading '_common')
@@ -115,4 +115,5 @@ Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/home/runner/work/go2h
 Called from .stdgo__$internal_fmt_Fmt_$println_println (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 46731 column 60)
 Called from stdgo__$internal_testing_T_$common_$static_$extension.error (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58687 column 44)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58146:58
--- FAIL: TestFtoa (0.019969794999951773)
+
+-- FAIL: TestFtoa (0.010091591999980665)

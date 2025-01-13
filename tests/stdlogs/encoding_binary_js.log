@@ -8,4 +8,5 @@ Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/wo
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testRead__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12218 column 13)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testLittleEndianRead_testLittleEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:12209:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51853 column 9)
--- FAIL: TestLittleEndianRead (0.026498068999956104)
+
+-- FAIL: TestLittleEndianRead (0.02853213800000276)

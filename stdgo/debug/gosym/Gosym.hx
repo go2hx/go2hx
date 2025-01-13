@@ -725,113 +725,113 @@ class UnknownFileError_static_extension {
 /**
     /|*{
     	if line < 1 {
-    		gotoNext = 3667120
-    		_ = gotoNext == 3667120
+    		gotoNext = 3648072
+    		_ = gotoNext == 3648072
     		return 0, &UnknownLineError{path, line}
-    		gotoNext = 3667169
+    		gotoNext = 3648121
     	} else {
-    		gotoNext = 3667169
+    		gotoNext = 3648121
     	}
-    	_ = gotoNext == 3667169
+    	_ = gotoNext == 3648121
     	if 0 < len(o.Paths) {
-    		gotoNext = 3667749
-    		_ = gotoNext == 3667749
-    		i_3667173, s_3667176 = 0, o.Paths[0]
-    		gotoNext = 3667750
-    		_ = gotoNext == 3667750
-    		if i_3667173 < len(o.Paths) {
-    			gotoNext = 3667195
-    			_ = gotoNext == 3667195
-    			s_3667176 = o.Paths[i_3667173]
-    			if s_3667176.Name != path {
-    				gotoNext = 3667237
-    				_ = gotoNext == 3667237
-    				i_3667173++
-    				gotoNext = 3667750
-    				gotoNext = 3667298
+    		gotoNext = 3648701
+    		_ = gotoNext == 3648701
+    		i_3648125, s_3648128 = 0, o.Paths[0]
+    		gotoNext = 3648702
+    		_ = gotoNext == 3648702
+    		if i_3648125 < len(o.Paths) {
+    			gotoNext = 3648147
+    			_ = gotoNext == 3648147
+    			s_3648128 = o.Paths[i_3648125]
+    			if s_3648128.Name != path {
+    				gotoNext = 3648189
+    				_ = gotoNext == 3648189
+    				i_3648125++
+    				gotoNext = 3648702
+    				gotoNext = 3648250
     			} else {
-    				gotoNext = 3667298
+    				gotoNext = 3648250
     			}
-    			_ = gotoNext == 3667298
-    			depth_3667298 = 0
-    			line += int(s_3667176.Value)
-    			gotoNext = 3667352
-    			_ = gotoNext == 3667352
-    			if 0 < len(o.Paths[i_3667173:]) {
-    				gotoNext = 3667704
-    				_ = gotoNext == 3667704
-    				i_3667376_0, s_3667371 = 0, o.Paths[i_3667173:][0]
-    				gotoNext = 3667705
-    				_ = gotoNext == 3667705
-    				if i_3667376_0 < len(o.Paths[i_3667173:]) {
-    					gotoNext = 3667394
-    					_ = gotoNext == 3667394
-    					s_3667371 = o.Paths[i_3667173:][i_3667376_0]
-    					val_3667399 = int(s_3667371.Value)
-    					gotoNext = 3667422
-    					_ = gotoNext == 3667422
+    			_ = gotoNext == 3648250
+    			depth_3648250 = 0
+    			line += int(s_3648128.Value)
+    			gotoNext = 3648304
+    			_ = gotoNext == 3648304
+    			if 0 < len(o.Paths[i_3648125:]) {
+    				gotoNext = 3648656
+    				_ = gotoNext == 3648656
+    				i_3648328_0, s_3648323 = 0, o.Paths[i_3648125:][0]
+    				gotoNext = 3648657
+    				_ = gotoNext == 3648657
+    				if i_3648328_0 < len(o.Paths[i_3648125:]) {
+    					gotoNext = 3648346
+    					_ = gotoNext == 3648346
+    					s_3648323 = o.Paths[i_3648125:][i_3648328_0]
+    					val_3648351 = int(s_3648323.Value)
+    					gotoNext = 3648374
+    					_ = gotoNext == 3648374
     					switch {
-    					case depth_3667298 == 1 && val_3667399 >= line:
-    						gotoNext = 3667434
-    						_ = gotoNext == 3667434
+    					case depth_3648250 == 1 && val_3648351 >= line:
+    						gotoNext = 3648386
+    						_ = gotoNext == 3648386
     						return line - 1, nil
-    						gotoNext = 3667368
-    					case s_3667371.Name == "":
-    						gotoNext = 3667495
-    						_ = gotoNext == 3667495
-    						depth_3667298--
-    						if depth_3667298 == 0 {
-    							gotoNext = 3667544
-    							_ = gotoNext == 3667544
+    						gotoNext = 3648320
+    					case s_3648323.Name == "":
+    						gotoNext = 3648447
+    						_ = gotoNext == 3648447
+    						depth_3648250--
+    						if depth_3648250 == 0 {
+    							gotoNext = 3648496
+    							_ = gotoNext == 3648496
     							pathloopBreak = true
-    							gotoNext = 3667705
-    							gotoNext = 3667368
-    						} else if depth_3667298 == 1 {
-    							gotoNext = 3667591
-    							_ = gotoNext == 3667591
-    							line += val_3667399 - incstart_3667315
-    							gotoNext = 3667368
+    							gotoNext = 3648657
+    							gotoNext = 3648320
+    						} else if depth_3648250 == 1 {
+    							gotoNext = 3648543
+    							_ = gotoNext == 3648543
+    							line += val_3648351 - incstart_3648267
+    							gotoNext = 3648320
     						} else {
-    							gotoNext = 3667368
+    							gotoNext = 3648320
     						}
-    						gotoNext = 3667368
+    						gotoNext = 3648320
     					default:
-    						gotoNext = 3667631
-    						_ = gotoNext == 3667631
-    						if depth_3667298 == 1 {
-    							gotoNext = 3667658
-    							_ = gotoNext == 3667658
-    							incstart_3667315 = val_3667399
-    							gotoNext = 3667690
+    						gotoNext = 3648583
+    						_ = gotoNext == 3648583
+    						if depth_3648250 == 1 {
+    							gotoNext = 3648610
+    							_ = gotoNext == 3648610
+    							incstart_3648267 = val_3648351
+    							gotoNext = 3648642
     						} else {
-    							gotoNext = 3667690
+    							gotoNext = 3648642
     						}
-    						_ = gotoNext == 3667690
-    						depth_3667298++
-    						gotoNext = 3667368
+    						_ = gotoNext == 3648642
+    						depth_3648250++
+    						gotoNext = 3648320
     					}
-    					_ = gotoNext == 3667368
-    					i_3667376_0++
-    					gotoNext = 3667705
+    					_ = gotoNext == 3648320
+    					i_3648328_0++
+    					gotoNext = 3648657
     				} else {
-    					gotoNext = 3667709
+    					gotoNext = 3648661
     				}
-    				gotoNext = 3667709
+    				gotoNext = 3648661
     			} else {
-    				gotoNext = 3667709
+    				gotoNext = 3648661
     			}
-    			_ = gotoNext == 3667709
+    			_ = gotoNext == 3648661
     			return 0, &UnknownLineError{path, line}
-    			i_3667173++
-    			gotoNext = 3667750
+    			i_3648125++
+    			gotoNext = 3648702
     		} else {
-    			gotoNext = 3667753
+    			gotoNext = 3648705
     		}
-    		gotoNext = 3667753
+    		gotoNext = 3648705
     	} else {
-    		gotoNext = 3667753
+    		gotoNext = 3648705
     	}
-    	_ = gotoNext == 3667753
+    	_ = gotoNext == 3648705
     	return 0, UnknownFileError(path)
     	gotoNext = -1
     }*|/

@@ -111,15 +111,15 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function _step( _r:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineReader.LineReader>, _entry:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineReader.LineReader> = _r;
-        var _lineDelta_3711983:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3714009:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3712690:stdgo.Error = (null : stdgo.Error);
-        var _done_3712684:Bool = false;
-        var _opcode_3712203:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _length_3712146:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
         var _opcode_3711783:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _startOff_3712179:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
+        var _i_3714009:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _done_3712684:Bool = false;
+        var _lineDelta_3711983:stdgo.GoInt = (0 : stdgo.GoInt);
         var _adjustedOpcode_3711897:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _length_3712146:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
+        var _err_3712690:stdgo.Error = (null : stdgo.Error);
+        var _opcode_3712203:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _startOff_3712179:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

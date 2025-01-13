@@ -41,6 +41,20 @@ final list = [
 		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
 		return slice;
 	},
+	"os:lstat" => macro {
+		@:define("sys") {
+			if (!sys.io.FileSystem.exists(_name))
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
+		}
+		return {_0: {
+			name: () -> _name,
+			size: () -> 0,
+			mode: () -> 0,
+			modTime: () -> null,
+			isDir: () -> false,
+			sys: () -> null,
+		}, _1: null};
+	},
 	"os:isPathSeparator" => macro {
 		@:define("js") return _c == "/";
 		@:define("sys") {

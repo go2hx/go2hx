@@ -1,9 +1,9 @@
 === RUN  TestMapFS
--- PASS: TestMapFS (7.0095062255859375e-05)
+-- PASS: TestMapFS
 
 === RUN  TestMapFSChmodDot
 Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.fstest._Fstest_testMapFSChmodDot.Fstest_testMapFSChmodDot_Fields_.testMapFSChmodDot (./stdgo/_internal/testing/fstest/Fstest_testMapFSChmodDot.hx line 2 column 86)
 
--- FAIL: TestMapFSChmodDot (0.000136137008666992188)
+-- FAIL: TestMapFSChmodDot

@@ -1,8 +1,8 @@
 === RUN  TestErrorf
 Exception: stdgo._internal.math.bits.T_errorString_asInterface
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testErrorf.Fmt_test_testErrorf_Fields_.testErrorf (./_internal/fmt_test/Fmt_test_testErrorf.hx line 32 column 22)
 Called from stdgo._internal.reflect._Reflect_deepEqual.Reflect_deepEqual_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepEqual.hx line 4 column 20)
 Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.hx line 181 column 5)
 
--- FAIL: TestErrorf (0.0110869407653808594)
+-- FAIL: TestErrorf

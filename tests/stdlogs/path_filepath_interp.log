@@ -1,23 +1,24 @@
 === RUN  TestMatch
--- PASS: TestMatch (0.00625300407409668)
+-- PASS: TestMatch
 
 === RUN  TestGlob
 Glob(`match.go`) = []string(nil) want match.goGlob(`mat?h.go`) = []string(nil) want match.goGlob(`*`) = []string(nil) want match.goGlob(`../*/match.go`) = []string(nil) want ../filepath/match.go
--- FAIL: TestGlob (0.0124049186706542969)
+-- FAIL: TestGlob
 
 === RUN  TestCVE202230632
--- PASS: TestCVE202230632 (5.64940905570983887)
+-- PASS: TestCVE202230632
 
 === RUN  TestGlobError
--- PASS: TestGlobError (0.00125408172607421875)
+-- PASS: TestGlobError
 
 === RUN  TestGlobUNC
--- PASS: TestGlobUNC (0.000272989273071289062)
+-- PASS: TestGlobUNC
 
 === RUN  TestGlobSymlink
-Exception: os.create is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Exception: temp/test1: No such file or directory
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testGlobSymlink.Filepath_test_testGlobSymlink_Fields_.testGlobSymlink (./_internal/path/filepath_test/Filepath_test_testGlobSymlink.hx line 8 column 27)
-Called from stdgo._internal.os._Os_create.Os_create_Fields_.create (./stdgo/_internal/os/Os_create.hx line 3 column 9)
+Called from stdgo._internal.os._Os_create.Os_create_Fields_.create (./stdgo/_internal/os/Os_create.hx line 3 column 16)
+Called from stdgo._internal.os._Os_openFile.Os_openFile_Fields_.openFile (./stdgo/_internal/os/Os_openFile.hx line 5 column 17)
 
--- FAIL: TestGlobSymlink (0.0004291534423828125)
+-- FAIL: TestGlobSymlink

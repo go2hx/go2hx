@@ -1,233 +1,233 @@
 === RUN  TestNaN
--- PASS: TestNaN (5.50746917724609375e-05)
+-- PASS: TestNaN
 
 === RUN  TestAcos
--- PASS: TestAcos (0.00014209747314453125)
+-- PASS: TestAcos
 
 === RUN  TestAcosh
--- PASS: TestAcosh (0.000201940536499023438)
+-- PASS: TestAcosh
 
 === RUN  TestAsin
--- PASS: TestAsin (8.9168548583984375e-05)
+-- PASS: TestAsin
 
 === RUN  TestAsinh
--- PASS: TestAsinh (0.000195980072021484375)
+-- PASS: TestAsinh
 
 === RUN  TestAtan
--- PASS: TestAtan (0.00026798248291015625)
+-- PASS: TestAtan
 
 === RUN  TestAtanh
--- PASS: TestAtanh (0.000447034835815429688)
+-- PASS: TestAtanh
 
 === RUN  TestAtan2
--- PASS: TestAtan2 (0.000607013702392578125)
+-- PASS: TestAtan2
 
 === RUN  TestCbrt
--- PASS: TestCbrt (0.0019321441650390625)
+-- PASS: TestCbrt
 
 === RUN  TestCeil
--- PASS: TestCeil (0.000303983688354492188)
+-- PASS: TestCeil
 
 === RUN  TestCopysign
--- PASS: TestCopysign (0.000235080718994140625)
+-- PASS: TestCopysign
 
 === RUN  TestCos
--- PASS: TestCos (3.69548797607421875e-05)
+-- PASS: TestCos
 
 === RUN  TestCosh
--- PASS: TestCosh (0.00014495849609375)
+-- PASS: TestCosh
 
 === RUN  TestErf
--- PASS: TestErf (0.000231027603149414062)
+-- PASS: TestErf
 
 === RUN  TestErfc
--- PASS: TestErfc (0.0014209747314453125)
+-- PASS: TestErfc
 
 === RUN  TestErfinv
--- PASS: TestErfinv (0.00447297096252441406)
+-- PASS: TestErfinv
 
 === RUN  TestErfcinv
--- PASS: TestErfcinv (0.00498294830322265625)
+-- PASS: TestErfcinv
 
 === RUN  TestExp
--- PASS: TestExp (0.00115489959716796875)
+-- PASS: TestExp
 
 === RUN  TestExpm1
--- PASS: TestExpm1 (0.000385999679565429688)
+-- PASS: TestExpm1
 
 === RUN  TestExp2
--- PASS: TestExp2 (0.166508913040161133)
+-- PASS: TestExp2
 
 === RUN  TestAbs
--- PASS: TestAbs (0.00010585784912109375)
+-- PASS: TestAbs
 
 === RUN  TestDim
--- PASS: TestDim (0.000319004058837890625)
+-- PASS: TestDim
 
 === RUN  TestFloor
--- PASS: TestFloor (0.000257968902587890625)
+-- PASS: TestFloor
 
 === RUN  TestMax
--- PASS: TestMax (0.000569105148315429688)
+-- PASS: TestMax
 
 === RUN  TestMin
--- PASS: TestMin (0.000612020492553710938)
+-- PASS: TestMin
 
 === RUN  TestMod
--- PASS: TestMod (0.000238895416259765625)
+-- PASS: TestMod
 
 === RUN  TestFrexp
--- PASS: TestFrexp (0.00051784515380859375)
+-- PASS: TestFrexp
 
 === RUN  TestGamma
 ./_internal/math_test/Math_test_testGamma.hx:4: testGamma skip targets: interp, js
--- PASS: TestGamma (3.1948089599609375e-05)
+-- PASS: TestGamma
 
 === RUN  TestHypot
--- PASS: TestHypot (0.000395059585571289062)
+-- PASS: TestHypot
 
 === RUN  TestHypotGo
--- PASS: TestHypotGo (0.000380039215087890625)
+-- PASS: TestHypotGo
 
 === RUN  TestIlogb
--- PASS: TestIlogb (0.00020885467529296875)
+-- PASS: TestIlogb
 
 === RUN  TestJ0
--- PASS: TestJ0 (0.000624895095825195312)
+-- PASS: TestJ0
 
 === RUN  TestJ1
--- PASS: TestJ1 (0.00057315826416015625)
+-- PASS: TestJ1
 
 === RUN  TestJn
--- PASS: TestJn (0.00726294517517089844)
+-- PASS: TestJn
 
 === RUN  TestLdexp
--- PASS: TestLdexp (0.00193810462951660156)
+-- PASS: TestLdexp
 
 === RUN  TestLgamma
--- PASS: TestLgamma (0.00112104415893554688)
+-- PASS: TestLgamma
 
 === RUN  TestLog
--- PASS: TestLog (0.0001049041748046875)
+-- PASS: TestLog
 
 === RUN  TestLogb
--- PASS: TestLogb (0.000396013259887695312)
+-- PASS: TestLogb
 
 === RUN  TestLog10
--- PASS: TestLog10 (0.000130176544189453125)
+-- PASS: TestLog10
 
 === RUN  TestLog1p
--- PASS: TestLog1p (0.000213861465454101562)
+-- PASS: TestLog1p
 
 === RUN  TestLog2
--- PASS: TestLog2 (0.0641648769378662109)
+-- PASS: TestLog2
 
 === RUN  TestModf
--- PASS: TestModf (0.00111508369445800781)
+-- PASS: TestModf
 
 === RUN  TestNextafter32
 ./_internal/math_test/Math_test_testNextafter32.hx:4: testNextafter32 skip targets: interp, js
--- PASS: TestNextafter32 (3.50475311279296875e-05)
+-- PASS: TestNextafter32
 
 === RUN  TestNextafter64
--- PASS: TestNextafter64 (0.000250101089477539062)
+-- PASS: TestNextafter64
 
 === RUN  TestPow
 Pow(NaN, -0) = NaN, want 1Pow(NaN, 0) = NaN, want 1
--- FAIL: TestPow (0.00391793251037597656)
+-- FAIL: TestPow
 
 === RUN  TestPow10
--- PASS: TestPow10 (0.00205492973327636719)
+-- PASS: TestPow10
 
 === RUN  TestRemainder
--- PASS: TestRemainder (0.00094699859619140625)
+-- PASS: TestRemainder
 
 === RUN  TestRound
--- PASS: TestRound (0.00082302093505859375)
+-- PASS: TestRound
 
 === RUN  TestRoundToEven
--- PASS: TestRoundToEven (0.00168299674987792969)
+-- PASS: TestRoundToEven
 
 === RUN  TestSignbit
--- PASS: TestSignbit (0.000151157379150390625)
+-- PASS: TestSignbit
 
 === RUN  TestSin
--- PASS: TestSin (0.000839948654174804688)
+-- PASS: TestSin
 
 === RUN  TestSincos
--- PASS: TestSincos (0.00119304656982421875)
+-- PASS: TestSincos
 
 === RUN  TestSinh
--- PASS: TestSinh (0.00096988677978515625)
+-- PASS: TestSinh
 
 === RUN  TestSqrt
--- PASS: TestSqrt (0.00018787384033203125)
+-- PASS: TestSqrt
 
 === RUN  TestTan
--- PASS: TestTan (8.89301300048828125e-05)
+-- PASS: TestTan
 
 === RUN  TestTanh
--- PASS: TestTanh (0.000154018402099609375)
+-- PASS: TestTanh
 
 === RUN  TestTrunc
--- PASS: TestTrunc (0.000298023223876953125)
+-- PASS: TestTrunc
 
 === RUN  TestY0
--- PASS: TestY0 (0.00121593475341796875)
+-- PASS: TestY0
 
 === RUN  TestY1
--- PASS: TestY1 (0.0025539398193359375)
+-- PASS: TestY1
 
 === RUN  TestYn
--- PASS: TestYn (0.00277495384216308594)
+-- PASS: TestYn
 
 === RUN  TestFMA
--- PASS: TestFMA (0.0174269676208496094)
+-- PASS: TestFMA
 
 === RUN  TestFMANegativeArgs
--- PASS: TestFMANegativeArgs (0.0499780178070068359)
+-- PASS: TestFMANegativeArgs
 
 === RUN  TestLargeCos
--- PASS: TestLargeCos (0.000630855560302734375)
+-- PASS: TestLargeCos
 
 === RUN  TestLargeSin
--- PASS: TestLargeSin (4.69684600830078125e-05)
+-- PASS: TestLargeSin
 
 === RUN  TestLargeSincos
--- PASS: TestLargeSincos (0.000438928604125976562)
+-- PASS: TestLargeSincos
 
 === RUN  TestLargeTan
--- PASS: TestLargeTan (4.60147857666015625e-05)
+-- PASS: TestLargeTan
 
 === RUN  TestTrigReduce
--- PASS: TestTrigReduce (0.00595712661743164062)
+-- PASS: TestTrigReduce
 
 === RUN  TestFloatMinMax
 ./_internal/math_test/Math_test_testFloatMinMax.hx:2: testFloatMinMax not implemented: fmt formatter
--- PASS: TestFloatMinMax (3.88622283935546875e-05)
+-- PASS: TestFloatMinMax
 
 === RUN  TestFloatMinima
 ./_internal/math_test/Math_test_testFloatMinima.hx:4: testFloatMinima skip targets: interp, js
--- PASS: TestFloatMinima (3.0994415283203125e-05)
+-- PASS: TestFloatMinima
 
 === RUN  TestFloat32Sqrt
--- PASS: TestFloat32Sqrt (8.58306884765625e-05)
+-- PASS: TestFloat32Sqrt
 
 === RUN  TestMaxUint
--- PASS: TestMaxUint (3.69548797607421875e-05)
+-- PASS: TestMaxUint
 
 === RUN  TestMaxInt
--- PASS: TestMaxInt (4.100799560546875e-05)
+-- PASS: TestMaxInt
 
 === RUN  TestHugeCos
--- PASS: TestHugeCos (5.0067901611328125e-05)
+-- PASS: TestHugeCos
 
 === RUN  TestHugeSin
--- PASS: TestHugeSin (5.60283660888671875e-05)
+-- PASS: TestHugeSin
 
 === RUN  TestHugeSinCos
--- PASS: TestHugeSinCos (0.00797891616821289)
+-- PASS: TestHugeSinCos
 
 === RUN  TestHugeTan
--- PASS: TestHugeTan (0.00057220458984375)
+-- PASS: TestHugeTan
 

@@ -1,8 +1,8 @@
 === RUN  TestSqDiff
 Exception: not implemented reflect.Value:call: signature(false,{get: #fun},{get: #fun},{get: #fun},null)
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.image.color._Color_testSqDiff.Color_testSqDiff_Fields_.testSqDiff (./stdgo/_internal/image/color/Color_testSqDiff.hx line 37 column 24)
 Called from stdgo._internal.testing.quick._Quick_checkEqual.Quick_checkEqual_Fields_.checkEqual (./stdgo/_internal/testing/quick/Quick_checkEqual.hx line 27 column 77)
-Called from stdgo._internal.reflect.Value_static_extension.call (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 763 column 17)
+Called from stdgo._internal.reflect.Value_static_extension.call (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 771 column 17)
 
--- FAIL: TestSqDiff (0.0102481842041015625)
+-- FAIL: TestSqDiff

@@ -1,19 +1,4 @@
 # yaegi_medium_hl
-## a27
-```go
-package main
-
-import "fmt"
-
-func main() {
-	a := [...]string{"hello", "world"}
-	fmt.Printf("%v %T\n", a, a)
-}
-
-// Output:
-// [hello world] [2]string
-
-```
 ## gen4
 ```go
 package main

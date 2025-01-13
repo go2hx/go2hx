@@ -595,6 +595,7 @@ private function excludeTest(name:String) {
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "export0": // yaegi-easy no main func
 		case "sieve": // yaegi-easy SIGNAL 15 Channel buffer pop
+		case "issue29624", "issue29312": // 100d array breaks Haxe's printer
 		default:
 			return false;
 	}

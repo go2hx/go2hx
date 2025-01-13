@@ -1506,10 +1506,11 @@ final list = [
 			}
 			final dstr = (@:define("sys", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
-				stdgo.Go.println('-- FAIL: ${test.name.toString()} ($dstr)');
+				stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
 				_m._exitCode = 1;
 				if (exit) {
-					Sys.exit(1);
+					@:define("sys") Sys.exit(1);
+					@:define("hxnodejs") js.Node.process.exit(1);
 				}
 			} else if (chatty) {
 				if (t.skipped()) {

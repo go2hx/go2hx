@@ -80,7 +80,7 @@ binary.LittleEndian.Uint64 expected to panic for small slices, but didn't
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#562F0FAFB5D8}) -> pointerType({get : function#562F0FAFB5F8})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#5555B7FE17F8}) -> pointerType({get : function#5555B7FE1818})
 NativeEndian.Uint32 returned 0x0, expected 0x12345678
 -- FAIL: TestNativeEndian
 

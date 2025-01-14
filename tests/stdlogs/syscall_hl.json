@@ -3,10 +3,13 @@
         "TestOpenFileLimit"
     ],
     "fails": [
-        "TestEnv"
+        "TestEnv",
+        "TestExecErrPermutedFds"
     ],
     "runs": [
         "TestOpenFileLimit",
-        "TestEnv"
+        "TestEnv",
+        "TestExecErrPermutedFds",
+        "TestGettimeofday"
     ]
 }

@@ -1,13 +1,107 @@
 === RUN  TestLittleEndianRead
-Exception: generic function is not supported
-Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
-Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
-Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
-Called from stdgo._internal.encoding.binary._Binary__testRead.$Binary__testRead_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testRead.hx line 4)
-Called from stdgo._internal.encoding.binary._Binary_testLittleEndianRead.$Binary_testLittleEndianRead_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testLittleEndianRead.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestLittleEndianRead
+
+=== RUN  TestLittleEndianWrite
+
+-- FAIL: TestLittleEndianWrite
+
+=== RUN  TestLittleEndianPtrWrite
+Write LittleEndian: binary.Write: some values are not fixed-sized in type *.encoding.binary.Struct
+-- FAIL: TestLittleEndianPtrWrite
+
+=== RUN  TestBigEndianRead
+
+-- FAIL: TestBigEndianRead
+
+=== RUN  TestBigEndianWrite
+
+-- FAIL: TestBigEndianWrite
+
+=== RUN  TestBigEndianPtrWrite
+Write BigEndian: binary.Write: some values are not fixed-sized in type *.encoding.binary.Struct
+-- FAIL: TestBigEndianPtrWrite
+
+=== RUN  TestReadSlice
+-- PASS: TestReadSlice
+
+=== RUN  TestWriteSlice
+-- PASS: TestWriteSlice
+
+=== RUN  TestReadBool
+-- PASS: TestReadBool
+
+=== RUN  TestReadBoolSlice
+-- PASS: TestReadBoolSlice
+
+=== RUN  TestSliceRoundTrip
+
+-- FAIL: TestSliceRoundTrip
+
+=== RUN  TestWriteT
+
+-- FAIL: TestWriteT
+
+=== RUN  TestBlankFields
+binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFields
+
+-- FAIL: TestBlankFields
+
+=== RUN  TestSizeStructCache
+
+-- FAIL: TestSizeStructCache
+
+=== RUN  TestSizeInvalid
+-- PASS: TestSizeInvalid
+
+=== RUN  TestUnexportedRead
+-- PASS: TestUnexportedRead
+
+=== RUN  TestReadErrorMsg
+int: got "EOF"; want "binary.Read: invalid type int"
+-- FAIL: TestReadErrorMsg
+
+=== RUN  TestReadTruncated
+
+-- FAIL: TestReadTruncated
+
+=== RUN  TestByteOrder
+-- PASS: TestByteOrder
+
+=== RUN  TestEarlyBoundsChecks
+binary.LittleEndian.Uint64 expected to panic for small slices, but didn't
+-- FAIL: TestEarlyBoundsChecks
+
+=== RUN  TestReadInvalidDestination
+
+-- FAIL: TestReadInvalidDestination
+
+=== RUN  TestNoFixedSize
+-- PASS: TestNoFixedSize
+
+=== RUN  TestNativeEndian
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#562F0FAFB5D8}) -> pointerType({get : function#562F0FAFB5F8})
+NativeEndian.Uint32 returned 0x0, expected 0x12345678
+-- FAIL: TestNativeEndian
+
+=== RUN  TestConstants
+-- PASS: TestConstants
+
+=== RUN  TestVarint
+-- PASS: TestVarint
+
+=== RUN  TestUvarint
+-- PASS: TestUvarint
+
+=== RUN  TestBufferTooSmall
+-- PASS: TestBufferTooSmall
+
+=== RUN  TestBufferTooBigWithOverflow
+-- PASS: TestBufferTooBigWithOverflow
+
+=== RUN  TestOverflow
+-- PASS: TestOverflow
+
+=== RUN  TestNonCanonicalZero
+-- PASS: TestNonCanonicalZero
+

@@ -1,9 +1,31 @@
 === RUN  TestSqDiff
-Exception: not implemented reflect.Value:call: signature(false,{get : function#55E291BB5A50},{get : function#55E291BB5A70},{get : function#55E291BB5A90},null)
-Called from stdgo._internal.reflect.$Value_static_extension.call (stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 773)
-Called from stdgo._internal.testing.quick._Quick_checkEqual.$Quick_checkEqual_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkEqual.hx line 27)
-Called from stdgo._internal.image.color._Color_testSqDiff.$Color_testSqDiff_Fields_.testSqDiff (stdgo/_internal/image/color/Color_testSqDiff.hx line 37)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.image.color_dot_test._Color_dot_test.$Color_dot_test_Fields_.main (_internal/image/color_dot_test/Color_dot_test.hx line 4)
 
 -- FAIL: TestSqDiff
+
+=== RUN  TestYCbCrRoundtrip
+-- PASS: TestYCbCrRoundtrip
+
+=== RUN  TestYCbCrToRGBConsistency
+-- PASS: TestYCbCrToRGBConsistency
+
+=== RUN  TestYCbCrGray
+-- PASS: TestYCbCrGray
+
+=== RUN  TestNYCbCrAAlpha
+-- PASS: TestNYCbCrAAlpha
+
+=== RUN  TestNYCbCrAYCbCr
+-- PASS: TestNYCbCrAYCbCr
+
+=== RUN  TestCMYKRoundtrip
+-- PASS: TestCMYKRoundtrip
+
+=== RUN  TestCMYKToRGBConsistency
+-- PASS: TestCMYKToRGBConsistency
+
+=== RUN  TestCMYKGray
+-- PASS: TestCMYKGray
+
+=== RUN  TestPalette
+-- PASS: TestPalette
+

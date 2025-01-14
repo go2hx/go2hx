@@ -67,5 +67,6 @@
  "jvm|ptrrecv",
  "jvm|rest0",
  "jvm|assigninitptrvar",
- "jvm|ptrrecv1"
+ "jvm|ptrrecv1",
+ "jvm|realfloat"
 ]

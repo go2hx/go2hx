@@ -1,39 +1,84 @@
 === RUN  TestUintSize
--- PASS: TestUintSize (0.006000041961669922)
+-- PASS: TestUintSize
 
 === RUN  TestLeadingZeros
--- PASS: TestLeadingZeros (0.3599998950958252)
+-- PASS: TestLeadingZeros
 
 === RUN  TestTrailingZeros
--- PASS: TestTrailingZeros (0.0559999942779541)
+-- PASS: TestTrailingZeros
 
 === RUN  TestOnesCount
--- PASS: TestOnesCount (1.187999963760376)
+-- PASS: TestOnesCount
 
 === RUN  TestRotateLeft
--- PASS: TestRotateLeft (0.003999948501586914)
+-- PASS: TestRotateLeft
 
 === RUN  TestReverse
--- PASS: TestReverse (0.03399991989135742)
+-- PASS: TestReverse
 
 === RUN  TestReverseBytes
--- PASS: TestReverseBytes (0.0009999275207519531)
+-- PASS: TestReverseBytes
 
 === RUN  TestLen
--- PASS: TestLen (0.28299999237060547)
+-- PASS: TestLen
 
 === RUN  TestAddSubUint
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 18151 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 18617 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 29006 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 25170 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 26340 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 24433 column 50)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 21830 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 21811 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bits.js line 44126 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bits.js:43414:58
+<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+-- FAIL: TestAddSubUint
 
--- FAIL: TestAddSubUint (0.01100015640258789)
+=== RUN  TestAddSubUint32
+<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+-- FAIL: TestAddSubUint32
+
+=== RUN  TestAddSubUint64
+-- PASS: TestAddSubUint64
+
+=== RUN  TestAdd64OverflowPanic
+-- PASS: TestAdd64OverflowPanic
+
+=== RUN  TestSub64OverflowPanic
+-- PASS: TestSub64OverflowPanic
+
+=== RUN  TestMulDiv
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+-- FAIL: TestMulDiv
+
+=== RUN  TestMulDiv32
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+-- FAIL: TestMulDiv32
+
+=== RUN  TestMulDiv64
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+-- FAIL: TestMulDiv64
+
+=== RUN  TestDivPanicOverflow
+-- PASS: TestDivPanicOverflow
+
+=== RUN  TestDiv32PanicOverflow
+-- PASS: TestDiv32PanicOverflow
+
+=== RUN  TestDiv64PanicOverflow
+-- PASS: TestDiv64PanicOverflow
+
+=== RUN  TestDivPanicZero
+-- PASS: TestDivPanicZero
+
+=== RUN  TestDiv32PanicZero
+-- PASS: TestDiv32PanicZero
+
+=== RUN  TestDiv64PanicZero
+-- PASS: TestDiv64PanicZero
+
+=== RUN  TestRem32
+-- PASS: TestRem32
+
+=== RUN  TestRem32Overflow
+-- PASS: TestRem32Overflow
+
+=== RUN  TestRem64
+-- PASS: TestRem64
+
+=== RUN  TestRem64Overflow
+Rem64(<invalid reflect.Value>, %!v(MISSING), %!v(MISSING)) returned %!v(MISSING), wanted %!v(MISSING)
+-- FAIL: TestRem64Overflow
+

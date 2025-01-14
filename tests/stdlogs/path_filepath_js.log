@@ -1,6 +1,140 @@
-[30;41m ERROR [0m ./stdgo/_internal/os/Os_isPathSeparator.hx:3: characters 23-32
+=== RUN  TestMatch
+-- PASS: TestMatch
 
- 3 | [2m        #if js return [0m[1m_c == "/"[0m[2m #else null #end;[0m
-   |                       [31m^^^^^^^^^[0m
-   | String should be stdgo.GoUInt8
+=== RUN  TestGlob
+Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)
+-- FAIL: TestGlob
+
+=== RUN  TestCVE202230632
+
+-- FAIL: TestCVE202230632
+
+=== RUN  TestGlobError
+-- PASS: TestGlobError
+
+=== RUN  TestGlobUNC
+-- PASS: TestGlobUNC
+
+=== RUN  TestGlobSymlink
+
+-- FAIL: TestGlobSymlink
+
+=== RUN  TestWindowsGlob
+
+-- FAIL: TestWindowsGlob
+
+=== RUN  TestNonWindowsGlobEscape
+
+-- FAIL: TestNonWindowsGlobEscape
+
+=== RUN  TestClean
+<invalid reflect.Value>
+-- SKIP: TestClean
+
+=== RUN  TestIsLocal
+-- PASS: TestIsLocal
+
+=== RUN  TestFromAndToSlash
+-- PASS: TestFromAndToSlash
+
+=== RUN  TestSplitList
+-- PASS: TestSplitList
+
+=== RUN  TestSplit
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+-- PASS: TestJoin
+
+=== RUN  TestExt
+-- PASS: TestExt
+
+=== RUN  TestWalk
+
+-- FAIL: TestWalk
+
+=== RUN  TestWalkDir
+
+-- FAIL: TestWalkDir
+
+=== RUN  TestWalkSkipDirOnFile
+
+-- FAIL: TestWalkSkipDirOnFile
+
+=== RUN  TestWalkSkipAllOnFile
+
+-- FAIL: TestWalkSkipAllOnFile
+
+=== RUN  TestWalkFileError
+
+-- FAIL: TestWalkFileError
+
+=== RUN  TestWalkSymlinkRoot
+
+-- FAIL: TestWalkSymlinkRoot
+
+=== RUN  TestBase
+-- PASS: TestBase
+
+=== RUN  TestDir
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+-- PASS: TestIsAbs
+
+=== RUN  TestEvalSymlinks
+
+-- FAIL: TestEvalSymlinks
+
+=== RUN  TestEvalSymlinksIsNotExist
+
+-- FAIL: TestEvalSymlinksIsNotExist
+
+=== RUN  TestIssue13582
+
+-- FAIL: TestIssue13582
+
+=== RUN  TestRelativeSymlinkToAbsolute
+
+-- FAIL: TestRelativeSymlinkToAbsolute
+
+=== RUN  TestAbs
+
+-- FAIL: TestAbs
+
+=== RUN  TestAbsEmptyString
+
+-- FAIL: TestAbsEmptyString
+
+=== RUN  TestRel
+-- PASS: TestRel
+
+=== RUN  TestVolumeName
+-- PASS: TestVolumeName
+
+=== RUN  TestDriveLetterInEvalSymlinks
+-- PASS: TestDriveLetterInEvalSymlinks
+
+=== RUN  TestBug3486
+
+-- FAIL: TestBug3486
+
+=== RUN  TestWalkSymlink
+
+-- FAIL: TestWalkSymlink
+
+=== RUN  TestIssue29372
+-- PASS: TestIssue29372
+
+=== RUN  TestEvalSymlinksAboveRoot
+
+-- FAIL: TestEvalSymlinksAboveRoot
+
+=== RUN  TestEvalSymlinksAboveRootChdir
+
+-- FAIL: TestEvalSymlinksAboveRootChdir
+
+=== RUN  TestIssue51617
+
+-- FAIL: TestIssue51617
 

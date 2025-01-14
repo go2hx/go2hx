@@ -11,7 +11,11 @@
         "TestEncodedLen",
         "TestDecodedLen",
         "TestBig",
-        "TestNewLineCharacters"
+        "TestNewLineCharacters",
+        "TestDecoderIssue4779",
+        "TestDecoderIssue7733",
+        "TestDecoderIssue15656",
+        "TestDecoderRaw"
     ],
     "fails": [
         "TestDecoderIssue3577"
@@ -29,6 +33,10 @@
         "TestDecodedLen",
         "TestBig",
         "TestNewLineCharacters",
-        "TestDecoderIssue3577"
+        "TestDecoderIssue3577",
+        "TestDecoderIssue4779",
+        "TestDecoderIssue7733",
+        "TestDecoderIssue15656",
+        "TestDecoderRaw"
     ]
 }

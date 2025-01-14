@@ -1,15 +1,32 @@
 === RUN  TestCheckEqual
-Exception: Cannot read properties of undefined (reading 'length')
-Called from module TypeError: Cannot read properties of undefined (reading 'length')
-Called from StringTools.endsWith (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 125 column 15)
-Called from stdgo__$internal_reflect_Value_$static_$extension.set (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 24650 column 18)
-Called from .stdgo__$internal_testing_quick_Quick_$_$sizedValue__sizedValue (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 39581 column 54)
-Called from .stdgo__$internal_testing_quick_Quick_$value_value (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 39383 column 16)
-Called from .stdgo__$internal_testing_quick_Quick_$_$arbitraryValues__arbitraryValues (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 39360 column 17)
-Called from .stdgo__$internal_testing_quick_Quick_$checkEqual_checkEqual (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 36761 column 14)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testCheckEqual_testCheckEqual [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:36041:101)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51722 column 9)
-Called from ._$internal_testing_quick_$dot_$test_Quick_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 41663 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59280:1
 
--- FAIL: TestCheckEqual (0.037000179290771484)
+-- FAIL: TestCheckEqual
+
+=== RUN  TestCheckProperty
+
+-- FAIL: TestCheckProperty
+
+=== RUN  TestFailure
+
+-- FAIL: TestFailure
+
+=== RUN  TestRecursive
+
+-- FAIL: TestRecursive
+
+=== RUN  TestEmptyStruct
+
+-- FAIL: TestEmptyStruct
+
+=== RUN  TestMutuallyRecursive
+
+-- FAIL: TestMutuallyRecursive
+
+=== RUN  TestNonZeroSliceAndMap
+
+-- FAIL: TestNonZeroSliceAndMap
+
+=== RUN  TestInt64
+
+-- FAIL: TestInt64
+

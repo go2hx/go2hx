@@ -1,0 +1,11 @@
+{
+    "passes": [],
+    "fails": [
+        "TestFuncPC",
+        "TestFuncPCCompileError"
+    ],
+    "runs": [
+        "TestFuncPC",
+        "TestFuncPCCompileError"
+    ]
+}

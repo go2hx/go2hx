@@ -1,9 +1,11 @@
 {
     "passes": [],
     "fails": [
-        "TestDisableAllCapabilities"
+        "TestDisableAllCapabilities",
+        "TestAllCapabilitiesDisabled"
     ],
     "runs": [
-        "TestDisableAllCapabilities"
+        "TestDisableAllCapabilities",
+        "TestAllCapabilitiesDisabled"
     ]
 }

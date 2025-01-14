@@ -1,0 +1,14 @@
+{
+    "passes": [
+        "TestHasGoBuild",
+        "TestMustHaveExec"
+    ],
+    "fails": [
+        "TestGoToolLocation"
+    ],
+    "runs": [
+        "TestGoToolLocation",
+        "TestHasGoBuild",
+        "TestMustHaveExec"
+    ]
+}

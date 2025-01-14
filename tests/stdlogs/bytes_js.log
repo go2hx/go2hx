@@ -1,103 +1,268 @@
 === RUN  TestNewBuffer
--- PASS: TestNewBuffer (0.010999917984008789)
+-- PASS: TestNewBuffer
 
 === RUN  TestNewBufferString
--- PASS: TestNewBufferString (0)
+-- PASS: TestNewBufferString
 
 === RUN  TestBasicOperations
--- PASS: TestBasicOperations (0.009999990463256836)
+-- PASS: TestBasicOperations
 
 === RUN  TestLargeStringWrites
--- PASS: TestLargeStringWrites (0.12199997901916504)
+-- PASS: TestLargeStringWrites
 
 === RUN  TestLargeByteWrites
--- PASS: TestLargeByteWrites (0.08300018310546875)
+-- PASS: TestLargeByteWrites
 
 === RUN  TestLargeStringReads
--- PASS: TestLargeStringReads (0.009999990463256836)
+-- PASS: TestLargeStringReads
 
 === RUN  TestLargeByteReads
--- PASS: TestLargeByteReads (0.016000032424926758)
+-- PASS: TestLargeByteReads
 
 === RUN  TestMixedReadsAndWrites
--- PASS: TestMixedReadsAndWrites (0.10500001907348633)
+-- PASS: TestMixedReadsAndWrites
 
 === RUN  TestCapWithPreallocatedSlice
--- PASS: TestCapWithPreallocatedSlice (0)
+-- PASS: TestCapWithPreallocatedSlice
 
 === RUN  TestCapWithSliceAndWrittenData
--- PASS: TestCapWithSliceAndWrittenData (0)
+-- PASS: TestCapWithSliceAndWrittenData
 
 === RUN  TestNil
--- PASS: TestNil (0)
+-- PASS: TestNil
 
 === RUN  TestReadFrom
--- PASS: TestReadFrom (0.029000043869018555)
+-- PASS: TestReadFrom
 
 === RUN  TestReadFromPanicReader
--- PASS: TestReadFromPanicReader (0.01399993896484375)
+-- PASS: TestReadFromPanicReader
 
 === RUN  TestReadFromNegativeReader
--- PASS: TestReadFromNegativeReader (0.0009999275207519531)
+-- PASS: TestReadFromNegativeReader
 
 === RUN  TestWriteTo
--- PASS: TestWriteTo (0.019999980926513672)
+-- PASS: TestWriteTo
 
 === RUN  TestWriteAppend
--- PASS: TestWriteAppend (0.0820000171661377)
+-- PASS: TestWriteAppend
 
 === RUN  TestRuneIO
--- PASS: TestRuneIO (0.024000167846679688)
+-- PASS: TestRuneIO
 
 === RUN  TestWriteInvalidRune
--- PASS: TestWriteInvalidRune (0.008999824523925781)
+-- PASS: TestWriteInvalidRune
 
 === RUN  TestNext
--- PASS: TestNext (0.0010001659393310547)
+-- PASS: TestNext
 
 === RUN  TestReadBytes
--- PASS: TestReadBytes (0.0009999275207519531)
+-- PASS: TestReadBytes
 
 === RUN  TestReadString
--- PASS: TestReadString (0.0009999275207519531)
+-- PASS: TestReadString
 
 === RUN  TestGrow
 ./_internal/bytes_test/Bytes_test_testGrow.hx:3: testGrow skip function
--- PASS: TestGrow (0.002000093460083008)
+-- PASS: TestGrow
 
 === RUN  TestGrowOverflow
--- PASS: TestGrowOverflow (0)
+-- PASS: TestGrowOverflow
 
 === RUN  TestReadEmptyAtEOF
--- PASS: TestReadEmptyAtEOF (0)
+-- PASS: TestReadEmptyAtEOF
 
 === RUN  TestUnreadByte
--- PASS: TestUnreadByte (0)
+-- PASS: TestUnreadByte
 
 === RUN  TestBufferGrowth
--- PASS: TestBufferGrowth (0.21700000762939453)
+-- PASS: TestBufferGrowth
 
 === RUN  TestEqual
--- PASS: TestEqual (0)
+-- PASS: TestEqual
 
 === RUN  TestEqualExhaustive
--- PASS: TestEqualExhaustive (0.07299995422363281)
+-- PASS: TestEqualExhaustive
 
 === RUN  TestNotEqual
--- PASS: TestNotEqual (0.3680000305175781)
+-- PASS: TestNotEqual
 
 === RUN  TestIndex
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 18796 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 19262 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 28949 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 25228 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 26398 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 24491 column 50)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 43715 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 44671 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_bytes.js line 54546 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bytes.js:53834:58
+<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)
+-- FAIL: TestIndex
 
--- FAIL: TestIndex (0.006999969482421875)
+=== RUN  TestLastIndex
+<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)
+-- FAIL: TestLastIndex
+
+=== RUN  TestIndexAny
+-- PASS: TestIndexAny
+
+=== RUN  TestLastIndexAny
+-- PASS: TestLastIndexAny
+
+=== RUN  TestIndexByte
+-- PASS: TestIndexByte
+
+=== RUN  TestLastIndexByte
+-- PASS: TestLastIndexByte
+
+=== RUN  TestIndexByteBig
+-- PASS: TestIndexByteBig
+
+=== RUN  TestIndexByteSmall
+-- PASS: TestIndexByteSmall
+
+=== RUN  TestIndexRune
+-- PASS: TestIndexRune
+
+=== RUN  TestCountByte
+-- PASS: TestCountByte
+
+=== RUN  TestCountByteNoMatch
+-- PASS: TestCountByteNoMatch
+
+=== RUN  TestSplit
+./_internal/bytes_test/Bytes_test_testSplit.hx:3: testSplit skip function
+-- PASS: TestSplit
+
+=== RUN  TestSplitAfter
+-- PASS: TestSplitAfter
+
+=== RUN  TestFields
+-- PASS: TestFields
+
+=== RUN  TestFieldsFunc
+-- PASS: TestFieldsFunc
+
+=== RUN  TestMap
+-- PASS: TestMap
+
+=== RUN  TestToUpper
+-- PASS: TestToUpper
+
+=== RUN  TestToLower
+-- PASS: TestToLower
+
+=== RUN  TestToValidUTF8
+-- PASS: TestToValidUTF8
+
+=== RUN  TestTrimSpace
+-- PASS: TestTrimSpace
+
+=== RUN  TestRepeat
+-- PASS: TestRepeat
+
+=== RUN  TestRepeatCatchesOverflow
+-- PASS: TestRepeatCatchesOverflow
+
+=== RUN  TestRunes
+-- PASS: TestRunes
+
+=== RUN  TestTrim
+-- PASS: TestTrim
+
+=== RUN  TestTrimFunc
+-- PASS: TestTrimFunc
+
+=== RUN  TestIndexFunc
+-- PASS: TestIndexFunc
+
+=== RUN  TestReplace
+-- PASS: TestReplace
+
+=== RUN  TestTitle
+-- PASS: TestTitle
+
+=== RUN  TestToTitle
+-- PASS: TestToTitle
+
+=== RUN  TestEqualFold
+-- PASS: TestEqualFold
+
+=== RUN  TestCut
+-- PASS: TestCut
+
+=== RUN  TestCutPrefix
+-- PASS: TestCutPrefix
+
+=== RUN  TestCutSuffix
+-- PASS: TestCutSuffix
+
+=== RUN  TestBufferGrowNegative
+-- PASS: TestBufferGrowNegative
+
+=== RUN  TestBufferTruncateNegative
+-- PASS: TestBufferTruncateNegative
+
+=== RUN  TestBufferTruncateOutOfRange
+-- PASS: TestBufferTruncateOutOfRange
+
+=== RUN  TestContains
+-- PASS: TestContains
+
+=== RUN  TestContainsAny
+-- PASS: TestContainsAny
+
+=== RUN  TestContainsRune
+-- PASS: TestContainsRune
+
+=== RUN  TestContainsFunc
+-- PASS: TestContainsFunc
+
+=== RUN  TestClone
+./_internal/bytes_test/Bytes_test_testClone.hx:3: testClone skip function
+-- PASS: TestClone
+
+=== RUN  TestCompare
+-- PASS: TestCompare
+
+=== RUN  TestCompareIdenticalSlice
+-- PASS: TestCompareIdenticalSlice
+
+=== RUN  TestCompareBytes
+./_internal/bytes_test/Bytes_test_testCompareBytes.hx:3: testCompareBytes skip function
+-- PASS: TestCompareBytes
+
+=== RUN  TestEndianBaseCompare
+-- PASS: TestEndianBaseCompare
+
+=== RUN  TestReader
+-- PASS: TestReader
+
+=== RUN  TestReadAfterBigSeek
+-- PASS: TestReadAfterBigSeek
+
+=== RUN  TestReaderAt
+-- PASS: TestReaderAt
+
+=== RUN  TestReaderAtConcurrent
+-- PASS: TestReaderAtConcurrent
+
+=== RUN  TestEmptyReaderConcurrent
+-- PASS: TestEmptyReaderConcurrent
+
+=== RUN  TestReaderWriteTo
+-- PASS: TestReaderWriteTo
+
+=== RUN  TestReaderLen
+-- PASS: TestReaderLen
+
+=== RUN  TestUnreadRuneError
+-- PASS: TestUnreadRuneError
+
+=== RUN  TestReaderDoubleUnreadRune
+-- PASS: TestReaderDoubleUnreadRune
+
+=== RUN  TestReaderCopyNothing
+-- PASS: TestReaderCopyNothing
+
+=== RUN  TestReaderLenSize
+./_internal/bytes_test/Bytes_test_testReaderLenSize.hx:3: testReaderLenSize skip function
+-- PASS: TestReaderLenSize
+
+=== RUN  TestReaderReset
+-- PASS: TestReaderReset
+
+=== RUN  TestReaderZero
+-- PASS: TestReaderZero
+

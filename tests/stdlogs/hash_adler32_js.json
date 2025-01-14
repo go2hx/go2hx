@@ -1,9 +1,12 @@
 {
-    "passes": [],
+    "passes": [
+        "TestGoldenMarshal"
+    ],
     "fails": [
         "TestGolden"
     ],
     "runs": [
-        "TestGolden"
+        "TestGolden",
+        "TestGoldenMarshal"
     ]
 }

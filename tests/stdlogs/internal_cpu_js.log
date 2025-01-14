@@ -1,12 +1,8 @@
 === RUN  TestDisableAllCapabilities
-Exception: T_common:testing.skipf is not yet implemented
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 41207 column 23)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:40680:58
-Called from ._$internal_internal_cpu_$test_Cpu_$test_$mustHaveDebugOptionsSupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 12032 column 19)
-Called from ._$internal_internal_cpu_$test_Cpu_$test_$_$runDebugOptionsTest__runDebugOptionsTest (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 11984 column 2)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testDisableAllCapabilities_testDisableAllCapabilities [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:11979:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 40482 column 9)
-Called from ._$internal_internal_cpu_$dot_$test_Cpu_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 32094 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:49470:1
 
--- FAIL: TestDisableAllCapabilities (0.023999929428100586)
+-- FAIL: TestDisableAllCapabilities
+
+=== RUN  TestAllCapabilitiesDisabled
+
+-- FAIL: TestAllCapabilitiesDisabled
+

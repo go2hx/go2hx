@@ -7,10 +7,27 @@
         "TestRotateLeft",
         "TestReverse",
         "TestReverseBytes",
-        "TestLen"
+        "TestLen",
+        "TestAddSubUint64",
+        "TestAdd64OverflowPanic",
+        "TestSub64OverflowPanic",
+        "TestDivPanicOverflow",
+        "TestDiv32PanicOverflow",
+        "TestDiv64PanicOverflow",
+        "TestDivPanicZero",
+        "TestDiv32PanicZero",
+        "TestDiv64PanicZero",
+        "TestRem32",
+        "TestRem32Overflow",
+        "TestRem64"
     ],
     "fails": [
-        "TestAddSubUint"
+        "TestAddSubUint",
+        "TestAddSubUint32",
+        "TestMulDiv",
+        "TestMulDiv32",
+        "TestMulDiv64",
+        "TestRem64Overflow"
     ],
     "runs": [
         "TestUintSize",
@@ -21,6 +38,23 @@
         "TestReverse",
         "TestReverseBytes",
         "TestLen",
-        "TestAddSubUint"
+        "TestAddSubUint",
+        "TestAddSubUint32",
+        "TestAddSubUint64",
+        "TestAdd64OverflowPanic",
+        "TestSub64OverflowPanic",
+        "TestMulDiv",
+        "TestMulDiv32",
+        "TestMulDiv64",
+        "TestDivPanicOverflow",
+        "TestDiv32PanicOverflow",
+        "TestDiv64PanicOverflow",
+        "TestDivPanicZero",
+        "TestDiv32PanicZero",
+        "TestDiv64PanicZero",
+        "TestRem32",
+        "TestRem32Overflow",
+        "TestRem64",
+        "TestRem64Overflow"
     ]
 }

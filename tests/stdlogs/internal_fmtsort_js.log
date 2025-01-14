@@ -3,16 +3,16 @@
 	throw haxe_Exception.thrown("Value:reflect.unsafePointer is not yet implemented");
 	^
 <ref *1> Error: Value:reflect.unsafePointer is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:26479:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:26409:11)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:26582:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:26512:11)
     at stdgo__$internal_reflect_Value_$static_$extension.unsafePointer (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:10673:23)
     at stdgo__$internal_sort_T_$lessSwap.less (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:10199:129)
-    at stdgo__$internal_sort_Sort_$_$insertionSort_$func__insertionSort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:15926:42)
-    at stdgo__$internal_sort_Sort_$_$pdqsort_$func__pdqsort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:15869:4)
+    at stdgo__$internal_sort_Sort_$_$insertionSort_$func__insertionSort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:15981:42)
+    at stdgo__$internal_sort_Sort_$_$pdqsort_$func__pdqsort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:15924:4)
     at stdgo__$internal_sort_Sort_$slice_slice (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:10556:2)
     at _$internal_internal_fmtsort_$test_Fmtsort_$test_$_$makeChans__makeChans (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:10196:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:46624:71
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:48993:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:46756:71
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:49125:3) {
   __previousException: undefined,
   __nativeException: [Circular *1],
   __skipStack: 2,

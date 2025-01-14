@@ -1,15 +1,59 @@
 === RUN  TestWriteLogger
--- PASS: TestWriteLogger (0.006000041961669922)
+-- PASS: TestWriteLogger
 
 === RUN  TestWriteLogger_errorOnWrite
-Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testWriteLogger_$errorOnWrite_testWriteLogger_errorOnWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:10438:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 36840 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 29380 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:45822:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:45823:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
 
--- FAIL: TestWriteLogger_errorOnWrite (0.013000011444091797)
+-- FAIL: TestWriteLogger_errorOnWrite
+
+=== RUN  TestReadLogger
+
+-- FAIL: TestReadLogger
+
+=== RUN  TestReadLogger_errorOnRead
+
+-- FAIL: TestReadLogger_errorOnRead
+
+=== RUN  TestOneByteReader_nonEmptyReader
+
+-- FAIL: TestOneByteReader_nonEmptyReader
+
+=== RUN  TestOneByteReader_emptyReader
+
+-- FAIL: TestOneByteReader_emptyReader
+
+=== RUN  TestHalfReader_nonEmptyReader
+
+-- FAIL: TestHalfReader_nonEmptyReader
+
+=== RUN  TestHalfReader_emptyReader
+
+-- FAIL: TestHalfReader_emptyReader
+
+=== RUN  TestTimeOutReader_nonEmptyReader
+
+-- FAIL: TestTimeOutReader_nonEmptyReader
+
+=== RUN  TestTimeOutReader_emptyReader
+
+-- FAIL: TestTimeOutReader_emptyReader
+
+=== RUN  TestDataErrReader_nonEmptyReader
+
+-- FAIL: TestDataErrReader_nonEmptyReader
+
+=== RUN  TestDataErrReader_emptyReader
+
+-- FAIL: TestDataErrReader_emptyReader
+
+=== RUN  TestErrReader
+
+-- FAIL: TestErrReader
+
+=== RUN  TestStringsReader
+
+-- FAIL: TestStringsReader
+
+=== RUN  TestTruncateWriter
+
+-- FAIL: TestTruncateWriter
+

@@ -1,9 +1,3 @@
-[30;41m ERROR [0m ./stdgo/_internal/os/Os_isPathSeparator.hx:3: characters 23-32
-
-  3 | [2m        #if js return [0m[1m_c == "/"[0m[2m #else null #end;[0m
-    |                       [31m^^^^^^^^^[0m
-    | String should be stdgo.GoUInt8
-
 [30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer__identCount.hx:4: characters 24-78
 
   4 | [2m        for (_ => _ in [0m[1mstdgo._internal.go.printer.Printer__idents._idents(_f)[0m[2m) {[0m

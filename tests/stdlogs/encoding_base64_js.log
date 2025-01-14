@@ -1,51 +1,52 @@
 === RUN  TestEncode
--- PASS: TestEncode (0.03500008583068848)
+-- PASS: TestEncode
 
 === RUN  TestEncoder
--- PASS: TestEncoder (0.002000093460083008)
+-- PASS: TestEncoder
 
 === RUN  TestEncoderBuffering
--- PASS: TestEncoderBuffering (0.003999948501586914)
+-- PASS: TestEncoderBuffering
 
 === RUN  TestDecode
--- PASS: TestDecode (0.03600001335144043)
+-- PASS: TestDecode
 
 === RUN  TestDecoder
--- PASS: TestDecoder (0.006000041961669922)
+-- PASS: TestDecoder
 
 === RUN  TestDecoderBuffering
--- PASS: TestDecoderBuffering (0.003999948501586914)
+-- PASS: TestDecoderBuffering
 
 === RUN  TestDecodeCorrupt
--- PASS: TestDecodeCorrupt (0.002000093460083008)
+-- PASS: TestDecodeCorrupt
 
 === RUN  TestDecodeBounds
--- PASS: TestDecodeBounds (0)
+-- PASS: TestDecodeBounds
 
 === RUN  TestEncodedLen
--- PASS: TestEncodedLen (0)
+-- PASS: TestEncodedLen
 
 === RUN  TestDecodedLen
--- PASS: TestDecodedLen (0)
+-- PASS: TestDecodedLen
 
 === RUN  TestBig
--- PASS: TestBig (0.029000043869018555)
+-- PASS: TestBig
 
 === RUN  TestNewLineCharacters
--- PASS: TestNewLineCharacters (0)
+-- PASS: TestNewLineCharacters
 
 === RUN  TestDecoderIssue3577
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 17127 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 17593 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 21765 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 26380 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 27550 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 25643 column 50)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 35373 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 35354 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_base64.js line 47166 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_base64.js:46454:58
+got error <invalid reflect.Value>; want %!v(MISSING)
+-- FAIL: TestDecoderIssue3577
 
--- FAIL: TestDecoderIssue3577 (0.03699994087219238)
+=== RUN  TestDecoderIssue4779
+-- PASS: TestDecoderIssue4779
+
+=== RUN  TestDecoderIssue7733
+-- PASS: TestDecoderIssue7733
+
+=== RUN  TestDecoderIssue15656
+-- PASS: TestDecoderIssue15656
+
+=== RUN  TestDecoderRaw
+-- PASS: TestDecoderRaw
+

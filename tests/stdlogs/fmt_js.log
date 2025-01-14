@@ -1,34 +1,185 @@
 === RUN  TestErrorf
-Exception: {
-	__self__ : 0x2982, 
-	__type__ : {
-		gt : named(stdgo._internal.math.bits.Bits_T_errorString.T_errorString,[error: {
-	get : <function>
-},runtimeError: {
-	get : <function>
-}],basic(17),false,{
-				get : <function>
-			})
-	}
-}
-Called from module gt : named(stdgo._internal.math.bits.Bits_T_errorString.T_errorString,[error: {
-Called from module get : <function>
-Called from module },runtimeError: {
-Called from module get : <function>
-Called from module }],basic(17),false,{
-Called from module get : <function>
-Called from module })
-Called from module }
-Called from module }
-Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 29322 column 17)
-Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 29252 column 11)
-Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 28440 column 24)
-Called from .stdgo__$internal_reflect_Reflect_$deepEqual_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 42347 column 29)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testErrorf_testErrorf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:41288:7)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 86717 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 76751 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106374:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:106375:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 
--- FAIL: TestErrorf (0.054000139236450195)
+-- FAIL: TestErrorf
+
+=== RUN  TestFmtInterface
+-- PASS: TestFmtInterface
+
+=== RUN  TestSprintf
+
+-- FAIL: TestSprintf
+
+=== RUN  TestComplexFormatting
+-- PASS: TestComplexFormatting
+
+=== RUN  TestReorder
+-- PASS: TestReorder
+
+=== RUN  TestCountMallocs
+<invalid reflect.Value>
+-- SKIP: TestCountMallocs
+
+=== RUN  TestFlagParser
+-- PASS: TestFlagParser
+
+=== RUN  TestStructPrinter
+Sprintf(<invalid reflect.Value>, s) = %!q(MISSING), want %!q(MISSING)Sprintf(<invalid reflect.Value>, &s) = %!q(MISSING), want %!q(MISSING)
+-- FAIL: TestStructPrinter
+
+=== RUN  TestSlicePrinter
+-- PASS: TestSlicePrinter
+
+=== RUN  TestMapPrinter
+-- PASS: TestMapPrinter
+
+=== RUN  TestEmptyMap
+-- PASS: TestEmptyMap
+
+=== RUN  TestBlank
+-- PASS: TestBlank
+
+=== RUN  TestBlankln
+-- PASS: TestBlankln
+
+=== RUN  TestFormatterPrintln
+-- PASS: TestFormatterPrintln
+
+=== RUN  TestWidthAndPrecision
+-- PASS: TestWidthAndPrecision
+
+=== RUN  TestPanics
+./_internal/fmt_test/Fmt_test_testPanics.hx:3: testPanics skip function
+-- PASS: TestPanics
+
+=== RUN  TestBadVerbRecursion
+-- PASS: TestBadVerbRecursion
+
+=== RUN  TestIsSpace
+-- PASS: TestIsSpace
+
+=== RUN  TestNilDoesNotBecomeTyped
+expected:
+	<invalid reflect.Value>
+got:
+	%!q(MISSING)
+-- FAIL: TestNilDoesNotBecomeTyped
+
+=== RUN  TestFormatterFlags
+Sprintf(<invalid reflect.Value>, %!T(MISSING)) = %!q(MISSING), want %!q(MISSING)
+-- FAIL: TestFormatterFlags
+
+=== RUN  TestParsenum
+-- PASS: TestParsenum
+
+=== RUN  TestAppendf
+-- PASS: TestAppendf
+
+=== RUN  TestAppend
+-- PASS: TestAppend
+
+=== RUN  TestAppendln
+-- PASS: TestAppendln
+
+=== RUN  TestScan
+-- PASS: TestScan
+
+=== RUN  TestScanln
+-- PASS: TestScanln
+
+=== RUN  TestScanf
+
+-- FAIL: TestScanf
+
+=== RUN  TestScanOverflow
+
+-- FAIL: TestScanOverflow
+
+=== RUN  TestNaN
+
+-- FAIL: TestNaN
+
+=== RUN  TestInf
+
+-- FAIL: TestInf
+
+=== RUN  TestScanfMulti
+-- PASS: TestScanfMulti
+
+=== RUN  TestScanMultiple
+
+-- FAIL: TestScanMultiple
+
+=== RUN  TestScanEmpty
+<invalid reflect.Value>
+<invalid reflect.Value>
+
+-- FAIL: TestScanEmpty
+
+=== RUN  TestScanNotPointer
+
+-- FAIL: TestScanNotPointer
+
+=== RUN  TestScanlnNoNewline
+<invalid reflect.Value>
+
+-- FAIL: TestScanlnNoNewline
+
+=== RUN  TestScanlnWithMiddleNewline
+<invalid reflect.Value>
+
+-- FAIL: TestScanlnWithMiddleNewline
+
+=== RUN  TestEOF
+<invalid reflect.Value>
+
+-- FAIL: TestEOF
+
+=== RUN  TestEOFAtEndOfInput
+Sscanf expected EOF; got <invalid reflect.Value>Sscan expected EOF; got <invalid reflect.Value>Sscan expected EOF; got <invalid reflect.Value>
+-- FAIL: TestEOFAtEndOfInput
+
+=== RUN  TestEOFAllTypes
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+-- FAIL: TestEOFAllTypes
+
+=== RUN  TestUnreadRuneWithBufio
+-- PASS: TestUnreadRuneWithBufio
+
+=== RUN  TestMultiLine
+<invalid reflect.Value>
+
+-- FAIL: TestMultiLine
+
+=== RUN  TestLineByLineFscanf
+-- PASS: TestLineByLineFscanf
+
+=== RUN  TestScanStateCount
+-- PASS: TestScanStateCount
+
+=== RUN  TestScanInts
+-- PASS: TestScanInts
+
+=== RUN  TestHexBytes
+<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)odd count: got count, err = <invalid reflect.Value>, %!v(MISSING); expected 0, error
+-- FAIL: TestHexBytes
+
+=== RUN  TestScanNewlinesAreSpaces
+-- PASS: TestScanNewlinesAreSpaces
+
+=== RUN  TestScanlnNewlinesTerminate
+<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none
+-- FAIL: TestScanlnNewlinesTerminate
+
+=== RUN  TestScanfNewlineMatchFormat
+<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none
+-- FAIL: TestScanfNewlineMatchFormat
+
+=== RUN  TestHexByte
+-- PASS: TestHexByte
+
+=== RUN  TestFormatString
+-- PASS: TestFormatString
+
+=== RUN  TestStringer
+-- PASS: TestStringer
+

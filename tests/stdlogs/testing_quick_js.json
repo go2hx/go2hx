@@ -1,9 +1,23 @@
 {
     "passes": [],
     "fails": [
-        "TestCheckEqual"
+        "TestCheckEqual",
+        "TestCheckProperty",
+        "TestFailure",
+        "TestRecursive",
+        "TestEmptyStruct",
+        "TestMutuallyRecursive",
+        "TestNonZeroSliceAndMap",
+        "TestInt64"
     ],
     "runs": [
-        "TestCheckEqual"
+        "TestCheckEqual",
+        "TestCheckProperty",
+        "TestFailure",
+        "TestRecursive",
+        "TestEmptyStruct",
+        "TestMutuallyRecursive",
+        "TestNonZeroSliceAndMap",
+        "TestInt64"
     ]
 }

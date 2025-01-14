@@ -1,108 +1,214 @@
 === RUN  TestBuilder
--- PASS: TestBuilder (0.007999897003173828)
+-- PASS: TestBuilder
 
 === RUN  TestBuilderString
--- PASS: TestBuilderString (0.0009999275207519531)
+-- PASS: TestBuilderString
 
 === RUN  TestBuilderReset
--- PASS: TestBuilderReset (0.0010001659393310547)
+-- PASS: TestBuilderReset
 
 === RUN  TestBuilderGrow
 ./_internal/strings_test/Strings_test_testBuilderGrow.hx:3: testBuilderGrow skip function
--- PASS: TestBuilderGrow (0.0009999275207519531)
+-- PASS: TestBuilderGrow
 
 === RUN  TestBuilderWrite2
--- PASS: TestBuilderWrite2 (0)
+-- PASS: TestBuilderWrite2
 
 === RUN  TestBuilderWriteByte
--- PASS: TestBuilderWriteByte (0)
+-- PASS: TestBuilderWriteByte
 
 === RUN  TestBuilderAllocs
 ./_internal/strings_test/Strings_test_testBuilderAllocs.hx:3: testBuilderAllocs skip function
--- PASS: TestBuilderAllocs (0.0009999275207519531)
+-- PASS: TestBuilderAllocs
 
 === RUN  TestBuilderCopyPanic
 ./_internal/strings_test/Strings_test_testBuilderCopyPanic.hx:3: testBuilderCopyPanic skip function
--- PASS: TestBuilderCopyPanic (0)
+-- PASS: TestBuilderCopyPanic
 
 === RUN  TestBuilderWriteInvalidRune
--- PASS: TestBuilderWriteInvalidRune (0.0009999275207519531)
+-- PASS: TestBuilderWriteInvalidRune
 
 === RUN  TestClone
 ./_internal/strings_test/Strings_test_testClone.hx:3: testClone skip function
--- PASS: TestClone (0)
+-- PASS: TestClone
 
 === RUN  TestCompare
--- PASS: TestCompare (0)
+-- PASS: TestCompare
 
 === RUN  TestCompareIdenticalString
--- PASS: TestCompareIdenticalString (0.0010001659393310547)
+-- PASS: TestCompareIdenticalString
 
 === RUN  TestCompareStrings
 ./_internal/strings_test/Strings_test_testCompareStrings.hx:3: testCompareStrings skip function
--- PASS: TestCompareStrings (0)
+-- PASS: TestCompareStrings
 
 === RUN  TestReader
--- PASS: TestReader (0.003000020980834961)
+-- PASS: TestReader
 
 === RUN  TestReadAfterBigSeek
--- PASS: TestReadAfterBigSeek (0)
+-- PASS: TestReadAfterBigSeek
 
 === RUN  TestReaderAt
--- PASS: TestReaderAt (0.02200007438659668)
+-- PASS: TestReaderAt
 
 === RUN  TestReaderAtConcurrent
--- PASS: TestReaderAtConcurrent (0)
+-- PASS: TestReaderAtConcurrent
 
 === RUN  TestEmptyReaderConcurrent
--- PASS: TestEmptyReaderConcurrent (0.0009999275207519531)
+-- PASS: TestEmptyReaderConcurrent
 
 === RUN  TestWriteTo
--- PASS: TestWriteTo (0.002000093460083008)
+-- PASS: TestWriteTo
 
 === RUN  TestReaderLenSize
 ./_internal/strings_test/Strings_test_testReaderLenSize.hx:3: testReaderLenSize skip function
--- PASS: TestReaderLenSize (0)
+-- PASS: TestReaderLenSize
 
 === RUN  TestReaderReset
--- PASS: TestReaderReset (0.0010001659393310547)
+-- PASS: TestReaderReset
 
 === RUN  TestReaderZero
--- PASS: TestReaderZero (0.0009999275207519531)
+-- PASS: TestReaderZero
 
 === RUN  TestReplacer
 ./_internal/strings_test/Strings_test_testReplacer.hx:3: testReplacer skip function
--- PASS: TestReplacer (0)
+-- PASS: TestReplacer
 
 === RUN  TestPickAlgorithm
 ./_internal/strings_test/Strings_test_testPickAlgorithm.hx:3: testPickAlgorithm skip function
--- PASS: TestPickAlgorithm (0)
+-- PASS: TestPickAlgorithm
 
 === RUN  TestWriteStringError
--- PASS: TestWriteStringError (0.00800013542175293)
+-- PASS: TestWriteStringError
 
 === RUN  TestGenericTrieBuilding
 ./_internal/strings_test/Strings_test_testGenericTrieBuilding.hx:3: testGenericTrieBuilding skip function
--- PASS: TestGenericTrieBuilding (0.0009999275207519531)
+-- PASS: TestGenericTrieBuilding
 
 === RUN  TestFinderNext
--- PASS: TestFinderNext (0.003000020980834961)
+-- PASS: TestFinderNext
 
 === RUN  TestFinderCreation
--- PASS: TestFinderCreation (0.003999948501586914)
+-- PASS: TestFinderCreation
 
 === RUN  TestIndex
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 15713 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 16179 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 27115 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 23373 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 24543 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 22636 column 50)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 43966 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 44093 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_strings.js line 52536 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strings.js:52019:58
+<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)
+-- FAIL: TestIndex
 
--- FAIL: TestIndex (0.003000020980834961)
+=== RUN  TestLastIndex
+<invalid reflect.Value>(%!q(MISSING),%!q(MISSING)) = %!v(MISSING); want %!v(MISSING)
+-- FAIL: TestLastIndex
+
+=== RUN  TestIndexAny
+-- PASS: TestIndexAny
+
+=== RUN  TestLastIndexAny
+-- PASS: TestLastIndexAny
+
+=== RUN  TestIndexByte
+-- PASS: TestIndexByte
+
+=== RUN  TestLastIndexByte
+-- PASS: TestLastIndexByte
+
+=== RUN  TestIndexRandom
+Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)Index(<invalid reflect.Value>,%!s(MISSING)) = %!d(MISSING); want %!d(MISSING)
+-- FAIL: TestIndexRandom
+
+=== RUN  TestIndexRune
+-- PASS: TestIndexRune
+
+=== RUN  TestSplit
+-- PASS: TestSplit
+
+=== RUN  TestSplitAfter
+-- PASS: TestSplitAfter
+
+=== RUN  TestFields
+-- PASS: TestFields
+
+=== RUN  TestFieldsFunc
+-- PASS: TestFieldsFunc
+
+=== RUN  TestMap
+./_internal/strings_test/Strings_test_testMap.hx:3: testMap skip function
+-- PASS: TestMap
+
+=== RUN  TestToUpper
+-- PASS: TestToUpper
+
+=== RUN  TestToLower
+-- PASS: TestToLower
+
+=== RUN  TestToValidUTF8
+-- PASS: TestToValidUTF8
+
+=== RUN  TestSpecialCase
+-- PASS: TestSpecialCase
+
+=== RUN  TestTrimSpace
+-- PASS: TestTrimSpace
+
+=== RUN  TestTrim
+-- PASS: TestTrim
+
+=== RUN  TestTrimFunc
+-- PASS: TestTrimFunc
+
+=== RUN  TestIndexFunc
+-- PASS: TestIndexFunc
+
+=== RUN  TestCaseConsistency
+-- PASS: TestCaseConsistency
+
+=== RUN  TestRepeat
+-- PASS: TestRepeat
+
+=== RUN  TestRepeatCatchesOverflow
+-- PASS: TestRepeatCatchesOverflow
+
+=== RUN  TestRunes
+-- PASS: TestRunes
+
+=== RUN  TestReadByte
+-- PASS: TestReadByte
+
+=== RUN  TestReadRune
+-- PASS: TestReadRune
+
+=== RUN  TestUnreadRuneError
+-- PASS: TestUnreadRuneError
+
+=== RUN  TestReplace
+-- PASS: TestReplace
+
+=== RUN  TestTitle
+-- PASS: TestTitle
+
+=== RUN  TestContains
+-- PASS: TestContains
+
+=== RUN  TestContainsAny
+-- PASS: TestContainsAny
+
+=== RUN  TestContainsRune
+-- PASS: TestContainsRune
+
+=== RUN  TestContainsFunc
+-- PASS: TestContainsFunc
+
+=== RUN  TestEqualFold
+-- PASS: TestEqualFold
+
+=== RUN  TestCount
+-- PASS: TestCount
+
+=== RUN  TestCut
+-- PASS: TestCut
+
+=== RUN  TestCutPrefix
+-- PASS: TestCutPrefix
+
+=== RUN  TestCutSuffix
+-- PASS: TestCutSuffix
+

@@ -3,7 +3,9 @@
         "TestGolden",
         "TestGoldenMarshal",
         "TestSize",
-        "TestBlockSize"
+        "TestBlockSize",
+        "TestLargeHashes",
+        "TestAllocations"
     ],
     "fails": [
         "TestBlockGeneric"
@@ -13,6 +15,8 @@
         "TestGoldenMarshal",
         "TestSize",
         "TestBlockSize",
-        "TestBlockGeneric"
+        "TestBlockGeneric",
+        "TestLargeHashes",
+        "TestAllocations"
     ]
 }

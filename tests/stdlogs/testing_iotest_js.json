@@ -3,10 +3,36 @@
         "TestWriteLogger"
     ],
     "fails": [
-        "TestWriteLogger_errorOnWrite"
+        "TestWriteLogger_errorOnWrite",
+        "TestReadLogger",
+        "TestReadLogger_errorOnRead",
+        "TestOneByteReader_nonEmptyReader",
+        "TestOneByteReader_emptyReader",
+        "TestHalfReader_nonEmptyReader",
+        "TestHalfReader_emptyReader",
+        "TestTimeOutReader_nonEmptyReader",
+        "TestTimeOutReader_emptyReader",
+        "TestDataErrReader_nonEmptyReader",
+        "TestDataErrReader_emptyReader",
+        "TestErrReader",
+        "TestStringsReader",
+        "TestTruncateWriter"
     ],
     "runs": [
         "TestWriteLogger",
-        "TestWriteLogger_errorOnWrite"
+        "TestWriteLogger_errorOnWrite",
+        "TestReadLogger",
+        "TestReadLogger_errorOnRead",
+        "TestOneByteReader_nonEmptyReader",
+        "TestOneByteReader_emptyReader",
+        "TestHalfReader_nonEmptyReader",
+        "TestHalfReader_emptyReader",
+        "TestTimeOutReader_nonEmptyReader",
+        "TestTimeOutReader_emptyReader",
+        "TestDataErrReader_nonEmptyReader",
+        "TestDataErrReader_emptyReader",
+        "TestErrReader",
+        "TestStringsReader",
+        "TestTruncateWriter"
     ]
 }

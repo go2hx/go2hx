@@ -1,6 +1,22 @@
-[30;41m ERROR [0m ./stdgo/_internal/os/Os_isPathSeparator.hx:3: characters 23-32
 
- 3 | [2m        #if js return [0m[1m_c == "/"[0m[2m #else null #end;[0m
-   |                       [31m^^^^^^^^^[0m
-   | String should be stdgo.GoUInt8
+/home/runner/work/go2hx/go2hx/golibs/std_fs.js:17523
+	throw haxe_Exception.thrown(":os.dirFS is not yet implemented");
+	^
+<ref *1> Error: :os.dirFS is not yet implemented
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:22288:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:22218:11)
+    at stdgo__$internal_os_Os_$dirFS_dirFS (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:17523:23)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:51836:23
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:51848:2
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:53475:3)
+    at Module._compile (node:internal/modules/cjs/loader:1469:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
+    at Module.load (node:internal/modules/cjs/loader:1288:32)
+    at Module._load (node:internal/modules/cjs/loader:1104:12) {
+  __previousException: undefined,
+  __nativeException: [Circular *1],
+  __skipStack: 2,
+  value: ':os.dirFS is not yet implemented'
+}
 
+Node.js v20.18.1

@@ -1,119 +1,247 @@
 === RUN  TestParseBool
--- PASS: TestParseBool (0.017000198364257812)
+-- PASS: TestParseBool
 
 === RUN  TestFormatBool
--- PASS: TestFormatBool (0.003999948501586914)
+-- PASS: TestFormatBool
 
 === RUN  TestAppendBool
--- PASS: TestAppendBool (0)
+-- PASS: TestAppendBool
 
 === RUN  TestParseComplex
--- PASS: TestParseComplex (0.15000009536743164)
+-- PASS: TestParseComplex
 
 === RUN  TestParseComplexIncorrectBitSize
--- PASS: TestParseComplexIncorrectBitSize (0.0009999275207519531)
+-- PASS: TestParseComplexIncorrectBitSize
 
 === RUN  TestParseFloatPrefix
--- PASS: TestParseFloatPrefix (0.30299997329711914)
+-- PASS: TestParseFloatPrefix
 
 === RUN  TestAtof
 ./_internal/strconv_test/Strconv_test_testAtof.hx:3: testAtof skip function
--- PASS: TestAtof (0.002000093460083008)
+-- PASS: TestAtof
 
 === RUN  TestAtofSlow
 ./_internal/strconv_test/Strconv_test_testAtofSlow.hx:3: testAtofSlow skip function
--- PASS: TestAtofSlow (0)
+-- PASS: TestAtofSlow
 
 === RUN  TestAtofRandom
 ./_internal/strconv_test/Strconv_test_testAtofRandom.hx:3: testAtofRandom skip function
--- PASS: TestAtofRandom (0)
+-- PASS: TestAtofRandom
 
 === RUN  TestRoundTrip
--- PASS: TestRoundTrip (0.008999824523925781)
+-- PASS: TestRoundTrip
 
 === RUN  TestRoundTrip32
 ./_internal/strconv_test/Strconv_test_testRoundTrip32.hx:4: testRoundTrip32 skip targets: interp, js
--- PASS: TestRoundTrip32 (0)
+-- PASS: TestRoundTrip32
 
 === RUN  TestParseFloatIncorrectBitSize
--- PASS: TestParseFloatIncorrectBitSize (0.0010001659393310547)
+-- PASS: TestParseFloatIncorrectBitSize
 
 === RUN  TestParseUint32
--- PASS: TestParseUint32 (0.0009999275207519531)
+-- PASS: TestParseUint32
 
 === RUN  TestParseUint64
--- PASS: TestParseUint64 (0.0009999275207519531)
+-- PASS: TestParseUint64
 
 === RUN  TestParseUint64Base
--- PASS: TestParseUint64Base (0.016000032424926758)
+-- PASS: TestParseUint64Base
 
 === RUN  TestParseInt32
--- PASS: TestParseInt32 (0.003000020980834961)
+-- PASS: TestParseInt32
 
 === RUN  TestParseInt64
--- PASS: TestParseInt64 (0.002000093460083008)
+-- PASS: TestParseInt64
 
 === RUN  TestParseInt64Base
--- PASS: TestParseInt64Base (0.004999876022338867)
+-- PASS: TestParseInt64Base
 
 === RUN  TestParseUint
--- PASS: TestParseUint (0.0010001659393310547)
+-- PASS: TestParseUint
 
 === RUN  TestParseInt
--- PASS: TestParseInt (0.0009999275207519531)
+-- PASS: TestParseInt
 
 === RUN  TestAtoi
--- PASS: TestAtoi (0.014999866485595703)
+-- PASS: TestAtoi
 
 === RUN  TestParseIntBitSize
--- PASS: TestParseIntBitSize (0.003000020980834961)
+-- PASS: TestParseIntBitSize
 
 === RUN  TestParseUintBitSize
--- PASS: TestParseUintBitSize (0.0010001659393310547)
+-- PASS: TestParseUintBitSize
 
 === RUN  TestParseIntBase
--- PASS: TestParseIntBase (0.0009999275207519531)
+-- PASS: TestParseIntBase
 
 === RUN  TestParseUintBase
--- PASS: TestParseUintBase (0.0009999275207519531)
+-- PASS: TestParseUintBase
 
 === RUN  TestNumError
--- PASS: TestNumError (0)
+-- PASS: TestNumError
 
 === RUN  TestNumErrorUnwrap
--- PASS: TestNumErrorUnwrap (0.0010001659393310547)
+-- PASS: TestNumErrorUnwrap
 
 === RUN  TestFormatComplex
--- PASS: TestFormatComplex (0.003999948501586914)
+-- PASS: TestFormatComplex
 
 === RUN  TestFormatComplexInvalidBitSize
--- PASS: TestFormatComplexInvalidBitSize (0.0009999275207519531)
+-- PASS: TestFormatComplexInvalidBitSize
 
 === RUN  TestDecimalShift
--- PASS: TestDecimalShift (0.0009999275207519531)
+-- PASS: TestDecimalShift
 
 === RUN  TestDecimalRound
--- PASS: TestDecimalRound (0.004000186920166016)
+-- PASS: TestDecimalRound
 
 === RUN  TestDecimalRoundedInteger
--- PASS: TestDecimalRoundedInteger (0)
+-- PASS: TestDecimalRoundedInteger
 
 === RUN  TestFp
 ./_internal/strconv_test/Strconv_test_testFp.hx:3: testFp skip function
--- PASS: TestFp (0)
+-- PASS: TestFp
 
 === RUN  TestFtoa
-Exception: Cannot read properties of undefined (reading '_common')
-Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 24673 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.kind (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 25139 column 70)
-Called from stdgo__$internal_reflect_Value_$static_$extension.kind (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 28030 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printValue (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 39747 column 69)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 40917 column 68)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintln (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 38689 column 49)
-Called from .stdgo__$internal_fmt_Fmt_$fprintln_fprintln (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 46951 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$println_println (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 46932 column 60)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.error (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58817 column 44)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58276:58
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
 
--- FAIL: TestFtoa (0.010999917984008789)
+-- FAIL: TestFtoa
+
+=== RUN  TestFtoaPowersOfTwo
+./_internal/strconv_test/Strconv_test_testFtoaPowersOfTwo.hx:3: testFtoaPowersOfTwo skip function
+-- PASS: TestFtoaPowersOfTwo
+
+=== RUN  TestFtoaRandom
+./_internal/strconv_test/Strconv_test_testFtoaRandom.hx:3: testFtoaRandom skip function
+-- PASS: TestFtoaRandom
+
+=== RUN  TestFormatFloatInvalidBitSize
+-- PASS: TestFormatFloatInvalidBitSize
+
+=== RUN  TestMulByLog2Log10
+-- PASS: TestMulByLog2Log10
+
+=== RUN  TestMulByLog10Log2
+-- PASS: TestMulByLog10Log2
+
+=== RUN  TestItoa
+-- PASS: TestItoa
+
+=== RUN  TestUitoa
+-- PASS: TestUitoa
+
+=== RUN  TestFormatUintVarlen
+-- PASS: TestFormatUintVarlen
+
+=== RUN  TestIsPrint
+-- PASS: TestIsPrint
+
+=== RUN  TestIsGraphic
+-- PASS: TestIsGraphic
+
+=== RUN  TestQuote
+-- PASS: TestQuote
+
+=== RUN  TestQuoteToASCII
+-- PASS: TestQuoteToASCII
+
+=== RUN  TestQuoteToGraphic
+-- PASS: TestQuoteToGraphic
+
+=== RUN  TestQuoteRune
+-- PASS: TestQuoteRune
+
+=== RUN  TestQuoteRuneToASCII
+-- PASS: TestQuoteRuneToASCII
+
+=== RUN  TestQuoteRuneToGraphic
+-- PASS: TestQuoteRuneToGraphic
+
+=== RUN  TestCanBackquote
+-- PASS: TestCanBackquote
+
+=== RUN  TestUnquote
+-- PASS: TestUnquote
+
+=== RUN  TestUnquoteInvalidUTF8
+-- PASS: TestUnquoteInvalidUTF8
+
+=== RUN  TestCountMallocs
+<invalid reflect.Value>
+-- SKIP: TestCountMallocs
+
+=== RUN  TestAllocationsFromBytes
+-- PASS: TestAllocationsFromBytes
+
+=== RUN  TestErrorPrefixes
+-- PASS: TestErrorPrefixes
+

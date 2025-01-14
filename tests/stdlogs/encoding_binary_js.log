@@ -1,12 +1,110 @@
 === RUN  TestLittleEndianRead
-Exception: generic function is not supported
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21711 column 23)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21688 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21589 column 59)
-Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20592 column 64)
-Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13198 column 11)
-Called from .stdgo__$internal_encoding_binary_Binary_$_$testRead__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12218 column 13)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testLittleEndianRead_testLittleEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:12209:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51852 column 9)
 
--- FAIL: TestLittleEndianRead (0.0280001163482666)
+-- FAIL: TestLittleEndianRead
+
+=== RUN  TestLittleEndianWrite
+
+-- FAIL: TestLittleEndianWrite
+
+=== RUN  TestLittleEndianPtrWrite
+<invalid reflect.Value> %!v(MISSING): %!v(MISSING)
+-- FAIL: TestLittleEndianPtrWrite
+
+=== RUN  TestBigEndianRead
+
+-- FAIL: TestBigEndianRead
+
+=== RUN  TestBigEndianWrite
+
+-- FAIL: TestBigEndianWrite
+
+=== RUN  TestBigEndianPtrWrite
+<invalid reflect.Value> %!v(MISSING): %!v(MISSING)
+-- FAIL: TestBigEndianPtrWrite
+
+=== RUN  TestReadSlice
+-- PASS: TestReadSlice
+
+=== RUN  TestWriteSlice
+-- PASS: TestWriteSlice
+
+=== RUN  TestReadBool
+-- PASS: TestReadBool
+
+=== RUN  TestReadBoolSlice
+-- PASS: TestReadBoolSlice
+
+=== RUN  TestSliceRoundTrip
+-- PASS: TestSliceRoundTrip
+
+=== RUN  TestWriteT
+
+-- FAIL: TestWriteT
+
+=== RUN  TestBlankFields
+<invalid reflect.Value>
+
+-- FAIL: TestBlankFields
+
+=== RUN  TestSizeStructCache
+
+-- FAIL: TestSizeStructCache
+
+=== RUN  TestSizeInvalid
+-- PASS: TestSizeInvalid
+
+=== RUN  TestUnexportedRead
+-- PASS: TestUnexportedRead
+
+=== RUN  TestReadErrorMsg
+
+-- FAIL: TestReadErrorMsg
+
+=== RUN  TestReadTruncated
+
+-- FAIL: TestReadTruncated
+
+=== RUN  TestByteOrder
+-- PASS: TestByteOrder
+
+=== RUN  TestEarlyBoundsChecks
+
+-- FAIL: TestEarlyBoundsChecks
+
+=== RUN  TestReadInvalidDestination
+
+-- FAIL: TestReadInvalidDestination
+
+=== RUN  TestNoFixedSize
+-- PASS: TestNoFixedSize
+
+=== RUN  TestNativeEndian
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({
+		get : <function>
+	}) -> pointerType({
+		get : <function>
+	})
+NativeEndian.Uint32 returned <invalid reflect.Value>, expected %!x(MISSING)
+-- FAIL: TestNativeEndian
+
+=== RUN  TestConstants
+-- PASS: TestConstants
+
+=== RUN  TestVarint
+-- PASS: TestVarint
+
+=== RUN  TestUvarint
+-- PASS: TestUvarint
+
+=== RUN  TestBufferTooSmall
+-- PASS: TestBufferTooSmall
+
+=== RUN  TestBufferTooBigWithOverflow
+-- PASS: TestBufferTooBigWithOverflow
+
+=== RUN  TestOverflow
+-- PASS: TestOverflow
+
+=== RUN  TestNonCanonicalZero
+-- PASS: TestNonCanonicalZero
+

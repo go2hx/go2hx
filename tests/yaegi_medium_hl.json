@@ -261,5 +261,8 @@
  "hl|switch15",
  "hl|switch16",
  "hl|switch17",
- "hl|range6"
+ "hl|range6",
+ "hl|issue_dash_1371",
+ "hl|struct12",
+ "hl|struct53"
 ]

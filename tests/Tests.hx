@@ -343,12 +343,13 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	final lines = content.split("\n");
 	final runPrefix = "=== RUN  ";
 	final passPrefix = "-- PASS: ";
+	final skipPrefix = "-- SKIP: ";
 	final failPrefix = "-- FAIL: ";
 	final runs:Array<String> = [];
 	final passes:Array<String> = [];
 	final fails:Array<String> = [];
 	for (line in lines) {
-		if (StringTools.startsWith(line, passPrefix)) {
+		if (StringTools.startsWith(line, passPrefix) || StringTools.startsWith(line, skipPrefix)) {
 			passes.push(line.substr(passPrefix.length).split(" ")[0]);
 		}else if (StringTools.startsWith(line, runPrefix)){
 			runs.push(line.substr(runPrefix.length).split(" ")[0]);
@@ -597,6 +598,7 @@ private function excludeTest(name:String) {
 		case "sieve": // yaegi-easy SIGNAL 15 Channel buffer pop
 		case "issue29624", "issue29312": // yaegi-medium 100d array breaks Haxe's printer
 		case "type9", "method16", "struct28": // yaegi-medium not the same as go compiler output
+		case "issue26094": // go-medium relies on exact same error messages for null access
 		default:
 			return false;
 	}

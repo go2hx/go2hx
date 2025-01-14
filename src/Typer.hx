@@ -3131,7 +3131,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 											macro x.$field = __tmp__.$field;
 										}
 									];
-									exprs.unshift(macro var x = $x);
+									exprs.unshift(@:assign1 macro var x = $x);
 									exprs.unshift(macro var __tmp__ = $y);
 									return (macro $b{exprs}).expr;
 								}
@@ -3141,10 +3141,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								final exprs:Array<Expr> = [
 									for (field in fields) {
 										final field = field.name;
-										macro x.$field = __tmp__.$field;
+										macro x.$field = __tmp__?.$field;
 									}
 								];
-								exprs.unshift(macro var x = $x);
+								exprs.unshift(@:assign2 macro var x = $x);
 								exprs.unshift(macro var __tmp__ = $y);
 								return (macro $b{exprs}).expr;
 							default:
@@ -3221,8 +3221,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var fieldName = names[i];
 					if (fieldName == null)
 						fieldName = '_$i';
-
-					var e2 = macro __tmp__.$fieldName;
+					var e2 = macro @:tmpset0 __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch escapeParens(e).expr {
@@ -3249,10 +3248,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
 											final field = field.name;
-											macro x.$field = $y.$field;
+											macro x.$field = $y?.$field;
 										}
 									];
-									assigns.unshift(macro var x = $x);
+									assigns.unshift(@:assign3 macro var x = $x);
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
@@ -3261,10 +3260,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								final exprs:Array<Expr> = [
 									for (field in fields) {
 										final field = field.name;
-										macro x.$field = $y.$field;
+										macro x.$field = $y?.$field;
 									}
 								];
-								assigns.unshift(macro var x = $x);
+								assigns.unshift(@:assign0 macro var x = $x);
 								assigns = assigns.concat(exprs);
 							default:
 								normalAssign = true;

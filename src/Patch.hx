@@ -164,6 +164,9 @@ final list = [
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
 	// stdgo/time
+	"time:_parseRFC3339" => macro {
+		return {_0: stdgo._internal.time.Time_now.now(), _1: true};
+	},
 	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
 		@:define("(sys || hxnodejs)") {
@@ -419,19 +422,6 @@ final list = [
 	"os:_fastrand" => macro return std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
 	"math.rand:_fastrand64" => macro return haxe.Int64.make(std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
 		std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647)),
-	// stdgo/math_test
-	"math_test:testFloatMinMax" => macro trace("testFloatMinMax not implemented: fmt formatter"),
-	"math:testGamma" => macro @:define("interp") {
-		trace("interp - testGamma not implemented: high floating point precision");
-		return;
-	},
-	"regexp.syntax:testParseInvalidRegexps" => macro trace("testParseInvalidRegexps not implemented: too slow"),
-	// stdgo/math_bits_test
-	"math_bits_test:testLeadingZeros" => macro {},
-	"math_bits_test:testOnesCount" => macro {},
-	"math_bits_test:testLen" => macro {},
-	// stdgo/strings_test
-	"strings_test:_makeBenchInputHard" => macro return "",
 	// stdgo/runtime
 	// :)
 	"runtime:compiler" => macro "go2hx",
@@ -1580,7 +1570,7 @@ final list = [
 	"internal.testenv:canInternalLink" => macro return false,
 ];
 
-final skipTargets = [
+final skipTests = [
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
 	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)
@@ -1609,6 +1599,17 @@ final skipTargets = [
 	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
+	"encoding.binary_test:testNativeEndian" => [], // uses unsafe pointer conversions
+	// stdgo/math_test
+	"math_test:testFloatMinMax" => [], // fmt formatter
+	"math:testGamma" => ["interp"], // high floating point precision
+	"regexp.syntax:testParseInvalidRegexps" => [], // testParseInvalidRegexps not implemented: too slow
+	// stdgo/math_bits_test
+	"math_bits_test:testLeadingZeros" => [],
+	"math_bits_test:testOnesCount" => [],
+	"math_bits_test:testLen" => [],
+	// stdgo/strings_test
+	"strings_test:_makeBenchInputHard" => [],
 ];
 
 final replace = [

@@ -129,5 +129,9 @@
  "js|method5_0",
  "js|nonptrmethodrecv",
  "js|ptrrecv",
- "js|ddd0"
+ "js|ddd0",
+ "js|nilappend",
+ "js|realfloat",
+ "js|reflectValueArrayLen",
+ "js|varadicnamedslice"
 ]

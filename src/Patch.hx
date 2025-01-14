@@ -1498,7 +1498,7 @@ final list = [
 		_c.skipNow();
 	},
 	"testing.T_common:skip" => macro {
-		stdgo._internal.fmt.Fmt_print.print(...[for (arg in _args) arg]);
+		stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
 		_c.skipNow();
 	},
 	"testing.T_common:skipNow" => macro {
@@ -1535,7 +1535,7 @@ final list = [
 			try {
 				test.f(t);
 			} catch (e) {
-				if (e.message != "__fail__") {
+				if (e.message == "__fail__") {
 					stdgo.Go.println(e.details());
 					exit = true;
 				}

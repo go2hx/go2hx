@@ -23,8 +23,8 @@ package stdgo._internal.crypto.tls;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = @:check2 _b.bytes();
-            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _m ?? throw "null pointer dereference")._raw = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }

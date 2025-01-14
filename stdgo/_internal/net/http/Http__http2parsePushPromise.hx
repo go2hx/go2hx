@@ -16,9 +16,9 @@ function _http2parsePushPromise(__137:stdgo.Ref<stdgo._internal.net.http.Http_T_
             {
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__http2readByte._http2readByte(_p);
-                    _p = __tmp__._0;
-                    _padLength = __tmp__._1;
-                    _err = __tmp__._2;
+                    _p = @:tmpset0 __tmp__._0;
+                    _padLength = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     _countError(("frame_pushpromise_pad_short" : stdgo.GoString));
@@ -28,9 +28,9 @@ function _http2parsePushPromise(__137:stdgo.Ref<stdgo._internal.net.http.Http_T_
         };
         {
             var __tmp__ = stdgo._internal.net.http.Http__http2readUint32._http2readUint32(_p);
-            _p = __tmp__._0;
-            (@:checkr _pp ?? throw "null pointer dereference").promiseID = __tmp__._1;
-            _err = __tmp__._2;
+            _p = @:tmpset0 __tmp__._0;
+            (@:checkr _pp ?? throw "null pointer dereference").promiseID = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             _countError(("frame_pushpromise_promiseid_short" : stdgo.GoString));

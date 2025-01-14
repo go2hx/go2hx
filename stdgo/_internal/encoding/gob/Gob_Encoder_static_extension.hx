@@ -372,20 +372,20 @@ package stdgo._internal.encoding.gob;
             if (__value__ == ((1 : stdgo.GoInt))) {
                 {
                     var __tmp__ = (stdgo.Go.typeAssert((_v.interface_() : stdgo._internal.encoding.gob.Gob_GobEncoder.GobEncoder)) : stdgo._internal.encoding.gob.Gob_GobEncoder.GobEncoder).gobEncode();
-                    _data = __tmp__._0;
-                    _err = __tmp__._1;
+                    _data = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else if (__value__ == ((2 : stdgo.GoInt))) {
                 {
                     var __tmp__ = (stdgo.Go.typeAssert((_v.interface_() : stdgo._internal.encoding.Encoding_BinaryMarshaler.BinaryMarshaler)) : stdgo._internal.encoding.Encoding_BinaryMarshaler.BinaryMarshaler).marshalBinary();
-                    _data = __tmp__._0;
-                    _err = __tmp__._1;
+                    _data = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else if (__value__ == ((3 : stdgo.GoInt))) {
                 {
                     var __tmp__ = (stdgo.Go.typeAssert((_v.interface_() : stdgo._internal.encoding.Encoding_TextMarshaler.TextMarshaler)) : stdgo._internal.encoding.Encoding_TextMarshaler.TextMarshaler).marshalText();
-                    _data = __tmp__._0;
-                    _err = __tmp__._1;
+                    _data = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
         };

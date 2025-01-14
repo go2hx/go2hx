@@ -36,8 +36,8 @@ function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
 var _r = __1, _q = __0;
                 {
                     var __tmp__ = _q._div(_r, _x, _b);
-                    _q = __tmp__._0;
-                    _r = __tmp__._1;
+                    _q = @:tmpset0 __tmp__._0;
+                    _r = @:tmpset0 __tmp__._1;
                 };
                 if (_q._cmp(_a) != ((0 : stdgo.GoInt))) {
                     @:check2r _t.fatalf(("wrong quotient: got %s; want %s for %s/%s" : stdgo.GoString), stdgo.Go.toInterface(_q._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_a._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_x._utoa((10 : stdgo.GoInt))), stdgo.Go.toInterface(_b._utoa((10 : stdgo.GoInt))));

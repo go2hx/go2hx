@@ -104,7 +104,7 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                         if (__value__ == ((34 : stdgo.GoUInt8))) {
                             {
                                 var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\"\"" : stdgo.GoString));
-                                _err = __tmp__._1;
+                                _err = @:tmpset0 __tmp__._1;
                             };
                         } else if (__value__ == ((13 : stdgo.GoUInt8))) {
                             if (!(@:checkr _w ?? throw "null pointer dereference").useCRLF) {
@@ -114,7 +114,7 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
                             if ((@:checkr _w ?? throw "null pointer dereference").useCRLF) {
                                 {
                                     var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\r\n" : stdgo.GoString));
-                                    _err = __tmp__._1;
+                                    _err = @:tmpset0 __tmp__._1;
                                 };
                             } else {
                                 _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((10 : stdgo.GoUInt8));
@@ -138,7 +138,7 @@ if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _
         if ((@:checkr _w ?? throw "null pointer dereference").useCRLF) {
             {
                 var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(("\r\n" : stdgo.GoString));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             _err = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeByte((10 : stdgo.GoUInt8));

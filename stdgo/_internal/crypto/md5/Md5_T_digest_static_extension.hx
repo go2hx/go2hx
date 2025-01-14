@@ -85,29 +85,29 @@ package stdgo._internal.crypto.md5;
         _b = (_b.__slice__((stdgo.Go.str("md5", 1).length)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._s[(3 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._s[(3 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         _b = (_b.__slice__(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._len = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._len = @:tmpset0 __tmp__._1;
         };
         (@:checkr _d ?? throw "null pointer dereference")._nx = (((@:checkr _d ?? throw "null pointer dereference")._len % (64i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt);
         return (null : stdgo.Error);

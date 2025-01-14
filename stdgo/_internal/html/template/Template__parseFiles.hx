@@ -27,7 +27,7 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_Templat
             };
             {
                 var __tmp__ = @:check2r _tmpl.parse(_s?.__copy__());
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

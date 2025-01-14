@@ -263,8 +263,8 @@ package stdgo._internal.net.http;
                         var _n1:stdgo.GoInt = (0 : stdgo.GoInt);
                         {
                             var __tmp__ = _body.read((_scratch.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                            _n1 = __tmp__._0;
-                            _err = __tmp__._1;
+                            _n1 = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         _remainLen = (_remainLen - ((_n1 : stdgo.GoInt64)) : stdgo.GoInt64);
                     };
@@ -313,8 +313,8 @@ package stdgo._internal.net.http;
                     var _allowed:stdgo.GoInt32 = (0 : stdgo.GoInt32);
                     {
                         var __tmp__ = @:check2r _cs._awaitFlowControl((_remain.length));
-                        _allowed = __tmp__._0;
-                        _err = __tmp__._1;
+                        _allowed = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         {
@@ -381,8 +381,8 @@ package stdgo._internal.net.http;
             if (((_trailer.length) > (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = @:check2r _cc._encodeTrailers(_trailer);
-                    _trls = __tmp__._0;
-                    _err = __tmp__._1;
+                    _trls = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {

@@ -9,8 +9,8 @@ function _evalArgs(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.GoString {
                 } catch(_) {
                     { _0 : ("" : stdgo.GoString), _1 : false };
                 };
-                _s = __tmp__._0?.__copy__();
-                _ok = __tmp__._1;
+                _s = @:tmpset0 __tmp__._0?.__copy__();
+                _ok = @:tmpset0 __tmp__._1;
             };
         };
         if (!_ok) {

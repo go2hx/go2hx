@@ -28,8 +28,8 @@ function _codeInit():Void {
             {
                 {
                     var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface((stdgo.Go.setRef(stdgo._internal.encoding.json.Json__codeStruct._codeStruct) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse>)));
-                    _data = __tmp__._0;
-                    _err = __tmp__._1;
+                    _data = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     throw stdgo.Go.toInterface((("marshal code.json: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString));

@@ -21,8 +21,8 @@ function _readSetCookies(_h:stdgo._internal.net.http.Http_Header.Header):stdgo.S
             };
             {
                 var __tmp__ = stdgo._internal.net.http.Http__parseCookieValue._parseCookieValue(_value?.__copy__(), true);
-                _value = __tmp__._0?.__copy__();
-                _ok = __tmp__._1;
+                _value = @:tmpset0 __tmp__._0?.__copy__();
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 continue;
@@ -48,8 +48,8 @@ if (!_isASCII) {
                     };
 {
                         var __tmp__ = stdgo._internal.net.http.Http__parseCookieValue._parseCookieValue(_val.__copy__(), false);
-                        _val = __tmp__._0.__copy__();
-                        _ok = __tmp__._1;
+                        _val = @:tmpset0 __tmp__._0.__copy__();
+                        _ok = @:tmpset0 __tmp__._1;
                     };
 if (!_ok) {
                         (@:checkr _c ?? throw "null pointer dereference").unparsed = ((@:checkr _c ?? throw "null pointer dereference").unparsed.__append__(_parts[(_i : stdgo.GoInt)].__copy__()));
@@ -133,8 +133,8 @@ if (!_ok) {
                                     if (_err != null) {
                                         {
                                             var __tmp__ = stdgo._internal.time.Time_parse.parse(("Mon, 02-Jan-2006 15:04:05 MST" : stdgo.GoString), _val?.__copy__());
-                                            _exptime = __tmp__._0?.__copy__();
-                                            _err = __tmp__._1;
+                                            _exptime = @:tmpset0 __tmp__._0?.__copy__();
+                                            _err = @:tmpset0 __tmp__._1;
                                         };
                                         if (_err != null) {
                                             (@:checkr _c ?? throw "null pointer dereference").expires = (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time);

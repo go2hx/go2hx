@@ -77,8 +77,8 @@ package stdgo._internal.net.http.fcgi;
                     if (((_content.length) > (0 : stdgo.GoInt) : Bool)) {
                         {
                             var __tmp__ = stdgo._internal.io.Io_pipe.pipe();
-                            _body = stdgo.Go.asInterface(__tmp__._0);
-                            (@:checkr _req ?? throw "null pointer dereference")._pw = __tmp__._1;
+                            _body = stdgo.Go.asInterface(@:tmpset0 __tmp__._0);
+                            (@:checkr _req ?? throw "null pointer dereference")._pw = @:tmpset0 __tmp__._1;
                         };
                     } else {
                         _body = stdgo._internal.net.http.fcgi.Fcgi__emptyBody._emptyBody;

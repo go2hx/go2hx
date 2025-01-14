@@ -229,8 +229,8 @@ package stdgo._internal.crypto.tls;
         if ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").wrapSession != null) {
             {
                 var __tmp__ = (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").wrapSession(@:check2r _c._connectionStateLocked()?.__copy__(), _state);
-                (@:checkr _m ?? throw "null pointer dereference")._label = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _m ?? throw "null pointer dereference")._label = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -243,8 +243,8 @@ package stdgo._internal.crypto.tls;
             };
             {
                 var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._encryptTicket(_stateBytes, (@:checkr _c ?? throw "null pointer dereference")._ticketKeys);
-                (@:checkr _m ?? throw "null pointer dereference")._label = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _m ?? throw "null pointer dereference")._label = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -254,7 +254,7 @@ package stdgo._internal.crypto.tls;
         var _ageAdd = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._rand().read(_ageAdd);
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;
@@ -282,8 +282,8 @@ package stdgo._internal.crypto.tls;
             {
                 {
                     var __tmp__ = stdgo._internal.crypto.x509.X509_parseCertificate.parseCertificate(_asn1Data);
-                    _certs[(_i : stdgo.GoInt)] = __tmp__._0;
-                    _err = __tmp__._1;
+                    _certs[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _c._sendAlert((42 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -375,8 +375,8 @@ package stdgo._internal.crypto.tls;
             {
                 {
                     var __tmp__ = (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").getConfigForClient(_chi);
-                    _configForClient = __tmp__._0;
-                    _err = __tmp__._1;
+                    _configForClient = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -393,8 +393,8 @@ package stdgo._internal.crypto.tls;
         };
         {
             var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._mutualVersion(false, _clientVersions);
-            (@:checkr _c ?? throw "null pointer dereference")._vers = __tmp__._0;
-            _ok = __tmp__._1;
+            (@:checkr _c ?? throw "null pointer dereference")._vers = @:tmpset0 __tmp__._0;
+            _ok = @:tmpset0 __tmp__._1;
         };
         if (!_ok) {
             @:check2r _c._sendAlert((70 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -529,8 +529,8 @@ package stdgo._internal.crypto.tls;
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = @:check2r _certs[(0 : stdgo.GoInt)].verify(_opts?.__copy__());
-                (@:checkr _c ?? throw "null pointer dereference")._verifiedChains = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _c ?? throw "null pointer dereference")._verifiedChains = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 @:check2r _c._sendAlert((42 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -1092,8 +1092,8 @@ package stdgo._internal.crypto.tls;
             };
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(@:check2r _config._rand(), _curveID);
-                _key = __tmp__._0;
-                _err = __tmp__._1;
+                _key = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : null, _2 : _err };
@@ -1845,7 +1845,7 @@ package stdgo._internal.crypto.tls;
                 };
                 {
                     var __tmp__ = @:check2r _c._writeRecordLocked((22 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), _msgBytes);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2 (@:checkr _c ?? throw "null pointer dereference")._out._setErrorLocked(_err);
@@ -2506,7 +2506,7 @@ package stdgo._internal.crypto.tls;
                 };
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__sliceForAppend._sliceForAppend((_outBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (5 : stdgo.GoInt));
-                    _outBuf = __tmp__._1;
+                    _outBuf = @:tmpset0 __tmp__._1;
                 };
                 _outBuf[(0 : stdgo.GoInt)] = (_typ : stdgo.GoUInt8);
                 var _vers = ((@:checkr _c ?? throw "null pointer dereference")._vers : stdgo.GoUInt16);
@@ -2522,8 +2522,8 @@ package stdgo._internal.crypto.tls;
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out._encrypt(_outBuf, (_data.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>), @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._rand());
-                    _outBuf = __tmp__._0;
-                    _err = __tmp__._1;
+                    _outBuf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {

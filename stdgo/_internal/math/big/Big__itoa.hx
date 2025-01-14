@@ -13,8 +13,8 @@ function _itoa(_x:stdgo._internal.math.big.Big_T_nat.T_nat, _base:stdgo.GoInt):s
             var _r:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
             {
                 var __tmp__ = _q._divW(_q, (_base : stdgo._internal.math.big.Big_Word.Word));
-                _q = __tmp__._0;
-                _r = __tmp__._1;
+                _q = @:tmpset0 __tmp__._0;
+                _r = @:tmpset0 __tmp__._1;
             };
             _s[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[(_r : stdgo.GoInt)];
         };

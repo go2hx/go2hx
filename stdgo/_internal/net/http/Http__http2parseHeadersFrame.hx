@@ -16,9 +16,9 @@ function _http2parseHeadersFrame(__137:stdgo.Ref<stdgo._internal.net.http.Http_T
             {
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__http2readByte._http2readByte(_p);
-                    _p = __tmp__._0;
-                    _padLength = __tmp__._1;
-                    _err = __tmp__._2;
+                    _p = @:tmpset0 __tmp__._0;
+                    _padLength = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     _countError(("frame_headers_pad_short" : stdgo.GoString));
@@ -30,9 +30,9 @@ function _http2parseHeadersFrame(__137:stdgo.Ref<stdgo._internal.net.http.Http_T
             var _v:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             {
                 var __tmp__ = stdgo._internal.net.http.Http__http2readUint32._http2readUint32(_p);
-                _p = __tmp__._0;
-                _v = __tmp__._1;
-                _err = __tmp__._2;
+                _p = @:tmpset0 __tmp__._0;
+                _v = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 _countError(("frame_headers_prio_short" : stdgo.GoString));
@@ -47,9 +47,9 @@ function _http2parseHeadersFrame(__137:stdgo.Ref<stdgo._internal.net.http.Http_T
             (@:checkr _hf ?? throw "null pointer dereference").priority.exclusive = (_v != (@:checkr _hf ?? throw "null pointer dereference").priority.streamDep);
             {
                 var __tmp__ = stdgo._internal.net.http.Http__http2readByte._http2readByte(_p);
-                _p = __tmp__._0;
-                (@:checkr _hf ?? throw "null pointer dereference").priority.weight = __tmp__._1;
-                _err = __tmp__._2;
+                _p = @:tmpset0 __tmp__._0;
+                (@:checkr _hf ?? throw "null pointer dereference").priority.weight = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 _countError(("frame_headers_prio_weight_short" : stdgo.GoString));

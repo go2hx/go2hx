@@ -10,7 +10,7 @@ function _newFlateWriter(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal
         } else {
             {
                 var __tmp__ = stdgo._internal.compress.flate.Flate_newWriter.newWriter(_w, (5 : stdgo.GoInt));
-                _fw = __tmp__._0;
+                _fw = @:tmpset0 __tmp__._0;
             };
         };
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _fw : _fw } : stdgo._internal.archive.zip.Zip_T_pooledFlateWriter.T_pooledFlateWriter)) : stdgo.Ref<stdgo._internal.archive.zip.Zip_T_pooledFlateWriter.T_pooledFlateWriter>));

@@ -159,8 +159,8 @@ package stdgo._internal.internal.fuzz;
             };
             {
                 var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__();
-                _mem = __tmp__._0;
-                _ok = __tmp__._1;
+                _mem = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 {
@@ -370,8 +370,8 @@ package stdgo._internal.internal.fuzz;
             _entryOut = _entryIn?.__copy__();
             {
                 var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(_inp);
-                _entryOut.values = __tmp__._0;
-                _err = __tmp__._1;
+                _entryOut.values = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -400,8 +400,8 @@ package stdgo._internal.internal.fuzz;
                 var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse>))) : stdgo.Error);
                 {
                     var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__();
-                    _mem = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _mem = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     {
@@ -456,8 +456,8 @@ package stdgo._internal.internal.fuzz;
                     _entryOut.data = @:check2r _mem._valueCopy();
                     {
                         var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(_entryOut.data);
-                        _entryOut.values = __tmp__._0;
-                        _err = __tmp__._1;
+                        _entryOut.values = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         {

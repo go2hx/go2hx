@@ -27,8 +27,8 @@ package stdgo._internal.encoding.base32;
         var _l = (stdgo._internal.encoding.base32.Base32__stripNewlines._stripNewlines(_buf, _src) : stdgo.GoInt);
         {
             var __tmp__ = @:check2r _enc._decode(_dst, (_buf.__slice__(0, _l) : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
-            _err = __tmp__._2;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._2;
         };
         return { _0 : _n, _1 : _err };
     }

@@ -144,8 +144,8 @@ package stdgo._internal.net.http.httputil;
             };
             {
                 var __tmp__ = (@:checkr _m ?? throw "null pointer dereference")._dst.write(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (((@:checkr _m ?? throw "null pointer dereference")._latency < (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
                 (@:checkr _m ?? throw "null pointer dereference")._flush();

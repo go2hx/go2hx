@@ -50,8 +50,8 @@ _offset = (_offset + ((20i64 : stdgo.GoInt64)) : stdgo.GoInt64);
 var _fr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_fa.fatArchHeader.offset : stdgo.GoInt64), (_fa.fatArchHeader.size : stdgo.GoInt64));
 {
                     var __tmp__ = stdgo._internal.debug.macho.Macho_newFile.newFile(stdgo.Go.asInterface(_fr));
-                    _fa.file = __tmp__._0;
-                    _err = __tmp__._1;
+                    _fa.file = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
 if (_err != null) {
                     return { _0 : null, _1 : _err };

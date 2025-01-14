@@ -16,8 +16,8 @@ function testMarshalerEscaping(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
         _want = ("\"\\\"\\u003c\\u0026\\u003e\\\"\"" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_ct)));
-            _b = __tmp__._0;
-            _err = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatalf(("Marshal(ct): %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

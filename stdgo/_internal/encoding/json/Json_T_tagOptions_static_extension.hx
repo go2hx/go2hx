@@ -12,8 +12,8 @@ package stdgo._internal.encoding.json;
             var _name:stdgo.GoString = ("" : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_s?.__copy__(), ("," : stdgo.GoString));
-                _name = __tmp__._0?.__copy__();
-                _s = __tmp__._1?.__copy__();
+                _name = @:tmpset0 __tmp__._0?.__copy__();
+                _s = @:tmpset0 __tmp__._1?.__copy__();
             };
             if (_name == (_optionName)) {
                 return true;

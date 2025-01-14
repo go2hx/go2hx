@@ -154,8 +154,8 @@ package stdgo._internal.encoding.gob;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.internal.saferio.Saferio_readData.readData((@:checkr _dec ?? throw "null pointer dereference")._r, (_nbytes : stdgo.GoUInt64));
-            _buf = __tmp__._0;
-            (@:checkr _dec ?? throw "null pointer dereference")._err = __tmp__._1;
+            _buf = @:tmpset0 __tmp__._0;
+            (@:checkr _dec ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         @:check2 (@:checkr _dec ?? throw "null pointer dereference")._buf.setBytes(_buf);
         if (stdgo.Go.toInterface((@:checkr _dec ?? throw "null pointer dereference")._err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -200,8 +200,8 @@ package stdgo._internal.encoding.gob;
         var _enginePtr:stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>> = (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>);
         {
             var __tmp__ = @:check2r _dec._getIgnoreEnginePtr(_wireId);
-            _enginePtr = __tmp__._0;
-            (@:checkr _dec ?? throw "null pointer dereference")._err = __tmp__._1;
+            _enginePtr = @:tmpset0 __tmp__._0;
+            (@:checkr _dec ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _dec ?? throw "null pointer dereference")._err != null) {
             return;
@@ -240,8 +240,8 @@ package stdgo._internal.encoding.gob;
             var _enginePtr:stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>> = (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>);
             {
                 var __tmp__ = @:check2r _dec._getDecEnginePtr(_wireId, _ut);
-                _enginePtr = __tmp__._0;
-                (@:checkr _dec ?? throw "null pointer dereference")._err = __tmp__._1;
+                _enginePtr = @:tmpset0 __tmp__._0;
+                (@:checkr _dec ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _dec ?? throw "null pointer dereference")._err != null) {
                 {
@@ -323,8 +323,8 @@ package stdgo._internal.encoding.gob;
         {
             {
                 var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._ignorerCache != null && (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache.exists(_wireId) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache[_wireId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>), _1 : false });
-                _enginePtr = __tmp__._0;
-                _ok = __tmp__._1;
+                _enginePtr = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 _enginePtr = (stdgo.Go.setRef((null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>)) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>);
@@ -333,8 +333,8 @@ package stdgo._internal.encoding.gob;
                 if (((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && ((@:checkr _wire ?? throw "null pointer dereference").structT != null && (((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__)) : Bool)) {
                     {
                         var __tmp__ = @:check2r _dec._compileDec(_wireId, stdgo._internal.encoding.gob.Gob__userType._userType(stdgo._internal.encoding.gob.Gob__emptyStructType._emptyStructType));
-                        _enginePtr = __tmp__._0;
-                        _err = __tmp__._1;
+                        _enginePtr = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     _enginePtr = @:check2r _dec._compileIgnoreSingle(_wireId);
@@ -365,16 +365,16 @@ package stdgo._internal.encoding.gob;
         {
             {
                 var __tmp__ = (_decoderMap != null && _decoderMap.exists(_remoteId) ? { _0 : _decoderMap[_remoteId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>), _1 : false });
-                _enginePtr = __tmp__._0;
-                _ok = __tmp__._1;
+                _enginePtr = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 _enginePtr = (stdgo.Go.setRef((null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>)) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>);
                 _decoderMap[_remoteId] = _enginePtr;
                 {
                     var __tmp__ = @:check2r _dec._compileDec(_remoteId, _ut);
-                    _enginePtr = __tmp__._0;
-                    _err = __tmp__._1;
+                    _enginePtr = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     if (_decoderMap != null) _decoderMap.remove(_remoteId);
@@ -423,7 +423,7 @@ package stdgo._internal.encoding.gob;
                         } catch(_) {
                             { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_structType.T_structType>), _1 : false };
                         };
-                        _wireStruct = __tmp__._0;
+                        _wireStruct = @:tmpset0 __tmp__._0;
                     };
                 } else {
                     var _wire = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
@@ -740,7 +740,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                                 } catch(_) {
                                     { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_sliceType.T_sliceType>), _1 : false };
                                 };
-                                _sw = __tmp__._0;
+                                _sw = @:tmpset0 __tmp__._0;
                             };
                         } else if ((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__))) {
                             _sw = (@:checkr _wire ?? throw "null pointer dereference").sliceT;
@@ -1019,8 +1019,8 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
         };
         {
             var __tmp__ = @:check2r _state._getLength();
-            _n = __tmp__._0;
-            _ok = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _ok = @:tmpset0 __tmp__._1;
         };
         if (!_ok) {
             stdgo._internal.encoding.gob.Gob__errorf._errorf(("bad interface encoding: data length too large for buffer" : stdgo.GoString));

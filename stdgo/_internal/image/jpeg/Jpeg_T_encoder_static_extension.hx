@@ -256,7 +256,7 @@ var _b = __1, _a = __0;
         };
         {
             var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(_p);
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
     }
     @:keep

@@ -9,8 +9,8 @@ function _generateLegacy(_c:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
         (@:checkr _priv ?? throw "null pointer dereference").d = _k;
         {
             var __tmp__ = _c.scalarBaseMult(@:check2r _k.bytes());
-            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = __tmp__._0;
-            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = __tmp__._1;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = @:tmpset0 __tmp__._0;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = @:tmpset0 __tmp__._1;
         };
         return { _0 : _priv, _1 : (null : stdgo.Error) };
     }

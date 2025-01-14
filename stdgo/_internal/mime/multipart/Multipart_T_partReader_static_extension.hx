@@ -10,13 +10,13 @@ package stdgo._internal.mime.multipart;
             var __tmp__ = @:check2r _br.peek(@:check2r _br.buffered()), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             {
                 var __tmp__ = stdgo._internal.mime.multipart.Multipart__scanUntilBoundary._scanUntilBoundary(_peek, (@:checkr (@:checkr _p ?? throw "null pointer dereference")._mr ?? throw "null pointer dereference")._dashBoundary, (@:checkr (@:checkr _p ?? throw "null pointer dereference")._mr ?? throw "null pointer dereference")._nlDashBoundary, (@:checkr _p ?? throw "null pointer dereference")._total, (@:checkr _p ?? throw "null pointer dereference")._readErr);
-                (@:checkr _p ?? throw "null pointer dereference")._n = __tmp__._0;
-                (@:checkr _p ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _p ?? throw "null pointer dereference")._n = @:tmpset0 __tmp__._0;
+                (@:checkr _p ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((((@:checkr _p ?? throw "null pointer dereference")._n == (0 : stdgo.GoInt)) && ((@:checkr _p ?? throw "null pointer dereference")._err == null) : Bool)) {
                 {
                     var __tmp__ = @:check2r _br.peek(((_peek.length) + (1 : stdgo.GoInt) : stdgo.GoInt));
-                    (@:checkr _p ?? throw "null pointer dereference")._readErr = __tmp__._1;
+                    (@:checkr _p ?? throw "null pointer dereference")._readErr = @:tmpset0 __tmp__._1;
                 };
                 if (stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._readErr) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     (@:checkr _p ?? throw "null pointer dereference")._readErr = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
@@ -32,7 +32,7 @@ package stdgo._internal.mime.multipart;
         };
         {
             var __tmp__ = @:check2r _br.read((_d.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
+            _n = @:tmpset0 __tmp__._0;
         };
         (@:checkr _p ?? throw "null pointer dereference")._total = ((@:checkr _p ?? throw "null pointer dereference")._total + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         (@:checkr _p ?? throw "null pointer dereference")._n = ((@:checkr _p ?? throw "null pointer dereference")._n - (_n) : stdgo.GoInt);

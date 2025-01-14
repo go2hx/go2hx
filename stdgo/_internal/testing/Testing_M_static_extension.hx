@@ -20,6 +20,7 @@ package stdgo._internal.testing;
     static public function run( _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M>):stdgo.GoInt {
         @:recv var _m:stdgo.Ref<stdgo._internal.testing.Testing_M.M> = _m;
         final chatty = true;
+        final chattyTimes = false;
         stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
         _m._numRun++;
         for (test in _m._tests) {
@@ -32,15 +33,17 @@ package stdgo._internal.testing;
             try {
                 test.f(t);
             } catch(e) {
-                if (e.message != "__fail__") {
+                if (e.message == "__fail__") {
                     stdgo.Go.println(e.details());
                     exit = true;
                 };
-                error = true;
+                if (e.message != "__skip__") {
+                    error = true;
+                };
             };
             final dstr = (#if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
-                stdgo.Go.println('\n-- FAIL: ${test.name.toString()} ($dstr)');
+                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
                 _m._exitCode = 1;
                 if (exit) {
                     #if (sys || hxnodejs) Sys.exit(1) #else null #end;
@@ -48,9 +51,9 @@ package stdgo._internal.testing;
                 };
             } else if (chatty) {
                 if (t.skipped()) {
-                    stdgo.Go.println('-- SKIP: ${test.name.toString()} ($dstr)');
+                    stdgo.Go.println('-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
                 } else {
-                    stdgo.Go.println('-- PASS: ${test.name.toString()} ($dstr)');
+                    stdgo.Go.println('-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
                 };
             };
             stdgo.Go.println(output.toString());

@@ -14,9 +14,9 @@ function _parseTagAndLength(_bytes:stdgo.Slice<stdgo.GoUInt8>, _initOffset:stdgo
         if (_ret._tag == ((31 : stdgo.GoInt))) {
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseBase128Int._parseBase128Int(_bytes, _offset);
-                _ret._tag = __tmp__._0;
-                _offset = __tmp__._1;
-                _err = __tmp__._2;
+                _ret._tag = @:tmpset0 __tmp__._0;
+                _offset = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _offset, _2 : _err };

@@ -19,8 +19,8 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 var _n:stdgo.GoInt = (0 : stdgo.GoInt);
                                 {
                                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__());
-                                    _r = __tmp__._0;
-                                    _n = __tmp__._1;
+                                    _r = @:tmpset0 __tmp__._0;
+                                    _n = @:tmpset0 __tmp__._1;
                                 };
                                 _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
@@ -42,9 +42,9 @@ var _hi = __1, _lo = __0;
                                 {
                                     {
                                         var __tmp__ = stdgo._internal.path.Path__getEsc._getEsc(_chunk?.__copy__());
-                                        _lo = __tmp__._0;
-                                        _chunk = __tmp__._1?.__copy__();
-                                        _err = __tmp__._2;
+                                        _lo = @:tmpset0 __tmp__._0;
+                                        _chunk = @:tmpset0 __tmp__._1?.__copy__();
+                                        _err = @:tmpset0 __tmp__._2;
                                     };
                                     if (_err != null) {
                                         return {
@@ -61,9 +61,9 @@ var _hi = __1, _lo = __0;
                                     {
                                         {
                                             var __tmp__ = stdgo._internal.path.Path__getEsc._getEsc((_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-                                            _hi = __tmp__._0;
-                                            _chunk = __tmp__._1?.__copy__();
-                                            _err = __tmp__._2;
+                                            _hi = @:tmpset0 __tmp__._0;
+                                            _chunk = @:tmpset0 __tmp__._1?.__copy__();
+                                            _err = @:tmpset0 __tmp__._2;
                                         };
                                         if (_err != null) {
                                             return {

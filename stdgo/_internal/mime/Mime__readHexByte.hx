@@ -6,8 +6,8 @@ var _lb = __1, _hb = __0;
         {
             {
                 var __tmp__ = stdgo._internal.mime.Mime__fromHex._fromHex(_a);
-                _hb = __tmp__._0;
-                _err = __tmp__._1;
+                _hb = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (0 : stdgo.GoUInt8), _1 : _err };
@@ -16,8 +16,8 @@ var _lb = __1, _hb = __0;
         {
             {
                 var __tmp__ = stdgo._internal.mime.Mime__fromHex._fromHex(_b);
-                _lb = __tmp__._0;
-                _err = __tmp__._1;
+                _lb = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (0 : stdgo.GoUInt8), _1 : _err };

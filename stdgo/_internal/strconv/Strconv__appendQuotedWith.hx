@@ -14,8 +14,8 @@ _width = (1 : stdgo.GoInt);
 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s.__copy__());
-                        _r = __tmp__._0;
-                        _width = __tmp__._1;
+                        _r = @:tmpset0 __tmp__._0;
+                        _width = @:tmpset0 __tmp__._1;
                     };
                 };
 if (((_width == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {

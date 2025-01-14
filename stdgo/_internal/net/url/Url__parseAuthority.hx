@@ -5,14 +5,14 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.net.url.Url__parseHost._parseHost(_authority?.__copy__());
-                _host = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _host = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = stdgo._internal.net.url.Url__parseHost._parseHost((_authority.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-                _host = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _host = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {
@@ -47,8 +47,8 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
             {
                 {
                     var __tmp__ = stdgo._internal.net.url.Url__unescape._unescape(_userinfo?.__copy__(), (5 : stdgo._internal.net.url.Url_T_encoding.T_encoding));
-                    _userinfo = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _userinfo = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -66,8 +66,8 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
             {
                 {
                     var __tmp__ = stdgo._internal.net.url.Url__unescape._unescape(_username?.__copy__(), (5 : stdgo._internal.net.url.Url_T_encoding.T_encoding));
-                    _username = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _username = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -82,8 +82,8 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
             {
                 {
                     var __tmp__ = stdgo._internal.net.url.Url__unescape._unescape(_password?.__copy__(), (5 : stdgo._internal.net.url.Url_T_encoding.T_encoding));
-                    _password = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _password = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {

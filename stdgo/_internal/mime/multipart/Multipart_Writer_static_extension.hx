@@ -26,7 +26,7 @@ package stdgo._internal.mime.multipart;
         };
         {
             var __tmp__ = _p.write((_value : stdgo.Slice<stdgo.GoUInt8>));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }

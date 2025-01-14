@@ -4,26 +4,26 @@ package stdgo._internal.encoding.csv;
     @:tdfield
     static public function _readRecord( _r:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Reader.Reader>, _dst:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Reader.Reader> = _r;
-        var _preIdx_3661164:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _str_3660950:stdgo.GoString = ("" : stdgo.GoString);
-        var _quoteLen_3657417;
-        var _err_3657400:stdgo.Error = (null : stdgo.Error);
-        var _errRead_3657023:stdgo.Error = (null : stdgo.Error);
-        var _fieldPos_3658754:stdgo._internal.encoding.csv.Csv_T_position.T_position = ({} : stdgo._internal.encoding.csv.Csv_T_position.T_position);
-        var _field_3658029:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _i_3657727:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _commaLen_3657438:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _line_3657006:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i_3661180:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _rn_3659033:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _i_3658832:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3658232:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _str_3660950:stdgo.GoString = ("" : stdgo.GoString);
+        var _col_3658280:stdgo.GoInt = (0 : stdgo.GoInt);
         var _parseFieldBreak = false;
+        var _err_3657400:stdgo.Error = (null : stdgo.Error);
+        var _preIdx_3661164:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_3658232:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _field_3658029:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _pos_3657638:stdgo._internal.encoding.csv.Csv_T_position.T_position = ({} : stdgo._internal.encoding.csv.Csv_T_position.T_position);
         var _recLine_3657473:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _commaLen_3657438:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _line_3657006:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _idx_3661183:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _col_3658280:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _rn_3659033:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _i_3658832:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fieldPos_3658754:stdgo._internal.encoding.csv.Csv_T_position.T_position = ({} : stdgo._internal.encoding.csv.Csv_T_position.T_position);
         var _i_3657990:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3657727:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _quoteLen_3657417;
+        var _errRead_3657023:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -50,8 +50,8 @@ package stdgo._internal.encoding.csv;
                 } else if (__value__ == (3657057i32)) {
                     {
                         var __tmp__ = @:check2r _r._readLine();
-                        _line_3657006 = __tmp__._0;
-                        _errRead_3657023 = __tmp__._1;
+                        _line_3657006 = @:tmpset0 __tmp__._0;
+                        _errRead_3657023 = @:tmpset0 __tmp__._1;
                     };
                     if ((((@:checkr _r ?? throw "null pointer dereference").comment != (0 : stdgo.GoInt32)) && (stdgo._internal.encoding.csv.Csv__nextRune._nextRune(_line_3657006) == (@:checkr _r ?? throw "null pointer dereference").comment) : Bool)) {
                         _gotoNext = 3657141i32;
@@ -262,8 +262,8 @@ package stdgo._internal.encoding.csv;
                     _pos_3657638._col = (_pos_3657638._col + ((_line_3657006.length)) : stdgo.GoInt);
                     {
                         var __tmp__ = @:check2r _r._readLine();
-                        _line_3657006 = __tmp__._0;
-                        _errRead_3657023 = __tmp__._1;
+                        _line_3657006 = @:tmpset0 __tmp__._0;
+                        _errRead_3657023 = @:tmpset0 __tmp__._1;
                     };
                     if (((_line_3657006.length) > (0 : stdgo.GoInt) : Bool)) {
                         _gotoNext = 3660303i32;
@@ -384,8 +384,8 @@ package stdgo._internal.encoding.csv;
             while (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.bufio.Bufio_errBufferFull.errBufferFull))) {
                 {
                     var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._r.readSlice((10 : stdgo.GoUInt8));
-                    _line = __tmp__._0;
-                    _err = __tmp__._1;
+                    _line = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 (@:checkr _r ?? throw "null pointer dereference")._rawBuffer = ((@:checkr _r ?? throw "null pointer dereference")._rawBuffer.__append__(...(_line : Array<stdgo.GoUInt8>)));
             };
@@ -465,15 +465,15 @@ package stdgo._internal.encoding.csv;
         if ((@:checkr _r ?? throw "null pointer dereference").reuseRecord) {
             {
                 var __tmp__ = @:check2r _r._readRecord((@:checkr _r ?? throw "null pointer dereference")._lastRecord);
-                _record = __tmp__._0;
-                _err = __tmp__._1;
+                _record = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _r ?? throw "null pointer dereference")._lastRecord = _record;
         } else {
             {
                 var __tmp__ = @:check2r _r._readRecord((null : stdgo.Slice<stdgo.GoString>));
-                _record = __tmp__._0;
-                _err = __tmp__._1;
+                _record = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         return {

@@ -25,7 +25,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
             {
                 {
                     var __tmp__ = stdgo._internal.os.Os_lstat.lstat(_pattern?.__copy__());
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -48,8 +48,8 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         if (false) {
             {
                 var __tmp__ = stdgo._internal.path.filepath.Filepath__cleanGlobPathWindows._cleanGlobPathWindows(_dir?.__copy__());
-                _volumeLen = __tmp__._0;
-                _dir = __tmp__._1?.__copy__();
+                _volumeLen = @:tmpset0 __tmp__._0;
+                _dir = @:tmpset0 __tmp__._1?.__copy__();
             };
         } else {
             _dir = stdgo._internal.path.filepath.Filepath__cleanGlobPath._cleanGlobPath(_dir?.__copy__())?.__copy__();
@@ -73,8 +73,8 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {
             var __tmp__ = stdgo._internal.path.filepath.Filepath__globWithLimit._globWithLimit(_dir?.__copy__(), (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
-            _m = __tmp__._0;
-            _err = __tmp__._1;
+            _m = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _matches, _1 : _err };
@@ -82,8 +82,8 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         for (__1 => _d in _m) {
             {
                 var __tmp__ = stdgo._internal.path.filepath.Filepath__glob._glob(_d?.__copy__(), _file?.__copy__(), _matches);
-                _matches = __tmp__._0;
-                _err = __tmp__._1;
+                _matches = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _matches, _1 : _err };

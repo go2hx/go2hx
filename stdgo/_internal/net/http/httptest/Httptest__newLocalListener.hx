@@ -12,8 +12,8 @@ function _newLocalListener():stdgo._internal.net.Net_Listener.Listener {
             {
                 {
                     var __tmp__ = stdgo._internal.net.Net_listen.listen(("tcp6" : stdgo.GoString), ("[::1]:0" : stdgo.GoString));
-                    _l = __tmp__._0;
-                    _err = __tmp__._1;
+                    _l = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("httptest: failed to listen on a port: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));

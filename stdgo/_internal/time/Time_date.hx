@@ -6,29 +6,29 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
         var _m = ((_month : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_year, _m, (12 : stdgo.GoInt));
-            _year = __tmp__._0;
-            _m = __tmp__._1;
+            _year = @:tmpset0 __tmp__._0;
+            _m = @:tmpset0 __tmp__._1;
         };
         _month = ((_m : stdgo._internal.time.Time_Month.Month) + (1 : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month);
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_sec, _nsec, (1000000000 : stdgo.GoInt));
-            _sec = __tmp__._0;
-            _nsec = __tmp__._1;
+            _sec = @:tmpset0 __tmp__._0;
+            _nsec = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_min, _sec, (60 : stdgo.GoInt));
-            _min = __tmp__._0;
-            _sec = __tmp__._1;
+            _min = @:tmpset0 __tmp__._0;
+            _sec = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_hour, _min, (60 : stdgo.GoInt));
-            _hour = __tmp__._0;
-            _min = __tmp__._1;
+            _hour = @:tmpset0 __tmp__._0;
+            _min = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_day, _hour, (24 : stdgo.GoInt));
-            _day = __tmp__._0;
-            _hour = __tmp__._1;
+            _day = @:tmpset0 __tmp__._0;
+            _hour = @:tmpset0 __tmp__._1;
         };
         var _d = (stdgo._internal.time.Time__daysSinceEpoch._daysSinceEpoch(_year) : stdgo.GoUInt64);
         _d = (_d + ((stdgo._internal.time.Time__daysBefore._daysBefore[((_month - (1 : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month) : stdgo.GoInt)] : stdgo.GoUInt64)) : stdgo.GoUInt64);
@@ -45,7 +45,7 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
             if (((_utc < _start : Bool) || (_utc >= _end : Bool) : Bool)) {
                 {
                     var __tmp__ = @:check2r _loc._lookup(_utc);
-                    _offset = __tmp__._1;
+                    _offset = @:tmpset0 __tmp__._1;
                 };
             };
             _unix = (_unix - ((_offset : stdgo.GoInt64)) : stdgo.GoInt64);

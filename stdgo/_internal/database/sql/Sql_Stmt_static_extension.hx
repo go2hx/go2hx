@@ -235,8 +235,8 @@ package stdgo._internal.database.sql;
                 };
                 {
                     var __tmp__ = stdgo._internal.database.sql.Sql__rowsiFromStatement._rowsiFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
-                    _rowsi = __tmp__._0;
-                    _err = __tmp__._1;
+                    _rowsi = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err == null) {
                     _rows = (stdgo.Go.setRef(({ _dc : _dc, _rowsi : _rowsi } : stdgo._internal.database.sql.Sql_Rows.Rows)) : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>);
@@ -345,9 +345,9 @@ package stdgo._internal.database.sql;
             @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
             {
                 var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._cg._grabConn(_ctx);
-                _dc = __tmp__._0;
-                _releaseConn = __tmp__._1;
-                _err = __tmp__._2;
+                _dc = @:tmpset0 __tmp__._0;
+                _releaseConn = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : _dc, _1 : _releaseConn, _2 : _ds, _3 : _err };
@@ -365,8 +365,8 @@ package stdgo._internal.database.sql;
         @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
         {
             var __tmp__ = @:check2r (@:checkr _s ?? throw "null pointer dereference")._db._conn(_ctx, _strategy);
-            _dc = __tmp__._0;
-            _err = __tmp__._1;
+            _dc = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return {
@@ -396,8 +396,8 @@ package stdgo._internal.database.sql;
         stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
             {
                 var __tmp__ = @:check2r _s._prepareOnConnLocked(_ctx, _dc);
-                _ds = __tmp__._0;
-                _err = __tmp__._1;
+                _ds = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         });
         if (_err != null) {
@@ -474,8 +474,8 @@ package stdgo._internal.database.sql;
                 };
                 {
                     var __tmp__ = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
-                    _res = __tmp__._0;
-                    _err = __tmp__._1;
+                    _res = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 _releaseConn(_err);
                 return _err;

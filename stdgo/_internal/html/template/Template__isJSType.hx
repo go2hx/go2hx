@@ -2,7 +2,7 @@ package stdgo._internal.html.template;
 function _isJSType(_mimeType:stdgo.GoString):Bool {
         {
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_mimeType?.__copy__(), (";" : stdgo.GoString));
-            _mimeType = __tmp__._0?.__copy__();
+            _mimeType = @:tmpset0 __tmp__._0?.__copy__();
         };
         _mimeType = stdgo._internal.strings.Strings_toLower.toLower(_mimeType?.__copy__())?.__copy__();
         _mimeType = stdgo._internal.strings.Strings_trimSpace.trimSpace(_mimeType?.__copy__())?.__copy__();

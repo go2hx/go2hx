@@ -5,8 +5,8 @@ function _parseFieldParameters(_str:stdgo.GoString):stdgo._internal.encoding.asn
         while (((_str.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_str?.__copy__(), ("," : stdgo.GoString));
-                _part = __tmp__._0?.__copy__();
-                _str = __tmp__._1?.__copy__();
+                _part = @:tmpset0 __tmp__._0?.__copy__();
+                _str = @:tmpset0 __tmp__._1?.__copy__();
             };
             if (_part == (("optional" : stdgo.GoString))) {
                 _ret._optional = true;

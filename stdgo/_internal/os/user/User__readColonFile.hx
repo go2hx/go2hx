@@ -9,9 +9,9 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
                 var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var __tmp__ = @:check2r _rd.readLine();
-                    _line = __tmp__._0;
-                    _isPrefix = __tmp__._1;
-                    _err = __tmp__._2;
+                    _line = @:tmpset0 __tmp__._0;
+                    _isPrefix = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -39,8 +39,8 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
             };
             {
                 var __tmp__ = _fn(_wholeLine);
-                _v = __tmp__._0;
-                _err = __tmp__._1;
+                _v = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (((_v != null) || (_err != null) : Bool)) {
                 return { _0 : _v, _1 : _err };
@@ -59,8 +59,8 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
                 };
                 {
                     var __tmp__ = @:check2r _rd.readLine();
-                    _isPrefix = __tmp__._1;
-                    _err = __tmp__._2;
+                    _isPrefix = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
             };
         };

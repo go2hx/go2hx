@@ -12,16 +12,16 @@ function _dirList(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter
                 var _list:stdgo._internal.net.http.Http_T_dirEntryDirs.T_dirEntryDirs = new stdgo._internal.net.http.Http_T_dirEntryDirs.T_dirEntryDirs(0, 0);
                 {
                     var __tmp__ = _d.readDir((-1 : stdgo.GoInt));
-                    _list = __tmp__._0;
-                    _err = __tmp__._1;
+                    _list = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 _dirs = stdgo.Go.asInterface(_list);
             } else {
                 var _list:stdgo._internal.net.http.Http_T_fileInfoDirs.T_fileInfoDirs = new stdgo._internal.net.http.Http_T_fileInfoDirs.T_fileInfoDirs(0, 0);
                 {
                     var __tmp__ = _f.readdir((-1 : stdgo.GoInt));
-                    _list = __tmp__._0;
-                    _err = __tmp__._1;
+                    _list = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 _dirs = stdgo.Go.asInterface(_list);
             };

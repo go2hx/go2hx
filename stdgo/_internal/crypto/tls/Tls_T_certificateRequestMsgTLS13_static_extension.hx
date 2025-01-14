@@ -7,12 +7,12 @@ package stdgo._internal.crypto.tls;
         {
             var __tmp__ = ({ _raw : _data } : stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13);
             var x = (_m : stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13);
-            x._raw = __tmp__._raw;
-            x._ocspStapling = __tmp__._ocspStapling;
-            x._scts = __tmp__._scts;
-            x._supportedSignatureAlgorithms = __tmp__._supportedSignatureAlgorithms;
-            x._supportedSignatureAlgorithmsCert = __tmp__._supportedSignatureAlgorithmsCert;
-            x._certificateAuthorities = __tmp__._certificateAuthorities;
+            x._raw = __tmp__?._raw;
+            x._ocspStapling = __tmp__?._ocspStapling;
+            x._scts = __tmp__?._scts;
+            x._supportedSignatureAlgorithms = __tmp__?._supportedSignatureAlgorithms;
+            x._supportedSignatureAlgorithmsCert = __tmp__?._supportedSignatureAlgorithmsCert;
+            x._certificateAuthorities = __tmp__?._certificateAuthorities;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var __0:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0), __1:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
@@ -138,8 +138,8 @@ var _extensions = __1, _context = __0;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = @:check2 _b.bytes();
-            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _m ?? throw "null pointer dereference")._raw = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }

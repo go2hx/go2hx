@@ -6,7 +6,7 @@ function testMultiExecute(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         };
         {
             var __tmp__ = @:check2r _template.parse(("\n\t{{define \"dot\"}}{{.}}{{end}}\n\t{{define \"nested\"}}{{template \"dot\" .}}{{end}}\n" : stdgo.GoString));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatalf(("parse error for 2: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));

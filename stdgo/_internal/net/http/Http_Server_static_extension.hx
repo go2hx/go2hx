@@ -346,8 +346,8 @@ package stdgo._internal.net.http;
             (@:checkr _config ?? throw "null pointer dereference").certificates = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>((1 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1 : stdgo.GoInt).toBasic() > 0 ? (1 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_Certificate.Certificate)]) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>);
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls_loadX509KeyPair.loadX509KeyPair(_certFile?.__copy__(), _keyFile?.__copy__());
-                (@:checkr _config ?? throw "null pointer dereference").certificates[(0 : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                (@:checkr _config ?? throw "null pointer dereference").certificates[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;

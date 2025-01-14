@@ -7,12 +7,12 @@ package stdgo._internal.crypto.tls;
         {
             var __tmp__ = ({ _raw : _data } : stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13);
             var x = (_m : stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13);
-            x._raw = __tmp__._raw;
-            x._lifetime = __tmp__._lifetime;
-            x._ageAdd = __tmp__._ageAdd;
-            x._nonce = __tmp__._nonce;
-            x._label = __tmp__._label;
-            x._maxEarlyData = __tmp__._maxEarlyData;
+            x._raw = __tmp__?._raw;
+            x._lifetime = __tmp__?._lifetime;
+            x._ageAdd = __tmp__?._ageAdd;
+            x._nonce = __tmp__?._nonce;
+            x._label = __tmp__?._label;
+            x._maxEarlyData = __tmp__?._maxEarlyData;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _extensions:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
@@ -72,8 +72,8 @@ package stdgo._internal.crypto.tls;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = @:check2 _b.bytes();
-            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _m ?? throw "null pointer dereference")._raw = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }

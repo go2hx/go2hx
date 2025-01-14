@@ -63,14 +63,14 @@ package stdgo._internal.net.http;
         if ((@:checkr _d ?? throw "null pointer dereference").proxyDial != null) {
             {
                 var __tmp__ = (@:checkr _d ?? throw "null pointer dereference").proxyDial(stdgo._internal.context.Context_background.background(), (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = stdgo._internal.net.Net_dial.dial((@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {
@@ -128,15 +128,15 @@ package stdgo._internal.net.http;
         if ((@:checkr _d ?? throw "null pointer dereference").proxyDial != null) {
             {
                 var __tmp__ = (@:checkr _d ?? throw "null pointer dereference").proxyDial(_ctx, (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             var _dd:stdgo._internal.net.Net_Dialer.Dialer = ({} : stdgo._internal.net.Net_Dialer.Dialer);
             {
                 var __tmp__ = @:check2 _dd.dialContext(_ctx, (@:checkr _d ?? throw "null pointer dereference")._proxyNetwork?.__copy__(), (@:checkr _d ?? throw "null pointer dereference")._proxyAddress?.__copy__());
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {
@@ -253,7 +253,7 @@ package stdgo._internal.net.http;
             {
                 {
                     var __tmp__ = _c.write(_b);
-                    _ctxErr = __tmp__._1;
+                    _ctxErr = @:tmpset0 __tmp__._1;
                 };
                 if (_ctxErr != null) {
                     {
@@ -269,7 +269,7 @@ package stdgo._internal.net.http;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _ctxErr = __tmp__._1;
+                    _ctxErr = @:tmpset0 __tmp__._1;
                 };
                 if (_ctxErr != null) {
                     {
@@ -389,7 +389,7 @@ package stdgo._internal.net.http;
             {
                 {
                     var __tmp__ = _c.write(_b);
-                    _ctxErr = __tmp__._1;
+                    _ctxErr = @:tmpset0 __tmp__._1;
                 };
                 if (_ctxErr != null) {
                     {
@@ -405,7 +405,7 @@ package stdgo._internal.net.http;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _ctxErr = __tmp__._1;
+                    _ctxErr = @:tmpset0 __tmp__._1;
                 };
                 if (_ctxErr != null) {
                     {
@@ -525,7 +525,7 @@ package stdgo._internal.net.http;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, _b);
-                    _ctxErr = __tmp__._1;
+                    _ctxErr = @:tmpset0 __tmp__._1;
                 };
                 if (_ctxErr != null) {
                     {

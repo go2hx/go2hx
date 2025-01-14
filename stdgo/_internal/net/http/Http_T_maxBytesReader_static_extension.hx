@@ -32,8 +32,8 @@ package stdgo._internal.net.http;
         };
         {
             var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._r.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_n : stdgo.GoInt64) <= (@:checkr _l ?? throw "null pointer dereference")._n : Bool)) {
             (@:checkr _l ?? throw "null pointer dereference")._n = ((@:checkr _l ?? throw "null pointer dereference")._n - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);

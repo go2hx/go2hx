@@ -10,8 +10,8 @@ var _written = __2, _w = __1, _r = __0;
             while ((_i < (_s.length) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
-                    _r = __tmp__._0;
-                    _w = __tmp__._1;
+                    _r = @:tmpset0 __tmp__._0;
+                    _w = @:tmpset0 __tmp__._1;
                 };
 var _repl:stdgo.GoString = ("" : stdgo.GoString);
 if ((((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable.length) : Bool) && (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)] != stdgo.Go.str()) : Bool)) {

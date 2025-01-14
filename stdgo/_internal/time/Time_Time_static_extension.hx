@@ -40,10 +40,10 @@ package stdgo._internal.time;
         {
             var __tmp__ = stdgo._internal.time.Time__parseStrictRFC3339._parseStrictRFC3339(_data);
             var x = _t;
-            x._wall = __tmp__._0?.__copy__()._wall;
-            x._ext = __tmp__._0?.__copy__()._ext;
-            x._loc = __tmp__._0?.__copy__()._loc;
-            _err = __tmp__._1;
+            x._wall = @:tmpset0 __tmp__._0?.__copy__()?._wall;
+            x._ext = @:tmpset0 __tmp__._0?.__copy__()?._ext;
+            x._loc = @:tmpset0 __tmp__._0?.__copy__()?._loc;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -73,10 +73,10 @@ package stdgo._internal.time;
         {
             var __tmp__ = stdgo._internal.time.Time__parseStrictRFC3339._parseStrictRFC3339(_data);
             var x = _t;
-            x._wall = __tmp__._0?.__copy__()._wall;
-            x._ext = __tmp__._0?.__copy__()._ext;
-            x._loc = __tmp__._0?.__copy__()._loc;
-            _err = __tmp__._1;
+            x._wall = @:tmpset0 __tmp__._0?.__copy__()?._wall;
+            x._ext = @:tmpset0 __tmp__._0?.__copy__()?._ext;
+            x._loc = @:tmpset0 __tmp__._0?.__copy__()?._loc;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -136,9 +136,9 @@ package stdgo._internal.time;
         {
             var __tmp__ = (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time);
             var x = (_t : stdgo._internal.time.Time_Time.Time);
-            x._wall = __tmp__._wall;
-            x._ext = __tmp__._ext;
-            x._loc = __tmp__._loc;
+            x._wall = __tmp__?._wall;
+            x._ext = __tmp__?._ext;
+            x._loc = __tmp__?._loc;
         };
         (@:checkr _t ?? throw "null pointer dereference")._wall = (_nsec : stdgo.GoUInt64);
         (@:checkr _t ?? throw "null pointer dereference")._ext = _sec;
@@ -245,8 +245,8 @@ _version,
         var _name = ("" : stdgo.GoString), _offset = (0 : stdgo.GoInt);
         {
             var __tmp__ = @:check2r _t._loc._lookup(@:check2 _t._unixSec());
-            _name = __tmp__._0?.__copy__();
-            _offset = __tmp__._1;
+            _name = @:tmpset0 __tmp__._0?.__copy__();
+            _offset = @:tmpset0 __tmp__._1;
         };
         return { _0 : _name, _1 : _offset };
     }
@@ -453,9 +453,9 @@ _version,
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_Month.Month), _day = (0 : stdgo.GoInt);
         {
             var __tmp__ = _t._date(true);
-            _year = __tmp__._0;
-            _month = __tmp__._1;
-            _day = __tmp__._2;
+            _year = @:tmpset0 __tmp__._0;
+            _month = @:tmpset0 __tmp__._1;
+            _day = @:tmpset0 __tmp__._2;
         };
         return { _0 : _year, _1 : _month, _2 : _day };
     }
@@ -476,8 +476,8 @@ _version,
             } else {
                 {
                     var __tmp__ = @:check2r _l._lookup(_sec);
-                    _name = __tmp__._0?.__copy__();
-                    _offset = __tmp__._1;
+                    _name = @:tmpset0 __tmp__._0?.__copy__();
+                    _offset = @:tmpset0 __tmp__._1;
                 };
             };
             _sec = (_sec + ((_offset : stdgo.GoInt64)) : stdgo.GoInt64);
@@ -738,19 +738,19 @@ var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, 
             if (((_year < (0 : stdgo.GoInt) : Bool) && ((_std & (256 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.time.Time__absDate._absDate(_abs, true);
-                    _year = __tmp__._0;
-                    _month = __tmp__._1;
-                    _day = __tmp__._2;
-                    _yday = __tmp__._3;
+                    _year = @:tmpset0 __tmp__._0;
+                    _month = @:tmpset0 __tmp__._1;
+                    _day = @:tmpset0 __tmp__._2;
+                    _yday = @:tmpset0 __tmp__._3;
                 };
                 _yday++;
             };
             if (((_hour < (0 : stdgo.GoInt) : Bool) && ((_std & (512 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.time.Time__absClock._absClock(_abs);
-                    _hour = __tmp__._0;
-                    _min = __tmp__._1;
-                    _sec = __tmp__._2;
+                    _hour = @:tmpset0 __tmp__._0;
+                    _min = @:tmpset0 __tmp__._1;
+                    _sec = @:tmpset0 __tmp__._2;
                 };
             };
             {

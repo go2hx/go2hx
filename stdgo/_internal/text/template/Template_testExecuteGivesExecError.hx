@@ -13,8 +13,8 @@ function testExecuteGivesExecError(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         };
         {
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("X" : stdgo.GoString)).parse(("hello, {{.X.Y}}" : stdgo.GoString));
-            _tmpl = __tmp__._0;
-            _err = __tmp__._1;
+            _tmpl = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));

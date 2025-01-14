@@ -93,8 +93,8 @@ package stdgo._internal.internal.singleflight;
         @:recv var _g:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_Group.Group> = _g;
         {
             var __tmp__ = _fn();
-            (@:checkr _c ?? throw "null pointer dereference")._val = __tmp__._0;
-            (@:checkr _c ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _c ?? throw "null pointer dereference")._val = @:tmpset0 __tmp__._0;
+            (@:checkr _c ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.lock();
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._wg.done();

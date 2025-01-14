@@ -7,8 +7,8 @@ function _marshalPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo
                 var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ n : (@:checkr _pub ?? throw "null pointer dereference").n, e : (@:checkr _pub ?? throw "null pointer dereference").e } : stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey)));
-                    _publicKeyBytes = __tmp__._0;
-                    _err = __tmp__._1;
+                    _publicKeyBytes = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -47,8 +47,8 @@ function _marshalPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo
                 var _paramBytes:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_oid)));
-                    _paramBytes = __tmp__._0;
-                    _err = __tmp__._1;
+                    _paramBytes = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : _publicKeyBytes, _1 : _publicKeyAlgorithm, _2 : _err };
@@ -78,8 +78,8 @@ function _marshalPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo
                     var _paramBytes:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_oid)));
-                        _paramBytes = __tmp__._0;
-                        _err = __tmp__._1;
+                        _paramBytes = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return { _0 : _publicKeyBytes, _1 : _publicKeyAlgorithm, _2 : _err };

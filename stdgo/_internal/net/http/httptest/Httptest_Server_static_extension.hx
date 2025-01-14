@@ -498,8 +498,8 @@ package stdgo._internal.net.http.httptest;
         };
         {
             var __tmp__ = stdgo._internal.crypto.x509.X509_parseCertificate.parseCertificate((@:checkr (@:checkr _s ?? throw "null pointer dereference").tLS ?? throw "null pointer dereference").certificates[(0 : stdgo.GoInt)].certificate[(0 : stdgo.GoInt)]);
-            (@:checkr _s ?? throw "null pointer dereference")._certificate = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _s ?? throw "null pointer dereference")._certificate = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("httptest: NewTLSServer: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));

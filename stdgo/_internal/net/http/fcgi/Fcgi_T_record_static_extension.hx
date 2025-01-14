@@ -24,7 +24,7 @@ package stdgo._internal.net.http.fcgi;
         {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, ((@:checkr _rec ?? throw "null pointer dereference")._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;

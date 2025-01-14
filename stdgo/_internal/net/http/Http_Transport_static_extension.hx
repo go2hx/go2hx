@@ -19,8 +19,8 @@ package stdgo._internal.net.http;
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = @:check2r _t._customDialTLS(_ctx, ("tcp" : stdgo.GoString), @:check2 _cm._addr()?.__copy__());
-                    (@:checkr _pconn ?? throw "null pointer dereference")._conn = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _pconn ?? throw "null pointer dereference")._conn = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -78,8 +78,8 @@ package stdgo._internal.net.http;
                     {
                         {
                             var __tmp__ = stdgo._internal.net.Net_splitHostPort.splitHostPort(@:check2 _cm._addr()?.__copy__());
-                            _firstTLSHost = __tmp__._0?.__copy__();
-                            _err = __tmp__._2;
+                            _firstTLSHost = @:tmpset0 __tmp__._0?.__copy__();
+                            _err = @:tmpset0 __tmp__._2;
                         };
                         if (_err != null) {
                             return {
@@ -112,7 +112,7 @@ package stdgo._internal.net.http;
                         var _auth = (stdgo.Go.setRef(({ username : @:check2r _u.username()?.__copy__() } : stdgo._internal.net.http.Http_T_socksUsernamePassword.T_socksUsernamePassword)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksUsernamePassword.T_socksUsernamePassword>);
                         {
                             var __tmp__ = @:check2r _u.password();
-                            (@:checkr _auth ?? throw "null pointer dereference").password = __tmp__._0?.__copy__();
+                            (@:checkr _auth ?? throw "null pointer dereference").password = @:tmpset0 __tmp__._0?.__copy__();
                         };
                         (@:checkr _d ?? throw "null pointer dereference").authMethods = (new stdgo.Slice<stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod>(2, 2, ...[(0 : stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod), (2 : stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod)]).__setNumber32__() : stdgo.Slice<stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod>);
                         (@:checkr _d ?? throw "null pointer dereference").authenticate = @:check2r _auth.authenticate;
@@ -147,8 +147,8 @@ package stdgo._internal.net.http;
                     var _err:stdgo.Error = (null : stdgo.Error);
                     {
                         var __tmp__ = (@:checkr _t ?? throw "null pointer dereference").getProxyConnectHeader(_ctx, _cm._proxyURL, _cm._targetAddr?.__copy__());
-                        _hdr = __tmp__._0;
-                        _err = __tmp__._1;
+                        _hdr = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         _conn.close();
@@ -212,8 +212,8 @@ var _err = __1, _resp = __0;
                             var _br = stdgo._internal.bufio.Bufio_newReader.newReader(_conn);
                             {
                                 var __tmp__ = stdgo._internal.net.http.Http_readResponse.readResponse(_br, _connectReq);
-                                _resp = __tmp__._0;
-                                _err = __tmp__._1;
+                                _resp = @:tmpset0 __tmp__._0;
+                                _err = @:tmpset0 __tmp__._1;
                             };
                             {
                                 for (defer in __deferstack__) {
@@ -1062,14 +1062,14 @@ var _err = __1, _resp = __0;
         if ((@:checkr _t ?? throw "null pointer dereference").dialTLSContext != null) {
             {
                 var __tmp__ = (@:checkr _t ?? throw "null pointer dereference").dialTLSContext(_ctx, _network?.__copy__(), _addr?.__copy__());
-                _conn = __tmp__._0;
-                _err = __tmp__._1;
+                _conn = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = (@:checkr _t ?? throw "null pointer dereference").dialTLS(_network?.__copy__(), _addr?.__copy__());
-                _conn = __tmp__._0;
-                _err = __tmp__._1;
+                _conn = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (((_conn == null) && (_err == null) : Bool)) {
@@ -2083,8 +2083,8 @@ var _err = __1, _resp = __0;
         if ((@:checkr _t ?? throw "null pointer dereference").proxy != null) {
             {
                 var __tmp__ = (@:checkr _t ?? throw "null pointer dereference").proxy((@:checkr _treq ?? throw "null pointer dereference").request);
-                _cm._proxyURL = __tmp__._0;
-                _err = __tmp__._1;
+                _cm._proxyURL = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         _cm._onlyH1 = @:check2r _treq._requiresHTTP1();
@@ -2320,8 +2320,8 @@ var _err = __1, _resp = __0;
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__rewindBody._rewindBody(_req);
-                    _req = __tmp__._0;
-                    _err = __tmp__._1;
+                    _req = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
@@ -2378,14 +2378,14 @@ var _err = __1, _resp = __0;
                 @:check2r _t._setReqCanceler(_cancelKey?.__copy__(), null);
                 {
                     var __tmp__ = (@:checkr _pconn ?? throw "null pointer dereference")._alt.roundTrip(_req);
-                    _resp = __tmp__._0;
-                    _err = __tmp__._1;
+                    _resp = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 {
                     var __tmp__ = @:check2r _pconn._roundTrip(_treq);
-                    _resp = __tmp__._0;
-                    _err = __tmp__._1;
+                    _resp = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             if (_err == null) {
@@ -2432,8 +2432,8 @@ var _err = __1, _resp = __0;
             stdgo._internal.net.http.Http__testHookRoundTripRetried._testHookRoundTripRetried();
             {
                 var __tmp__ = stdgo._internal.net.http.Http__rewindBody._rewindBody(_req);
-                _req = __tmp__._0;
-                _err = __tmp__._1;
+                _req = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

@@ -21,8 +21,8 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
         var _un:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv_parseUint.parseUint(_s?.__copy__(), _base, _bitSize);
-            _un = __tmp__._0;
-            _err = __tmp__._1;
+            _un = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_err != null) && (stdgo.Go.toInterface((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>) ?? throw "null pointer dereference").err) != stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange)) : Bool)) {
             (@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>) ?? throw "null pointer dereference").func = ("ParseInt" : stdgo.GoString);

@@ -5,8 +5,8 @@ function fscanln(_r:stdgo._internal.io.Io_Reader.Reader, _a:haxe.Rest<stdgo.AnyI
         var __tmp__ = stdgo._internal.fmt.Fmt__newScanState._newScanState(_r, false, true), _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = __tmp__._0, _old:stdgo._internal.fmt.Fmt_T_ssave.T_ssave = __tmp__._1;
         {
             var __tmp__ = @:check2r _s._doScan(_a);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         @:check2r _s._free(_old?.__copy__());
         return { _0 : _n, _1 : _err };

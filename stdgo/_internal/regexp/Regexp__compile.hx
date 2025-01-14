@@ -19,23 +19,23 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Synt
         if (((@:checkr _regexp ?? throw "null pointer dereference")._onepass == null || ((@:checkr _regexp ?? throw "null pointer dereference")._onepass : Dynamic).__nil__)) {
             {
                 var __tmp__ = @:check2r _prog.prefix();
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefix = __tmp__._0?.__copy__();
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefixComplete = __tmp__._1;
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefix = @:tmpset0 __tmp__._0?.__copy__();
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefixComplete = @:tmpset0 __tmp__._1;
             };
             (@:checkr _regexp ?? throw "null pointer dereference")._maxBitStateLen = stdgo._internal.regexp.Regexp__maxBitStateLen._maxBitStateLen(_prog);
         } else {
             {
                 var __tmp__ = stdgo._internal.regexp.Regexp__onePassPrefix._onePassPrefix(_prog);
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefix = __tmp__._0?.__copy__();
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefixComplete = __tmp__._1;
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefixEnd = __tmp__._2;
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefix = @:tmpset0 __tmp__._0?.__copy__();
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefixComplete = @:tmpset0 __tmp__._1;
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefixEnd = @:tmpset0 __tmp__._2;
             };
         };
         if ((@:checkr _regexp ?? throw "null pointer dereference")._prefix != (stdgo.Go.str())) {
             (@:checkr _regexp ?? throw "null pointer dereference")._prefixBytes = ((@:checkr _regexp ?? throw "null pointer dereference")._prefix : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((@:checkr _regexp ?? throw "null pointer dereference")._prefix?.__copy__());
-                (@:checkr _regexp ?? throw "null pointer dereference")._prefixRune = __tmp__._0;
+                (@:checkr _regexp ?? throw "null pointer dereference")._prefixRune = @:tmpset0 __tmp__._0;
             };
         };
         var _n = ((@:checkr _prog ?? throw "null pointer dereference").inst.length : stdgo.GoInt);

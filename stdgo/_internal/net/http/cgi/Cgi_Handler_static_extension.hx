@@ -139,8 +139,8 @@ var _path = __1, _cwd = __0;
             } else {
                 {
                     var __tmp__ = stdgo._internal.path.filepath.Filepath_split.split((@:checkr _h ?? throw "null pointer dereference").path?.__copy__());
-                    _cwd = __tmp__._0?.__copy__();
-                    _path = __tmp__._1?.__copy__();
+                    _cwd = @:tmpset0 __tmp__._0?.__copy__();
+                    _path = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
             if (_cwd == (stdgo.Go.str())) {
@@ -316,7 +316,7 @@ var _path = __1, _cwd = __0;
             _rw.writeHeader(_statusCode);
             {
                 var __tmp__ = stdgo._internal.io.Io_copy.copy(_rw, stdgo.Go.asInterface(_linebody));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 @:check2r _h._printf(("cgi: copy error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

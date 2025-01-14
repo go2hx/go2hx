@@ -3,7 +3,7 @@ function _nonZeroRandomBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _random:stdgo._inter
         var _err = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_random, _s);
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;
@@ -14,7 +14,7 @@ function _nonZeroRandomBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _random:stdgo._inter
                 while (_s[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                     {
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_random, (_s.__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                        _err = __tmp__._1;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return _err;

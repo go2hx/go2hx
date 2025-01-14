@@ -10,8 +10,8 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
                 var _part:stdgo.GoString = ("" : stdgo.GoString);
                 {
                     var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_p?.__copy__(), ("/" : stdgo.GoString));
-                    _part = __tmp__._0?.__copy__();
-                    _p = __tmp__._1?.__copy__();
+                    _part = @:tmpset0 __tmp__._0?.__copy__();
+                    _p = @:tmpset0 __tmp__._1?.__copy__();
                 };
                 if (((_part == ("." : stdgo.GoString)) || (_part == (".." : stdgo.GoString)) : Bool)) {
                     _hasDots = true;

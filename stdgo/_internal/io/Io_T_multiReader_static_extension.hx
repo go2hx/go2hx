@@ -16,14 +16,14 @@ package stdgo._internal.io;
                 if (_ok) {
                     {
                         var __tmp__ = @:check2r _subMr._writeToWithBuffer(_w, _buf);
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
+                        _n = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     {
                         var __tmp__ = stdgo._internal.io.Io__copyBuffer._copyBuffer(_w, _r, _buf);
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
+                        _n = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 };
             };
@@ -80,8 +80,8 @@ package stdgo._internal.io;
             };
             {
                 var __tmp__ = (@:checkr _mr ?? throw "null pointer dereference")._readers[(0 : stdgo.GoInt)].read(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                 (@:checkr _mr ?? throw "null pointer dereference")._readers[(0 : stdgo.GoInt)] = stdgo.Go.asInterface((new stdgo._internal.io.Io_T_eofReader.T_eofReader() : stdgo._internal.io.Io_T_eofReader.T_eofReader));

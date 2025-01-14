@@ -4,8 +4,8 @@ function _readSlice(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<std
         var _size64:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
             var __tmp__ = stdgo._internal.index.suffixarray.Suffixarray__readInt._readInt(_r, _buf);
-            _size64 = __tmp__._0;
-            _err = __tmp__._1;
+            _size64 = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _n, _1 : _err };
@@ -22,7 +22,7 @@ function _readSlice(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<std
         {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf.__slice__((10 : stdgo.GoInt), _size) : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _n, _1 : _err };

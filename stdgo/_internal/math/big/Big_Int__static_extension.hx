@@ -109,8 +109,8 @@ var _rB = __1, _rA = __0;
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Int_.Int_() : stdgo._internal.math.big.Big_Int_.Int_);
                 var x = (_z : stdgo._internal.math.big.Big_Int_.Int_);
-                x._neg = __tmp__._neg;
-                x._abs = __tmp__._abs;
+                x._neg = __tmp__?._neg;
+                x._abs = __tmp__?._abs;
             };
             return (null : stdgo.Error);
         };
@@ -171,9 +171,9 @@ var _rB = __1, _rA = __0;
         };
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._abs._scan(_r, _base, false);
-            (@:checkr _z ?? throw "null pointer dereference")._abs = __tmp__._0;
-            _base = __tmp__._1;
-            _err = __tmp__._3;
+            (@:checkr _z ?? throw "null pointer dereference")._abs = @:tmpset0 __tmp__._0;
+            _base = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._3;
         };
         if (_err != null) {
             return { _0 : null, _1 : _base, _2 : _err };
@@ -780,8 +780,8 @@ var _r = __1, _q = __0;
             {
                 var __tmp__ = (ua : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
                 var x = (_x : stdgo._internal.math.big.Big_Int_.Int_);
-                x._neg = __tmp__._neg;
-                x._abs = __tmp__._abs;
+                x._neg = __tmp__?._neg;
+                x._abs = __tmp__?._abs;
             };
             if (_negA) {
                 (@:checkr _x ?? throw "null pointer dereference")._neg = !(@:checkr _x ?? throw "null pointer dereference")._neg;
@@ -790,8 +790,8 @@ var _r = __1, _q = __0;
         {
             var __tmp__ = (a : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
             var x = (_z : stdgo._internal.math.big.Big_Int_.Int_);
-            x._neg = __tmp__._neg;
-            x._abs = __tmp__._abs;
+            x._neg = __tmp__?._neg;
+            x._abs = __tmp__?._abs;
         };
         return _z;
     }
@@ -1065,8 +1065,8 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._abs._div((@:checkr _r ?? throw "null pointer dereference")._abs, (@:checkr _x ?? throw "null pointer dereference")._abs, (@:checkr _y ?? throw "null pointer dereference")._abs);
-            (@:checkr _z ?? throw "null pointer dereference")._abs = __tmp__._0;
-            (@:checkr _r ?? throw "null pointer dereference")._abs = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._abs = @:tmpset0 __tmp__._0;
+            (@:checkr _r ?? throw "null pointer dereference")._abs = @:tmpset0 __tmp__._1;
         };
         {
             final __tmp__0 = ((((@:checkr _z ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _x ?? throw "null pointer dereference")._neg != (@:checkr _y ?? throw "null pointer dereference")._neg) : Bool);
@@ -1082,7 +1082,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         {
             var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div((@:checkr _z ?? throw "null pointer dereference")._abs, (@:checkr _x ?? throw "null pointer dereference")._abs, (@:checkr _y ?? throw "null pointer dereference")._abs);
-            (@:checkr _z ?? throw "null pointer dereference")._abs = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._abs = @:tmpset0 __tmp__._1;
         };
         (@:checkr _z ?? throw "null pointer dereference")._neg = ((((@:checkr _z ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool) && (@:checkr _x ?? throw "null pointer dereference")._neg : Bool);
         return _z;
@@ -1093,7 +1093,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._abs._div(null, (@:checkr _x ?? throw "null pointer dereference")._abs, (@:checkr _y ?? throw "null pointer dereference")._abs);
-            (@:checkr _z ?? throw "null pointer dereference")._abs = __tmp__._0;
+            (@:checkr _z ?? throw "null pointer dereference")._abs = @:tmpset0 __tmp__._0;
         };
         (@:checkr _z ?? throw "null pointer dereference")._neg = ((((@:checkr _z ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _x ?? throw "null pointer dereference")._neg != (@:checkr _y ?? throw "null pointer dereference")._neg) : Bool);
         return _z;

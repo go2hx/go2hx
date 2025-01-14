@@ -5,8 +5,8 @@ function _scanSign(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner):{ var _0 : 
         {
             {
                 var __tmp__ = _r.readByte();
-                _ch = __tmp__._0;
-                _err = __tmp__._1;
+                _ch = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {

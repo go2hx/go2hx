@@ -12,8 +12,8 @@ function testEncodeRenamedByteSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing
         var _r = (("abc" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_renamedRenamedByteSlice.T_renamedRenamedByteSlice);
         {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_r));
-            _result = __tmp__._0;
-            _err = __tmp__._1;
+            _result = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));

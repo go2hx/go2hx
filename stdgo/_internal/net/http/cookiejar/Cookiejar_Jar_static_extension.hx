@@ -55,9 +55,9 @@ package stdgo._internal.net.http.cookiejar;
         };
         {
             var __tmp__ = @:check2r _j._domainAndType(_host?.__copy__(), (@:checkr _c ?? throw "null pointer dereference").domain?.__copy__());
-            _e.domain = __tmp__._0?.__copy__();
-            _e.hostOnly = __tmp__._1;
-            _err = __tmp__._2;
+            _e.domain = @:tmpset0 __tmp__._0?.__copy__();
+            _e.hostOnly = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return {

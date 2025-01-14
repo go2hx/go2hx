@@ -248,7 +248,7 @@ var _tooBig = __1, _discard = __0;
         if ((@:checkr _cw ?? throw "null pointer dereference")._chunking) {
             {
                 var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((@:checkr (@:checkr (@:checkr _cw ?? throw "null pointer dereference")._res ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw), ("%x\r\n" : stdgo.GoString), stdgo.Go.toInterface((_p.length)));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 (@:checkr (@:checkr (@:checkr _cw ?? throw "null pointer dereference")._res ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._rwc.close();
@@ -257,13 +257,13 @@ var _tooBig = __1, _discard = __0;
         };
         {
             var __tmp__ = @:check2r (@:checkr (@:checkr (@:checkr _cw ?? throw "null pointer dereference")._res ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((@:checkr _cw ?? throw "null pointer dereference")._chunking && (_err == null) : Bool)) {
             {
                 var __tmp__ = @:check2r (@:checkr (@:checkr (@:checkr _cw ?? throw "null pointer dereference")._res ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw.write(stdgo._internal.net.http.Http__crlf._crlf);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {

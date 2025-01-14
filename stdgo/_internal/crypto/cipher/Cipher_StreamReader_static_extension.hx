@@ -7,8 +7,8 @@ package stdgo._internal.crypto.cipher;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = _r.r.read(_dst);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         _r.s.xORKeyStream((_dst.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         return { _0 : _n, _1 : _err };

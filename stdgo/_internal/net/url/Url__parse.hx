@@ -16,9 +16,9 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
         {
             {
                 var __tmp__ = stdgo._internal.net.url.Url__getScheme._getScheme(_rawURL?.__copy__());
-                (@:checkr _url ?? throw "null pointer dereference").scheme = __tmp__._0?.__copy__();
-                _rest = __tmp__._1?.__copy__();
-                _err = __tmp__._2;
+                (@:checkr _url ?? throw "null pointer dereference").scheme = @:tmpset0 __tmp__._0?.__copy__();
+                _rest = @:tmpset0 __tmp__._1?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
@@ -31,8 +31,8 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
         } else {
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_rest?.__copy__(), ("?" : stdgo.GoString));
-                _rest = __tmp__._0?.__copy__();
-                (@:checkr _url ?? throw "null pointer dereference").rawQuery = __tmp__._1?.__copy__();
+                _rest = @:tmpset0 __tmp__._0?.__copy__();
+                (@:checkr _url ?? throw "null pointer dereference").rawQuery = @:tmpset0 __tmp__._1?.__copy__();
             };
         };
         if (!stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("/" : stdgo.GoString))) {
@@ -71,9 +71,9 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
             };
             {
                 var __tmp__ = stdgo._internal.net.url.Url__parseAuthority._parseAuthority(_authority?.__copy__());
-                (@:checkr _url ?? throw "null pointer dereference").user = __tmp__._0;
-                (@:checkr _url ?? throw "null pointer dereference").host = __tmp__._1?.__copy__();
-                _err = __tmp__._2;
+                (@:checkr _url ?? throw "null pointer dereference").user = @:tmpset0 __tmp__._0;
+                (@:checkr _url ?? throw "null pointer dereference").host = @:tmpset0 __tmp__._1?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

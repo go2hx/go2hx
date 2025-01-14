@@ -27,8 +27,8 @@ var _y0 = __1, _x0 = __0;
                     @:check2r _z.sub(_z, _y);
                     {
                         var __tmp__ = @:check2r _z.float32();
-                        _got = __tmp__._0;
-                        _acc = __tmp__._1;
+                        _got = @:tmpset0 __tmp__._0;
+                        _acc = @:tmpset0 __tmp__._1;
                     };
                     _want = ((_want : stdgo.GoFloat32) - (_y0 : stdgo.GoFloat32) : stdgo.GoFloat32);
                     if (((_got != _want) || (_acc != (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy)) : Bool)) {

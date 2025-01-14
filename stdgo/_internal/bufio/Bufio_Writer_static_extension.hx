@@ -48,8 +48,8 @@ package stdgo._internal.bufio;
             while ((_nr < (100 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = _r.read(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>));
-                    _m = __tmp__._0;
-                    _err = __tmp__._1;
+                    _m = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (((_m != (0 : stdgo.GoInt)) || (_err != null) : Bool)) {
                     break;
@@ -100,15 +100,15 @@ package stdgo._internal.bufio;
                     } catch(_) {
                         { _0 : (null : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : false };
                     };
-                    _sw = __tmp__._0;
-                    _tryStringWriter = __tmp__._1;
+                    _sw = @:tmpset0 __tmp__._0;
+                    _tryStringWriter = @:tmpset0 __tmp__._1;
                 };
             };
             if (((@:check2r _b.buffered() == (0 : stdgo.GoInt)) && _tryStringWriter : Bool)) {
                 {
                     var __tmp__ = _sw.writeString(_s?.__copy__());
-                    _n = __tmp__._0;
-                    (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    (@:checkr _b ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 _n = ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s);
@@ -212,8 +212,8 @@ package stdgo._internal.bufio;
             if (@:check2r _b.buffered() == ((0 : stdgo.GoInt))) {
                 {
                     var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._wr.write(_p);
-                    _n = __tmp__._0;
-                    (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    (@:checkr _b ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 _n = ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);

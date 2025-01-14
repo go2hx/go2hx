@@ -36,9 +36,9 @@ package stdgo._internal.encoding.base64;
                     var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
                         var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
-                        _si = __tmp__._0;
-                        _ninc = __tmp__._1;
-                        _err = __tmp__._2;
+                        _si = @:tmpset0 __tmp__._0;
+                        _ninc = @:tmpset0 __tmp__._1;
+                        _err = @:tmpset0 __tmp__._2;
                     };
                     _n = (_n + (_ninc) : stdgo.GoInt);
                     if (_err != null) {
@@ -64,9 +64,9 @@ package stdgo._internal.encoding.base64;
                     var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
                     {
                         var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
-                        _si = __tmp__._0;
-                        _ninc = __tmp__._1;
-                        _err = __tmp__._2;
+                        _si = @:tmpset0 __tmp__._0;
+                        _ninc = @:tmpset0 __tmp__._1;
+                        _err = @:tmpset0 __tmp__._2;
                     };
                     _n = (_n + (_ninc) : stdgo.GoInt);
                     if (_err != null) {
@@ -84,9 +84,9 @@ package stdgo._internal.encoding.base64;
             var _ninc:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var __tmp__ = @:check2r _enc._decodeQuantum((_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _src, _si);
-                _si = __tmp__._0;
-                _ninc = __tmp__._1;
-                _err = __tmp__._2;
+                _si = @:tmpset0 __tmp__._0;
+                _ninc = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             _n = (_n + (_ninc) : stdgo.GoInt);
             if (_err != null) {

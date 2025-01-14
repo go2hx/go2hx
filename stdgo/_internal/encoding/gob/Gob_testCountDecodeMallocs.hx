@@ -21,10 +21,10 @@ function testCountDecodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
             {
                 var __tmp__ = (new stdgo._internal.encoding.gob.Gob_Bench.Bench() : stdgo._internal.encoding.gob.Gob_Bench.Bench);
                 var x = (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench);
-                x.a = __tmp__.a;
-                x.b = __tmp__.b;
-                x.c = __tmp__.c;
-                x.d = __tmp__.d;
+                x.a = __tmp__?.a;
+                x.b = __tmp__?.b;
+                x.c = __tmp__?.c;
+                x.d = __tmp__?.d;
             };
             var _err = (@:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_bench) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bench.Bench>>))) : stdgo.Error);
             if (_err != null) {

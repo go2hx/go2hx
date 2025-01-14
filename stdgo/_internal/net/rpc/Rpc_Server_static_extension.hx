@@ -80,11 +80,11 @@ package stdgo._internal.net.rpc;
         var _service = (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>), _mtype = (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>), _req = (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>), _argv = ({} : stdgo._internal.reflect.Reflect_Value.Value), _replyv = ({} : stdgo._internal.reflect.Reflect_Value.Value), _keepReading = false, _err = (null : stdgo.Error);
         {
             var __tmp__ = @:check2r _server._readRequestHeader(_codec);
-            _service = __tmp__._0;
-            _mtype = __tmp__._1;
-            _req = __tmp__._2;
-            _keepReading = __tmp__._3;
-            _err = __tmp__._4;
+            _service = @:tmpset0 __tmp__._0;
+            _mtype = @:tmpset0 __tmp__._1;
+            _req = @:tmpset0 __tmp__._2;
+            _keepReading = @:tmpset0 __tmp__._3;
+            _err = @:tmpset0 __tmp__._4;
         };
         if (_err != null) {
             if (!_keepReading) {
@@ -142,10 +142,10 @@ package stdgo._internal.net.rpc;
             {
                 var __tmp__ = (new stdgo._internal.net.rpc.Rpc_Response.Response() : stdgo._internal.net.rpc.Rpc_Response.Response);
                 var x = (_resp : stdgo._internal.net.rpc.Rpc_Response.Response);
-                x.serviceMethod = __tmp__.serviceMethod;
-                x.seq = __tmp__.seq;
-                x.error = __tmp__.error;
-                x._next = __tmp__._next;
+                x.serviceMethod = __tmp__?.serviceMethod;
+                x.seq = __tmp__?.seq;
+                x.error = __tmp__?.error;
+                x._next = __tmp__?._next;
             };
         };
         @:check2 (@:checkr _server ?? throw "null pointer dereference")._respLock.unlock();
@@ -173,9 +173,9 @@ package stdgo._internal.net.rpc;
             {
                 var __tmp__ = (new stdgo._internal.net.rpc.Rpc_Request.Request() : stdgo._internal.net.rpc.Rpc_Request.Request);
                 var x = (_req : stdgo._internal.net.rpc.Rpc_Request.Request);
-                x.serviceMethod = __tmp__.serviceMethod;
-                x.seq = __tmp__.seq;
-                x._next = __tmp__._next;
+                x.serviceMethod = __tmp__?.serviceMethod;
+                x.seq = __tmp__?.seq;
+                x._next = __tmp__?._next;
             };
         };
         @:check2 (@:checkr _server ?? throw "null pointer dereference")._reqLock.unlock();

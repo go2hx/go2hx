@@ -25,7 +25,7 @@ package stdgo._internal.compress.gzip;
         stdgo._internal.compress.gzip.Gzip__le._le.putUint32(((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _z ?? throw "null pointer dereference")._size);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         return (@:checkr _z ?? throw "null pointer dereference")._err;
     }
@@ -85,7 +85,7 @@ package stdgo._internal.compress.gzip;
             (@:checkr _z ?? throw "null pointer dereference")._buf[(9 : stdgo.GoInt)] = (@:checkr _z ?? throw "null pointer dereference").header.oS;
             {
                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                 return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
@@ -111,7 +111,7 @@ package stdgo._internal.compress.gzip;
             if (((@:checkr _z ?? throw "null pointer dereference")._compressor == null || ((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__)) {
                 {
                     var __tmp__ = stdgo._internal.compress.flate.Flate_newWriter.newWriter((@:checkr _z ?? throw "null pointer dereference")._w, (@:checkr _z ?? throw "null pointer dereference")._level);
-                    (@:checkr _z ?? throw "null pointer dereference")._compressor = __tmp__._0;
+                    (@:checkr _z ?? throw "null pointer dereference")._compressor = @:tmpset0 __tmp__._0;
                 };
             };
         };
@@ -119,8 +119,8 @@ package stdgo._internal.compress.gzip;
         (@:checkr _z ?? throw "null pointer dereference")._digest = stdgo._internal.hash.crc32.Crc32_update.update((@:checkr _z ?? throw "null pointer dereference")._digest, stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable, _p);
         {
             var __tmp__ = @:check2r (@:checkr _z ?? throw "null pointer dereference")._compressor.write(_p);
-            _n = __tmp__._0;
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         return { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
     }
@@ -145,12 +145,12 @@ package stdgo._internal.compress.gzip;
             };
             {
                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(_b);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = stdgo._internal.io.Io_writeString.writeString((@:checkr _z ?? throw "null pointer dereference")._w, _s?.__copy__());
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {
@@ -159,7 +159,7 @@ package stdgo._internal.compress.gzip;
         (@:checkr _z ?? throw "null pointer dereference")._buf[(0 : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -177,7 +177,7 @@ package stdgo._internal.compress.gzip;
         };
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(_b);
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -198,16 +198,16 @@ package stdgo._internal.compress.gzip;
         {
             var __tmp__ = ({ header : ({ oS : (255 : stdgo.GoUInt8) } : stdgo._internal.compress.gzip.Gzip_Header.Header), _w : _w, _level : _level, _compressor : _compressor } : stdgo._internal.compress.gzip.Gzip_Writer.Writer);
             var x = (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer);
-            x.header = __tmp__.header;
-            x._w = __tmp__._w;
-            x._level = __tmp__._level;
-            x._wroteHeader = __tmp__._wroteHeader;
-            x._compressor = __tmp__._compressor;
-            x._digest = __tmp__._digest;
-            x._size = __tmp__._size;
-            x._closed = __tmp__._closed;
-            x._buf = __tmp__._buf;
-            x._err = __tmp__._err;
+            x.header = __tmp__?.header;
+            x._w = __tmp__?._w;
+            x._level = __tmp__?._level;
+            x._wroteHeader = __tmp__?._wroteHeader;
+            x._compressor = __tmp__?._compressor;
+            x._digest = __tmp__?._digest;
+            x._size = __tmp__?._size;
+            x._closed = __tmp__?._closed;
+            x._buf = __tmp__?._buf;
+            x._err = __tmp__?._err;
         };
     }
 }

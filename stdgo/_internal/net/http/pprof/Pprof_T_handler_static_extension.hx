@@ -86,8 +86,8 @@ package stdgo._internal.net.http.pprof;
             @:check2r _p0.scale((-1 : stdgo.GoFloat64));
             {
                 var __tmp__ = _internal.internal.profile.Profile_merge.merge((new stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>(2, 2, ...[_p0, _p1]) : stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>));
-                _p1 = __tmp__._0;
-                _err = __tmp__._1;
+                _p1 = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to compute delta" : stdgo.GoString));

@@ -11,7 +11,7 @@ var _r2 = __1, _r1 = __0;
             if ((_r1 >= (128 : stdgo.GoInt32) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeLastRuneInString.decodeLastRuneInString(((@:checkr _i ?? throw "null pointer dereference")._str.__slice__(0, _pos) : stdgo.GoString)?.__copy__());
-                    _r1 = __tmp__._0;
+                    _r1 = @:tmpset0 __tmp__._0;
                 };
             };
         };
@@ -20,7 +20,7 @@ var _r2 = __1, _r1 = __0;
             if ((_r2 >= (128 : stdgo.GoInt32) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(((@:checkr _i ?? throw "null pointer dereference")._str.__slice__(_pos) : stdgo.GoString)?.__copy__());
-                    _r2 = __tmp__._0;
+                    _r2 = @:tmpset0 __tmp__._0;
                 };
             };
         };

@@ -21,8 +21,8 @@ package stdgo._internal.archive.zip;
         };
         {
             var __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._rc.read(_b);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _r ?? throw "null pointer dereference")._hash.write((_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         (@:checkr _r ?? throw "null pointer dereference")._nread = ((@:checkr _r ?? throw "null pointer dereference")._nread + ((_n : stdgo.GoUInt64)) : stdgo.GoUInt64);

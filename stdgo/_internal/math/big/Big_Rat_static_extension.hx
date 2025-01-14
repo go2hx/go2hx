@@ -40,8 +40,8 @@ package stdgo._internal.math.big;
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Rat.Rat() : stdgo._internal.math.big.Big_Rat.Rat);
                 var x = (_z : stdgo._internal.math.big.Big_Rat.Rat);
-                x._a = __tmp__._a;
-                x._b = __tmp__._b;
+                x._a = __tmp__?._a;
+                x._b = __tmp__?._b;
             };
             return (null : stdgo.Error);
         };
@@ -191,8 +191,8 @@ package stdgo._internal.math.big;
                 {
                     {
                         var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._b._abs._scan(stdgo.Go.asInterface(_r), (0 : stdgo.GoInt), false);
-                        (@:checkr _z ?? throw "null pointer dereference")._b._abs = __tmp__._0;
-                        _err = __tmp__._3;
+                        (@:checkr _z ?? throw "null pointer dereference")._b._abs = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._3;
                     };
                     if (_err != null) {
                         return { _0 : null, _1 : false };
@@ -201,7 +201,7 @@ package stdgo._internal.math.big;
                 {
                     {
                         var __tmp__ = @:check2r _r.readByte();
-                        _err = __tmp__._1;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         return { _0 : null, _1 : false };
@@ -222,10 +222,10 @@ package stdgo._internal.math.big;
         var _fcount:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._a._abs._scan(stdgo.Go.asInterface(_r), (0 : stdgo.GoInt), true);
-            (@:checkr _z ?? throw "null pointer dereference")._a._abs = __tmp__._0;
-            _base = __tmp__._1;
-            _fcount = __tmp__._2;
-            _err = __tmp__._3;
+            (@:checkr _z ?? throw "null pointer dereference")._a._abs = @:tmpset0 __tmp__._0;
+            _base = @:tmpset0 __tmp__._1;
+            _fcount = @:tmpset0 __tmp__._2;
+            _err = @:tmpset0 __tmp__._3;
         };
         if (_err != null) {
             return { _0 : null, _1 : false };
@@ -234,9 +234,9 @@ package stdgo._internal.math.big;
         var _ebase:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.math.big.Big__scanExponent._scanExponent(stdgo.Go.asInterface(_r), true, true);
-            _exp = __tmp__._0;
-            _ebase = __tmp__._1;
-            _err = __tmp__._2;
+            _exp = @:tmpset0 __tmp__._0;
+            _ebase = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return { _0 : null, _1 : false };
@@ -244,7 +244,7 @@ package stdgo._internal.math.big;
         {
             {
                 var __tmp__ = @:check2r _r.readByte();
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                 return { _0 : null, _1 : false };
@@ -469,11 +469,11 @@ var _b = __1, _a = __0;
                         if (@:check2r _f.cmp(stdgo._internal.math.big.Big__intOne._intOne) != ((0 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._a._abs._div(null, (@:checkr _z ?? throw "null pointer dereference")._a._abs, (@:checkr _f ?? throw "null pointer dereference")._abs);
-                                (@:checkr _z ?? throw "null pointer dereference")._a._abs = __tmp__._0;
+                                (@:checkr _z ?? throw "null pointer dereference")._a._abs = @:tmpset0 __tmp__._0;
                             };
                             {
                                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._b._abs._div(null, (@:checkr _z ?? throw "null pointer dereference")._b._abs, (@:checkr _f ?? throw "null pointer dereference")._abs);
-                                (@:checkr _z ?? throw "null pointer dereference")._b._abs = __tmp__._0;
+                                (@:checkr _z ?? throw "null pointer dereference")._b._abs = @:tmpset0 __tmp__._0;
                             };
                         };
                     };
@@ -623,8 +623,8 @@ var _b = __1, _a = __0;
         };
         {
             var __tmp__ = stdgo._internal.math.big.Big__quotToFloat64._quotToFloat64((@:checkr _x ?? throw "null pointer dereference")._a._abs, _b);
-            _f = __tmp__._0;
-            _exact = __tmp__._1;
+            _f = @:tmpset0 __tmp__._0;
+            _exact = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _x ?? throw "null pointer dereference")._a._neg) {
             _f = -_f;
@@ -642,8 +642,8 @@ var _b = __1, _a = __0;
         };
         {
             var __tmp__ = stdgo._internal.math.big.Big__quotToFloat32._quotToFloat32((@:checkr _x ?? throw "null pointer dereference")._a._abs, _b);
-            _f = __tmp__._0;
-            _exact = __tmp__._1;
+            _f = @:tmpset0 __tmp__._0;
+            _exact = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _x ?? throw "null pointer dereference")._a._neg) {
             _f = -_f;

@@ -30,9 +30,9 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = @:check2r _c._hijackLocked();
-                _rwc = __tmp__._0;
-                _buf = __tmp__._1;
-                _err = __tmp__._2;
+                _rwc = @:tmpset0 __tmp__._0;
+                _buf = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err == null) {
                 stdgo._internal.net.http.Http__putBufioWriter._putBufioWriter((@:checkr _w ?? throw "null pointer dereference")._w);

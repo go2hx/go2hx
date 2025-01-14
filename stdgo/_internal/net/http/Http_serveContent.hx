@@ -7,7 +7,7 @@ function serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWr
             };
             {
                 var __tmp__ = _content.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.net.http.Http__errSeeker._errSeeker };

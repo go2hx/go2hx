@@ -67,8 +67,8 @@ package stdgo._internal.image.gif;
         };
         {
             var __tmp__ = stdgo._internal.image.gif.Gif__readByte._readByte((@:checkr (@:checkr _b ?? throw "null pointer dereference")._d ?? throw "null pointer dereference")._r);
-            (@:checkr _b ?? throw "null pointer dereference")._j = __tmp__._0;
-            (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _b ?? throw "null pointer dereference")._j = @:tmpset0 __tmp__._0;
+            (@:checkr _b ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((((@:checkr _b ?? throw "null pointer dereference")._j == (0 : stdgo.GoUInt8)) && ((@:checkr _b ?? throw "null pointer dereference")._err == null) : Bool)) {
             (@:checkr _b ?? throw "null pointer dereference")._err = stdgo._internal.io.Io_eOF.eOF;

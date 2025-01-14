@@ -17,7 +17,7 @@ var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__se
 while (true) {
                     {
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _buf);
-                        _err = __tmp__._1;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return { _0 : _r, _1 : _s, _2 : _err };

@@ -226,8 +226,8 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     if ((_includeBody && ((@:checkr _ireq ?? throw "null pointer dereference").getBody != null) : Bool)) {
                         {
                             var __tmp__ = (@:checkr _ireq ?? throw "null pointer dereference").getBody();
-                            (@:checkr _req ?? throw "null pointer dereference").body = __tmp__._0;
-                            _err = __tmp__._1;
+                            (@:checkr _req ?? throw "null pointer dereference").body = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             @:check2r _resp._closeBody();
@@ -302,9 +302,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                 {
                     {
                         var __tmp__ = @:check2r _c._send(_req, _deadline?.__copy__());
-                        _resp = __tmp__._0;
-                        _didTimeout = __tmp__._1;
-                        _err = __tmp__._2;
+                        _resp = @:tmpset0 __tmp__._0;
+                        _didTimeout = @:tmpset0 __tmp__._1;
+                        _err = @:tmpset0 __tmp__._2;
                     };
                     if (_err != null) {
                         _reqBodyClosed = true;
@@ -330,9 +330,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                 var _shouldRedirect:Bool = false;
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__redirectBehavior._redirectBehavior((@:checkr _req ?? throw "null pointer dereference").method?.__copy__(), _resp, _reqs[(0 : stdgo.GoInt)]);
-                    _redirectMethod = __tmp__._0?.__copy__();
-                    _shouldRedirect = __tmp__._1;
-                    _includeBody = __tmp__._2;
+                    _redirectMethod = @:tmpset0 __tmp__._0?.__copy__();
+                    _shouldRedirect = @:tmpset0 __tmp__._1;
+                    _includeBody = @:tmpset0 __tmp__._2;
                 };
                 if (!_shouldRedirect) {
                     {
@@ -465,9 +465,9 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
         };
         {
             var __tmp__ = stdgo._internal.net.http.Http__send._send(_req, @:check2r _c._transport(), _deadline?.__copy__());
-            _resp = __tmp__._0;
-            _didTimeout = __tmp__._1;
-            _err = __tmp__._2;
+            _resp = @:tmpset0 __tmp__._0;
+            _didTimeout = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return {

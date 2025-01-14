@@ -113,9 +113,9 @@ package stdgo._internal.database.sql;
             var _release:stdgo._internal.database.sql.Sql_T_releaseConn.T_releaseConn = (null : stdgo._internal.database.sql.Sql_T_releaseConn.T_releaseConn);
             {
                 var __tmp__ = @:check2r _c._grabConn((null : stdgo._internal.context.Context_Context.Context));
-                _dc = __tmp__._0;
-                _release = __tmp__._1;
-                _err = __tmp__._2;
+                _dc = @:tmpset0 __tmp__._0;
+                _release = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return _err;

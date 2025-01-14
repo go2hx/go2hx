@@ -5,16 +5,16 @@ function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64)
 var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetName._tzsetName(_s?.__copy__());
-            _stdName = __tmp__._0?.__copy__();
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _stdName = @:tmpset0 __tmp__._0?.__copy__();
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (_ok) {
             {
                 var __tmp__ = stdgo._internal.time.Time__tzsetOffset._tzsetOffset(_s?.__copy__());
-                _stdOffset = __tmp__._0;
-                _s = __tmp__._1?.__copy__();
-                _ok = __tmp__._2;
+                _stdOffset = @:tmpset0 __tmp__._0;
+                _s = @:tmpset0 __tmp__._1?.__copy__();
+                _ok = @:tmpset0 __tmp__._2;
             };
         };
         if (!_ok) {
@@ -44,9 +44,9 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
         };
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetName._tzsetName(_s?.__copy__());
-            _dstName = __tmp__._0?.__copy__();
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _dstName = @:tmpset0 __tmp__._0?.__copy__();
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (_ok) {
             if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] == (44 : stdgo.GoUInt8)) : Bool)) {
@@ -54,9 +54,9 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
             } else {
                 {
                     var __tmp__ = stdgo._internal.time.Time__tzsetOffset._tzsetOffset(_s?.__copy__());
-                    _dstOffset = __tmp__._0;
-                    _s = __tmp__._1?.__copy__();
-                    _ok = __tmp__._2;
+                    _dstOffset = @:tmpset0 __tmp__._0;
+                    _s = @:tmpset0 __tmp__._1?.__copy__();
+                    _ok = @:tmpset0 __tmp__._2;
                 };
                 _dstOffset = -_dstOffset;
             };
@@ -93,9 +93,9 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
 var _endRule = __1, _startRule = __0;
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetRule._tzsetRule(_s?.__copy__());
-            _startRule = __tmp__._0?.__copy__();
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _startRule = @:tmpset0 __tmp__._0?.__copy__();
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (((!_ok || (_s.length) == ((0 : stdgo.GoInt)) : Bool) || (_s[(0 : stdgo.GoInt)] != (44 : stdgo.GoUInt8)) : Bool)) {
             return {
@@ -112,9 +112,9 @@ var _endRule = __1, _startRule = __0;
         _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetRule._tzsetRule(_s?.__copy__());
-            _endRule = __tmp__._0?.__copy__();
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _endRule = @:tmpset0 __tmp__._0?.__copy__();
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if ((!_ok || ((_s.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             return {

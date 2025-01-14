@@ -33,7 +33,7 @@ var _y0 = __1, _x0 = __0;
                 @:check2r _z.quo(_z, _y);
                 {
                     var __tmp__ = @:check2r _z.float64();
-                    _got = __tmp__._0;
+                    _got = @:tmpset0 __tmp__._0;
                 };
                 _want = (_want / (_y0) : stdgo.GoFloat64);
                 if (_got != (_want)) {

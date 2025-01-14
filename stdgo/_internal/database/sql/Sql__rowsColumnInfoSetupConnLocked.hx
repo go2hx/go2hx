@@ -36,8 +36,8 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypeLength(_i);
-                        (@:checkr _ci ?? throw "null pointer dereference")._length = __tmp__._0;
-                        (@:checkr _ci ?? throw "null pointer dereference")._hasLength = __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._length = @:tmpset0 __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasLength = @:tmpset0 __tmp__._1;
                     };
                 };
             };
@@ -50,8 +50,8 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypeNullable(_i);
-                        (@:checkr _ci ?? throw "null pointer dereference")._nullable = __tmp__._0;
-                        (@:checkr _ci ?? throw "null pointer dereference")._hasNullable = __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._nullable = @:tmpset0 __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasNullable = @:tmpset0 __tmp__._1;
                     };
                 };
             };
@@ -64,9 +64,9 @@ function _rowsColumnInfoSetupConnLocked(_rowsi:stdgo._internal.database.sql.driv
                 if (_ok) {
                     {
                         var __tmp__ = _prop.columnTypePrecisionScale(_i);
-                        (@:checkr _ci ?? throw "null pointer dereference")._precision = __tmp__._0;
-                        (@:checkr _ci ?? throw "null pointer dereference")._scale = __tmp__._1;
-                        (@:checkr _ci ?? throw "null pointer dereference")._hasPrecisionScale = __tmp__._2;
+                        (@:checkr _ci ?? throw "null pointer dereference")._precision = @:tmpset0 __tmp__._0;
+                        (@:checkr _ci ?? throw "null pointer dereference")._scale = @:tmpset0 __tmp__._1;
+                        (@:checkr _ci ?? throw "null pointer dereference")._hasPrecisionScale = @:tmpset0 __tmp__._2;
                     };
                 };
             };

@@ -5,8 +5,8 @@ function _parseQuery(_m:stdgo._internal.net.url.Url_Values.Values, _query:stdgo.
             var _key:stdgo.GoString = ("" : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_query?.__copy__(), ("&" : stdgo.GoString));
-                _key = __tmp__._0?.__copy__();
-                _query = __tmp__._1?.__copy__();
+                _key = @:tmpset0 __tmp__._0?.__copy__();
+                _query = @:tmpset0 __tmp__._1?.__copy__();
             };
             if (stdgo._internal.strings.Strings_contains.contains(_key?.__copy__(), (";" : stdgo.GoString))) {
                 _err = stdgo._internal.fmt.Fmt_errorf.errorf(("invalid semicolon separator in query" : stdgo.GoString));
@@ -25,8 +25,8 @@ function _parseQuery(_m:stdgo._internal.net.url.Url_Values.Values, _query:stdgo.
             };
             {
                 var __tmp__ = stdgo._internal.net.url.Url_queryUnescape.queryUnescape(_value?.__copy__());
-                _value = __tmp__._0?.__copy__();
-                _err1 = __tmp__._1;
+                _value = @:tmpset0 __tmp__._0?.__copy__();
+                _err1 = @:tmpset0 __tmp__._1;
             };
             if (_err1 != null) {
                 if (_err == null) {

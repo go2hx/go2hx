@@ -4,8 +4,8 @@ function _makeGeneralizedTime(_t:stdgo._internal.time.Time_Time.Time):{ var _0 :
         var _dst = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1__appendGeneralizedTime._appendGeneralizedTime(_dst, _t?.__copy__());
-            _dst = __tmp__._0;
-            _err = __tmp__._1;
+            _dst = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return {

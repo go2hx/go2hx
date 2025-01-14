@@ -10,8 +10,8 @@ function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:stdgo.GoString):stdgo.
             if (_c == ((65533 : stdgo.GoInt32))) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__());
-                    _c = __tmp__._0;
-                    _width = __tmp__._1;
+                    _c = @:tmpset0 __tmp__._0;
+                    _width = @:tmpset0 __tmp__._1;
                 };
                 if (((_width != (1 : stdgo.GoInt)) && (_r == _c) : Bool)) {
                     continue;

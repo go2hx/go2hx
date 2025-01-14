@@ -29,7 +29,7 @@ package stdgo._internal.internal.fuzz;
         _count.value++;
         {
             var __tmp__ = (@:checkr _ws ?? throw "null pointer dereference")._fuzzFn(({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry));
-            _retErr = __tmp__._1;
+            _retErr = @:tmpset0 __tmp__._1;
         };
         if (_keepCoverage != null) {
             if ((!stdgo._internal.internal.fuzz.Fuzz__hasCoverageBit._hasCoverageBit(_keepCoverage, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) || (_retErr != null) : Bool)) {
@@ -133,8 +133,8 @@ package stdgo._internal.internal.fuzz;
                 var _cancel:() -> Void = null;
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, _args.timeout);
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;
@@ -239,8 +239,8 @@ package stdgo._internal.internal.fuzz;
                 var _cancel:() -> Void = null;
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, _args.timeout);
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;
@@ -294,8 +294,8 @@ package stdgo._internal.internal.fuzz;
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = (@:checkr _ws ?? throw "null pointer dereference")._fuzzFn(_entry?.__copy__());
-                    _dur = __tmp__._0;
-                    _err = __tmp__._1;
+                    _dur = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     _errMsg = _err.error()?.__copy__();

@@ -17,8 +17,8 @@ var _z = __1, _y = __0;
         if ((_x >= (5.36870912e+08 : stdgo.GoFloat64) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.math.Math__trigReduce._trigReduce(_x);
-                _j = __tmp__._0;
-                _z = __tmp__._1;
+                _j = @:tmpset0 __tmp__._0;
+                _z = @:tmpset0 __tmp__._1;
             };
         } else {
             _j = ((_x * (1.2732395447351628 : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo.GoUInt64);

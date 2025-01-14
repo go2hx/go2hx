@@ -47,23 +47,23 @@ package stdgo._internal.compress.lzw;
         {
             var __tmp__ = (new stdgo._internal.compress.lzw.Lzw_Reader.Reader() : stdgo._internal.compress.lzw.Lzw_Reader.Reader);
             var x = (_r : stdgo._internal.compress.lzw.Lzw_Reader.Reader);
-            x._r = __tmp__._r;
-            x._bits = __tmp__._bits;
-            x._nBits = __tmp__._nBits;
-            x._width = __tmp__._width;
-            x._read = __tmp__._read;
-            x._litWidth = __tmp__._litWidth;
-            x._err = __tmp__._err;
-            x._clear = __tmp__._clear;
-            x._eof = __tmp__._eof;
-            x._hi = __tmp__._hi;
-            x._overflow = __tmp__._overflow;
-            x._last = __tmp__._last;
-            x._suffix = __tmp__._suffix;
-            x._prefix = __tmp__._prefix;
-            x._output = __tmp__._output;
-            x._o = __tmp__._o;
-            x._toRead = __tmp__._toRead;
+            x._r = __tmp__?._r;
+            x._bits = __tmp__?._bits;
+            x._nBits = __tmp__?._nBits;
+            x._width = __tmp__?._width;
+            x._read = __tmp__?._read;
+            x._litWidth = __tmp__?._litWidth;
+            x._err = __tmp__?._err;
+            x._clear = __tmp__?._clear;
+            x._eof = __tmp__?._eof;
+            x._hi = __tmp__?._hi;
+            x._overflow = __tmp__?._overflow;
+            x._last = __tmp__?._last;
+            x._suffix = __tmp__?._suffix;
+            x._prefix = __tmp__?._prefix;
+            x._output = __tmp__?._output;
+            x._o = __tmp__?._o;
+            x._toRead = __tmp__?._toRead;
         };
         @:check2r _r._init(_src, _order, _litWidth);
     }
@@ -78,11 +78,11 @@ package stdgo._internal.compress.lzw;
     @:tdfield
     static public function _decode( _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Reader.Reader> = _r;
-        var _i_3647217:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3647214:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_3646622:stdgo.Error = (null : stdgo.Error);
         var _code_3646616:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _loopBreak = false;
+        var _i_3647217:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_3647214:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -103,8 +103,8 @@ package stdgo._internal.compress.lzw;
                 } else if (__value__ == (3646612i32)) {
                     {
                         var __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._read(_r);
-                        _code_3646616 = __tmp__._0;
-                        _err_3646622 = __tmp__._1;
+                        _code_3646616 = @:tmpset0 __tmp__._0;
+                        _err_3646622 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_3646622 != null) {
                         _gotoNext = 3646655i32;

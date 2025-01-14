@@ -4,8 +4,8 @@ function _canonicalHost(_host:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 
         if (stdgo._internal.net.http.cookiejar.Cookiejar__hasPort._hasPort(_host?.__copy__())) {
             {
                 var __tmp__ = stdgo._internal.net.Net_splitHostPort.splitHostPort(_host?.__copy__());
-                _host = __tmp__._0?.__copy__();
-                _err = __tmp__._2;
+                _host = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };

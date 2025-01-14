@@ -43,7 +43,7 @@ if ((((((_b >= (32 : stdgo.GoUInt8) : Bool) && (_b <= (126 : stdgo.GoUInt8) : Bo
                 } else {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
-                        _runeLen = __tmp__._1;
+                        _runeLen = @:tmpset0 __tmp__._1;
                     };
                     _encLen = ((3 : stdgo.GoInt) * _runeLen : stdgo.GoInt);
                 };
@@ -74,7 +74,7 @@ var _runeLen = __2, _last = __1, _currentLen = __0;
             while ((_i < (_s.length) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
-                    _runeLen = __tmp__._1;
+                    _runeLen = @:tmpset0 __tmp__._1;
                 };
 if (((_currentLen + _runeLen : stdgo.GoInt) <= stdgo._internal.mime.Mime__maxBase64Len._maxBase64Len : Bool)) {
                     _currentLen = (_currentLen + (_runeLen) : stdgo.GoInt);

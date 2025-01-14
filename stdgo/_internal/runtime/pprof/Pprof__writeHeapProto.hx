@@ -40,13 +40,13 @@ _hideRuntime = false;
             };
             {
                 var __tmp__ = stdgo._internal.runtime.pprof.Pprof__scaleHeapSample._scaleHeapSample(_r.allocObjects, _r.allocBytes, _rate);
-                _values[(0 : stdgo.GoInt)] = __tmp__._0;
-                _values[(1 : stdgo.GoInt)] = __tmp__._1;
+                _values[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                _values[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
             };
             {
                 var __tmp__ = stdgo._internal.runtime.pprof.Pprof__scaleHeapSample._scaleHeapSample(@:check2 _r.inUseObjects(), @:check2 _r.inUseBytes(), _rate);
-                _values[(2 : stdgo.GoInt)] = __tmp__._0;
-                _values[(3 : stdgo.GoInt)] = __tmp__._1;
+                _values[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                _values[(3 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
             };
             var _blockSize:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             if ((_r.allocObjects > (0i64 : stdgo.GoInt64) : Bool)) {

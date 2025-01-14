@@ -6,8 +6,8 @@ function fprintf(_w:stdgo._internal.io.Io_Writer.Writer, _format:stdgo.GoString,
         @:check2r _p._doPrintf(_format?.__copy__(), _a);
         {
             var __tmp__ = _w.write((@:checkr _p ?? throw "null pointer dereference")._buf);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         @:check2r _p._free();
         return { _0 : _n, _1 : _err };

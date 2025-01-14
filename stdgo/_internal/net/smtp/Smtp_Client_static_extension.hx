@@ -142,8 +142,8 @@ package stdgo._internal.net.smtp;
                 if (__value__ == ((334 : stdgo.GoInt))) {
                     {
                         var __tmp__ = @:check2r _encoding.decodeString(_msg64?.__copy__());
-                        _msg = __tmp__._0;
-                        _err = __tmp__._1;
+                        _msg = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else if (__value__ == ((235 : stdgo.GoInt))) {
                     _msg = (_msg64 : stdgo.Slice<stdgo.GoUInt8>);
@@ -154,8 +154,8 @@ package stdgo._internal.net.smtp;
             if (_err == null) {
                 {
                     var __tmp__ = _a.next(_msg, _code == ((334 : stdgo.GoInt)));
-                    _resp = __tmp__._0;
-                    _err = __tmp__._1;
+                    _resp = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             if (_err != null) {
@@ -170,9 +170,9 @@ package stdgo._internal.net.smtp;
             @:check2r _encoding.encode(_resp64, _resp);
             {
                 var __tmp__ = @:check2r _c._cmd((0 : stdgo.GoInt), (_resp64 : stdgo.GoString)?.__copy__());
-                _code = __tmp__._0;
-                _msg64 = __tmp__._1?.__copy__();
-                _err = __tmp__._2;
+                _code = @:tmpset0 __tmp__._0;
+                _msg64 = @:tmpset0 __tmp__._1?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
         };
         return _err;

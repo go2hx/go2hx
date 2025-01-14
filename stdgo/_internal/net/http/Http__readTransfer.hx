@@ -61,8 +61,8 @@ function _readTransfer(_msg:stdgo.AnyInterface, _r:stdgo.Ref<stdgo._internal.buf
         };
         {
             var __tmp__ = stdgo._internal.net.http.Http__fixTrailer._fixTrailer((@:checkr _t ?? throw "null pointer dereference").header, (@:checkr _t ?? throw "null pointer dereference").chunked);
-            (@:checkr _t ?? throw "null pointer dereference").trailer = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _t ?? throw "null pointer dereference").trailer = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;

@@ -308,8 +308,8 @@ if (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.flags & (20
             var _ok:Bool = false;
             {
                 var __tmp__ = stdgo._internal.debug.elf.Elf__getString._getString(_shstrtab, (_names[(_i : stdgo.GoInt)] : stdgo.GoInt));
-                (@:checkr _s ?? throw "null pointer dereference").sectionHeader.name = __tmp__._0?.__copy__();
-                _ok = __tmp__._1;
+                (@:checkr _s ?? throw "null pointer dereference").sectionHeader.name = @:tmpset0 __tmp__._0?.__copy__();
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_FormatError.FormatError((_shoff + ((_i * _shentsize : stdgo.GoInt) : stdgo.GoInt64) : stdgo.GoInt64), ("bad section name index" : stdgo.GoString), stdgo.Go.toInterface(_names[(_i : stdgo.GoInt)])) : stdgo._internal.debug.elf.Elf_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>)) };

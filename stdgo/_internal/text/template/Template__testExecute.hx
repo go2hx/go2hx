@@ -29,14 +29,14 @@ x.set(("zeroArgs" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.text.t
             if ((_template == null || (_template : Dynamic).__nil__)) {
                 {
                     var __tmp__ = @:check2r @:check2r stdgo._internal.text.template.Template_new_.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
-                    _tmpl = __tmp__._0;
-                    _err = __tmp__._1;
+                    _tmpl = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 {
                     var __tmp__ = @:check2r @:check2r @:check2r _template.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
-                    _tmpl = __tmp__._0;
-                    _err = __tmp__._1;
+                    _tmpl = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             if (_err != null) {

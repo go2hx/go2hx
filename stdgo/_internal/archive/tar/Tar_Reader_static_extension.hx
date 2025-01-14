@@ -224,14 +224,14 @@ var _minor = __1, _major = __0;
         if ((@:checkr _hdr ?? throw "null pointer dereference").typeflag == ((83 : stdgo.GoUInt8))) {
             {
                 var __tmp__ = @:check2r _tr._readOldGNUSparseMap(_hdr, _rawHdr);
-                _spd = __tmp__._0;
-                _err = __tmp__._1;
+                _spd = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = @:check2r _tr._readGNUSparsePAXHeaders(_hdr);
-                _spd = __tmp__._0;
-                _err = __tmp__._1;
+                _spd = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (((_err == null) && (_spd != null) : Bool)) {
@@ -297,8 +297,8 @@ var _gnuLongLink = __1, _gnuLongName = __0;
                     @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mayOnlyBe((4 : stdgo._internal.archive.tar.Tar_Format.Format));
                     {
                         var __tmp__ = stdgo._internal.archive.tar.Tar__parsePAX._parsePAX(stdgo.Go.asInterface(_tr));
-                        _paxHdrs = __tmp__._0;
-                        _err = __tmp__._1;
+                        _paxHdrs = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return { _0 : null, _1 : _err };

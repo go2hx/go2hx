@@ -19,8 +19,8 @@ var _zm2 = __1, _zm1 = __0;
         var _is62zero = (((((-1 ^ _pm1) >> (62i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) & (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt);
         {
             var __tmp__ = stdgo._internal.math.Math__shl._shl(_pm1, _pm2, _is62zero);
-            _pm1 = __tmp__._0;
-            _pm2 = __tmp__._1;
+            _pm1 = @:tmpset0 __tmp__._0;
+            _pm2 = @:tmpset0 __tmp__._1;
         };
         _pe = (_pe - ((_is62zero : stdgo.GoInt32)) : stdgo.GoInt32);
         if (((_pe < _ze : Bool) || (_pe == (_ze) && (_pm1 < _zm1 : Bool) : Bool) : Bool)) {
@@ -48,43 +48,43 @@ var _zm2 = __1, _zm1 = __0;
         };
         {
             var __tmp__ = stdgo._internal.math.Math__shrcompress._shrcompress(_zm1, _zm2, ((_pe - _ze : stdgo.GoInt32) : stdgo.GoUInt));
-            _zm1 = __tmp__._0;
-            _zm2 = __tmp__._1;
+            _zm1 = @:tmpset0 __tmp__._0;
+            _zm2 = @:tmpset0 __tmp__._1;
         };
         var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
 var _c = __1, _m = __0;
         if (_ps == (_zs)) {
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_pm2, _zm2, (0i64 : stdgo.GoUInt64));
-                _pm2 = __tmp__._0;
-                _c = __tmp__._1;
+                _pm2 = @:tmpset0 __tmp__._0;
+                _c = @:tmpset0 __tmp__._1;
             };
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_pm1, _zm1, _c);
-                _pm1 = __tmp__._0;
+                _pm1 = @:tmpset0 __tmp__._0;
             };
             _pe = (_pe - ((((-1 ^ _pm1) >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt32)) : stdgo.GoInt32);
             {
                 var __tmp__ = stdgo._internal.math.Math__shrcompress._shrcompress(_pm1, _pm2, (((64i64 : stdgo.GoUInt64) + (_pm1 >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt));
-                _pm1 = __tmp__._0;
-                _m = __tmp__._1;
+                _pm1 = @:tmpset0 __tmp__._0;
+                _m = @:tmpset0 __tmp__._1;
             };
         } else {
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_sub64.sub64(_pm2, _zm2, (0i64 : stdgo.GoUInt64));
-                _pm2 = __tmp__._0;
-                _c = __tmp__._1;
+                _pm2 = @:tmpset0 __tmp__._0;
+                _c = @:tmpset0 __tmp__._1;
             };
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_sub64.sub64(_pm1, _zm1, _c);
-                _pm1 = __tmp__._0;
+                _pm1 = @:tmpset0 __tmp__._0;
             };
             var _nz = (stdgo._internal.math.Math__lz._lz(_pm1, _pm2) : stdgo.GoInt32);
             _pe = (_pe - (_nz) : stdgo.GoInt32);
             {
                 var __tmp__ = stdgo._internal.math.Math__shl._shl(_pm1, _pm2, ((_nz - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt));
-                _m = __tmp__._0;
-                _pm2 = __tmp__._1;
+                _m = @:tmpset0 __tmp__._0;
+                _pm2 = @:tmpset0 __tmp__._1;
             };
             _m = (_m | (stdgo._internal.math.Math__nonzero._nonzero(_pm2)) : stdgo.GoUInt64);
         };

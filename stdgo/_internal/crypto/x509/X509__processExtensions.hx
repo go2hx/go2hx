@@ -14,8 +14,8 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             if (__value__ == ((15 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseKeyUsageExtension._parseKeyUsageExtension(_e.value);
-                                    (@:checkr _out ?? throw "null pointer dereference").keyUsage = __tmp__._0;
-                                    _err = __tmp__._1;
+                                    (@:checkr _out ?? throw "null pointer dereference").keyUsage = @:tmpset0 __tmp__._0;
+                                    _err = @:tmpset0 __tmp__._1;
                                 };
                                 if (_err != null) {
                                     return _err;
@@ -24,9 +24,9 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((19 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseBasicConstraintsExtension._parseBasicConstraintsExtension(_e.value);
-                                    (@:checkr _out ?? throw "null pointer dereference").isCA = __tmp__._0;
-                                    (@:checkr _out ?? throw "null pointer dereference").maxPathLen = __tmp__._1;
-                                    _err = __tmp__._2;
+                                    (@:checkr _out ?? throw "null pointer dereference").isCA = @:tmpset0 __tmp__._0;
+                                    (@:checkr _out ?? throw "null pointer dereference").maxPathLen = @:tmpset0 __tmp__._1;
+                                    _err = @:tmpset0 __tmp__._2;
                                 };
                                 if (_err != null) {
                                     return _err;
@@ -37,11 +37,11 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((17 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseSANExtension._parseSANExtension(_e.value);
-                                    (@:checkr _out ?? throw "null pointer dereference").dNSNames = __tmp__._0;
-                                    (@:checkr _out ?? throw "null pointer dereference").emailAddresses = __tmp__._1;
-                                    (@:checkr _out ?? throw "null pointer dereference").iPAddresses = __tmp__._2;
-                                    (@:checkr _out ?? throw "null pointer dereference").uRIs = __tmp__._3;
-                                    _err = __tmp__._4;
+                                    (@:checkr _out ?? throw "null pointer dereference").dNSNames = @:tmpset0 __tmp__._0;
+                                    (@:checkr _out ?? throw "null pointer dereference").emailAddresses = @:tmpset0 __tmp__._1;
+                                    (@:checkr _out ?? throw "null pointer dereference").iPAddresses = @:tmpset0 __tmp__._2;
+                                    (@:checkr _out ?? throw "null pointer dereference").uRIs = @:tmpset0 __tmp__._3;
+                                    _err = @:tmpset0 __tmp__._4;
                                 };
                                 if (_err != null) {
                                     return _err;
@@ -53,8 +53,8 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((30 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseNameConstraintsExtension._parseNameConstraintsExtension(_out, _e?.__copy__());
-                                    _unhandled = __tmp__._0;
-                                    _err = __tmp__._1;
+                                    _unhandled = @:tmpset0 __tmp__._0;
+                                    _err = @:tmpset0 __tmp__._1;
                                 };
                                 if (_err != null) {
                                     return _err;
@@ -110,9 +110,9 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((37 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseExtKeyUsageExtension._parseExtKeyUsageExtension(_e.value);
-                                    (@:checkr _out ?? throw "null pointer dereference").extKeyUsage = __tmp__._0;
-                                    (@:checkr _out ?? throw "null pointer dereference").unknownExtKeyUsage = __tmp__._1;
-                                    _err = __tmp__._2;
+                                    (@:checkr _out ?? throw "null pointer dereference").extKeyUsage = @:tmpset0 __tmp__._0;
+                                    (@:checkr _out ?? throw "null pointer dereference").unknownExtKeyUsage = @:tmpset0 __tmp__._1;
+                                    _err = @:tmpset0 __tmp__._2;
                                 };
                                 if (_err != null) {
                                     return _err;
@@ -129,8 +129,8 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((32 : stdgo.GoInt))) {
                                 {
                                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseCertificatePoliciesExtension._parseCertificatePoliciesExtension(_e.value);
-                                    (@:checkr _out ?? throw "null pointer dereference").policyIdentifiers = __tmp__._0;
-                                    _err = __tmp__._1;
+                                    (@:checkr _out ?? throw "null pointer dereference").policyIdentifiers = @:tmpset0 __tmp__._0;
+                                    _err = @:tmpset0 __tmp__._1;
                                 };
                                 if (_err != null) {
                                     return _err;

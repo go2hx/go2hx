@@ -7,9 +7,9 @@ package stdgo._internal.internal.fuzz;
         {
             var __tmp__ = (new stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue() : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue);
             var x = (_q : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue);
-            x._elems = __tmp__._elems;
-            x._head = __tmp__._head;
-            x._len = __tmp__._len;
+            x._elems = __tmp__?._elems;
+            x._head = __tmp__?._head;
+            x._len = __tmp__?._len;
         };
     }
     @:keep

@@ -8,8 +8,8 @@ var _err = __1, _m = __0;
             for (__8 => _d in _c._defn) {
                 {
                     var __tmp__ = @:check2r @:check2r _root.new_(_c._in?.__copy__()).parse(_d?.__copy__());
-                    _m = __tmp__._0;
-                    _err = __tmp__._1;
+                    _m = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _t.fatal(stdgo.Go.toInterface(_err));

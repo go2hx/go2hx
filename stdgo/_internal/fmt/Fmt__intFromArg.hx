@@ -9,8 +9,8 @@ function _intFromArg(_a:stdgo.Slice<stdgo.AnyInterface>, _argNum:stdgo.GoInt):{ 
                 } catch(_) {
                     { _0 : (0 : stdgo.GoInt), _1 : false };
                 };
-                _num = __tmp__._0;
-                _isInt = __tmp__._1;
+                _num = @:tmpset0 __tmp__._0;
+                _isInt = @:tmpset0 __tmp__._1;
             };
             if (!_isInt) {
                 {

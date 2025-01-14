@@ -19,40 +19,40 @@ function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_Header.Header>
                 } else if (__value__ == (("uid" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_v?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));
-                        _id64 = __tmp__._0;
-                        _err = __tmp__._1;
+                        _id64 = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     (@:checkr _hdr ?? throw "null pointer dereference").uid = (_id64 : stdgo.GoInt);
                 } else if (__value__ == (("gid" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_v?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));
-                        _id64 = __tmp__._0;
-                        _err = __tmp__._1;
+                        _id64 = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     (@:checkr _hdr ?? throw "null pointer dereference").gid = (_id64 : stdgo.GoInt);
                 } else if (__value__ == (("atime" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.archive.tar.Tar__parsePAXTime._parsePAXTime(_v?.__copy__());
-                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = __tmp__._0?.__copy__();
-                        _err = __tmp__._1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = @:tmpset0 __tmp__._0?.__copy__();
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else if (__value__ == (("mtime" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.archive.tar.Tar__parsePAXTime._parsePAXTime(_v?.__copy__());
-                        (@:checkr _hdr ?? throw "null pointer dereference").modTime = __tmp__._0?.__copy__();
-                        _err = __tmp__._1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").modTime = @:tmpset0 __tmp__._0?.__copy__();
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else if (__value__ == (("ctime" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.archive.tar.Tar__parsePAXTime._parsePAXTime(_v?.__copy__());
-                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = __tmp__._0?.__copy__();
-                        _err = __tmp__._1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = @:tmpset0 __tmp__._0?.__copy__();
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else if (__value__ == (("size" : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_v?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));
-                        (@:checkr _hdr ?? throw "null pointer dereference").size = __tmp__._0;
-                        _err = __tmp__._1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").size = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_k?.__copy__(), ("SCHILY.xattr." : stdgo.GoString))) {

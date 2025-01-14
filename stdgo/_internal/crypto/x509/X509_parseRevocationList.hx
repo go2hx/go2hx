@@ -61,8 +61,8 @@ function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.R
         @:check2 (@:checkr _rl ?? throw "null pointer dereference").issuer.fillFromRDNSequence(_issuerRDNs);
         {
             var __tmp__ = stdgo._internal.crypto.x509.X509__parseTime._parseTime((stdgo.Go.setRef(_tbs) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>));
-            (@:checkr _rl ?? throw "null pointer dereference").thisUpdate = __tmp__._0?.__copy__();
-            _err = __tmp__._1;
+            (@:checkr _rl ?? throw "null pointer dereference").thisUpdate = @:tmpset0 __tmp__._0?.__copy__();
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
@@ -70,8 +70,8 @@ function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.R
         if ((_tbs.peekASN1Tag((24 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || _tbs.peekASN1Tag((23 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__parseTime._parseTime((stdgo.Go.setRef(_tbs) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>));
-                (@:checkr _rl ?? throw "null pointer dereference").nextUpdate = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                (@:checkr _rl ?? throw "null pointer dereference").nextUpdate = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
@@ -98,8 +98,8 @@ function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.R
                 };
                 {
                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseTime._parseTime((stdgo.Go.setRef(_certSeq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>));
-                    _rce.revocationTime = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _rce.revocationTime = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : null, _1 : _err };

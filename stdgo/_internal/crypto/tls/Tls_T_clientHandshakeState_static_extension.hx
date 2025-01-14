@@ -224,8 +224,8 @@ var _serverHash = __1, _clientHash = __0;
         };
         {
             var __tmp__ = @:check2r _c._readHandshake(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _hs ?? throw "null pointer dereference")._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>)));
-            _msg = __tmp__._0;
-            _err = __tmp__._1;
+            _msg = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;
@@ -243,8 +243,8 @@ var _serverHash = __1, _clientHash = __0;
             (@:checkr _c ?? throw "null pointer dereference")._ocspResponse = (@:checkr _cs ?? throw "null pointer dereference")._response;
             {
                 var __tmp__ = @:check2r _c._readHandshake(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _hs ?? throw "null pointer dereference")._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>)));
-                _msg = __tmp__._0;
-                _err = __tmp__._1;
+                _msg = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -277,8 +277,8 @@ var _serverHash = __1, _clientHash = __0;
             };
             {
                 var __tmp__ = @:check2r _c._readHandshake(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _hs ?? throw "null pointer dereference")._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>)));
-                _msg = __tmp__._0;
-                _err = __tmp__._1;
+                _msg = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -297,8 +297,8 @@ var _serverHash = __1, _clientHash = __0;
             {
                 {
                     var __tmp__ = @:check2r _c._getClientCertificate(_cri);
-                    _chainToSend = __tmp__._0;
-                    _err = __tmp__._1;
+                    _chainToSend = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -307,8 +307,8 @@ var _serverHash = __1, _clientHash = __0;
             };
             {
                 var __tmp__ = @:check2r _c._readHandshake(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _hs ?? throw "null pointer dereference")._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>)));
-                _msg = __tmp__._0;
-                _err = __tmp__._1;
+                _msg = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -380,9 +380,9 @@ var _serverHash = __1, _clientHash = __0;
                 };
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__typeAndHashFromSignatureScheme._typeAndHashFromSignatureScheme(_signatureAlgorithm);
-                    _sigType = __tmp__._0;
-                    _sigHash = __tmp__._1;
-                    _err = __tmp__._2;
+                    _sigType = @:tmpset0 __tmp__._0;
+                    _sigHash = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     return @:check2r _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -392,9 +392,9 @@ var _serverHash = __1, _clientHash = __0;
             } else {
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__legacyTypeAndHashFromPublicKey._legacyTypeAndHashFromPublicKey(_key.public_());
-                    _sigType = __tmp__._0;
-                    _sigHash = __tmp__._1;
-                    _err = __tmp__._2;
+                    _sigType = @:tmpset0 __tmp__._0;
+                    _sigHash = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     @:check2r _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -408,8 +408,8 @@ var _serverHash = __1, _clientHash = __0;
             };
             {
                 var __tmp__ = _key.sign(@:check2r (@:checkr _c ?? throw "null pointer dereference")._config._rand(), _signed, _signOpts);
-                (@:checkr _certVerify ?? throw "null pointer dereference")._signature = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _certVerify ?? throw "null pointer dereference")._signature = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 @:check2r _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));

@@ -11,8 +11,8 @@ package stdgo._internal.net.textproto;
             var _c:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
             {
                 var __tmp__ = @:check2r _br.readByte();
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {

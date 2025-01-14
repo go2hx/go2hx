@@ -35,8 +35,8 @@ function _call(_fn:stdgo._internal.reflect.Reflect_Value.Value, _args:haxe.Rest<
             {
                 {
                     var __tmp__ = stdgo._internal.text.template.Template__prepareArg._prepareArg(_arg?.__copy__(), _argType);
-                    _argv[(_i : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _argv[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("arg %d: %w" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err)) };

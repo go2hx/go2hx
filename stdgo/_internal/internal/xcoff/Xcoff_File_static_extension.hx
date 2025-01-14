@@ -110,8 +110,8 @@ var _ok:Bool = false;
                             var _offset = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _ldsym ?? throw "null pointer dereference").lname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                             {
                                 var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, _offset);
-                                _name = __tmp__._0.__copy__();
-                                _ok = __tmp__._1;
+                                _name = @:tmpset0 __tmp__._0.__copy__();
+                                _ok = @:tmpset0 __tmp__._1;
                             };
                             if (!_ok) {
                                 {
@@ -137,8 +137,8 @@ var _ok:Bool = false;
                         };
                         {
                             var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, (@:checkr _ldsym ?? throw "null pointer dereference").loffset);
-                            _name = __tmp__._0.__copy__();
-                            _ok = __tmp__._1;
+                            _name = @:tmpset0 __tmp__._0.__copy__();
+                            _ok = @:tmpset0 __tmp__._1;
                         };
                         if (!_ok) {
                             {

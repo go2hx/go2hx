@@ -29,19 +29,19 @@ var _du0 = __2, _dc0 = __1, _dl0 = __0;
 var _du32 = __2, _dc32 = __1, _dl32 = __0;
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult64bitPow10._mult64bitPow10((_ml : stdgo.GoUInt32), _e2, _q);
-                _dl32 = __tmp__._0;
-                _dl0 = __tmp__._2;
+                _dl32 = @:tmpset0 __tmp__._0;
+                _dl0 = @:tmpset0 __tmp__._2;
             };
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult64bitPow10._mult64bitPow10((_mc : stdgo.GoUInt32), _e2, _q);
-                _dc32 = __tmp__._0;
-                _dc0 = __tmp__._2;
+                _dc32 = @:tmpset0 __tmp__._0;
+                _dc0 = @:tmpset0 __tmp__._2;
             };
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult64bitPow10._mult64bitPow10((_mu : stdgo.GoUInt32), _e2, _q);
-                _du32 = __tmp__._0;
-                _e2 = __tmp__._1;
-                _du0 = __tmp__._2;
+                _du32 = @:tmpset0 __tmp__._0;
+                _e2 = @:tmpset0 __tmp__._1;
+                _du0 = @:tmpset0 __tmp__._2;
             };
             {
                 final __tmp__0 = (_dl32 : stdgo.GoUInt64);
@@ -54,19 +54,19 @@ var _du32 = __2, _dc32 = __1, _dl32 = __0;
         } else {
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult128bitPow10._mult128bitPow10(_ml, _e2, _q);
-                _dl = __tmp__._0;
-                _dl0 = __tmp__._2;
+                _dl = @:tmpset0 __tmp__._0;
+                _dl0 = @:tmpset0 __tmp__._2;
             };
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult128bitPow10._mult128bitPow10(_mc, _e2, _q);
-                _dc = __tmp__._0;
-                _dc0 = __tmp__._2;
+                _dc = @:tmpset0 __tmp__._0;
+                _dc0 = @:tmpset0 __tmp__._2;
             };
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult128bitPow10._mult128bitPow10(_mu, _e2, _q);
-                _du = __tmp__._0;
-                _e2 = __tmp__._1;
-                _du0 = __tmp__._2;
+                _du = @:tmpset0 __tmp__._0;
+                _e2 = @:tmpset0 __tmp__._1;
+                _du0 = @:tmpset0 __tmp__._2;
             };
         };
         if ((_e2 >= (0 : stdgo.GoInt) : Bool)) {

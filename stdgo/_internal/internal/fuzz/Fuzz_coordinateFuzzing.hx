@@ -26,8 +26,8 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 var _cancel:() -> Void = null;
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, _opts.timeout);
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;
@@ -93,8 +93,8 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__newWorker._newWorker(_c, _dir?.__copy__(), _binPath?.__copy__(), _args, _env);
-                    _workers[(_i : stdgo.GoInt)] = __tmp__._0;
-                    _err = __tmp__._1;
+                    _workers[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {

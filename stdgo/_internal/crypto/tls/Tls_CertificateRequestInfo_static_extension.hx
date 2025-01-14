@@ -20,8 +20,8 @@ package stdgo._internal.crypto.tls;
                 {
                     {
                         var __tmp__ = stdgo._internal.crypto.x509.X509_parseCertificate.parseCertificate(_cert);
-                        _x509Cert = __tmp__._0;
-                        _err = __tmp__._1;
+                        _x509Cert = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("failed to parse certificate #%d in the chain: %w" : stdgo.GoString), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_err));

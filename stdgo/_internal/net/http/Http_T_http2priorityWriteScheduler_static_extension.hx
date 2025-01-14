@@ -41,8 +41,8 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = @:check2 (@:checkr _n ?? throw "null pointer dereference")._q._consume(_limit);
-                _wr = __tmp__._0?.__copy__();
-                _ok = __tmp__._1;
+                _wr = @:tmpset0 __tmp__._0?.__copy__();
+                _ok = @:tmpset0 __tmp__._1;
             };
             if (!_ok) {
                 return false;

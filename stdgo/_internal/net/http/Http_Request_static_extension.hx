@@ -168,8 +168,8 @@ package stdgo._internal.net.http;
             if ((((@:checkr _r ?? throw "null pointer dereference").method == (("POST" : stdgo.GoString)) || (@:checkr _r ?? throw "null pointer dereference").method == (("PUT" : stdgo.GoString)) : Bool) || ((@:checkr _r ?? throw "null pointer dereference").method == ("PATCH" : stdgo.GoString)) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.net.http.Http__parsePostForm._parsePostForm(_r);
-                    (@:checkr _r ?? throw "null pointer dereference").postForm = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _r ?? throw "null pointer dereference").postForm = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             if ((@:checkr _r ?? throw "null pointer dereference").postForm == null) {
@@ -196,8 +196,8 @@ package stdgo._internal.net.http;
                 var _e:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.net.url.Url_parseQuery.parseQuery((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__());
-                    _newValues = __tmp__._0;
-                    _e = __tmp__._1;
+                    _newValues = @:tmpset0 __tmp__._0;
+                    _e = @:tmpset0 __tmp__._1;
                 };
                 if (_err == null) {
                     _err = _e;
@@ -300,8 +300,8 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = _internal.golang_dot_org.x.net.http.httpguts.Httpguts_punycodeHostPort.punycodeHostPort(_host?.__copy__());
-                _host = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _host = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -363,7 +363,7 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("%s %s HTTP/1.1\r\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault((@:checkr _r ?? throw "null pointer dereference").method?.__copy__(), ("GET" : stdgo.GoString))), stdgo.Go.toInterface(_ruri));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -377,7 +377,7 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("Host: %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_host));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -399,7 +399,7 @@ package stdgo._internal.net.http;
             if (_userAgent != (stdgo.Go.str())) {
                 {
                     var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("User-Agent: %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_userAgent));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {
@@ -463,7 +463,7 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("\r\n" : stdgo.GoString));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -732,28 +732,28 @@ package stdgo._internal.net.http;
         {
             var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_Request.Request);
-            x.method = __tmp__.method;
-            x.uRL = __tmp__.uRL;
-            x.proto = __tmp__.proto;
-            x.protoMajor = __tmp__.protoMajor;
-            x.protoMinor = __tmp__.protoMinor;
-            x.header = __tmp__.header;
-            x.body = __tmp__.body;
-            x.getBody = __tmp__.getBody;
-            x.contentLength = __tmp__.contentLength;
-            x.transferEncoding = __tmp__.transferEncoding;
-            x.close = __tmp__.close;
-            x.host = __tmp__.host;
-            x.form = __tmp__.form;
-            x.postForm = __tmp__.postForm;
-            x.multipartForm = __tmp__.multipartForm;
-            x.trailer = __tmp__.trailer;
-            x.remoteAddr = __tmp__.remoteAddr;
-            x.requestURI = __tmp__.requestURI;
-            x.tLS = __tmp__.tLS;
-            x.cancel = __tmp__.cancel;
-            x.response = __tmp__.response;
-            x._ctx = __tmp__._ctx;
+            x.method = __tmp__?.method;
+            x.uRL = __tmp__?.uRL;
+            x.proto = __tmp__?.proto;
+            x.protoMajor = __tmp__?.protoMajor;
+            x.protoMinor = __tmp__?.protoMinor;
+            x.header = __tmp__?.header;
+            x.body = __tmp__?.body;
+            x.getBody = __tmp__?.getBody;
+            x.contentLength = __tmp__?.contentLength;
+            x.transferEncoding = __tmp__?.transferEncoding;
+            x.close = __tmp__?.close;
+            x.host = __tmp__?.host;
+            x.form = __tmp__?.form;
+            x.postForm = __tmp__?.postForm;
+            x.multipartForm = __tmp__?.multipartForm;
+            x.trailer = __tmp__?.trailer;
+            x.remoteAddr = __tmp__?.remoteAddr;
+            x.requestURI = __tmp__?.requestURI;
+            x.tLS = __tmp__?.tLS;
+            x.cancel = __tmp__?.cancel;
+            x.response = __tmp__?.response;
+            x._ctx = __tmp__?._ctx;
         };
         (@:checkr _r2 ?? throw "null pointer dereference")._ctx = _ctx;
         (@:checkr _r2 ?? throw "null pointer dereference").uRL = stdgo._internal.net.http.Http__cloneURL._cloneURL((@:checkr _r ?? throw "null pointer dereference").uRL);
@@ -787,28 +787,28 @@ package stdgo._internal.net.http;
         {
             var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_Request.Request);
-            x.method = __tmp__.method;
-            x.uRL = __tmp__.uRL;
-            x.proto = __tmp__.proto;
-            x.protoMajor = __tmp__.protoMajor;
-            x.protoMinor = __tmp__.protoMinor;
-            x.header = __tmp__.header;
-            x.body = __tmp__.body;
-            x.getBody = __tmp__.getBody;
-            x.contentLength = __tmp__.contentLength;
-            x.transferEncoding = __tmp__.transferEncoding;
-            x.close = __tmp__.close;
-            x.host = __tmp__.host;
-            x.form = __tmp__.form;
-            x.postForm = __tmp__.postForm;
-            x.multipartForm = __tmp__.multipartForm;
-            x.trailer = __tmp__.trailer;
-            x.remoteAddr = __tmp__.remoteAddr;
-            x.requestURI = __tmp__.requestURI;
-            x.tLS = __tmp__.tLS;
-            x.cancel = __tmp__.cancel;
-            x.response = __tmp__.response;
-            x._ctx = __tmp__._ctx;
+            x.method = __tmp__?.method;
+            x.uRL = __tmp__?.uRL;
+            x.proto = __tmp__?.proto;
+            x.protoMajor = __tmp__?.protoMajor;
+            x.protoMinor = __tmp__?.protoMinor;
+            x.header = __tmp__?.header;
+            x.body = __tmp__?.body;
+            x.getBody = __tmp__?.getBody;
+            x.contentLength = __tmp__?.contentLength;
+            x.transferEncoding = __tmp__?.transferEncoding;
+            x.close = __tmp__?.close;
+            x.host = __tmp__?.host;
+            x.form = __tmp__?.form;
+            x.postForm = __tmp__?.postForm;
+            x.multipartForm = __tmp__?.multipartForm;
+            x.trailer = __tmp__?.trailer;
+            x.remoteAddr = __tmp__?.remoteAddr;
+            x.requestURI = __tmp__?.requestURI;
+            x.tLS = __tmp__?.tLS;
+            x.cancel = __tmp__?.cancel;
+            x.response = __tmp__?.response;
+            x._ctx = __tmp__?._ctx;
         };
         (@:checkr _r2 ?? throw "null pointer dereference")._ctx = _ctx;
         return _r2;

@@ -5,8 +5,8 @@ function _readFileFS(_fsys:stdgo._internal.io.fs.Fs_FS.FS):stdgo.GoString -> { v
             _name = stdgo._internal.path.Path_base.base(_file?.__copy__())?.__copy__();
             {
                 var __tmp__ = stdgo._internal.io.fs.Fs_readFile.readFile(_fsys, _file?.__copy__());
-                _b = __tmp__._0;
-                _err = __tmp__._1;
+                _b = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             return { _0 : _name, _1 : _b, _2 : _err };
         };

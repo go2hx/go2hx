@@ -38,7 +38,7 @@ package stdgo._internal.archive.zip;
         };
         {
             var __tmp__ = stdgo._internal.io.Io_copy.copy(_fw, _r);
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -92,8 +92,8 @@ package stdgo._internal.archive.zip;
         if (!(@:checkr _fh ?? throw "null pointer dereference").modified.isZero()) {
             {
                 var __tmp__ = stdgo._internal.archive.zip.Zip__timeToMsDosTime._timeToMsDosTime((@:checkr _fh ?? throw "null pointer dereference").modified?.__copy__());
-                (@:checkr _fh ?? throw "null pointer dereference").modifiedDate = __tmp__._0;
-                (@:checkr _fh ?? throw "null pointer dereference").modifiedTime = __tmp__._1;
+                (@:checkr _fh ?? throw "null pointer dereference").modifiedDate = @:tmpset0 __tmp__._0;
+                (@:checkr _fh ?? throw "null pointer dereference").modifiedTime = @:tmpset0 __tmp__._1;
             };
             var _mbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(9, 9).__setNumber32__();
             var _mt = ((@:checkr _fh ?? throw "null pointer dereference").modified.unix() : stdgo.GoUInt32);
@@ -125,8 +125,8 @@ var _fw = __1, _ow = __0;
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = _comp(stdgo.Go.asInterface((@:checkr _fw ?? throw "null pointer dereference")._compCount));
-                (@:checkr _fw ?? throw "null pointer dereference")._comp = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _fw ?? throw "null pointer dereference")._comp = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.io.Io_Writer.Writer), _1 : _err };

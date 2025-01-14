@@ -179,7 +179,7 @@ package stdgo._internal.archive.zip;
         {
             {
                 var __tmp__ = @:check2r _rs.seek(((@:checkr _r ?? throw "null pointer dereference")._baseOffset + ((@:checkr _end ?? throw "null pointer dereference")._directoryOffset : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;

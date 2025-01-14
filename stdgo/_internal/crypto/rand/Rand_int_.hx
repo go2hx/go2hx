@@ -19,7 +19,7 @@ function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._i
         while (true) {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _bytes);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {

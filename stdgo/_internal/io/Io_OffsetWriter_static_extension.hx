@@ -48,8 +48,8 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = (@:checkr _o ?? throw "null pointer dereference")._w.writeAt(_p, (@:checkr _o ?? throw "null pointer dereference")._off);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _o ?? throw "null pointer dereference")._off = ((@:checkr _o ?? throw "null pointer dereference")._off + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };

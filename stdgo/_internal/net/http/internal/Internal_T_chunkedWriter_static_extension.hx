@@ -23,7 +23,7 @@ package stdgo._internal.net.http.internal;
         {
             {
                 var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _cw ?? throw "null pointer dereference").wire, ("%x\r\n" : stdgo.GoString), stdgo.Go.toInterface((_data.length)));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -37,8 +37,8 @@ package stdgo._internal.net.http.internal;
         {
             {
                 var __tmp__ = (@:checkr _cw ?? throw "null pointer dereference").wire.write(_data);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _n, _1 : _err };
@@ -51,7 +51,7 @@ package stdgo._internal.net.http.internal;
         {
             {
                 var __tmp__ = stdgo._internal.io.Io_writeString.writeString((@:checkr _cw ?? throw "null pointer dereference").wire, ("\r\n" : stdgo.GoString));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _n, _1 : _err };

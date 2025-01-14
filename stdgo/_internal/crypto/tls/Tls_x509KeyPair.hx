@@ -9,8 +9,8 @@ function x509KeyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
             var _certDERBlock:stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block> = (null : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem_decode.decode(_certPEMBlock);
-                _certDERBlock = __tmp__._0;
-                _certPEMBlock = __tmp__._1;
+                _certDERBlock = @:tmpset0 __tmp__._0;
+                _certPEMBlock = @:tmpset0 __tmp__._1;
             };
             if ((_certDERBlock == null || (_certDERBlock : Dynamic).__nil__)) {
                 break;
@@ -35,8 +35,8 @@ function x509KeyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
         while (true) {
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem_decode.decode(_keyPEMBlock);
-                _keyDERBlock = __tmp__._0;
-                _keyPEMBlock = __tmp__._1;
+                _keyDERBlock = @:tmpset0 __tmp__._0;
+                _keyPEMBlock = @:tmpset0 __tmp__._1;
             };
             if ((_keyDERBlock == null || (_keyDERBlock : Dynamic).__nil__)) {
                 if ((_skippedBlockTypes.length) == ((0 : stdgo.GoInt))) {
@@ -58,8 +58,8 @@ function x509KeyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
         };
         {
             var __tmp__ = stdgo._internal.crypto.tls.Tls__parsePrivateKey._parsePrivateKey((@:checkr _keyDERBlock ?? throw "null pointer dereference").bytes);
-            _cert.privateKey = __tmp__._0;
-            _err = __tmp__._1;
+            _cert.privateKey = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _fail(_err);

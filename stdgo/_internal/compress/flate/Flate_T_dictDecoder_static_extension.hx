@@ -103,10 +103,10 @@ package stdgo._internal.compress.flate;
         {
             var __tmp__ = ({ _hist : (@:checkr _dd ?? throw "null pointer dereference")._hist } : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder);
             var x = (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder);
-            x._hist = __tmp__._hist;
-            x._wrPos = __tmp__._wrPos;
-            x._rdPos = __tmp__._rdPos;
-            x._full = __tmp__._full;
+            x._hist = __tmp__?._hist;
+            x._wrPos = __tmp__?._wrPos;
+            x._rdPos = __tmp__?._rdPos;
+            x._full = __tmp__?._full;
         };
         if (((@:checkr _dd ?? throw "null pointer dereference")._hist.capacity < _size : Bool)) {
             (@:checkr _dd ?? throw "null pointer dereference")._hist = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

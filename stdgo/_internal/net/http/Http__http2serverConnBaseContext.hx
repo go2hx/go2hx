@@ -3,8 +3,8 @@ function _http2serverConnBaseContext(_c:stdgo._internal.net.Net_Conn.Conn, _opts
         var _ctx = (null : stdgo._internal.context.Context_Context.Context), _cancel = null;
         {
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(@:check2r _opts._context());
-            _ctx = __tmp__._0;
-            _cancel = __tmp__._1;
+            _ctx = @:tmpset0 __tmp__._0;
+            _cancel = @:tmpset0 __tmp__._1;
         };
         _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_localAddrContextKey.localAddrContextKey)), stdgo.Go.toInterface(_c.localAddr()));
         {

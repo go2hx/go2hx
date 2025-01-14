@@ -7,10 +7,10 @@ package stdgo._internal.crypto.tls;
         {
             var __tmp__ = ({ _raw : _data } : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg);
             var x = (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg);
-            x._raw = __tmp__._raw;
-            x._alpnProtocol = __tmp__._alpnProtocol;
-            x._quicTransportParameters = __tmp__._quicTransportParameters;
-            x._earlyData = __tmp__._earlyData;
+            x._raw = __tmp__?._raw;
+            x._alpnProtocol = __tmp__?._alpnProtocol;
+            x._quicTransportParameters = __tmp__?._quicTransportParameters;
+            x._earlyData = __tmp__?._earlyData;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _extensions:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
@@ -89,8 +89,8 @@ package stdgo._internal.crypto.tls;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = @:check2 _b.bytes();
-            (@:checkr _m ?? throw "null pointer dereference")._raw = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _m ?? throw "null pointer dereference")._raw = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : _err };
     }

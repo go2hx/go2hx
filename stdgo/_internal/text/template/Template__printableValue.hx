@@ -3,7 +3,7 @@ function _printableValue(_v:stdgo._internal.reflect.Reflect_Value.Value):{ var _
         if (_v.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
             {
                 var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(_v?.__copy__());
-                _v = __tmp__._0?.__copy__();
+                _v = @:tmpset0 __tmp__._0?.__copy__();
             };
         };
         if (!_v.isValid()) {

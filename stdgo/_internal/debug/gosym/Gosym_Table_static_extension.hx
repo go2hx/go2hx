@@ -122,8 +122,8 @@ package stdgo._internal.debug.gosym;
         } else {
             {
                 var __tmp__ = @:check2r (@:checkr _fn ?? throw "null pointer dereference").obj._lineFromAline(@:check2r (@:checkr _fn ?? throw "null pointer dereference").lineTable.pCToLine(_pc));
-                _file = __tmp__._0?.__copy__();
-                _line = __tmp__._1;
+                _file = @:tmpset0 __tmp__._0?.__copy__();
+                _line = @:tmpset0 __tmp__._1;
             };
         };
         return { _0 : _file, _1 : _line, _2 : _fn };

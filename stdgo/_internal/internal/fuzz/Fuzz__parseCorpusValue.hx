@@ -83,8 +83,8 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                     } catch(_) {
                         { _0 : (null : stdgo.Ref<stdgo._internal.go.ast.Ast_Ident.Ident>), _1 : false };
                     };
-                    _idType = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _idType = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("expected []byte or primitive type" : stdgo.GoString)) };

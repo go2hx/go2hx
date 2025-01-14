@@ -6,8 +6,8 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.net.Net_fileListener.fileListener(stdgo._internal.os.Os_stdin.stdin);
-                    _l = __tmp__._0;
-                    _err = __tmp__._1;
+                    _l = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return _err;

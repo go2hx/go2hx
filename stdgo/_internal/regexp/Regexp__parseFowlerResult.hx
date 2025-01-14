@@ -41,8 +41,8 @@ function _parseFowlerResult(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; v
             if ((_s.__slice__(0, _i) : stdgo.GoString) != (("?" : stdgo.GoString))) {
                 {
                     var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__());
-                    _v = __tmp__._0;
-                    _err = __tmp__._1;
+                    _v = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     _ok = false;

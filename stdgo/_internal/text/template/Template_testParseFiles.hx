@@ -7,7 +7,7 @@ function testParseFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var _template = stdgo._internal.text.template.Template_new_.new_(("root" : stdgo.GoString));
         {
             var __tmp__ = @:check2r _template.parseFiles(("testdata/file1.tmpl" : stdgo.GoString), ("testdata/file2.tmpl" : stdgo.GoString));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatalf(("error parsing files: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

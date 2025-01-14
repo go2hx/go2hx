@@ -31,7 +31,7 @@ function _tCSSStr(_c:stdgo._internal.html.template.Template_T_context.T_context,
             };
             {
                 var __tmp__ = stdgo._internal.html.template.Template__tURL._tURL(_c?.__copy__(), stdgo._internal.html.template.Template__decodeCSS._decodeCSS((_s.__slice__(0, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)));
-                _c = __tmp__._0?.__copy__();
+                _c = @:tmpset0 __tmp__._0?.__copy__();
             };
             _k = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
         };

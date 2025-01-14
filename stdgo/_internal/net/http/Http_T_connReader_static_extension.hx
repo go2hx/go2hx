@@ -49,8 +49,8 @@ package stdgo._internal.net.http;
         @:check2r _cr._unlock();
         {
             var __tmp__ = (@:checkr (@:checkr _cr ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._rwc.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         @:check2r _cr._lock();
         (@:checkr _cr ?? throw "null pointer dereference")._inRead = false;

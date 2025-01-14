@@ -12,7 +12,7 @@ function testDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                 {
                     var __tmp__ = _decoder.read(_dbuf);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Read from %q = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_p._encoded), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF));

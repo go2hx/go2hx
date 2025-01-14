@@ -22,8 +22,8 @@ package stdgo._internal.compress.gzip;
         while (_n == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._decompressor.read(_p);
-                _n = __tmp__._0;
-                (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _z ?? throw "null pointer dereference")._digest = stdgo._internal.hash.crc32.Crc32_update.update((@:checkr _z ?? throw "null pointer dereference")._digest, stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable, (_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
             (@:checkr _z ?? throw "null pointer dereference")._size = ((@:checkr _z ?? throw "null pointer dereference")._size + ((_n : stdgo.GoUInt32)) : stdgo.GoUInt32);
@@ -76,7 +76,7 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = @:check2r _z._readHeader();
-                    (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+                    (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                     return {
@@ -103,7 +103,7 @@ package stdgo._internal.compress.gzip;
         {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, ((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -135,7 +135,7 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, ((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -151,7 +151,7 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, _data);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -170,8 +170,8 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = @:check2r _z._readString();
-                    _s = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _s = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -188,8 +188,8 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = @:check2r _z._readString();
-                    _s = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _s = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -206,7 +206,7 @@ package stdgo._internal.compress.gzip;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, ((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -254,8 +254,8 @@ package stdgo._internal.compress.gzip;
                 };
 {
                     var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._r.readByte();
-                    (@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
 if (_err != null) {
                     return { _0 : stdgo.Go.str().__copy__(), _1 : _err };
@@ -291,14 +291,14 @@ if ((@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] =
         {
             var __tmp__ = ({ _decompressor : (@:checkr _z ?? throw "null pointer dereference")._decompressor, _multistream : true } : stdgo._internal.compress.gzip.Gzip_Reader.Reader);
             var x = (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader);
-            x.header = __tmp__.header;
-            x._r = __tmp__._r;
-            x._decompressor = __tmp__._decompressor;
-            x._digest = __tmp__._digest;
-            x._size = __tmp__._size;
-            x._buf = __tmp__._buf;
-            x._err = __tmp__._err;
-            x._multistream = __tmp__._multistream;
+            x.header = __tmp__?.header;
+            x._r = __tmp__?._r;
+            x._decompressor = __tmp__?._decompressor;
+            x._digest = __tmp__?._digest;
+            x._size = __tmp__?._size;
+            x._buf = __tmp__?._buf;
+            x._err = __tmp__?._err;
+            x._multistream = __tmp__?._multistream;
         };
         {
             var __tmp__ = try {
@@ -314,8 +314,8 @@ if ((@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] =
         };
         {
             var __tmp__ = @:check2r _z._readHeader();
-            (@:checkr _z ?? throw "null pointer dereference").header = __tmp__._0?.__copy__();
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference").header = @:tmpset0 __tmp__._0?.__copy__();
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         return (@:checkr _z ?? throw "null pointer dereference")._err;
     }

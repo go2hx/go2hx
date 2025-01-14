@@ -13,8 +13,8 @@ function readAtLeast(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<st
             var _nn:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var __tmp__ = _r.read((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>));
-                _nn = __tmp__._0;
-                _err = __tmp__._1;
+                _nn = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + (_nn) : stdgo.GoInt);
         };

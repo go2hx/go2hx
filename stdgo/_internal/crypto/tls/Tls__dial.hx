@@ -6,8 +6,8 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                 var _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, (@:checkr _netDialer ?? throw "null pointer dereference").timeout);
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;
@@ -18,8 +18,8 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                 var _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
                     var __tmp__ = stdgo._internal.context.Context_withDeadline.withDeadline(_ctx, (@:checkr _netDialer ?? throw "null pointer dereference").deadline?.__copy__());
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;

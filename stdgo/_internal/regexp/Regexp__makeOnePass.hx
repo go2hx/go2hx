@@ -48,8 +48,8 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                             };
                             {
                                 var __tmp__ = stdgo._internal.regexp.Regexp__mergeRuneSets._mergeRuneSets((stdgo.Go.setRef(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.out : stdgo.GoInt)]) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>), (stdgo.Go.setRef(_onePassRunes[((@:checkr _inst ?? throw "null pointer dereference").inst.arg : stdgo.GoInt)]) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>), (@:checkr _inst ?? throw "null pointer dereference").inst.out, (@:checkr _inst ?? throw "null pointer dereference").inst.arg);
-                                _onePassRunes[(_pc : stdgo.GoInt)] = __tmp__._0;
-                                (@:checkr _inst ?? throw "null pointer dereference").next = __tmp__._1;
+                                _onePassRunes[(_pc : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                                (@:checkr _inst ?? throw "null pointer dereference").next = @:tmpset0 __tmp__._1;
                             };
                             if (((((@:checkr _inst ?? throw "null pointer dereference").next.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _inst ?? throw "null pointer dereference").next[(0 : stdgo.GoInt)] == (-1u32 : stdgo.GoUInt32)) : Bool)) {
                                 _ok = false;

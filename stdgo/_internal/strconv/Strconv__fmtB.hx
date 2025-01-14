@@ -5,7 +5,7 @@ function _fmtB(_dst:stdgo.Slice<stdgo.GoUInt8>, _neg:Bool, _mant:stdgo.GoUInt64,
         };
         {
             var __tmp__ = stdgo._internal.strconv.Strconv__formatBits._formatBits(_dst, _mant, (10 : stdgo.GoInt), false, true);
-            _dst = __tmp__._0;
+            _dst = @:tmpset0 __tmp__._0;
         };
         _dst = (_dst.__append__((112 : stdgo.GoUInt8)));
         _exp = (_exp - (((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt)) : stdgo.GoInt);
@@ -14,7 +14,7 @@ function _fmtB(_dst:stdgo.Slice<stdgo.GoUInt8>, _neg:Bool, _mant:stdgo.GoUInt64,
         };
         {
             var __tmp__ = stdgo._internal.strconv.Strconv__formatBits._formatBits(_dst, (_exp : stdgo.GoUInt64), (10 : stdgo.GoInt), (_exp < (0 : stdgo.GoInt) : Bool), true);
-            _dst = __tmp__._0;
+            _dst = @:tmpset0 __tmp__._0;
         };
         return _dst;
     }

@@ -5,8 +5,8 @@ function _modf(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.Go
             if ((_f < (0 : stdgo.GoFloat64) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.math.Math_modf.modf(-_f);
-                    _int = __tmp__._0;
-                    _frac = __tmp__._1;
+                    _int = @:tmpset0 __tmp__._0;
+                    _frac = @:tmpset0 __tmp__._1;
                 };
                 return {
                     final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : -_int, _1 : -_frac };

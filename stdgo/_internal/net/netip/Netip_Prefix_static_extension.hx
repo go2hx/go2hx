@@ -24,8 +24,8 @@ package stdgo._internal.net.netip;
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_prefixFrom.prefixFrom(_addr?.__copy__(), (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt))?.__copy__();
             var x = (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix);
-            x._ip = __tmp__._ip;
-            x._bitsPlusOne = __tmp__._bitsPlusOne;
+            x._ip = __tmp__?._ip;
+            x._bitsPlusOne = __tmp__?._bitsPlusOne;
         };
         return (null : stdgo.Error);
     }
@@ -45,8 +45,8 @@ package stdgo._internal.net.netip;
             {
                 var __tmp__ = (new stdgo._internal.net.netip.Netip_Prefix.Prefix() : stdgo._internal.net.netip.Netip_Prefix.Prefix);
                 var x = (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix);
-                x._ip = __tmp__._ip;
-                x._bitsPlusOne = __tmp__._bitsPlusOne;
+                x._ip = __tmp__?._ip;
+                x._bitsPlusOne = __tmp__?._bitsPlusOne;
             };
             return (null : stdgo.Error);
         };
@@ -54,9 +54,9 @@ package stdgo._internal.net.netip;
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_parsePrefix.parsePrefix((_text : stdgo.GoString)?.__copy__());
             var x = _p;
-            x._ip = __tmp__._0?.__copy__()._ip;
-            x._bitsPlusOne = __tmp__._0?.__copy__()._bitsPlusOne;
-            _err = __tmp__._1;
+            x._ip = @:tmpset0 __tmp__._0?.__copy__()?._ip;
+            x._bitsPlusOne = @:tmpset0 __tmp__._0?.__copy__()?._bitsPlusOne;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }
@@ -131,8 +131,8 @@ var _ob = __1, _pb = __0;
         {
             {
                 var __tmp__ = _p._ip.prefix(_minBits);
-                _p = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _p = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return false;
@@ -141,8 +141,8 @@ var _ob = __1, _pb = __0;
         {
             {
                 var __tmp__ = _o._ip.prefix(_minBits);
-                _o = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _o = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return false;

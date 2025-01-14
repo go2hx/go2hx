@@ -16,8 +16,8 @@ package stdgo._internal.io;
                 if (_ok) {
                     {
                         var __tmp__ = _sw.writeString(_s?.__copy__());
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
+                        _n = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     if (_p == null) {
@@ -25,8 +25,8 @@ package stdgo._internal.io;
                     };
                     {
                         var __tmp__ = _w.write(_p);
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
+                        _n = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 };
             };
@@ -53,8 +53,8 @@ package stdgo._internal.io;
         for (__3 => _w in (@:checkr _t ?? throw "null pointer dereference")._writers) {
             {
                 var __tmp__ = _w.write(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _n, _1 : _err };

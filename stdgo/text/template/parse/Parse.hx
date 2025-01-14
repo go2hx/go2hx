@@ -1859,105 +1859,105 @@ class Pos_static_extension {
 }
 /**
     /|*{
-    	token_3661234 = t.peekNonSpace()
-    	pipe = t.newPipeline(token_3661234.pos, token_3661234.line, nil)
-    	gotoNext = 3661353
-    	_ = gotoNext == 3661353
-    	if v_3661364 = t.peekNonSpace(); v_3661364.typ == 21 {
-    		gotoNext = 3661409
-    		_ = gotoNext == 3661409
+    	token_3636409 = t.peekNonSpace()
+    	pipe = t.newPipeline(token_3636409.pos, token_3636409.line, nil)
+    	gotoNext = 3636528
+    	_ = gotoNext == 3636528
+    	if v_3636539 = t.peekNonSpace(); v_3636539.typ == 21 {
+    		gotoNext = 3636584
+    		_ = gotoNext == 3636584
     		t.next()
-    		tokenAfterVariable_3661725 = t.peek()
-    		next_3661758 = t.peekNonSpace()
-    		gotoNext = 3661785
-    		_ = gotoNext == 3661785
+    		tokenAfterVariable_3636900 = t.peek()
+    		next_3636933 = t.peekNonSpace()
+    		gotoNext = 3636960
+    		_ = gotoNext == 3636960
     		switch {
-    		case next_3661758.typ == 6, next_3661758.typ == 7:
-    			gotoNext = 3661796
-    			_ = gotoNext == 3661796
-    			pipe.IsAssign = next_3661758.typ == 6
+    		case next_3636933.typ == 6, next_3636933.typ == 7:
+    			gotoNext = 3636971
+    			_ = gotoNext == 3636971
+    			pipe.IsAssign = next_3636933.typ == 6
     			t.nextNonSpace()
-    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3661364.pos, v_3661364.val))
-    			t.vars = append(t.vars, v_3661364.val)
-    			gotoNext = 3662626
-    		case next_3661758.typ == 2 && next_3661758.val == ",":
-    			gotoNext = 3662010
-    			_ = gotoNext == 3662010
+    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3636539.pos, v_3636539.val))
+    			t.vars = append(t.vars, v_3636539.val)
+    			gotoNext = 3637801
+    		case next_3636933.typ == 2 && next_3636933.val == ",":
+    			gotoNext = 3637185
+    			_ = gotoNext == 3637185
     			t.nextNonSpace()
-    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3661364.pos, v_3661364.val))
-    			t.vars = append(t.vars, v_3661364.val)
+    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3636539.pos, v_3636539.val))
+    			t.vars = append(t.vars, v_3636539.val)
     			if context == "range" && len(pipe.Decl) < 2 {
-    				gotoNext = 3662219
-    				_ = gotoNext == 3662219
-    				gotoNext = 3662225
-    				_ = gotoNext == 3662225
+    				gotoNext = 3637394
+    				_ = gotoNext == 3637394
+    				gotoNext = 3637400
+    				_ = gotoNext == 3637400
     				switch t.peekNonSpace().typ {
     				case 21, 16, 17:
-    					gotoNext = 3662259
-    					_ = gotoNext == 3662259
-    					gotoNext = 3661353
-    					gotoNext = 3662462
+    					gotoNext = 3637434
+    					_ = gotoNext == 3637434
+    					gotoNext = 3636528
+    					gotoNext = 3637637
     				default:
-    					gotoNext = 3662386
-    					_ = gotoNext == 3662386
+    					gotoNext = 3637561
+    					_ = gotoNext == 3637561
     					t.errorf("range can only initialize variables")
-    					gotoNext = 3662462
+    					gotoNext = 3637637
     				}
-    				gotoNext = 3662462
+    				gotoNext = 3637637
     			} else {
-    				gotoNext = 3662462
+    				gotoNext = 3637637
     			}
-    			_ = gotoNext == 3662462
+    			_ = gotoNext == 3637637
     			t.errorf("too many declarations in %s", context)
-    			gotoNext = 3662626
-    		case tokenAfterVariable_3661725.typ == 18:
-    			gotoNext = 3662513
-    			_ = gotoNext == 3662513
-    			t.backup3(v_3661364, tokenAfterVariable_3661725)
-    			gotoNext = 3662626
+    			gotoNext = 3637801
+    		case tokenAfterVariable_3636900.typ == 18:
+    			gotoNext = 3637688
+    			_ = gotoNext == 3637688
+    			t.backup3(v_3636539, tokenAfterVariable_3636900)
+    			gotoNext = 3637801
     		default:
-    			gotoNext = 3662593
-    			_ = gotoNext == 3662593
-    			t.backup2(v_3661364)
-    			gotoNext = 3662626
+    			gotoNext = 3637768
+    			_ = gotoNext == 3637768
+    			t.backup2(v_3636539)
+    			gotoNext = 3637801
     		}
-    		gotoNext = 3662626
+    		gotoNext = 3637801
     	} else {
-    		gotoNext = 3662626
+    		gotoNext = 3637801
     	}
-    	_ = gotoNext == 3662626
+    	_ = gotoNext == 3637801
     	_ = 0
-    	gotoNext = 3662626
-    	_ = gotoNext == 3662626
+    	gotoNext = 3637801
+    	_ = gotoNext == 3637801
     	if true {
-    		gotoNext = 3662630
-    		_ = gotoNext == 3662630
-    		gotoNext = 3662634
-    		_ = gotoNext == 3662634
-    		switch token_3662641 = t.nextNonSpace(); token_3662641.typ {
+    		gotoNext = 3637805
+    		_ = gotoNext == 3637805
+    		gotoNext = 3637809
+    		_ = gotoNext == 3637809
+    		switch token_3637816 = t.nextNonSpace(); token_3637816.typ {
     		case end:
-    			gotoNext = 3662682
-    			_ = gotoNext == 3662682
+    			gotoNext = 3637857
+    			_ = gotoNext == 3637857
     			t.checkPipeline(pipe, context)
     			return
-    			gotoNext = 3662626
+    			gotoNext = 3637801
     		case 1, 3, 5, 26, 9, 10, 13, 31, 15, 19, 21, 12:
-    			gotoNext = 3662784
-    			_ = gotoNext == 3662784
+    			gotoNext = 3637959
+    			_ = gotoNext == 3637959
     			t.backup()
     			pipe.append(t.command())
-    			gotoNext = 3662626
+    			gotoNext = 3637801
     		default:
-    			gotoNext = 3662990
-    			_ = gotoNext == 3662990
-    			t.unexpected(token_3662641, context)
-    			gotoNext = 3662626
+    			gotoNext = 3638165
+    			_ = gotoNext == 3638165
+    			t.unexpected(token_3637816, context)
+    			gotoNext = 3637801
     		}
-    		gotoNext = 3662626
+    		gotoNext = 3637801
     	} else {
-    		gotoNext = 3663038
+    		gotoNext = 3638213
     	}
-    	_ = gotoNext == 3663038
+    	_ = gotoNext == 3638213
     	gotoNext = -1
     }*|/
 **/

@@ -13,8 +13,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
             var _stdstr = ((_layout.__slice__((_prefix.length), ((_layout.length) - (_suffix.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.time.Time__skip._skip(_value?.__copy__(), _prefix?.__copy__());
-                _value = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _value = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo.Go.asInterface(stdgo._internal.time.Time__newParseError._newParseError(_alayout?.__copy__(), _avalue?.__copy__(), _prefix?.__copy__(), _value?.__copy__(), stdgo.Go.str()?.__copy__())) };
@@ -48,8 +48,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__atoi._atoi(_p?.__copy__());
-                                _year = __tmp__._0;
-                                _err = __tmp__._1;
+                                _year = @:tmpset0 __tmp__._0;
+                                _err = @:tmpset0 __tmp__._1;
                             };
                             if (_err != null) {
                                 break;
@@ -73,34 +73,34 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__atoi._atoi(_p?.__copy__());
-                                _year = __tmp__._0;
-                                _err = __tmp__._1;
+                                _year = @:tmpset0 __tmp__._0;
+                                _err = @:tmpset0 __tmp__._1;
                             };
                             break;
                         } else if (__value__ == ((258 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__lookup._lookup(stdgo._internal.time.Time__shortMonthNames._shortMonthNames, _value?.__copy__());
-                                _month = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _month = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             _month++;
                             break;
                         } else if (__value__ == ((257 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__lookup._lookup(stdgo._internal.time.Time__longMonthNames._longMonthNames, _value?.__copy__());
-                                _month = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _month = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             _month++;
                             break;
                         } else if (__value__ == ((259 : stdgo.GoInt)) || __value__ == ((260 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), _std == ((260 : stdgo.GoInt)));
-                                _month = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _month = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (((_err == null) && (((_month <= (0 : stdgo.GoInt) : Bool) || ((12 : stdgo.GoInt) < _month : Bool) : Bool)) : Bool)) {
                                 _rangeErrString = ("month" : stdgo.GoString);
@@ -109,15 +109,15 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                         } else if (__value__ == ((262 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__lookup._lookup(stdgo._internal.time.Time__shortDayNames._shortDayNames, _value?.__copy__());
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             break;
                         } else if (__value__ == ((261 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__lookup._lookup(stdgo._internal.time.Time__longDayNames._longDayNames, _value?.__copy__());
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             break;
                         } else if (__value__ == ((263 : stdgo.GoInt)) || __value__ == ((264 : stdgo.GoInt)) || __value__ == ((265 : stdgo.GoInt))) {
@@ -126,9 +126,9 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), _std == ((265 : stdgo.GoInt)));
-                                _day = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _day = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             break;
                         } else if (__value__ == ((266 : stdgo.GoInt)) || __value__ == ((267 : stdgo.GoInt))) {
@@ -143,17 +143,17 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum3._getnum3(_value?.__copy__(), _std == ((267 : stdgo.GoInt)));
-                                _yday = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _yday = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             break;
                         } else if (__value__ == ((524 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), false);
-                                _hour = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _hour = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (((_hour < (0 : stdgo.GoInt) : Bool) || ((24 : stdgo.GoInt) <= _hour : Bool) : Bool)) {
                                 _rangeErrString = ("hour" : stdgo.GoString);
@@ -162,9 +162,9 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                         } else if (__value__ == ((525 : stdgo.GoInt)) || __value__ == ((526 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), _std == ((526 : stdgo.GoInt)));
-                                _hour = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _hour = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (((_hour < (0 : stdgo.GoInt) : Bool) || ((12 : stdgo.GoInt) < _hour : Bool) : Bool)) {
                                 _rangeErrString = ("hour" : stdgo.GoString);
@@ -173,9 +173,9 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                         } else if (__value__ == ((527 : stdgo.GoInt)) || __value__ == ((528 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), _std == ((528 : stdgo.GoInt)));
-                                _min = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _min = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (((_min < (0 : stdgo.GoInt) : Bool) || ((60 : stdgo.GoInt) <= _min : Bool) : Bool)) {
                                 _rangeErrString = ("minute" : stdgo.GoString);
@@ -184,9 +184,9 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                         } else if (__value__ == ((529 : stdgo.GoInt)) || __value__ == ((530 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_value?.__copy__(), _std == ((530 : stdgo.GoInt)));
-                                _sec = __tmp__._0;
-                                _value = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _sec = @:tmpset0 __tmp__._0;
+                                _value = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (_err != null) {
                                 break;
@@ -198,7 +198,7 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             if (((((_value.length) >= (2 : stdgo.GoInt) : Bool) && stdgo._internal.time.Time__commaOrPeriod._commaOrPeriod(_value[(0 : stdgo.GoInt)]) : Bool) && stdgo._internal.time.Time__isDigit._isDigit(_value?.__copy__(), (1 : stdgo.GoInt)) : Bool)) {
                                 {
                                     var __tmp__ = stdgo._internal.time.Time__nextStdChunk._nextStdChunk(_layout?.__copy__());
-                                    _std = __tmp__._1;
+                                    _std = @:tmpset0 __tmp__._1;
                                 };
                                 _std = (_std & ((65535 : stdgo.GoInt)) : stdgo.GoInt);
                                 if (((_std == (34 : stdgo.GoInt)) || (_std == (35 : stdgo.GoInt)) : Bool)) {
@@ -211,9 +211,9 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                                 };
                                 {
                                     var __tmp__ = stdgo._internal.time.Time__parseNanoseconds._parseNanoseconds(_value?.__copy__(), _n);
-                                    _nsec = __tmp__._0;
-                                    _rangeErrString = __tmp__._1?.__copy__();
-                                    _err = __tmp__._2;
+                                    _nsec = @:tmpset0 __tmp__._0;
+                                    _rangeErrString = @:tmpset0 __tmp__._1?.__copy__();
+                                    _err = @:tmpset0 __tmp__._2;
                                 };
                                 _value = (_value.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
@@ -368,21 +368,21 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
 var _ss = __2, _mm = __1, _hr = __0;
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_hour?.__copy__(), true);
-                                _hr = __tmp__._0;
-                                _err = __tmp__._2;
+                                _hr = @:tmpset0 __tmp__._0;
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             if (_err == null) {
                                 {
                                     var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_min?.__copy__(), true);
-                                    _mm = __tmp__._0;
-                                    _err = __tmp__._2;
+                                    _mm = @:tmpset0 __tmp__._0;
+                                    _err = @:tmpset0 __tmp__._2;
                                 };
                             };
                             if (_err == null) {
                                 {
                                     var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_seconds?.__copy__(), true);
-                                    _ss = __tmp__._0;
-                                    _err = __tmp__._2;
+                                    _ss = @:tmpset0 __tmp__._0;
+                                    _err = @:tmpset0 __tmp__._2;
                                 };
                             };
                             _zoneOffset = (((((_hr * (60 : stdgo.GoInt) : stdgo.GoInt) + _mm : stdgo.GoInt)) * (60 : stdgo.GoInt) : stdgo.GoInt) + _ss : stdgo.GoInt);
@@ -421,9 +421,9 @@ var _ss = __2, _mm = __1, _hr = __0;
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__parseNanoseconds._parseNanoseconds(_value?.__copy__(), _ndigit);
-                                _nsec = __tmp__._0;
-                                _rangeErrString = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _nsec = @:tmpset0 __tmp__._0;
+                                _rangeErrString = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             _value = (_value.__slice__(_ndigit) : stdgo.GoString)?.__copy__();
                             break;
@@ -437,9 +437,9 @@ var _ss = __2, _mm = __1, _hr = __0;
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__parseNanoseconds._parseNanoseconds(_value?.__copy__(), ((1 : stdgo.GoInt) + _i : stdgo.GoInt));
-                                _nsec = __tmp__._0;
-                                _rangeErrString = __tmp__._1?.__copy__();
-                                _err = __tmp__._2;
+                                _nsec = @:tmpset0 __tmp__._0;
+                                _rangeErrString = @:tmpset0 __tmp__._1?.__copy__();
+                                _err = @:tmpset0 __tmp__._2;
                             };
                             _value = (_value.__slice__(((1 : stdgo.GoInt) + _i : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                             break;
@@ -526,7 +526,7 @@ var _ss = __2, _mm = __1, _hr = __0;
             if ((((_zoneName.length) > (3 : stdgo.GoInt) : Bool) && ((_zoneName.__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString) == ("GMT" : stdgo.GoString)) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.time.Time__atoi._atoi((_zoneName.__slice__((3 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-                    _offset = __tmp__._0;
+                    _offset = @:tmpset0 __tmp__._0;
                 };
                 _offset = (_offset * ((3600 : stdgo.GoInt)) : stdgo.GoInt);
             };

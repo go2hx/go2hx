@@ -48,8 +48,8 @@ var _holeEnd = __1, _holeStart = __0;
                 _nf = (_holeStart - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
                 {
                     var __tmp__ = stdgo._internal.io.Io_copyN.copyN(_ws, (@:checkr _sr ?? throw "null pointer dereference")._fr, _nf);
-                    _nf = __tmp__._0;
-                    _err = __tmp__._1;
+                    _nf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 _nf = (_holeEnd - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
@@ -59,7 +59,7 @@ var _holeEnd = __1, _holeStart = __0;
                 };
                 {
                     var __tmp__ = _ws.seek(_nf, (1 : stdgo.GoInt));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             (@:checkr _sr ?? throw "null pointer dereference")._pos = ((@:checkr _sr ?? throw "null pointer dereference")._pos + (_nf) : stdgo.GoInt64);
@@ -70,7 +70,7 @@ var _holeEnd = __1, _holeStart = __0;
         if ((_writeLastByte && (_err == null) : Bool)) {
             {
                 var __tmp__ = _ws.write((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _sr ?? throw "null pointer dereference")._pos++;
         };
@@ -124,15 +124,15 @@ var _holeEnd = __1, _holeStart = __0;
                 var _bf = (_b.__slice__(0, stdgo._internal.archive.tar.Tar__min._min((_b.length : stdgo.GoInt64), (_holeStart - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64))) : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var __tmp__ = stdgo._internal.archive.tar.Tar__tryReadFull._tryReadFull((@:checkr _sr ?? throw "null pointer dereference")._fr, _bf);
-                    _nf = __tmp__._0;
-                    _err = __tmp__._1;
+                    _nf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 var _bf = (_b.__slice__(0, stdgo._internal.archive.tar.Tar__min._min((_b.length : stdgo.GoInt64), (_holeEnd - (@:checkr _sr ?? throw "null pointer dereference")._pos : stdgo.GoInt64))) : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var __tmp__ = stdgo._internal.archive.tar.Tar__tryReadFull._tryReadFull(stdgo.Go.asInterface((new stdgo._internal.archive.tar.Tar_T_zeroReader.T_zeroReader() : stdgo._internal.archive.tar.Tar_T_zeroReader.T_zeroReader)), _bf);
-                    _nf = __tmp__._0;
-                    _err = __tmp__._1;
+                    _nf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             _b = (_b.__slice__(_nf) : stdgo.Slice<stdgo.GoUInt8>);

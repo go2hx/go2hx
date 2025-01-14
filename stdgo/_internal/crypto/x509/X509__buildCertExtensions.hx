@@ -6,8 +6,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
         if ((((@:checkr _template ?? throw "null pointer dereference").keyUsage != (0 : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage)) && !stdgo._internal.crypto.x509.X509__oidInExtensions._oidInExtensions(stdgo._internal.crypto.x509.X509__oidExtensionKeyUsage._oidExtensionKeyUsage, (@:checkr _template ?? throw "null pointer dereference").extraExtensions) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalKeyUsage._marshalKeyUsage((@:checkr _template ?? throw "null pointer dereference").keyUsage);
-                _ret[(_n : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -22,8 +22,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
         if (((((((@:checkr _template ?? throw "null pointer dereference").extKeyUsage.length) > (0 : stdgo.GoInt) : Bool) || (((@:checkr _template ?? throw "null pointer dereference").unknownExtKeyUsage.length) > (0 : stdgo.GoInt) : Bool) : Bool)) && !stdgo._internal.crypto.x509.X509__oidInExtensions._oidInExtensions(stdgo._internal.crypto.x509.X509__oidExtensionExtendedKeyUsage._oidExtensionExtendedKeyUsage, (@:checkr _template ?? throw "null pointer dereference").extraExtensions) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalExtKeyUsage._marshalExtKeyUsage((@:checkr _template ?? throw "null pointer dereference").extKeyUsage, (@:checkr _template ?? throw "null pointer dereference").unknownExtKeyUsage);
-                _ret[(_n : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -38,8 +38,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
         if (((@:checkr _template ?? throw "null pointer dereference").basicConstraintsValid && !stdgo._internal.crypto.x509.X509__oidInExtensions._oidInExtensions(stdgo._internal.crypto.x509.X509__oidExtensionBasicConstraints._oidExtensionBasicConstraints, (@:checkr _template ?? throw "null pointer dereference").extraExtensions) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalBasicConstraints._marshalBasicConstraints((@:checkr _template ?? throw "null pointer dereference").isCA, (@:checkr _template ?? throw "null pointer dereference").maxPathLen, (@:checkr _template ?? throw "null pointer dereference").maxPathLenZero);
-                _ret[(_n : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -55,8 +55,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _ret[(_n : stdgo.GoInt)].id = stdgo._internal.crypto.x509.X509__oidExtensionSubjectKeyId._oidExtensionSubjectKeyId;
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_subjectKeyId));
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };
@@ -67,8 +67,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _ret[(_n : stdgo.GoInt)].id = stdgo._internal.crypto.x509.X509__oidExtensionAuthorityKeyId._oidExtensionAuthorityKeyId;
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface((new stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId(_authorityKeyId) : stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId)));
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };
@@ -86,8 +86,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_aiaValues));
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };
@@ -99,8 +99,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _ret[(_n : stdgo.GoInt)].critical = _subjectIsEmpty;
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalSANs._marshalSANs((@:checkr _template ?? throw "null pointer dereference").dNSNames, (@:checkr _template ?? throw "null pointer dereference").emailAddresses, (@:checkr _template ?? throw "null pointer dereference").iPAddresses, (@:checkr _template ?? throw "null pointer dereference").uRIs);
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };
@@ -110,8 +110,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
         if (((((@:checkr _template ?? throw "null pointer dereference").policyIdentifiers.length) > (0 : stdgo.GoInt) : Bool) && !stdgo._internal.crypto.x509.X509__oidInExtensions._oidInExtensions(stdgo._internal.crypto.x509.X509__oidExtensionCertificatePolicies._oidExtensionCertificatePolicies, (@:checkr _template ?? throw "null pointer dereference").extraExtensions) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalCertificatePolicies._marshalCertificatePolicies((@:checkr _template ?? throw "null pointer dereference").policyIdentifiers);
-                _ret[(_n : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -237,8 +237,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             });
             {
                 var __tmp__ = @:check2 _b.bytes();
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -259,8 +259,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_crlDp));
-                _ret[(_n : stdgo.GoInt)].value = __tmp__._0;
-                _err = __tmp__._1;
+                _ret[(_n : stdgo.GoInt)].value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };

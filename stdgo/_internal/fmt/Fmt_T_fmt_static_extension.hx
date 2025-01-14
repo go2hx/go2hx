@@ -255,7 +255,7 @@ _buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8)
                     if ((_b[(_i : stdgo.GoInt)] >= (128 : stdgo.GoUInt8) : Bool)) {
                         {
                             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_b.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
-                            _wid = __tmp__._1;
+                            _wid = @:tmpset0 __tmp__._1;
                         };
                     };
                     _i = (_i + (_wid) : stdgo.GoInt);

@@ -71,8 +71,8 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = @:check2 (@:checkr _b._cs ?? throw "null pointer dereference")._bufPipe.read(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _cs ?? throw "null pointer dereference")._bytesRemain != ((-1i64 : stdgo.GoInt64))) {
                 if (((_n : stdgo.GoInt64) > (@:checkr _cs ?? throw "null pointer dereference")._bytesRemain : Bool)) {

@@ -132,8 +132,8 @@ package stdgo._internal.image.png;
         (@:checkr _d ?? throw "null pointer dereference")._idatLength = _length;
         {
             var __tmp__ = @:check2r _d._decode();
-            (@:checkr _d ?? throw "null pointer dereference")._img = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _d ?? throw "null pointer dereference")._img = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;
@@ -796,8 +796,8 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
             if ((@:checkr _d ?? throw "null pointer dereference")._interlace == ((0 : stdgo.GoInt))) {
                 {
                     var __tmp__ = @:check2r _d._readImagePass(_r, (0 : stdgo.GoInt), false);
-                    _img = __tmp__._0;
-                    _err = __tmp__._1;
+                    _img = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {
@@ -813,8 +813,8 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
             } else if ((@:checkr _d ?? throw "null pointer dereference")._interlace == ((1 : stdgo.GoInt))) {
                 {
                     var __tmp__ = @:check2r _d._readImagePass((null : stdgo._internal.io.Io_Reader.Reader), (0 : stdgo.GoInt), true);
-                    _img = __tmp__._0;
-                    _err = __tmp__._1;
+                    _img = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {
@@ -866,8 +866,8 @@ if (_imagePass != null) {
                     };
 {
                         var __tmp__ = _r.read(((@:checkr _d ?? throw "null pointer dereference")._tmp.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
+                        _n = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     _i++;
                 };

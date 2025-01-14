@@ -13,9 +13,9 @@ function _parseSequenceOf(_bytes:stdgo.Slice<stdgo.GoUInt8>, _sliceType:stdgo._i
                 var _t:stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength = ({} : stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength);
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseTagAndLength._parseTagAndLength(_bytes, _offset);
-                    _t = __tmp__._0?.__copy__();
-                    _offset = __tmp__._1;
-                    _err = __tmp__._2;
+                    _t = @:tmpset0 __tmp__._0?.__copy__();
+                    _offset = @:tmpset0 __tmp__._1;
+                    _err = @:tmpset0 __tmp__._2;
                 };
                 if (_err != null) {
                     return { _0 : _ret, _1 : _err };
@@ -48,8 +48,8 @@ function _parseSequenceOf(_bytes:stdgo.Slice<stdgo.GoUInt8>, _sliceType:stdgo._i
             while ((_i < _numElements : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseField._parseField(_ret.index(_i).__copy__(), _bytes, _offset, _params.__copy__());
-                    _offset = __tmp__._0;
-                    _err = __tmp__._1;
+                    _offset = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
 if (_err != null) {
                     return { _0 : _ret, _1 : _err };

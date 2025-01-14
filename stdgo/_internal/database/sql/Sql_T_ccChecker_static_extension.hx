@@ -32,8 +32,8 @@ package stdgo._internal.database.sql;
         var _arg = ((@:checkr _nv ?? throw "null pointer dereference").value : stdgo._internal.database.sql.driver.Driver_Value.Value);
         {
             var __tmp__ = _c._cci.columnConverter(_index).convertValue(stdgo.Go.toInterface(_arg));
-            (@:checkr _nv ?? throw "null pointer dereference").value = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _nv ?? throw "null pointer dereference").value = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;

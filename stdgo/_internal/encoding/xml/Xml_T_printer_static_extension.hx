@@ -151,8 +151,8 @@ package stdgo._internal.encoding.xml;
         if ((@:checkr _p ?? throw "null pointer dereference")._err == null) {
             {
                 var __tmp__ = @:check2r (@:checkr _p ?? throw "null pointer dereference")._w.writeString(_s?.__copy__());
-                _n = __tmp__._0;
-                (@:checkr _p ?? throw "null pointer dereference")._err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                (@:checkr _p ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
         };
         return {
@@ -173,8 +173,8 @@ package stdgo._internal.encoding.xml;
         if ((@:checkr _p ?? throw "null pointer dereference")._err == null) {
             {
                 var __tmp__ = @:check2r (@:checkr _p ?? throw "null pointer dereference")._w.write(_b);
-                _n = __tmp__._0;
-                (@:checkr _p ?? throw "null pointer dereference")._err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                (@:checkr _p ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
         };
         return {

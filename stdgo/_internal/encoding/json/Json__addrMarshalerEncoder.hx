@@ -12,8 +12,8 @@ function _addrMarshalerEncoder(_e:stdgo.Ref<stdgo._internal.encoding.json.Json_T
             var _out = @:check2r _e.availableBuffer();
             {
                 var __tmp__ = stdgo._internal.encoding.json.Json__appendCompact._appendCompact(_out, _b, _opts._escapeHTML);
-                _out = __tmp__._0;
-                _err = __tmp__._1;
+                _out = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             @:check2 (@:checkr _e ?? throw "null pointer dereference").buffer.write(_out);
         };

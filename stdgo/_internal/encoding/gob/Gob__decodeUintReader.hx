@@ -23,8 +23,8 @@ function _decodeUintReader(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Sl
         };
         {
             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>));
-            _width = __tmp__._0;
-            _err = __tmp__._1;
+            _width = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {

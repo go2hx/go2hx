@@ -36,8 +36,8 @@ package stdgo._internal.crypto.x509;
             var _block:stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block> = (null : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem_decode.decode(_pemCerts);
-                _block = __tmp__._0;
-                _pemCerts = __tmp__._1;
+                _block = @:tmpset0 __tmp__._0;
+                _pemCerts = @:tmpset0 __tmp__._1;
             };
             if ((_block == null || (_block : Dynamic).__nil__)) {
                 break;
@@ -55,7 +55,7 @@ package stdgo._internal.crypto.x509;
                 _lazyCert.do_(function():Void {
                     {
                         var __tmp__ = stdgo._internal.crypto.x509.X509_parseCertificate.parseCertificate(_certBytes);
-                        _lazyCert._v = __tmp__._0;
+                        _lazyCert._v = @:tmpset0 __tmp__._0;
                     };
                     _certBytes = (null : stdgo.Slice<stdgo.GoUInt8>);
                 });

@@ -10,7 +10,7 @@ function _writeSlice(_w:stdgo._internal.io.Io_Writer.Writer, _buf:stdgo.Slice<st
         stdgo._internal.encoding.binary.Binary_putVarint.putVarint(_buf, (_p : stdgo.GoInt64));
         {
             var __tmp__ = _w.write((_buf.__slice__((0 : stdgo.GoInt), _p) : stdgo.Slice<stdgo.GoUInt8>));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : _n, _1 : _err };
     }

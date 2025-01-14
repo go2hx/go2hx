@@ -659,169 +659,169 @@ class T_stackProfile_static_extension {
 }
 /**
     /|*{
-    	h_3836497 = uintptr(0)
+    	h_3833461 = uintptr(0)
     	if 0 < len(stk) {
-    		gotoNext = 3836610
-    		_ = gotoNext == 3836610
-    		i_3836526_0, x_3836521 = 0, stk[0]
-    		gotoNext = 3836611
-    		_ = gotoNext == 3836611
-    		if i_3836526_0 < len(stk) {
-    			gotoNext = 3836536
-    			_ = gotoNext == 3836536
-    			x_3836521 = stk[i_3836526_0]
-    			h_3836497 = h_3836497<<8 | (h_3836497 >> 24)
-    			h_3836497 += uintptr(x_3836521) * 41
-    			i_3836526_0++
-    			gotoNext = 3836611
+    		gotoNext = 3833574
+    		_ = gotoNext == 3833574
+    		i_3833490_0, x_3833485 = 0, stk[0]
+    		gotoNext = 3833575
+    		_ = gotoNext == 3833575
+    		if i_3833490_0 < len(stk) {
+    			gotoNext = 3833500
+    			_ = gotoNext == 3833500
+    			x_3833485 = stk[i_3833490_0]
+    			h_3833461 = h_3833461<<8 | (h_3833461 >> 24)
+    			h_3833461 += uintptr(x_3833485) * 41
+    			i_3833490_0++
+    			gotoNext = 3833575
     		} else {
-    			gotoNext = 3836614
+    			gotoNext = 3833578
     		}
-    		gotoNext = 3836614
+    		gotoNext = 3833578
     	} else {
-    		gotoNext = 3836614
+    		gotoNext = 3833578
     	}
-    	_ = gotoNext == 3836614
-    	h_3836497 = h_3836497<<8 | (h_3836497 >> 24)
-    	h_3836497 += uintptr(tag) * 41
-    	gotoNext = 3836737
-    	_ = gotoNext == 3836737
-    	e_3836750 = m.hash[h_3836497]
+    	_ = gotoNext == 3833578
+    	h_3833461 = h_3833461<<8 | (h_3833461 >> 24)
+    	h_3833461 += uintptr(tag) * 41
+    	gotoNext = 3833701
+    	_ = gotoNext == 3833701
+    	e_3833714 = m.hash[h_3833461]
     	SearchBreak = false
-    	gotoNext = 3836746
-    	_ = gotoNext == 3836746
-    	if !SearchBreak && (e_3836750 != nil) {
-    		gotoNext = 3836800
-    		_ = gotoNext == 3836800
-    		if len(e_3836750.stk) != len(stk) || e_3836750.tag != tag {
-    			gotoNext = 3836846
-    			_ = gotoNext == 3836846
-    			last_3836718, e_3836750 = e_3836750, e_3836750.nextHash
-    			gotoNext = 3836746
-    			gotoNext = 3836866
+    	gotoNext = 3833710
+    	_ = gotoNext == 3833710
+    	if !SearchBreak && (e_3833714 != nil) {
+    		gotoNext = 3833764
+    		_ = gotoNext == 3833764
+    		if len(e_3833714.stk) != len(stk) || e_3833714.tag != tag {
+    			gotoNext = 3833810
+    			_ = gotoNext == 3833810
+    			last_3833682, e_3833714 = e_3833714, e_3833714.nextHash
+    			gotoNext = 3833710
+    			gotoNext = 3833830
     		} else {
-    			gotoNext = 3836866
+    			gotoNext = 3833830
     		}
-    		_ = gotoNext == 3836866
+    		_ = gotoNext == 3833830
     		if 0 < len(stk) {
-    			gotoNext = 3836949
-    			_ = gotoNext == 3836949
-    			j_3836870 = 0
-    			gotoNext = 3836950
-    			_ = gotoNext == 3836950
-    			if j_3836870 < len(stk) {
-    				gotoNext = 3836885
-    				_ = gotoNext == 3836885
-    				if e_3836750.stk[j_3836870] != uintptr(stk[j_3836870]) {
-    					gotoNext = 3836921
-    					_ = gotoNext == 3836921
-    					last_3836718, e_3836750 = e_3836750, e_3836750.nextHash
-    					gotoNext = 3836746
-    					gotoNext = 3836870
+    			gotoNext = 3833913
+    			_ = gotoNext == 3833913
+    			j_3833834 = 0
+    			gotoNext = 3833914
+    			_ = gotoNext == 3833914
+    			if j_3833834 < len(stk) {
+    				gotoNext = 3833849
+    				_ = gotoNext == 3833849
+    				if e_3833714.stk[j_3833834] != uintptr(stk[j_3833834]) {
+    					gotoNext = 3833885
+    					_ = gotoNext == 3833885
+    					last_3833682, e_3833714 = e_3833714, e_3833714.nextHash
+    					gotoNext = 3833710
+    					gotoNext = 3833834
     				} else {
-    					gotoNext = 3836870
+    					gotoNext = 3833834
     				}
-    				_ = gotoNext == 3836870
-    				j_3836870++
-    				gotoNext = 3836950
+    				_ = gotoNext == 3833834
+    				j_3833834++
+    				gotoNext = 3833914
     			} else {
-    				gotoNext = 3836974
+    				gotoNext = 3833938
     			}
-    			gotoNext = 3836974
+    			gotoNext = 3833938
     		} else {
-    			gotoNext = 3836974
+    			gotoNext = 3833938
     		}
-    		_ = gotoNext == 3836974
-    		if last_3836718 != nil {
-    			gotoNext = 3836989
-    			_ = gotoNext == 3836989
-    			last_3836718.nextHash = e_3836750.nextHash
-    			e_3836750.nextHash = m.hash[h_3836497]
-    			m.hash[h_3836497] = e_3836750
-    			gotoNext = 3837070
+    		_ = gotoNext == 3833938
+    		if last_3833682 != nil {
+    			gotoNext = 3833953
+    			_ = gotoNext == 3833953
+    			last_3833682.nextHash = e_3833714.nextHash
+    			e_3833714.nextHash = m.hash[h_3833461]
+    			m.hash[h_3833461] = e_3833714
+    			gotoNext = 3834034
     		} else {
-    			gotoNext = 3837070
+    			gotoNext = 3834034
     		}
-    		_ = gotoNext == 3837070
-    		return e_3836750
-    		last_3836718, e_3836750 = e_3836750, e_3836750.nextHash
-    		gotoNext = 3836746
+    		_ = gotoNext == 3834034
+    		return e_3833714
+    		last_3833682, e_3833714 = e_3833714, e_3833714.nextHash
+    		gotoNext = 3833710
     	} else {
-    		gotoNext = 3837103
+    		gotoNext = 3834067
     	}
-    	_ = gotoNext == 3837103
+    	_ = gotoNext == 3834067
     	if len(m.free) < 1 {
-    		gotoNext = 3837122
-    		_ = gotoNext == 3837122
+    		gotoNext = 3834086
+    		_ = gotoNext == 3834086
     		m.free = make([]profMapEntry, 128)
-    		gotoNext = 3837165
+    		gotoNext = 3834129
     	} else {
-    		gotoNext = 3837165
+    		gotoNext = 3834129
     	}
-    	_ = gotoNext == 3837165
-    	e_3837165 = &m.free[0]
+    	_ = gotoNext == 3834129
+    	e_3834129 = &m.free[0]
     	m.free = m.free[1:]
-    	e_3837165.nextHash = m.hash[h_3836497]
-    	e_3837165.tag = tag
+    	e_3834129.nextHash = m.hash[h_3833461]
+    	e_3834129.tag = tag
     	if len(m.freeStk) < len(stk) {
-    		gotoNext = 3837270
-    		_ = gotoNext == 3837270
+    		gotoNext = 3834234
+    		_ = gotoNext == 3834234
     		m.freeStk = make([]uintptr, 1024)
-    		gotoNext = 3837369
+    		gotoNext = 3834333
     	} else {
-    		gotoNext = 3837369
+    		gotoNext = 3834333
     	}
-    	_ = gotoNext == 3837369
-    	e_3837165.stk = m.freeStk[:len(stk):len(stk)]
+    	_ = gotoNext == 3834333
+    	e_3834129.stk = m.freeStk[:len(stk):len(stk)]
     	m.freeStk = m.freeStk[len(stk):]
     	if 0 < len(stk) {
-    		gotoNext = 3837493
-    		_ = gotoNext == 3837493
-    		j_3837447 = 0
-    		gotoNext = 3837494
-    		_ = gotoNext == 3837494
-    		if j_3837447 < len(stk) {
-    			gotoNext = 3837462
-    			_ = gotoNext == 3837462
-    			e_3837165.stk[j_3837447] = uintptr(stk[j_3837447])
-    			j_3837447++
-    			gotoNext = 3837494
+    		gotoNext = 3834457
+    		_ = gotoNext == 3834457
+    		j_3834411 = 0
+    		gotoNext = 3834458
+    		_ = gotoNext == 3834458
+    		if j_3834411 < len(stk) {
+    			gotoNext = 3834426
+    			_ = gotoNext == 3834426
+    			e_3834129.stk[j_3834411] = uintptr(stk[j_3834411])
+    			j_3834411++
+    			gotoNext = 3834458
     		} else {
-    			gotoNext = 3837497
+    			gotoNext = 3834461
     		}
-    		gotoNext = 3837497
+    		gotoNext = 3834461
     	} else {
-    		gotoNext = 3837497
+    		gotoNext = 3834461
     	}
-    	_ = gotoNext == 3837497
+    	_ = gotoNext == 3834461
     	if m.hash == nil {
-    		gotoNext = 3837514
-    		_ = gotoNext == 3837514
+    		gotoNext = 3834478
+    		_ = gotoNext == 3834478
     		m.hash = make(map[uintptr]*profMapEntry)
-    		gotoNext = 3837563
+    		gotoNext = 3834527
     	} else {
-    		gotoNext = 3837563
+    		gotoNext = 3834527
     	}
-    	_ = gotoNext == 3837563
-    	m.hash[h_3836497] = e_3837165
+    	_ = gotoNext == 3834527
+    	m.hash[h_3833461] = e_3834129
     	if m.all == nil {
-    		gotoNext = 3837594
-    		_ = gotoNext == 3837594
-    		m.all = e_3837165
-    		m.last = e_3837165
-    		gotoNext = 3837669
+    		gotoNext = 3834558
+    		_ = gotoNext == 3834558
+    		m.all = e_3834129
+    		m.last = e_3834129
+    		gotoNext = 3834633
     	} else {
-    		gotoNext = 3837629
-    		_ = gotoNext == 3837629
-    		gotoNext = 3837629
-    		_ = gotoNext == 3837629
-    		m.last.nextAll = e_3837165
-    		m.last = e_3837165
+    		gotoNext = 3834593
+    		_ = gotoNext == 3834593
+    		gotoNext = 3834593
+    		_ = gotoNext == 3834593
+    		m.last.nextAll = e_3834129
+    		m.last = e_3834129
     		_ = 0
-    		gotoNext = 3837669
+    		gotoNext = 3834633
     	}
-    	_ = gotoNext == 3837669
-    	return e_3837165
+    	_ = gotoNext == 3834633
+    	return e_3834129
     	gotoNext = -1
     }*|/
 **/

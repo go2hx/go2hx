@@ -17,8 +17,8 @@ function testDecodeInStream(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     } else {
                         {
                             var __tmp__ = @:check2r _dec.token();
-                            _tk = stdgo.Go.toInterface(__tmp__._0);
-                            _err = __tmp__._1;
+                            _tk = stdgo.Go.toInterface(@:tmpset0 __tmp__._0);
+                            _err = @:tmpset0 __tmp__._1;
                         };
                     };
                 };

@@ -13,8 +13,8 @@ function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _b:
         while ((((@:checkr b ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = @:check2r _q.quoRem(a, b, _r);
-                _q = __tmp__._0;
-                _r = __tmp__._1;
+                _q = @:tmpset0 __tmp__._0;
+                _r = @:tmpset0 __tmp__._1;
             };
             {
                 final __tmp__0 = b;

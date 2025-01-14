@@ -308,8 +308,8 @@ package stdgo._internal.net.http.httputil;
             };
             {
                 var __tmp__ = stdgo._internal.net.http.Http_readRequest.readRequest(_r);
-                _req = __tmp__._0;
-                _err = __tmp__._1;
+                _req = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._mu.lock();
             {

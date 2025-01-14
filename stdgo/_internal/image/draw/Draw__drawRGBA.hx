@@ -217,7 +217,7 @@ var _mx = __2, _sx = __1, _i = __0;
 if (_mask != null) {
                             {
                                 var __tmp__ = _mask.at(_mx, _my).rGBA();
-                                _ma = __tmp__._3;
+                                _ma = @:tmpset0 __tmp__._3;
                             };
                         };
 var __tmp__ = _src.at(_sx, _sy).rGBA(), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;

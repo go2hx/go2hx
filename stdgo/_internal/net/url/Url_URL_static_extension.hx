@@ -31,17 +31,17 @@ package stdgo._internal.net.url;
         {
             var __tmp__ = (_u1 : stdgo._internal.net.url.Url_URL.URL)?.__copy__();
             var x = (_u : stdgo._internal.net.url.Url_URL.URL);
-            x.scheme = __tmp__.scheme;
-            x.opaque = __tmp__.opaque;
-            x.user = __tmp__.user;
-            x.host = __tmp__.host;
-            x.path = __tmp__.path;
-            x.rawPath = __tmp__.rawPath;
-            x.omitHost = __tmp__.omitHost;
-            x.forceQuery = __tmp__.forceQuery;
-            x.rawQuery = __tmp__.rawQuery;
-            x.fragment = __tmp__.fragment;
-            x.rawFragment = __tmp__.rawFragment;
+            x.scheme = __tmp__?.scheme;
+            x.opaque = __tmp__?.opaque;
+            x.user = __tmp__?.user;
+            x.host = __tmp__?.host;
+            x.path = __tmp__?.path;
+            x.rawPath = __tmp__?.rawPath;
+            x.omitHost = __tmp__?.omitHost;
+            x.forceQuery = __tmp__?.forceQuery;
+            x.rawQuery = __tmp__?.rawQuery;
+            x.fragment = __tmp__?.fragment;
+            x.rawFragment = __tmp__?.rawFragment;
         };
         return (null : stdgo.Error);
     }

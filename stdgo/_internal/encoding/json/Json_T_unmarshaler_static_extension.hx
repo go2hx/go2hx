@@ -7,7 +7,7 @@ package stdgo._internal.encoding.json;
         {
             var __tmp__ = (new stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler(true) : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler);
             var x = (_u : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler);
-            x.t = __tmp__.t;
+            x.t = __tmp__?.t;
         };
         return (null : stdgo.Error);
     }

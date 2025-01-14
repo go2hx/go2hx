@@ -137,8 +137,8 @@ package stdgo._internal.expvar;
             var _dup:Bool = false;
             {
                 var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.loadOrStore(stdgo.Go.toInterface(_key), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.expvar.Expvar_Float_.Float_)) : stdgo.Ref<stdgo._internal.expvar.Expvar_Float_.Float_>))));
-                _i = __tmp__._0;
-                _dup = __tmp__._1;
+                _i = @:tmpset0 __tmp__._0;
+                _dup = @:tmpset0 __tmp__._1;
             };
             if (!_dup) {
                 @:check2r _v._addKey(_key?.__copy__());
@@ -164,8 +164,8 @@ package stdgo._internal.expvar;
             var _dup:Bool = false;
             {
                 var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.loadOrStore(stdgo.Go.toInterface(_key), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.expvar.Expvar_Int_.Int_)) : stdgo.Ref<stdgo._internal.expvar.Expvar_Int_.Int_>))));
-                _i = __tmp__._0;
-                _dup = __tmp__._1;
+                _i = @:tmpset0 __tmp__._0;
+                _dup = @:tmpset0 __tmp__._1;
             };
             if (!_dup) {
                 @:check2r _v._addKey(_key?.__copy__());

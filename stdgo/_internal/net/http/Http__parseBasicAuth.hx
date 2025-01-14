@@ -24,9 +24,9 @@ function _parseBasicAuth(_auth:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
         var _cs = ((_c : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_cs?.__copy__(), (":" : stdgo.GoString));
-            _username = __tmp__._0?.__copy__();
-            _password = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _username = @:tmpset0 __tmp__._0?.__copy__();
+            _password = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return {

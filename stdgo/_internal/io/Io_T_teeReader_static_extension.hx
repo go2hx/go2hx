@@ -7,8 +7,8 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = (@:checkr _t ?? throw "null pointer dereference")._r.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
             {

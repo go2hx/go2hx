@@ -3,8 +3,8 @@ function current():{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_User.User>;
         stdgo._internal.os.user.User__cache._cache.do_(function():Void {
             {
                 var __tmp__ = stdgo._internal.os.user.User__current._current();
-                stdgo._internal.os.user.User__cache._cache._u = __tmp__._0;
-                stdgo._internal.os.user.User__cache._cache._err = __tmp__._1;
+                stdgo._internal.os.user.User__cache._cache._u = @:tmpset0 __tmp__._0;
+                stdgo._internal.os.user.User__cache._cache._err = @:tmpset0 __tmp__._1;
             };
         });
         if (stdgo._internal.os.user.User__cache._cache._err != null) {

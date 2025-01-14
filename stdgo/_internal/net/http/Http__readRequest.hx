@@ -14,8 +14,8 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             {
                 {
                     var __tmp__ = @:check2r _tp.readLine();
-                    _s = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _s = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {
@@ -47,10 +47,10 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             var _ok:Bool = false;
             {
                 var __tmp__ = stdgo._internal.net.http.Http__parseRequestLine._parseRequestLine(_s?.__copy__());
-                (@:checkr _req ?? throw "null pointer dereference").method = __tmp__._0?.__copy__();
-                (@:checkr _req ?? throw "null pointer dereference").requestURI = __tmp__._1?.__copy__();
-                (@:checkr _req ?? throw "null pointer dereference").proto = __tmp__._2?.__copy__();
-                _ok = __tmp__._3;
+                (@:checkr _req ?? throw "null pointer dereference").method = @:tmpset0 __tmp__._0?.__copy__();
+                (@:checkr _req ?? throw "null pointer dereference").requestURI = @:tmpset0 __tmp__._1?.__copy__();
+                (@:checkr _req ?? throw "null pointer dereference").proto = @:tmpset0 __tmp__._2?.__copy__();
+                _ok = @:tmpset0 __tmp__._3;
             };
             if (!_ok) {
                 {
@@ -88,9 +88,9 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             {
                 {
                     var __tmp__ = stdgo._internal.net.http.Http_parseHTTPVersion.parseHTTPVersion((@:checkr _req ?? throw "null pointer dereference").proto?.__copy__());
-                    (@:checkr _req ?? throw "null pointer dereference").protoMajor = __tmp__._0;
-                    (@:checkr _req ?? throw "null pointer dereference").protoMinor = __tmp__._1;
-                    _ok = __tmp__._2;
+                    (@:checkr _req ?? throw "null pointer dereference").protoMajor = @:tmpset0 __tmp__._0;
+                    (@:checkr _req ?? throw "null pointer dereference").protoMinor = @:tmpset0 __tmp__._1;
+                    _ok = @:tmpset0 __tmp__._2;
                 };
                 if (!_ok) {
                     {
@@ -116,8 +116,8 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             {
                 {
                     var __tmp__ = stdgo._internal.net.url.Url_parseRequestURI.parseRequestURI(_rawurl?.__copy__());
-                    (@:checkr _req ?? throw "null pointer dereference").uRL = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _req ?? throw "null pointer dereference").uRL = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {

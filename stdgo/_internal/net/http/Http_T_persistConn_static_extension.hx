@@ -747,8 +747,8 @@ package stdgo._internal.net.http;
         while (true) {
             {
                 var __tmp__ = stdgo._internal.net.http.Http_readResponse.readResponse((@:checkr _pc ?? throw "null pointer dereference")._br, _rc._req);
-                _resp = __tmp__._0;
-                _err = __tmp__._1;
+                _resp = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _resp, _1 : _err };
@@ -891,8 +891,8 @@ package stdgo._internal.net.http;
                 if (_err == null) {
                     {
                         var __tmp__ = @:check2r _pc._readResponse(_rc?.__copy__(), _trace);
-                        _resp = __tmp__._0;
-                        _err = __tmp__._1;
+                        _resp = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     _err = stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError(_err) : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError));
@@ -1488,8 +1488,8 @@ package stdgo._internal.net.http;
         };
         {
             var __tmp__ = (@:checkr _pc ?? throw "null pointer dereference")._conn.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
             (@:checkr _pc ?? throw "null pointer dereference")._sawEOF = true;

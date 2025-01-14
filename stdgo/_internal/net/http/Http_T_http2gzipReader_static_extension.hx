@@ -29,8 +29,8 @@ package stdgo._internal.net.http;
         if (((@:checkr _gz ?? throw "null pointer dereference")._zr == null || ((@:checkr _gz ?? throw "null pointer dereference")._zr : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.compress.gzip.Gzip_newReader.newReader((@:checkr _gz ?? throw "null pointer dereference")._body);
-                (@:checkr _gz ?? throw "null pointer dereference")._zr = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _gz ?? throw "null pointer dereference")._zr = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 (@:checkr _gz ?? throw "null pointer dereference")._zerr = _err;

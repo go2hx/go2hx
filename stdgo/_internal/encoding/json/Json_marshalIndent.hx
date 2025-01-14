@@ -7,8 +7,8 @@ function marshalIndent(_v:stdgo.AnyInterface, _prefix:stdgo.GoString, _indent:st
         var _b2 = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((2 : stdgo.GoInt) * (_b.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.encoding.json.Json__appendIndent._appendIndent(_b2, _b, _prefix?.__copy__(), _indent?.__copy__());
-            _b2 = __tmp__._0;
-            _err = __tmp__._1;
+            _b2 = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

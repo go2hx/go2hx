@@ -106,8 +106,8 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             };
             {
                 var __tmp__ = _parseDecimalBytes((_mhdr.arnxtmem.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                _off = __tmp__._0;
-                _err = __tmp__._1;
+                _off = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_fhdr), stdgo.Go.toInterface(_err)) };

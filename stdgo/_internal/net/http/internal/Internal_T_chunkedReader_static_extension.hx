@@ -13,7 +13,7 @@ package stdgo._internal.net.http.internal;
                 {
                     {
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(stdgo.Go.asInterface((@:checkr _cr ?? throw "null pointer dereference")._r), ((@:checkr _cr ?? throw "null pointer dereference")._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                        (@:checkr _cr ?? throw "null pointer dereference")._err = __tmp__._1;
+                        (@:checkr _cr ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                     };
                     if ((@:checkr _cr ?? throw "null pointer dereference")._err == null) {
                         if ((((@:checkr _cr ?? throw "null pointer dereference")._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (("\r\n" : stdgo.GoString))) {
@@ -46,8 +46,8 @@ package stdgo._internal.net.http.internal;
             var _n0:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var __tmp__ = @:check2r (@:checkr _cr ?? throw "null pointer dereference")._r.read(_rbuf);
-                _n0 = __tmp__._0;
-                (@:checkr _cr ?? throw "null pointer dereference")._err = __tmp__._1;
+                _n0 = @:tmpset0 __tmp__._0;
+                (@:checkr _cr ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + (_n0) : stdgo.GoInt);
             _b = (_b.__slice__(_n0) : stdgo.Slice<stdgo.GoUInt8>);
@@ -83,16 +83,16 @@ package stdgo._internal.net.http.internal;
         var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.net.http.internal.Internal__readChunkLine._readChunkLine((@:checkr _cr ?? throw "null pointer dereference")._r);
-            _line = __tmp__._0;
-            (@:checkr _cr ?? throw "null pointer dereference")._err = __tmp__._1;
+            _line = @:tmpset0 __tmp__._0;
+            (@:checkr _cr ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _cr ?? throw "null pointer dereference")._err != null) {
             return;
         };
         {
             var __tmp__ = stdgo._internal.net.http.internal.Internal__parseHexUint._parseHexUint(_line);
-            (@:checkr _cr ?? throw "null pointer dereference")._n = __tmp__._0;
-            (@:checkr _cr ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _cr ?? throw "null pointer dereference")._n = @:tmpset0 __tmp__._0;
+            (@:checkr _cr ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _cr ?? throw "null pointer dereference")._err != null) {
             return;

@@ -488,7 +488,7 @@ _count = (1 : stdgo.GoInt);
         };
         {
             var __tmp__ = (@:checkr _w ?? throw "null pointer dereference")._writer.write(_b);
-            (@:checkr _w ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _w ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
     }
     @:keep

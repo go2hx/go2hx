@@ -6,8 +6,8 @@ var _n = __1, _r = __0;
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeLastRuneInString.decodeLastRuneInString(_s?.__copy__());
-                    _r = __tmp__._0;
-                    _n = __tmp__._1;
+                    _r = @:tmpset0 __tmp__._0;
+                    _n = @:tmpset0 __tmp__._1;
                 };
             };
             if (!stdgo._internal.strings.Strings_containsRune.containsRune(_cutset?.__copy__(), _r)) {

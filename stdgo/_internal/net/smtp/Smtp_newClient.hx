@@ -13,7 +13,7 @@ function newClient(_conn:stdgo._internal.net.Net_Conn.Conn, _host:stdgo.GoString
             } catch(_) {
                 { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>), _1 : false };
             };
-            (@:checkr _c ?? throw "null pointer dereference")._tls = __tmp__._1;
+            (@:checkr _c ?? throw "null pointer dereference")._tls = @:tmpset0 __tmp__._1;
         };
         return { _0 : _c, _1 : (null : stdgo.Error) };
     }

@@ -39,7 +39,7 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
             var _u = (stdgo.Go.setRef(({ username : _parts[(0 : stdgo.GoInt)]?.__copy__(), uid : _parts[(2 : stdgo.GoInt)]?.__copy__(), gid : _parts[(3 : stdgo.GoInt)]?.__copy__(), name : _parts[(4 : stdgo.GoInt)]?.__copy__(), homeDir : _parts[(5 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_User.User)) : stdgo.Ref<stdgo._internal.os.user.User_User.User>);
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut((@:checkr _u ?? throw "null pointer dereference").name?.__copy__(), ("," : stdgo.GoString));
-                (@:checkr _u ?? throw "null pointer dereference").name = __tmp__._0?.__copy__();
+                (@:checkr _u ?? throw "null pointer dereference").name = @:tmpset0 __tmp__._0?.__copy__();
             };
             return {
                 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_u)), _1 : (null : stdgo.Error) };

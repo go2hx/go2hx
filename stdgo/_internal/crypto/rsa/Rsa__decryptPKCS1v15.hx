@@ -10,16 +10,16 @@ function _decryptPKCS1v15(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_Private
             var _bkey:stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PrivateKeyRSA.PrivateKeyRSA> = (null : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PrivateKeyRSA.PrivateKeyRSA>);
             {
                 var __tmp__ = stdgo._internal.crypto.rsa.Rsa__boringPrivateKey._boringPrivateKey(_priv);
-                _bkey = __tmp__._0;
-                _err = __tmp__._1;
+                _bkey = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _valid, _1 : _em, _2 : _index, _3 : _err };
             };
             {
                 var __tmp__ = stdgo._internal.crypto.internal.boring.Boring_decryptRSANoPadding.decryptRSANoPadding(_bkey, _ciphertext);
-                _em = __tmp__._0;
-                _err = __tmp__._1;
+                _em = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _valid, _1 : _em, _2 : _index, _3 : _err };
@@ -27,8 +27,8 @@ function _decryptPKCS1v15(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_Private
         } else {
             {
                 var __tmp__ = stdgo._internal.crypto.rsa.Rsa__decrypt._decrypt(_priv, _ciphertext, false);
-                _em = __tmp__._0;
-                _err = __tmp__._1;
+                _em = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _valid, _1 : _em, _2 : _index, _3 : _err };

@@ -26,8 +26,8 @@ package stdgo._internal.io;
                 _p = (_p.__slice__((0 : stdgo.GoInt), _max) : stdgo.Slice<stdgo.GoUInt8>);
                 {
                     var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, _off);
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err == null) {
                     _err = stdgo._internal.io.Io_eOF.eOF;
@@ -90,8 +90,8 @@ package stdgo._internal.io;
         };
         {
             var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, (@:checkr _s ?? throw "null pointer dereference")._off);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _s ?? throw "null pointer dereference")._off = ((@:checkr _s ?? throw "null pointer dereference")._off + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };

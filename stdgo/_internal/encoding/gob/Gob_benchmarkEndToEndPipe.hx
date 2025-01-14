@@ -6,9 +6,9 @@ function benchmarkEndToEndPipe(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>
             var _r = (null : stdgo._internal.io.Io_Reader.Reader), _w = (null : stdgo._internal.io.Io_Writer.Writer), _err = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.os.Os_pipe.pipe();
-                _r = stdgo.Go.asInterface(__tmp__._0);
-                _w = stdgo.Go.asInterface(__tmp__._1);
-                _err = __tmp__._2;
+                _r = stdgo.Go.asInterface(@:tmpset0 __tmp__._0);
+                _w = stdgo.Go.asInterface(@:tmpset0 __tmp__._1);
+                _err = @:tmpset0 __tmp__._2;
             };
             return { _0 : _r, _1 : _w, _2 : _err };
         });

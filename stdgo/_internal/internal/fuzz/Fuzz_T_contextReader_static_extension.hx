@@ -17,8 +17,8 @@ package stdgo._internal.internal.fuzz;
             var a = function():Void {
                 {
                     var __tmp__ = (@:checkr _cr ?? throw "null pointer dereference")._r.read(_b);
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_done != null) _done.__close__();
             };

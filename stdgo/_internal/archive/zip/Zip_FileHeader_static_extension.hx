@@ -51,8 +51,8 @@ package stdgo._internal.archive.zip;
         (@:checkr _h ?? throw "null pointer dereference").modified = _t?.__copy__();
         {
             var __tmp__ = stdgo._internal.archive.zip.Zip__timeToMsDosTime._timeToMsDosTime(_t?.__copy__());
-            (@:checkr _h ?? throw "null pointer dereference").modifiedDate = __tmp__._0;
-            (@:checkr _h ?? throw "null pointer dereference").modifiedTime = __tmp__._1;
+            (@:checkr _h ?? throw "null pointer dereference").modifiedDate = @:tmpset0 __tmp__._0;
+            (@:checkr _h ?? throw "null pointer dereference").modifiedTime = @:tmpset0 __tmp__._1;
         };
     }
     @:keep

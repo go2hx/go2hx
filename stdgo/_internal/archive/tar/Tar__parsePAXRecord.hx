@@ -48,9 +48,9 @@ var _rem = __2, _nl = __1, _rec = __0;
         };
         {
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_rec?.__copy__(), ("=" : stdgo.GoString));
-            _k = __tmp__._0?.__copy__();
-            _v = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _k = @:tmpset0 __tmp__._0?.__copy__();
+            _v = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return {

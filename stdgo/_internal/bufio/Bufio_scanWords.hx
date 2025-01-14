@@ -8,8 +8,8 @@ function scanWords(_data:stdgo.Slice<stdgo.GoUInt8>, _atEOF:Bool):{ var _0 : std
                 var _r:stdgo.GoInt32 = (0 : stdgo.GoInt32);
 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_data.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>));
-                    _r = __tmp__._0;
-                    _width = __tmp__._1;
+                    _r = @:tmpset0 __tmp__._0;
+                    _width = @:tmpset0 __tmp__._1;
                 };
 if (!stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
                     break;
@@ -24,8 +24,8 @@ var _i = __1, _width = __0;
                 var _r:stdgo.GoInt32 = (0 : stdgo.GoInt32);
 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_data.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
-                    _r = __tmp__._0;
-                    _width = __tmp__._1;
+                    _r = @:tmpset0 __tmp__._0;
+                    _width = @:tmpset0 __tmp__._1;
                 };
 if (stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
                     return {

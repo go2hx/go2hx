@@ -152,7 +152,7 @@ var _nameoff = ((@:checkr _f ?? throw "null pointer dereference").fileHeader.byt
 var _next = ((@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder.uint32((_d.__slice__((_j + (12 : stdgo.GoInt) : stdgo.GoInt), (_j + (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
 {
                         var __tmp__ = stdgo._internal.debug.elf.Elf__getString._getString(_str, (_nameoff : stdgo.GoInt));
-                        _name = __tmp__._0.__copy__();
+                        _name = @:tmpset0 __tmp__._0.__copy__();
                     };
 var _ndx = (_other : stdgo.GoInt);
 if ((_ndx >= (_need.length) : Bool)) {
@@ -179,7 +179,7 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
         };
         {
             var __tmp__ = @:check2r _vs.data();
-            _d = __tmp__._0;
+            _d = @:tmpset0 __tmp__._0;
         };
         (@:checkr _f ?? throw "null pointer dereference")._gnuNeed = _need;
         (@:checkr _f ?? throw "null pointer dereference")._gnuVersym = _d;
@@ -201,8 +201,8 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
                 var _sym = (stdgo.Go.setRef(_all[((_all.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.elf.Elf_ImportedSymbol.ImportedSymbol>);
                 {
                     var __tmp__ = @:check2r _f._gnuVersion(_i);
-                    (@:checkr _sym ?? throw "null pointer dereference").library = __tmp__._0?.__copy__();
-                    (@:checkr _sym ?? throw "null pointer dereference").version = __tmp__._1?.__copy__();
+                    (@:checkr _sym ?? throw "null pointer dereference").library = @:tmpset0 __tmp__._0?.__copy__();
+                    (@:checkr _sym ?? throw "null pointer dereference").version = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
         };
@@ -220,8 +220,8 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
             for (_i => _ in _sym) {
                 {
                     var __tmp__ = @:check2r _f._gnuVersion(_i);
-                    _sym[(_i : stdgo.GoInt)].library = __tmp__._0?.__copy__();
-                    _sym[(_i : stdgo.GoInt)].version = __tmp__._1?.__copy__();
+                    _sym[(_i : stdgo.GoInt)].library = @:tmpset0 __tmp__._0?.__copy__();
+                    _sym[(_i : stdgo.GoInt)].version = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
         };

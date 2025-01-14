@@ -226,8 +226,8 @@ package stdgo._internal.net.http;
                         var _n:stdgo.GoInt64 = (0 : stdgo.GoInt64);
                         {
                             var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo._internal.io.Io_discard.discard, stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_bodyLocked.T_bodyLocked(_b) : stdgo._internal.net.http.Http_T_bodyLocked.T_bodyLocked)), (262144i64 : stdgo.GoInt64));
-                            _n = __tmp__._0;
-                            _err = __tmp__._1;
+                            _n = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                             _err = (null : stdgo.Error);
@@ -240,7 +240,7 @@ package stdgo._internal.net.http;
             } else {
                 {
                     var __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_bodyLocked.T_bodyLocked(_b) : stdgo._internal.net.http.Http_T_bodyLocked.T_bodyLocked)));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             (@:checkr _b ?? throw "null pointer dereference")._closed = true;
@@ -366,8 +366,8 @@ package stdgo._internal.net.http;
         };
         {
             var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._src.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
             (@:checkr _b ?? throw "null pointer dereference")._sawEOF = true;

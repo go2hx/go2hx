@@ -7,7 +7,7 @@ function _randFieldElement(_c:stdgo._internal.crypto.elliptic.Elliptic_Curve.Cur
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _b);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : _k, _1 : _err };

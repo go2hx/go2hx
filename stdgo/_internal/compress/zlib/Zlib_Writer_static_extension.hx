@@ -18,7 +18,7 @@ package stdgo._internal.compress.zlib;
         stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.putUint32(((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _checksum);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         return (@:checkr _z ?? throw "null pointer dereference")._err;
     }
@@ -61,8 +61,8 @@ package stdgo._internal.compress.zlib;
         };
         {
             var __tmp__ = @:check2r (@:checkr _z ?? throw "null pointer dereference")._compressor.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             (@:checkr _z ?? throw "null pointer dereference")._err = _err;
@@ -99,7 +99,7 @@ package stdgo._internal.compress.zlib;
         {
             {
                 var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -110,7 +110,7 @@ package stdgo._internal.compress.zlib;
             {
                 {
                     var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._w.write(((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return _err;
@@ -120,8 +120,8 @@ package stdgo._internal.compress.zlib;
         if (((@:checkr _z ?? throw "null pointer dereference")._compressor == null || ((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.compress.flate.Flate_newWriterDict.newWriterDict((@:checkr _z ?? throw "null pointer dereference")._w, (@:checkr _z ?? throw "null pointer dereference")._level, (@:checkr _z ?? throw "null pointer dereference")._dict);
-                (@:checkr _z ?? throw "null pointer dereference")._compressor = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _z ?? throw "null pointer dereference")._compressor = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;

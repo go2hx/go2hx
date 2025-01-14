@@ -72,9 +72,9 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         {
                             var __tmp__ = _s?.__copy__();
                             var x = (_d : stdgo._internal.time.Time_Time.Time);
-                            x._wall = __tmp__._wall;
-                            x._ext = __tmp__._ext;
-                            x._loc = __tmp__._loc;
+                            x._wall = __tmp__?._wall;
+                            x._ext = __tmp__?._ext;
+                            x._loc = __tmp__?._loc;
                         };
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoString>))) {
@@ -153,18 +153,18 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         {
                             var __tmp__ = ({ _dc : (@:checkr _rows ?? throw "null pointer dereference")._dc, _releaseConn : function(_0:stdgo.Error):Void {}, _rowsi : _s } : stdgo._internal.database.sql.Sql_Rows.Rows);
                             var x = (_d : stdgo._internal.database.sql.Sql_Rows.Rows);
-                            x._dc = __tmp__._dc;
-                            x._releaseConn = __tmp__._releaseConn;
-                            x._rowsi = __tmp__._rowsi;
-                            x._cancel = __tmp__._cancel;
-                            x._closeStmt = __tmp__._closeStmt;
-                            x._contextDone = __tmp__._contextDone;
-                            x._closemu = __tmp__._closemu;
-                            x._closed = __tmp__._closed;
-                            x._lasterr = __tmp__._lasterr;
-                            x._lastcols = __tmp__._lastcols;
-                            x._closemuScanHold = __tmp__._closemuScanHold;
-                            x._hitEOF = __tmp__._hitEOF;
+                            x._dc = __tmp__?._dc;
+                            x._releaseConn = __tmp__?._releaseConn;
+                            x._rowsi = __tmp__?._rowsi;
+                            x._cancel = __tmp__?._cancel;
+                            x._closeStmt = __tmp__?._closeStmt;
+                            x._contextDone = __tmp__?._contextDone;
+                            x._closemu = __tmp__?._closemu;
+                            x._closed = __tmp__?._closed;
+                            x._lasterr = __tmp__?._lasterr;
+                            x._lastcols = __tmp__?._lastcols;
+                            x._closemuScanHold = __tmp__?._closemuScanHold;
+                            x._hitEOF = __tmp__?._hitEOF;
                         };
                         var _parentCancel = ((@:checkr _rows ?? throw "null pointer dereference")._cancel : () -> Void);
                         (@:checkr _rows ?? throw "null pointer dereference")._cancel = function():Void {

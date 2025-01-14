@@ -95,8 +95,8 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             {
                 {
                     var __tmp__ = @:check2 _zonedata._big4();
-                    _n = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
@@ -110,8 +110,8 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             {
                 {
                     var __tmp__ = @:check2 _zonedata._byte();
-                    _b = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _b = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
@@ -121,8 +121,8 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
             {
                 {
                     var __tmp__ = @:check2 _zonedata._byte();
-                    _b = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _b = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if ((!_ok || ((_b : stdgo.GoInt) >= (_abbrev.length) : Bool) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };

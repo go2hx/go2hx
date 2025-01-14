@@ -16,8 +16,8 @@ function _allFrames(_addr:stdgo.GoUIntptr):{ var _0 : stdgo.Slice<stdgo._interna
         while (((_frame.function_ != ("runtime.goexit" : stdgo.GoString)) && _more : Bool)) {
             {
                 var __tmp__ = @:check2r _frames.next();
-                _frame = __tmp__._0?.__copy__();
-                _more = __tmp__._1;
+                _frame = @:tmpset0 __tmp__._0?.__copy__();
+                _more = @:tmpset0 __tmp__._1;
             };
             _ret = (_ret.__append__(_frame?.__copy__()));
         };

@@ -37,39 +37,39 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.debug.pe.Pe__readStringTable._readStringTable((stdgo.Go.setRef((@:checkr _f ?? throw "null pointer dereference").fileHeader) : stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.FileHeader>), stdgo.Go.asInterface(_sr));
-            (@:checkr _f ?? throw "null pointer dereference").stringTable = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _f ?? throw "null pointer dereference").stringTable = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
         {
             var __tmp__ = stdgo._internal.debug.pe.Pe__readCOFFSymbols._readCOFFSymbols((stdgo.Go.setRef((@:checkr _f ?? throw "null pointer dereference").fileHeader) : stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.FileHeader>), stdgo.Go.asInterface(_sr));
-            (@:checkr _f ?? throw "null pointer dereference").cOFFSymbols = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _f ?? throw "null pointer dereference").cOFFSymbols = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
         {
             var __tmp__ = stdgo._internal.debug.pe.Pe__removeAuxSymbols._removeAuxSymbols((@:checkr _f ?? throw "null pointer dereference").cOFFSymbols, (@:checkr _f ?? throw "null pointer dereference").stringTable);
-            (@:checkr _f ?? throw "null pointer dereference").symbols = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _f ?? throw "null pointer dereference").symbols = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
         {
             var __tmp__ = @:check2r _sr.seek((_base + (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").fileHeader)) : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
         {
             var __tmp__ = stdgo._internal.debug.pe.Pe__readOptionalHeader._readOptionalHeader(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.sizeOfOptionalHeader);
-            (@:checkr _f ?? throw "null pointer dereference").optionalHeader = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _f ?? throw "null pointer dereference").optionalHeader = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
@@ -105,8 +105,8 @@ if ((@:checkr _sh ?? throw "null pointer dereference").pointerToRawData == ((0u3
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.debug.pe.Pe__readRelocs._readRelocs((stdgo.Go.setRef((@:checkr (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)] ?? throw "null pointer dereference").sectionHeader) : stdgo.Ref<stdgo._internal.debug.pe.Pe_SectionHeader.SectionHeader>), stdgo.Go.asInterface(_sr));
-                (@:checkr (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)] ?? throw "null pointer dereference").relocs = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr (@:checkr _f ?? throw "null pointer dereference").sections[(_i : stdgo.GoInt)] ?? throw "null pointer dereference").relocs = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

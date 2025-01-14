@@ -7,14 +7,14 @@ function testDecoderIssue15656(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
         };
         {
             var __tmp__ = @:check2r (@:checkr stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding ?? throw "null pointer dereference").strict().decodeString(("WvLTlMrX9NpYDQlEIFlnDA==" : stdgo.GoString));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.errorf(("Error = %v; want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
             var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString(("WvLTlMrX9NpYDQlEIFlnDB==" : stdgo.GoString));
-            _err = __tmp__._1;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.errorf(("Error = %v; want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));

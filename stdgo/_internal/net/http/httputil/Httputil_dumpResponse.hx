@@ -15,9 +15,9 @@ function dumpResponse(_resp:stdgo.Ref<stdgo._internal.net.http.Http_Response.Res
         } else {
             {
                 var __tmp__ = stdgo._internal.net.http.httputil.Httputil__drainBody._drainBody((@:checkr _resp ?? throw "null pointer dereference").body);
-                _save = __tmp__._0;
-                (@:checkr _resp ?? throw "null pointer dereference").body = __tmp__._1;
-                _err = __tmp__._2;
+                _save = @:tmpset0 __tmp__._0;
+                (@:checkr _resp ?? throw "null pointer dereference").body = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

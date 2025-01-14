@@ -50,8 +50,8 @@ package stdgo._internal.sync;
         {
             var __tmp__ = (new stdgo._internal.sync.Sync_T_eface.T_eface() : stdgo._internal.sync.Sync_T_eface.T_eface);
             var x = (_slot : stdgo._internal.sync.Sync_T_eface.T_eface);
-            x._typ = __tmp__._typ;
-            x._val = __tmp__._val;
+            x._typ = __tmp__?._typ;
+            x._val = __tmp__?._val;
         };
         return { _0 : _val, _1 : true };
     }

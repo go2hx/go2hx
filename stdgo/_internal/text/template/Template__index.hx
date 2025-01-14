@@ -11,8 +11,8 @@ function _index(_item:stdgo._internal.reflect.Reflect_Value.Value, _indexes:haxe
             {
                 {
                     var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(_item?.__copy__());
-                    _item = __tmp__._0?.__copy__();
-                    _isNil = __tmp__._1;
+                    _item = @:tmpset0 __tmp__._0?.__copy__();
+                    _isNil = @:tmpset0 __tmp__._1;
                 };
                 if (_isNil) {
                     return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("index of nil pointer" : stdgo.GoString)) };

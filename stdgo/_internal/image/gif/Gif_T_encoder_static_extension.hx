@@ -96,7 +96,7 @@ package stdgo._internal.image.gif;
             if (_dx == ((@:checkr _pm ?? throw "null pointer dereference").stride)) {
                 {
                     var __tmp__ = _lzww.write(((@:checkr _pm ?? throw "null pointer dereference").pix.__slice__(0, (_dx * _b.dy() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                    (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                     _lzww.close();
@@ -109,7 +109,7 @@ var _y = __1, _i = __0;
                     while ((_y < _b.max.y : Bool)) {
                         {
                             var __tmp__ = _lzww.write(((@:checkr _pm ?? throw "null pointer dereference").pix.__slice__(_i, (_i + _dx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                         };
 if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                             _lzww.close();
@@ -148,7 +148,7 @@ if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
         };
         {
             var __tmp__ = stdgo._internal.io.Io_writeString.writeString((@:checkr _e ?? throw "null pointer dereference")._w, ("GIF89a" : stdgo.GoString));
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
             return;
@@ -171,8 +171,8 @@ if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.image.gif.Gif__encodeColorTable._encodeColorTable(((@:checkr _e ?? throw "null pointer dereference")._globalColorTable.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _p, _paddedSize);
-                    (@:checkr _e ?? throw "null pointer dereference")._globalCT = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _e ?? throw "null pointer dereference")._globalCT = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (((_err != null) && ((@:checkr _e ?? throw "null pointer dereference")._err == null) : Bool)) {
                     (@:checkr _e ?? throw "null pointer dereference")._err = _err;
@@ -221,7 +221,7 @@ if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
         };
         {
             var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(_p);
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
     }
     @:keep

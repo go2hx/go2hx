@@ -21,8 +21,8 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                 {
                     {
                         var __tmp__ = stdgo._internal.crypto.x509.X509__marshalECPrivateKeyWithOID._marshalECPrivateKeyWithOID(_k, null);
-                        _privKey.privateKey = __tmp__._0;
-                        _err = __tmp__._1;
+                        _privKey.privateKey = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("x509: failed to marshal EC private key while building PKCS#8: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
@@ -44,8 +44,8 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                     {
                         {
                             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(@:check2r _k.bytes()));
-                            _privKey.privateKey = __tmp__._0;
-                            _err = __tmp__._1;
+                            _privKey.privateKey = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to marshal private key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -64,8 +64,8 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                     {
                         {
                             var __tmp__ = stdgo._internal.crypto.x509.X509__marshalECDHPrivateKey._marshalECDHPrivateKey(_k);
-                            _privKey.privateKey = __tmp__._0;
-                            _err = __tmp__._1;
+                            _privKey.privateKey = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("x509: failed to marshal EC private key while building PKCS#8: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };

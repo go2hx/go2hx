@@ -120,8 +120,8 @@ package stdgo._internal.text.scanner;
                 } else if (__value__ == (4184912i32)) {
                     {
                         var __tmp__ = @:check2r _s._scanNumber(_ch_4184001, false);
-                        _tok_4184700 = __tmp__._0;
-                        _ch_4184001 = __tmp__._1;
+                        _tok_4184700 = @:tmpset0 __tmp__._0;
+                        _ch_4184001 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4185789i32;
                 } else if (__value__ == (4184960i32)) {
@@ -188,8 +188,8 @@ package stdgo._internal.text.scanner;
                 } else if (__value__ == (4185305i32)) {
                     {
                         var __tmp__ = @:check2r _s._scanNumber(_ch_4184001, true);
-                        _tok_4184700 = __tmp__._0;
-                        _ch_4184001 = __tmp__._1;
+                        _tok_4184700 = @:tmpset0 __tmp__._0;
+                        _ch_4184001 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4185789i32;
                 } else if (__value__ == (4185351i32)) {
@@ -399,8 +399,8 @@ package stdgo._internal.text.scanner;
             };
             {
                 var __tmp__ = @:check2r _s._digits(_ch, _base, _invalid__pointer__);
-                _ch = __tmp__._0;
-                _ds = __tmp__._1;
+                _ch = @:tmpset0 __tmp__._0;
+                _ds = @:tmpset0 __tmp__._1;
             };
             _digsep = (_digsep | (_ds) : stdgo.GoInt);
             if (((_ch == (46 : stdgo.GoInt32)) && (((@:checkr _s ?? throw "null pointer dereference").mode & (16u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
@@ -415,8 +415,8 @@ package stdgo._internal.text.scanner;
             };
             {
                 var __tmp__ = @:check2r _s._digits(_ch, _base, _invalid__pointer__);
-                _ch = __tmp__._0;
-                _ds = __tmp__._1;
+                _ch = @:tmpset0 __tmp__._0;
+                _ds = @:tmpset0 __tmp__._1;
             };
             _digsep = (_digsep | (_ds) : stdgo.GoInt);
         };
@@ -438,8 +438,8 @@ package stdgo._internal.text.scanner;
                 };
                 {
                     var __tmp__ = @:check2r _s._digits(_ch, (10 : stdgo.GoInt), (null : stdgo.Pointer<stdgo.GoInt32>));
-                    _ch = __tmp__._0;
-                    _ds = __tmp__._1;
+                    _ch = @:tmpset0 __tmp__._0;
+                    _ds = @:tmpset0 __tmp__._1;
                 };
                 _digsep = (_digsep | (_ds) : stdgo.GoInt);
                 if ((_ds & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
@@ -600,8 +600,8 @@ var _width = __1, _ch = __0;
             if ((_ch >= (128 : stdgo.GoInt32) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(((@:checkr _s ?? throw "null pointer dereference")._srcBuf.__slice__((@:checkr _s ?? throw "null pointer dereference")._srcPos, (@:checkr _s ?? throw "null pointer dereference")._srcEnd) : stdgo.Slice<stdgo.GoUInt8>));
-                    _ch = __tmp__._0;
-                    _width = __tmp__._1;
+                    _ch = @:tmpset0 __tmp__._0;
+                    _width = @:tmpset0 __tmp__._1;
                 };
                 if (((_ch == (65533 : stdgo.GoInt32)) && (_width == (1 : stdgo.GoInt)) : Bool)) {
                     (@:checkr _s ?? throw "null pointer dereference")._srcPos = ((@:checkr _s ?? throw "null pointer dereference")._srcPos + (_width) : stdgo.GoInt);

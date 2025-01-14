@@ -12,7 +12,7 @@ function _divWW(_x1:stdgo._internal.math.big.Big_Word.Word, _x0:stdgo._internal.
         var __tmp__ = stdgo._internal.math.bits.Bits_add.add(_t0, (_x0 : stdgo.GoUInt), (0u32 : stdgo.GoUInt)), __8:stdgo.GoUInt = __tmp__._0, _c:stdgo.GoUInt = __tmp__._1;
         {
             var __tmp__ = stdgo._internal.math.bits.Bits_add.add(_t1, (_x1 : stdgo.GoUInt), _c);
-            _t1 = __tmp__._0;
+            _t1 = @:tmpset0 __tmp__._0;
         };
         var _qq = (_t1 : stdgo.GoUInt);
         var __tmp__ = stdgo._internal.math.bits.Bits_mul.mul(_d, _qq), _dq1:stdgo.GoUInt = __tmp__._0, _dq0:stdgo.GoUInt = __tmp__._1;

@@ -91,11 +91,11 @@ package stdgo._internal.debug.pe;
         for (__5 => _dt in _ida) {
             {
                 var __tmp__ = stdgo._internal.debug.pe.Pe__getString._getString(_names, ((_dt.name - (@:checkr _ds ?? throw "null pointer dereference").sectionHeader.virtualAddress : stdgo.GoUInt32) : stdgo.GoInt));
-                _dt._dll = __tmp__._0?.__copy__();
+                _dt._dll = @:tmpset0 __tmp__._0?.__copy__();
             };
             {
                 var __tmp__ = @:check2r _ds.data();
-                _d = __tmp__._0;
+                _d = @:tmpset0 __tmp__._0;
             };
             _d = (_d.__slice__((_dt.originalFirstThunk - (@:checkr _ds ?? throw "null pointer dereference").sectionHeader.virtualAddress : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
             while (((_d.length) > (0 : stdgo.GoInt) : Bool)) {

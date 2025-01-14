@@ -126,49 +126,49 @@ package stdgo._internal.crypto.sha256;
         _b = (_b.__slice__((stdgo.Go.str("sha", 2).length)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         _b = (_b.__slice__(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._len = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._len = @:tmpset0 __tmp__._1;
         };
         (@:checkr _d ?? throw "null pointer dereference")._nx = (((@:checkr _d ?? throw "null pointer dereference")._len % (64i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt);
         return (null : stdgo.Error);

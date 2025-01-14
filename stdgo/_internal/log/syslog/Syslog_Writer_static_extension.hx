@@ -263,8 +263,8 @@ package stdgo._internal.log.syslog;
         if ((@:checkr _w ?? throw "null pointer dereference")._network == (stdgo.Go.str())) {
             {
                 var __tmp__ = stdgo._internal.log.syslog.Syslog__unixSyslog._unixSyslog();
-                (@:checkr _w ?? throw "null pointer dereference")._conn = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _w ?? throw "null pointer dereference")._conn = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _w ?? throw "null pointer dereference")._hostname == (stdgo.Go.str())) {
                 (@:checkr _w ?? throw "null pointer dereference")._hostname = ("localhost" : stdgo.GoString);
@@ -273,8 +273,8 @@ package stdgo._internal.log.syslog;
             var _c:stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
             {
                 var __tmp__ = stdgo._internal.net.Net_dial.dial((@:checkr _w ?? throw "null pointer dereference")._network?.__copy__(), (@:checkr _w ?? throw "null pointer dereference")._raddr?.__copy__());
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err == null) {
                 (@:checkr _w ?? throw "null pointer dereference")._conn = stdgo.Go.asInterface((stdgo.Go.setRef(({ _conn : _c, _local : (((@:checkr _w ?? throw "null pointer dereference")._network == ("unixgram" : stdgo.GoString)) || ((@:checkr _w ?? throw "null pointer dereference")._network == ("unix" : stdgo.GoString)) : Bool) } : stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn>));

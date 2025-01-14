@@ -8,8 +8,8 @@ function _matchURIConstraint(_uri:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.net.Net_splitHostPort.splitHostPort((@:checkr _uri ?? throw "null pointer dereference").host?.__copy__());
-                _host = __tmp__._0?.__copy__();
-                _err = __tmp__._2;
+                _host = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : false, _1 : _err };

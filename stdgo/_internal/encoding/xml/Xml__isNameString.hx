@@ -14,8 +14,8 @@ function _isNameString(_s:stdgo.GoString):Bool {
             _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
             {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__());
-                _c = __tmp__._0;
-                _n = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _n = @:tmpset0 __tmp__._1;
             };
             if (((_c == (65533 : stdgo.GoInt32)) && (_n == (1 : stdgo.GoInt)) : Bool)) {
                 return false;

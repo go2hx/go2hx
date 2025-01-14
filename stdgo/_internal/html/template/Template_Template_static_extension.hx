@@ -118,10 +118,10 @@ package stdgo._internal.html.template;
                 {
                     var __tmp__ = (_emptyTmpl : stdgo._internal.html.template.Template_Template.Template)?.__copy__();
                     var x = (_existing : stdgo._internal.html.template.Template_Template.Template);
-                    x._escapeErr = __tmp__._escapeErr;
-                    x._text = __tmp__._text;
-                    x.tree = __tmp__.tree;
-                    x._nameSpace = __tmp__._nameSpace;
+                    x._escapeErr = __tmp__?._escapeErr;
+                    x._text = __tmp__?._text;
+                    x.tree = __tmp__?.tree;
+                    x._nameSpace = __tmp__?._nameSpace;
                 };
             };
         };

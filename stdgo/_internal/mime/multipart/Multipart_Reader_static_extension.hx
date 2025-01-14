@@ -309,8 +309,8 @@ var _fileOff = __1, _file = __0;
                     if ((_file == null || (_file : Dynamic).__nil__)) {
                         {
                             var __tmp__ = stdgo._internal.os.Os_createTemp.createTemp((@:checkr _r ?? throw "null pointer dereference")._tempDir?.__copy__(), ("multipart-" : stdgo.GoString));
-                            _file = __tmp__._0;
-                            _err = __tmp__._1;
+                            _file = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             {

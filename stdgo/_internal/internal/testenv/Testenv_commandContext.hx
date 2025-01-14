@@ -39,8 +39,8 @@ var _gracePeriod = __1, _cancelCtx = __0;
                             if ((!_ok || (stdgo._internal.time.Time_until.until(_cd?.__copy__()) > _cmdTimeout : Bool) : Bool)) {
                                 {
                                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, _cmdTimeout);
-                                    _ctx = __tmp__._0;
-                                    _cancelCtx = __tmp__._1;
+                                    _ctx = @:tmpset0 __tmp__._0;
+                                    _cancelCtx = @:tmpset0 __tmp__._1;
                                 };
                             };
                         };

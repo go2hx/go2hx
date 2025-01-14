@@ -15,8 +15,8 @@ function _consumeMediaParam(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
         _rest = stdgo._internal.strings.Strings_trimLeftFunc.trimLeftFunc(_rest?.__copy__(), stdgo._internal.unicode.Unicode_isSpace.isSpace)?.__copy__();
         {
             var __tmp__ = stdgo._internal.mime.Mime__consumeToken._consumeToken(_rest?.__copy__());
-            _param = __tmp__._0?.__copy__();
-            _rest = __tmp__._1?.__copy__();
+            _param = @:tmpset0 __tmp__._0?.__copy__();
+            _rest = @:tmpset0 __tmp__._1?.__copy__();
         };
         _param = stdgo._internal.strings.Strings_toLower.toLower(_param?.__copy__())?.__copy__();
         if (_param == (stdgo.Go.str())) {

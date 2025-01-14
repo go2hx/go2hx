@@ -21,8 +21,8 @@ function readResponse(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _
         };
         {
             var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_statusCode?.__copy__());
-            (@:checkr _resp ?? throw "null pointer dereference").statusCode = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _resp ?? throw "null pointer dereference").statusCode = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_err != null) || ((@:checkr _resp ?? throw "null pointer dereference").statusCode < (0 : stdgo.GoInt) : Bool) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP status code" : stdgo.GoString), _statusCode?.__copy__()) };
@@ -30,9 +30,9 @@ function readResponse(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _
         {
             {
                 var __tmp__ = stdgo._internal.net.http.Http_parseHTTPVersion.parseHTTPVersion((@:checkr _resp ?? throw "null pointer dereference").proto?.__copy__());
-                (@:checkr _resp ?? throw "null pointer dereference").protoMajor = __tmp__._0;
-                (@:checkr _resp ?? throw "null pointer dereference").protoMinor = __tmp__._1;
-                _ok = __tmp__._2;
+                (@:checkr _resp ?? throw "null pointer dereference").protoMajor = @:tmpset0 __tmp__._0;
+                (@:checkr _resp ?? throw "null pointer dereference").protoMinor = @:tmpset0 __tmp__._1;
+                _ok = @:tmpset0 __tmp__._2;
             };
             if (!_ok) {
                 return { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP version" : stdgo.GoString), (@:checkr _resp ?? throw "null pointer dereference").proto?.__copy__()) };

@@ -96,8 +96,8 @@ package stdgo._internal.compress.bzip2;
             };
             {
                 var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__newHuffmanTree._newHuffmanTree(_lengths);
-                _huffmanTrees[(_i : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _huffmanTrees[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -314,8 +314,8 @@ _bufIndex++;
         };
         {
             var __tmp__ = @:check2r _bz2._read(_buf);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         var _brErr = (@:check2 (@:checkr _bz2 ?? throw "null pointer dereference")._br.err() : stdgo.Error);
         if (_brErr != null) {

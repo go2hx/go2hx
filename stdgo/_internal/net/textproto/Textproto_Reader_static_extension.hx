@@ -15,8 +15,8 @@ package stdgo._internal.net.textproto;
             var _line:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.bytes.Bytes_cut.cut(_peek, stdgo._internal.net.textproto.Textproto__nl._nl);
-                _line = __tmp__._0;
-                _peek = __tmp__._1;
+                _line = @:tmpset0 __tmp__._0;
+                _peek = @:tmpset0 __tmp__._1;
             };
             if (((_line.length == (0 : stdgo.GoInt)) || (((_line.length == (1 : stdgo.GoInt)) && (_line[(0 : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                 break;
@@ -44,8 +44,8 @@ package stdgo._internal.net.textproto;
             var _line:stdgo.GoString = ("" : stdgo.GoString);
             {
                 var __tmp__ = @:check2r _r.readLine();
-                _line = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _line = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -111,10 +111,10 @@ package stdgo._internal.net.textproto;
             var _moreMessage:stdgo.GoString = ("" : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.net.textproto.Textproto__parseCodeLine._parseCodeLine(_line?.__copy__(), (0 : stdgo.GoInt));
-                _code2 = __tmp__._0;
-                _continued = __tmp__._1;
-                _moreMessage = __tmp__._2?.__copy__();
-                _err = __tmp__._3;
+                _code2 = @:tmpset0 __tmp__._0;
+                _continued = @:tmpset0 __tmp__._1;
+                _moreMessage = @:tmpset0 __tmp__._2?.__copy__();
+                _err = @:tmpset0 __tmp__._3;
             };
             if (((_err != null) || (_code2 != _code) : Bool)) {
                 _message = (_message + ((("\n" : stdgo.GoString) + stdgo._internal.strings.Strings_trimRight.trimRight(_line?.__copy__(), ("\r\n" : stdgo.GoString))?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);

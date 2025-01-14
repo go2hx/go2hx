@@ -17,9 +17,9 @@ var _si = __1, _i = __0;
 var _d = (_dpix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
 {
                         var __tmp__ = stdgo._internal.image.color.Color_cMYKToRGB.cMYKToRGB(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]);
-                        _d[(0 : stdgo.GoInt)] = __tmp__._0;
-                        _d[(1 : stdgo.GoInt)] = __tmp__._1;
-                        _d[(2 : stdgo.GoInt)] = __tmp__._2;
+                        _d[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                        _d[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
+                        _d[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._2;
                     };
 _d[(3 : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
                     {

@@ -38,8 +38,8 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                     var _line:stdgo.GoString = ("" : stdgo.GoString);
                     {
                         var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_goMod?.__copy__(), ("\n" : stdgo.GoString));
-                        _line = __tmp__._0?.__copy__();
-                        _goMod = __tmp__._1?.__copy__();
+                        _line = @:tmpset0 __tmp__._0?.__copy__();
+                        _goMod = @:tmpset0 __tmp__._1?.__copy__();
                     };
                     var _fields = stdgo._internal.strings.Strings_fields.fields(_line?.__copy__());
                     if (((((_fields.length) >= (2 : stdgo.GoInt) : Bool) && _fields[(0 : stdgo.GoInt)] == (("module" : stdgo.GoString)) : Bool) && (_fields[(1 : stdgo.GoInt)] == ("std" : stdgo.GoString)) : Bool)) {

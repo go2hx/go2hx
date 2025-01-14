@@ -18,7 +18,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
                     } catch(_) {
                         { _0 : (null : stdgo.Error), _1 : false };
                     };
-                    (@:checkr _w ?? throw "null pointer dereference")._err = __tmp__._0;
+                    (@:checkr _w ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._0;
                 };
                 _err = stdgo.Go.asInterface(_w);
             } else {

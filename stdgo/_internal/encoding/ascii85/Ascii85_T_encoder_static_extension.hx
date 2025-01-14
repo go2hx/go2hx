@@ -9,7 +9,7 @@ package stdgo._internal.encoding.ascii85;
             (@:checkr _e ?? throw "null pointer dereference")._nbuf = (0 : stdgo.GoInt);
             {
                 var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__((0 : stdgo.GoInt), _nout) : stdgo.Slice<stdgo.GoUInt8>));
-                (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
         };
         return (@:checkr _e ?? throw "null pointer dereference")._err;
@@ -46,7 +46,7 @@ package stdgo._internal.encoding.ascii85;
             {
                 {
                     var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__((0 : stdgo.GoInt), _nout) : stdgo.Slice<stdgo.GoUInt8>));
-                    (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                    (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                     return {
@@ -70,7 +70,7 @@ package stdgo._internal.encoding.ascii85;
                 {
                     {
                         var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__((0 : stdgo.GoInt), _nout) : stdgo.Slice<stdgo.GoUInt8>));
-                        (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                        (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                     };
                     if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                         return {

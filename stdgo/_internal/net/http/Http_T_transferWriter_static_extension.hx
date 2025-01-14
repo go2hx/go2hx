@@ -30,8 +30,8 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.io.Io_copy.copy(_dst, _src);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
             (@:checkr _t ?? throw "null pointer dereference")._bodyReadError = _err;
@@ -79,7 +79,7 @@ package stdgo._internal.net.http;
                     var _cw = (stdgo._internal.net.http.internal.Internal_newChunkedWriter.newChunkedWriter(_w) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
                     {
                         var __tmp__ = @:check2r _t._doBodyCopy(_cw, _body);
-                        _err = __tmp__._1;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err == null) {
                         _err = _cw.close();
@@ -91,14 +91,14 @@ package stdgo._internal.net.http;
                     };
                     {
                         var __tmp__ = @:check2r _t._doBodyCopy(_dst, _body);
-                        _ncopy = __tmp__._0;
-                        _err = __tmp__._1;
+                        _ncopy = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     {
                         var __tmp__ = @:check2r _t._doBodyCopy(_w, stdgo._internal.io.Io_limitReader.limitReader(_body, (@:checkr _t ?? throw "null pointer dereference").contentLength));
-                        _ncopy = __tmp__._0;
-                        _err = __tmp__._1;
+                        _ncopy = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         {
@@ -113,8 +113,8 @@ package stdgo._internal.net.http;
                     var _nextra:stdgo.GoInt64 = (0 : stdgo.GoInt64);
                     {
                         var __tmp__ = @:check2r _t._doBodyCopy(stdgo._internal.io.Io_discard.discard, _body);
-                        _nextra = __tmp__._0;
-                        _err = __tmp__._1;
+                        _nextra = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     _ncopy = (_ncopy + (_nextra) : stdgo.GoInt64);
                 };
@@ -174,7 +174,7 @@ package stdgo._internal.net.http;
                 };
                 {
                     var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("\r\n" : stdgo.GoString));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             {
@@ -335,8 +335,8 @@ package stdgo._internal.net.http;
                 var _rres:stdgo._internal.net.http.Http_T_readResult.T_readResult = ({} : stdgo._internal.net.http.Http_T_readResult.T_readResult);
                 {
                     var __tmp__ = _body.read((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                    _rres._n = __tmp__._0;
-                    _rres._err = __tmp__._1;
+                    _rres._n = @:tmpset0 __tmp__._0;
+                    _rres._err = @:tmpset0 __tmp__._1;
                 };
                 if (_rres._n == ((1 : stdgo.GoInt))) {
                     _rres._b = _buf[(0 : stdgo.GoInt)];

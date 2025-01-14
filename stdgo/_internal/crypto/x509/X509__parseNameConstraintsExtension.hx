@@ -233,11 +233,11 @@ var _mask = __1, _ip = __0;
         {
             {
                 var __tmp__ = _getValues(_permitted);
-                (@:checkr _out ?? throw "null pointer dereference").permittedDNSDomains = __tmp__._0;
-                (@:checkr _out ?? throw "null pointer dereference").permittedIPRanges = __tmp__._1;
-                (@:checkr _out ?? throw "null pointer dereference").permittedEmailAddresses = __tmp__._2;
-                (@:checkr _out ?? throw "null pointer dereference").permittedURIDomains = __tmp__._3;
-                _err = __tmp__._4;
+                (@:checkr _out ?? throw "null pointer dereference").permittedDNSDomains = @:tmpset0 __tmp__._0;
+                (@:checkr _out ?? throw "null pointer dereference").permittedIPRanges = @:tmpset0 __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").permittedEmailAddresses = @:tmpset0 __tmp__._2;
+                (@:checkr _out ?? throw "null pointer dereference").permittedURIDomains = @:tmpset0 __tmp__._3;
+                _err = @:tmpset0 __tmp__._4;
             };
             if (_err != null) {
                 return {
@@ -251,11 +251,11 @@ var _mask = __1, _ip = __0;
         {
             {
                 var __tmp__ = _getValues(_excluded);
-                (@:checkr _out ?? throw "null pointer dereference").excludedDNSDomains = __tmp__._0;
-                (@:checkr _out ?? throw "null pointer dereference").excludedIPRanges = __tmp__._1;
-                (@:checkr _out ?? throw "null pointer dereference").excludedEmailAddresses = __tmp__._2;
-                (@:checkr _out ?? throw "null pointer dereference").excludedURIDomains = __tmp__._3;
-                _err = __tmp__._4;
+                (@:checkr _out ?? throw "null pointer dereference").excludedDNSDomains = @:tmpset0 __tmp__._0;
+                (@:checkr _out ?? throw "null pointer dereference").excludedIPRanges = @:tmpset0 __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").excludedEmailAddresses = @:tmpset0 __tmp__._2;
+                (@:checkr _out ?? throw "null pointer dereference").excludedURIDomains = @:tmpset0 __tmp__._3;
+                _err = @:tmpset0 __tmp__._4;
             };
             if (_err != null) {
                 return {

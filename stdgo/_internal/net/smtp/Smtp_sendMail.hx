@@ -129,7 +129,7 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             };
             {
                 var __tmp__ = _w.write(_msg);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {

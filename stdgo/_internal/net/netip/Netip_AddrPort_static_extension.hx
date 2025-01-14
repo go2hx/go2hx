@@ -15,8 +15,8 @@ package stdgo._internal.net.netip;
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_addrPortFrom.addrPortFrom(_addr?.__copy__(), stdgo._internal.net.netip.Netip__leUint16._leUint16((_b.__slice__(((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
             var x = (_p : stdgo._internal.net.netip.Netip_AddrPort.AddrPort);
-            x._ip = __tmp__._ip;
-            x._port = __tmp__._port;
+            x._ip = __tmp__?._ip;
+            x._port = __tmp__?._port;
         };
         return (null : stdgo.Error);
     }
@@ -36,8 +36,8 @@ package stdgo._internal.net.netip;
             {
                 var __tmp__ = (new stdgo._internal.net.netip.Netip_AddrPort.AddrPort() : stdgo._internal.net.netip.Netip_AddrPort.AddrPort);
                 var x = (_p : stdgo._internal.net.netip.Netip_AddrPort.AddrPort);
-                x._ip = __tmp__._ip;
-                x._port = __tmp__._port;
+                x._ip = __tmp__?._ip;
+                x._port = __tmp__?._port;
             };
             return (null : stdgo.Error);
         };
@@ -45,9 +45,9 @@ package stdgo._internal.net.netip;
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_parseAddrPort.parseAddrPort((_text : stdgo.GoString)?.__copy__());
             var x = _p;
-            x._ip = __tmp__._0?.__copy__()._ip;
-            x._port = __tmp__._0?.__copy__()._port;
-            _err = __tmp__._1;
+            x._ip = @:tmpset0 __tmp__._0?.__copy__()?._ip;
+            x._port = @:tmpset0 __tmp__._0?.__copy__()?._port;
+            _err = @:tmpset0 __tmp__._1;
         };
         return _err;
     }

@@ -9,8 +9,8 @@ function _initSystemRoots():Void {
             };
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__loadSystemRoots._loadSystemRoots();
-                stdgo._internal.crypto.x509.X509__systemRoots._systemRoots = __tmp__._0;
-                stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr = __tmp__._1;
+                stdgo._internal.crypto.x509.X509__systemRoots._systemRoots = @:tmpset0 __tmp__._0;
+                stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr = @:tmpset0 __tmp__._1;
             };
             if (stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr != null) {
                 stdgo._internal.crypto.x509.X509__systemRoots._systemRoots = null;

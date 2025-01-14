@@ -11,9 +11,9 @@ function _http2parseDataFrame(_fc:stdgo.Ref<stdgo._internal.net.http.Http_T_http
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.net.http.Http__http2readByte._http2readByte(_payload);
-                _payload = __tmp__._0;
-                _padSize = __tmp__._1;
-                _err = __tmp__._2;
+                _payload = @:tmpset0 __tmp__._0;
+                _padSize = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 _countError(("frame_data_pad_byte_short" : stdgo.GoString));

@@ -8,7 +8,7 @@ function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
         while ((_x == null || (_x : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _priv);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _priv, _1 : _x, _2 : _y, _3 : _err };
@@ -20,8 +20,8 @@ function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
             };
             {
                 var __tmp__ = _curve.scalarBaseMult(_priv);
-                _x = __tmp__._0;
-                _y = __tmp__._1;
+                _x = @:tmpset0 __tmp__._0;
+                _y = @:tmpset0 __tmp__._1;
             };
         };
         return { _0 : _priv, _1 : _x, _2 : _y, _3 : _err };

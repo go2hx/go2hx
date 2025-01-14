@@ -91,8 +91,8 @@ package stdgo._internal.database.sql;
                 stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
                     {
                         var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverPrepare._ctxDriverPrepare(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, (@:checkr _stmt ?? throw "null pointer dereference")._query?.__copy__());
-                        _si = __tmp__._0;
-                        _err = __tmp__._1;
+                        _si = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                 });
                 if (_err != null) {
@@ -120,8 +120,8 @@ package stdgo._internal.database.sql;
                     stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
                         {
                             var __tmp__ = @:check2r _stmt._prepareOnConnLocked(_ctx, _dc);
-                            _ds = __tmp__._0;
-                            _err = __tmp__._1;
+                            _ds = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                     });
                     if (_err != null) {

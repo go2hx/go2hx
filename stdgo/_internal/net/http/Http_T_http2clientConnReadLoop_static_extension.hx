@@ -669,7 +669,7 @@ package stdgo._internal.net.http;
                 {
                     {
                         var __tmp__ = @:check2 (@:checkr _cs ?? throw "null pointer dereference")._bufPipe.write(_data);
-                        _err = __tmp__._1;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         _didReset = true;

@@ -7,11 +7,11 @@ package stdgo._internal.compress.zlib;
         {
             var __tmp__ = ({ _decompressor : (@:checkr _z ?? throw "null pointer dereference")._decompressor } : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader);
             var x = (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader);
-            x._r = __tmp__._r;
-            x._decompressor = __tmp__._decompressor;
-            x._digest = __tmp__._digest;
-            x._err = __tmp__._err;
-            x._scratch = __tmp__._scratch;
+            x._r = __tmp__?._r;
+            x._decompressor = __tmp__?._decompressor;
+            x._digest = __tmp__?._digest;
+            x._err = __tmp__?._err;
+            x._scratch = __tmp__?._scratch;
         };
         {
             var __tmp__ = try {
@@ -27,7 +27,7 @@ package stdgo._internal.compress.zlib;
         };
         {
             var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, ((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
             if (stdgo.Go.toInterface((@:checkr _z ?? throw "null pointer dereference")._err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -44,7 +44,7 @@ package stdgo._internal.compress.zlib;
         if (_haveDict) {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _z ?? throw "null pointer dereference")._r, ((@:checkr _z ?? throw "null pointer dereference")._scratch.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                 if (stdgo.Go.toInterface((@:checkr _z ?? throw "null pointer dereference")._err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -90,8 +90,8 @@ package stdgo._internal.compress.zlib;
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._decompressor.read(_p);
-            _n = __tmp__._0;
-            (@:checkr _z ?? throw "null pointer dereference")._err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            (@:checkr _z ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _z ?? throw "null pointer dereference")._digest.write((_p.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>));
         if (stdgo.Go.toInterface((@:checkr _z ?? throw "null pointer dereference")._err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {

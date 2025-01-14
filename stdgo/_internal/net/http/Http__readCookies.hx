@@ -11,8 +11,8 @@ function _readCookies(_h:stdgo._internal.net.http.Http_Header.Header, _filter:st
             while (((_line.length) > (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_line?.__copy__(), (";" : stdgo.GoString));
-                    _part = __tmp__._0?.__copy__();
-                    _line = __tmp__._1?.__copy__();
+                    _part = @:tmpset0 __tmp__._0?.__copy__();
+                    _line = @:tmpset0 __tmp__._1?.__copy__();
                 };
                 _part = stdgo._internal.net.textproto.Textproto_trimString.trimString(_part?.__copy__())?.__copy__();
                 if (_part == (stdgo.Go.str())) {

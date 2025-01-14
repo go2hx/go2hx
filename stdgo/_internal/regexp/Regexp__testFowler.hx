@@ -2,39 +2,39 @@ package stdgo._internal.regexp;
 function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:stdgo.GoString):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _i_5015756 = @:invalid_type null;
-            var _shouldMatch_5015186:Bool = false;
-            var _text_5015111:stdgo.GoString = ("" : stdgo.GoString);
-            var _i_5010909:stdgo.GoInt = (0 : stdgo.GoInt);
-            var readingBreak = false;
-            var _have_5016331:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-            var _err_5015845:stdgo.Error = (null : stdgo.Error);
-            var _ok_5015167:Bool = false;
-            var _ok_5014071:Bool = false;
-            var _re_5015841:stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>);
-            var _c_5015751:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-            var _keys_5015485 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-            var _field_5010864:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-            var _pattern_5015513:stdgo.GoString = ("" : stdgo.GoString);
-            var _lineno_5010246:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _err_5010311:stdgo.Error = (null : stdgo.Error);
             var _b_5010221:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
             var _values_5015485 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+            var _ok_5015167:Bool = false;
             var _i_5015497 = @:invalid_type null;
+            var _ok_5014071:Bool = false;
+            var _err_5015845:stdgo.Error = (null : stdgo.Error);
+            var _re_5015841:stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>);
+            var _keys_5015485 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
             var _shouldCompile_5015171:Bool = false;
-            var _flag_5013848:stdgo.GoString = ("" : stdgo.GoString);
+            var readingBreak = false;
             var _values_5015744 = (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+            var _flag_5013848:stdgo.GoString = ("" : stdgo.GoString);
+            var _line_5010305:stdgo.GoString = ("" : stdgo.GoString);
+            var _i_5015756 = @:invalid_type null;
+            var _pattern_5015513:stdgo.GoString = ("" : stdgo.GoString);
             var _c_5015492:stdgo.GoInt32 = (0 : stdgo.GoInt32);
             var _pos_5015199:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-            var _line_5010305:stdgo.GoString = ("" : stdgo.GoString);
-            var _err_5010138:stdgo.Error = (null : stdgo.Error);
-            var _keys_5015744 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-            var _syn_5015536:stdgo._internal.regexp.syntax.Syntax_Flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
-            var _err_5010311:stdgo.Error = (null : stdgo.Error);
-            var _lastRegexp_5010259:stdgo.GoString = ("" : stdgo.GoString);
-            var _match_5016142:Bool = false;
-            var _f_5014580:stdgo.GoString = ("" : stdgo.GoString);
-            var _f_5010912:stdgo.GoString = ("" : stdgo.GoString);
+            var _lineno_5010246:stdgo.GoInt = (0 : stdgo.GoInt);
             var _f_5010135:stdgo.Ref<stdgo._internal.os.Os_File.File> = (null : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+            var _have_5016331:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
+            var _match_5016142:Bool = false;
+            var _f_5010912:stdgo.GoString = ("" : stdgo.GoString);
+            var _i_5010909:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _lastRegexp_5010259:stdgo.GoString = ("" : stdgo.GoString);
+            var _syn_5015536:stdgo._internal.regexp.syntax.Syntax_Flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
+            var _f_5014580:stdgo.GoString = ("" : stdgo.GoString);
+            var _keys_5015744 = (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+            var _shouldMatch_5015186:Bool = false;
+            var _field_5010864:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+            var _err_5010138:stdgo.Error = (null : stdgo.Error);
+            var _c_5015751:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+            var _text_5015111:stdgo.GoString = ("" : stdgo.GoString);
             var _gotoNext = 0i32;
             var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
             while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -43,8 +43,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                     if (__value__ == (0i32)) {
                         {
                             var __tmp__ = stdgo._internal.os.Os_open.open(_file?.__copy__());
-                            _f_5010135 = __tmp__._0;
-                            _err_5010138 = __tmp__._1;
+                            _f_5010135 = @:tmpset0 __tmp__._0;
+                            _err_5010138 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_5010138 != null) {
                             _gotoNext = 5010174i32;
@@ -78,8 +78,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         _lineno_5010246++;
                         {
                             var __tmp__ = @:check2r _b_5010221.readString((10 : stdgo.GoUInt8));
-                            _line_5010305 = __tmp__._0?.__copy__();
-                            _err_5010311 = __tmp__._1;
+                            _line_5010305 = @:tmpset0 __tmp__._0?.__copy__();
+                            _err_5010311 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_5010311 != null) {
                             _gotoNext = 5010353i32;
@@ -187,8 +187,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         {
                             {
                                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut((_flag_5013848.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), (":" : stdgo.GoString));
-                                _flag_5013848 = __tmp__._1?.__copy__();
-                                _ok_5014071 = __tmp__._2;
+                                _flag_5013848 = @:tmpset0 __tmp__._1?.__copy__();
+                                _ok_5014071 = @:tmpset0 __tmp__._2;
                             };
                             if (!_ok_5014071) {
                                 _gotoNext = 5014131i32;
@@ -222,8 +222,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         {
                             {
                                 var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote(_f_5014580?.__copy__());
-                                _field_5010864[(1 : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                                _err_5010311 = __tmp__._1;
+                                _field_5010864[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                                _err_5010311 = @:tmpset0 __tmp__._1;
                             };
                             if (_err_5010311 != null) {
                                 _gotoNext = 5014659i32;
@@ -239,8 +239,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         {
                             {
                                 var __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote(_f_5014580?.__copy__());
-                                _field_5010864[(2 : stdgo.GoInt)] = __tmp__._0?.__copy__();
-                                _err_5010311 = __tmp__._1;
+                                _field_5010864[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._0?.__copy__();
+                                _err_5010311 = @:tmpset0 __tmp__._1;
                             };
                             if (_err_5010311 != null) {
                                 _gotoNext = 5014805i32;
@@ -265,10 +265,10 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                         _text_5015111 = _field_5010864[(2 : stdgo.GoInt)]?.__copy__();
                         {
                             var __tmp__ = stdgo._internal.regexp.Regexp__parseFowlerResult._parseFowlerResult(_field_5010864[(3 : stdgo.GoInt)]?.__copy__());
-                            _ok_5015167 = __tmp__._0;
-                            _shouldCompile_5015171 = __tmp__._1;
-                            _shouldMatch_5015186 = __tmp__._2;
-                            _pos_5015199 = __tmp__._3;
+                            _ok_5015167 = @:tmpset0 __tmp__._0;
+                            _shouldCompile_5015171 = @:tmpset0 __tmp__._1;
+                            _shouldMatch_5015186 = @:tmpset0 __tmp__._2;
+                            _pos_5015199 = @:tmpset0 __tmp__._3;
                         };
                         if (!_ok_5015167) {
                             _gotoNext = 5015243i32;
@@ -362,8 +362,8 @@ function _testFowler(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:
                     } else if (__value__ == (5015841i32)) {
                         {
                             var __tmp__ = stdgo._internal.regexp.Regexp__compile._compile(_pattern_5015513?.__copy__(), _syn_5015536, true);
-                            _re_5015841 = __tmp__._0;
-                            _err_5015845 = __tmp__._1;
+                            _re_5015841 = @:tmpset0 __tmp__._0;
+                            _err_5015845 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_5015845 != null) {
                             _gotoNext = 5015897i32;

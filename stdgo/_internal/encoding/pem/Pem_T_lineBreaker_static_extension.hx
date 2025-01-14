@@ -8,14 +8,14 @@ package stdgo._internal.encoding.pem;
         if (((@:checkr _l ?? throw "null pointer dereference")._used > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write(((@:checkr _l ?? throw "null pointer dereference")._line.__slice__((0 : stdgo.GoInt), (@:checkr _l ?? throw "null pointer dereference")._used) : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
             };
             {
                 var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write(stdgo._internal.encoding.pem.Pem__nl._nl);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         return _err;
@@ -37,8 +37,8 @@ package stdgo._internal.encoding.pem;
         };
         {
             var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write(((@:checkr _l ?? throw "null pointer dereference")._line.__slice__((0 : stdgo.GoInt), (@:checkr _l ?? throw "null pointer dereference")._used) : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _n, _1 : _err };
@@ -47,16 +47,16 @@ package stdgo._internal.encoding.pem;
         (@:checkr _l ?? throw "null pointer dereference")._used = (0 : stdgo.GoInt);
         {
             var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write((_b.__slice__((0 : stdgo.GoInt), _excess) : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _n, _1 : _err };
         };
         {
             var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write(stdgo._internal.encoding.pem.Pem__nl._nl);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _n, _1 : _err };

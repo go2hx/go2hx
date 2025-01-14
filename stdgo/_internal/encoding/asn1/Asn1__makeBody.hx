@@ -142,8 +142,8 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_Value.Value, _params:s
                                     while ((_i < _n1 : Bool)) {
                                         {
                                             var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.field((_i + _startingField : stdgo.GoInt)).__copy__(), stdgo._internal.encoding.asn1.Asn1__parseFieldParameters._parseFieldParameters(_t.field((_i + _startingField : stdgo.GoInt)).tag.get(("asn1" : stdgo.GoString)).__copy__()).__copy__());
-                                            _m[(_i : stdgo.GoInt)] = __tmp__._0;
-                                            _err = __tmp__._1;
+                                            _m[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                                            _err = @:tmpset0 __tmp__._1;
                                         };
 if (_err != null) {
                                             return {
@@ -201,8 +201,8 @@ if (_err != null) {
                                     while ((_i < _l : Bool)) {
                                         {
                                             var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.index(_i).__copy__(), _fp.__copy__());
-                                            _m[(_i : stdgo.GoInt)] = __tmp__._0;
-                                            _err = __tmp__._1;
+                                            _m[(_i : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                                            _err = @:tmpset0 __tmp__._1;
                                         };
 if (_err != null) {
                                             return {

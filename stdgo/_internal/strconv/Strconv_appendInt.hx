@@ -5,7 +5,7 @@ function appendInt(_dst:stdgo.Slice<stdgo.GoUInt8>, _i:stdgo.GoInt64, _base:stdg
         };
         {
             var __tmp__ = stdgo._internal.strconv.Strconv__formatBits._formatBits(_dst, (_i : stdgo.GoUInt64), _base, (_i < (0i64 : stdgo.GoInt64) : Bool), true);
-            _dst = __tmp__._0;
+            _dst = @:tmpset0 __tmp__._0;
         };
         return _dst;
     }

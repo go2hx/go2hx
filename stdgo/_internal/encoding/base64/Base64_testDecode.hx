@@ -10,8 +10,8 @@ function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("Decode(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_encoded), stdgo.Go.toInterface(((_dbuf.__slice__((0 : stdgo.GoInt), _count) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)), stdgo.Go.toInterface(_p._decoded));
                 {
                     var __tmp__ = @:check2r _tt._enc.decodeString(_encoded?.__copy__());
-                    _dbuf = __tmp__._0;
-                    _err = __tmp__._1;
+                    _dbuf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("DecodeString(%q) = error %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_encoded), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((null : stdgo.Error)));
                 stdgo._internal.encoding.base64.Base64__testEqual._testEqual(_t, ("DecodeString(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_encoded), stdgo.Go.toInterface((_dbuf : stdgo.GoString)), stdgo.Go.toInterface(_p._decoded));

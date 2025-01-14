@@ -7,8 +7,8 @@ package stdgo._internal.net.http;
         {};
         {
             var __tmp__ = @:check2r (@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._t._dialClientConn(_ctx, _addr?.__copy__(), false);
-            (@:checkr _c ?? throw "null pointer dereference")._res = __tmp__._0;
-            (@:checkr _c ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _c ?? throw "null pointer dereference")._res = @:tmpset0 __tmp__._0;
+            (@:checkr _c ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         @:check2 (@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._mu.lock();
         if ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._dialing != null) (@:checkr (@:checkr _c ?? throw "null pointer dereference")._p ?? throw "null pointer dereference")._dialing.remove(_addr);

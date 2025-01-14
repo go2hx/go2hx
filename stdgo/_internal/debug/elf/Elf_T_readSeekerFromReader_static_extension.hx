@@ -56,8 +56,8 @@ package stdgo._internal.debug.elf;
         };
         {
             var __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._r.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _r ?? throw "null pointer dereference")._offset = ((@:checkr _r ?? throw "null pointer dereference")._offset + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return {

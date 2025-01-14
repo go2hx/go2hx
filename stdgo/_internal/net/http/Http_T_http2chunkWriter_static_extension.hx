@@ -7,8 +7,8 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = @:check2r _cw._rws._writeChunk(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http__http2errStreamClosed._http2errStreamClosed))) {
             _err = (@:checkr (@:checkr _cw._rws ?? throw "null pointer dereference")._stream ?? throw "null pointer dereference")._closeErr;

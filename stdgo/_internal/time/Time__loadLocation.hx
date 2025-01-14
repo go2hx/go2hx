@@ -7,8 +7,8 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                 {
                     {
                         var __tmp__ = stdgo._internal.time.Time_loadLocationFromTZData.loadLocationFromTZData(_name?.__copy__(), _zoneData);
-                        _z = __tmp__._0;
-                        _err = __tmp__._1;
+                        _z = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err == null) {
                         return {
@@ -30,8 +30,8 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                 {
                     {
                         var __tmp__ = stdgo._internal.time.Time_loadLocationFromTZData.loadLocationFromTZData(_name?.__copy__(), (_zoneData : stdgo.Slice<stdgo.GoUInt8>));
-                        _z = __tmp__._0;
-                        _err = __tmp__._1;
+                        _z = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err == null) {
                         return {
@@ -55,8 +55,8 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                     {
                         {
                             var __tmp__ = stdgo._internal.time.Time_loadLocationFromTZData.loadLocationFromTZData(_name?.__copy__(), _zoneData);
-                            _z = __tmp__._0;
-                            _err = __tmp__._1;
+                            _z = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err == null) {
                             return {

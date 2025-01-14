@@ -18,8 +18,8 @@ package stdgo._internal.net.http;
         stdgo._internal.log.Log_printf.printf(("%s.Read(%d) = ...." : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._name), stdgo.Go.toInterface((_p.length)));
         {
             var __tmp__ = (@:checkr _c ?? throw "null pointer dereference").conn.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         stdgo._internal.log.Log_printf.printf(("%s.Read(%d) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._name), stdgo.Go.toInterface((_p.length)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         return { _0 : _n, _1 : _err };
@@ -32,8 +32,8 @@ package stdgo._internal.net.http;
         stdgo._internal.log.Log_printf.printf(("%s.Write(%d) = ...." : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._name), stdgo.Go.toInterface((_p.length)));
         {
             var __tmp__ = (@:checkr _c ?? throw "null pointer dereference").conn.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         stdgo._internal.log.Log_printf.printf(("%s.Write(%d) = %d, %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._name), stdgo.Go.toInterface((_p.length)), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         return { _0 : _n, _1 : _err };

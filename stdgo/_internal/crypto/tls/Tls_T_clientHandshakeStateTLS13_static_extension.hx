@@ -53,8 +53,8 @@ package stdgo._internal.crypto.tls;
         (@:checkr _certVerifyMsg ?? throw "null pointer dereference")._hasSignatureAlgorithm = true;
         {
             var __tmp__ = stdgo._internal.crypto.tls.Tls__selectSignatureScheme._selectSignatureScheme((@:checkr _c ?? throw "null pointer dereference")._vers, _cert, (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._certReq ?? throw "null pointer dereference")._supportedSignatureAlgorithms);
-            (@:checkr _certVerifyMsg ?? throw "null pointer dereference")._signatureAlgorithm = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _certVerifyMsg ?? throw "null pointer dereference")._signatureAlgorithm = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _c._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -158,8 +158,8 @@ package stdgo._internal.crypto.tls;
             (@:checkr _hs ?? throw "null pointer dereference")._certReq = _certReq;
             {
                 var __tmp__ = @:check2r _c._readHandshake((@:checkr _hs ?? throw "null pointer dereference")._transcript);
-                _msg = __tmp__._0;
-                _err = __tmp__._1;
+                _msg = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return _err;
@@ -188,8 +188,8 @@ package stdgo._internal.crypto.tls;
         };
         {
             var __tmp__ = @:check2r _c._readHandshake((null : stdgo._internal.crypto.tls.Tls_T_transcriptHash.T_transcriptHash));
-            _msg = __tmp__._0;
-            _err = __tmp__._1;
+            _msg = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return _err;

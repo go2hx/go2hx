@@ -8,16 +8,16 @@ package stdgo._internal.crypto.rsa;
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").publicKey.n);
-                (@:checkr _priv ?? throw "null pointer dereference").precomputed._n = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _priv ?? throw "null pointer dereference").precomputed._n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return;
             };
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").primes[(0 : stdgo.GoInt)]);
-                (@:checkr _priv ?? throw "null pointer dereference").precomputed._p = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _priv ?? throw "null pointer dereference").precomputed._p = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 (@:checkr _priv ?? throw "null pointer dereference").precomputed._n = null;
@@ -25,8 +25,8 @@ package stdgo._internal.crypto.rsa;
             };
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").primes[(1 : stdgo.GoInt)]);
-                (@:checkr _priv ?? throw "null pointer dereference").precomputed._q = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _priv ?? throw "null pointer dereference").precomputed._q = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {

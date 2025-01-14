@@ -12,8 +12,8 @@ function _marshalKeyUsage(_ku:stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ bytes : _bitString, bitLength : stdgo._internal.crypto.x509.X509__asn1BitLength._asn1BitLength(_bitString) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString))));
-            _ext.value = __tmp__._0;
-            _err = __tmp__._1;
+            _ext.value = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : _ext?.__copy__(), _1 : _err };
     }

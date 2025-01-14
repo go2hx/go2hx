@@ -82,8 +82,8 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         var _signature:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = _key.sign(_rand, _signed, _signerOpts);
-            _signature = __tmp__._0;
-            _err = __tmp__._1;
+            _signature = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

@@ -24,8 +24,8 @@ var _wn = __1, _last = __0;
                 if (_match) {
                     {
                         var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString)?.__copy__());
-                        _wn = __tmp__._0;
-                        _err = __tmp__._1;
+                        _wn = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     _n = (_n + (_wn) : stdgo.GoInt);
                     if (_err != null) {
@@ -33,8 +33,8 @@ var _wn = __1, _last = __0;
                     };
                     {
                         var __tmp__ = _sw.writeString(_val?.__copy__());
-                        _wn = __tmp__._0;
-                        _err = __tmp__._1;
+                        _wn = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     _n = (_n + (_wn) : stdgo.GoInt);
                     if (_err != null) {
@@ -50,8 +50,8 @@ var _wn = __1, _last = __0;
         if (_last != ((_s.length))) {
             {
                 var __tmp__ = _sw.writeString((_s.__slice__(_last) : stdgo.GoString)?.__copy__());
-                _wn = __tmp__._0;
-                _err = __tmp__._1;
+                _wn = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + (_wn) : stdgo.GoInt);
         };

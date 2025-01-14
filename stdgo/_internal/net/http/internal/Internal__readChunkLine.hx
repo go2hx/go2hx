@@ -15,8 +15,8 @@ function _readChunkLine(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>)
         _p = stdgo._internal.net.http.internal.Internal__trimTrailingWhitespace._trimTrailingWhitespace(_p);
         {
             var __tmp__ = stdgo._internal.net.http.internal.Internal__removeChunkExtension._removeChunkExtension(_p);
-            _p = __tmp__._0;
-            _err = __tmp__._1;
+            _p = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

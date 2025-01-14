@@ -7,8 +7,8 @@ function _marshalBasicConstraints(_isCA:Bool, _maxPathLen:stdgo.GoInt, _maxPathL
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface((new stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints(_isCA, _maxPathLen) : stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints)));
-            _ext.value = __tmp__._0;
-            _err = __tmp__._1;
+            _ext.value = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         return { _0 : _ext?.__copy__(), _1 : _err };
     }

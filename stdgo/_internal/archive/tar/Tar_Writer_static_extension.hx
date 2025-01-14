@@ -16,7 +16,7 @@ package stdgo._internal.archive.tar;
             while (((_i < (2 : stdgo.GoInt) : Bool) && (_err == null) : Bool)) {
                 {
                     var __tmp__ = (@:checkr _tw ?? throw "null pointer dereference")._w.write((stdgo._internal.archive.tar.Tar__zeroBlock._zeroBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 _i++;
             };
@@ -319,7 +319,7 @@ var _realSize = __1, _realName = __0;
         {
             {
                 var __tmp__ = (@:checkr _tw ?? throw "null pointer dereference")._w.write((stdgo._internal.archive.tar.Tar__zeroBlock._zeroBlock.__slice__(0, (@:checkr _tw ?? throw "null pointer dereference")._pad) : stdgo.Slice<stdgo.GoUInt8>));
-                (@:checkr _tw ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _tw ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((@:checkr _tw ?? throw "null pointer dereference")._err != null) {
                 return (@:checkr _tw ?? throw "null pointer dereference")._err;

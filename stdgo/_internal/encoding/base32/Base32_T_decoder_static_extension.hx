@@ -49,8 +49,8 @@ package stdgo._internal.encoding.base32;
         };
         {
             var __tmp__ = stdgo._internal.encoding.base32.Base32__readEncodedData._readEncodedData((@:checkr _d ?? throw "null pointer dereference")._r, ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((@:checkr _d ?? throw "null pointer dereference")._nbuf, _nn) : stdgo.Slice<stdgo.GoUInt8>), _min, _expectsPadding);
-            _nn = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._err = __tmp__._1;
+            _nn = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._nbuf + (_nn) : stdgo.GoInt);
         if (((@:checkr _d ?? throw "null pointer dereference")._nbuf < _min : Bool)) {
@@ -79,9 +79,9 @@ package stdgo._internal.encoding.base32;
         if ((_nw > (_p.length) : Bool)) {
             {
                 var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._enc._decode(((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), _nr) : stdgo.Slice<stdgo.GoUInt8>));
-                _nw = __tmp__._0;
-                (@:checkr _d ?? throw "null pointer dereference")._end = __tmp__._1;
-                _err = __tmp__._2;
+                _nw = @:tmpset0 __tmp__._0;
+                (@:checkr _d ?? throw "null pointer dereference")._end = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt), _nw) : stdgo.Slice<stdgo.GoUInt8>);
             _n = _p.__copyTo__((@:checkr _d ?? throw "null pointer dereference")._out);
@@ -89,9 +89,9 @@ package stdgo._internal.encoding.base32;
         } else {
             {
                 var __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._enc._decode(_p, ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), _nr) : stdgo.Slice<stdgo.GoUInt8>));
-                _n = __tmp__._0;
-                (@:checkr _d ?? throw "null pointer dereference")._end = __tmp__._1;
-                _err = __tmp__._2;
+                _n = @:tmpset0 __tmp__._0;
+                (@:checkr _d ?? throw "null pointer dereference")._end = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
         };
         (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._nbuf - (_nr) : stdgo.GoInt);

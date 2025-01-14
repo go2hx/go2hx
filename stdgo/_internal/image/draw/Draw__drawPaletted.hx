@@ -143,10 +143,10 @@ var _bestSum = __1, _bestIndex = __0;
                             };
                             {
                                 var __tmp__ = _dst.at((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt)).rGBA();
-                                _sr = __tmp__._0;
-                                _sg = __tmp__._1;
-                                _sb = __tmp__._2;
-                                _sa = __tmp__._3;
+                                _sr = @:tmpset0 __tmp__._0;
+                                _sg = @:tmpset0 __tmp__._1;
+                                _sb = @:tmpset0 __tmp__._2;
+                                _sa = @:tmpset0 __tmp__._3;
                             };
                             _er = (_er - ((_sr : stdgo.GoInt32)) : stdgo.GoInt32);
                             _eg = (_eg - ((_sg : stdgo.GoInt32)) : stdgo.GoInt32);

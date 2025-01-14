@@ -22,8 +22,8 @@ function unescapeString(_s:stdgo.GoString):stdgo.GoString {
             };
             {
                 var __tmp__ = stdgo._internal.html.Html__unescapeEntity._unescapeEntity(_b, (_dst + _i : stdgo.GoInt), (_src + _i : stdgo.GoInt));
-                _dst = __tmp__._0;
-                _src = __tmp__._1;
+                _dst = @:tmpset0 __tmp__._0;
+                _src = @:tmpset0 __tmp__._1;
             };
         };
         return ((_b.__slice__(0, _dst) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();

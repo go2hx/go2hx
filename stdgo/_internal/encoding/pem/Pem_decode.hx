@@ -21,8 +21,8 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
             var _typeLine:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem__getLine._getLine(_rest);
-                _typeLine = __tmp__._0;
-                _rest = __tmp__._1;
+                _typeLine = @:tmpset0 __tmp__._0;
+                _rest = @:tmpset0 __tmp__._1;
             };
             if (!stdgo._internal.bytes.Bytes_hasSuffix.hasSuffix(_typeLine, stdgo._internal.encoding.pem.Pem__pemEndOfLine._pemEndOfLine)) {
                 continue;
@@ -90,7 +90,7 @@ var _endTrailerIndex = __1, _endIndex = __0;
             (@:checkr _p ?? throw "null pointer dereference").bytes = ((@:checkr _p ?? throw "null pointer dereference").bytes.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.encoding.pem.Pem__getLine._getLine((_rest.__slice__(((_endIndex + (stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                _rest = __tmp__._1;
+                _rest = @:tmpset0 __tmp__._1;
             };
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : _p, _1 : _rest };

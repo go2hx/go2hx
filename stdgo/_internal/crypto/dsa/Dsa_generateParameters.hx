@@ -1,21 +1,21 @@
 package stdgo._internal.crypto.dsa;
 function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters>, _rand:stdgo._internal.io.Io_Reader.Reader, _sizes:stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes):stdgo.Error {
-        var _e_3978622:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _err_3977947:stdgo.Error = (null : stdgo.Error);
-        var _one_3977878:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _rem_3977857:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _p_3977838:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _q_3977819:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _pm1_3978589:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _g_3978569:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _h_3978535:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _err_3978175:stdgo.Error = (null : stdgo.Error);
+        var _rem_3977857:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var l_3977510:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _pBytes_3977789:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _i_3978143:stdgo.GoInt = (0 : stdgo.GoInt);
-        var generatePrimesBreak = false;
+        var _pm1_3978589:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _one_3977878:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _qBytes_3977760:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _g_3978569:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _p_3977838:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _pBytes_3977789:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var n_3977513:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _e_3978622:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _err_3978175:stdgo.Error = (null : stdgo.Error);
+        var _i_3978143:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3977947:stdgo.Error = (null : stdgo.Error);
+        var generatePrimesBreak = false;
+        var _q_3977819:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -80,7 +80,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_Par
                     {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _qBytes_3977760);
-                            _err_3977947 = __tmp__._1;
+                            _err_3977947 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3977947 != null) {
                             _gotoNext = 3977992i32;
@@ -115,7 +115,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_Par
                     {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _pBytes_3977789);
-                            _err_3978175 = __tmp__._1;
+                            _err_3978175 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3978175 != null) {
                             _gotoNext = 3978220i32;

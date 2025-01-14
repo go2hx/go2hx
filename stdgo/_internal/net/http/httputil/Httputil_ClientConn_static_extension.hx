@@ -108,8 +108,8 @@ package stdgo._internal.net.http.httputil;
             };
             {
                 var __tmp__ = stdgo._internal.net.http.Http_readResponse.readResponse(_r, _req);
-                _resp = __tmp__._0;
-                _err = __tmp__._1;
+                _resp = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {

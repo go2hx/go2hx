@@ -64,9 +64,9 @@ function _parseCertificate(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref
         };
         {
             var __tmp__ = stdgo._internal.crypto.x509.X509__parseValidity._parseValidity(_validity);
-            (@:checkr _cert ?? throw "null pointer dereference").notBefore = __tmp__._0?.__copy__();
-            (@:checkr _cert ?? throw "null pointer dereference").notAfter = __tmp__._1?.__copy__();
-            _err = __tmp__._2;
+            (@:checkr _cert ?? throw "null pointer dereference").notBefore = @:tmpset0 __tmp__._0?.__copy__();
+            (@:checkr _cert ?? throw "null pointer dereference").notAfter = @:tmpset0 __tmp__._1?.__copy__();
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return { _0 : null, _1 : _err };
@@ -105,8 +105,8 @@ function _parseCertificate(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref
         if ((@:checkr _cert ?? throw "null pointer dereference").publicKeyAlgorithm != ((0 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm))) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__parsePublicKey._parsePublicKey((stdgo.Go.setRef(({ algorithm : _pkAI?.__copy__(), publicKey : _spk?.__copy__() } : stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo>));
-                (@:checkr _cert ?? throw "null pointer dereference").publicKey = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _cert ?? throw "null pointer dereference").publicKey = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

@@ -13,8 +13,8 @@ function parseComplex(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{ var _0 : stdgo.
         if (_err != null) {
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__convErr._convErr(_err, _orig?.__copy__());
-                _err = __tmp__._0;
-                _pending = __tmp__._1;
+                _err = @:tmpset0 __tmp__._0;
+                _pending = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : ((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), _1 : _err };
@@ -61,8 +61,8 @@ function parseComplex(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{ var _0 : stdgo.
         if (_err != null) {
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__convErr._convErr(_err, _orig?.__copy__());
-                _err = __tmp__._0;
-                _pending = __tmp__._1;
+                _err = @:tmpset0 __tmp__._0;
+                _pending = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : ((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), _1 : _err };

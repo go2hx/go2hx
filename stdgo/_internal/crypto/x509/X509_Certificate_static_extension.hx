@@ -38,8 +38,8 @@ package stdgo._internal.crypto.x509;
             _aki.id = stdgo._internal.crypto.x509.X509__oidExtensionAuthorityKeyId._oidExtensionAuthorityKeyId;
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ id : (@:checkr _c ?? throw "null pointer dereference").subjectKeyId } : stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId)));
-                _aki.value = __tmp__._0;
-                _err = __tmp__._1;
+                _aki.value = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _crlBytes, _1 : _err };
@@ -59,8 +59,8 @@ package stdgo._internal.crypto.x509;
         var _signature:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = _key.sign(_rand, _signed, stdgo.Go.asInterface(_hashFunc));
-            _signature = __tmp__._0;
-            _err = __tmp__._1;
+            _signature = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _crlBytes, _1 : _err };
@@ -211,8 +211,8 @@ var _hintCert = __1, _hintErr = __0;
                     var _childChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>> = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>);
                     {
                         var __tmp__ = @:check2r _candidate._buildChains(stdgo._internal.crypto.x509.X509__appendToFreshChain._appendToFreshChain(_currentChain, _candidate), _sigChecks, _opts);
-                        _childChains = __tmp__._0;
-                        _err = __tmp__._1;
+                        _childChains = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     _chains = (_chains.__append__(...(_childChains : Array<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>)));
                 };
@@ -317,8 +317,8 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         } else {
             {
                 var __tmp__ = @:check2r _c._buildChains((new stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>(1, 1, ...[_c]) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>), (null : stdgo.Pointer<stdgo.GoInt>), (stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>));
-                _candidateChains = __tmp__._0;
-                _err = __tmp__._1;
+                _candidateChains = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -527,8 +527,8 @@ var _err:stdgo.Error = (null : stdgo.Error);
 {
                     {
                         var __tmp__ = _match(_parsedName, _constraint);
-                        _ok = __tmp__._0;
-                        _err = __tmp__._1;
+                        _ok = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), _err.error().__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));

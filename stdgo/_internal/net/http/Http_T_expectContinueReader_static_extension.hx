@@ -33,8 +33,8 @@ package stdgo._internal.net.http;
         };
         {
             var __tmp__ = (@:checkr _ecr ?? throw "null pointer dereference")._readCloser.read(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
             @:check2 (@:checkr _ecr ?? throw "null pointer dereference")._sawEOF.store(true);

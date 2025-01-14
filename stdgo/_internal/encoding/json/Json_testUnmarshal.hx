@@ -48,7 +48,7 @@ function testUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
                 stdgo.Go.println((_data : stdgo.GoString));
                 {
                     var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._out);
-                    _data = __tmp__._0;
+                    _data = @:tmpset0 __tmp__._0;
                 };
                 stdgo.Go.println((_data : stdgo.GoString));
                 continue;

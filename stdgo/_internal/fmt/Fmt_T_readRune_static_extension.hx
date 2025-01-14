@@ -23,8 +23,8 @@ package stdgo._internal.fmt;
         };
         {
             var __tmp__ = @:check2r _r._readByte();
-            (@:checkr _r ?? throw "null pointer dereference")._buf[(0 : stdgo.GoInt)] = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _r ?? throw "null pointer dereference")._buf[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _rr, _1 : _size, _2 : _err };
@@ -41,8 +41,8 @@ package stdgo._internal.fmt;
             while (!stdgo._internal.unicode.utf8.Utf8_fullRune.fullRune(((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>))) {
                 {
                     var __tmp__ = @:check2r _r._readByte();
-                    (@:checkr _r ?? throw "null pointer dereference")._buf[(_n : stdgo.GoInt)] = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _r ?? throw "null pointer dereference")._buf[(_n : stdgo.GoInt)] = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -56,8 +56,8 @@ if (_err != null) {
         };
         {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
-            _rr = __tmp__._0;
-            _size = __tmp__._1;
+            _rr = @:tmpset0 __tmp__._0;
+            _size = @:tmpset0 __tmp__._1;
         };
         if ((_size < _n : Bool)) {
             ((@:checkr _r ?? throw "null pointer dereference")._pendBuf.__slice__((@:checkr _r ?? throw "null pointer dereference")._pending) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _r ?? throw "null pointer dereference")._buf.__slice__(_size, _n) : stdgo.Slice<stdgo.GoUInt8>));

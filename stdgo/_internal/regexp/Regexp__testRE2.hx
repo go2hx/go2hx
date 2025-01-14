@@ -61,8 +61,8 @@ if (_line == (stdgo.Go.str())) {
                         };
                         {
                             var __tmp__ = stdgo._internal.regexp.Regexp__tryCompile._tryCompile(_q.__copy__());
-                            _re = __tmp__._0;
-                            _err = __tmp__._1;
+                            _re = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             if (_err.error() == (("error parsing regexp: invalid escape sequence: `\\C`" : stdgo.GoString))) {
@@ -86,8 +86,8 @@ if (_line == (stdgo.Go.str())) {
                         var _full = (((("\\A(?:" : stdgo.GoString) + _q.__copy__() : stdgo.GoString) + (")\\z" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__() : stdgo.GoString);
                         {
                             var __tmp__ = stdgo._internal.regexp.Regexp__tryCompile._tryCompile(_full.__copy__());
-                            _refull = __tmp__._0;
-                            _err = __tmp__._1;
+                            _refull = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             @:check2r _t.fatalf(("%s:%d: compile full %#q: %v" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno), stdgo.Go.toInterface(_full), stdgo.Go.toInterface(_err));

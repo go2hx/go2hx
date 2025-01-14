@@ -14,8 +14,8 @@ package stdgo._internal.encoding.hex;
             var _encoded = (stdgo._internal.encoding.hex.Hex_encode.encode(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_p.__slice__(0, _chunkSize) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
             {
                 var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__(0, _encoded) : stdgo.Slice<stdgo.GoUInt8>));
-                _written = __tmp__._0;
-                (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                _written = @:tmpset0 __tmp__._0;
+                (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + ((_written / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             _p = (_p.__slice__(_chunkSize) : stdgo.Slice<stdgo.GoUInt8>);

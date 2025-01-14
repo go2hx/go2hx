@@ -337,22 +337,22 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
         {
             var __tmp__ = (new stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState() : stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState);
             var x = (_rws : stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState);
-            x._stream = __tmp__._stream;
-            x._req = __tmp__._req;
-            x._conn = __tmp__._conn;
-            x._bw = __tmp__._bw;
-            x._handlerHeader = __tmp__._handlerHeader;
-            x._snapHeader = __tmp__._snapHeader;
-            x._trailers = __tmp__._trailers;
-            x._status = __tmp__._status;
-            x._wroteHeader = __tmp__._wroteHeader;
-            x._sentHeader = __tmp__._sentHeader;
-            x._handlerDone = __tmp__._handlerDone;
-            x._dirty = __tmp__._dirty;
-            x._sentContentLen = __tmp__._sentContentLen;
-            x._wroteBytes = __tmp__._wroteBytes;
-            x._closeNotifierMu = __tmp__._closeNotifierMu;
-            x._closeNotifierCh = __tmp__._closeNotifierCh;
+            x._stream = __tmp__?._stream;
+            x._req = __tmp__?._req;
+            x._conn = __tmp__?._conn;
+            x._bw = __tmp__?._bw;
+            x._handlerHeader = __tmp__?._handlerHeader;
+            x._snapHeader = __tmp__?._snapHeader;
+            x._trailers = __tmp__?._trailers;
+            x._status = __tmp__?._status;
+            x._wroteHeader = __tmp__?._wroteHeader;
+            x._sentHeader = __tmp__?._sentHeader;
+            x._handlerDone = __tmp__?._handlerDone;
+            x._dirty = __tmp__?._dirty;
+            x._sentContentLen = __tmp__?._sentContentLen;
+            x._wroteBytes = __tmp__?._wroteBytes;
+            x._closeNotifierMu = __tmp__?._closeNotifierMu;
+            x._closeNotifierCh = __tmp__?._closeNotifierCh;
         };
         (@:checkr _rws ?? throw "null pointer dereference")._conn = _sc;
         (@:checkr _rws ?? throw "null pointer dereference")._bw = _bwSave;
@@ -410,8 +410,8 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.net.url.Url_parseRequestURI.parseRequestURI(_rp._path?.__copy__());
-                _url_ = __tmp__._0;
-                _err = __tmp__._1;
+                _url_ = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : null, _2 : @:check2r _sc._countError(("bad_path" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.http.Http__http2streamError._http2streamError((@:checkr _st ?? throw "null pointer dereference")._id, (1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)))) };
@@ -1176,8 +1176,8 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = (@:checkr _wpp ?? throw "null pointer dereference")._allocatePromisedID();
-                    (@:checkr _wpp ?? throw "null pointer dereference")._promisedID = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _wpp ?? throw "null pointer dereference")._promisedID = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     (@:checkr _sc ?? throw "null pointer dereference")._writingFrameAsync = false;
@@ -1293,9 +1293,9 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
         {
             var __tmp__ = (new stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData((@:checkr _stream ?? throw "null pointer dereference")._id, _data, _endStream) : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData);
             var x = (_writeArg : stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData);
-            x._streamID = __tmp__._streamID;
-            x._p = __tmp__._p;
-            x._endStream = __tmp__._endStream;
+            x._streamID = __tmp__?._streamID;
+            x._p = __tmp__?._p;
+            x._endStream = __tmp__?._endStream;
         };
         var _err = (@:check2r _sc._writeFrameFromHandler(({ _write : stdgo.Go.asInterface(_writeArg), _stream : _stream, _done : _ch } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest)) : stdgo.Error);
         if (_err != null) {
@@ -2013,8 +2013,8 @@ stdgo.Go.routine(() -> @:check2r _sc._runHandler(_u._rw, _u._req, _u._handler));
         };
         {
             var __tmp__ = ((@:checkr _sc ?? throw "null pointer dereference")._canonHeader != null && (@:checkr _sc ?? throw "null pointer dereference")._canonHeader.exists(_v?.__copy__()) ? { _0 : (@:checkr _sc ?? throw "null pointer dereference")._canonHeader[_v?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false });
-            _cv = __tmp__._0?.__copy__();
-            _ok = __tmp__._1;
+            _cv = @:tmpset0 __tmp__._0?.__copy__();
+            _ok = @:tmpset0 __tmp__._1;
         };
         if (_ok) {
             return _cv?.__copy__();

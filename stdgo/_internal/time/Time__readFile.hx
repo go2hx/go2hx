@@ -16,8 +16,8 @@ var _n = __2, _ret = __1, _buf = __0;
             while (true) {
                 {
                     var __tmp__ = stdgo._internal.time.Time__read._read(_f, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if ((_n > (0 : stdgo.GoInt) : Bool)) {
                     _ret = (_ret.__append__(...((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));

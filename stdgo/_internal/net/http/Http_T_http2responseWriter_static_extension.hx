@@ -280,7 +280,7 @@ package stdgo._internal.net.http;
         } else {
             {
                 var __tmp__ = (new stdgo._internal.net.http.Http_T_http2chunkWriter.T_http2chunkWriter(_rws) : stdgo._internal.net.http.Http_T_http2chunkWriter.T_http2chunkWriter).write((null : stdgo.Slice<stdgo.GoUInt8>));
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err == null) {
                 {

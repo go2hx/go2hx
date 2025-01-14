@@ -17,8 +17,8 @@ package stdgo._internal.mime.quotedprintable;
                 };
                 {
                     var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._br.readSlice((10 : stdgo.GoUInt8));
-                    (@:checkr _r ?? throw "null pointer dereference")._line = __tmp__._0;
-                    (@:checkr _r ?? throw "null pointer dereference")._rerr = __tmp__._1;
+                    (@:checkr _r ?? throw "null pointer dereference")._line = @:tmpset0 __tmp__._0;
+                    (@:checkr _r ?? throw "null pointer dereference")._rerr = @:tmpset0 __tmp__._1;
                 };
                 var _hasLF = (stdgo._internal.bytes.Bytes_hasSuffix.hasSuffix((@:checkr _r ?? throw "null pointer dereference")._line, stdgo._internal.mime.quotedprintable.Quotedprintable__lf._lf) : Bool);
                 var _hasCR = (stdgo._internal.bytes.Bytes_hasSuffix.hasSuffix((@:checkr _r ?? throw "null pointer dereference")._line, stdgo._internal.mime.quotedprintable.Quotedprintable__crlf._crlf) : Bool);
@@ -48,8 +48,8 @@ package stdgo._internal.mime.quotedprintable;
                     if (_b == ((61 : stdgo.GoUInt8))) {
                         {
                             var __tmp__ = stdgo._internal.mime.quotedprintable.Quotedprintable__readHexByte._readHexByte(((@:checkr _r ?? throw "null pointer dereference")._line.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                            _b = __tmp__._0;
-                            _err = __tmp__._1;
+                            _b = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             if ((((((@:checkr _r ?? throw "null pointer dereference")._line.length) >= (2 : stdgo.GoInt) : Bool) && (@:checkr _r ?? throw "null pointer dereference")._line[(1 : stdgo.GoInt)] != ((13 : stdgo.GoUInt8)) : Bool) && ((@:checkr _r ?? throw "null pointer dereference")._line[(1 : stdgo.GoInt)] != (10 : stdgo.GoUInt8)) : Bool)) {

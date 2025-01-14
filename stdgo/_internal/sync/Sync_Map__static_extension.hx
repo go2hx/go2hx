@@ -55,14 +55,14 @@ package stdgo._internal.sync;
             _read = @:check2r _m._loadReadOnly()?.__copy__();
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                _e = __tmp__._0;
-                _ok = __tmp__._1;
+                _e = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if ((!_ok && _read._amended : Bool)) {
                 {
                     var __tmp__ = ((@:checkr _m ?? throw "null pointer dereference")._dirty != null && (@:checkr _m ?? throw "null pointer dereference")._dirty.exists(_key) ? { _0 : (@:checkr _m ?? throw "null pointer dereference")._dirty[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                    _e = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _e = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 @:check2r _m._missLocked();
             };
@@ -257,14 +257,14 @@ package stdgo._internal.sync;
             _read = @:check2r _m._loadReadOnly()?.__copy__();
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                _e = __tmp__._0;
-                _ok = __tmp__._1;
+                _e = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if ((!_ok && _read._amended : Bool)) {
                 {
                     var __tmp__ = ((@:checkr _m ?? throw "null pointer dereference")._dirty != null && (@:checkr _m ?? throw "null pointer dereference")._dirty.exists(_key) ? { _0 : (@:checkr _m ?? throw "null pointer dereference")._dirty[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                    _e = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _e = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _m ?? throw "null pointer dereference")._dirty != null) (@:checkr _m ?? throw "null pointer dereference")._dirty.remove(_key);
                 @:check2r _m._missLocked();
@@ -316,16 +316,16 @@ package stdgo._internal.sync;
                 };
                 {
                     var __tmp__ = @:check2r _e._tryLoadOrStore(_value);
-                    _actual = __tmp__._0;
-                    _loaded = __tmp__._1;
+                    _actual = @:tmpset0 __tmp__._0;
+                    _loaded = @:tmpset0 __tmp__._1;
                 };
             } else {
                 var __tmp__ = ((@:checkr _m ?? throw "null pointer dereference")._dirty != null && (@:checkr _m ?? throw "null pointer dereference")._dirty.exists(_key) ? { _0 : (@:checkr _m ?? throw "null pointer dereference")._dirty[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     {
                         var __tmp__ = @:check2r _e._tryLoadOrStore(_value);
-                        _actual = __tmp__._0;
-                        _loaded = __tmp__._1;
+                        _actual = @:tmpset0 __tmp__._0;
+                        _loaded = @:tmpset0 __tmp__._1;
                     };
                     @:check2r _m._missLocked();
                 } else {
@@ -369,14 +369,14 @@ package stdgo._internal.sync;
             _read = @:check2r _m._loadReadOnly()?.__copy__();
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                _e = __tmp__._0;
-                _ok = __tmp__._1;
+                _e = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
             if ((!_ok && _read._amended : Bool)) {
                 {
                     var __tmp__ = ((@:checkr _m ?? throw "null pointer dereference")._dirty != null && (@:checkr _m ?? throw "null pointer dereference")._dirty.exists(_key) ? { _0 : (@:checkr _m ?? throw "null pointer dereference")._dirty[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>), _1 : false });
-                    _e = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _e = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 @:check2r _m._missLocked();
             };

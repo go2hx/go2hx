@@ -85,8 +85,8 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
         (_privateKey.__slice__(((_privateKey.length) - (_privKey.privateKey.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_privKey.privateKey);
         {
             var __tmp__ = _curve.scalarBaseMult(_privateKey);
-            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = __tmp__._0;
-            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = __tmp__._1;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.x = @:tmpset0 __tmp__._0;
+            (@:checkr _priv ?? throw "null pointer dereference").publicKey.y = @:tmpset0 __tmp__._1;
         };
         return {
             final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } = { _0 : _priv, _1 : (null : stdgo.Error) };

@@ -11,8 +11,8 @@ var _numRead = __1, _numCopy = __0;
             _numCopy = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((@:checkr _d ?? throw "null pointer dereference")._in);
             {
                 var __tmp__ = (@:checkr _d ?? throw "null pointer dereference")._r.read(((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(_numCopy) : stdgo.Slice<stdgo.GoUInt8>));
-                _numRead = __tmp__._0;
-                (@:checkr _d ?? throw "null pointer dereference")._err = __tmp__._1;
+                _numRead = @:tmpset0 __tmp__._0;
+                (@:checkr _d ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _d ?? throw "null pointer dereference")._in = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0, (_numCopy + _numRead : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             if (((stdgo.Go.toInterface((@:checkr _d ?? throw "null pointer dereference")._err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) && ((((@:checkr _d ?? throw "null pointer dereference")._in.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {

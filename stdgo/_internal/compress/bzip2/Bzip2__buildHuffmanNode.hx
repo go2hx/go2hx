@@ -52,8 +52,8 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_h
         } else {
             {
                 var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                (@:checkr _node ?? throw "null pointer dereference")._left = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _node ?? throw "null pointer dereference")._left = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {
@@ -65,8 +65,8 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_h
         } else {
             {
                 var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                (@:checkr _node ?? throw "null pointer dereference")._right = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _node ?? throw "null pointer dereference")._right = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         return { _0 : _nodeIndex, _1 : _err };

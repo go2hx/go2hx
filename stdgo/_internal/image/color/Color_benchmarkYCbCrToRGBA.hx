@@ -7,10 +7,10 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>)
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                     {
                         var __tmp__ = _c.rGBA();
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._0;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._1;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._2;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._3;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._0;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._1;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._2;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._3;
                     };
                     _i++;
                 };
@@ -23,10 +23,10 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>)
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                     {
                         var __tmp__ = _c.rGBA();
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._0;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._1;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._2;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._3;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._0;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._1;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._2;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._3;
                     };
                     _i++;
                 };
@@ -39,10 +39,10 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>)
                 while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                     {
                         var __tmp__ = _c.rGBA();
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._0;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._1;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._2;
-                        stdgo._internal.image.color.Color__sink32._sink32 = __tmp__._3;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._0;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._1;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._2;
+                        stdgo._internal.image.color.Color__sink32._sink32 = @:tmpset0 __tmp__._3;
                     };
                     _i++;
                 };

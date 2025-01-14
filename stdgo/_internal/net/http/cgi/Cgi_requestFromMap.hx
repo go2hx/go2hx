@@ -9,9 +9,9 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
         var _ok:Bool = false;
         {
             var __tmp__ = stdgo._internal.net.http.Http_parseHTTPVersion.parseHTTPVersion((@:checkr _r ?? throw "null pointer dereference").proto?.__copy__());
-            (@:checkr _r ?? throw "null pointer dereference").protoMajor = __tmp__._0;
-            (@:checkr _r ?? throw "null pointer dereference").protoMinor = __tmp__._1;
-            _ok = __tmp__._2;
+            (@:checkr _r ?? throw "null pointer dereference").protoMajor = @:tmpset0 __tmp__._0;
+            (@:checkr _r ?? throw "null pointer dereference").protoMinor = @:tmpset0 __tmp__._1;
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("cgi: invalid SERVER_PROTOCOL version" : stdgo.GoString)) };

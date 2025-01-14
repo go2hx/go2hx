@@ -14,8 +14,8 @@ var _lb = __1, _hb = __0;
         {
             {
                 var __tmp__ = stdgo._internal.mime.quotedprintable.Quotedprintable__fromHex._fromHex(_v[(0 : stdgo.GoInt)]);
-                _hb = __tmp__._0;
-                _err = __tmp__._1;
+                _hb = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -29,8 +29,8 @@ var _lb = __1, _hb = __0;
         {
             {
                 var __tmp__ = stdgo._internal.mime.quotedprintable.Quotedprintable__fromHex._fromHex(_v[(1 : stdgo.GoInt)]);
-                _lb = __tmp__._0;
-                _err = __tmp__._1;
+                _lb = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {

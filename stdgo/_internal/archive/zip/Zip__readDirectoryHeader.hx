@@ -1,38 +1,38 @@
 package stdgo._internal.archive.zip;
 function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.File>, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3869718:stdgo.Error = (null : stdgo.Error);
-        var _buf_3869682:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(46, 46).__setNumber32__();
-        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _utf8Require1_3870756:Bool = false;
-        var _utf8Require2_3870804:Bool = false;
         var _commentLen_3870289:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fieldTag_3871841:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _extra_3871763:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _attrSize_3872886:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _utf8Valid1_3870744:Bool = false;
-        var _epoch_3873355:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _needCSize_3871461:Bool = false;
-        var _needUSize_3871414:Bool = false;
         var _extraLen_3870260:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _attrTag_3872853:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _b_3869779:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _msdosModified_3873926:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _err_3870520:stdgo.Error = (null : stdgo.Error);
-        var _parseExtrasBreak = false;
-        var _needHeaderOffset_3871506:Bool = false;
+        var _err_3869718:stdgo.Error = (null : stdgo.Error);
         var _d_3870462:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _ticksPerSecond_3873128;
-        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _needUSize_3871414:Bool = false;
         var _utf8Valid2_3870792:Bool = false;
+        var _utf8Valid1_3870744:Bool = false;
+        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
+        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _buf_3869682:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(46, 46).__setNumber32__();
+        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _attrSize_3872886:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _needHeaderOffset_3871506:Bool = false;
+        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _extra_3871763:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _needCSize_3871461:Bool = false;
+        var _utf8Require1_3870756:Bool = false;
+        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _attrTag_3872853:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _fieldTag_3871841:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _parseExtrasBreak = false;
+        var _msdosModified_3873926:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
+        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _b_3869779:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _utf8Require2_3870804:Bool = false;
+        var _ticksPerSecond_3873128;
+        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _err_3870520:stdgo.Error = (null : stdgo.Error);
+        var _epoch_3873355:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -42,7 +42,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf_3869682.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-                            _err_3869718 = __tmp__._1;
+                            _err_3869718 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3869718 != null) {
                             _gotoNext = 3869760i32;
@@ -88,7 +88,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, _d_3870462);
-                            _err_3870520 = __tmp__._1;
+                            _err_3870520 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3870520 != null) {
                             _gotoNext = 3870557i32;
@@ -105,13 +105,13 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     (@:checkr _f ?? throw "null pointer dereference").fileHeader.comment = ((_d_3870462.__slice__((_filenameLen_3870228 + _extraLen_3870260 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
                     {
                         var __tmp__ = stdgo._internal.archive.zip.Zip__detectUTF8._detectUTF8((@:checkr _f ?? throw "null pointer dereference").fileHeader.name?.__copy__());
-                        _utf8Valid1_3870744 = __tmp__._0;
-                        _utf8Require1_3870756 = __tmp__._1;
+                        _utf8Valid1_3870744 = @:tmpset0 __tmp__._0;
+                        _utf8Require1_3870756 = @:tmpset0 __tmp__._1;
                     };
                     {
                         var __tmp__ = stdgo._internal.archive.zip.Zip__detectUTF8._detectUTF8((@:checkr _f ?? throw "null pointer dereference").fileHeader.comment?.__copy__());
-                        _utf8Valid2_3870792 = __tmp__._0;
-                        _utf8Require2_3870804 = __tmp__._1;
+                        _utf8Valid2_3870792 = @:tmpset0 __tmp__._0;
+                        _utf8Require2_3870804 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 3870843i32;
                 } else if (__value__ == (3870843i32)) {

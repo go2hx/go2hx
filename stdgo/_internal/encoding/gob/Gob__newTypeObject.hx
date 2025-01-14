@@ -97,8 +97,8 @@ var _type1 = __1, _type0 = __0;
                         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_at);
                         {
                             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.elem());
-                            _type0 = __tmp__._0;
-                            _err = __tmp__._1;
+                            _type0 = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             {
@@ -126,8 +126,8 @@ var _type1 = __1, _type0 = __0;
                         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_mt);
                         {
                             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.key());
-                            _type0 = __tmp__._0;
-                            _err = __tmp__._1;
+                            _type0 = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             {
@@ -142,8 +142,8 @@ var _type1 = __1, _type0 = __0;
                         };
                         {
                             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.elem());
-                            _type1 = __tmp__._0;
-                            _err = __tmp__._1;
+                            _type1 = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             {
@@ -182,8 +182,8 @@ var _type1 = __1, _type0 = __0;
                         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_st);
                         {
                             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(_t.elem().name()?.__copy__(), _t.elem());
-                            _type0 = __tmp__._0;
-                            _err = __tmp__._1;
+                            _type0 = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         if (_err != null) {
                             {

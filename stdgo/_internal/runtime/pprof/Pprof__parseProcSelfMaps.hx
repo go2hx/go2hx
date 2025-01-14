@@ -5,8 +5,8 @@ function _parseProcSelfMaps(_data:stdgo.Slice<stdgo.GoUInt8>, _addMapping:(stdgo
             var _f:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.bytes.Bytes_cut.cut(_line, stdgo._internal.runtime.pprof.Pprof__space._space);
-                _f = __tmp__._0;
-                _line = __tmp__._1;
+                _f = @:tmpset0 __tmp__._0;
+                _line = @:tmpset0 __tmp__._1;
             };
             _line = stdgo._internal.bytes.Bytes_trimLeft.trimLeft(_line, (" " : stdgo.GoString));
             return _f;
@@ -14,8 +14,8 @@ function _parseProcSelfMaps(_data:stdgo.Slice<stdgo.GoUInt8>, _addMapping:(stdgo
         while (((_data.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.bytes.Bytes_cut.cut(_data, stdgo._internal.runtime.pprof.Pprof__newline._newline);
-                _line = __tmp__._0;
-                _data = __tmp__._1;
+                _line = @:tmpset0 __tmp__._0;
+                _data = @:tmpset0 __tmp__._1;
             };
             var _addr = _next();
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut((_addr : stdgo.GoString)?.__copy__(), ("-" : stdgo.GoString)), _loStr:stdgo.GoString = __tmp__._0, _hiStr:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;

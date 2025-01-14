@@ -103,7 +103,7 @@ _unit++;
                     } catch(_) {
                         { _0 : ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _1 : false };
                     };
-                    (@:checkr _r ?? throw "null pointer dereference")._lastSibling = __tmp__._0;
+                    (@:checkr _r ?? throw "null pointer dereference")._lastSibling = @:tmpset0 __tmp__._0;
                 };
             };
             if ((((@:checkr _e ?? throw "null pointer dereference").tag == (17u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) || ((@:checkr _e ?? throw "null pointer dereference").tag == (60u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {

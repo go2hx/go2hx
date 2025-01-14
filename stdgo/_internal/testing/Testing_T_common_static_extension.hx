@@ -19,18 +19,29 @@ package stdgo._internal.testing;
     }
     @:keep
     @:tdfield
-    static public function skipped( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Bool return false;
+    static public function skipped( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Bool return _c._skipped;
     @:keep
     @:tdfield
-    static public function skipNow( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void throw "T_common:testing.skipNow is not yet implemented";
+    static public function skipNow( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void {
+        @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
+        _c._skipped = true;
+        throw "__skip__";
+    }
     @:keep
     @:tdfield
-    static public function skipf( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void throw "T_common:testing.skipf is not yet implemented";
+    static public function skipf( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+        var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
+        @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
+        stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+        _c.skipNow();
+    }
     @:keep
     @:tdfield
     static public function skip( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
+        stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+        _c.skipNow();
     }
     @:keep
     @:tdfield

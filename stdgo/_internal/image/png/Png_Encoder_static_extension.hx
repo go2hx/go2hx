@@ -49,7 +49,7 @@ var _mh = __1, _mw = __0;
                         } catch(_) {
                             { _0 : new stdgo._internal.image.color.Color_Palette.Palette(0, 0), _1 : false };
                         };
-                        _pal = __tmp__._0;
+                        _pal = @:tmpset0 __tmp__._0;
                     };
                 };
             };
@@ -87,7 +87,7 @@ var _mh = __1, _mw = __0;
             };
             {
                 var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, stdgo.Go.str(137, "PNG\r\n", 26, "\n")?.__copy__());
-                (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             @:check2r _e._writeIHDR();
             if (_pal != null) {

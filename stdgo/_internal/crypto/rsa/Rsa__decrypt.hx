@@ -8,16 +8,16 @@ var _t0 = __4, n = __3, _c = __2, _m = __1, _err = __0;
         if (((@:checkr _priv ?? throw "null pointer dereference").precomputed._n == null || ((@:checkr _priv ?? throw "null pointer dereference").precomputed._n : Dynamic).__nil__)) {
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").publicKey.n);
-                n = __tmp__._0;
-                _err = __tmp__._1;
+                n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption };
             };
             {
                 var __tmp__ = @:check2r _internal.crypto.internal.bigmod.Bigmod_newNat.newNat().setBytes(_ciphertext, n);
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption };
@@ -33,8 +33,8 @@ var q = __1, p = __0;
             };
             {
                 var __tmp__ = @:check2r _internal.crypto.internal.bigmod.Bigmod_newNat.newNat().setBytes(_ciphertext, n);
-                _c = __tmp__._0;
-                _err = __tmp__._1;
+                _c = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption };

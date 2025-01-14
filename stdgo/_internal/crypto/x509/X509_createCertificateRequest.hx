@@ -18,9 +18,9 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         var _sigAlgo:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
         {
             var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), (@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm);
-            _hashFunc = __tmp__._0;
-            _sigAlgo = __tmp__._1?.__copy__();
-            _err = __tmp__._2;
+            _hashFunc = @:tmpset0 __tmp__._0;
+            _sigAlgo = @:tmpset0 __tmp__._1?.__copy__();
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return {
@@ -34,9 +34,9 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         var _publicKeyAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
         {
             var __tmp__ = stdgo._internal.crypto.x509.X509__marshalPublicKey._marshalPublicKey(stdgo.Go.toInterface(_key.public_()));
-            _publicKeyBytes = __tmp__._0;
-            _publicKeyAlgorithm = __tmp__._1?.__copy__();
-            _err = __tmp__._2;
+            _publicKeyBytes = @:tmpset0 __tmp__._0;
+            _publicKeyAlgorithm = @:tmpset0 __tmp__._1?.__copy__();
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return {
@@ -124,8 +124,8 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         if ((_asn1Subject.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _template ?? throw "null pointer dereference").subject.toRDNSequence())));
-                _asn1Subject = __tmp__._0;
-                _err = __tmp__._1;
+                _asn1Subject = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
@@ -151,8 +151,8 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         var _signature:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = _key.sign(_rand, _signed, stdgo.Go.asInterface(_hashFunc));
-            _signature = __tmp__._0;
-            _err = __tmp__._1;
+            _signature = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _csr, _1 : _err };

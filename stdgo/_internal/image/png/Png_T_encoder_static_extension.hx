@@ -492,21 +492,21 @@ if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && 
         stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.putUint32(((@:checkr _e ?? throw "null pointer dereference")._footer.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _crc.sum32());
         {
             var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._header.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
             return;
         };
         {
             var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(_b);
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
         if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
             return;
         };
         {
             var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._footer.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-            (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+            (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
         };
     }
 }

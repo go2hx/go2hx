@@ -6,8 +6,8 @@ var _err = __2, _re = __1, _p = __0;
             {
                 {
                     var __tmp__ = stdgo._internal.regexp.syntax.Syntax_parse.parse(_test._re?.__copy__(), (212 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags));
-                    _re = __tmp__._0;
-                    _err = __tmp__._1;
+                    _re = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _t.errorf(("Parse(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
@@ -18,8 +18,8 @@ var _err = __2, _re = __1, _p = __0;
             {
                 {
                     var __tmp__ = stdgo._internal.regexp.syntax.Syntax_compile.compile(_re);
-                    _p = __tmp__._0;
-                    _err = __tmp__._1;
+                    _p = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     @:check2r _t.errorf(("Compile(%q) got err:%s, want success" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));

@@ -24,8 +24,8 @@ function testIssue31810(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {};
         {
             var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{ (call .)  }}" : stdgo.GoString));
-            _tmpl = __tmp__._0;
-            _err = __tmp__._1;
+            _tmpl = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         @:check2 _b.reset();
         _err = @:check2r _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_f));

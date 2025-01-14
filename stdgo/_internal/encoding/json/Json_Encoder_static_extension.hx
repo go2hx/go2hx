@@ -44,8 +44,8 @@ package stdgo._internal.encoding.json;
             if ((((@:checkr _enc ?? throw "null pointer dereference")._indentPrefix != stdgo.Go.str()) || ((@:checkr _enc ?? throw "null pointer dereference")._indentValue != stdgo.Go.str()) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.encoding.json.Json__appendIndent._appendIndent(((@:checkr _enc ?? throw "null pointer dereference")._indentBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _b, (@:checkr _enc ?? throw "null pointer dereference")._indentPrefix?.__copy__(), (@:checkr _enc ?? throw "null pointer dereference")._indentValue?.__copy__());
-                    (@:checkr _enc ?? throw "null pointer dereference")._indentBuf = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _enc ?? throw "null pointer dereference")._indentBuf = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     {
@@ -62,7 +62,7 @@ package stdgo._internal.encoding.json;
             {
                 {
                     var __tmp__ = (@:checkr _enc ?? throw "null pointer dereference")._w.write(_b);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     (@:checkr _enc ?? throw "null pointer dereference")._err = _err;

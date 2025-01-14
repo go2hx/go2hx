@@ -33,8 +33,8 @@ var _mm = __1, _ps = __0;
             var _bkey:stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyRSA.PublicKeyRSA> = (null : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyRSA.PublicKeyRSA>);
             {
                 var __tmp__ = stdgo._internal.crypto.rsa.Rsa__boringPublicKey._boringPublicKey(_pub);
-                _bkey = __tmp__._0;
-                _err = __tmp__._1;
+                _bkey = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

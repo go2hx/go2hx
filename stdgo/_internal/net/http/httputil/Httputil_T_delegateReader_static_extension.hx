@@ -9,8 +9,8 @@ package stdgo._internal.net.http.httputil;
             {
                 {
                     var __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._c.__smartGet__();
-                    (@:checkr _r ?? throw "null pointer dereference")._r = __tmp__._0;
-                    _ok = __tmp__._1;
+                    (@:checkr _r ?? throw "null pointer dereference")._r = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _r ?? throw "null pointer dereference")._err };

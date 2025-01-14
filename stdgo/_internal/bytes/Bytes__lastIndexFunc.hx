@@ -8,8 +8,8 @@ var _size = __1, _r = __0;
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeLastRune.decodeLastRune((_s.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>));
-                        _r = __tmp__._0;
-                        _size = __tmp__._1;
+                        _r = @:tmpset0 __tmp__._0;
+                        _size = @:tmpset0 __tmp__._1;
                     };
                 };
                 _i = (_i - (_size) : stdgo.GoInt);

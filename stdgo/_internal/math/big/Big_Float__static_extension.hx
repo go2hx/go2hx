@@ -401,13 +401,13 @@ package stdgo._internal.math.big;
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Float_.Float_() : stdgo._internal.math.big.Big_Float_.Float_);
                 var x = (_z : stdgo._internal.math.big.Big_Float_.Float_);
-                x._prec = __tmp__._prec;
-                x._mode = __tmp__._mode;
-                x._acc = __tmp__._acc;
-                x._form = __tmp__._form;
-                x._neg = __tmp__._neg;
-                x._mant = __tmp__._mant;
-                x._exp = __tmp__._exp;
+                x._prec = __tmp__?._prec;
+                x._mode = __tmp__?._mode;
+                x._acc = __tmp__?._acc;
+                x._form = __tmp__?._form;
+                x._neg = __tmp__?._neg;
+                x._mant = __tmp__?._mant;
+                x._exp = __tmp__?._exp;
             };
             return (null : stdgo.Error);
         };
@@ -499,9 +499,9 @@ package stdgo._internal.math.big;
         {
             {
                 var __tmp__ = @:check2r _z._scan(stdgo.Go.asInterface(_r), _base);
-                _f = __tmp__._0;
-                _b = __tmp__._1;
-                _err = __tmp__._2;
+                _f = @:tmpset0 __tmp__._0;
+                _b = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : _f, _1 : _b, _2 : _err };
@@ -549,8 +549,8 @@ package stdgo._internal.math.big;
         (@:checkr _z ?? throw "null pointer dereference")._form = (0 : stdgo._internal.math.big.Big_T_form.T_form);
         {
             var __tmp__ = stdgo._internal.math.big.Big__scanSign._scanSign(_r);
-            (@:checkr _z ?? throw "null pointer dereference")._neg = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._neg = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
@@ -558,10 +558,10 @@ package stdgo._internal.math.big;
         var _fcount:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._mant._scan(_r, _base, true);
-            (@:checkr _z ?? throw "null pointer dereference")._mant = __tmp__._0;
-            _b = __tmp__._1;
-            _fcount = __tmp__._2;
-            _err = __tmp__._3;
+            (@:checkr _z ?? throw "null pointer dereference")._mant = @:tmpset0 __tmp__._0;
+            _b = @:tmpset0 __tmp__._1;
+            _fcount = @:tmpset0 __tmp__._2;
+            _err = @:tmpset0 __tmp__._3;
         };
         if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
@@ -570,9 +570,9 @@ package stdgo._internal.math.big;
         var _ebase:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.math.big.Big__scanExponent._scanExponent(_r, true, _base == ((0 : stdgo.GoInt)));
-            _exp = __tmp__._0;
-            _ebase = __tmp__._1;
-            _err = __tmp__._2;
+            _exp = @:tmpset0 __tmp__._0;
+            _ebase = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
@@ -952,8 +952,8 @@ var _ym = __1, _xm = __0;
         var _r:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._mant._div(null, _xadj, (@:checkr _y ?? throw "null pointer dereference")._mant);
-            (@:checkr _z ?? throw "null pointer dereference")._mant = __tmp__._0;
-            _r = __tmp__._1;
+            (@:checkr _z ?? throw "null pointer dereference")._mant = @:tmpset0 __tmp__._0;
+            _r = @:tmpset0 __tmp__._1;
         };
         var _e = ((((@:checkr _x ?? throw "null pointer dereference")._exp : stdgo.GoInt64) - ((@:checkr _y ?? throw "null pointer dereference")._exp : stdgo.GoInt64) : stdgo.GoInt64) - (((_d - ((@:checkr _z ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt) : stdgo.GoInt64) * (32i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
         var _sbit:stdgo.GoUInt = (0 : stdgo.GoUInt);

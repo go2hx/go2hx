@@ -47,8 +47,8 @@ package stdgo._internal.crypto.tls;
         };
         {
             var __tmp__ = @:check2r _key.eCDH(_peerKey);
-            (@:checkr _ka ?? throw "null pointer dereference")._preMasterSecret = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _ka ?? throw "null pointer dereference")._preMasterSecret = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return stdgo._internal.crypto.tls.Tls__errServerKeyExchange._errServerKeyExchange;
@@ -71,9 +71,9 @@ package stdgo._internal.crypto.tls;
             };
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__typeAndHashFromSignatureScheme._typeAndHashFromSignatureScheme(_signatureAlgorithm);
-                _sigType = __tmp__._0;
-                _sigHash = __tmp__._1;
-                _err = __tmp__._2;
+                _sigType = @:tmpset0 __tmp__._0;
+                _sigHash = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return _err;
@@ -81,9 +81,9 @@ package stdgo._internal.crypto.tls;
         } else {
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__legacyTypeAndHashFromPublicKey._legacyTypeAndHashFromPublicKey(stdgo.Go.toInterface((@:checkr _cert ?? throw "null pointer dereference").publicKey));
-                _sigType = __tmp__._0;
-                _sigHash = __tmp__._1;
-                _err = __tmp__._2;
+                _sigType = @:tmpset0 __tmp__._0;
+                _sigHash = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return _err;
@@ -169,17 +169,17 @@ package stdgo._internal.crypto.tls;
         if (((@:checkr _ka ?? throw "null pointer dereference")._version >= (771 : stdgo.GoUInt16) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__selectSignatureScheme._selectSignatureScheme((@:checkr _ka ?? throw "null pointer dereference")._version, _cert, (@:checkr _clientHello ?? throw "null pointer dereference")._supportedSignatureAlgorithms);
-                _signatureAlgorithm = __tmp__._0;
-                _err = __tmp__._1;
+                _signatureAlgorithm = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__typeAndHashFromSignatureScheme._typeAndHashFromSignatureScheme(_signatureAlgorithm);
-                _sigType = __tmp__._0;
-                _sigHash = __tmp__._1;
-                _err = __tmp__._2;
+                _sigType = @:tmpset0 __tmp__._0;
+                _sigHash = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
@@ -187,9 +187,9 @@ package stdgo._internal.crypto.tls;
         } else {
             {
                 var __tmp__ = stdgo._internal.crypto.tls.Tls__legacyTypeAndHashFromPublicKey._legacyTypeAndHashFromPublicKey(_priv.public_());
-                _sigType = __tmp__._0;
-                _sigHash = __tmp__._1;
-                _err = __tmp__._2;
+                _sigType = @:tmpset0 __tmp__._0;
+                _sigHash = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };

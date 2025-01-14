@@ -17,8 +17,8 @@ var _s = __3, _r = __2, _kInv = __1, _k = __0;
             while (true) {
                 {
                     var __tmp__ = stdgo._internal.crypto.ecdsa.Ecdsa__randFieldElement._randFieldElement(_c, _csprng);
-                    _k = __tmp__._0;
-                    _err = __tmp__._1;
+                    _k = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return {
@@ -31,7 +31,7 @@ var _s = __3, _r = __2, _kInv = __1, _k = __0;
                 _kInv = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_k, n);
                 {
                     var __tmp__ = _c.scalarBaseMult(@:check2r _k.bytes());
-                    _r = __tmp__._0;
+                    _r = @:tmpset0 __tmp__._0;
                 };
                 @:check2r _r.mod(_r, n);
                 if (@:check2r _r.sign() != ((0 : stdgo.GoInt))) {

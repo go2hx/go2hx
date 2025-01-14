@@ -13,8 +13,8 @@ var _err:stdgo.Error = (null : stdgo.Error);
                     while (((_total < (stdgo._internal.encoding.base64.Base64__bigtest._bigtest._decoded.length) : Bool) && (_err == null) : Bool)) {
                         {
                             var __tmp__ = _decoder.read((_buf.__slice__(_total, (_total + _bs : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                            _n = __tmp__._0;
-                            _err = __tmp__._1;
+                            _n = @:tmpset0 __tmp__._0;
+                            _err = @:tmpset0 __tmp__._1;
                         };
                         _total = (_total + (_n) : stdgo.GoInt);
                     };

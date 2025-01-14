@@ -44,11 +44,11 @@ package stdgo._internal.crypto.sha512;
         {
             var __tmp__ = (_d : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)?.__copy__();
             var x = (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest);
-            x._h = __tmp__._h;
-            x._x = __tmp__._x;
-            x._nx = __tmp__._nx;
-            x._len = __tmp__._len;
-            x._function = __tmp__._function;
+            x._h = __tmp__?._h;
+            x._x = __tmp__?._x;
+            x._nx = __tmp__?._nx;
+            x._len = __tmp__?._len;
+            x._function = __tmp__?._function;
         };
         var _hash = @:check2r _d0._checkSum()?.__copy__();
         {
@@ -132,49 +132,49 @@ package stdgo._internal.crypto.sha512;
         _b = (_b.__slice__((("sha\x07" : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] = @:tmpset0 __tmp__._1;
         };
         _b = (_b.__slice__(((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
-            _b = __tmp__._0;
-            (@:checkr _d ?? throw "null pointer dereference")._len = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            (@:checkr _d ?? throw "null pointer dereference")._len = @:tmpset0 __tmp__._1;
         };
         (@:checkr _d ?? throw "null pointer dereference")._nx = (((@:checkr _d ?? throw "null pointer dereference")._len % (128i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt);
         return (null : stdgo.Error);

@@ -687,8 +687,8 @@ var _ok = __1, _doClose = __0;
         stdgo._internal.database.sql.Sql__withLock._withLock(@:check2 (@:checkr _rs ?? throw "null pointer dereference")._closemu.rLocker(), function():Void {
             {
                 var __tmp__ = @:check2r _rs._nextLocked();
-                _doClose = __tmp__._0;
-                _ok = __tmp__._1;
+                _doClose = @:tmpset0 __tmp__._0;
+                _ok = @:tmpset0 __tmp__._1;
             };
         });
         if (_doClose) {

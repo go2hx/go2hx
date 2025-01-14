@@ -25,8 +25,8 @@ package stdgo._internal.crypto.cipher;
         _w.s.xORKeyStream(_c, _src);
         {
             var __tmp__ = _w.w.write(_c);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_n != (_src.length)) && (_err == null) : Bool)) {
             _err = stdgo._internal.io.Io_errShortWrite.errShortWrite;

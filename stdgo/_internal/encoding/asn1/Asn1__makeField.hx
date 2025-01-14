@@ -146,8 +146,8 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_Value.Value, _params:stdg
         var _t = (stdgo.Go.setRef(({} : stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeBody._makeBody(_v?.__copy__(), _params?.__copy__());
-            (@:checkr _t ?? throw "null pointer dereference")._body = __tmp__._0;
-            _err = __tmp__._1;
+            (@:checkr _t ?? throw "null pointer dereference")._body = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return {

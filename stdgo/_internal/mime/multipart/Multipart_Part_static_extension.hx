@@ -41,9 +41,9 @@ package stdgo._internal.mime.multipart;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v?.__copy__());
-            (@:checkr _p ?? throw "null pointer dereference")._disposition = __tmp__._0?.__copy__();
-            (@:checkr _p ?? throw "null pointer dereference")._dispositionParams = __tmp__._1;
-            _err = __tmp__._2;
+            (@:checkr _p ?? throw "null pointer dereference")._disposition = @:tmpset0 __tmp__._0?.__copy__();
+            (@:checkr _p ?? throw "null pointer dereference")._dispositionParams = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err != null) {
             (@:checkr _p ?? throw "null pointer dereference")._dispositionParams = stdgo._internal.mime.multipart.Multipart__emptyParams._emptyParams;

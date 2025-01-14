@@ -12,8 +12,8 @@ function parseAddrPort(_s:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.N
         _ipp._port = (_port16 : stdgo.GoUInt16);
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_parseAddr.parseAddr(_ip?.__copy__());
-            _ipp._ip = __tmp__._0?.__copy__();
-            _err = __tmp__._1;
+            _ipp._ip = @:tmpset0 __tmp__._0?.__copy__();
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : (new stdgo._internal.net.netip.Netip_AddrPort.AddrPort() : stdgo._internal.net.netip.Netip_AddrPort.AddrPort), _1 : _err };

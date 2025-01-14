@@ -32,9 +32,9 @@ var _ndst = __2, _nsrc = __1, _nn = __0;
             if (((@:checkr _d ?? throw "null pointer dereference")._nbuf > (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.encoding.ascii85.Ascii85_decode.decode(((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), (@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._readErr != null);
-                    _ndst = __tmp__._0;
-                    _nsrc = __tmp__._1;
-                    (@:checkr _d ?? throw "null pointer dereference")._err = __tmp__._2;
+                    _ndst = @:tmpset0 __tmp__._0;
+                    _nsrc = @:tmpset0 __tmp__._1;
+                    (@:checkr _d ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._2;
                 };
                 if ((_ndst > (0 : stdgo.GoInt) : Bool)) {
                     (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt), _ndst) : stdgo.Slice<stdgo.GoUInt8>);
@@ -75,8 +75,8 @@ var _ndst = __2, _nsrc = __1, _nn = __0;
             };
             {
                 var __tmp__ = (@:checkr _d ?? throw "null pointer dereference")._r.read(((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
-                _nn = __tmp__._0;
-                (@:checkr _d ?? throw "null pointer dereference")._readErr = __tmp__._1;
+                _nn = @:tmpset0 __tmp__._0;
+                (@:checkr _d ?? throw "null pointer dereference")._readErr = @:tmpset0 __tmp__._1;
             };
             (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._nbuf + (_nn) : stdgo.GoInt);
         };

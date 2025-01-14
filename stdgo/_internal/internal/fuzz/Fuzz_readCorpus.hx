@@ -20,8 +20,8 @@ function readCorpus(_dir:stdgo.GoString, _types:stdgo.Slice<stdgo._internal.refl
             var _vals:stdgo.Slice<stdgo.AnyInterface> = (null : stdgo.Slice<stdgo.AnyInterface>);
             {
                 var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__readCorpusData._readCorpusData(_data, _types);
-                _vals = __tmp__._0;
-                _err = __tmp__._1;
+                _vals = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 _errs = (_errs.__append__(stdgo._internal.fmt.Fmt_errorf.errorf(("%q: %v" : stdgo.GoString), stdgo.Go.toInterface(_filename), stdgo.Go.toInterface(_err))));

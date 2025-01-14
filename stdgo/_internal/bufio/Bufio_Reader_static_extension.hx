@@ -20,8 +20,8 @@ package stdgo._internal.bufio;
         (@:checkr _b ?? throw "null pointer dereference")._lastRuneSize = (-1 : stdgo.GoInt);
         {
             var __tmp__ = @:check2r _b._writeBuf(_w);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : _n, _1 : _err };
@@ -122,8 +122,8 @@ package stdgo._internal.bufio;
             var _e:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = @:check2r _b.readSlice(_delim);
-                _frag = __tmp__._0;
-                _e = __tmp__._1;
+                _frag = @:tmpset0 __tmp__._0;
+                _e = @:tmpset0 __tmp__._1;
             };
             if (_e == null) {
                 break;
@@ -153,8 +153,8 @@ package stdgo._internal.bufio;
         var _line = (null : stdgo.Slice<stdgo.GoUInt8>), _isPrefix = false, _err = (null : stdgo.Error);
         {
             var __tmp__ = @:check2r _b.readSlice((10 : stdgo.GoUInt8));
-            _line = __tmp__._0;
-            _err = __tmp__._1;
+            _line = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.bufio.Bufio_errBufferFull.errBufferFull))) {
             if ((((_line.length) > (0 : stdgo.GoInt) : Bool) && (_line[((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) {
@@ -273,8 +273,8 @@ package stdgo._internal.bufio;
         if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._r, (@:checkr _b ?? throw "null pointer dereference")._w) : stdgo.Slice<stdgo.GoUInt8>));
-                _r = __tmp__._0;
-                _size = __tmp__._1;
+                _r = @:tmpset0 __tmp__._0;
+                _size = @:tmpset0 __tmp__._1;
             };
         };
         (@:checkr _b ?? throw "null pointer dereference")._r = ((@:checkr _b ?? throw "null pointer dereference")._r + (_size) : stdgo.GoInt);
@@ -355,8 +355,8 @@ package stdgo._internal.bufio;
             if (((_p.length) >= ((@:checkr _b ?? throw "null pointer dereference")._buf.length) : Bool)) {
                 {
                     var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._rd.read(_p);
-                    _n = __tmp__._0;
-                    (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
+                    _n = @:tmpset0 __tmp__._0;
+                    (@:checkr _b ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((_n < (0 : stdgo.GoInt) : Bool)) {
                     throw stdgo.Go.toInterface(stdgo._internal.bufio.Bufio__errNegativeRead._errNegativeRead);
@@ -376,8 +376,8 @@ package stdgo._internal.bufio;
             (@:checkr _b ?? throw "null pointer dereference")._w = (0 : stdgo.GoInt);
             {
                 var __tmp__ = (@:checkr _b ?? throw "null pointer dereference")._rd.read((@:checkr _b ?? throw "null pointer dereference")._buf);
-                _n = __tmp__._0;
-                (@:checkr _b ?? throw "null pointer dereference")._err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                (@:checkr _b ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             if ((_n < (0 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(stdgo._internal.bufio.Bufio__errNegativeRead._errNegativeRead);
@@ -526,13 +526,13 @@ if ((_n > (0 : stdgo.GoInt) : Bool)) {
         {
             var __tmp__ = ({ _buf : _buf, _rd : _r, _lastByte : (-1 : stdgo.GoInt), _lastRuneSize : (-1 : stdgo.GoInt) } : stdgo._internal.bufio.Bufio_Reader.Reader);
             var x = (_b : stdgo._internal.bufio.Bufio_Reader.Reader);
-            x._buf = __tmp__._buf;
-            x._rd = __tmp__._rd;
-            x._r = __tmp__._r;
-            x._w = __tmp__._w;
-            x._err = __tmp__._err;
-            x._lastByte = __tmp__._lastByte;
-            x._lastRuneSize = __tmp__._lastRuneSize;
+            x._buf = __tmp__?._buf;
+            x._rd = __tmp__?._rd;
+            x._r = __tmp__?._r;
+            x._w = __tmp__?._w;
+            x._err = __tmp__?._err;
+            x._lastByte = __tmp__?._lastByte;
+            x._lastRuneSize = __tmp__?._lastRuneSize;
         };
     }
     @:keep

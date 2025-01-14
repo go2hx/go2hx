@@ -3,8 +3,8 @@ function copyN(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._internal.io
         var _written = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.io.Io_copy.copy(_dst, stdgo._internal.io.Io_limitReader.limitReader(_src, _n));
-            _written = __tmp__._0;
-            _err = __tmp__._1;
+            _written = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_written == (_n)) {
             return {

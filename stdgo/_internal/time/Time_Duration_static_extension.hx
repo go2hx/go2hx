@@ -126,8 +126,8 @@ package stdgo._internal.time;
             };
             {
                 var __tmp__ = stdgo._internal.time.Time__fmtFrac._fmtFrac((_buf.__slice__(0, _w) : stdgo.Slice<stdgo.GoUInt8>), _u, _prec);
-                _w = __tmp__._0;
-                _u = __tmp__._1;
+                _w = @:tmpset0 __tmp__._0;
+                _u = @:tmpset0 __tmp__._1;
             };
             _w = stdgo._internal.time.Time__fmtInt._fmtInt((_buf.__slice__(0, _w) : stdgo.Slice<stdgo.GoUInt8>), _u);
         } else {
@@ -135,8 +135,8 @@ package stdgo._internal.time;
             _buf[(_w : stdgo.GoInt)] = (115 : stdgo.GoUInt8);
             {
                 var __tmp__ = stdgo._internal.time.Time__fmtFrac._fmtFrac((_buf.__slice__(0, _w) : stdgo.Slice<stdgo.GoUInt8>), _u, (9 : stdgo.GoInt));
-                _w = __tmp__._0;
-                _u = __tmp__._1;
+                _w = @:tmpset0 __tmp__._0;
+                _u = @:tmpset0 __tmp__._1;
             };
             _w = stdgo._internal.time.Time__fmtInt._fmtInt((_buf.__slice__(0, _w) : stdgo.Slice<stdgo.GoUInt8>), (_u % (60i64 : stdgo.GoUInt64) : stdgo.GoUInt64));
             _u = (_u / ((60i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);

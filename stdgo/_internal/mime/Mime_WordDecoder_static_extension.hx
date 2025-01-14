@@ -29,7 +29,7 @@ package stdgo._internal.mime;
             {
                 {
                     var __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(_buf), _r);
-                    _err = __tmp__._1;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return _err;

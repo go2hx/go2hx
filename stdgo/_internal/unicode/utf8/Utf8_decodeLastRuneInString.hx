@@ -38,8 +38,8 @@ function decodeLastRuneInString(_s:stdgo.GoString):{ var _0 : stdgo.GoInt32; var
         };
         {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_start, _end) : stdgo.GoString)?.__copy__());
-            _r = __tmp__._0;
-            _size = __tmp__._1;
+            _r = @:tmpset0 __tmp__._0;
+            _size = @:tmpset0 __tmp__._1;
         };
         if ((_start + _size : stdgo.GoInt) != (_end)) {
             return {

@@ -30,8 +30,8 @@ package stdgo._internal.archive.tar;
         if (((_b.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = (@:checkr _fw ?? throw "null pointer dereference")._w.write(_b);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _fw ?? throw "null pointer dereference")._nb = ((@:checkr _fw ?? throw "null pointer dereference")._nb - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         };

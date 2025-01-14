@@ -47,8 +47,8 @@ if (_err != null) {
             var _nw:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var __tmp__ = _sw.writeString((_s.__slice__(_last) : stdgo.GoString)?.__copy__());
-                _nw = __tmp__._0;
-                _err = __tmp__._1;
+                _nw = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + (_nw) : stdgo.GoInt);
         };

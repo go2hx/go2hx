@@ -258,8 +258,8 @@ package stdgo._internal.internal.fuzz;
                 var _cancel:() -> Void = null;
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._opts.minimizeTimeout);
-                    _ctx = __tmp__._0;
-                    _cancel = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancel = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancel;

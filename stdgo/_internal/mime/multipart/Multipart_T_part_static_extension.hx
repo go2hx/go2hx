@@ -15,8 +15,8 @@ package stdgo._internal.mime.multipart;
         };
         {
             var __tmp__ = (@:checkr (@:checkr _p ?? throw "null pointer dereference")._mw ?? throw "null pointer dereference")._w.write(_d);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             (@:checkr _p ?? throw "null pointer dereference")._we = _err;

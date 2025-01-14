@@ -24,8 +24,8 @@ package stdgo._internal.net.mail;
         };
         {
             var __tmp__ = @:check2 _adec.decode(_s?.__copy__());
-            _word = __tmp__._0?.__copy__();
-            _err = __tmp__._1;
+            _word = @:tmpset0 __tmp__._0?.__copy__();
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err == null) {
             return {
@@ -185,8 +185,8 @@ package stdgo._internal.net.mail;
                 } else if (__value__ == (4212311i32)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_4212292) : stdgo.GoString)?.__copy__());
-                        _r_4212315 = __tmp__._0;
-                        _size_4212318 = __tmp__._1;
+                        _r_4212315 = @:tmpset0 __tmp__._0;
+                        _size_4212318 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4212361i32;
                 } else if (__value__ == (4212361i32)) {
@@ -297,12 +297,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
         var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -326,8 +326,8 @@ package stdgo._internal.net.mail;
                 } else if (__value__ == (4211014i32)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_4210948) : stdgo.GoString)?.__copy__());
-                        _r_4211018 = __tmp__._0;
-                        _size_4211021 = __tmp__._1;
+                        _r_4211018 = @:tmpset0 __tmp__._0;
+                        _size_4211021 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4211065i32;
                 } else if (__value__ == (4211065i32)) {
@@ -432,21 +432,21 @@ package stdgo._internal.net.mail;
             if (@:check2r _p._peek() == ((34 : stdgo.GoUInt8))) {
                 {
                     var __tmp__ = @:check2r _p._consumeQuotedString();
-                    _word = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _word = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
             } else {
                 {
                     var __tmp__ = @:check2r _p._consumeAtom(true, true);
-                    _word = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _word = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err == null) {
                     {
                         var __tmp__ = @:check2r _p._decodeRFC2047Word(_word?.__copy__());
-                        _word = __tmp__._0?.__copy__();
-                        _isEncoded = __tmp__._1;
-                        _err = __tmp__._2;
+                        _word = @:tmpset0 __tmp__._0?.__copy__();
+                        _isEncoded = @:tmpset0 __tmp__._1;
+                        _err = @:tmpset0 __tmp__._2;
                     };
                 };
             };
@@ -494,8 +494,8 @@ package stdgo._internal.net.mail;
                             {
                                 var __tmp__ = _orig?.__copy__();
                                 var x = (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
-                                x._s = __tmp__._s;
-                                x._dec = __tmp__._dec;
+                                x._s = __tmp__?._s;
+                                x._dec = __tmp__?._dec;
                             };
                         };
                     };
@@ -524,8 +524,8 @@ package stdgo._internal.net.mail;
                 stdgo._internal.net.mail.Mail__debug._debug.printf(("consumeAddrSpec: parsing quoted-string" : stdgo.GoString));
                 {
                     var __tmp__ = @:check2r _p._consumeQuotedString();
-                    _localPart = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _localPart = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_localPart == (stdgo.Go.str())) {
                     _err = stdgo._internal.errors.Errors_new_.new_(("mail: empty quoted string in addr-spec" : stdgo.GoString));
@@ -534,8 +534,8 @@ package stdgo._internal.net.mail;
                 stdgo._internal.net.mail.Mail__debug._debug.printf(("consumeAddrSpec: parsing dot-atom" : stdgo.GoString));
                 {
                     var __tmp__ = @:check2r _p._consumeAtom(true, false);
-                    _localPart = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _localPart = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
             };
             if (_err != null) {
@@ -591,8 +591,8 @@ package stdgo._internal.net.mail;
             };
             {
                 var __tmp__ = @:check2r _p._consumeAtom(true, false);
-                _domain = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _domain = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 {
@@ -716,8 +716,8 @@ package stdgo._internal.net.mail;
             if ((!@:check2r _p._empty() && (@:check2r _p._peek() == (40 : stdgo.GoUInt8)) : Bool)) {
                 {
                     var __tmp__ = @:check2r _p._consumeDisplayNameComment();
-                    _displayName = __tmp__._0?.__copy__();
-                    _err = __tmp__._1;
+                    _displayName = @:tmpset0 __tmp__._0?.__copy__();
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_Address.Address>>), _1 : _err };
@@ -731,8 +731,8 @@ package stdgo._internal.net.mail;
         if (@:check2r _p._peek() != ((60 : stdgo.GoUInt8))) {
             {
                 var __tmp__ = @:check2r _p._consumePhrase();
-                _displayName = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _displayName = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_Address.Address>>), _1 : _err };
@@ -760,8 +760,8 @@ package stdgo._internal.net.mail;
         };
         {
             var __tmp__ = @:check2r _p._consumeAddrSpec();
-            _spec = __tmp__._0?.__copy__();
-            _err = __tmp__._1;
+            _spec = @:tmpset0 __tmp__._0?.__copy__();
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.mail.Mail_Address.Address>>), _1 : _err };

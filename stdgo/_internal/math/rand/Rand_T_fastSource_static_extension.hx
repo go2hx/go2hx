@@ -8,8 +8,8 @@ package stdgo._internal.math.rand;
         @:check2 (@:checkr _fs ?? throw "null pointer dereference")._mu.lock();
         {
             var __tmp__ = stdgo._internal.math.rand.Rand__read._read(_p, stdgo.Go.asInterface(_fs), _readVal, _readPos);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         @:check2 (@:checkr _fs ?? throw "null pointer dereference")._mu.unlock();
         return { _0 : _n, _1 : _err };

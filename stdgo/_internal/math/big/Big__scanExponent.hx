@@ -54,8 +54,8 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
         var _digits:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = _r.readByte();
-            _ch = __tmp__._0;
-            _err = __tmp__._1;
+            _ch = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_err == null) && (((_ch == (43 : stdgo.GoUInt8)) || (_ch == (45 : stdgo.GoUInt8)) : Bool)) : Bool)) {
             if (_ch == ((45 : stdgo.GoUInt8))) {
@@ -63,8 +63,8 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
             };
             {
                 var __tmp__ = _r.readByte();
-                _ch = __tmp__._0;
-                _err = __tmp__._1;
+                _ch = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         var _prev = (46 : stdgo.GoInt32);
@@ -86,8 +86,8 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
             };
             {
                 var __tmp__ = _r.readByte();
-                _ch = __tmp__._0;
-                _err = __tmp__._1;
+                _ch = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
@@ -99,8 +99,8 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
         if (_err == null) {
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt((_digits : stdgo.GoString)?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));
-                _exp = __tmp__._0;
-                _err = __tmp__._1;
+                _exp = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (((_err == null) && ((_invalSep || (_prev == (95 : stdgo.GoInt32)) : Bool)) : Bool)) {

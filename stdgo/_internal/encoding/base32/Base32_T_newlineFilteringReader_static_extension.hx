@@ -13,8 +13,8 @@ package stdgo._internal.encoding.base32;
             };
             {
                 var __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._wrapped.read(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         return { _0 : _n, _1 : _err };

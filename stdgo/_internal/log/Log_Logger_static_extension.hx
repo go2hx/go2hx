@@ -183,9 +183,9 @@ package stdgo._internal.log;
                     var _ok:Bool = false;
                     {
                         var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller(_calldepth);
-                        _file = __tmp__._1?.__copy__();
-                        _line = __tmp__._2;
-                        _ok = __tmp__._3;
+                        _file = @:tmpset0 __tmp__._1?.__copy__();
+                        _line = @:tmpset0 __tmp__._2;
+                        _ok = @:tmpset0 __tmp__._3;
                     };
                     if (!_ok) {
                         _file = ("???" : stdgo.GoString);

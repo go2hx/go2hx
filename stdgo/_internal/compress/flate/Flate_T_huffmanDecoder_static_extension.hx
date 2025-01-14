@@ -9,10 +9,10 @@ package stdgo._internal.compress.flate;
             {
                 var __tmp__ = (new stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder() : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder);
                 var x = (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder);
-                x._min = __tmp__._min;
-                x._chunks = __tmp__._chunks;
-                x._links = __tmp__._links;
-                x._linkMask = __tmp__._linkMask;
+                x._min = __tmp__?._min;
+                x._chunks = __tmp__?._chunks;
+                x._links = __tmp__?._links;
+                x._linkMask = __tmp__?._linkMask;
             };
         };
         var _count:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16).__setNumber32__();

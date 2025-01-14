@@ -20,9 +20,9 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
         var _hours:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetNum._tzsetNum(_s?.__copy__(), (0 : stdgo.GoInt), (168 : stdgo.GoInt));
-            _hours = __tmp__._0;
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _hours = @:tmpset0 __tmp__._0;
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return {
@@ -49,9 +49,9 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
         var _mins:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetNum._tzsetNum((_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), (59 : stdgo.GoInt));
-            _mins = __tmp__._0;
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _mins = @:tmpset0 __tmp__._0;
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return {
@@ -78,9 +78,9 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
         var _secs:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetNum._tzsetNum((_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), (59 : stdgo.GoInt));
-            _secs = __tmp__._0;
-            _s = __tmp__._1?.__copy__();
-            _ok = __tmp__._2;
+            _secs = @:tmpset0 __tmp__._0;
+            _s = @:tmpset0 __tmp__._1?.__copy__();
+            _ok = @:tmpset0 __tmp__._2;
         };
         if (!_ok) {
             return {

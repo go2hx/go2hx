@@ -32,16 +32,16 @@ var _z = __2, _y = __1, _x = __0;
                 while ((_bitNum < (8 : stdgo.GoInt) : Bool)) {
                     {
                         var __tmp__ = @:check2r _curve._doubleJacobian(_x, _y, _z);
-                        _x = __tmp__._0;
-                        _y = __tmp__._1;
-                        _z = __tmp__._2;
+                        _x = @:tmpset0 __tmp__._0;
+                        _y = @:tmpset0 __tmp__._1;
+                        _z = @:tmpset0 __tmp__._2;
                     };
 if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((128 : stdgo.GoUInt8))) {
                         {
                             var __tmp__ = @:check2r _curve._addJacobian(bx, by, bz, _x, _y, _z);
-                            _x = __tmp__._0;
-                            _y = __tmp__._1;
-                            _z = __tmp__._2;
+                            _x = @:tmpset0 __tmp__._0;
+                            _y = @:tmpset0 __tmp__._1;
+                            _z = @:tmpset0 __tmp__._2;
                         };
                     };
 _byte = (_byte << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt8);

@@ -13,8 +13,8 @@ package stdgo._internal.crypto.tls;
             if ((_explicitNonceLen > (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__sliceForAppend._sliceForAppend(_record, _explicitNonceLen);
-                    _record = __tmp__._0;
-                    _explicitNonce = __tmp__._1;
+                    _record = @:tmpset0 __tmp__._0;
+                    _explicitNonce = @:tmpset0 __tmp__._1;
                 };
                 {
                     var __tmp__ = try {
@@ -43,8 +43,8 @@ package stdgo._internal.crypto.tls;
                 var _mac = stdgo._internal.crypto.tls.Tls__tls10MAC._tls10MAC((@:checkr _hc ?? throw "null pointer dereference")._mac, ((@:checkr _hc ?? throw "null pointer dereference")._scratchBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _hc ?? throw "null pointer dereference")._seq.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_record.__slice__(0, (5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _payload, (null : stdgo.Slice<stdgo.GoUInt8>));
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__sliceForAppend._sliceForAppend(_record, ((_payload.length) + (_mac.length) : stdgo.GoInt));
-                    _record = __tmp__._0;
-                    _dst = __tmp__._1;
+                    _record = @:tmpset0 __tmp__._0;
+                    _dst = @:tmpset0 __tmp__._1;
                 };
                 _c.xORKeyStream((_dst.__slice__(0, (_payload.length)) : stdgo.Slice<stdgo.GoUInt8>), _payload);
                 _c.xORKeyStream((_dst.__slice__((_payload.length)) : stdgo.Slice<stdgo.GoUInt8>), _mac);
@@ -75,8 +75,8 @@ package stdgo._internal.crypto.tls;
                 var _paddingLen = (_blockSize - (_plaintextLen % _blockSize : stdgo.GoInt) : stdgo.GoInt);
                 {
                     var __tmp__ = stdgo._internal.crypto.tls.Tls__sliceForAppend._sliceForAppend(_record, (_plaintextLen + _paddingLen : stdgo.GoInt));
-                    _record = __tmp__._0;
-                    _dst = __tmp__._1;
+                    _record = @:tmpset0 __tmp__._0;
+                    _dst = @:tmpset0 __tmp__._1;
                 };
                 _dst.__copyTo__(_payload);
                 (_dst.__slice__((_payload.length)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_mac);
@@ -143,8 +143,8 @@ package stdgo._internal.crypto.tls;
                     var _err:stdgo.Error = (null : stdgo.Error);
                     {
                         var __tmp__ = _c.open((_payload.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _nonce, _payload, _additionalData);
-                        _plaintext = __tmp__._0;
-                        _err = __tmp__._1;
+                        _plaintext = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (0 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), _2 : stdgo.Go.asInterface((20 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)) };
@@ -163,8 +163,8 @@ package stdgo._internal.crypto.tls;
                     _c.cryptBlocks(_payload, _payload);
                     {
                         var __tmp__ = stdgo._internal.crypto.tls.Tls__extractPadding._extractPadding(_payload);
-                        _paddingLen = __tmp__._0;
-                        _paddingGood = __tmp__._1;
+                        _paddingLen = @:tmpset0 __tmp__._0;
+                        _paddingGood = @:tmpset0 __tmp__._1;
                     };
                 } else {
                     var _c:stdgo.AnyInterface = __type__?.__underlying__();

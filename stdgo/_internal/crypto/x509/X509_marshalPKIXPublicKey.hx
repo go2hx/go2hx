@@ -6,9 +6,9 @@ function marshalPKIXPublicKey(_pub:stdgo.AnyInterface):{ var _0 : stdgo.Slice<st
         {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__marshalPublicKey._marshalPublicKey(_pub);
-                _publicKeyBytes = __tmp__._0;
-                _publicKeyAlgorithm = __tmp__._1?.__copy__();
-                _err = __tmp__._2;
+                _publicKeyBytes = @:tmpset0 __tmp__._0;
+                _publicKeyAlgorithm = @:tmpset0 __tmp__._1?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

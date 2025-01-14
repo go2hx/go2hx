@@ -17,8 +17,8 @@ var _m = __1, _out = __0;
             } else {
                 {
                     var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_test._out?.__copy__(), (0 : stdgo.GoInt));
-                    _out = __tmp__._0;
-                    _ok3 = __tmp__._1;
+                    _out = @:tmpset0 __tmp__._0;
+                    _ok3 = @:tmpset0 __tmp__._1;
                 };
             };
             if ((_test._m.length) == ((0 : stdgo.GoInt))) {
@@ -31,8 +31,8 @@ var _m = __1, _out = __0;
             } else {
                 {
                     var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_test._m?.__copy__(), (0 : stdgo.GoInt));
-                    _m = __tmp__._0;
-                    _ok4 = __tmp__._1;
+                    _m = @:tmpset0 __tmp__._0;
+                    _ok4 = @:tmpset0 __tmp__._1;
                 };
             };
             if ((((!_ok1 || !_ok2 : Bool) || !_ok3 : Bool) || !_ok4 : Bool)) {

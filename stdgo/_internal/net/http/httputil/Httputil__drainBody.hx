@@ -14,7 +14,7 @@ function _drainBody(_b:stdgo._internal.io.Io_ReadCloser.ReadCloser):{ var _0 : s
         {
             {
                 var __tmp__ = @:check2 _buf.readFrom(_b);
-                _err = __tmp__._1;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {

@@ -11,8 +11,8 @@ function testMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         };
         {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__pallValue._pallValue));
-            _b = __tmp__._0;
-            _err = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatalf(("Marshal pallValue: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

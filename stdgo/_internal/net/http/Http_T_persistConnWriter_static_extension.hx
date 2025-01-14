@@ -7,8 +7,8 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.io.Io_copy.copy((@:checkr _w._pc ?? throw "null pointer dereference")._conn, _r);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _w._pc ?? throw "null pointer dereference")._nwrite = ((@:checkr _w._pc ?? throw "null pointer dereference")._nwrite + (_n) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };
@@ -20,8 +20,8 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = (@:checkr _w._pc ?? throw "null pointer dereference")._conn.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
+            _n = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         (@:checkr _w._pc ?? throw "null pointer dereference")._nwrite = ((@:checkr _w._pc ?? throw "null pointer dereference")._nwrite + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };

@@ -11,8 +11,8 @@ function testDecoderIssue4779(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         var _res2:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.io.Io_readAll.readAll(_dec);
-            _res2 = __tmp__._0;
-            _err = __tmp__._1;
+            _res2 = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.errorf(("ReadAll failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

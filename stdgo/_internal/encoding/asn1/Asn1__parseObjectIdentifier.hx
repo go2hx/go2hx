@@ -21,9 +21,9 @@ function _parseObjectIdentifier(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : st
         while ((_offset < (_bytes.length) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseBase128Int._parseBase128Int(_bytes, _offset);
-                _v = __tmp__._0;
-                _offset = __tmp__._1;
-                _err = __tmp__._2;
+                _v = @:tmpset0 __tmp__._0;
+                _offset = @:tmpset0 __tmp__._1;
+                _err = @:tmpset0 __tmp__._2;
             };
 if (_err != null) {
                 return { _0 : _s, _1 : _err };

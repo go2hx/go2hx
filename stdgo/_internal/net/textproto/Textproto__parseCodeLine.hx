@@ -8,8 +8,8 @@ function _parseCodeLine(_line:stdgo.GoString, _expectCode:stdgo.GoInt):{ var _0 
         _continued = _line[(3 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8));
         {
             var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi((_line.__slice__((0 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-            _code = __tmp__._0;
-            _err = __tmp__._1;
+            _code = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (((_err != null) || (_code < (100 : stdgo.GoInt) : Bool) : Bool)) {
             _err = stdgo.Go.asInterface(((("invalid response code: " : stdgo.GoString) + _line?.__copy__() : stdgo.GoString) : stdgo._internal.net.textproto.Textproto_ProtocolError.ProtocolError));

@@ -28,8 +28,8 @@ function _parseName(_raw:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cry
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseASN1String._parseASN1String(_valueTag, _rawValue);
-                    _attr.value = stdgo.Go.toInterface(__tmp__._0);
-                    _err = __tmp__._1;
+                    _attr.value = stdgo.Go.toInterface(@:tmpset0 __tmp__._0);
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid RDNSequence: invalid attribute value: %s" : stdgo.GoString), stdgo.Go.toInterface(_err)) };

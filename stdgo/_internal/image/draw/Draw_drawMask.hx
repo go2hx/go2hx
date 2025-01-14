@@ -336,7 +336,7 @@ var _mx = ((_mp.x + _x0 : stdgo.GoInt) - _r.min.x : stdgo.GoInt);
 if (_mask != null) {
                             {
                                 var __tmp__ = _mask.at(_mx, _my).rGBA();
-                                _ma = __tmp__._3;
+                                _ma = @:tmpset0 __tmp__._3;
                             };
                         };
 if (_ma == ((0u32 : stdgo.GoUInt32))) {

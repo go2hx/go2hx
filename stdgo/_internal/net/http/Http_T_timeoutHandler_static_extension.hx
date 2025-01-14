@@ -11,8 +11,8 @@ package stdgo._internal.net.http;
                 var _cancelCtx:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(@:check2r _r.context(), (@:checkr _h ?? throw "null pointer dereference")._dt);
-                    _ctx = __tmp__._0;
-                    _cancelCtx = __tmp__._1;
+                    _ctx = @:tmpset0 __tmp__._0;
+                    _cancelCtx = @:tmpset0 __tmp__._1;
                 };
                 {
                     final __f__ = _cancelCtx;

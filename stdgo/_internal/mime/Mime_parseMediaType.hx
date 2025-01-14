@@ -55,8 +55,8 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                     {
                         {
                             var __tmp__ = (_continuation != null && _continuation.exists(_baseName?.__copy__()) ? { _0 : _continuation[_baseName?.__copy__()], _1 : true } : { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _1 : false });
-                            _pmap = __tmp__._0;
-                            _ok = __tmp__._1;
+                            _pmap = @:tmpset0 __tmp__._0;
+                            _ok = @:tmpset0 __tmp__._1;
                         };
                         if (!_ok) {
                             _continuation[_baseName] = (({

@@ -21,9 +21,9 @@ var _dst = __1, _elem = __0;
         while (_found) {
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_remaining?.__copy__(), ("/" : stdgo.GoString));
-                _elem = __tmp__._0?.__copy__();
-                _remaining = __tmp__._1?.__copy__();
-                _found = __tmp__._2;
+                _elem = @:tmpset0 __tmp__._0?.__copy__();
+                _remaining = @:tmpset0 __tmp__._1?.__copy__();
+                _found = @:tmpset0 __tmp__._2;
             };
             if (_elem == (("." : stdgo.GoString))) {
                 _first = false;

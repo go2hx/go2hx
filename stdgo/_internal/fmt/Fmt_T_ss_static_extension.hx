@@ -31,9 +31,9 @@ package stdgo._internal.fmt;
                     var _widPresent:Bool = false;
                     {
                         var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), _i, _end);
-                        (@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid = __tmp__._0;
-                        _widPresent = __tmp__._1;
-                        _i = __tmp__._2;
+                        (@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid = @:tmpset0 __tmp__._0;
+                        _widPresent = @:tmpset0 __tmp__._1;
+                        _i = @:tmpset0 __tmp__._2;
                     };
                     if (!_widPresent) {
                         (@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid = (1073741824 : stdgo.GoInt);
@@ -141,8 +141,8 @@ package stdgo._internal.fmt;
                     _i = (_i + (_w) : stdgo.GoInt);
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_format.__slice__(_i) : stdgo.GoString)?.__copy__());
-                        _fmtc = __tmp__._0;
-                        _w = __tmp__._1;
+                        _fmtc = @:tmpset0 __tmp__._0;
+                        _w = @:tmpset0 __tmp__._1;
                     };
                 };
                 {
@@ -668,9 +668,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         } else if (_verb == ((118 : stdgo.GoInt32))) {
             {
                 var __tmp__ = @:check2r _s._scanBasePrefix();
-                _base = __tmp__._0;
-                _digits = __tmp__._1?.__copy__();
-                _haveDigits = __tmp__._2;
+                _base = @:tmpset0 __tmp__._0;
+                _digits = @:tmpset0 __tmp__._1?.__copy__();
+                _haveDigits = @:tmpset0 __tmp__._2;
             };
         };
         var _tok = (@:check2r _s._scanNumber(_digits?.__copy__(), _haveDigits)?.__copy__() : stdgo.GoString);
@@ -705,9 +705,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             if (_verb == ((118 : stdgo.GoInt32))) {
                 {
                     var __tmp__ = @:check2r _s._scanBasePrefix();
-                    _base = __tmp__._0;
-                    _digits = __tmp__._1?.__copy__();
-                    _haveDigits = __tmp__._2;
+                    _base = @:tmpset0 __tmp__._0;
+                    _digits = @:tmpset0 __tmp__._1?.__copy__();
+                    _haveDigits = @:tmpset0 __tmp__._2;
                 };
             };
         };
@@ -1143,9 +1143,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         };
         {
             var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._rs.readRune();
-            _r = __tmp__._0;
-            _size = __tmp__._1;
-            _err = __tmp__._2;
+            _r = @:tmpset0 __tmp__._0;
+            _size = @:tmpset0 __tmp__._1;
+            _err = @:tmpset0 __tmp__._2;
         };
         if (_err == null) {
             (@:checkr _s ?? throw "null pointer dereference")._count++;

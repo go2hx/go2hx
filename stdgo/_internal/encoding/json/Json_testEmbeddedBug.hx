@@ -13,8 +13,8 @@ function testEmbeddedBug(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         var _x = ({ a : (23 : stdgo.GoInt) } : stdgo._internal.encoding.json.Json_BugX.BugX);
         {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_x));
-            _b = __tmp__._0;
-            _err = __tmp__._1;
+            _b = @:tmpset0 __tmp__._0;
+            _err = @:tmpset0 __tmp__._1;
         };
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("Marshal:" : stdgo.GoString)), stdgo.Go.toInterface(_err));

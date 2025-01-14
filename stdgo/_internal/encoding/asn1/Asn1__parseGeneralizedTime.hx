@@ -6,8 +6,8 @@ function _parseGeneralizedTime(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : std
         {
             {
                 var __tmp__ = stdgo._internal.time.Time_parse.parse(("20060102150405.999999999Z0700" : stdgo.GoString), _s?.__copy__());
-                _ret = __tmp__._0?.__copy__();
-                _err = __tmp__._1;
+                _ret = @:tmpset0 __tmp__._0?.__copy__();
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : _ret, _1 : _err };

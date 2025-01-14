@@ -10,8 +10,8 @@ package stdgo._internal.io;
         while (true) {
             {
                 var __tmp__ = _r.read((_bufp : stdgo.Slice<stdgo.GoUInt8>));
-                _readSize = __tmp__._0;
-                _err = __tmp__._1;
+                _readSize = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             _n = (_n + ((_readSize : stdgo.GoInt64)) : stdgo.GoInt64);
             if (_err != null) {

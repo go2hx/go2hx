@@ -50,8 +50,8 @@ package stdgo._internal.image.gif;
             if (_useLocalColorTable) {
                 {
                     var __tmp__ = @:check2r _d._readColorTable((@:checkr _d ?? throw "null pointer dereference")._imageFields);
-                    (@:checkr _m ?? throw "null pointer dereference").palette = __tmp__._0;
-                    _err = __tmp__._1;
+                    (@:checkr _m ?? throw "null pointer dereference").palette = @:tmpset0 __tmp__._0;
+                    _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
                     return _err;
@@ -365,8 +365,8 @@ var _p = __1, _j = __0;
                 {
                     {
                         var __tmp__ = @:check2r _d._readColorTable(_fields);
-                        (@:checkr _d ?? throw "null pointer dereference")._globalColorTable = __tmp__._0;
-                        _err = __tmp__._1;
+                        (@:checkr _d ?? throw "null pointer dereference")._globalColorTable = @:tmpset0 __tmp__._0;
+                        _err = @:tmpset0 __tmp__._1;
                     };
                     if (_err != null) {
                         return _err;

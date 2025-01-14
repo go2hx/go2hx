@@ -26,9 +26,9 @@ var _scale = __2, _f = __1, _v = __0;
             var _pl = (_s.length : stdgo.GoInt);
             {
                 var __tmp__ = stdgo._internal.time.Time__leadingInt._leadingInt(_s?.__copy__());
-                _v = __tmp__._0;
-                _s = __tmp__._1?.__copy__();
-                _err = __tmp__._2;
+                _v = @:tmpset0 __tmp__._0;
+                _s = @:tmpset0 __tmp__._1?.__copy__();
+                _err = @:tmpset0 __tmp__._2;
             };
             if (_err != null) {
                 return { _0 : (0i64 : stdgo._internal.time.Time_Duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: invalid duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
@@ -40,9 +40,9 @@ var _scale = __2, _f = __1, _v = __0;
                 var _pl = (_s.length : stdgo.GoInt);
                 {
                     var __tmp__ = stdgo._internal.time.Time__leadingFraction._leadingFraction(_s?.__copy__());
-                    _f = __tmp__._0;
-                    _scale = __tmp__._1;
-                    _s = __tmp__._2?.__copy__();
+                    _f = @:tmpset0 __tmp__._0;
+                    _scale = @:tmpset0 __tmp__._1;
+                    _s = @:tmpset0 __tmp__._2?.__copy__();
                 };
                 _post = _pl != ((_s.length));
             };

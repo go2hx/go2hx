@@ -11,8 +11,8 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:stdgo.GoInt32 -> Bool):std
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
-                        _r = __tmp__._0;
-                        _size = __tmp__._1;
+                        _r = @:tmpset0 __tmp__._0;
+                        _size = @:tmpset0 __tmp__._1;
                     };
                 };
                 if (_f(_r)) {

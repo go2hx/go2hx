@@ -1,68 +1,68 @@
 package stdgo._internal.internal.xcoff;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>; var _1 : stdgo.Error; } {
-        var _offset_3777615:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _f_3776709:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
-        var _err_3782726:stdgo.Error = (null : stdgo.Error);
-        var _shdr_3778454:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32>);
-        var _symptr_3776874:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _zeroes_3780032:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _nscns_3776856:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _rel_3783871:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64>);
+        var _nsyms_3776893:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_3776501:stdgo.Error = (null : stdgo.Error);
+        var _c_3778157:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r2_3779156:stdgo._internal.io.Io_ReaderAt.ReaderAt = (null : stdgo._internal.io.Io_ReaderAt.ReaderAt);
-        var _hdrsz_3776930:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3782366:stdgo.Error = (null : stdgo.Error);
-        var _aux_3782337:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64>);
+        var _offset_3777615:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _err_3783898:stdgo.Error = (null : stdgo.Error);
+        var _reloc_3783376:stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc = ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc);
+        var _i_3783330:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _aux_3782049:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32>);
-        var _err_3781643:stdgo.Error = (null : stdgo.Error);
+        var _needAuxFcn_3779636:Bool = false;
+        var _l_3777799:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _sr_3776408:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = (null : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+        var _err_3782078:stdgo.Error = (null : stdgo.Error);
+        var _err_3779750:stdgo.Error = (null : stdgo.Error);
+        var _numaux_3779615:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3778333:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _st_3777906:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _err_3777662:stdgo.Error = (null : stdgo.Error);
+        var _c_3783032:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _sect_3782891:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        var _s_3778385:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        var _opthdr_3776911:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _symptr_3776874:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _err_3783238:stdgo.Error = (null : stdgo.Error);
+        var _aux_3782337:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect64.AuxCSect64>);
+        var _err_3781873:stdgo.Error = (null : stdgo.Error);
+        var _aux_3781615:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64>);
         var _err_3781462:stdgo.Error = (null : stdgo.Error);
+        var _shdr_3778454:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32>);
+        var _se_3779724:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32>);
+        var _err_3777276:stdgo.Error = (null : stdgo.Error);
+        var _err_3783469:stdgo.Error = (null : stdgo.Error);
+        var _aux_3781434:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32>);
+        var _offset_3780152:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_3782726:stdgo.Error = (null : stdgo.Error);
+        var _err_3780341:stdgo.Error = (null : stdgo.Error);
+        var _rel_3783442:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32>);
+        var _fhdr_3776988:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32>);
+        var _f_3776709:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        var _sectNum_3782882:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _se_3780315:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64>);
+        var _idxToSym_3779400;
+        var _err_3777812:stdgo.Error = (null : stdgo.Error);
+        var _err_3778064:stdgo.Error = (null : stdgo.Error);
+        var _magic_3776484:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _err_3782366:stdgo.Error = (null : stdgo.Error);
+        var _err_3778489:stdgo.Error = (null : stdgo.Error);
+        var _err_3777019:stdgo.Error = (null : stdgo.Error);
+        var _err_3781643:stdgo.Error = (null : stdgo.Error);
+        var _ok_3779632:Bool = false;
+        var _fhdr_3777245:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64>);
+        var _hdrsz_3776930:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3779463:stdgo.Error = (null : stdgo.Error);
+        var _err_3778869:stdgo.Error = (null : stdgo.Error);
+        var _scnptr_3778369:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _sym_3779654:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
+        var _i_3779579:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_3777910:stdgo.Error = (null : stdgo.Error);
         var _err_3776784:stdgo.Error = (null : stdgo.Error);
-        var _rel_3783871:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc64.Reloc64>);
-        var _err_3781873:stdgo.Error = (null : stdgo.Error);
-        var _err_3778489:stdgo.Error = (null : stdgo.Error);
-        var _err_3776501:stdgo.Error = (null : stdgo.Error);
-        var _err_3783898:stdgo.Error = (null : stdgo.Error);
-        var _sym_3779654:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
-        var _needAuxFcn_3779636:Bool = false;
-        var _numaux_3779615:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3778385:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
-        var _sr_3776408:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = (null : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
-        var _scnptr_3778369:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _nsyms_3776893:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _rel_3783442:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32>);
-        var _sect_3782891:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
         var _shdr_3778834:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader64.SectionHeader64>);
-        var _l_3777799:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3782078:stdgo.Error = (null : stdgo.Error);
-        var _se_3780315:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt64.SymEnt64>);
-        var _err_3777019:stdgo.Error = (null : stdgo.Error);
-        var _opthdr_3776911:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _sectNum_3782882:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3779750:stdgo.Error = (null : stdgo.Error);
-        var _st_3777906:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _c_3778157:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3777276:stdgo.Error = (null : stdgo.Error);
-        var _c_3783032:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _idxToSym_3779400;
-        var _i_3778333:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fhdr_3776988:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader32.FileHeader32>);
-        var _magic_3776484:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _i_3783330:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_3779579:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3779463:stdgo.Error = (null : stdgo.Error);
-        var _err_3777662:stdgo.Error = (null : stdgo.Error);
-        var _err_3780341:stdgo.Error = (null : stdgo.Error);
-        var _nscns_3776856:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _err_3783238:stdgo.Error = (null : stdgo.Error);
-        var _aux_3781615:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn64.AuxFcn64>);
-        var _aux_3781434:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxFcn32.AuxFcn32>);
-        var _err_3777812:stdgo.Error = (null : stdgo.Error);
-        var _fhdr_3777245:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_FileHeader64.FileHeader64>);
-        var _reloc_3783376:stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc = ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc);
-        var _offset_3780152:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_3778064:stdgo.Error = (null : stdgo.Error);
-        var _ok_3779632:Bool = false;
-        var _err_3778869:stdgo.Error = (null : stdgo.Error);
-        var _err_3783469:stdgo.Error = (null : stdgo.Error);
-        var _se_3779724:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -97,7 +97,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
-                            _err_3776784 = __tmp__._1;
+                            _err_3776784 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3776784 != null) {
                             _gotoNext = 3776828i32;
@@ -175,7 +175,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek((_offset_3777615 : stdgo.GoInt64), (0 : stdgo.GoInt));
-                            _err_3777662 = __tmp__._1;
+                            _err_3777662 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3777662 != null) {
                             _gotoNext = 3777718i32;
@@ -208,8 +208,8 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                 } else if (__value__ == (3777902i32)) {
                     {
                         var __tmp__ = stdgo._internal.internal.saferio.Saferio_readDataAt.readDataAt(stdgo.Go.asInterface(_sr_3776408), (_l_3777799 : stdgo.GoUInt64), (_offset_3777615 : stdgo.GoInt64));
-                        _st_3777906 = __tmp__._0;
-                        _err_3777910 = __tmp__._1;
+                        _st_3777906 = @:tmpset0 __tmp__._0;
+                        _err_3777910 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_3777910 != null) {
                         _gotoNext = 3777982i32;
@@ -226,7 +226,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek(((_hdrsz_3776930 : stdgo.GoInt64) + (_opthdr_3776911 : stdgo.GoInt64) : stdgo.GoInt64), (0 : stdgo.GoInt));
-                            _err_3778064 = __tmp__._1;
+                            _err_3778064 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3778064 != null) {
                             _gotoNext = 3778133i32;
@@ -341,7 +341,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek((_symptr_3776874 : stdgo.GoInt64), (0 : stdgo.GoInt));
-                            _err_3779463 = __tmp__._1;
+                            _err_3779463 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3779463 != null) {
                             _gotoNext = 3779519i32;
@@ -412,8 +412,8 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _offset_3780152 = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(((@:checkr _se_3779724 ?? throw "null pointer dereference").nname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     {
                         var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString((@:checkr _f_3776709 ?? throw "null pointer dereference").stringTable, _offset_3780152);
-                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = __tmp__._0?.__copy__();
-                        _ok_3779632 = __tmp__._1;
+                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = @:tmpset0 __tmp__._0?.__copy__();
+                        _ok_3779632 = @:tmpset0 __tmp__._1;
                     };
                     if (!_ok_3779632) {
                         _gotoNext = 3780263i32;
@@ -443,8 +443,8 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     _needAuxFcn_3779636 = ((((@:checkr _se_3780315 ?? throw "null pointer dereference").ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux_3779615 > (1 : stdgo.GoInt) : Bool) : Bool);
                     {
                         var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString((@:checkr _f_3776709 ?? throw "null pointer dereference").stringTable, (@:checkr _se_3780315 ?? throw "null pointer dereference").noffset);
-                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = __tmp__._0?.__copy__();
-                        _ok_3779632 = __tmp__._1;
+                        (@:checkr _sym_3779654 ?? throw "null pointer dereference").name = @:tmpset0 __tmp__._0?.__copy__();
+                        _ok_3779632 = @:tmpset0 __tmp__._1;
                     };
                     if (!_ok_3779632) {
                         _gotoNext = 3780677i32;
@@ -553,7 +553,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek((((_numaux_3779615 - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
-                            _err_3781873 = __tmp__._1;
+                            _err_3781873 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3781873 != null) {
                             _gotoNext = 3781940i32;
@@ -623,7 +623,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek(((_numaux_3779615 : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt));
-                            _err_3782726 = __tmp__._1;
+                            _err_3782726 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3782726 != null) {
                             _gotoNext = 3782791i32;
@@ -677,7 +677,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                     {
                         {
                             var __tmp__ = @:check2r _sr_3776408.seek(((@:checkr _sect_3782891 ?? throw "null pointer dereference").sectionHeader.relptr : stdgo.GoInt64), (0 : stdgo.GoInt));
-                            _err_3783238 = __tmp__._1;
+                            _err_3783238 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3783238 != null) {
                             _gotoNext = 3783299i32;

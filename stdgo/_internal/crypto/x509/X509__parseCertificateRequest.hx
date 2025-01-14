@@ -5,8 +5,8 @@ function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509
         if ((@:checkr _out ?? throw "null pointer dereference").publicKeyAlgorithm != ((0 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm))) {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__parsePublicKey._parsePublicKey((stdgo.Go.setRef((@:checkr _in ?? throw "null pointer dereference").tBSCSR.publicKey) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo>));
-                (@:checkr _out ?? throw "null pointer dereference").publicKey = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").publicKey = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
@@ -25,8 +25,8 @@ function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509
         {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__parseCSRExtensions._parseCSRExtensions((@:checkr _in ?? throw "null pointer dereference").tBSCSR.rawAttributes);
-                (@:checkr _out ?? throw "null pointer dereference").extensions = __tmp__._0;
-                _err = __tmp__._1;
+                (@:checkr _out ?? throw "null pointer dereference").extensions = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return { _0 : null, _1 : _err };
@@ -36,11 +36,11 @@ function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509
             if (_extension.id.equal(stdgo._internal.crypto.x509.X509__oidExtensionSubjectAltName._oidExtensionSubjectAltName)) {
                 {
                     var __tmp__ = stdgo._internal.crypto.x509.X509__parseSANExtension._parseSANExtension(_extension.value);
-                    (@:checkr _out ?? throw "null pointer dereference").dNSNames = __tmp__._0;
-                    (@:checkr _out ?? throw "null pointer dereference").emailAddresses = __tmp__._1;
-                    (@:checkr _out ?? throw "null pointer dereference").iPAddresses = __tmp__._2;
-                    (@:checkr _out ?? throw "null pointer dereference").uRIs = __tmp__._3;
-                    _err = __tmp__._4;
+                    (@:checkr _out ?? throw "null pointer dereference").dNSNames = @:tmpset0 __tmp__._0;
+                    (@:checkr _out ?? throw "null pointer dereference").emailAddresses = @:tmpset0 __tmp__._1;
+                    (@:checkr _out ?? throw "null pointer dereference").iPAddresses = @:tmpset0 __tmp__._2;
+                    (@:checkr _out ?? throw "null pointer dereference").uRIs = @:tmpset0 __tmp__._3;
+                    _err = @:tmpset0 __tmp__._4;
                 };
                 if (_err != null) {
                     return { _0 : null, _1 : _err };

@@ -6,8 +6,8 @@ function testFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var _ok:Bool = false;
                 {
                     var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_test._input?.__copy__(), (0 : stdgo.GoInt));
-                    _x = __tmp__._0;
-                    _ok = __tmp__._1;
+                    _x = @:tmpset0 __tmp__._0;
+                    _ok = @:tmpset0 __tmp__._1;
                 };
                 if (!_ok) {
                     @:check2r _t.errorf(("#%d failed reading input %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._input));

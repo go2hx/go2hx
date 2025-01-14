@@ -130,8 +130,8 @@ var _rerr = __1, _closed = __0;
             };
             {
                 var __tmp__ = (@:checkr _es ?? throw "null pointer dereference")._body.read(_p);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
+                _n = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 @:check2 (@:checkr _es ?? throw "null pointer dereference")._mu.lock();

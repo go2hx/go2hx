@@ -123,15 +123,15 @@ package stdgo._internal.net.http;
             if ((@:checkr _mux ?? throw "null pointer dereference")._hosts) {
                 {
                     var __tmp__ = @:check2r _mux._match((_host + _path?.__copy__() : stdgo.GoString)?.__copy__());
-                    _h = __tmp__._0;
-                    _pattern = __tmp__._1?.__copy__();
+                    _h = @:tmpset0 __tmp__._0;
+                    _pattern = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
             if (_h == null) {
                 {
                     var __tmp__ = @:check2r _mux._match(_path?.__copy__());
-                    _h = __tmp__._0;
-                    _pattern = __tmp__._1?.__copy__();
+                    _h = @:tmpset0 __tmp__._0;
+                    _pattern = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
             if (_h == null) {
@@ -236,7 +236,7 @@ package stdgo._internal.net.http;
         if (_path != ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path)) {
             {
                 var __tmp__ = @:check2r _mux._handler(_host?.__copy__(), _path?.__copy__());
-                _pattern = __tmp__._1?.__copy__();
+                _pattern = @:tmpset0 __tmp__._1?.__copy__();
             };
             var _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
             return {

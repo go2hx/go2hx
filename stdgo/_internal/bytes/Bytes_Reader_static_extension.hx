@@ -7,9 +7,9 @@ package stdgo._internal.bytes;
         {
             var __tmp__ = (new stdgo._internal.bytes.Bytes_Reader.Reader(_b, (0i64 : stdgo.GoInt64), (-1 : stdgo.GoInt)) : stdgo._internal.bytes.Bytes_Reader.Reader);
             var x = (_r : stdgo._internal.bytes.Bytes_Reader.Reader);
-            x._s = __tmp__._s;
-            x._i = __tmp__._i;
-            x._prevRune = __tmp__._prevRune;
+            x._s = __tmp__?._s;
+            x._i = __tmp__?._i;
+            x._prevRune = __tmp__?._prevRune;
         };
     }
     @:keep
@@ -107,8 +107,8 @@ package stdgo._internal.bytes;
         };
         {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(((@:checkr _r ?? throw "null pointer dereference")._s.__slice__((@:checkr _r ?? throw "null pointer dereference")._i) : stdgo.Slice<stdgo.GoUInt8>));
-            _ch = __tmp__._0;
-            _size = __tmp__._1;
+            _ch = @:tmpset0 __tmp__._0;
+            _size = @:tmpset0 __tmp__._1;
         };
         (@:checkr _r ?? throw "null pointer dereference")._i = ((@:checkr _r ?? throw "null pointer dereference")._i + ((_size : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _ch, _1 : _size, _2 : _err };

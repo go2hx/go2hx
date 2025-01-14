@@ -11,8 +11,8 @@ function _parsePostForm(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Reque
         };
         {
             var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_ct?.__copy__());
-            _ct = __tmp__._0?.__copy__();
-            _err = __tmp__._2;
+            _ct = @:tmpset0 __tmp__._0?.__copy__();
+            _err = @:tmpset0 __tmp__._2;
         };
         {
             var __switchIndex__ = -1;
@@ -46,8 +46,8 @@ function _parsePostForm(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Reque
                     };
                     {
                         var __tmp__ = stdgo._internal.net.url.Url_parseQuery.parseQuery((_b : stdgo.GoString)?.__copy__());
-                        _vs = __tmp__._0;
-                        _e = __tmp__._1;
+                        _vs = @:tmpset0 __tmp__._0;
+                        _e = @:tmpset0 __tmp__._1;
                     };
                     if (_err == null) {
                         _err = _e;

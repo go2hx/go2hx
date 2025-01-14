@@ -8,7 +8,7 @@ package stdgo._internal.encoding.base64;
             @:check2r (@:checkr _e ?? throw "null pointer dereference")._enc.encode(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _e ?? throw "null pointer dereference")._buf.__slice__(0, (@:checkr _e ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
             {
                 var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__(0, @:check2r (@:checkr _e ?? throw "null pointer dereference")._enc.encodedLen((@:checkr _e ?? throw "null pointer dereference")._nbuf)) : stdgo.Slice<stdgo.GoUInt8>));
-                (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             (@:checkr _e ?? throw "null pointer dereference")._nbuf = (0 : stdgo.GoInt);
         };
@@ -46,7 +46,7 @@ package stdgo._internal.encoding.base64;
             {
                 {
                     var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                    (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                     return {
@@ -69,7 +69,7 @@ package stdgo._internal.encoding.base64;
             {
                 {
                     var __tmp__ = (@:checkr _e ?? throw "null pointer dereference")._w.write(((@:checkr _e ?? throw "null pointer dereference")._out.__slice__((0 : stdgo.GoInt), ((_nn / (3 : stdgo.GoInt) : stdgo.GoInt) * (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    (@:checkr _e ?? throw "null pointer dereference")._err = __tmp__._1;
+                    (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
                 };
                 if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                     return {

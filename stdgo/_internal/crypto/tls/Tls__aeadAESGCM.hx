@@ -11,15 +11,15 @@ function _aeadAESGCM(_key:stdgo.Slice<stdgo.GoUInt8>, _noncePrefix:stdgo.Slice<s
         if (false) {
             {
                 var __tmp__ = stdgo._internal.crypto.internal.boring.Boring_newGCMTLS.newGCMTLS(_aes);
-                _aead = __tmp__._0;
-                _err = __tmp__._1;
+                _aead = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         } else {
             stdgo._internal.crypto.internal.boring.Boring_unreachable.unreachable();
             {
                 var __tmp__ = stdgo._internal.crypto.cipher.Cipher_newGCM.newGCM(_aes);
-                _aead = __tmp__._0;
-                _err = __tmp__._1;
+                _aead = @:tmpset0 __tmp__._0;
+                _err = @:tmpset0 __tmp__._1;
             };
         };
         if (_err != null) {

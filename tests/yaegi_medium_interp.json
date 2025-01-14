@@ -261,5 +261,8 @@
  "interp|switch15",
  "interp|switch16",
  "interp|switch17",
- "interp|range6"
+ "interp|range6",
+ "interp|issue_dash_1371",
+ "interp|struct12",
+ "interp|struct53"
 ]

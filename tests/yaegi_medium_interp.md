@@ -101,28 +101,6 @@ func main() {
 // {1 [{0 []} {0 []}]}
 
 ```
-## issue_dash_1371
-```go
-package main
-
-import "fmt"
-
-type node struct {
-	parent *node
-	child  []*node
-	key    string
-}
-
-func main() {
-	root := &node{key: "root"}
-	root.child = nil
-	fmt.Println("root:", root)
-}
-
-// Output:
-// root: &{<nil> [] root}
-
-```
 ## range1
 ```go
 package main
@@ -139,51 +117,6 @@ func main() {
 
 // Output:
 // [0 1 2]
-
-```
-## struct12
-```go
-package main
-
-import "fmt"
-
-type S1 struct {
-	Name string
-}
-
-type S2 struct {
-	*S1
-}
-
-func main() {
-	fmt.Println(S2{})
-}
-
-// Output:
-// {<nil>}
-
-```
-## struct28
-```go
-package main
-
-import "fmt"
-
-type T1 struct {
-	T2
-}
-
-type T2 struct {
-	*T1
-}
-
-func main() {
-	t := T1{}
-	fmt.Println(t)
-}
-
-// Output:
-// {{<nil>}}
 
 ```
 ## struct50
@@ -232,33 +165,6 @@ func main() {
 // Output:
 // {hello map[1:{world map[]}]}
 // {hello map[1:{world map[1:{sunshine map[]}]}]}
-
-```
-## struct53
-```go
-package main
-
-import "fmt"
-
-type T1 struct {
-	P []*T
-}
-
-type T2 struct {
-	P2 *T
-}
-
-type T struct {
-	*T1
-	S1 *T
-}
-
-func main() {
-	fmt.Println(T2{})
-}
-
-// Output:
-// {<nil>}
 
 ```
 ## switch14

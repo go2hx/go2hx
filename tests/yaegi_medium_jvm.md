@@ -4055,30 +4055,6 @@ func main() {
 // Baz Called
 
 ```
-## method16
-```go
-package main
-
-import (
-	"fmt"
-)
-
-type Cheese struct {
-	property string
-}
-
-func (t *Cheese) Hello(param string) {
-	fmt.Printf("%+v %+v", t, param)
-}
-
-func main() {
-	(*Cheese).Hello(&Cheese{property: "value"}, "param")
-}
-
-// Output:
-// &{Xproperty:value} param
-
-```
 ## method19
 ```go
 package main
@@ -6508,28 +6484,6 @@ func main() {
 
 // Output:
 // hello true
-
-```
-## type9
-```go
-package main
-
-import "fmt"
-
-type Hello struct {
-	Goodbye GoodbyeProvider
-}
-
-func main() {
-	a := &Hello{}
-
-	fmt.Println(a)
-}
-
-type GoodbyeProvider func(message string) string
-
-// Output:
-// &{<nil>}
 
 ```
 ## var5

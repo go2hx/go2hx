@@ -73,6 +73,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		return this;
 	}
 
+
 	@:to
 	public static function toBytes(slice:Slice<GoByte>):haxe.io.Bytes {
 		if (slice != null && slice.__bytes__ != null) {
@@ -134,12 +135,23 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	private function get_capacity():GoInt {
 		return this == null ? 0 : this.capacity;
 	}
+	
+	private function __boundsCheck__(i:Int) {
+		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
+		if (i < 0 || i >= this.length) {
+			throw "array out of bounds, index: " + i + " length: " + length.toBasic();
+		}
+		#end
+	}
+
 	// if this is inline Exception: Can't cast hl.types.ArrayDyn to hl.types.ArrayBytes_hl_F32 on stdgo/Math TestNextafter32 
 	@:op([]) public function __get__(index:GoInt):T {
+		__boundsCheck__(index);
 		return this.get(index.toBasic());
 	}
 
 	@:op([]) public function __set__(index:GoInt, value:T):T {
+		__boundsCheck__(index);
 		return this.set(index.toBasic(), value);
 	}
 

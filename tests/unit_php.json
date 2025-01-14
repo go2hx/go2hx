@@ -136,5 +136,10 @@
  "php|ptrrecv",
  "php|convert",
  "php|ddd0",
- "php|ptrrecv1"
+ "php|ptrrecv1",
+ "php|nilappend",
+ "php|realfloat",
+ "php|recursiveTypeReflect",
+ "php|reflectValueArrayLen",
+ "php|varadicnamedslice"
 ]

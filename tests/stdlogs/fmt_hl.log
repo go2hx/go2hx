@@ -48,7 +48,7 @@ Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want 
 -- PASS: TestWidthAndPrecision
 
 === RUN  TestPanics
-./_internal/fmt_test/Fmt_test_testPanics.hx:3: testPanics skip function
+-- SKIP: testPanics
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion

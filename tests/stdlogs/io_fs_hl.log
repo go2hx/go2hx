@@ -1,4 +1,4 @@
 Uncaught exception: :os.dirFS is not yet implemented
 Called from stdgo._internal.os._Os_dirFS.$Os_dirFS_Fields_.dirFS(stdgo/_internal/os/Os_dirFS.hx:2)
-Called from fun$9069(_internal/io/fs_test/Fs_test__globTests.hx:2)
+Called from fun$9073(_internal/io/fs_test/Fs_test__globTests.hx:2)
 Called from .init(_internal/io/fs_test/Fs_test__globTests.hx:2)

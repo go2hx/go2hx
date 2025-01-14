@@ -1,74 +1,74 @@
 === RUN  TestAbs
--- PASS: TestAbs (0.00182890892028809)
+-- PASS: TestAbs
 
 === RUN  TestAcos
--- PASS: TestAcos (0.000257968902587891)
+-- PASS: TestAcos
 
 === RUN  TestAcosh
--- PASS: TestAcosh (0.000267982482910156)
+-- PASS: TestAcosh
 
 === RUN  TestAsin
--- PASS: TestAsin (0.000215053558349609)
+-- PASS: TestAsin
 
 === RUN  TestAsinh
--- PASS: TestAsinh (0.00018000602722168)
+-- PASS: TestAsinh
 
 === RUN  TestAtan
 Atan((+Inf+NaNi)) = (1.5707963267948966-0i), want (1.5707963267948966+0i)
--- FAIL: TestAtan (0.0035400390625)
+-- FAIL: TestAtan
 
 === RUN  TestAtanh
 Atanh((NaN+Infi)) = (-0+1.5707963267948966i), want (0+1.5707963267948966i)Atanh((NaN-Infi)) = (-0-1.5707963267948966i), want (0-1.5707963267948966i)
--- FAIL: TestAtanh (0.00122213363647461)
+-- FAIL: TestAtanh
 
 === RUN  TestConj
--- PASS: TestConj (3.69548797607422e-05)
+-- PASS: TestConj
 
 === RUN  TestCos
 Cos((NaN+0i)) = (NaN+0i), want (NaN-0i)Cos((NaN-0i)) = (NaN-0i), want (NaN+0i)
--- FAIL: TestCos (0.00314116477966309)
+-- FAIL: TestCos
 
 === RUN  TestCosh
 Cosh((0+NaNi)) = (NaN-0i), want (NaN+0i)
--- FAIL: TestCosh (0.000499963760375977)
+-- FAIL: TestCosh
 
 === RUN  TestExp
 Exp((-Inf+NaNi)) = (0-0i), want (0+0i)
--- FAIL: TestExp (0.000430822372436523)
+-- FAIL: TestExp
 
 === RUN  TestIsNaN
--- PASS: TestIsNaN (1.00135803222656e-05)
+-- PASS: TestIsNaN
 
 === RUN  TestLog
--- PASS: TestLog (0.000123023986816406)
+-- PASS: TestLog
 
 === RUN  TestLog10
--- PASS: TestLog10 (8.51154327392578e-05)
+-- PASS: TestLog10
 
 === RUN  TestPolar
--- PASS: TestPolar (1.59740447998047e-05)
+-- PASS: TestPolar
 
 === RUN  TestPow
--- PASS: TestPow (0.00015711784362793)
+-- PASS: TestPow
 
 === RUN  TestRect
--- PASS: TestRect (4.1961669921875e-05)
+-- PASS: TestRect
 
 === RUN  TestSin
--- PASS: TestSin (0.00272393226623535)
+-- PASS: TestSin
 
 === RUN  TestSinh
--- PASS: TestSinh (8.79764556884766e-05)
+-- PASS: TestSinh
 
 === RUN  TestSqrt
--- PASS: TestSqrt (8.79764556884766e-05)
+-- PASS: TestSqrt
 
 === RUN  TestTan
 Tan((NaN+Infi)) = (-0+1i), want (0+1i)Tan((NaN-Infi)) = (-0-1i), want (0-1i)
--- FAIL: TestTan (0.000854969024658203)
+-- FAIL: TestTan
 
 === RUN  TestTanh
 Tanh((+Inf+NaNi)) = (1-0i), want (1+0i)
--- FAIL: TestTanh (0.000504970550537109)
+-- FAIL: TestTanh
 
 === RUN  TestInfiniteLoopIntanSeries

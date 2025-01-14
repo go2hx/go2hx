@@ -136,5 +136,8 @@
  "hl|method5_0",
  "hl|nonptrmethodrecv",
  "hl|ptrrecv",
- "hl|ddd0"
+ "hl|ddd0",
+ "hl|realfloat",
+ "hl|reflectValueArrayLen",
+ "hl|varadicnamedslice"
 ]

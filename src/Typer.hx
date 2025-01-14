@@ -6562,7 +6562,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		macro throw ${makeString(recvName + ":" +info.global.path + "." + name + " is not yet implemented")};
 	} else {
 		final block = toExpr(typeBlockStmt(decl.body, info, true));
-		final cond = Patch.skipTargets[patchName];
+		final cond = Patch.skipTests[patchName];
 		if (cond != null) {
 			switch block.expr {
 				case EBlock(exprs):
@@ -6572,11 +6572,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					info.global.deferBool = deferBool;
 					if (cond.length == 0) {
 						exprs.unshift(e);
-						exprs.unshift(macro trace($e{makeExpr(name)} + " skip function"));
+						exprs.unshift(macro stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)}));
 					} else {
 						final targets = makeString("(" + cond.join(" || ") + ")");
 						exprs.unshift(macro @:define($targets) {
-							trace($e{makeExpr(name)} + " skip targets: " + $e{makeString(cond.join(", "))});
+							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
+							stdgo.Go.println(" skip targets: " + $e{makeString(cond.join(", "))});
 							$e;
 						});
 					}

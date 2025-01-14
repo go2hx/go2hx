@@ -2,10 +2,10 @@
 
 # go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
 
-go2hx is a haxe compiler, that compiles go code to haxe
+Go2hx is a haxe compiler, that compiles Go code to haxe
 
 > [!WARNING]  
-> prealpha version, not able to compile most go code correctly
+> prealpha version, not able to compile most Go code correctly
 
 # Table of contents
 
@@ -51,16 +51,16 @@ Precompiled libs are avaliable with no setup required: [go2hxlibs](https://githu
 ```
 
 
-# Why go for Haxe devs
+# Why Go for Haxe devs
 * Large ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of Janurary 2025
-* High quality code because of the go language and builtin testing
+* High quality code because of the Go language and builtin testing
 * Interfacing with the compiled code is similar to interfacing with handwritten haxe code, examples: [unicode](https://github.com/go2hx/go2hx/blob/master/stdgo/unicode/Unicode.hx#L1751), [regexp/syntax](https://github.com/go2hx/go2hx/blob/master/stdgo/regexp/syntax/Syntax.hx#L633)
 * Go and Haxe are both high level statically typed garbage collected languages
 * Unlike externs, using Go code in Haxe, allows multiple Haxe targets to be used, no setup required.
 # Why Haxe for Go devs
 * Haxe is a stepping point to the jvm, c++, js etc
-* Haxe allows your code and libraries to be used in non go projects, growing the reach you can get.
-* Haxe js target is a serious contender to go wasm and gopherjs, with its dead code elimination and excellent transpiling support into js.
+* Haxe allows your code and libraries to be used in non Go projects, growing the reach you can get.
+* Haxe js target is a serious contender to Go wasm and gopherjs, with its dead code elimination and excellent transpiling support into js.
 
 # Getting started
 
@@ -131,7 +131,7 @@ haxelib run go2hx github.com/tidwall/btree
 
 ## Options
 
-go2hx supports the following command line options.
+Go2hx supports the following command line options.
 
 ```sh
 -norun              don't run the build commands
@@ -164,14 +164,14 @@ Target:
 
 # Project status
 
-The project is currently in a prealpha state. Not able to compile most go code. Most go language features are extensivly tested and will likely work in isolation, that are not explicited excluded such as: generics, goroutines, channels, unsafe
+The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensivly tested and will likely work in isolation, that are not explicited excluded such as: generics, goroutines, channels, unsafe
 
 The project is on the verge of having larger 3rd party libraries working.
 For example ``regexp/syntax`` now passes as well as [regexp2](https://github.com/dlclark/regexp2)
 
 Lots of compiled code is on the verge of running correctly but has been put on hold in order to focus on the tests.
 
-Other code requires adding code into ``src/Patch.hx`` to patch in code into the Haxe version of a go stdlib.
+Other code requires adding code into ``src/Patch.hx`` to patch in code into the Haxe version of a Go stdlib.
 
 ## Test status
 The project is driven by testing. Test suites are broken into categories for an [incremental approach](http://scheme2006.cs.uchicago.edu/11-ghuloum.pdf).
@@ -194,35 +194,35 @@ Become the one stop shop for high quality Haxe libraries for Haxe devs
 ## Known issues
 
 Beyond the known issues highlighted above, there are a handful of other issues
-with using go2hx.
+with using Go2hx.
 
-- Many targets have fundemental problems not adressed by go2hx such as too large of function blocks in jvm
+- Many targets have fundemental problems not adressed by Go2hx such as too large of function blocks in jvm
 - The project has many rough spots, and painpoints lurking that need feedback for to fix
-- Some of the excluded language features such as goroutines and generics are heavily used in most go libraries.
+- Some of the excluded language features such as goroutines and generics are heavily used in most Go libraries.
 - Most stdlibs do not work, most 3rd party libs also do not work.
 
 
 ## Upcoming
 
 Besides addressing the various limitations and issues we've already mentioned,
-we have a number of features planned for go2hx.
+we have a number of features planned for Go2hx.
 
 - go-easy, go-medium, and yaegi-medium 100% passing tests on hashlink
 - Get the [chroma](https://github.com/alecthomas/chroma) library compiling and working
-- Haxe documentation generator for the go2hx compiled stdlib code
+- Haxe documentation generator for the Go2hx compiled stdlib code
 - Alpha release!
 - More std libs passing
 - [Dog fooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food): use [go-humanize](https://github.com/dustin/go-humanize), [bubbletea](https://github.com/charmbracelet/bubbletea) 
 
 # Contributing
 
-A decent familiarity with go will seriously help.
+A decent familiarity with Go will seriously help.
 If you look at `./rnd/main.go` you can modify that file and then run 
 ```sh
 haxe rnd/rnd.hxml -D interp_
 ```
-It will run both go2hx and go and allow you to see the difference.
-I use this tool daily and almost all problems I run into, I isolate the problem from a bigger piece of go code, run it in rnd, see the issue, create a unit test, and then make changes to the compiler until it works properly.
+It will run both Go2hx and Go and allow you to see the difference.
+I use this tool daily and almost all problems I run into, I isolate the problem from a bigger piece of Go code, run it in rnd, see the issue, create a unit test, and then make changes to the compiler until it works properly.
 
 ## Setup from source
 

@@ -4250,7 +4250,19 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							$e.remove($key)).expr;
 					case "clear":
 						genArgs(false);
-						return returnExpr(macro stdgo.Go.clear($a{args})).expr;
+						final t = getUnderlying(typeof(expr.args[0], info, false));
+						final s = args[0];
+						switch t {
+							case sliceType(_.get() => elem):
+								final value = defaultValue(elem, info, false);
+								return (macro {
+									for (i in 0...$s.length) {
+										$s[i] = $value;
+									}
+								}).expr;
+							default:
+								return returnExpr(macro $s.__clear__()).expr;
+						}
 					case "print":
 						genArgs(true, 0);
 						if (args.length == 0)

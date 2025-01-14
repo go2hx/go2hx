@@ -39,6 +39,9 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		}
 	}
 
+	public function __clear__()
+		return this.clear();
+
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt {

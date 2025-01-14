@@ -596,7 +596,7 @@ private function excludeTest(name:String) {
 		case "export0": // yaegi-easy no main func
 		case "sieve": // yaegi-easy SIGNAL 15 Channel buffer pop
 		case "issue29624", "issue29312": // yaegi-medium 100d array breaks Haxe's printer
-		case "type9", "method16": // yaegi-medium not the same as go compiler output
+		case "type9", "method16", "struct28": // yaegi-medium not the same as go compiler output
 		default:
 			return false;
 	}

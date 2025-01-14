@@ -750,6 +750,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 			childName == parentName ? parent : child;
 		case pointerType(_.get() => elem):
 			pointerType({get: () -> unroll(parent, elem)});
+		case refType(_.get() => elem):
+			refType({get: () -> unroll(parent, elem)});
 		case mapType(_.get() => key, _.get() => value):
 			mapType({get: () -> unroll(parent, key)}, {get: () -> unroll(parent, value)});
 		case basic(_):
@@ -1119,7 +1121,10 @@ class _Type {
 	}
 
 	static public function kind(t:_Type):ReflectKind {
-		var gt:GoType = @:privateAccess cast t._common();
+		if (t == null) {
+			return KindType.invalid;
+		}
+		var gt:GoType = @:privateAccess (t : Dynamic)._common();
 		gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):

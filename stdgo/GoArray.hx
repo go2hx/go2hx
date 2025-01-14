@@ -200,14 +200,6 @@ class GoArrayData<T> {
 		}
 	}*/
 
-	private inline function boundsCheck(i:Int) {
-		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
-		if (i < 0 || i >= length) {
-			throw 'slice out of bounds, index: $i length: $length';
-		}
-		#end
-	}
-
 	public inline function get(index:Int):T {
 		if (bytes != null) {
 			#if target.static
@@ -234,7 +226,6 @@ class GoArrayData<T> {
 	}
 
 	public inline function set(index:Int, value:T):T {
-		boundsCheck(index);
 		if (bytes != null) {
 			bytes.set(index + offset, cast value);
 			return value;

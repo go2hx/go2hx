@@ -136,5 +136,8 @@
  "interp|method5_0",
  "interp|nonptrmethodrecv",
  "interp|ptrrecv",
- "interp|ddd0"
+ "interp|ddd0",
+ "interp|realfloat",
+ "interp|reflectValueArrayLen",
+ "interp|varadicnamedslice"
 ]

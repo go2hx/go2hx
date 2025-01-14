@@ -772,6 +772,15 @@ private function unroll(parent:GoType, child:GoType):GoType {
 			sliceType({get: () -> unroll(parent, elem)});
 		case arrayType(_.get() => elem, len):
 			arrayType({get: () -> unroll(parent, elem)}, len);
+		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv, typeParams):
+			signature(variadic, 
+				{get: () -> params.map(t -> unroll(parent, t))},
+				{get: () -> results.map(t -> unroll(parent, t))},
+				{get: () -> unroll(parent, recv)},
+				typeParams == null ? null : {get: () -> typeParams.get().map(t -> unroll(parent, t))}
+			);
+		case invalidType:
+			invalidType;
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}
@@ -1110,7 +1119,7 @@ class _Type {
 	}
 
 	static public function kind(t:_Type):ReflectKind {
-		var gt:GoType = cast t._common();
+		var gt:GoType = @:privateAccess cast t._common();
 		gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):
@@ -1145,7 +1154,8 @@ class _Type {
 			case mapType(_, _): 21;
 			case named(_, _, type,_,_), _var(_, _.get() => type): new _Type(type).kind();
 			case pointerType(_), refType(_): 22;
-			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
+			case previouslyNamed(name):
+				throw "previouslyNamed type to kind not supported should be unrolled before access: " + name;
 			case sliceType(_): 23;
 			case tuple(_, _): throw "tuple type to kind not supported";
 			case signature(_, _, _, _): 19;

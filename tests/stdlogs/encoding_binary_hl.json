@@ -7,6 +7,7 @@
         "TestSizeInvalid",
         "TestUnexportedRead",
         "TestByteOrder",
+        "TestEarlyBoundsChecks",
         "TestNoFixedSize",
         "TestConstants",
         "TestVarint",
@@ -29,7 +30,6 @@
         "TestSizeStructCache",
         "TestReadErrorMsg",
         "TestReadTruncated",
-        "TestEarlyBoundsChecks",
         "TestReadInvalidDestination",
         "TestNativeEndian"
     ],

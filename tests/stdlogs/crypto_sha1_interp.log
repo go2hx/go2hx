@@ -11,11 +11,12 @@
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
-Exception: Null Access
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.Sha1_testBlockGeneric_Fields_.testBlockGeneric (./stdgo/_internal/crypto/sha1/Sha1_testBlockGeneric.hx line 12 column 1)
-Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 5 column 77)
-Called from stdgo._internal.io._Io_readFull.Io_readFull_Fields_.readFull (./stdgo/_internal/io/Io_readFull.hx line 5 column 77)
-Called from stdgo._internal.io._Io_readAtLeast.Io_readAtLeast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readAtLeast.hx line 15 column 31)
 
 -- FAIL: TestBlockGeneric
+
+=== RUN  TestLargeHashes
+-- PASS: TestLargeHashes
+
+=== RUN  TestAllocations
+-- PASS: TestAllocations
+

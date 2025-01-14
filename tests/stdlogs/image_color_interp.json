@@ -1,9 +1,28 @@
 {
-    "passes": [],
+    "passes": [
+        "TestYCbCrRoundtrip",
+        "TestYCbCrToRGBConsistency",
+        "TestYCbCrGray",
+        "TestNYCbCrAAlpha",
+        "TestNYCbCrAYCbCr",
+        "TestCMYKRoundtrip",
+        "TestCMYKToRGBConsistency",
+        "TestCMYKGray",
+        "TestPalette"
+    ],
     "fails": [
         "TestSqDiff"
     ],
     "runs": [
-        "TestSqDiff"
+        "TestSqDiff",
+        "TestYCbCrRoundtrip",
+        "TestYCbCrToRGBConsistency",
+        "TestYCbCrGray",
+        "TestNYCbCrAAlpha",
+        "TestNYCbCrAYCbCr",
+        "TestCMYKRoundtrip",
+        "TestCMYKToRGBConsistency",
+        "TestCMYKGray",
+        "TestPalette"
     ]
 }

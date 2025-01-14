@@ -15,10 +15,124 @@ Glob(`match.go`) = []string(nil) want match.goGlob(`mat?h.go`) = []string(nil) w
 -- PASS: TestGlobUNC
 
 === RUN  TestGlobSymlink
-Exception: temp/test1: No such file or directory
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testGlobSymlink.Filepath_test_testGlobSymlink_Fields_.testGlobSymlink (./_internal/path/filepath_test/Filepath_test_testGlobSymlink.hx line 8 column 27)
-Called from stdgo._internal.os._Os_create.Os_create_Fields_.create (./stdgo/_internal/os/Os_create.hx line 3 column 16)
-Called from stdgo._internal.os._Os_openFile.Os_openFile_Fields_.openFile (./stdgo/_internal/os/Os_openFile.hx line 5 column 17)
 
 -- FAIL: TestGlobSymlink
+
+=== RUN  TestWindowsGlob
+skipping windows specific test-- SKIP: TestWindowsGlob
+
+=== RUN  TestNonWindowsGlobEscape
+
+-- FAIL: TestNonWindowsGlobEscape
+
+=== RUN  TestClean
+skipping malloc count in short mode
+-- SKIP: TestClean
+
+=== RUN  TestIsLocal
+-- PASS: TestIsLocal
+
+=== RUN  TestFromAndToSlash
+-- PASS: TestFromAndToSlash
+
+=== RUN  TestSplitList
+-- PASS: TestSplitList
+
+=== RUN  TestSplit
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+-- PASS: TestJoin
+
+=== RUN  TestExt
+-- PASS: TestExt
+
+=== RUN  TestWalk
+
+-- FAIL: TestWalk
+
+=== RUN  TestWalkDir
+
+-- FAIL: TestWalkDir
+
+=== RUN  TestWalkSkipDirOnFile
+
+-- FAIL: TestWalkSkipDirOnFile
+
+=== RUN  TestWalkSkipAllOnFile
+
+-- FAIL: TestWalkSkipAllOnFile
+
+=== RUN  TestWalkFileError
+
+-- FAIL: TestWalkFileError
+
+=== RUN  TestWalkSymlinkRoot
+
+-- FAIL: TestWalkSymlinkRoot
+
+=== RUN  TestBase
+-- PASS: TestBase
+
+=== RUN  TestDir
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+-- PASS: TestIsAbs
+
+=== RUN  TestEvalSymlinks
+
+-- FAIL: TestEvalSymlinks
+
+=== RUN  TestEvalSymlinksIsNotExist
+
+-- FAIL: TestEvalSymlinksIsNotExist
+
+=== RUN  TestIssue13582
+
+-- FAIL: TestIssue13582
+
+=== RUN  TestRelativeSymlinkToAbsolute
+
+-- FAIL: TestRelativeSymlinkToAbsolute
+
+=== RUN  TestAbs
+
+-- FAIL: TestAbs
+
+=== RUN  TestAbsEmptyString
+
+-- FAIL: TestAbsEmptyString
+
+=== RUN  TestRel
+-- PASS: TestRel
+
+=== RUN  TestVolumeName
+-- PASS: TestVolumeName
+
+=== RUN  TestDriveLetterInEvalSymlinks
+-- PASS: TestDriveLetterInEvalSymlinks
+
+=== RUN  TestBug3486
+
+-- FAIL: TestBug3486
+
+=== RUN  TestWalkSymlink
+
+-- FAIL: TestWalkSymlink
+
+=== RUN  TestIssue29372
+-- PASS: TestIssue29372
+
+=== RUN  TestEvalSymlinksAboveRoot
+
+-- FAIL: TestEvalSymlinksAboveRoot
+
+=== RUN  TestEvalSymlinksAboveRootChdir
+
+-- FAIL: TestEvalSymlinksAboveRootChdir
+
+=== RUN  TestIssue51617
+
+-- FAIL: TestIssue51617
+

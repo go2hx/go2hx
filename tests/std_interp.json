@@ -16,5 +16,6 @@
  "interp|unicode",
  "interp|unicode/utf16",
  "interp|unicode/utf8",
- "interp|internal/cpu"
+ "interp|internal/cpu",
+ "interp|encoding/binary"
 ]

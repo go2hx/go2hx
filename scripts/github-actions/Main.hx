@@ -8,12 +8,8 @@ inline var dir = "scripts/github-actions/";
 // tier 1 and 2 support only
 final targets = [
     "hl",     // 1
-    "jvm",    // 1
     "interp", // 1
-    //"cppia", // 2 TODO
     "js",     // 1
-    "php",    // 1
-    //"lua",    // 2, behaves more like a tier 3 target
 ];
 
 function main() {

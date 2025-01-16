@@ -36,6 +36,12 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeOf.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	"os:dirFS" => macro return stdgo.Go.asInterface((_dir : stdgo._internal.os.Os_T_dirFS.T_dirFS)),
+	"os.T_dirFS:open" => macro {
+		final fullname = haxe.io.Path.join([_dir, _name]);
+		final obj = stdgo._internal.os.Os_open.open(fullname);
+		return {_0: stdgo.Go.asInterface(obj._0), _1: obj._1};
+	},
 	"os:args" => macro stdgo._internal.os.Os__runtime_args._runtime_args(),
 	"os:environ_" => macro {
 		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
@@ -1603,6 +1609,7 @@ final skipTests = [
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter
 	"math:testGamma" => ["interp"], // high floating point precision
+	"io.fs_test:testCVE202230630" => [], // signal 11, freezes
 	"regexp.syntax:testParseInvalidRegexps" => [], // testParseInvalidRegexps not implemented: too slow
 	// stdgo/math_bits_test
 	"math_bits_test:testLeadingZeros" => [],

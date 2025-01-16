@@ -1,2 +1,0 @@
-- name: setup jvm 
-  run: sudo apt install default-jdk

@@ -1,3 +1,0 @@
-- uses: nanasess/setup-php@v4
-  with:
-    php-version: '8.2'

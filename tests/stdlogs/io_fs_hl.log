@@ -1,4 +1,51 @@
-Uncaught exception: :os.dirFS is not yet implemented
-Called from stdgo._internal.os._Os_dirFS.$Os_dirFS_Fields_.dirFS(stdgo/_internal/os/Os_dirFS.hx:2)
-Called from fun$9070(_internal/io/fs_test/Fs_test__globTests.hx:2)
-Called from .init(_internal/io/fs_test/Fs_test__globTests.hx:2)
+=== RUN  TestFormatFileInfo
+-- PASS: TestFormatFileInfo
+
+=== RUN  TestFormatDirEntry
+-- PASS: TestFormatDirEntry
+
+=== RUN  TestValidPath
+-- PASS: TestValidPath
+
+=== RUN  TestGlob
+
+-- FAIL: TestGlob
+
+=== RUN  TestGlobError
+-- PASS: TestGlobError
+
+=== RUN  TestCVE202230630
+-- SKIP: testCVE202230630
+-- PASS: TestCVE202230630
+
+=== RUN  TestGlobMethod
+
+-- FAIL: TestGlobMethod
+
+=== RUN  TestReadDir
+
+-- FAIL: TestReadDir
+
+=== RUN  TestFileInfoToDirEntry
+-- PASS: TestFileInfoToDirEntry
+
+=== RUN  TestReadFile
+
+-- FAIL: TestReadFile
+
+=== RUN  TestStat
+
+-- FAIL: TestStat
+
+=== RUN  TestSub
+
+-- FAIL: TestSub
+
+=== RUN  TestWalkDir
+
+-- FAIL: TestWalkDir
+
+=== RUN  TestIssue51617
+
+-- FAIL: TestIssue51617
+

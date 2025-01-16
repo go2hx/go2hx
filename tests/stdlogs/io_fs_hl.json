@@ -1,5 +1,37 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestFormatFileInfo",
+        "TestFormatDirEntry",
+        "TestValidPath",
+        "TestGlobError",
+        "testCVE202230630",
+        "TestCVE202230630",
+        "TestFileInfoToDirEntry"
+    ],
+    "fails": [
+        "TestGlob",
+        "TestGlobMethod",
+        "TestReadDir",
+        "TestReadFile",
+        "TestStat",
+        "TestSub",
+        "TestWalkDir",
+        "TestIssue51617"
+    ],
+    "runs": [
+        "TestFormatFileInfo",
+        "TestFormatDirEntry",
+        "TestValidPath",
+        "TestGlob",
+        "TestGlobError",
+        "TestCVE202230630",
+        "TestGlobMethod",
+        "TestReadDir",
+        "TestFileInfoToDirEntry",
+        "TestReadFile",
+        "TestStat",
+        "TestSub",
+        "TestWalkDir",
+        "TestIssue51617"
+    ]
 }

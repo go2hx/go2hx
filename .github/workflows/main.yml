@@ -125,6 +125,7 @@ jobs:
         run: npm i lix -g
       - name: Run lix
         run: npx lix download
+      - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Create test lists

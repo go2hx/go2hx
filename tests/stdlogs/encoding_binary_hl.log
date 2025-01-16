@@ -79,7 +79,7 @@ int: got "EOF"; want "binary.Read: invalid type int"
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#556EFDDDF788}) -> pointerType({get : function#556EFDDDF7A8})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#56369E82E788}) -> pointerType({get : function#56369E82E7A8})
 
 -- FAIL: TestNativeEndian
 

@@ -91,7 +91,7 @@ jobs:
       - run: go run . -pointer
   stdgo:
     timeout-minutes: 15
-    needs: [build-hl,build-interp,build-js,build-jvm]
+    needs: [build-hl,build-interp,build-js]
     strategy:
       fail-fast: false
     runs-on: [ubuntu-latest]

@@ -1,8 +1,26 @@
 === RUN  TestLittleEndianRead
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13198 column 11)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testRead__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12218 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testLittleEndianRead_testLittleEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:12209:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24602 column 14)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testWrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 23359 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testLittleEndianWrite_testLittleEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:23351:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -11,10 +29,28 @@
 -- FAIL: TestLittleEndianPtrWrite
 
 === RUN  TestBigEndianRead
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13198 column 11)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testRead__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12218 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testBigEndianRead_testBigEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:26294:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
 
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24602 column 14)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testWrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 23359 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testBigEndianWrite_testBigEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:26361:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
 
 -- FAIL: TestBigEndianWrite
 
@@ -38,15 +74,42 @@
 -- PASS: TestSliceRoundTrip
 
 === RUN  TestWriteT
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24602 column 14)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testWriteT_testWriteT [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27018:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
 
 -- FAIL: TestWriteT
 
 === RUN  TestBlankFields
 <invalid reflect.Value>
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13198 column 11)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testBlankFields_testBlankFields [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27294:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
 
 -- FAIL: TestBlankFields
 
 === RUN  TestSizeStructCache
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.range (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21008 column 59)
+Called from ._count (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 27443 column 50)
+Called from ._added (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 27451 column 34)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testSizeStructCache_testSizeStructCache [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27524:12)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
 
 -- FAIL: TestSizeStructCache
 
@@ -57,10 +120,31 @@
 -- PASS: TestUnexportedRead
 
 === RUN  TestReadErrorMsg
+Exception: Cannot read properties of undefined (reading '_common')
+Called from module TypeError: Cannot read properties of undefined (reading '_common')
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 14690 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 15090 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 32527 column 68)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 31732 column 50)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44465 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44446 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.errorf (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52533 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:52017:58
+Called from ._read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 27963 column 21)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testReadErrorMsg_testReadErrorMsg [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27966:2)
 
 -- FAIL: TestReadErrorMsg
 
 === RUN  TestReadTruncated
+Exception: generic function is not supported
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21883 column 23)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21860 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21761 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$dataSize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 20764 column 64)
+Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13198 column 11)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testReadTruncated_testReadTruncated [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:28100:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
 
 -- FAIL: TestReadTruncated
 
@@ -68,10 +152,21 @@
 -- PASS: TestByteOrder
 
 === RUN  TestEarlyBoundsChecks
-
--- FAIL: TestEarlyBoundsChecks
+-- PASS: TestEarlyBoundsChecks
 
 === RUN  TestReadInvalidDestination
+Exception: _data1.set is not a function
+Called from module TypeError: _data1.set is not a function
+Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12385 column 13)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testReadInvalidDestination__testReadInvalidDestination (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 28647 column 14)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testReadInvalidDestination_testReadInvalidDestination [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:28626:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:60722:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:60723:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
 
 -- FAIL: TestReadInvalidDestination
 
@@ -84,7 +179,16 @@
 	}) -> pointerType({
 		get : <function>
 	})
-NativeEndian.Uint32 returned <invalid reflect.Value>, expected %!x(MISSING)
+Exception: array out of bounds, index: 3 length: 0
+Called from stdgo_Slice.__boundsCheck__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 17390 column 24)
+Called from stdgo_Slice.__get__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 17394 column 14)
+Called from stdgo__$internal_encoding_binary_T_$littleEndian_$static_$extension.uint32 (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 28487 column 30)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:41391:79
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testNativeEndian_testNativeEndian [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:41212:92)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 51907 column 9)
+Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 44810 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:60722:1
+
 -- FAIL: TestNativeEndian
 
 === RUN  TestConstants

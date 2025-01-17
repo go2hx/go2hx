@@ -23,12 +23,10 @@
 -- PASS: TestLen
 
 === RUN  TestAddSubUint
-<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
--- FAIL: TestAddSubUint
+-- PASS: TestAddSubUint
 
 === RUN  TestAddSubUint32
-<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got z:cout = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
--- FAIL: TestAddSubUint32
+-- PASS: TestAddSubUint32
 
 === RUN  TestAddSubUint64
 -- PASS: TestAddSubUint64
@@ -40,11 +38,10 @@
 -- PASS: TestSub64OverflowPanic
 
 === RUN  TestMulDiv
-<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
--- FAIL: TestMulDiv
+-- PASS: TestMulDiv
 
 === RUN  TestMulDiv32
-<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got hi:lo = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
 -- FAIL: TestMulDiv32
 
 === RUN  TestMulDiv64

@@ -3,6 +3,7 @@
         "TestMatch",
         "TestGlobError",
         "TestGlobUNC",
+        "TestClean",
         "TestIsLocal",
         "TestFromAndToSlash",
         "TestSplitList",

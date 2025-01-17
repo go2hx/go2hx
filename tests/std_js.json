@@ -10,5 +10,8 @@
  "js|text/scanner",
  "js|unicode",
  "js|unicode/utf16",
- "js|unicode/utf8"
+ "js|unicode/utf8",
+ "js|bytes",
+ "js|hash/adler32",
+ "js|strings"
 ]

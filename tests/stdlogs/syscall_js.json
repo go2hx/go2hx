@@ -1,6 +1,7 @@
 {
     "passes": [
-        "TestOpenFileLimit"
+        "TestOpenFileLimit",
+        "TestGettimeofday"
     ],
     "fails": [
         "TestEnv",

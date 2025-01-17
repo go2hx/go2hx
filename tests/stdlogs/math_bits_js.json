@@ -8,9 +8,12 @@
         "TestReverse",
         "TestReverseBytes",
         "TestLen",
+        "TestAddSubUint",
+        "TestAddSubUint32",
         "TestAddSubUint64",
         "TestAdd64OverflowPanic",
         "TestSub64OverflowPanic",
+        "TestMulDiv",
         "TestDivPanicOverflow",
         "TestDiv32PanicOverflow",
         "TestDiv64PanicOverflow",
@@ -22,9 +25,6 @@
         "TestRem64"
     ],
     "fails": [
-        "TestAddSubUint",
-        "TestAddSubUint32",
-        "TestMulDiv",
         "TestMulDiv32",
         "TestMulDiv64",
         "TestRem64Overflow"

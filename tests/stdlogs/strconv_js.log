@@ -17,22 +17,23 @@
 -- PASS: TestParseFloatPrefix
 
 === RUN  TestAtof
-./_internal/strconv_test/Strconv_test_testAtof.hx:3: testAtof skip function
+-- SKIP: testAtof
 -- PASS: TestAtof
 
 === RUN  TestAtofSlow
-./_internal/strconv_test/Strconv_test_testAtofSlow.hx:3: testAtofSlow skip function
+-- SKIP: testAtofSlow
 -- PASS: TestAtofSlow
 
 === RUN  TestAtofRandom
-./_internal/strconv_test/Strconv_test_testAtofRandom.hx:3: testAtofRandom skip function
+-- SKIP: testAtofRandom
 -- PASS: TestAtofRandom
 
 === RUN  TestRoundTrip
 -- PASS: TestRoundTrip
 
 === RUN  TestRoundTrip32
-./_internal/strconv_test/Strconv_test_testRoundTrip32.hx:4: testRoundTrip32 skip targets: interp, js
+-- SKIP: testRoundTrip32
+ skip targets: interp, js
 -- PASS: TestRoundTrip32
 
 === RUN  TestParseFloatIncorrectBitSize
@@ -99,7 +100,7 @@
 -- PASS: TestDecimalRoundedInteger
 
 === RUN  TestFp
-./_internal/strconv_test/Strconv_test_testFp.hx:3: testFp skip function
+-- SKIP: testFp
 -- PASS: TestFp
 
 === RUN  TestFtoa
@@ -177,11 +178,11 @@
 -- FAIL: TestFtoa
 
 === RUN  TestFtoaPowersOfTwo
-./_internal/strconv_test/Strconv_test_testFtoaPowersOfTwo.hx:3: testFtoaPowersOfTwo skip function
+-- SKIP: testFtoaPowersOfTwo
 -- PASS: TestFtoaPowersOfTwo
 
 === RUN  TestFtoaRandom
-./_internal/strconv_test/Strconv_test_testFtoaRandom.hx:3: testFtoaRandom skip function
+-- SKIP: testFtoaRandom
 -- PASS: TestFtoaRandom
 
 === RUN  TestFormatFloatInvalidBitSize
@@ -237,6 +238,15 @@
 
 === RUN  TestCountMallocs
 <invalid reflect.Value>
+Exception: __skip__
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58765 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58795 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58422:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:45513:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58237 column 9)
+Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 51886 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65571:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65572:3)
 -- SKIP: TestCountMallocs
 
 === RUN  TestAllocationsFromBytes

@@ -64,5 +64,6 @@
  "js|rob2",
  "js|typeswitch1",
  "js|utf",
- "js|defer"
+ "js|defer",
+ "js|issue48473"
 ]

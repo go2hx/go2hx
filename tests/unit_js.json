@@ -133,5 +133,7 @@
  "js|nilappend",
  "js|realfloat",
  "js|reflectValueArrayLen",
- "js|varadicnamedslice"
+ "js|varadicnamedslice",
+ "js|clear",
+ "js|outofbounds"
 ]

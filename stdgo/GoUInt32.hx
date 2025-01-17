@@ -7,7 +7,7 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	public inline function new(x = 0)
 		this = x;
 
-	public inline function toBasic():Int
+	public inline function toBasic()
 		return clamp(this);
 
 	@:to inline function toInt64():GoInt64

@@ -160,12 +160,12 @@ final list = [
 		};
 	},
 	"os:_runtime_args" => macro {
-		@:define("js") return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__();
 		@:define("(sys || hxnodejs)") {
 			final args:Array<stdgo.GoString> = std.Sys.args().map(arg -> (arg : stdgo.GoString));
 			args.unshift(std.Sys.getCwd());
 			return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
 		};
+		@:define("js") return new stdgo.Slice<stdgo.GoString>(1, 1, ".").__setString__();
 	},
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,

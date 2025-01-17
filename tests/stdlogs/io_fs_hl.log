@@ -59,6 +59,8 @@ Exception: MapFS:testing.fstest.readFile is not yet implemented
 Called from stdgo._internal.io.fs._Fs_readFile.$Fs_readFile_Fields_.readFile (stdgo/_internal/io/fs/Fs_readFile.hx line 97)
 Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 93)
 Called from stdgo._internal.testing.fstest.$MapFS_static_extension.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_static_extension.hx line 8)
+Called from stdgo._internal.testing.fstest.MapFS_asInterface.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_asInterface.hx line 8)
+Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 8)
 Called from _internal.io.fs_test._Fs_test_testReadFile.$Fs_test_testReadFile_Fields_.testReadFile (_internal/io/fs_test/Fs_test_testReadFile.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)

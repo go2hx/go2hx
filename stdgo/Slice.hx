@@ -44,10 +44,10 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public inline function __toBasic__()
 		return this;
 
-	public function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
+	public function __slice__(args:haxe.Rest<GoInt>):Slice<T> {
 		if (this == null)
 			return null;
-		return this.__slice__(low, high, max);
+		return this.__slice__(...args);
 	}
 
 	@:from

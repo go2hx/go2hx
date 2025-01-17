@@ -95,12 +95,23 @@ class GoArrayData<T> {
 		return slice;
 	}
 
-	public inline function __slice__(low:GoInt, high:GoInt = -1, max:GoInt = -1):Slice<T> {
+	public inline function __slice__(args:haxe.Rest<Int>):Slice<T> {
+		// low, high, max
+		if (args.length > 3 || args.length < 1) {
+			throw "slice invalid number of args";
+		}
+		final low = args[0];
 		var offset = low;
-		if (high == -1)
-			high = length;
-		if (max == -1)
-			max = capacity;
+		final high = if (args.length < 2) {
+			length;
+		}else{
+			args[1];
+		}
+		final max = if (args.length < 3) {
+			capacity;
+		}else{
+			args[2];
+		}
 		var length = high - low;
 		var capacity = max - low;
 		final obj:GoArrayData<T> = __ref__();

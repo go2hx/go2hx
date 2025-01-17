@@ -203,6 +203,18 @@ function ofIntInt64(x:Int):Int64 {
 	return haxe.Int64.ofInt(x);
 }
 
+inline function mulInt(a:Int, b:Int):Int {
+	#if js
+	final ah = js.Syntax.code('(a >>> 16) & 0xffff');
+	final al = js.Syntax.code('a & 0xffff');
+	final bh = js.Syntax.code('(b >>> 16) & 0xffff');
+	final bl = js.Syntax.code('b & 0xffff');
+	return js.Syntax.code('((al * bl) + (((ah * bl + al * bh) << 16) >>> 0) >> 0)');
+	#else
+	return a * b;
+	#end
+}
+
 /*
 	uint8       the set of all unsigned  8-bit integers (0 to 255)
 	uint16      the set of all unsigned 16-bit integers (0 to 65535)

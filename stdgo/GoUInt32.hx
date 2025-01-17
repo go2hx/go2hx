@@ -7,8 +7,8 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	public inline function new(x = 0)
 		this = x;
 
-	public inline function toBasic()
-		return this;
+	public inline function toBasic():Int
+		return clamp(this);
 
 	@:to inline function toInt64():GoInt64
 		return ofUIntUInt64(this);
@@ -56,7 +56,7 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return clamp(a.toBasic() - b.toBasic());
 
 	@:op(A * B) private static function mul(a:GoUInt32, b:GoUInt32):GoUInt32
-		return clamp(a.toBasic() * b.toBasic());
+		return clamp(GoNumber.mulInt(a.toBasic(), b.toBasic()));
 
 	@:op(A & B) private static function and(a:GoUInt32, b:GoUInt32):GoUInt32
 		return clamp(a.toBasic() & b.toBasic());
@@ -106,6 +106,12 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 
 	static function clamp(x:UInt32):UInt32
 		return clampUInt(x);
+
+	@:op(A == B) private static function equals(a:GoUInt32, b:GoUInt32):Bool
+		return a.toBasic() == b.toBasic();
+
+	@:op(A != B) private static function notEquals(a:GoUInt32, b:GoUInt32):Bool
+		return !equals(a,b);
 
 	@:op(A > B) private static function gt(a:GoUInt32, b:GoUInt32):Bool
 		return a.toBasic() > b.toBasic();

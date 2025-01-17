@@ -74,5 +74,6 @@
  "hl|typeswitch1",
  "hl|utf",
  "hl|issue54467",
- "hl|defer"
+ "hl|defer",
+ "hl|issue28797"
 ]

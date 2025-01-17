@@ -1531,8 +1531,8 @@ final list = [
 			try {
 				test.f(t);
 			} catch (e) {
+				stdgo.Go.println(e.details());
 				if (e.message == "__fail__") {
-					stdgo.Go.println(e.details());
 					exit = true;
 				}
 				if (e.message != "__skip__") {

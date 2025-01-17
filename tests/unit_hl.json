@@ -139,5 +139,7 @@
  "hl|ddd0",
  "hl|realfloat",
  "hl|reflectValueArrayLen",
- "hl|varadicnamedslice"
+ "hl|varadicnamedslice",
+ "hl|clear",
+ "hl|outofbounds"
 ]

@@ -139,5 +139,7 @@
  "interp|ddd0",
  "interp|realfloat",
  "interp|reflectValueArrayLen",
- "interp|varadicnamedslice"
+ "interp|varadicnamedslice",
+ "interp|clear",
+ "interp|outofbounds"
 ]

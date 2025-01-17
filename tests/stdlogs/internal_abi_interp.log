@@ -1,9 +1,19 @@
 === RUN  TestFuncPC
 ./stdgo/_internal/internal/abi/Abi_funcPCABI0.hx:3: funclit
+Exception: not implemented: funcPCABI0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.abi_test._Abi_test_testFuncPC.Abi_test_testFuncPC_Fields_.testFuncPC (./_internal/internal/abi_test/Abi_test_testFuncPC.hx line 4 column 25)
+Called from stdgo._internal.internal.abi._Abi_funcPCTest.Abi_funcPCTest_Fields_.funcPCTest (./stdgo/_internal/internal/abi/Abi_funcPCTest.hx line 3 column 16)
+Called from stdgo._internal.internal.abi._Abi_funcPCABI0.Abi_funcPCABI0_Fields_.funcPCABI0 (./stdgo/_internal/internal/abi/Abi_funcPCABI0.hx line 4 column 9)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
+Exception: :os.getenv is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.abi_test._Abi_test_testFuncPCCompileError.Abi_test_testFuncPCCompileError_Fields_.testFuncPCCompileError (./_internal/internal/abi_test/Abi_test_testFuncPCCompileError.hx line 3 column 9)
+Called from stdgo._internal.internal.testenv._Testenv_mustHaveGoBuild.Testenv_mustHaveGoBuild_Fields_.mustHaveGoBuild (./stdgo/_internal/internal/testenv/Testenv_mustHaveGoBuild.hx line 3 column 13)
+Called from stdgo._internal.os._Os_getenv.Os_getenv_Fields_.getenv (./stdgo/_internal/os/Os_getenv.hx line 2 column 53)
 
 -- FAIL: TestFuncPCCompileError
 

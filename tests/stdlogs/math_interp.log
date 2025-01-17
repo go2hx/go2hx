@@ -80,7 +80,8 @@
 -- PASS: TestFrexp
 
 === RUN  TestGamma
-./_internal/math_test/Math_test_testGamma.hx:4: testGamma skip targets: interp, js
+-- SKIP: testGamma
+ skip targets: interp, js
 -- PASS: TestGamma
 
 === RUN  TestHypot
@@ -126,7 +127,8 @@
 -- PASS: TestModf
 
 === RUN  TestNextafter32
-./_internal/math_test/Math_test_testNextafter32.hx:4: testNextafter32 skip targets: interp, js
+-- SKIP: testNextafter32
+ skip targets: interp, js
 -- PASS: TestNextafter32
 
 === RUN  TestNextafter64
@@ -203,11 +205,12 @@ Pow(NaN, -0) = NaN, want 1Pow(NaN, 0) = NaN, want 1
 -- PASS: TestTrigReduce
 
 === RUN  TestFloatMinMax
-./_internal/math_test/Math_test_testFloatMinMax.hx:2: testFloatMinMax not implemented: fmt formatter
+-- SKIP: testFloatMinMax
 -- PASS: TestFloatMinMax
 
 === RUN  TestFloatMinima
-./_internal/math_test/Math_test_testFloatMinima.hx:4: testFloatMinima skip targets: interp, js
+-- SKIP: testFloatMinima
+ skip targets: interp, js
 -- PASS: TestFloatMinima
 
 === RUN  TestFloat32Sqrt

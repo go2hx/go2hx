@@ -1,4 +1,9 @@
 === RUN  TestErrorf
+Exception: stdgo._internal.math.bits.T_errorString_asInterface
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testErrorf.Fmt_test_testErrorf_Fields_.testErrorf (./_internal/fmt_test/Fmt_test_testErrorf.hx line 32 column 22)
+Called from stdgo._internal.reflect._Reflect_deepEqual.Reflect_deepEqual_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepEqual.hx line 4 column 20)
+Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.hx line 181 column 5)
 
 -- FAIL: TestErrorf
 
@@ -6,6 +11,13 @@
 -- PASS: TestFmtInterface
 
 === RUN  TestSprintf
+Exception: Unexpected value #fun, expected instance
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testSprintf.Fmt_test_testSprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testSprintf.hx line 4 column 23)
+Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
+Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 179 column 31)
+Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 834 column 22)
+Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 456 column 29)
 
 -- FAIL: TestSprintf
 
@@ -17,6 +29,12 @@
 
 === RUN  TestCountMallocs
 skipping malloc count in short mode
+Exception: __skip__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testCountMallocs.Fmt_test_testCountMallocs_Fields_.testCountMallocs (./_internal/fmt_test/Fmt_test_testCountMallocs.hx line 4 column 31)
+Called from local function #1 (./stdgo/_internal/testing/Testing_T_.hx line 67 column 87)
+Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 44 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28 column 9)
 -- SKIP: TestCountMallocs
 
 === RUN  TestFlagParser
@@ -48,7 +66,7 @@ Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want 
 -- PASS: TestWidthAndPrecision
 
 === RUN  TestPanics
-./_internal/fmt_test/Fmt_test_testPanics.hx:3: testPanics skip function
+-- SKIP: testPanics
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
@@ -87,18 +105,44 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 -- PASS: TestScanln
 
 === RUN  TestScanf
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testScanf.Fmt_test_testScanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testScanf.hx line 4 column 27)
+Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 6 column 77)
+Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 119 column 57)
 
 -- FAIL: TestScanf
 
 === RUN  TestScanOverflow
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testScanOverflow.Fmt_test_testScanOverflow_Fields_.testScanOverflow (./_internal/fmt_test/Fmt_test_testScanOverflow.hx line 3 column 19)
+Called from stdgo._internal.regexp._Regexp_mustCompile.Regexp_mustCompile_Fields_.mustCompile (./stdgo/_internal/regexp/Regexp_mustCompile.hx line 3 column 23)
+Called from stdgo._internal.regexp._Regexp_compile.Regexp_compile_Fields_.compile (./stdgo/_internal/regexp/Regexp_compile.hx line 3 column 16)
+Called from stdgo._internal.regexp._Regexp__compile.Regexp__compile_Fields_._compile (./stdgo/_internal/regexp/Regexp__compile.hx line 3 column 23)
+Called from stdgo._internal.regexp.syntax._Syntax_parse.Syntax_parse_Fields_.parse (./stdgo/_internal/regexp/syntax/Syntax_parse.hx line 3 column 16)
+Called from stdgo._internal.regexp.syntax._Syntax__parse.Syntax__parse_Fields_._parse (./stdgo/_internal/regexp/syntax/Syntax__parse.hx line 815 column 57)
 
 -- FAIL: TestScanOverflow
 
 === RUN  TestNaN
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testNaN.Fmt_test_testNaN_Fields_.testNaN (./_internal/fmt_test/Fmt_test_testNaN.hx line 4 column 13)
+Called from _internal.fmt_test._Fmt_test__verifyNaN.Fmt_test__verifyNaN_Fields_._verifyNaN (./_internal/fmt_test/Fmt_test__verifyNaN.hx line 13 column 23)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 276 column 57)
 
 -- FAIL: TestNaN
 
 === RUN  TestInf
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testInf.Fmt_test_testInf_Fields_.testInf (./_internal/fmt_test/Fmt_test_testInf.hx line 4 column 13)
+Called from _internal.fmt_test._Fmt_test__verifyInf.Fmt_test__verifyInf_Fields_._verifyInf (./_internal/fmt_test/Fmt_test__verifyInf.hx line 13 column 23)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 276 column 57)
 
 -- FAIL: TestInf
 
@@ -106,6 +150,12 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testScanMultiple.Fmt_test_testScanMultiple_Fields_.testScanMultiple (./_internal/fmt_test/Fmt_test_testScanMultiple.hx line 9 column 23)
+Called from stdgo._internal.fmt._Fmt_sscan.Fmt_sscan_Fields_.sscan (./stdgo/_internal/fmt/Fmt_sscan.hx line 6 column 77)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 276 column 57)
 
 -- FAIL: TestScanMultiple
 
@@ -116,6 +166,11 @@ Sscan <empty> expected error; got none
 -- FAIL: TestScanEmpty
 
 === RUN  TestScanNotPointer
+Exception: Unexpected value 0, expected instance
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testScanNotPointer.Fmt_test_testScanNotPointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testScanNotPointer.hx line 5 column 23)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 276 column 57)
 
 -- FAIL: TestScanNotPointer
 

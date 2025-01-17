@@ -135,5 +135,8 @@
  "js|reflectValueArrayLen",
  "js|varadicnamedslice",
  "js|clear",
- "js|outofbounds"
+ "js|outofbounds",
+ "js|bytes",
+ "js|index",
+ "js|uint32multi"
 ]

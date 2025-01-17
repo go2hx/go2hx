@@ -141,5 +141,7 @@
  "hl|reflectValueArrayLen",
  "hl|varadicnamedslice",
  "hl|clear",
- "hl|outofbounds"
+ "hl|outofbounds",
+ "hl|bytes",
+ "hl|uint32multi"
 ]

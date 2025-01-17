@@ -2,18 +2,34 @@
 -- PASS: TestMapFS
 
 === RUN  TestMapFSChmodDot
+Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
+Called from stdgo._internal.testing.fstest._Fstest_testMapFSChmodDot.$Fstest_testMapFSChmodDot_Fields_.testMapFSChmodDot (stdgo/_internal/testing/fstest/Fstest_testMapFSChmodDot.hx line 2)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 4)
 
 -- FAIL: TestMapFSChmodDot
 
 === RUN  TestSymlink
+Exception: :testing.fstest.testSymlink is not yet implemented
+Called from stdgo._internal.testing.fstest._Fstest_testSymlink.$Fstest_testSymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testSymlink.hx line 2)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 4)
 
 -- FAIL: TestSymlink
 
 === RUN  TestDash
+Exception: :testing.fstest.testDash is not yet implemented
+Called from stdgo._internal.testing.fstest._Fstest_testDash.$Fstest_testDash_Fields_.testDash (stdgo/_internal/testing/fstest/Fstest_testDash.hx line 2)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 4)
 
 -- FAIL: TestDash
 
 === RUN  TestShuffledFS
+Exception: :testing.fstest.testShuffledFS is not yet implemented
+Called from stdgo._internal.testing.fstest._Fstest_testShuffledFS.$Fstest_testShuffledFS_Fields_.testShuffledFS (stdgo/_internal/testing/fstest/Fstest_testShuffledFS.hx line 2)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 4)
 
 -- FAIL: TestShuffledFS
 

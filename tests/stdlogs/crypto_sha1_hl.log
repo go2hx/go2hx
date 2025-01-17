@@ -11,6 +11,13 @@
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
+Exception: Null access .read
+Called from stdgo._internal.io._Io_readAtLeast.$Io_readAtLeast_Fields_.readAtLeast (stdgo/_internal/io/Io_readAtLeast.hx line 15)
+Called from stdgo._internal.io._Io_readFull.$Io_readFull_Fields_.readFull (stdgo/_internal/io/Io_readFull.hx line 5)
+Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 5)
+Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.$Sha1_testBlockGeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testBlockGeneric.hx line 12)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.crypto.sha1_dot_test._Sha1_dot_test.$Sha1_dot_test_Fields_.main (_internal/crypto/sha1_dot_test/Sha1_dot_test.hx line 4)
 
 -- FAIL: TestBlockGeneric
 

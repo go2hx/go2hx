@@ -1,8 +1,32 @@
 === RUN  TestLittleEndianRead
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
+Called from stdgo._internal.encoding.binary._Binary__testRead.$Binary__testRead_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testRead.hx line 4)
+Called from stdgo._internal.encoding.binary._Binary_testLittleEndianRead.$Binary_testLittleEndianRead_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testLittleEndianRead.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary__testWrite.$Binary__testWrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testWrite.hx line 4)
+Called from stdgo._internal.encoding.binary._Binary_testLittleEndianWrite.$Binary_testLittleEndianWrite_Fields_.testLittleEndianWrite (stdgo/_internal/encoding/binary/Binary_testLittleEndianWrite.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -11,10 +35,34 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 -- FAIL: TestLittleEndianPtrWrite
 
 === RUN  TestBigEndianRead
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
+Called from stdgo._internal.encoding.binary._Binary__testRead.$Binary__testRead_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testRead.hx line 4)
+Called from stdgo._internal.encoding.binary._Binary_testBigEndianRead.$Binary_testBigEndianRead_Fields_.testBigEndianRead (stdgo/_internal/encoding/binary/Binary_testBigEndianRead.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary__testWrite.$Binary__testWrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testWrite.hx line 4)
+Called from stdgo._internal.encoding.binary._Binary_testBigEndianWrite.$Binary_testBigEndianWrite_Fields_.testBigEndianWrite (stdgo/_internal/encoding/binary/Binary_testBigEndianWrite.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestBigEndianWrite
 
@@ -35,19 +83,51 @@ Write BigEndian: binary.Write: some values are not fixed-sized in type *.encodin
 -- PASS: TestReadBoolSlice
 
 === RUN  TestSliceRoundTrip
+Exception: Can't cast hl.types.ArrayDyn to i32
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 63)
+Called from stdgo._internal.encoding.binary._Binary_testSliceRoundTrip.$Binary_testSliceRoundTrip_Fields_.testSliceRoundTrip (stdgo/_internal/encoding/binary/Binary_testSliceRoundTrip.hx line 32)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestSliceRoundTrip
 
 === RUN  TestWriteT
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
+Called from stdgo._internal.encoding.binary._Binary_testWriteT.$Binary_testWriteT_Fields_.testWriteT (stdgo/_internal/encoding/binary/Binary_testWriteT.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestWriteT
 
 === RUN  TestBlankFields
 binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFields
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
+Called from stdgo._internal.encoding.binary._Binary_testBlankFields.$Binary_testBlankFields_Fields_.testBlankFields (stdgo/_internal/encoding/binary/Binary_testBlankFields.hx line 13)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestBlankFields
 
 === RUN  TestSizeStructCache
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.range (stdgo/_internal/sync/Sync_Map__static_extension.hx line 24)
+Called from stdgo._internal.encoding.binary._Binary_testSizeStructCache.$Binary_testSizeStructCache_Fields_.~testSizeStructCache.0 (stdgo/_internal/encoding/binary/Binary_testSizeStructCache.hx line 6)
+Called from stdgo._internal.encoding.binary._Binary_testSizeStructCache.$Binary_testSizeStructCache_Fields_.~testSizeStructCache.1 (stdgo/_internal/encoding/binary/Binary_testSizeStructCache.hx line 14)
+Called from stdgo._internal.encoding.binary._Binary_testSizeStructCache.$Binary_testSizeStructCache_Fields_.testSizeStructCache (stdgo/_internal/encoding/binary/Binary_testSizeStructCache.hx line 26)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestSizeStructCache
 
@@ -62,6 +142,15 @@ int: got "EOF"; want "binary.Read: invalid type int"
 -- FAIL: TestReadErrorMsg
 
 === RUN  TestReadTruncated
+Exception: generic function is not supported
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 14)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_Map__static_extension.hx line 405)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_Map__static_extension.hx line 365)
+Called from stdgo._internal.encoding.binary._Binary__dataSize.$Binary__dataSize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__dataSize.hx line 15)
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
+Called from stdgo._internal.encoding.binary._Binary_testReadTruncated.$Binary_testReadTruncated_Fields_.testReadTruncated (stdgo/_internal/encoding/binary/Binary_testReadTruncated.hx line 27)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestReadTruncated
 
@@ -72,6 +161,15 @@ int: got "EOF"; want "binary.Read: invalid type int"
 -- PASS: TestEarlyBoundsChecks
 
 === RUN  TestReadInvalidDestination
+Exception: Can't cast i32 to stdgo.PointerData
+Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 19)
+Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 142)
+Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 149)
+Called from stdgo._internal.encoding.binary.$T_littleEndian_static_extension.putUint64 (stdgo/_internal/encoding/binary/Binary_T_littleEndian_static_extension.hx line 25)
+Called from stdgo._internal.encoding.binary._Binary__testReadInvalidDestination.$Binary__testReadInvalidDestination_Fields_._testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary__testReadInvalidDestination.hx line 5)
+Called from stdgo._internal.encoding.binary._Binary_testReadInvalidDestination.$Binary_testReadInvalidDestination_Fields_.testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary_testReadInvalidDestination.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestReadInvalidDestination
 
@@ -79,7 +177,15 @@ int: got "EOF"; want "binary.Read: invalid type int"
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#557527D53788}) -> pointerType({get : function#557527D537A8})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#556C6851FB38}) -> pointerType({get : function#556C6851FB58})
+Exception: array out of bounds, index: 3 length: 0
+Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 142)
+Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 149)
+Called from stdgo._internal.encoding.binary.$T_littleEndian_static_extension.uint32 (stdgo/_internal/encoding/binary/Binary_T_littleEndian_static_extension.hx line 62)
+Called from stdgo._internal.encoding.binary.T_nativeEndian.~get_uint32.0 (stdgo/_internal/encoding/binary/Binary_T_nativeEndian.hx line 40)
+Called from stdgo._internal.encoding.binary._Binary_testNativeEndian.$Binary_testNativeEndian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testNativeEndian.hx line 11)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
 
 -- FAIL: TestNativeEndian
 

@@ -1,5 +1,5 @@
 === RUN  TestSqDiff
-Exception: not implemented reflect.Value:call: signature(false,{get : function#555EAE373E98},{get : function#555EAE373EB8},{get : function#555EAE373ED8},null)
+Exception: not implemented reflect.Value:call: signature(false,{get : function#55B067261E98},{get : function#55B067261EB8},{get : function#55B067261ED8},null)
 Called from stdgo._internal.reflect.$Value_static_extension.call (stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 773)
 Called from stdgo._internal.testing.quick._Quick_checkEqual.$Quick_checkEqual_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkEqual.hx line 27)
 Called from stdgo._internal.image.color._Color_testSqDiff.$Color_testSqDiff_Fields_.testSqDiff (stdgo/_internal/image/color/Color_testSqDiff.hx line 37)

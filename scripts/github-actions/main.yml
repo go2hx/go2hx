@@ -125,6 +125,10 @@ jobs:
       - name: Run lix
         run: npx lix download
       - run: git clone https://github.com/go2hx/tools --depth=1
+      - name: clone yaegi
+        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
+      - name: clone go
+        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Create test lists

@@ -95,7 +95,7 @@ class GoArrayData<T> {
 		return slice;
 	}
 
-	public inline function __slice__(args:haxe.Rest<Int>):Slice<T> {
+	public inline function __slice__(args:haxe.Rest<GoInt>):Slice<T> {
 		// low, high, max
 		if (args.length > 3 || args.length < 1) {
 			throw "slice invalid number of args";

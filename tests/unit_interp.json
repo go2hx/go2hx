@@ -141,5 +141,7 @@
  "interp|reflectValueArrayLen",
  "interp|varadicnamedslice",
  "interp|clear",
- "interp|outofbounds"
+ "interp|outofbounds",
+ "interp|bytes",
+ "interp|uint32multi"
 ]

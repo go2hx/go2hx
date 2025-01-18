@@ -350,11 +350,17 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	final fails:Array<String> = [];
 	for (line in lines) {
 		if (StringTools.startsWith(line, passPrefix) || StringTools.startsWith(line, skipPrefix)) {
-			passes.push(line.substr(passPrefix.length).split(" ")[0]);
+			final s = line.substr(passPrefix.length).split(" ")[0];
+			if (!passes.contains(s))
+				passes.push(s);
 		}else if (StringTools.startsWith(line, runPrefix)){
-			runs.push(line.substr(runPrefix.length).split(" ")[0]);
+			final s = line.substr(runPrefix.length).split(" ")[0];
+			if (!runs.contains(s))
+				runs.push(s);
 		}else if (StringTools.startsWith(line, failPrefix)) {
-			fails.push(line.substr(failPrefix.length).split(" ")[0]);
+			final s = line.substr(failPrefix.length).split(" ")[0];
+			if (!fails.contains(s))
+				fails.push(s);
 		}
 	}
 	return {passes: passes, fails: fails, runs: runs};

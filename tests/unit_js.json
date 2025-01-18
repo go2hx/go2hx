@@ -138,5 +138,10 @@
  "js|outofbounds",
  "js|bytes",
  "js|index",
- "js|uint32multi"
+ "js|uint32multi",
+ "js|badtype0",
+ "js|checktype0",
+ "js|issue_dash_177",
+ "js|rename0",
+ "js|slice2"
 ]

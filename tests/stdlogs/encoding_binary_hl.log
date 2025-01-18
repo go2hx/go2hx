@@ -179,7 +179,7 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#5583090E78C8}) -> pointerType({get : function#5583090E78E8})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#5569CE9E28C8}) -> pointerType({get : function#5569CE9E28E8})
 Exception: array out of bounds, index: 3 length: 0
 Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 142)
 Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 149)

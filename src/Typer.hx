@@ -6630,9 +6630,15 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
-	if (patch == null && (decl.type.typeParams != null || recvGeneric)) {
+	if (nonGenericParams.length > 0) {
+		params = params.concat(nonGenericParams);
+	}
+	if ((decl.type.typeParams != null || recvGeneric)) {
 		// TODO: generic funcs
-		block = macro throw "generic function is not supported"; 
+		params = null;
+		if (patch == null) {
+			block = macro throw "generic function is not supported";
+		}
 	}else{
 		//non macro function
 		if (info.global.stackBool)
@@ -6656,9 +6662,6 @@ var identifierNames:Array<String> = [];
 			default:
 		}
 	}*/
-	if (nonGenericParams.length > 0) {
-		params = params.concat(nonGenericParams);
-	}
 	final def:TypeDefinition = {
 		name: name,
 		pos: null,

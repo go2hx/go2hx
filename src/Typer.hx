@@ -224,19 +224,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 			}
-			var typeSpecNames:Array<String> = [];
-			for (gen in declGens) {
-				for (spec in gen.specs) { // 2nd pass
-					if (spec == null)
-						continue;
-					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
-						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
-							typeSpecNames.push(spec.name.name);
-							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
-						}
-					}
-				}
-			}
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					if (spec == null)
@@ -248,6 +235,19 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 								if (spec.name.name != "_")
 									info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 							}
+					}
+				}
+			}
+			var typeSpecNames:Array<String> = [];
+			for (gen in declGens) {
+				for (spec in gen.specs) { // 2nd pass
+					if (spec == null)
+						continue;
+					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
+						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
+							typeSpecNames.push(spec.name.name);
+							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+						}
 					}
 				}
 			}

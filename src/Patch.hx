@@ -1440,6 +1440,8 @@ final list = [
 		// return (_b._buf : Slice<GoUInt8>);
 	},
 	"strings:clone" => macro return _s,
+	// crypto/internal/boring
+	"crypto.internal.boring:unreachable" => macro {},
 	// syscall
 	"syscall:getpagesize" => macro return 4096,
 	"syscall:mmap" => macro return {_0: null, _1: null},
@@ -1734,7 +1736,7 @@ final addFuncs = [
 final addTypeDefs = [
 	"os:JsOutput" => macro class JsOutput extends haxe.io.Output {
 		public function new() {}
-		
+
 		override public function writeBytes(buf,pos,len) {
 			if (pos == 0 && len == buf.length) {
 				stdgo.Go.print(buf.toString());

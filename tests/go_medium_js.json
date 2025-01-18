@@ -65,5 +65,14 @@
  "js|typeswitch1",
  "js|utf",
  "js|defer",
- "js|issue48473"
+ "js|issue48473",
+ "js|convF_criteria",
+ "js|convT64_criteria",
+ "js|float_lit2",
+ "js|issue21808",
+ "js|issue25322",
+ "js|issue28390",
+ "js|issue30956",
+ "js|issue49665",
+ "js|issue54467"
 ]

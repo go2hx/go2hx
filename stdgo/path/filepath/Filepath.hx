@@ -111,84 +111,84 @@ class T_statDirEntry_static_extension {
 /**
     /|*{
     	_ = 0
-    	gotoNext = 3974394
-    	_ = gotoNext == 3974394
+    	gotoNext = 3994633
+    	_ = gotoNext == 3994633
     	if len(pattern) > 0 && pattern[0] == 42 {
-    		gotoNext = 3974436
-    		_ = gotoNext == 3974436
+    		gotoNext = 3994675
+    		_ = gotoNext == 3994675
     		pattern = pattern[1:]
     		star = true
-    		gotoNext = 3974394
+    		gotoNext = 3994633
     	} else {
-    		gotoNext = 3974480
+    		gotoNext = 3994719
     	}
-    	_ = gotoNext == 3974480
-    	inrange_3974480 = false
-    	gotoNext = 3974508
-    	_ = gotoNext == 3974508
-    	i_3974502 = 0
+    	_ = gotoNext == 3994719
+    	inrange_3994719 = false
+    	gotoNext = 3994747
+    	_ = gotoNext == 3994747
+    	i_3994741 = 0
     	ScanBreak = false
-    	gotoNext = 3974515
-    	_ = gotoNext == 3974515
-    	if !ScanBreak && (i_3974502 < len(pattern)) {
-    		gotoNext = 3974548
-    		_ = gotoNext == 3974548
-    		gotoNext = 3974552
-    		_ = gotoNext == 3974552
-    		switch pattern[i_3974502] {
+    	gotoNext = 3994754
+    	_ = gotoNext == 3994754
+    	if !ScanBreak && (i_3994741 < len(pattern)) {
+    		gotoNext = 3994787
+    		_ = gotoNext == 3994787
+    		gotoNext = 3994791
+    		_ = gotoNext == 3994791
+    		switch pattern[i_3994741] {
     		case 92:
-    			gotoNext = 3974574
-    			_ = gotoNext == 3974574
+    			gotoNext = 3994813
+    			_ = gotoNext == 3994813
     			if true {
-    				gotoNext = 3974617
-    				_ = gotoNext == 3974617
-    				if i_3974502+1 < len(pattern) {
-    					gotoNext = 3974700
-    					_ = gotoNext == 3974700
-    					i_3974502++
-    					gotoNext = 3974544
+    				gotoNext = 3994856
+    				_ = gotoNext == 3994856
+    				if i_3994741+1 < len(pattern) {
+    					gotoNext = 3994939
+    					_ = gotoNext == 3994939
+    					i_3994741++
+    					gotoNext = 3994783
     				} else {
-    					gotoNext = 3974544
+    					gotoNext = 3994783
     				}
-    				gotoNext = 3974544
+    				gotoNext = 3994783
     			} else {
-    				gotoNext = 3974544
+    				gotoNext = 3994783
     			}
-    			gotoNext = 3974544
+    			gotoNext = 3994783
     		case 91:
-    			gotoNext = 3974724
-    			_ = gotoNext == 3974724
-    			inrange_3974480 = true
-    			gotoNext = 3974544
+    			gotoNext = 3994963
+    			_ = gotoNext == 3994963
+    			inrange_3994719 = true
+    			gotoNext = 3994783
     		case 93:
-    			gotoNext = 3974754
-    			_ = gotoNext == 3974754
-    			inrange_3974480 = false
-    			gotoNext = 3974544
+    			gotoNext = 3994993
+    			_ = gotoNext == 3994993
+    			inrange_3994719 = false
+    			gotoNext = 3994783
     		case 42:
-    			gotoNext = 3974785
-    			_ = gotoNext == 3974785
-    			if !inrange_3974480 {
-    				gotoNext = 3974810
-    				_ = gotoNext == 3974810
+    			gotoNext = 3995024
+    			_ = gotoNext == 3995024
+    			if !inrange_3994719 {
+    				gotoNext = 3995049
+    				_ = gotoNext == 3995049
     				ScanBreak = true
-    				gotoNext = 3974515
-    				gotoNext = 3974544
+    				gotoNext = 3994754
+    				gotoNext = 3994783
     			} else {
-    				gotoNext = 3974544
+    				gotoNext = 3994783
     			}
-    			gotoNext = 3974544
+    			gotoNext = 3994783
     		default:
-    			gotoNext = 3974544
+    			gotoNext = 3994783
     		}
-    		_ = gotoNext == 3974544
-    		i_3974502++
-    		gotoNext = 3974515
+    		_ = gotoNext == 3994783
+    		i_3994741++
+    		gotoNext = 3994754
     	} else {
-    		gotoNext = 3974840
+    		gotoNext = 3995079
     	}
-    	_ = gotoNext == 3974840
-    	return star, pattern[0:i_3974502], pattern[i_3974502:]
+    	_ = gotoNext == 3995079
+    	return star, pattern[0:i_3994741], pattern[i_3994741:]
     	gotoNext = -1
     }*|/
 **/

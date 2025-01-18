@@ -219,13 +219,13 @@ class T_zr_static_extension {
 }
 typedef T_nistCurvePointer = stdgo._internal.crypto.ecdsa.Ecdsa_T_nistCurvePointer.T_nistCurvePointer;
 class T_nistCurve_static_extension {
-    static public function _pointToAffine<Dynamic>(_curve:T_nistCurve<Dynamic>, _p:Dynamic):stdgo.Tuple.Tuple3<stdgo._internal.math.big.Big_Int_.Int_, stdgo._internal.math.big.Big_Int_.Int_, stdgo.Error> {
+    static public function _pointToAffine(_curve:T_nistCurve<Dynamic>, _p:Dynamic):stdgo.Tuple.Tuple3<stdgo._internal.math.big.Big_Int_.Int_, stdgo._internal.math.big.Big_Int_.Int_, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.ecdsa.Ecdsa_T_nistCurve_static_extension.T_nistCurve_static_extension._pointToAffine(_curve, _p);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _pointFromAffine<Dynamic>(_curve:T_nistCurve<Dynamic>, _x:stdgo._internal.math.big.Big_Int_.Int_, _y:stdgo._internal.math.big.Big_Int_.Int_):stdgo.Tuple<Dynamic, stdgo.Error> {
+    static public function _pointFromAffine(_curve:T_nistCurve<Dynamic>, _x:stdgo._internal.math.big.Big_Int_.Int_, _y:stdgo._internal.math.big.Big_Int_.Int_):stdgo.Tuple<Dynamic, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.ecdsa.Ecdsa_T_nistCurve_static_extension.T_nistCurve_static_extension._pointFromAffine(_curve, _x, _y);
             { _0 : obj._0, _1 : obj._1 };

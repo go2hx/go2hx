@@ -191,16 +191,16 @@ class Bool__static_extension {
 }
 typedef Pointer_Pointer = stdgo._internal.sync.atomic_.Atomic__Pointer_Pointer.Pointer_Pointer;
 class Pointer__static_extension {
-    static public function compareAndSwap<Dynamic>(_x:Pointer_<Dynamic>, _old:Dynamic, _new:Dynamic):Bool {
+    static public function compareAndSwap(_x:Pointer_<Dynamic>, _old:Dynamic, _new:Dynamic):Bool {
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap<Dynamic>(_x:Pointer_<Dynamic>, _new:Dynamic):Dynamic {
+    static public function swap(_x:Pointer_<Dynamic>, _new:Dynamic):Dynamic {
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.swap(_x, _new);
     }
-    static public function store<Dynamic>(_x:Pointer_<Dynamic>, _val:Dynamic):Void {
+    static public function store(_x:Pointer_<Dynamic>, _val:Dynamic):Void {
         stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.store(_x, _val);
     }
-    static public function load<Dynamic>(_x:Pointer_<Dynamic>):Dynamic {
+    static public function load(_x:Pointer_<Dynamic>):Dynamic {
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.load(_x);
     }
 }

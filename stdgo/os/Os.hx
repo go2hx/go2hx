@@ -478,6 +478,9 @@ typedef T_dirFS = stdgo._internal.os.Os_T_dirFS.T_dirFS;
 typedef T_newFileKind = stdgo._internal.os.Os_T_newFileKind.T_newFileKind;
 typedef FileInfo = stdgo._internal.os.Os_FileInfo.FileInfo;
 typedef FileMode = stdgo._internal.os.Os_FileMode.FileMode;
+abstract JsOutput(stdgo._internal.os.Os_JsOutput.JsOutput) from stdgo._internal.os.Os_JsOutput.JsOutput to stdgo._internal.os.Os_JsOutput.JsOutput {
+    public function new() this = new stdgo._internal.os.Os_JsOutput.JsOutput();
+}
 typedef T_dirInfoPointer = stdgo._internal.os.Os_T_dirInfoPointer.T_dirInfoPointer;
 class T_dirInfo_static_extension {
     static public function _close(_d:T_dirInfo):Void {

@@ -417,7 +417,9 @@ final list = [
 		new stdgo._internal.os.Os_File.File(input, null);
 	},
 	"os:stdout" => macro {
-		final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stdout();
+		var output:haxe.io.Output = null;
+		@:define("js") output = new stdgo._internal.os.Os_JsOutput.JsOutput();
+		@:define("(sys || hxnodejs)") output = std.Sys.stdout();
 		new stdgo._internal.os.Os_File.File(null, output);
 	},
 	"os:stderr" => macro {
@@ -1724,9 +1726,24 @@ final structs = [
 	},
 ];
 
-final adds = [
+final addFuncs = [
 	"math:negZero" => macro {
 		return stdgo._internal.math.Math_copysign.copysign(0.0, -1.0);
+	},
+];
+final addTypeDefs = [
+	"os:JsOutput" => macro class JsOutput extends haxe.io.Output {
+		public function new() {}
+		
+		override public function writeBytes(buf,pos,len) {
+			if (pos == 0 && len == buf.length) {
+				stdgo.Go.print(buf.toString());
+			}
+			return 0;
+		}
+		override public function write(s) {
+			stdgo.Go.print(s.toString());
+		}
 	},
 ];
 final funcInline = [

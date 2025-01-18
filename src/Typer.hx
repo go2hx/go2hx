@@ -224,6 +224,19 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 			}
+			var typeSpecNames:Array<String> = [];
+			for (gen in declGens) {
+				for (spec in gen.specs) { // 2nd pass
+					if (spec == null)
+						continue;
+					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
+						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
+							typeSpecNames.push(spec.name.name);
+							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+						}
+					}
+				}
+			}
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					if (spec == null)
@@ -235,19 +248,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 								if (spec.name.name != "_")
 									info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 							}
-					}
-				}
-			}
-			var typeSpecNames:Array<String> = [];
-			for (gen in declGens) {
-				for (spec in gen.specs) { // 2nd pass
-					if (spec == null)
-						continue;
-					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
-						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
-							typeSpecNames.push(spec.name.name);
-							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
-						}
 					}
 				}
 			}
@@ -315,7 +315,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			}
 
 			// patch system to add functions
-			for (key => expr in Patch.adds) {
+			for (key => expr in Patch.addFuncs) {
 				final index = key.indexOf(":");
 				final path = key.substr(0, index);
 				if (path == info.global.module.path) {
@@ -336,7 +336,16 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 						pack: [],
 						kind: TDField(FFun({args: [], expr: expr}), []),
 					});
-					Patch.adds.remove(key);
+					Patch.addFuncs.remove(key);
+				}
+			}
+			for (key => def in Patch.addTypeDefs) {
+				final index = key.indexOf(":");
+				final path = key.substr(0, index);
+				if (path == info.global.module.path) {
+					final defName = key.substr(index + 1);
+					data.defs.push(def);
+					Patch.addTypeDefs.remove(key);
 				}
 			}
 
@@ -5102,6 +5111,8 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			return anyInterfaceType();
 			//throw info.panic() + "non empty interface";
 		case named(path, _, underlying, _, _.get() => params):
+			//trace(path);
+			//trace(info.renameClasses);
 			if (path == "comparable")
 				return null;
 			if (path == null) {
@@ -6587,7 +6598,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		macro $block;
 	}
 	info.global.renameClasses = previousRenameClasses;
-
+	//trace(patchName);
 	final patch = Patch.list[patchName];
 	if (patch != null) {
 		Patch.list.remove(patchName);
@@ -6619,7 +6630,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
-	if ((decl.type.typeParams != null || recvGeneric)) {
+	if (patch == null && (decl.type.typeParams != null || recvGeneric)) {
 		// TODO: generic funcs
 		block = macro throw "generic function is not supported"; 
 	}else{
@@ -7188,6 +7199,9 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		if (field.optional)
 			meta.push({name: ":optional", pos: null});
 		var doc:String = getDocComment({doc: docs == null ? null : docs[i]}, {comment: comments == null ? null : comments[i]});
+		// trace(name);
+		// trace(field.type.get());
+		// trace(toComplexType(field.type.get(), info));
 		fields.push({
 			name: name,
 			pos: null,

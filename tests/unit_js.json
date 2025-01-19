@@ -143,5 +143,6 @@
  "js|checktype0",
  "js|issue_dash_177",
  "js|rename0",
- "js|slice2"
+ "js|slice2",
+ "js|init"
 ]

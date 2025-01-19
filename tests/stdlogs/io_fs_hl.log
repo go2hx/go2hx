@@ -8,9 +8,10 @@
 -- PASS: TestValidPath
 
 === RUN  TestGlob
-Exception: T_dirFS:os.stat is not yet implemented
-Called from stdgo._internal.io.fs._Fs_stat.$Fs_stat_Fields_.stat (stdgo/_internal/io/fs/Fs_stat.hx line 73)
-Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 42)
+Exception: SysError(Failed to read directory )
+Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 93)
+Called from stdgo._internal.io.fs._Fs__glob.$Fs__glob_Fields_._glob (stdgo/_internal/io/fs/Fs__glob.hx line 5)
+Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 65)
 Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 5)
 Called from _internal.io.fs_test._Fs_test_testGlob.$Fs_test_testGlob_Fields_.testGlob (_internal/io/fs_test/Fs_test_testGlob.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
@@ -89,7 +90,7 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 -- FAIL: TestSub
 
 === RUN  TestWalkDir
-Exception: :os.chdir is not yet implemented
+Exception: MapFS:testing.fstest.stat is not yet implemented
 Called from _internal.io.fs_test._Fs_test_testWalkDir.$Fs_test_testWalkDir_Fields_.testWalkDir (_internal/io/fs_test/Fs_test_testWalkDir.hx line 81)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
@@ -97,10 +98,19 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 -- FAIL: TestWalkDir
 
 === RUN  TestIssue51617
-Exception: :os.mkdir is not yet implemented
+chmod: invalid mode: ‘448’
+Try 'chmod --help' for more information.
+got directories [.], want [. a a/bad a/next]Exception: MapFS:testing.fstest.stat is not yet implemented
 Called from _internal.io.fs_test._Fs_test_testIssue51617.$Fs_test_testIssue51617_Fields_.testIssue51617 (_internal/io/fs_test/Fs_test_testIssue51617.hx line 85)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
-
--- FAIL: TestIssue51617
-
+Uncaught exception: SysError(Failed to read directory x1rv0pmhqv/a/bad)
+Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
+Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
+Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)
+Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)
+Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.removeAll(stdgo/_internal/os/Os_removeAll.hx:23)
+Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_T_common_static_extension.hx:21)
+Called from stdgo._internal.testing.$M_static_extension.run(stdgo/_internal/testing/Testing_M_static_extension.hx:45)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main(_internal/io/fs_dot_test/Fs_dot_test.hx:4)
+Called from .init(?:1)

@@ -27,8 +27,8 @@ Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Field
 === RUN  TestGettimeofday
 not implemented on js
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 44)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 45)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_T_.hx line 67)
 Called from _internal.syscall_test._Syscall_test_testGettimeofday.$Syscall_test_testGettimeofday_Fields_.testGettimeofday (_internal/syscall_test/Syscall_test_testGettimeofday.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)

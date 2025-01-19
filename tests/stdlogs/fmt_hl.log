@@ -32,8 +32,8 @@ Called from _internal.fmt_dot_test._Fmt_dot_test.$Fmt_dot_test_Fields_.main (_in
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 44)
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 45)
+Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_T_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_T_.hx line 67)
 Called from _internal.fmt_test._Fmt_test_testCountMallocs.$Fmt_test_testCountMallocs_Fields_.testCountMallocs (_internal/fmt_test/Fmt_test_testCountMallocs.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)

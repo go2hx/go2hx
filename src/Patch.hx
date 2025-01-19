@@ -175,14 +175,15 @@ final list = [
 		}
 	},
 	"os:removeAll" => macro {
-		function deleteRecursively(path:String) {
+		var deleteRecursively:String->Void = null;
+		deleteRecursively = function(path:String) {
 			@:define("(sys || hxnodejs)") {
 				if (sys.FileSystem.exists(path)) {
 					if (sys.FileSystem.isDirectory(path)) {
 						var entries = sys.FileSystem.readDirectory(path);
 						for (entry in entries) {
 							if (sys.FileSystem.isDirectory(path + '/' + entry)) {
-								stdgo._internal.os.Os_deleteRecursively.deleteRecursively(path + '/' + entry);
+								deleteRecursively(path + '/' + entry);
 								sys.FileSystem.deleteDirectory(path + '/' + entry);
 							} else {
 								sys.FileSystem.deleteFile(path + '/' + entry);

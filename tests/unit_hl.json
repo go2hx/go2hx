@@ -143,5 +143,6 @@
  "hl|clear",
  "hl|outofbounds",
  "hl|bytes",
- "hl|uint32multi"
+ "hl|uint32multi",
+ "hl|init"
 ]

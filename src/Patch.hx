@@ -1690,7 +1690,7 @@ final list = [
 	// testing/iotest
 	"testing.iotest:testWriteLogger" => macro {},
 	// testing/fstest
-	//"testing.fstest:testMapFS" => macro {},
+	"testing.fstest:testMapFS" => macro {},
 	// internal/testenv
 	"internal.testenv:builder" => macro return "",
 	"internal.testenv:hasGoBuild" => macro return false,

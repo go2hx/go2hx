@@ -415,7 +415,8 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 		}
 		mergePackage(list[i])
 		if stdgoExports[list[i].PkgPath] {
-			ast.FileExports(list[i].Syntax[0])
+			//ast.FileExports(list[i].Syntax[0])
+			filterFile(list[i].Syntax[0], ast.IsExported, true)
 		}
 		// fmt.Println(list[i].PkgPath, stdgoExterns[list[i].PkgPath])
 		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
@@ -503,6 +504,208 @@ func parsePkg(pkg *packages.Package) packageType {
 	checker = nil
 	fset = nil
 	return data
+}
+
+func filterFile(src *ast.File, f ast.Filter, export bool) bool {
+	j := 0
+	for _, d := range src.Decls {
+		if filterDecl(d, f, export) {
+			src.Decls[j] = d
+			j++
+		}
+	}
+	src.Decls = src.Decls[0:j]
+	return j > 0
+}
+
+func filterDecl(decl ast.Decl, f ast.Filter, export bool) bool {
+	switch d := decl.(type) {
+	case *ast.GenDecl:
+		d.Specs = filterSpecList(d.Specs, f, export)
+		return len(d.Specs) > 0
+	case *ast.FuncDecl:
+		return f(d.Name.Name)
+	}
+	return true
+}
+
+func filterSpecList(list []ast.Spec, f ast.Filter, export bool) []ast.Spec {
+	j := 0
+	for _, s := range list {
+		if filterSpec(s, f, export) {
+			list[j] = s
+			j++
+		}
+	}
+	return list[0:j]
+}
+
+func filterSpec(spec ast.Spec, f ast.Filter, export bool) bool {
+	switch s := spec.(type) {
+	case *ast.ValueSpec:
+		s.Names = filterIdentList(s.Names, f)
+		s.Values = filterExprList(s.Values, f, export)
+		if len(s.Names) > 0 {
+			if export {
+				filterType(s.Type, f, export)
+			}
+			return true
+		}
+	case *ast.TypeSpec:
+		if f(s.Name.Name) {
+			if export {
+				filterType(s.Type, f, export)
+			}
+			return true
+		}
+		if !export {
+			// For general filtering (not just exports),
+			// filter type even if name is not filtered
+			// out.
+			// If the type contains filtered elements,
+			// keep the declaration.
+			return filterType(s.Type, f, export)
+		}
+		filterType(s.Type, f, export)
+		return true
+	}
+	return false
+}
+
+func filterCompositeLit(lit *ast.CompositeLit, filter ast.Filter, export bool) {
+	n := len(lit.Elts)
+	lit.Elts = filterExprList(lit.Elts, filter, export)
+	if len(lit.Elts) < n {
+		lit.Incomplete = true
+	}
+}
+
+func filterExprList(list []ast.Expr, filter ast.Filter, export bool) []ast.Expr {
+	j := 0
+	for _, exp := range list {
+		switch x := exp.(type) {
+		case *ast.CompositeLit:
+			filterCompositeLit(x, filter, export)
+		case *ast.KeyValueExpr:
+			if x, ok := x.Key.(*ast.Ident); ok && !filter(x.Name) {
+				continue
+			}
+			if x, ok := x.Value.(*ast.CompositeLit); ok {
+				filterCompositeLit(x, filter, export)
+			}
+		}
+		list[j] = exp
+		j++
+	}
+	return list[0:j]
+}
+
+func filterIdentList(list []*ast.Ident, f ast.Filter) []*ast.Ident {
+	j := 0
+	for _, x := range list {
+		if f(x.Name) {
+			list[j] = x
+			j++
+		}
+	}
+	return list[0:j]
+}
+
+func filterType(typ ast.Expr, f ast.Filter, export bool) bool {
+	switch t := typ.(type) {
+	case *ast.Ident:
+		return f(t.Name)
+	case *ast.ParenExpr:
+		return filterType(t.X, f, export)
+	case *ast.ArrayType:
+		return filterType(t.Elt, f, export)
+	case *ast.StructType:
+		if filterFieldList(t.Fields, f, export) {
+			t.Incomplete = true
+		}
+		return len(t.Fields.List) > 0
+	case *ast.FuncType:
+		b1 := filterParamList(t.Params, f, export)
+		b2 := filterParamList(t.Results, f, export)
+		return b1 || b2
+	case *ast.InterfaceType:
+		if filterFieldList(t.Methods, f, export) {
+			t.Incomplete = true
+		}
+		return len(t.Methods.List) > 0
+	case *ast.MapType:
+		b1 := filterType(t.Key, f, export)
+		b2 := filterType(t.Value, f, export)
+		return b1 || b2
+	case *ast.ChanType:
+		return filterType(t.Value, f, export)
+	}
+	return false
+}
+
+func filterParamList(fields *ast.FieldList, filter ast.Filter, export bool) bool {
+	if fields == nil {
+		return false
+	}
+	var b bool
+	for _, f := range fields.List {
+		if filterType(f.Type, filter, export) {
+			b = true
+		}
+	}
+	return b
+}
+
+func filterFieldList(fields *ast.FieldList, filter ast.Filter, export bool) (removedFields bool) {
+	if fields == nil {
+		return false
+	}
+	list := fields.List
+	j := 0
+	for _, f := range list {
+		keepField := false
+		if len(f.Names) == 0 {
+			// anonymous field
+			name := fieldName(f.Type)
+			keepField = name != nil && filter(name.Name)
+		} else {
+			n := len(f.Names)
+			f.Names = filterIdentList(f.Names, filter)
+			if len(f.Names) < n {
+				removedFields = true
+			}
+			keepField = len(f.Names) > 0
+		}
+		if keepField {
+			if export {
+				filterType(f.Type, filter, export)
+			}
+			list[j] = f
+			j++
+		}
+	}
+	if j < len(list) {
+		removedFields = true
+	}
+	fields.List = list[0:j]
+	return
+}
+
+// fieldName assumes that x is the type of an anonymous field and
+// returns the corresponding field name. If x is not an acceptable
+// anonymous field, the result is nil.
+func fieldName(x ast.Expr) *ast.Ident {
+	switch t := x.(type) {
+	case *ast.Ident:
+		return t
+	case *ast.SelectorExpr:
+		if _, ok := t.X.(*ast.Ident); ok {
+			return t.Sel
+		}
+	case *ast.StarExpr:
+		return fieldName(t.X)
+	}
+	return nil
 }
 
 func parseFile(file *ast.File, path string) fileType {

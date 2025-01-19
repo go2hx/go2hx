@@ -476,7 +476,10 @@ func parsePkg(pkg *packages.Package) packageType {
 	data := packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
 		for _, v := range obj.Lhs {
-			data.Order = append(data.Order, v.Name())
+			if !stdgoExports[pkg.PkgPath] || v.Exported() {
+				//println(v.Name(), stdgoExports[pkg.PkgPath], v.Exported())
+				data.Order = append(data.Order, v.Name())
+			}
 		}
 	}
 	data.Name = pkg.Name

@@ -6216,6 +6216,20 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			// special import prefix
 			if (s.substr(0,2) == "..") {
 				s = s.substr(2);
+				var exists = false;
+				for (imp in info.data.imports) {
+					if (s == imp.path.join(".")) {
+						exists = true;
+						break;
+					}
+				}
+				if (!exists) {
+					info.data.imports.push({
+						path: s.split("."),
+						doc: "",
+						alias: "",
+					});
+				}
 				x = macro $i{s + "_" + sel};
 			}
 		default:

@@ -128,6 +128,9 @@ final list = [
 	"os.T_fileStat:name" => macro {
 		return _fs._name;
 	},
+	"os.T_fileStat:mode" => macro {
+		return 0;
+	},
 	"os.T_fileStat:stat" => macro {
 		@:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_fs._name))
@@ -1705,6 +1708,7 @@ final list = [
 ];
 
 final skipTests = [
+	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
 	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)

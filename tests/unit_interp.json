@@ -143,5 +143,6 @@
  "interp|clear",
  "interp|outofbounds",
  "interp|bytes",
- "interp|uint32multi"
+ "interp|uint32multi",
+ "interp|init"
 ]

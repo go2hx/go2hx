@@ -36,7 +36,48 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeOf.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	"os:mkdir" => macro @:define("(sys || hxnodejs)") try {
+		sys.FileSystem.createDirectory(_name);
+		return null;
+	}catch(e) {
+		return stdgo._internal.errors.Errors_new_.new_("mkdir failed");
+	},
+	"os:chdir" => macro {
+		@:define("(sys || hxnodejs)") {
+			Sys.setCwd(_dir);
+			return null;
+		}
+		return stdgo._internal.errors.Errors_new_.new_("chdir not supported on this target");
+	},
+	"os:chmod" => macro {
+		@:define("(sys || hxnodejs)") {
+			final perm:Int = _mode;
+			final name = _name;
+			if (Sys.command('chmod $perm $name') == 0) {
+				return null;
+			}else{
+				return stdgo._internal.errors.Errors_new_.new_("chmod failed");
+			}
+		}
+		return stdgo._internal.errors.Errors_new_.new_("chmod not supported on this target");
+	},
 	"os:dirFS" => macro return stdgo.Go.asInterface((_dir : stdgo._internal.os.Os_T_dirFS.T_dirFS)),
+	"os:readDir" => macro {
+		@:define("(sys || hxnodejs)") {
+			final name = _name;
+			final paths = sys.FileSystem.readDirectory(name);
+			final dirs = new stdgo.Slice<stdgo._internal.os.Os_DirEntry.DirEntry>(paths.length, paths.length);
+			for (i in 0...paths.length) {
+				dirs[i] = cast stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(paths[i]));
+			}
+			return {_0: dirs, _1: null};
+		}
+		return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readDir not supported on this target")};
+	},
+	"os.T_dirFS:readDir" => macro {
+		final fullname = haxe.io.Path.join([_dir, _name]);
+		return stdgo._internal.os.Os_readDir.readDir(fullname);
+	},
 	"os.T_dirFS:open" => macro {
 		final fullname = haxe.io.Path.join([_dir, _name]);
 		final obj = stdgo._internal.os.Os_open.open(fullname);
@@ -54,12 +95,52 @@ final list = [
 		}
 		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
 	},
+	"os:mkdirTemp" => macro {
+		function randomName(length:Int) {
+			var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+			var result = "";
+	
+			for (i in 0...length) {
+				var randomIndex = Math.floor(Math.random() * chars.length);
+				result += chars.charAt(randomIndex);
+			}
+	
+			return result;
+		}
+		var name = randomName(10);
+		final pattern:String = _pattern;
+		final wildCardIndex = pattern.indexOf("*");
+		if (wildCardIndex != -1) {
+			name = pattern.substr(0,wildCardIndex) + name + pattern.substr(wildCardIndex + 1);
+		}else{
+			name = pattern + name;
+		}
+		sys.FileSystem.createDirectory(name);
+		return {_0: name, _1: null};
+	},
 	"os:stat" => macro {
 		@:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_name))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 		}
 		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
+	},
+	"os.T_fileStat:name" => macro {
+		return _fs._name;
+	},
+	"os.T_fileStat:stat" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (!sys.FileSystem.exists(_fs._name))
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _fs._name + ": no such file or directory")};
+		}
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_fs._name)), _1: null};
+	},
+	"os.T_dirFS:stat" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (!sys.FileSystem.exists(_dir))
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _dir + ": no such file or directory")};
+		}
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_dir)), _1: null};
 	},
 	"os.T_fileStat:isDir" => macro {
 		@:define("(sys || hxnodejs)") {
@@ -92,6 +173,29 @@ final list = [
 				}
 			}
 		}
+	},
+	"os:removeAll" => macro {
+		function deleteRecursively(path:String) {
+			@:define("(sys || hxnodejs)") {
+				if (sys.FileSystem.exists(path)) {
+					if (sys.FileSystem.isDirectory(path)) {
+						var entries = sys.FileSystem.readDirectory(path);
+						for (entry in entries) {
+							if (sys.FileSystem.isDirectory(path + '/' + entry)) {
+								stdgo._internal.os.Os_deleteRecursively.deleteRecursively(path + '/' + entry);
+								sys.FileSystem.deleteDirectory(path + '/' + entry);
+							} else {
+								sys.FileSystem.deleteFile(path + '/' + entry);
+							}
+						}
+					}else{
+						sys.FileSystem.deleteFile(path);
+					}
+				}
+			}
+		}
+		deleteRecursively(_path);
+		return null;
 	},
 	"os:readFile" => macro {
 		return @:define("(sys || hxnodejs)") {
@@ -1486,8 +1590,24 @@ final list = [
 	"testing.T_common:log" => macro {},
 	"testing.T_common:logf" => macro {},
 	"testing.T_common:fatal" => macro {},
+	"testing.T_common:cleanup" => macro {
+		_c._cleanups = _c._cleanups.__append__(_f);
+	},
 	"testing.T_common:fatalf" => macro {},
-	"testing.T_common:tempDir" => macro return "temp",
+	"testing.T_common:tempDir" => macro {
+		final pattern = "";
+		final obj = stdgo._internal.os.Os_mkdirTemp.mkdirTemp("", pattern);
+		_c._tempDir = obj._0;
+		_c._tempDirErr = obj._1;
+		if (_c._tempDirErr != null) {
+			_c.fatalf("TempDir: %v", stdgo.Go.toInterface(_c._tempDirErr));
+		}else{
+			_c.cleanup(() -> {
+				stdgo._internal.os.Os_removeAll.removeAll(_c._tempDir);
+			});
+		}
+		return _c._tempDir;
+	},
 	"testing.T_common:skipped" => macro return _c._skipped,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
@@ -1543,6 +1663,9 @@ final list = [
 					error = true;
 				}
 			}
+			for (f in t._common._cleanups) {
+                f();
+            }
 			final dstr = (@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) - stamp; // duration
 			if (t.failed() || error) {
 				stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
@@ -1566,7 +1689,7 @@ final list = [
 	// testing/iotest
 	"testing.iotest:testWriteLogger" => macro {},
 	// testing/fstest
-	"testing.fstest:testMapFS" => macro {},
+	//"testing.fstest:testMapFS" => macro {},
 	// internal/testenv
 	"internal.testenv:builder" => macro return "",
 	"internal.testenv:hasGoBuild" => macro return false,

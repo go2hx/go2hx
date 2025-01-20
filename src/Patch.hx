@@ -540,6 +540,7 @@ final list = [
 		std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647)),
 	// stdgo/runtime
 	// :)
+	"runtime:numCPU" => macro return 1,
 	"runtime:compiler" => macro "go2hx",
 	"runtime:gOMAXPROCS" => macro return 1,
 	// stdgo/reflect
@@ -1550,6 +1551,15 @@ final list = [
 	"strings:clone" => macro return _s,
 	// crypto/internal/boring
 	"crypto.internal.boring:unreachable" => macro {},
+	// syscall/js
+	"syscall.js:global" => macro {
+		final value = new stdgo._internal.syscall.js.Js_Value();
+		// TODO: Global returns the JavaScript global object, usually "window" or "global". 
+		return value;
+	},
+	"syscall.js.Value:get" => macro {
+		return value.value;
+	},
 	// syscall
 	"syscall:getpagesize" => macro return 4096,
 	"syscall:mmap" => macro return {_0: null, _1: null},
@@ -1844,6 +1854,10 @@ final structs = [
 	"sync:RWMutex" => macro {
 		@:local
 		var mutex = @:define("target.threaded") new sys.thread.Mutex();
+	},
+	"syscall.js:Value" => macro {
+		@:local
+		var value = (null : Dynamic);
 	},
 	"sync:Pool" => macro {
 		@:local

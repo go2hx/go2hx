@@ -1553,7 +1553,7 @@ final list = [
 	"crypto.internal.boring:unreachable" => macro {},
 	// syscall/js
 	"syscall.js:global" => macro {
-		final value = new stdgo._internal.syscall.js.Js_Value();
+		final value = new stdgo._internal.syscall.js.Js_Value.Value();
 		// TODO: Global returns the JavaScript global object, usually "window" or "global". 
 		return value;
 	},

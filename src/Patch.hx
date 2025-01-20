@@ -1558,7 +1558,7 @@ final list = [
 		return value;
 	},
 	"syscall.js.Value:get" => macro {
-		return value.value;
+		return null;
 	},
 	// syscall
 	"syscall:getpagesize" => macro return 4096,

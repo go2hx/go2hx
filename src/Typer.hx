@@ -4513,13 +4513,13 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 		}
 	}
 	final args:Array<Expr> = [];
-	if (genericExprs.length > 0) {
+	/*if (genericExprs.length > 0) {
 		for (genericExpr in genericExprs) {
 			final t = typeof(genericExpr, info, false);
 			final defaultType = defaultValue(t, info);
 			args.push(defaultType);
 		}
-	}
+	}*/
 	return args;
 }
 

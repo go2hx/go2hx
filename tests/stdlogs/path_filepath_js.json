@@ -1,6 +1,8 @@
 {
     "passes": [
         "TestMatch",
+        "testCVE202230632",
+        "TestCVE202230632",
         "TestGlobError",
         "TestGlobUNC",
         "TestClean",
@@ -20,7 +22,6 @@
     ],
     "fails": [
         "TestGlob",
-        "TestCVE202230632",
         "TestGlobSymlink",
         "TestWindowsGlob",
         "TestNonWindowsGlobEscape",
@@ -39,8 +40,7 @@
         "TestBug3486",
         "TestWalkSymlink",
         "TestEvalSymlinksAboveRoot",
-        "TestEvalSymlinksAboveRootChdir",
-        "TestIssue51617"
+        "TestEvalSymlinksAboveRootChdir"
     ],
     "runs": [
         "TestMatch",

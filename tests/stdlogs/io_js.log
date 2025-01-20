@@ -1,14 +1,14 @@
-[30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe2.hx:5: characters 32-64
+[30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe2.hx:18: characters 32-64
 
-  5 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_reader[0m[2m.reader(_t, stdgo.Go.asInterface(_r), _c));[0m
+ 18 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_reader[0m[2m.reader(_t, stdgo.Go.asInterface(_r), _c));[0m
     |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : _internal.io_test.Io_test_reader
 
         | For function argument 'func'
 
-[30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe3.hx:13: characters 32-64
+[30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe3.hx:26: characters 32-64
 
- 13 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_writer[0m[2m.writer(stdgo.Go.asInterface(_w), _wdat, _c));[0m
+ 26 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_writer[0m[2m.writer(stdgo.Go.asInterface(_w), _wdat, _c));[0m
     |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : _internal.io_test.Io_test_writer
 

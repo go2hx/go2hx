@@ -1,12 +1,12 @@
-[30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer__identCount.hx:4: characters 24-78
+[30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer__identCount.hx:25: characters 24-78
 
-  4 | [2m        for (_ => _ in [0m[1mstdgo._internal.go.printer.Printer__idents._idents(_f)[0m[2m) {[0m
+ 25 | [2m        for (_ => _ in [0m[1mstdgo._internal.go.printer.Printer__idents._idents(_f)[0m[2m) {[0m
     |                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field keyValueIterator
 
-[30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer_testSourcePos.hx:26: characters 26-81
+[30;41m ERROR [0m ./stdgo/_internal/go/printer/Printer_testSourcePos.hx:47: characters 26-81
 
- 26 | [2m        for (_i1 => _ in [0m[1mstdgo._internal.go.printer.Printer__idents._idents(_f1)[0m[2m) {[0m
+ 47 | [2m        for (_i1 => _ in [0m[1mstdgo._internal.go.printer.Printer__idents._idents(_f1)[0m[2m) {[0m
     |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field keyValueIterator
 

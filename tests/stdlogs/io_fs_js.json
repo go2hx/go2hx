@@ -15,8 +15,7 @@
         "TestReadFile",
         "TestStat",
         "TestSub",
-        "TestWalkDir",
-        "TestIssue51617"
+        "TestWalkDir"
     ],
     "runs": [
         "TestFormatFileInfo",

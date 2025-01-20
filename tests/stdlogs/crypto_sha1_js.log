@@ -11,18 +11,15 @@
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
-Exception: Cannot read properties of null (reading 'read')
-Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31897 column 21)
-Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31880 column 16)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 31872 column 16)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testBlockGeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:31856:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40936 column 9)
-Called from ._$internal_crypto_sha1_$dot_$test_Sha1_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 34220 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52546:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52547:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
+Exception: Value:syscall.js.new_ is not yet implemented
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44739 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getRandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44865 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:44855:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44976 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44841 column 68)
+Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38391 column 21)
+Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38374 column 16)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38366 column 16)
 
 -- FAIL: TestBlockGeneric
 

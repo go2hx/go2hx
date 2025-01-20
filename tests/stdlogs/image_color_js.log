@@ -10,15 +10,15 @@ Called from module get : <function>
 Called from module },{
 Called from module get : <function>
 Called from module },null)
-Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 31836 column 17)
-Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 31766 column 11)
-Called from stdgo__$internal_reflect_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 18927 column 24)
-Called from .stdgo__$internal_testing_quick_Quick_$checkEqual_checkEqual (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 17831 column 132)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_image_color_Color_$testSqDiff_testSqDiff [as f] (/home/runner/work/go2hx/go2hx/golibs/std_color.js:17137:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 52972 column 9)
-Called from ._$internal_image_color_$dot_$test_Color_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 42910 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_color.js:60362:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_color.js:60363:3)
+Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 33679 column 17)
+Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 33609 column 11)
+Called from stdgo__$internal_reflect_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 20770 column 24)
+Called from .stdgo__$internal_testing_quick_Quick_$checkEqual_checkEqual (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 19674 column 132)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_image_color_Color_$testSqDiff_testSqDiff [as f] (/home/runner/work/go2hx/go2hx/golibs/std_color.js:18980:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 60553 column 9)
+Called from ._$internal_image_color_$dot_$test_Color_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_color.js line 44753 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_color.js:77104:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_color.js:77105:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 
 -- FAIL: TestSqDiff

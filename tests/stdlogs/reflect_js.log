@@ -1,62 +1,54 @@
-[30;41m ERROR [0m ./_internal/reflect_test/Reflect_test_T__struct_41.hx:4: characters 37-94
+[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:29: characters 8-61
 
-   4 | [2m    public var _cases : stdgo.Slice<[0m[1m_internal.reflect_test.Reflect_test_T_testCase.T_testCase[0m[2m>;[0m
-     |                                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.reflect_test.Reflect_test_T_testCase
+  29 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
 
-[30;41m ERROR [0m ./_internal/reflect_test/Reflect_test_testCanSetField.hx:61: characters 28-34
+[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:30: characters 8-48
 
-  61 | [2m        for (__6 => _tt in [0m[1m_tests[0m[2m) {[0m
-     |                            [31m^^^^^^[0m
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+  30 | [2mimport [0m[1m_internal.golang_dot_org.x.net.idna.Idna[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.idna.Idna
 
-[30;41m ERROR [0m ./_internal/reflect_test/Reflect_test_testCanSetField.hx:63: characters 37-47
+[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:33: characters 8-63
 
-  63 | [2m                for (__15 => _tc in [0m[1m_tt._cases[0m[2m) {[0m
-     |                                     [31m^^^^^^^^^^[0m
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+  33 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpproxy.Httpproxy[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.http.httpproxy.Httpproxy
 
-[30;41m ERROR [0m ./_internal/reflect_test/Reflect_test_testCanSetField.hx:65: characters 40-50
+[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:34: characters 8-56
 
-  65 | [2m                    for (__16 => _i in [0m[1m_tc._index[0m[2m) {[0m
-     |                                        [31m^^^^^^^^^^[0m
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+  34 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http2.hpack.Hpack[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.http2.hpack.Hpack
 
-[30;41m ERROR [0m stdgo/Go.macro.hx:563: characters 8-13
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:19: characters 8-75
 
- 563 | [2m       [0m[1mthrow[0m[2m "invalid underlying type: " + t.type;[0m
-     |        [31m^^^^^[0m
-     | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
+  19 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305
 
-     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepEqualTests.hx:162: characters 70-223
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:33: characters 8-51
 
-      162 | [2m(new _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>))[0m[2m, stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest),[0m
-          |                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+  33 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.hkdf.Hkdf[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.hkdf.Hkdf
 
-     [30;41m -> [0m stdgo/Go.macro.hx:652: characters 11-31
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:38: characters 8-63
 
-      652 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-          |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+  38 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte
 
-     [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[30;41m ERROR [0m ./stdgo/_internal/net/http/httptest/Httptest.hx:13: characters 8-61
 
-      504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-          |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+  13 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
 
-     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepEqualTests.hx:162: characters 92-160
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:467: characters 16-25
 
-      162 | [2m(new _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest(stdgo.Go.toInterface(([0m[1mstdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1)[0m[2m : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest),[0m
-          |                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
-
-     [30;41m -> [0m stdgo/Go.macro.hx:585: characters 21-31
-
-      585 | [2m  final valueNull = [0m[1mgen(false)[0m[2m;[0m
-          |                     [31m^^^^^^^^^^[0m
-          | Called from here
-
-          | For optional function argument '_a'
+ 467 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
+     |                [31m^^^^^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
 

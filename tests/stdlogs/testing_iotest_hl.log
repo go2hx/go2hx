@@ -5,7 +5,7 @@
 Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testWriteLogger_errorOnWrite.$Iotest_testWriteLogger_errorOnWrite_Fields_.testWriteLogger_errorOnWrite (stdgo/_internal/testing/iotest/Iotest_testWriteLogger_errorOnWrite.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestWriteLogger_errorOnWrite
 
@@ -13,7 +13,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testReadLogger is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testReadLogger.$Iotest_testReadLogger_Fields_.testReadLogger (stdgo/_internal/testing/iotest/Iotest_testReadLogger.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestReadLogger
 
@@ -21,7 +21,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testReadLogger_errorOnRead is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testReadLogger_errorOnRead.$Iotest_testReadLogger_errorOnRead_Fields_.testReadLogger_errorOnRead (stdgo/_internal/testing/iotest/Iotest_testReadLogger_errorOnRead.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestReadLogger_errorOnRead
 
@@ -29,7 +29,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testOneByteReader_nonEmptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testOneByteReader_nonEmptyReader.$Iotest_testOneByteReader_nonEmptyReader_Fields_.testOneByteReader_nonEmptyReader (stdgo/_internal/testing/iotest/Iotest_testOneByteReader_nonEmptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestOneByteReader_nonEmptyReader
 
@@ -37,7 +37,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testOneByteReader_emptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testOneByteReader_emptyReader.$Iotest_testOneByteReader_emptyReader_Fields_.testOneByteReader_emptyReader (stdgo/_internal/testing/iotest/Iotest_testOneByteReader_emptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestOneByteReader_emptyReader
 
@@ -45,7 +45,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testHalfReader_nonEmptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testHalfReader_nonEmptyReader.$Iotest_testHalfReader_nonEmptyReader_Fields_.testHalfReader_nonEmptyReader (stdgo/_internal/testing/iotest/Iotest_testHalfReader_nonEmptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestHalfReader_nonEmptyReader
 
@@ -53,7 +53,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testHalfReader_emptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testHalfReader_emptyReader.$Iotest_testHalfReader_emptyReader_Fields_.testHalfReader_emptyReader (stdgo/_internal/testing/iotest/Iotest_testHalfReader_emptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestHalfReader_emptyReader
 
@@ -61,7 +61,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testTimeOutReader_nonEmptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testTimeOutReader_nonEmptyReader.$Iotest_testTimeOutReader_nonEmptyReader_Fields_.testTimeOutReader_nonEmptyReader (stdgo/_internal/testing/iotest/Iotest_testTimeOutReader_nonEmptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestTimeOutReader_nonEmptyReader
 
@@ -69,7 +69,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testTimeOutReader_emptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testTimeOutReader_emptyReader.$Iotest_testTimeOutReader_emptyReader_Fields_.testTimeOutReader_emptyReader (stdgo/_internal/testing/iotest/Iotest_testTimeOutReader_emptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestTimeOutReader_emptyReader
 
@@ -77,7 +77,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testDataErrReader_nonEmptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testDataErrReader_nonEmptyReader.$Iotest_testDataErrReader_nonEmptyReader_Fields_.testDataErrReader_nonEmptyReader (stdgo/_internal/testing/iotest/Iotest_testDataErrReader_nonEmptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestDataErrReader_nonEmptyReader
 
@@ -85,7 +85,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testDataErrReader_emptyReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testDataErrReader_emptyReader.$Iotest_testDataErrReader_emptyReader_Fields_.testDataErrReader_emptyReader (stdgo/_internal/testing/iotest/Iotest_testDataErrReader_emptyReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestDataErrReader_emptyReader
 
@@ -93,7 +93,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testErrReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testErrReader.$Iotest_testErrReader_Fields_.testErrReader (stdgo/_internal/testing/iotest/Iotest_testErrReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestErrReader
 
@@ -101,7 +101,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testStringsReader is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testStringsReader.$Iotest_testStringsReader_Fields_.testStringsReader (stdgo/_internal/testing/iotest/Iotest_testStringsReader.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestStringsReader
 
@@ -109,7 +109,7 @@ Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_
 Exception: :testing.iotest.testTruncateWriter is not yet implemented
 Called from stdgo._internal.testing.iotest._Iotest_testTruncateWriter.$Iotest_testTruncateWriter_Fields_.testTruncateWriter (stdgo/_internal/testing/iotest/Iotest_testTruncateWriter.hx line 2)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 4)
+Called from _internal.testing.iotest_dot_test._Iotest_dot_test.$Iotest_dot_test_Fields_.main (_internal/testing/iotest_dot_test/Iotest_dot_test.hx line 8)
 
 -- FAIL: TestTruncateWriter
 

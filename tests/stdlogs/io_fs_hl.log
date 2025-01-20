@@ -9,13 +9,13 @@
 
 === RUN  TestGlob
 Exception: SysError(Failed to read directory )
-Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 93)
-Called from stdgo._internal.io.fs._Fs__glob.$Fs__glob_Fields_._glob (stdgo/_internal/io/fs/Fs__glob.hx line 5)
-Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 65)
-Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 5)
-Called from _internal.io.fs_test._Fs_test_testGlob.$Fs_test_testGlob_Fields_.testGlob (_internal/io/fs_test/Fs_test_testGlob.hx line 4)
+Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 99)
+Called from stdgo._internal.io.fs._Fs__glob.$Fs__glob_Fields_._glob (stdgo/_internal/io/fs/Fs__glob.hx line 11)
+Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 71)
+Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 11)
+Called from _internal.io.fs_test._Fs_test_testGlob.$Fs_test_testGlob_Fields_.testGlob (_internal/io/fs_test/Fs_test_testGlob.hx line 13)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestGlob
 
@@ -30,25 +30,25 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 Exception: MapFS:testing.fstest.glob is not yet implemented
 Called from stdgo._internal.testing.fstest.$MapFS_static_extension.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_static_extension.hx line 8)
 Called from stdgo._internal.testing.fstest.MapFS_asInterface.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_asInterface.hx line 8)
-Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 8)
-Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 21)
-Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 5)
-Called from _internal.io.fs_test._Fs_test_testGlobMethod.$Fs_test_testGlobMethod_Fields_.testGlobMethod (_internal/io/fs_test/Fs_test_testGlobMethod.hx line 9)
+Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 17)
+Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 27)
+Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 11)
+Called from _internal.io.fs_test._Fs_test_testGlobMethod.$Fs_test_testGlobMethod_Fields_.testGlobMethod (_internal/io/fs_test/Fs_test_testGlobMethod.hx line 18)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestGlobMethod
 
 === RUN  TestReadDir
 Exception: MapFS:testing.fstest.readDir is not yet implemented
-Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 93)
+Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 99)
 Called from stdgo._internal.testing.fstest.$MapFS_static_extension.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_static_extension.hx line 8)
 Called from stdgo._internal.testing.fstest.MapFS_asInterface.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_asInterface.hx line 8)
-Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 8)
-Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 21)
-Called from _internal.io.fs_test._Fs_test_testReadDir.$Fs_test_testReadDir_Fields_.testReadDir (_internal/io/fs_test/Fs_test_testReadDir.hx line 13)
+Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 17)
+Called from stdgo._internal.io.fs._Fs__globWithLimit.$Fs__globWithLimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globWithLimit.hx line 27)
+Called from _internal.io.fs_test._Fs_test_testReadDir.$Fs_test_testReadDir_Fields_.testReadDir (_internal/io/fs_test/Fs_test_testReadDir.hx line 22)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestReadDir
 
@@ -57,23 +57,23 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 
 === RUN  TestReadFile
 Exception: MapFS:testing.fstest.readFile is not yet implemented
-Called from stdgo._internal.io.fs._Fs_readFile.$Fs_readFile_Fields_.readFile (stdgo/_internal/io/fs/Fs_readFile.hx line 97)
-Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 93)
+Called from stdgo._internal.io.fs._Fs_readFile.$Fs_readFile_Fields_.readFile (stdgo/_internal/io/fs/Fs_readFile.hx line 103)
+Called from stdgo._internal.io.fs._Fs_readDir.$Fs_readDir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readDir.hx line 99)
 Called from stdgo._internal.testing.fstest.$MapFS_static_extension.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_static_extension.hx line 8)
 Called from stdgo._internal.testing.fstest.MapFS_asInterface.glob (stdgo/_internal/testing/fstest/Fstest_MapFS_asInterface.hx line 8)
-Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 8)
-Called from _internal.io.fs_test._Fs_test_testReadFile.$Fs_test_testReadFile_Fields_.testReadFile (_internal/io/fs_test/Fs_test_testReadFile.hx line 3)
+Called from _internal.io.fs_test.T_globOnly_asInterface.glob (_internal/io/fs_test/Fs_test_T_globOnly_asInterface.hx line 17)
+Called from _internal.io.fs_test._Fs_test_testReadFile.$Fs_test_testReadFile_Fields_.testReadFile (_internal/io/fs_test/Fs_test_testReadFile.hx line 12)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestReadFile
 
 === RUN  TestStat
 Exception: MapFS:testing.fstest.stat is not yet implemented
-Called from stdgo._internal.io.fs._Fs_stat.$Fs_stat_Fields_.stat (stdgo/_internal/io/fs/Fs_stat.hx line 73)
-Called from _internal.io.fs_test._Fs_test_testStat.$Fs_test_testStat_Fields_.testStat (_internal/io/fs_test/Fs_test_testStat.hx line 13)
+Called from stdgo._internal.io.fs._Fs_stat.$Fs_stat_Fields_.stat (stdgo/_internal/io/fs/Fs_stat.hx line 79)
+Called from _internal.io.fs_test._Fs_test_testStat.$Fs_test_testStat_Fields_.testStat (_internal/io/fs_test/Fs_test_testStat.hx line 22)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestStat
 
@@ -81,19 +81,19 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 Exception: MapFS:testing.fstest.sub is not yet implemented
 Called from stdgo._internal.testing.fstest.$MapFS_static_extension.sub (stdgo/_internal/testing/fstest/Fstest_MapFS_static_extension.hx line 5)
 Called from stdgo._internal.testing.fstest.MapFS_asInterface.sub (stdgo/_internal/testing/fstest/Fstest_MapFS_asInterface.hx line 5)
-Called from _internal.io.fs_test.T_subOnly_asInterface.sub (_internal/io/fs_test/Fs_test_T_subOnly_asInterface.hx line 8)
-Called from stdgo._internal.io.fs._Fs_sub.$Fs_sub_Fields_.sub (stdgo/_internal/io/fs/Fs_sub.hx line 16)
-Called from _internal.io.fs_test._Fs_test_testSub.$Fs_test_testSub_Fields_.testSub (_internal/io/fs_test/Fs_test_testSub.hx line 22)
+Called from _internal.io.fs_test.T_subOnly_asInterface.sub (_internal/io/fs_test/Fs_test_T_subOnly_asInterface.hx line 17)
+Called from stdgo._internal.io.fs._Fs_sub.$Fs_sub_Fields_.sub (stdgo/_internal/io/fs/Fs_sub.hx line 22)
+Called from _internal.io.fs_test._Fs_test_testSub.$Fs_test_testSub_Fields_.testSub (_internal/io/fs_test/Fs_test_testSub.hx line 31)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestSub
 
 === RUN  TestWalkDir
 Exception: MapFS:testing.fstest.stat is not yet implemented
-Called from _internal.io.fs_test._Fs_test_testWalkDir.$Fs_test_testWalkDir_Fields_.testWalkDir (_internal/io/fs_test/Fs_test_testWalkDir.hx line 81)
+Called from _internal.io.fs_test._Fs_test_testWalkDir.$Fs_test_testWalkDir_Fields_.testWalkDir (_internal/io/fs_test/Fs_test_testWalkDir.hx line 90)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
 
 -- FAIL: TestWalkDir
 
@@ -101,10 +101,10 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]Exception: MapFS:testing.fstest.stat is not yet implemented
-Called from _internal.io.fs_test._Fs_test_testIssue51617.$Fs_test_testIssue51617_Fields_.testIssue51617 (_internal/io/fs_test/Fs_test_testIssue51617.hx line 85)
+Called from _internal.io.fs_test._Fs_test_testIssue51617.$Fs_test_testIssue51617_Fields_.testIssue51617 (_internal/io/fs_test/Fs_test_testIssue51617.hx line 94)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
-Uncaught exception: SysError(Failed to read directory x1rv0pmhqv/a/bad)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 7)
+Uncaught exception: SysError(Failed to read directory qexk5by1tn/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)
@@ -112,5 +112,5 @@ Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.removeAll(stdgo/_internal/os/Os_removeAll.hx:23)
 Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_T_common_static_extension.hx:21)
 Called from stdgo._internal.testing.$M_static_extension.run(stdgo/_internal/testing/Testing_M_static_extension.hx:45)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main(_internal/io/fs_dot_test/Fs_dot_test.hx:4)
+Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main(_internal/io/fs_dot_test/Fs_dot_test.hx:7)
 Called from .init(?:1)

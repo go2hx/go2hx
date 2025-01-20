@@ -1,30 +1,30 @@
 === RUN  TestGet
 Exception: T_:testing.setenv is not yet implemented
 Called from stdgo._internal.testing.$T__static_extension.setenv (stdgo/_internal/testing/Testing_T__static_extension.hx line 14)
-Called from _internal.internal.godebug_test._Godebug_test_testGet.$Godebug_test_testGet_Fields_.testGet (_internal/internal/godebug_test/Godebug_test_testGet.hx line 18)
+Called from _internal.internal.godebug_test._Godebug_test_testGet.$Godebug_test_testGet_Fields_.testGet (_internal/internal/godebug_test/Godebug_test_testGet.hx line 26)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
+Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 7)
 
 -- FAIL: TestGet
 
 === RUN  TestMetrics
 Exception: Setting:internal.godebug.incNonDefault is not yet implemented
 Called from stdgo._internal.internal.godebug.$Setting_static_extension.incNonDefault (stdgo/_internal/internal/godebug/Godebug_Setting_static_extension.hx line 11)
-Called from _internal.internal.godebug_test._Godebug_test_testMetrics.$Godebug_test_testMetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testMetrics.hx line 15)
+Called from _internal.internal.godebug_test._Godebug_test_testMetrics.$Godebug_test_testMetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testMetrics.hx line 23)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
+Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 7)
 
 -- FAIL: TestMetrics
 
 === RUN  TestCmdBisect
 Exception: :os.getenv is not yet implemented
 Called from stdgo._internal.os._Os_getenv.$Os_getenv_Fields_.getenv (stdgo/_internal/os/Os_getenv.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv_mustHaveGoBuild.$Testenv_mustHaveGoBuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_mustHaveGoBuild.hx line 3)
-Called from _internal.internal.godebug_test._Godebug_test_testCmdBisect.$Godebug_test_testCmdBisect_Fields_.testCmdBisect (_internal/internal/godebug_test/Godebug_test_testCmdBisect.hx line 3)
+Called from stdgo._internal.internal.testenv._Testenv_mustHaveGoBuild.$Testenv_mustHaveGoBuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_mustHaveGoBuild.hx line 18)
+Called from _internal.internal.godebug_test._Godebug_test_testCmdBisect.$Godebug_test_testCmdBisect_Fields_.testCmdBisect (_internal/internal/godebug_test/Godebug_test_testCmdBisect.hx line 11)
 Called from stdgo._internal.internal.godebug.$Setting_static_extension.incNonDefault (stdgo/_internal/internal/godebug/Godebug_Setting_static_extension.hx line 11)
-Called from _internal.internal.godebug_test._Godebug_test_testMetrics.$Godebug_test_testMetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testMetrics.hx line 15)
+Called from _internal.internal.godebug_test._Godebug_test_testMetrics.$Godebug_test_testMetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testMetrics.hx line 23)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
+Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 7)
 
 -- FAIL: TestCmdBisect
 

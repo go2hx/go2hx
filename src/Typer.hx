@@ -237,10 +237,13 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									if (spec.name.name.indexOf(":") != -1) {
 										final index = spec.name.name.indexOf(":");
 										final key = spec.name.name.substr(0,index);
+										//trace(key);
 										spec.name.name = spec.name.name.substr(index + 1);
+										//info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 										if (!info.global.localSpecs.exists(key)) {
 											info.global.localSpecs[key] = [];
 										}
+										//trace(key, spec.name.name);
 										info.global.localSpecs[key].push(spec);
 										gen.specs.remove(spec);
 									}else{
@@ -315,6 +318,18 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				valuesSorted = values.concat(valuesSorted);
 			}
 			data.defs = valuesSorted.concat(data.defs);
+
+			for (key => specs in info.global.localSpecs) {
+				for (spec in specs) {
+					final spec = typeSpec(spec, info, true);
+					for (i in 0...info.data.defs.length) {
+						if (info.data.defs[i].name == spec.name) {
+							info.data.defs[i] = spec;
+							break;
+						}
+					}
+				}
+			}
 
 
 			for (decl in declFuncs) { // parse function bodies last
@@ -6707,9 +6722,16 @@ var identifierNames:Array<String> = [];
 	final specs = info.global.localSpecs[decl.name.name];
 	if (specs != null) {
 		for (spec in specs) {
-			//trace(spec, spec.name);
-			info.data.defs.push(typeSpec(spec, info, true));
+			//trace("add", decl.name.name, spec.name.name);
+			final spec = typeSpec(spec, info, true);
+			for (i in 0...info.data.defs.length) {
+				if (info.data.defs[i].name == spec.name) {
+					info.data.defs[i] = spec;
+					break;
+				}
+			}
 		}
+		info.global.localSpecs.remove(decl.name.name);
 	}
 	return def;
 }
@@ -7803,6 +7825,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct);
+										trace(fieldName);
 										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									}else{
 										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;

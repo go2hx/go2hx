@@ -232,8 +232,21 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 						case "TypeSpec":
 							final spec:Ast.TypeSpec = spec;
 							if (spec.type.id == "StructType") { // priority
-								if (spec.name.name != "_")
-									info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+								if (spec.name.name != "_") {
+									//trace(spec.name.name);
+									if (spec.name.name.indexOf(":") != -1) {
+										final index = spec.name.name.indexOf(":");
+										final key = spec.name.name.substr(0,index);
+										spec.name.name = spec.name.name.substr(index + 1);
+										if (!info.global.localSpecs.exists(key)) {
+											info.global.localSpecs[key] = [];
+										}
+										info.global.localSpecs[key].push(spec);
+										gen.specs.remove(spec);
+									}else{
+										info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+									}
+								}
 							}
 					}
 				}
@@ -2954,7 +2967,7 @@ private function wrapperExpr(t:GoType, y:Expr, info:Info):Expr {
 	}
 	switch t {
 		case named(name, methods, type, alias, params):
-			if (!alias && methods.length == 0)
+			if (!alias && methods.length == 0 && !isStruct(type))
 				return y;
 			if (type == invalidType)
 				return y;
@@ -6690,6 +6703,14 @@ var identifierNames:Array<String> = [];
 			args: args,
 		}), access)
 	};
+	// local specs
+	final specs = info.global.localSpecs[decl.name.name];
+	if (specs != null) {
+		for (spec in specs) {
+			//trace(spec, spec.name);
+			info.data.defs.push(typeSpec(spec, info, true));
+		}
+	}
 	return def;
 }
 
@@ -8533,6 +8554,7 @@ function normalizePath(path:String):String {
 }
 
 class Global {
+	public var localSpecs:Map<String,Array<Ast.Spec>> = [];
 	public var gotoSystem:Bool = false;
 	public var recoverBool:Bool = false;
 	public var deferBool:Bool = false;
@@ -8555,6 +8577,7 @@ class Global {
 
 	public function copy():Global {
 		var g = new Global();
+		g.localSpecs = localSpecs;
 		g.initBlock = initBlock.copy();
 		g.noCommentsBool = noCommentsBool;
 		g.renameClasses = renameClasses;

@@ -1142,6 +1142,8 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.CompositeLit:
 		data["exprType"] = parseData(node.Type)
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+	case *ast.DeclStmt:
+		data["pos"] = parsePos(node.Pos())
 	case *ast.SelectorExpr:
 		typeAndValue := checker.Types[node.X.(ast.Expr)]
 		typ := typeAndValue.Type

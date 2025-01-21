@@ -472,8 +472,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							break;
 					}
 				}
-				if (local.length == 0 && !embedded)
-					continue;
+				//if (local.length == 0 && !embedded)
+				//	continue;
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
 				final fieldWrapper = [info.global.filePath, wrapperName];

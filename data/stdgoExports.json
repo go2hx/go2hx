@@ -3,5 +3,6 @@
     "runtime/debug",
     "internal/reflectlite",
     "reflect",
-    "net"
+    "net",
+    "net/http"
 ]

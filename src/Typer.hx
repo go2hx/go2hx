@@ -239,7 +239,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 										final key = spec.name.name.substr(0,index);
 										//trace(key);
 										spec.name.name = spec.name.name.substr(index + 1);
-										//info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+										// need to push the type in order to do a replace later at the decleration within a function body
+										info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 										if (!info.global.localSpecs.exists(key)) {
 											info.global.localSpecs[key] = [];
 										}
@@ -7825,7 +7826,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct);
-										trace(fieldName);
 										macro @:check42 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
 									}else{
 										macro @:check5 (this.$name ?? throw "null pointer dereference").$fieldName;

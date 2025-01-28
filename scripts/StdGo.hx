@@ -40,7 +40,7 @@ function main() {
 	trace(libs);
 	libCount = libs.length;
 	final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
-	Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
+	Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
 		return;
@@ -87,7 +87,12 @@ function update() {
 			args.push("-debug");
 		args.push(path);
 		instance = Main.compileArgs(args);
-		compiled = Main.compile(instance);
+		try {
+			compiled = Main.compile(instance);
+		}catch(e) {
+			trace(lib);
+			throw e.details();
+		}
 		instance = null;
 		if (!compiled) {
 			break;

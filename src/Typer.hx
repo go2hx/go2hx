@@ -472,7 +472,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				final ct:ComplexType = TPath({
 					name: splitDepFullPathName(def.name + "Pointer", info),
 					pack: [],
-					params: [],
+					params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []}))),
 				});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
 				var embedded = false;
@@ -488,8 +488,13 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 							break;
 					}
 				}
-				//if (local.length == 0 && !embedded)
-				//	continue;
+                var isInterface = false;
+                for (meta in def.meta) {
+                    if (meta.name == ":interface")
+                        isInterface = true;
+                }
+                if (isInterface)
+                    continue;
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
 				final fieldWrapper = [info.global.filePath, wrapperName];
@@ -512,14 +517,24 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				final wrapper = createWrapper(wrapperName, ct);
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
-				file.defs.push(wrapper);
+				if (!alreadyExistsTypeDef(wrapper,info))
+					file.defs.push(wrapper);
 				// type alias pointer
 				final aliasPointerName = def.name + "Pointer";
 				final aliasPointer:TypeDefinition = {
 					name: aliasPointerName,
 					pos: null,
 					pack: [],
-					kind: TDAlias(TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(TPath({pack: [], name: splitDepFullPathName(def.name, info)}))]})),
+					kind: TDAlias(TPath({
+						name: "Pointer",
+						pack: ["stdgo"],
+						params: [TPType(TPath({
+							pack: [],
+							name: splitDepFullPathName(def.name, info),
+							params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []})))}))
+						]
+					})),
+					params: def.params,
 					fields: [],
 					isExtern: true,
 					meta: [
@@ -527,13 +542,15 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 						{name: ":follow", pos: null},
 					],
 				};
-				info.data.defs.push(aliasPointer);
+				if (!alreadyExistsTypeDef(aliasPointer,info))
+					info.data.defs.push(aliasPointer);
 				// files check against all TypeSpecs
 				if (def.meta != null) { // prevents adding @:using or other metadata to Patch.replace types
 					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				}
 				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
-				file.defs.push(staticExtension);
+				if (!alreadyExistsTypeDef(staticExtension,info))
+					file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
 					if (field.meta != null) {
@@ -5592,6 +5609,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	var setToSliceType = false;
 	var sliceType:GoType = null;
 	if (expr.type == null) {
+		// catch #NULL_TYPE from goto
+		//trace(expr.type,expr.exprType.id);
 		if (expr.exprType.id == "ArrayType") {
 			setToSliceType = true;
 			switch expr.exprType.elt.name {
@@ -5601,6 +5620,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 					sliceType = GoType.basic(int_kind);
 				case "string":
 					sliceType = GoType.basic(string_kind);
+				default:
+					//throw "unknown expr.exprType.elt.name: " + expr.exprType.elt.name;
 			}
 		}else{
 			return (macro @:invalid_compositelit_null null).expr;
@@ -6678,6 +6699,10 @@ var identifierNames:Array<String> = [];
 	}
 	if ((decl.type.typeParams != null || recvGeneric)) {
 		// TODO: generic funcs
+		/*for (param in decl.type.typeParams.list) {
+			trace(param.names.map(name -> name.name));
+			trace(param.type, Reflect.fields(param));
+		}*/
 		params = null;
 		if (patch == null) {
 			block = macro throw "generic function is not supported";
@@ -7900,7 +7925,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final ct:ComplexType = TPath({
 					name: splitDepFullPathName(def.name + "Pointer",info),
 					pack: [],
-					params: [],
+					params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []}))),
 				});
 				// type alias pointer
 				final aliasPointerName = def.name + "Pointer";
@@ -7908,7 +7933,16 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					name: aliasPointerName,
 					pos: null,
 					pack: [],
-					kind: TDAlias(TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(TPath({pack: [], name: splitDepFullPathName(def.name, info)}))]})),
+					kind: TDAlias(TPath({
+						name: "Pointer",
+						pack: ["stdgo"],
+						params: [TPType(TPath({
+							pack: [],
+							name: splitDepFullPathName(def.name, info),
+							params: def.params?.map(param -> TPType(TPath({name: param.name, pack: []})))}))
+						]
+					})),
+					params: def.params,
 					fields: [],
 					isExtern: true,
 					meta: [
@@ -7916,7 +7950,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						{name: ":follow", pos: null},
 					],
 				};
-				info.data.defs.push(aliasPointer);
+				if (!alreadyExistsTypeDef(aliasPointer,info))
+					info.data.defs.push(aliasPointer);
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
 				final fieldWrapper = [info.global.filePath, wrapperName];
@@ -7938,11 +7973,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final wrapper = createWrapper(wrapperName, ct);
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
-				info.data.defs.push(wrapper);
+				if (!alreadyExistsTypeDef(wrapper,info))
+					info.data.defs.push(wrapper);
 				// embedding
 				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
-				info.data.defs.push(staticExtension);
+				if (!alreadyExistsTypeDef(staticExtension,info))
+					info.data.defs.push(staticExtension);
 				var embedded = false;
 				for (field in localEmbeddedFields) { // embedded
 					if (field.meta != null) {
@@ -8058,7 +8095,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					{name: ":keep", pos: null},
 				],
 			};
-			info.data.defs.push(staticExtension);
+			if (!alreadyExistsTypeDef(staticExtension,info))
+				info.data.defs.push(staticExtension);
 			final fields = typeFieldListMethods(struct.methods, info);
 			final wrapper = macro class Wrapper {};
 			for (i in 0...fields.length) {
@@ -8107,7 +8145,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			for (field in fields)
 				field.access.push(ADynamic);
-			var meta = [];
+			var meta = [{name: ":interface", pos: null}];
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];
 			if (struct.methods != null && struct.methods.list != null)
@@ -8231,6 +8269,15 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 			doc: info.global.noCommentsBool ? "" : doc,
 		});
 	}*/
+}
+
+private function alreadyExistsTypeDef(td:TypeDefinition, info:Info):Bool {
+	for (def in info.data.defs) {
+		if (def.name == td.name) {
+			return true;
+		}
+	}
+	return false;
 }
 
 private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<TypeDefinition> {

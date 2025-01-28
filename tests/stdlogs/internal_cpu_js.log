@@ -5,9 +5,9 @@ Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17460 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 21528 column 79)
 Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39629 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45619 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56206 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55647:58
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45684 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56442 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55883:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$mustHaveDebugOptionsSupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14990 column 19)
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$_$runDebugOptionsTest__runDebugOptionsTest (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14942 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testDisableAllCapabilities_testDisableAllCapabilities [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:14937:2)
@@ -21,12 +21,12 @@ Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17460 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 21528 column 79)
 Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39629 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45619 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56206 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55647:58
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45684 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56442 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55883:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$mustHaveDebugOptionsSupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14990 column 19)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testAllCapabilitiesDisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:34937:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 55442 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 55678 column 9)
 
 -- FAIL: TestAllCapabilitiesDisabled
 

@@ -14,9 +14,9 @@ Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go
 Called from .stdgo__$internal_io_fs_Fs_$_$globWithLimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25617 column 17)
 Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25502 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testGlob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:25466:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
 
 -- FAIL: TestGlob
 
@@ -29,13 +29,13 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
 
 === RUN  TestGlobMethod
 Exception: MapFS:testing.fstest.glob is not yet implemented
-Called from stdgo__$internal_testing_fstest_MapFS_$static_$extension.glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90139 column 23)
+Called from stdgo__$internal_testing_fstest_MapFS_$static_$extension.glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90513 column 23)
 Called from stdgo__$internal_testing_fstest_MapFS_$asInterface.glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 32527 column 67)
 Called from _$internal_io_fs_$test_T_$globOnly_$asInterface.glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 32584 column 61)
 Called from .stdgo__$internal_io_fs_Fs_$_$globWithLimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25580 column 25)
 Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 25502 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testGlobMethod_testGlobMethod [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:32490:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
 
 -- FAIL: TestGlobMethod
@@ -44,10 +44,10 @@ Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/g
 Exception: MapFS:testing.fstest.readDir is not yet implemented
 Called from .stdgo__$internal_io_fs_Fs_$readDir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 28925 column 25)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testReadDir_testReadDir [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:32666:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
@@ -60,10 +60,10 @@ Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 c
 Exception: MapFS:testing.fstest.readFile is not yet implemented
 Called from .stdgo__$internal_io_fs_Fs_$readFile_readFile (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 33542 column 25)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testReadFile_testReadFile [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:33317:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
@@ -73,10 +73,10 @@ Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 c
 Exception: MapFS:testing.fstest.stat is not yet implemented
 Called from .stdgo__$internal_io_fs_Fs_$stat_stat (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 28462 column 25)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testStat_testStat [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:33625:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 
@@ -84,24 +84,24 @@ Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 c
 
 === RUN  TestSub
 Exception: MapFS:testing.fstest.sub is not yet implemented
-Called from stdgo__$internal_testing_fstest_MapFS_$static_$extension.sub (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90136 column 23)
+Called from stdgo__$internal_testing_fstest_MapFS_$static_$extension.sub (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90510 column 23)
 Called from stdgo__$internal_testing_fstest_MapFS_$asInterface.sub (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 32524 column 67)
 Called from _$internal_io_fs_$test_T_$subOnly_$asInterface.sub (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 45752 column 60)
 Called from .stdgo__$internal_io_fs_Fs_$sub_sub (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 32832 column 17)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testSub_testSub [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45597:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
 
 -- FAIL: TestSub
 
 === RUN  TestWalkDir
 Exception: MapFS:testing.fstest.stat is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testWalkDir_testWalkDir [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45891:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
@@ -113,10 +113,10 @@ got directories <invalid reflect.Value>, want %!v(MISSING)chmod: invalid mode: â
 Try 'chmod --help' for more information.
 Exception: MapFS:testing.fstest.stat is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testIssue51617_testIssue51617 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46378:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89141 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 89482 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 47312 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
 Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
@@ -124,21 +124,21 @@ node:fs:1506
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir '5bhlx2i23i/a/bad'
+Error: EACCES: permission denied, scandir 'f3nuk7a92i/a/bad'
     at Object.readdirSync (node:fs:1506:26)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62315:30)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62321:7)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62321:7)
-    at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62361:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:89669:4
-    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:89155:4)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62431:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62437:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62437:7)
+    at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:62477:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:90010:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:89496:4)
     at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:47312:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:105604:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:105605:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:106041:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:106042:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: '5bhlx2i23i/a/bad'
+  path: 'f3nuk7a92i/a/bad'
 }
 
 Node.js v20.18.1

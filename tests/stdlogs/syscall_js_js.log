@@ -6,8 +6,8 @@
     at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:16018:17)
     at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:15948:11)
     at stdgo__$internal_syscall_js_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_js.js:11925:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:55885:115
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:58353:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:56133:115
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:58601:3)
     at Module._compile (node:internal/modules/cjs/loader:1469:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)
     at Module.load (node:internal/modules/cjs/loader:1288:32)

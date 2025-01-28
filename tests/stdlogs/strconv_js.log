@@ -239,14 +239,14 @@
 === RUN  TestCountMallocs
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94321 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94351 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:93956:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94743 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94773 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:94378:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:51062:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 93766 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94188 column 9)
 Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57452 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117322:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117323:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117837:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117838:3)
 -- SKIP: TestCountMallocs
 
 === RUN  TestAllocationsFromBytes

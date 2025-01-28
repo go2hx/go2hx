@@ -489,9 +489,11 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
                 var isInterface = false;
-                for (meta in def.meta) {
-                    if (meta.name == ":interface")
-                        isInterface = true;
+                if (def.meta != null) {
+                    for (meta in def.meta) {
+                        if (meta.name == ":interface")
+                            isInterface = true;
+                    }
                 }
                 if (isInterface)
                     continue;

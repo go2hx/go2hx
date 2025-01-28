@@ -86,7 +86,7 @@ function main() {
 	trace(tests.length);
 	trace(tasks.length);
 	if (!dryRun) {
-		Main.setup(0, Std.parseInt(runnerCount)); // amount of processes to spawn
+		Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
 		final timer = new haxe.Timer(100);
 		timer.run = update;

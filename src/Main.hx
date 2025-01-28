@@ -53,7 +53,7 @@ function run(args:Array<String>) {
 	}
 	final instance = compileArgs(args);
 	Sys.println("Golang compiler instance");
-	setup(instance.port, processCount, () -> {
+	setup(instance, processCount, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
 				close();
@@ -141,7 +141,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		@doc(" If a test binary runs longer than duration d, panic. If d is 0, the timeout is disabled. The default is 10 minutes (10m).")
 		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
-		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
+		["-v", "--v", "-verbose", "--verbose"] => () -> {instance.verbose = true; instance.defines.push("verboseTest");},
 		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
 		["-port", "--port"] => port -> instance.port = Std.parseInt(port),
@@ -220,7 +220,8 @@ function close(code:Int=0) {
 	Sys.exit(code);
 }
 
-function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
+function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
+	var port = instance.port;
 	if (port == 0)
 		port = 6114 + Std.random(800); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
@@ -303,6 +304,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+				instance.log("alloc " + len);
 				#if !hl
 				client.stream.size = len;
 				#end
@@ -317,13 +319,17 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			buff.blit(pos, bytes, 0, bytes.length);
 			#end
 			pos += bytes.length;
+			instance.log("progress: " + pos + "/" + buff.length);
 			bytes = null;
 			// Sys.println("pos: " + pos + " buff: " + buff.length);
 			if (pos == buff.length) {
 				var exportData:DataType = null;
+				instance.log("uncompress start");
 				var data = haxe.zip.Uncompress.run(buff);
+				instance.log("uncompress complete, json parse");
 				buff = null;
 				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
+				instance.log("json complete");
 				data = null;
 				// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
 				// Sys.println("retrieved exportData");
@@ -333,7 +339,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
 				var modules = [];
 				Sys.setCwd(cwd);
+				instance.log("compile");
 				modules = Typer.main(exportData, instance);
+				instance.log("compile complete");
 				exportData = null;
 				var libs:Array<String> = [];
 
@@ -505,7 +513,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			Sys.println('haxe ' + cliCommands.join(" "));
 			Sys.command('haxe ' + cliCommands.join(" ")); // build without build file
-			trace("main: " + main);
+			//trace("main: " + main);
 			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);
@@ -685,6 +693,7 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 final instanceCache = new Vector<InstanceData>(20);
 
 class InstanceData {
+	public var verbose:Bool = false;
 	public var debugBool:Bool = false;
 	public var noDeps:Bool = false;
 	public var varTraceBool:Bool = false;
@@ -713,5 +722,10 @@ class InstanceData {
 	public function new(args:Array<String> = null) {
 		if (args != null)
 			this.args = args;
+	}
+	public function log(s:String) {
+		if (!verbose)
+			return;
+		Sys.println(s);
 	}
 }

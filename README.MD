@@ -23,6 +23,7 @@ Go2hx is a haxe compiler, that compiles Go code to haxe
   - [Test status](#test-status)
   - [Goals](#goals)
   - [Known issues](#known-issues)
+  - [Evaluating libraries](#evaluating-libraries)
   - [Upcoming](#upcoming)
 - [Contributing](#contributing)
   - [Setup from source](#setup-from-source)
@@ -162,6 +163,10 @@ Target:
 -version            Version of the compiler
 ```
 
+# Examples
+
+[go2hx website samples](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases)
+
 # Project status
 
 The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensivly tested and will likely work in isolation, that are not explicited excluded such as: generics, goroutines, channels, unsafe
@@ -195,11 +200,51 @@ Become the one stop shop for high quality Haxe libraries for Haxe devs
 
 Beyond the known issues highlighted above, there are a handful of other issues
 with using Go2hx.
-
-- Many targets have fundemental problems not adressed by Go2hx such as too large of function blocks in jvm
-- The project has many rough spots, and painpoints lurking that need feedback for to fix
+- The compiler supports a subspecification of the full language, language features outside of it, are likely excluded from testing and have no support.
+- Many targets have fundemental problems not adressed by Go2hx such as too large of function blocks in jvm.
+- The project has many rough spots, and painpoints that need feedback to fix.
 - Some of the excluded language features such as goroutines and generics are heavily used in most Go libraries.
 - Most stdlibs do not work, most 3rd party libs also do not work.
+
+
+## Evaluating libraries
+
+There is the language and then the stdlib.
+
+If a library uses language features not supported such as [generics](https://go.dev/blog/intro-generics), [goroutines](https://go.dev/ref/spec#Go_statements), [unsafe](https://pkg.go.dev/unsafe) or [cgo](https://go.dev/blog/cgo), it will most likely not work.
+
+Find goroutines by searching for: ``go func() {``
+
+generics by: ``[T`` (not fully reliable)
+
+unsafe by: ``unsafe``
+
+Next are stdlibs, you can find all of the given stdlibs for any 3rd party or stdlib by using [pkg.go.dev](https://pkg.go.dev)
+
+I often do ``pkg.go.dev`` **/** github.com/user/repo
+
+for example: [pkg.go.dev/github.com/itchio/lzma](https://pkg.go.dev/github.com/itchio/lzma)
+
+Next I find the tab called ``imports: X`` (X being the amount of imports) click on it and it will show you the [imports fot the projects](https://pkg.go.dev/github.com/alecthomas/chroma/v2?tab=imports).
+
+Libraries with only stdlibs are ideal, but a small amount of 3rd party libs can also work if they follow the same positive evaluation of language and lib usag denoted here.
+
+ 
+ 
+The most likely not to work library is ``net/http`` because of its sheer complexity, pulling in a massive 46 stdlibs as well as 4 quasi 3rd party libs.
+
+
+On the other hand `syscalls`` is way to lowlevel and highly unsupported.
+
+After that ``encoding/`` will also likely not working because of not enough ``reflect`` support.
+
+Fmt will likely work along with the 19+ stdlibs currently passing their tests: [check them on the website](https://go2hx.github.io/)
+
+``os``, ``reflect`` are mixed, some things work and others not so much.
+
+``slices`` will not work, because it's a new stdlib using all generics.
+
+``io`` does not work, because of a strange bug of a missing type.
 
 
 ## Upcoming

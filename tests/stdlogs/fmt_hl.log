@@ -82,7 +82,7 @@ Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want 
 expected:
 	"%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)"
 got:
-	"%!s(<nil>) %!s(*_internal.fmt_test.A_55372=<nil>) %!s(<nil>) {} %!s(<nil>)"
+	"%!s(<nil>) &{} %!s(<nil>) {} %!s(<nil>)"
 -- FAIL: TestNilDoesNotBecomeTyped
 
 === RUN  TestFormatterFlags

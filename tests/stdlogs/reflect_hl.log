@@ -1,26 +1,8 @@
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:29: characters 8-61
+[30;41m ERROR [0m ./stdgo/_internal/net/http/httptest/Httptest.hx:13: characters 8-61
 
-  29 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
+  13 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
-
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:30: characters 8-48
-
-  30 | [2mimport [0m[1m_internal.golang_dot_org.x.net.idna.Idna[0m[2m;[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.golang_dot_org.x.net.idna.Idna
-
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:33: characters 8-63
-
-  33 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpproxy.Httpproxy[0m[2m;[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.golang_dot_org.x.net.http.httpproxy.Httpproxy
-
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http.hx:34: characters 8-56
-
-  34 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http2.hpack.Hpack[0m[2m;[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.golang_dot_org.x.net.http2.hpack.Hpack
 
 [30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:19: characters 8-75
 
@@ -39,12 +21,6 @@
   38 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte[0m[2m;[0m
      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte
-
-[30;41m ERROR [0m ./stdgo/_internal/net/http/httptest/Httptest.hx:13: characters 8-61
-
-  13 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
 
 [30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:467: characters 16-25
 

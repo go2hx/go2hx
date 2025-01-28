@@ -241,7 +241,7 @@ got directories [.], want [. a a/bad a/next]Exception: :os.mkdirAll is not yet i
 Called from _internal.path.filepath_test._Filepath_test_testIssue51617.$Filepath_test_testIssue51617_Fields_.testIssue51617 (_internal/path/filepath_test/Filepath_test_testIssue51617.hx line 101)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
-Uncaught exception: SysError(Failed to read directory 9n3jzsfxva/a/bad)
+Uncaught exception: SysError(Failed to read directory 4ql1y0sbig/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)

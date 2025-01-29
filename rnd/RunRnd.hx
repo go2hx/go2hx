@@ -11,50 +11,46 @@ function main() {
 		if (modules.length == 0)
 			throw "no exported path";
 		final mainPath = mainPath(modules);
-		if (Compiler.getDefine("rnd_cpp") != null) {
+		if (Compiler.getDefine("rnd_cpp") != null || Compiler.getDefine("cpp_") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --cpp bin/cpp -lib hxcpp -lib hxcpp-debug-server' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
 			final command = './bin/cpp/rnd';
 			Sys.println(command);
 			Sys.command(command);
-		} else if (Compiler.getDefine("rnd_js") != null) {
-			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js runrnd.js -lib hxnodejs'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+		} else if (Compiler.getDefine("rnd_js") != null || Compiler.getDefine("js_") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js runrnd.js'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
 			final command = "NODE_OPTIONS=--enable-source-maps node runrnd.js";
 			Sys.println(command);
 			Sys.command(command);
-		}else if (Compiler.getDefine("rnd_jvm") != null) {
+		}else if (Compiler.getDefine("rnd_jvm") != null || Compiler.getDefine("jvm_") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -v -main $mainPath --jvm runrnd.jar'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
 			final command = "java -jar runrnd.jar";
 			Sys.println(command);
 			Sys.command(command);
-		}else if (Compiler.getDefine("rnd_interp") != null) {
+		}else if (Compiler.getDefine("rnd_interp") != null || Compiler.getDefine("interp_") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
 		}else{
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath -hl runrnd.hl'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
-			final proc = new sys.io.Process(command);
-			final exitCode = proc.exitCode();
+			Sys.println(command);
+			final exitCode = Sys.command(command);
 			if (exitCode != 0) {
-				Sys.println(proc.stderr.readAll().toString());
-				proc.close();
 				Main.close();
 				return;	
-			}else{
-				Sys.println(proc.stdout.readAll().toString());
 			}
-			proc.close();
 			final profileBool = Compiler.getDefine("profile") != null;
 			final command = profileBool ? "hl --profile 10000 runrnd.hl" : "hl runrnd.hl";
 			Sys.println(command);
 			Sys.command(command);
 			if (profileBool) {
+				trace("run profile bool");
 				ProfileGen.run("hlprofile.dump");
 				//final command = "hl profiler.hl hlprofile.dump";
 				//Sys.println(command);
@@ -77,7 +73,7 @@ function main() {
 		}
 		Main.close();
 	};
-	final args = ["-norun", "-log", "./rnd", Sys.getCwd()];
+	final args = ["-norun", "-log", "--verbose", "./rnd", Sys.getCwd()];
 	// args.unshift("--extern");
 	if (testBool)
 		args.unshift("-test");

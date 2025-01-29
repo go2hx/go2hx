@@ -1,12 +1,33 @@
-[30;41m ERROR [0m ./stdgo/_internal/syscall/js/Js_global.hx:2: characters 61-66
+=== RUN  TestGolden
+-- PASS: TestGolden
 
- 2 | [2mfunction global():stdgo._internal.syscall.js.Js_Value.Value [0m[1mthrow[0m[2m ":syscall.js.global is not yet implemented";[0m
-   |                                                             [31m^^^^^[0m
-   | Uncaught exception :syscall.js.global is not yet implemented
+=== RUN  TestGoldenMarshal
+-- PASS: TestGoldenMarshal
 
-   [30;41m -> [0m ./stdgo/_internal/crypto/rand/Rand__jsCrypto.hx:8: characters 61-106
+=== RUN  TestSize
+-- PASS: TestSize
 
-    8 | [2mvar _jsCrypto : stdgo._internal.syscall.js.Js_Value.Value = [0m[1mstdgo._internal.syscall.js.Js_global.global()[0m[2m.get(("crypto" : stdgo.GoString));[0m
-      |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Called from here
+=== RUN  TestBlockSize
+-- PASS: TestBlockSize
+
+=== RUN  TestBlockGeneric
+Exception: Value:syscall.js.new_ is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.Sha1_testBlockGeneric_Fields_.testBlockGeneric (./stdgo/_internal/crypto/sha1/Sha1_testBlockGeneric.hx line 21 column 1)
+Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 11 column 77)
+Called from stdgo._internal.io._Io_readFull.Io_readFull_Fields_.readFull (./stdgo/_internal/io/Io_readFull.hx line 6 column 77)
+Called from stdgo._internal.io._Io_readAtLeast.Io_readAtLeast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readAtLeast.hx line 16 column 31)
+Called from stdgo._internal.crypto.rand.T_reader_asInterface.read (./stdgo/_internal/crypto/rand/Rand_T_reader_asInterface.hx line 11 column 125)
+Called from stdgo._internal.crypto.rand.T_reader_static_extension.read (./stdgo/_internal/crypto/rand/Rand_T_reader_static_extension.hx line 14 column 24)
+Called from local function #1 (./stdgo/_internal/crypto/rand/Rand__batched.hx line 16 column 36)
+Called from stdgo._internal.crypto.rand._Rand__getRandom.Rand__getRandom_Fields_._getRandom (./stdgo/_internal/crypto/rand/Rand__getRandom.hx line 9 column 19)
+Called from stdgo._internal.syscall.js.Value_static_extension.new_ (./stdgo/_internal/syscall/js/Js_Value_static_extension.hx line 29 column 159)
+
+-- FAIL: TestBlockGeneric
+
+=== RUN  TestLargeHashes
+-- PASS: TestLargeHashes
+
+=== RUN  TestAllocations
+-- PASS: TestAllocations
 

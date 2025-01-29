@@ -104,7 +104,7 @@ class ProfileGen {
 
     function main() {
         var args = Sys.args();
-        var outFile = "hlprofile.dump";
+        var outFile = "hlprofile.json";
 		var file = null;
 		var debug = false;
 		var mintime = 0.0;
@@ -340,6 +340,8 @@ class ProfileGen {
 				});
 			}
 		}
+		outFile = "hlprofile.json";
+		trace("saveContent: " + outFile);
 		sys.io.File.saveContent(outFile, debug ? haxe.Json.stringify(json,"\t") : haxe.Json.stringify(json));
 	}
 

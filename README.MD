@@ -17,8 +17,8 @@ Go2hx is a haxe compiler, that compiles Go code to haxe
   - [First compile](#first-compile)
   - [Next steps](#next-steps)
 - [Usage](#usage)
-  - [Options](#options)
-- [Examples](#examples)
+  - [Usage examples](#usage-examples)
+- [Options](#options)
 - [Project status](#project-status)
   - [Test status](#test-status)
   - [Goals](#goals)
@@ -130,7 +130,27 @@ You can do:
 haxelib run go2hx github.com/tidwall/btree
 ```
 
-## Options
+## Usage examples
+
+[go2hx website samples](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases)
+
+You can see the status of stdlibs easily on the [website](https://go2hx.github.io/).
+
+Code is by default added into ``golibs`` folder, this folder must be included to access the code.
+Compiled go code into Haxe also relies on specific defines, and an init macro in ``extraParams.hxml`` this can be included either by add go2hx as a lib ``-lib go2hx`` or creating an ``hxml`` with the given params added in such as ``haxelib run go2hx unicode --hxml build.hxml``
+
+Most of the compiled code will be in ``_internal/...`` this is intentional to hide the compiled code from Haxe devs and instead making the same paths without the ``_internal`` prefix the preferred method of access.
+
+go2hx generates extern like files for all public fields, funcs, types etc. This allows Haxe devs to interact with code using normal Haxe types, rather then the special number abstracts to uphold the behavior of go, as well as strings, structs etc.
+
+Some types however there is no Haxe equivlant such as interface{}/any, this is a type like Any but that can hold an extensive amount of type info about it's self, because of this when you want to create one you have to use a macro function, ``stdgo.Go.toInterface(x)`` likewise for go interfaces you must use ``stdgo.Go.asInterface``
+
+Because of the nature of these types and the extern system, there is not the same level of testing as the behavior within ``_internal`` so please if you run into an issue with interfacing with compiled Go code, make an issue and most likely it can be resolved quickly!
+
+This is a brief intro into usage, hopefully in the future, a lot of these details will become unnecessary and the usage will be more intutive.
+
+
+# Options
 
 Go2hx supports the following command line options.
 
@@ -162,10 +182,6 @@ Target:
 -nodeps             Remove all depedency on go2hx for the compiled code by moving the stdlib into the output
 -version            Version of the compiler
 ```
-
-# Examples
-
-[go2hx website samples](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases)
 
 # Project status
 

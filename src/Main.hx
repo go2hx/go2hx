@@ -236,7 +236,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 		}else{
 			"go4hx.exe";
 		}
-		final child = js.node.ChildProcess.exec('$name $port', null, null);
+		final child = js.node.ChildProcess.exec('$name $port', {timeout: 1000 * 60 * 10}, null);
 		//final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
 		child.on('exit', code -> {
 			final code:Int = code;
@@ -245,8 +245,10 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			Sys.println(child.stdout.read());
 			Sys.println(child.stderr.read());
 			if (resetCount++ > 4) {
+				child.kill();
 				Sys.exit(code);
 			}else{
+				child.kill();
 				jsProcess();
 			}
 		});

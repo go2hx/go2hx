@@ -62,7 +62,7 @@ type interfaceData struct {
 	isExport bool
 }
 
-//go:embed data/stdgo.json
+//go:embed data/stdgo.list
 var stdgoListBytes []byte
 
 //go:embed data/excludes.json
@@ -184,7 +184,7 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 var cfg = &packages.Config{
 	Mode: packages.NeedName |
 		packages.NeedSyntax |
-		packages.NeedImports | packages.NeedDeps |
+		packages.NeedImports | packages.NeedDeps | packages.NeedEmbedFiles | packages.NeedEmbedPatterns |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
 	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
 }
@@ -222,11 +222,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	list2 := make([]string, 0, 150)
-	err = json.Unmarshal(stdgoListBytes, &list2)
-	if err != nil {
-		log.Fatal(err.Error())
-	}
+	list2 := strings.Split(string(stdgoListBytes), "\n")
 	stdgoList = make(map[string]bool, len(list2))
 	for _, s := range list2 {
 		stdgoList[s] = true
@@ -498,6 +494,13 @@ func parsePkg(pkg *packages.Package) packageType {
 			name = filepath.Base(pkg.PkgPath)
 		}
 	}
+	// embed
+	//fmt.Println(pkg.EmbedFiles)
+	//goembed.CheckEmbed()
+
+	//fmt.Println(pkg.EmbedPatterns)
+	//pkg.EmbedFiles
+	// parsFeFile
 	if len(pkg.Syntax) > 0 {
 		data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
 	}
@@ -1302,7 +1305,11 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 		raw := false
 		if len(expr.Value) > 0 {
 			raw = expr.Value[0:1] == "`"
-			expr.Value = string(expr.Value[1 : len(expr.Value)-1])
+			if len(expr.Value) > 1 {
+				expr.Value = string(expr.Value[1 : len(expr.Value)-1])
+			} else {
+				expr.Value = ""
+			}
 		}
 		output = expr.Value
 		return map[string]interface{}{

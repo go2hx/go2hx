@@ -78,6 +78,5 @@
     "internal/platform",
     "context",
     "encoding/gob",
-    "encoding/json",
-    "encoding/xml"
+    "encoding/json"
 ]

@@ -96,27 +96,30 @@ final list = [
 		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
 	},
 	"os:mkdirTemp" => macro {
-		function randomName(length:Int) {
-			var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-			var result = "";
-	
-			for (i in 0...length) {
-				var randomIndex = Math.floor(Math.random() * chars.length);
-				result += chars.charAt(randomIndex);
+		@:define("(sys || hxnodejs)") {
+			function randomName(length:Int) {
+				var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+				var result = "";
+		
+				for (i in 0...length) {
+					var randomIndex = Math.floor(Math.random() * chars.length);
+					result += chars.charAt(randomIndex);
+				}
+		
+				return result;
 			}
-	
-			return result;
+			var name = randomName(10);
+			final pattern:String = _pattern;
+			final wildCardIndex = pattern.indexOf("*");
+			if (wildCardIndex != -1) {
+				name = pattern.substr(0,wildCardIndex) + name + pattern.substr(wildCardIndex + 1);
+			}else{
+				name = pattern + name;
+			}
+			sys.FileSystem.createDirectory(name);
+			return {_0: name, _1: null};
 		}
-		var name = randomName(10);
-		final pattern:String = _pattern;
-		final wildCardIndex = pattern.indexOf("*");
-		if (wildCardIndex != -1) {
-			name = pattern.substr(0,wildCardIndex) + name + pattern.substr(wildCardIndex + 1);
-		}else{
-			name = pattern + name;
-		}
-		sys.FileSystem.createDirectory(name);
-		return {_0: name, _1: null};
+		return {_0: "", _1: null};
 	},
 	"os:stat" => macro {
 		@:define("(sys || hxnodejs)") {

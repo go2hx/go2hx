@@ -246,11 +246,7 @@ class GoArrayData<T> {
 
 	public inline function toArray():Array<T> { // unrolling
 		if (bytes != null) {
-			#if interp
-			return @:privateAccess bytes.b;
-			#else
 			return [for (i in 0...length) untyped cast bytes.get(i + offset)];
-			#end
 		}
 		#if hl
 		return vector.toData();

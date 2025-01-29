@@ -17,6 +17,7 @@ Go2hx is a haxe compiler, that compiles Go code to haxe
   - [First compile](#first-compile)
   - [Next steps](#next-steps)
 - [Usage](#usage)
+  - [How to use the stdlibs?](#how-to-use-the-stdlibs)
   - [Usage examples](#usage-examples)
 - [Options](#options)
 - [Project status](#project-status)
@@ -129,6 +130,15 @@ You can do:
 ```sh
 haxelib run go2hx github.com/tidwall/btree
 ```
+
+## How to use the stdlibs?
+
+1. Look at the [website](https://go2hx.github.io/) for working stdlibs.
+2. Follow the go2hx library install instructions above.
+3. Add ``-lib go2hx`` to your hxml for openfl/haxeflixel users ``<haxelib name="go2hx" />``
+4. prefix path to the stdlibs with ``stdgo``
+5. Import for example unicode/utf8 ``import stdgo.unicode.utf8.Utf8``
+6. Use function ``Utf8.runeCount``
 
 ## Usage examples
 

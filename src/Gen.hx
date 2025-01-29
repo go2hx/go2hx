@@ -265,11 +265,12 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 					final access = access.copy();
 					/*if (access.indexOf(AInline) == -1)
 						access.push(AInline);*/
+					// at static level
 					cl.fields.push({
 						name: td.name,
 						pos: td.pos,
 						doc: td.doc,
-						access: [AStatic, APublic],
+						access: [AStatic, APublic, AInline],
 						kind: FFun(externGenFun(td.name, f, path)),
 					});
 					[];
@@ -394,7 +395,7 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 			usingPath.push(last);
 			usingPath.push(endUsing);
 			usingPath.remove("_internal");
-			// remove unneeded pack refrence
+			// remove unneeded pack reference
 			meta[i] = {
 				name: meta[i].name,
 				pos: null,
@@ -403,14 +404,16 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 			break;
 		}
 	}
-	return {
-		name: td.name == cl.name ? td.name + "_" : td.name,
+	final isNameUsed = td.name == cl.name;
+	final td = {
+		name: isNameUsed ? td.name + "_" : td.name,
 		pack: td.pack,
 		pos: null,
 		fields: fields,
 		meta: meta,
 		kind: TDAbstract(ct, null, [ct], [ct]),
-	}
+	};
+	return td;
 }
 
 function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
@@ -571,8 +574,9 @@ function externGenFields(fields:Array<haxe.macro.Expr.Field>, path:String):Array
 		switch field.kind {
 			case FFun(f):
 				final access = field.access.copy();
-				/*if (access.indexOf(AInline) == -1)
-					access.push(AInline);*/
+				// inside abstracts
+				if (access.indexOf(AInline) == -1)
+					access.push(AInline);
 				{
 					name: field.name,
 					access: access,

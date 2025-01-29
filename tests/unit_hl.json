@@ -144,5 +144,7 @@
  "hl|outofbounds",
  "hl|bytes",
  "hl|uint32multi",
- "hl|init"
+ "hl|init",
+ "hl|reflectcall0",
+ "hl|structembedfield"
 ]

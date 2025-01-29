@@ -144,5 +144,7 @@
  "interp|outofbounds",
  "interp|bytes",
  "interp|uint32multi",
- "interp|init"
+ "interp|init",
+ "interp|reflectcall0",
+ "interp|structembedfield"
 ]

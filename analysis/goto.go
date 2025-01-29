@@ -845,7 +845,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		}
 		_ = switchStmt
 		secondPass := true
-		commentBool := true
+		commentBool := false
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")

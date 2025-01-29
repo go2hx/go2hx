@@ -28,10 +28,15 @@ class Go {
 	}
 
 	public static function println(args:Rest<Dynamic>) {
+		var s = "";
 		for (i in 0...args.length) {
-			_print(args[i] + (i != args.length - 1 ? " " : ""));
+			s += args[i] + (i != args.length - 1 ? " " : "");
 		}
-		_print("\n");
+		#if (hxnodejs || sys)
+		_print('$s\n');
+		#else
+		_print(s);
+		#end
 	}
 
 	static function _print(arg:Dynamic) {

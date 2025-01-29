@@ -10,7 +10,7 @@ final path = Sys.getCwd();
 var libCount = 0;
 
 function main() {
-	var list:Array<String> = Json.parse(File.getContent("data/stdgo.json"));
+	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");
 	final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
 	final testList:Array<String> = Json.parse(File.getContent("data/tests.json"));
 	for (pkg in list) {

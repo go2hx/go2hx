@@ -1,32 +1,38 @@
-[30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test_GPointer.hx:2: characters 137-180
+[30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 81-204
 
- 2 | [2m@:keep @:follow @:using(_internal.runtime.debug_test.Debug_test_G_static_extension.G_static_extension) typedef GPointer = stdgo.Pointer<[0m[1m_internal.runtime.debug_test.Debug_test_G.G[0m[2m>;[0m
-   |                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Not enough type parameters for _internal.runtime.debug_test.G
+  12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>)[0m[2m);[0m
+     |                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
+     | For function argument '__self__'
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:329: characters 10-35
+[30;41m ERROR [0m stdgo/Go.macro.hx:393: characters 30-35
 
-    329 | [2m  return [0m[1mload("get_type", 1)(name)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+ 393 | [2m         var e = macro $self.[0m[1mvalue[0m[2m.$methodName($a{callArgs});[0m
+     |                              [31m^^^^^[0m
+     | _internal.runtime.debug_test.G<stdgo.GoInt> has no field value
 
-   [30;41m -> [0m stdgo/Go.macro.hx:352: characters 14-55
+     [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 60-205
 
-    352 | [2m   final t = [0m[1mContext.getType(printer.printTypePath(p))[0m[2m;[0m
-        |              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+      12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>))[0m[2m;[0m
+         |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from macro here
 
-    439 | [2m     [0m[1mf(ct, params)[0m[2m;[0m
-        |      [31m^^^^^^^^^^^^^[0m
-        | Called from here
+[30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 82-295
 
-    465 | [2m  return [0m[1mrun()[0m[2m;[0m
-        |          [31m^^^^^[0m
-        | Called from here
+  12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_I.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>)[0m[2m);[0m
+     |                                                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
+     | For function argument '__self__'
 
-   [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 60-205
+[30;41m ERROR [0m stdgo/Go.macro.hx:393: characters 30-35
 
-      2 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>))[0m[2m;[0m
-        |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-        | Called from here
+ 393 | [2m         var e = macro $self.[0m[1mvalue[0m[2m.$methodName($a{callArgs});[0m
+     |                              [31m^^^^^[0m
+     | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field value
+
+     [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 61-296
+
+      12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>))[0m[2m;[0m
+         |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from macro here
 

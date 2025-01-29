@@ -1,84 +1,30 @@
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:52: characters 68-71
+[30;41m ERROR [0m ./stdgo/_internal/net/http/httptest/Httptest.hx:13: characters 8-61
 
- 52 | [2m    public function get__ok():() -> Bool return @:check32 this.new.[0m[1m_ok[0m[2m;[0m
-    |                                                                    [31m^^^[0m
-    | () -> Void has no field _ok
+  13 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
 
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:48: characters 137-142
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:19: characters 8-75
 
- 48 | [2m    public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.new.[0m[1mwrite[0m[2m;[0m
-    |                                                                                                                                         [31m^^^^^[0m
-    | () -> Void has no field write
+  19 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305
 
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:44: characters 121-137
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:33: characters 8-51
 
- 44 | [2m    public function get_setWriteDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check32 this.new.[0m[1msetWriteDeadline[0m[2m;[0m
-    |                                                                                                                         [31m^^^^^^^^^^^^^^^^[0m
-    | () -> Void has no field setWriteDeadline
+  33 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.hkdf.Hkdf[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.hkdf.Hkdf
 
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:40: characters 95-109
+[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:38: characters 8-63
 
- 40 | [2m    public function get_setWriteBuffer():stdgo.GoInt -> stdgo.Error return @:check32 this.new.[0m[1msetWriteBuffer[0m[2m;[0m
-    |                                                                                               [31m^^^^^^^^^^^^^^[0m
-    | () -> Void has no field setWriteBuffer
+  38 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte[0m[2m;[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte
 
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:36: characters 120-135
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:467: characters 16-25
 
- 36 | [2m    public function get_setReadDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check32 this.new.[0m[1msetReadDeadline[0m[2m;[0m
-    |                                                                                                                        [31m^^^^^^^^^^^^^^^[0m
-    | () -> Void has no field setReadDeadline
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:32: characters 94-107
-
- 32 | [2m    public function get_setReadBuffer():stdgo.GoInt -> stdgo.Error return @:check32 this.new.[0m[1msetReadBuffer[0m[2m;[0m
-    |                                                                                              [31m^^^^^^^^^^^^^[0m
-    | () -> Void has no field setReadBuffer
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:28: characters 116-127
-
- 28 | [2m    public function get_setDeadline():stdgo._internal.time.Time_Time.Time -> stdgo.Error return @:check32 this.new.[0m[1msetDeadline[0m[2m;[0m
-    |                                                                                                                    [31m^^^^^^^^^^^[0m
-    | () -> Void has no field setDeadline
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:24: characters 104-114
-
- 24 | [2m    public function get_remoteAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check32 this.new.[0m[1mremoteAddr[0m[2m;[0m
-    |                                                                                                        [31m^^^^^^^^^^[0m
-    | () -> Void has no field remoteAddr
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:20: characters 136-140
-
- 20 | [2m    public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.new.[0m[1mread[0m[2m;[0m
-    |                                                                                                                                        [31m^^^^[0m
-    | () -> Void has no field read
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:16: characters 103-112
-
- 16 | [2m    public function get_localAddr():() -> stdgo._internal.net.Net_Addr.Addr return @:check32 this.new.[0m[1mlocalAddr[0m[2m;[0m
-    |                                                                                                       [31m^^^^^^^^^[0m
-    | () -> Void has no field localAddr
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:12: characters 143-147
-
- 12 | [2m    public function get_file():() -> { var _0 : stdgo.Ref<stdgo._internal.os.Os_File.File>; var _1 : stdgo.Error; } return @:check32 this.new.[0m[1mfile[0m[2m;[0m
-    |                                                                                                                                               [31m^^^^[0m
-    | () -> Void has no field file
-
-[30;41m ERROR [0m ./stdgo/_internal/net/Net_TCPConn.hx:8: characters 77-82
-
-  8 | [2m    public function get_close():() -> stdgo.Error return @:check32 this.new.[0m[1mclose[0m[2m;[0m
-    |                                                                             [31m^^^^^[0m
-    | () -> Void has no field close
-
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http_Header_static_extension.hx:18: characters 18-92
-
- 18 | [2m            if (![0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldName[0m[2m.validHeaderFieldName(_kv._key?.__copy__())) {[0m
-    |                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldName
-
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/net/textproto/Textproto_MIMEHeader_asInterface.hx:11: characters 69-105
-
- 11 | [2m    public dynamic function get(_key:stdgo.GoString):stdgo.GoString [0m[1mreturn @:_0 __self__.value.get(_key)[0m[2m;[0m
-    |                                                                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Null<stdgo.Slice<stdgo.GoString>> should be stdgo.GoString
+ 467 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
+     |                [31m^^^^^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
 

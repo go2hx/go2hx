@@ -4,8 +4,8 @@
 === RUN  TestEnv
 Exception: :syscall.setenv is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.syscall_test._Syscall_test_testEnv.Syscall_test_testEnv_Fields_.testEnv (./_internal/syscall_test/Syscall_test_testEnv.hx line 3 column 9)
-Called from _internal.syscall_test._Syscall_test__testSetGetenv.Syscall_test__testSetGetenv_Fields_._testSetGetenv (./_internal/syscall_test/Syscall_test__testSetGetenv.hx line 3 column 20)
+Called from _internal.syscall_test._Syscall_test_testEnv.Syscall_test_testEnv_Fields_.testEnv (./_internal/syscall_test/Syscall_test_testEnv.hx line 6 column 9)
+Called from _internal.syscall_test._Syscall_test__testSetGetenv.Syscall_test__testSetGetenv_Fields_._testSetGetenv (./_internal/syscall_test/Syscall_test__testSetGetenv.hx line 6 column 20)
 Called from stdgo._internal.syscall._Syscall_setenv.Syscall_setenv_Fields_.setenv (./stdgo/_internal/syscall/Syscall_setenv.hx line 2 column 73)
 
 -- FAIL: TestEnv
@@ -13,11 +13,11 @@ Called from stdgo._internal.syscall._Syscall_setenv.Syscall_setenv_Fields_.seten
 === RUN  TestExecErrPermutedFds
 Exception: :testing.testing is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.syscall_test._Syscall_test_testExecErrPermutedFds.Syscall_test_testExecErrPermutedFds_Fields_.testExecErrPermutedFds (./_internal/syscall_test/Syscall_test_testExecErrPermutedFds.hx line 3 column 9)
-Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.Testenv_mustHaveExec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 3 column 18)
-Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 75 column 9)
-Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 4 column 80)
-Called from stdgo._internal.internal.testenv._Testenv__tryExec.Testenv__tryExec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryExec.hx line 9 column 14)
+Called from _internal.syscall_test._Syscall_test_testExecErrPermutedFds.Syscall_test_testExecErrPermutedFds_Fields_.testExecErrPermutedFds (./_internal/syscall_test/Syscall_test_testExecErrPermutedFds.hx line 6 column 9)
+Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.Testenv_mustHaveExec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 18 column 18)
+Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 79 column 9)
+Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 19 column 80)
+Called from stdgo._internal.internal.testenv._Testenv__tryExec.Testenv__tryExec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryExec.hx line 24 column 14)
 Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.testing (./stdgo/_internal/testing/Testing_testing.hx line 2 column 25)
 
 -- FAIL: TestExecErrPermutedFds
@@ -26,9 +26,9 @@ Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.tes
 not implemented on js
 Exception: __skip__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.syscall_test._Syscall_test_testGettimeofday.Syscall_test_testGettimeofday_Fields_.testGettimeofday (./_internal/syscall_test/Syscall_test_testGettimeofday.hx line 4 column 31)
+Called from _internal.syscall_test._Syscall_test_testGettimeofday.Syscall_test_testGettimeofday_Fields_.testGettimeofday (./_internal/syscall_test/Syscall_test_testGettimeofday.hx line 7 column 31)
 Called from local function #1 (./stdgo/_internal/testing/Testing_T_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 44 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 28 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 61 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 45 column 9)
 -- SKIP: TestGettimeofday
 

@@ -1,6 +1,6 @@
-[30;41m ERROR [0m ./_internal/os_dot_test/Os_dot_test.hx:40: characters 75-80
+[30;41m ERROR [0m ./_internal/os_dot_test/Os_dot_test.hx:44: characters 75-80
 
- 40 | [2m        } catch(__exception__) if (__exception__.message != "__return__") [0m[1mthrow[0m[2m __exception__;[0m
+ 44 | [2m        } catch(__exception__) if (__exception__.message != "__return__") [0m[1mthrow[0m[2m __exception__;[0m
     |                                                                           [31m^^^^^[0m
     | Uncaught exception :os.getenv is not yet implemented
 

@@ -233,7 +233,7 @@ function update() {
 		var timeoutTimer = new haxe.Timer((1000 * 60) * 4);
 		timeoutTimer.run = () -> {
 			runningCount--;
-			trace("TEST TIMEOUT: " + task.command + " " + task.args);
+			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
 			if (task.runtime) {
 				suite.runtimeError(task);
 			}else{
@@ -298,8 +298,9 @@ function update() {
 					// runtime error
 					trace("CLOSE: " + code);
 					// stdlogs output
-					if (!FileSystem.exists("tests/stdlogs"))
+					if (!FileSystem.exists("tests/stdlogs")) {
 						FileSystem.createDirectory("tests/stdlogs");
+					}
 					if (type == "std") {
 						final name = StringTools.replace(task.path, "/", "_") + "_" + task.target;
 						final analyzeDataFileName = "tests/stdlogs/"  + name + ".json";

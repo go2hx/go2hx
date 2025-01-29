@@ -1628,7 +1628,8 @@ final list = [
 	"testing.T_common:skipped" => macro return _c._skipped,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
-		//@:define("(sys || hxnodejs)") Sys.exit(1);
+		if (@:privateAccess ++_c.failCount > 10)
+			@:define("(sys || hxnodejs)") Sys.exit(1);
 	},
 	"testing.T_common:skipf" => macro {
 		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
@@ -1773,6 +1774,10 @@ final structs = [
 	"testing:T_" => macro {
 		@:local
 		var output:StringBuf = null;
+	},
+	"testing:T_common" => macro {
+		@:local
+		var failCount = 0;
 	},
 	"syscall:IPv6Mreq" => macro {
 		@:local

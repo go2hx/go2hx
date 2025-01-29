@@ -29,7 +29,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
-		return this.high - this.low;
+		return this == null ? 0 : this.high - this.low;
 
 	public var code(get, never):GoRune;
 

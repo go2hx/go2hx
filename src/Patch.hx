@@ -610,7 +610,11 @@ final list = [
 		final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
 		switch gt {
 			case signature(_, _.get() => params, _.get() => out, _):
-				throw "not implemented reflect.Value:call: " + gt;
+				final values = new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>(0,0);
+                // TODO castings for input
+                // TODO return output
+                std.Reflect.callMethod(null, _v.interface_().value, _in.__toArray__().map(value -> value.interface_().value));
+                return values;
 			default:
 				throw "unsupported: " + gt;
 		}

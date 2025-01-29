@@ -10,3 +10,15 @@
       |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
       | Called from here
 
+[30;41m ERROR [0m ./stdgo/_internal/syscall/js/Js_global.hx:2: characters 61-66
+
+ 2 | [2mfunction global():stdgo._internal.syscall.js.Js_Value.Value [0m[1mthrow[0m[2m ":syscall.js.global is not yet implemented";[0m
+   |                                                             [31m^^^^^[0m
+   | Uncaught exception :syscall.js.global is not yet implemented
+
+   [30;41m -> [0m ./stdgo/_internal/crypto/rand/Rand__jsCrypto.hx:8: characters 61-106
+
+    8 | [2mvar _jsCrypto : stdgo._internal.syscall.js.Js_Value.Value = [0m[1mstdgo._internal.syscall.js.Js_global.global()[0m[2m.get(("crypto" : stdgo.GoString));[0m
+      |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Called from here
+

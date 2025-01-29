@@ -2,30 +2,26 @@
 -- PASS: TestMapFS
 
 === RUN  TestMapFSChmodDot
-Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.fstest._Fstest_testMapFSChmodDot.Fstest_testMapFSChmodDot_Fields_.testMapFSChmodDot (./stdgo/_internal/testing/fstest/Fstest_testMapFSChmodDot.hx line 2 column 86)
-
--- FAIL: TestMapFSChmodDot
+-- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-Exception: :testing.fstest.testSymlink is not yet implemented
+Exception: :os.symlink is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.fstest._Fstest_testSymlink.Fstest_testSymlink_Fields_.testSymlink (./stdgo/_internal/testing/fstest/Fstest_testSymlink.hx line 2 column 80)
+Called from stdgo._internal.testing.fstest._Fstest_testSymlink.Fstest_testSymlink_Fields_.testSymlink (./stdgo/_internal/testing/fstest/Fstest_testSymlink.hx line 25 column 24)
+Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 
 -- FAIL: TestSymlink
 
 === RUN  TestDash
-Exception: :testing.fstest.testDash is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.fstest._Fstest_testDash.Fstest_testDash_Fields_.testDash (./stdgo/_internal/testing/fstest/Fstest_testDash.hx line 2 column 77)
-
--- FAIL: TestDash
+-- PASS: TestDash
 
 === RUN  TestShuffledFS
-Exception: :testing.fstest.testShuffledFS is not yet implemented
+Exception: Null Access
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.fstest._Fstest_testShuffledFS.Fstest_testShuffledFS_Fields_.testShuffledFS (./stdgo/_internal/testing/fstest/Fstest_testShuffledFS.hx line 2 column 83)
+Called from stdgo._internal.testing.fstest._Fstest_testShuffledFS.Fstest_testShuffledFS_Fields_.testShuffledFS (./stdgo/_internal/testing/fstest/Fstest_testShuffledFS.hx line 24 column 24)
+Called from stdgo._internal.testing.fstest._Fstest_testFS.Fstest_testFS_Fields_.testFS (./stdgo/_internal/testing/fstest/Fstest_testFS.hx line 17 column 24)
+Called from stdgo._internal.testing.fstest._Fstest__testFS.Fstest__testFS_Fields_._testFS (./stdgo/_internal/testing/fstest/Fstest__testFS.hx line 17 column 18)
+Called from stdgo._internal.testing.fstest.T_fsTester_static_extension._checkDir (./stdgo/_internal/testing/fstest/Fstest_T_fsTester_static_extension.hx line 669 column 57)
 
 -- FAIL: TestShuffledFS
 

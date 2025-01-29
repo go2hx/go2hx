@@ -1,27 +1,3 @@
-[30;41m ERROR [0m ./stdgo/_internal/net/http/httptest/Httptest.hx:13: characters 8-61
-
- 13 | [2mimport [0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts[0m[2m;[0m
-    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts
-
-[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:19: characters 8-75
-
- 19 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305[0m[2m;[0m
-    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305
-
-[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:33: characters 8-51
-
- 33 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.hkdf.Hkdf[0m[2m;[0m
-    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.golang_dot_org.x.crypto.hkdf.Hkdf
-
-[30;41m ERROR [0m ./stdgo/_internal/crypto/tls/Tls.hx:38: characters 8-63
-
- 38 | [2mimport [0m[1m_internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte[0m[2m;[0m
-    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte
-
 [30;41m ERROR [0m ./stdgo/_internal/encoding/xml/Xml__marshalTests.hx:62: characters 54-298
 
  62 | [2m({ value : stdgo.Go.toInterface(stdgo.Go.asInterface([0m[1m(stdgo.Go.setRef((new stdgo._internal.encoding.xml.Xml_Generic.Generic<stdgo.GoInt>((1 : stdgo.GoInt)) : stdgo._internal.encoding.xml.Xml_Generic.Generic<stdgo.GoInt>)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_Generic.Generic<stdgo.GoInt>>)[0m[2m)), expectXML : ("<Generic><X>1</X></Generic>" : stdgo.GoString), marshalOnly : false, marshalError : ("" : stdgo.GoString), unmarshalOnly : false, unmarshalError : ("" : stdgo.GoString) } : stdgo._internal.encoding.xml.Xml_T__struct_1.T__struct_1),[0m

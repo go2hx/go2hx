@@ -2,100 +2,53 @@
 -- PASS: TestWriteLogger
 
 === RUN  TestWriteLogger_errorOnWrite
-Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testWriteLogger_errorOnWrite.Iotest_testWriteLogger_errorOnWrite_Fields_.testWriteLogger_errorOnWrite (./stdgo/_internal/testing/iotest/Iotest_testWriteLogger_errorOnWrite.hx line 2 column 97)
-
+WriteLogger mismatch
+	got:  "write: : Write Error!\n"
+	want: "lw: write: : Write Error!\n"
 -- FAIL: TestWriteLogger_errorOnWrite
 
 === RUN  TestReadLogger
-Exception: :testing.iotest.testReadLogger is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testReadLogger.Iotest_testReadLogger_Fields_.testReadLogger (./stdgo/_internal/testing/iotest/Iotest_testReadLogger.hx line 2 column 83)
-
+ReadLogger mismatch
+	got:  "read: 48656c6c6f2c20576f726c6421\n"
+	want: "lr: read: 48656c6c6f2c20576f726c6421\n"
 -- FAIL: TestReadLogger
 
 === RUN  TestReadLogger_errorOnRead
-Exception: :testing.iotest.testReadLogger_errorOnRead is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testReadLogger_errorOnRead.Iotest_testReadLogger_errorOnRead_Fields_.testReadLogger_errorOnRead (./stdgo/_internal/testing/iotest/Iotest_testReadLogger_errorOnRead.hx line 2 column 95)
-
+ReadLogger mismatch
+	got:  "read : io failure\n"
+	want: "lr: read : io failure\n"
 -- FAIL: TestReadLogger_errorOnRead
 
 === RUN  TestOneByteReader_nonEmptyReader
-Exception: :testing.iotest.testOneByteReader_nonEmptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testOneByteReader_nonEmptyReader.Iotest_testOneByteReader_nonEmptyReader_Fields_.testOneByteReader_nonEmptyReader (./stdgo/_internal/testing/iotest/Iotest_testOneByteReader_nonEmptyReader.hx line 2 column 101)
-
--- FAIL: TestOneByteReader_nonEmptyReader
+-- PASS: TestOneByteReader_nonEmptyReader
 
 === RUN  TestOneByteReader_emptyReader
-Exception: :testing.iotest.testOneByteReader_emptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testOneByteReader_emptyReader.Iotest_testOneByteReader_emptyReader_Fields_.testOneByteReader_emptyReader (./stdgo/_internal/testing/iotest/Iotest_testOneByteReader_emptyReader.hx line 2 column 98)
-
--- FAIL: TestOneByteReader_emptyReader
+-- PASS: TestOneByteReader_emptyReader
 
 === RUN  TestHalfReader_nonEmptyReader
-Exception: :testing.iotest.testHalfReader_nonEmptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testHalfReader_nonEmptyReader.Iotest_testHalfReader_nonEmptyReader_Fields_.testHalfReader_nonEmptyReader (./stdgo/_internal/testing/iotest/Iotest_testHalfReader_nonEmptyReader.hx line 2 column 98)
-
--- FAIL: TestHalfReader_nonEmptyReader
+-- PASS: TestHalfReader_nonEmptyReader
 
 === RUN  TestHalfReader_emptyReader
-Exception: :testing.iotest.testHalfReader_emptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testHalfReader_emptyReader.Iotest_testHalfReader_emptyReader_Fields_.testHalfReader_emptyReader (./stdgo/_internal/testing/iotest/Iotest_testHalfReader_emptyReader.hx line 2 column 95)
-
--- FAIL: TestHalfReader_emptyReader
+-- PASS: TestHalfReader_emptyReader
 
 === RUN  TestTimeOutReader_nonEmptyReader
-Exception: :testing.iotest.testTimeOutReader_nonEmptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testTimeOutReader_nonEmptyReader.Iotest_testTimeOutReader_nonEmptyReader_Fields_.testTimeOutReader_nonEmptyReader (./stdgo/_internal/testing/iotest/Iotest_testTimeOutReader_nonEmptyReader.hx line 2 column 101)
-
--- FAIL: TestTimeOutReader_nonEmptyReader
+-- PASS: TestTimeOutReader_nonEmptyReader
 
 === RUN  TestTimeOutReader_emptyReader
-Exception: :testing.iotest.testTimeOutReader_emptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testTimeOutReader_emptyReader.Iotest_testTimeOutReader_emptyReader_Fields_.testTimeOutReader_emptyReader (./stdgo/_internal/testing/iotest/Iotest_testTimeOutReader_emptyReader.hx line 2 column 98)
-
--- FAIL: TestTimeOutReader_emptyReader
+-- PASS: TestTimeOutReader_emptyReader
 
 === RUN  TestDataErrReader_nonEmptyReader
-Exception: :testing.iotest.testDataErrReader_nonEmptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testDataErrReader_nonEmptyReader.Iotest_testDataErrReader_nonEmptyReader_Fields_.testDataErrReader_nonEmptyReader (./stdgo/_internal/testing/iotest/Iotest_testDataErrReader_nonEmptyReader.hx line 2 column 101)
-
--- FAIL: TestDataErrReader_nonEmptyReader
+-- PASS: TestDataErrReader_nonEmptyReader
 
 === RUN  TestDataErrReader_emptyReader
-Exception: :testing.iotest.testDataErrReader_emptyReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testDataErrReader_emptyReader.Iotest_testDataErrReader_emptyReader_Fields_.testDataErrReader_emptyReader (./stdgo/_internal/testing/iotest/Iotest_testDataErrReader_emptyReader.hx line 2 column 98)
-
--- FAIL: TestDataErrReader_emptyReader
+-- PASS: TestDataErrReader_emptyReader
 
 === RUN  TestErrReader
-Exception: :testing.iotest.testErrReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testErrReader.Iotest_testErrReader_Fields_.testErrReader (./stdgo/_internal/testing/iotest/Iotest_testErrReader.hx line 2 column 82)
-
--- FAIL: TestErrReader
+-- PASS: TestErrReader
 
 === RUN  TestStringsReader
-Exception: :testing.iotest.testStringsReader is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testStringsReader.Iotest_testStringsReader_Fields_.testStringsReader (./stdgo/_internal/testing/iotest/Iotest_testStringsReader.hx line 2 column 86)
-
--- FAIL: TestStringsReader
+-- PASS: TestStringsReader
 
 === RUN  TestTruncateWriter
-Exception: :testing.iotest.testTruncateWriter is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from stdgo._internal.testing.iotest._Iotest_testTruncateWriter.Iotest_testTruncateWriter_Fields_.testTruncateWriter (./stdgo/_internal/testing/iotest/Iotest_testTruncateWriter.hx line 2 column 87)
-
--- FAIL: TestTruncateWriter
+-- PASS: TestTruncateWriter
 

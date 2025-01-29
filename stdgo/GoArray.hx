@@ -249,7 +249,7 @@ class GoArrayData<T> {
 			return [for (i in 0...length) untyped cast bytes.get(i + offset)];
 		}
 		#if hl
-		return vector.toData();
+		return vector.toData().slice(offset, offset + length);
 		#else
 		return [for (i in 0...length) vector.get(i + offset)];
 		#end

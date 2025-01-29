@@ -240,6 +240,7 @@ strings
 sync
 sync/atomic
 syscall
+syscall/js
 testing
 testing/fstest
 testing/internal/testdeps

@@ -116,7 +116,7 @@ function clean() {
 										}
 									}
 								}
-								break;
+								continue;
 							default:
 								deleteDirectoryRecursively('stdgo/$path/$path2');
 						}
@@ -132,7 +132,8 @@ function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
 	// return 0;
-	return Sys.command('find $dir -type f ! -iname "*.MD" -delete');
+	//return Sys.command('git rm --cache -r $dir');
+	return 0;
 	#else
 	return 0;
 	#end

@@ -646,7 +646,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 				return macro ([for (i in $e) $i] : $ct);
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 		case TPath({name: name, pack: ["stdgo"], params: _}):
-			
+			return macro ($e : $ct);
 		case TFunction(_, _):
 			return e;
 		default:

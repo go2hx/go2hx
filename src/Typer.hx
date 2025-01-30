@@ -6664,10 +6664,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		macro $block;
 	}
 	info.global.renameClasses = previousRenameClasses;
-	//trace(patchName);
 	final patch = Patch.list[patchName];
 	if (patch != null) {
-		Patch.list.remove(patchName);
+		//Patch.list.remove(patchName);
 		block = patch;
 	}
 

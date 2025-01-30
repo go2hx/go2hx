@@ -174,8 +174,8 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 === RUN  TestReadInvalidDestination
 Exception: Can't cast i32 to stdgo.PointerData
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 27)
-Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 142)
-Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 149)
+Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 150)
+Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 157)
 Called from stdgo._internal.encoding.binary.$T_littleEndian_static_extension.putUint64 (stdgo/_internal/encoding/binary/Binary_T_littleEndian_static_extension.hx line 33)
 Called from stdgo._internal.encoding.binary._Binary__testReadInvalidDestination.$Binary__testReadInvalidDestination_Fields_._testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary__testReadInvalidDestination.hx line 13)
 Called from stdgo._internal.encoding.binary._Binary_testReadInvalidDestination.$Binary_testReadInvalidDestination_Fields_.testReadInvalidDestination (stdgo/_internal/encoding/binary/Binary_testReadInvalidDestination.hx line 11)
@@ -188,10 +188,10 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#55B324F92608}) -> pointerType({get : function#55B324F92628})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#5569EA874408}) -> pointerType({get : function#5569EA874428})
 Exception: array out of bounds, index: 3 length: 0
-Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 142)
-Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 149)
+Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 150)
+Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 157)
 Called from stdgo._internal.encoding.binary.$T_littleEndian_static_extension.uint32 (stdgo/_internal/encoding/binary/Binary_T_littleEndian_static_extension.hx line 70)
 Called from stdgo._internal.encoding.binary.T_nativeEndian.~get_uint32.0 (stdgo/_internal/encoding/binary/Binary_T_nativeEndian.hx line 48)
 Called from stdgo._internal.encoding.binary._Binary_testNativeEndian.$Binary_testNativeEndian_Fields_.testNativeEndian (stdgo/_internal/encoding/binary/Binary_testNativeEndian.hx line 19)

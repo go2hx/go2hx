@@ -17,5 +17,6 @@
  "hl|unicode",
  "hl|unicode/utf16",
  "hl|unicode/utf8",
- "hl|internal/cpu"
+ "hl|internal/cpu",
+ "hl|image/color"
 ]

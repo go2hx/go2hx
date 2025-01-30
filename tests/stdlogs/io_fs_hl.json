@@ -6,15 +6,15 @@
         "TestGlobError",
         "testCVE202230630",
         "TestCVE202230630",
-        "TestFileInfoToDirEntry"
+        "TestGlobMethod",
+        "TestReadDir",
+        "TestFileInfoToDirEntry",
+        "TestReadFile",
+        "TestStat",
+        "TestSub"
     ],
     "fails": [
         "TestGlob",
-        "TestGlobMethod",
-        "TestReadDir",
-        "TestReadFile",
-        "TestStat",
-        "TestSub",
         "TestWalkDir"
     ],
     "runs": [

@@ -145,8 +145,13 @@ func compile(params []string, excludesData []string, index string, debug bool) [
 			delete(excludes, pkg.PkgPath)
 		}
 	}
+	//fmt.Println(excludes)
 	typeMap = &typeutil.Map{}
 	data := parsePkgList(initial, excludes)
+	// add back initial packages to exclude list
+	for _, pkg := range initial {
+		excludes[pkg.PkgPath] = true
+	}
 	data.Index = index
 	data.TypeList = make([]map[string]interface{}, len(hashMap))
 	i := 0

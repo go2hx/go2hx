@@ -87,25 +87,20 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	@:from
 	public static function fromArray<T>(array:Array<T>):Slice<T> {
-		final data = new GoArrayData<T>(0, -1, null);
 		#if hl
+		final data = new GoArrayData<T>(0, -1);
 		data.vector = cast array;
-		#else
-		data.vector = haxe.ds.Vector.fromArrayCopy(array);
-		#end
 		data.length = array.length;
 		data.capacity = array.length;
 		return data;
-	}
-
-	@:from
-	public static function fromRest<T>(rest:haxe.Rest<T>):Slice<T> {
-		return fromArray(rest);
+		#else
+		return new Slice(array.length, array.length, ...array);
+		#end
 	}
 
 	@:from
 	public static function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
-		final data = new GoArrayData<T>(0, -1, null);
+		final data = new GoArrayData<T>(0, -1);
 		data.vector = vector;
 		data.length = vector.length;
 		data.capacity = vector.length;

@@ -213,35 +213,6 @@ func main() {
 // 2 5 [4 3]
 
 ```
-## closure12
-```go
-package main
-
-import "fmt"
-
-type T struct {
-	F func()
-}
-
-func main() {
-	foos := []T{}
-
-	for i := 0; i < 3; i++ {
-		a := i
-		n := fmt.Sprintf("i=%d", i)
-		foos = append(foos, T{func() { println(i, a, n) }})
-	}
-	foos[0].F()
-	foos[1].F()
-	foos[2].F()
-}
-
-// Output:
-// 3 0 i=0
-// 3 1 i=1
-// 3 2 i=2
-
-```
 ## closure13
 ```go
 package main
@@ -521,48 +492,6 @@ func main() {
 // world
 // au revoir
 // bye
-
-```
-## defer1
-```go
-package main
-
-import "fmt"
-
-func main() {
-	println("hello")
-	defer func() {
-		fmt.Println("bye")
-	}()
-	println("world")
-}
-
-// Output:
-// hello
-// world
-// bye
-
-```
-## defer2
-```go
-package main
-
-import "fmt"
-
-func main() {
-	println("hello")
-	i := 12
-	defer func() {
-		fmt.Println("i:", i)
-	}()
-	i = 20
-	println("world")
-}
-
-// Output:
-// hello
-// world
-// i: 20
 
 ```
 ## defer8
@@ -980,37 +909,6 @@ func main() {
 // Output:
 //  false
 // not exists
-
-```
-## map30
-```go
-package main
-
-import "strings"
-
-func f(s string) string { return "hello " + s }
-
-func g(s string) string { return "hi " + s }
-
-var methods = map[string]func(string) string{
-	"f": f,
-	"h": strings.ToLower,
-}
-
-func main() {
-	methods["i"] = strings.ToUpper
-	methods["g"] = g
-	println(methods["f"]("test"))
-	println(methods["g"]("test"))
-	println(methods["i"]("test"))
-	println(methods["h"]("TEST"))
-}
-
-// Output:
-// hello test
-// hi test
-// TEST
-// test
 
 ```
 ## map5
@@ -1858,48 +1756,6 @@ func main() {
 // true
 
 ```
-## recover0
-```go
-package main
-
-import "fmt"
-
-func main() {
-	println("hello")
-	defer func() {
-		r := recover()
-		fmt.Println("recover:", r)
-	}()
-	println("world")
-}
-
-// Output:
-// hello
-// world
-// recover: <nil>
-
-```
-## recover1
-```go
-package main
-
-import "fmt"
-
-func main() {
-	println("hello")
-	defer func() {
-		r := recover()
-		fmt.Println("recover:", r)
-	}()
-	panic("test panic")
-	println("world")
-}
-
-// Output:
-// hello
-// recover: test panic
-
-```
 ## recover3
 ```go
 package main
@@ -2506,29 +2362,5 @@ func main() {
 // Output:
 // [1 2 3 4]
 // 10
-
-```
-## variadic7
-```go
-package main
-
-import "fmt"
-
-func main() {
-	var a, b string
-
-	pattern := "%s %s"
-	dest := []interface{}{&a, &b}
-
-	n, err := fmt.Sscanf("test1 test2", pattern, dest...)
-	if err != nil || n != len(dest) {
-		println("error")
-		return
-	}
-	println(a, b)
-}
-
-// Output:
-// test1 test2
 
 ```

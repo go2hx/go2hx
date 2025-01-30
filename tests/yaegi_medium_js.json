@@ -196,5 +196,12 @@
  "js|variadic2",
  "js|variadic5",
  "js|variadic6",
- "js|variadic9"
+ "js|variadic9",
+ "js|closure12",
+ "js|defer1",
+ "js|defer2",
+ "js|map30",
+ "js|recover0",
+ "js|recover1",
+ "js|variadic7"
 ]

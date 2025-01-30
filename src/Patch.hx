@@ -1632,8 +1632,10 @@ final list = [
 	"testing.T_common:skipped" => macro return _c._skipped,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
-		if (@:privateAccess ++_c.failCount > 10)
+		if (@:privateAccess ++_c.failCount > 200) {
+			trace("fail count exceeded max");
 			@:define("(sys || hxnodejs)") Sys.exit(1);
+		}
 	},
 	"testing.T_common:skipf" => macro {
 		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);

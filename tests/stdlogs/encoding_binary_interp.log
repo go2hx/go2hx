@@ -165,8 +165,8 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from stdgo._internal.encoding.binary._Binary_testNativeEndian.Binary_testNativeEndian_Fields_.testNativeEndian (./stdgo/_internal/encoding/binary/Binary_testNativeEndian.hx line 19 column 95)
 Called from local function #1 (./stdgo/_internal/encoding/binary/Binary_T_nativeEndian.hx line 48 column 96)
 Called from stdgo._internal.encoding.binary.T_littleEndian_static_extension.uint32 (./stdgo/_internal/encoding/binary/Binary_T_littleEndian_static_extension.hx line 70 column 25)
-Called from stdgo._Slice.Slice_Impl_.__get__ (./stdgo/Slice.hx line 162 column 3)
-Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (./stdgo/Slice.hx line 155 column 4)
+Called from stdgo._Slice.Slice_Impl_.__get__ (./stdgo/Slice.hx line 157 column 3)
+Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (./stdgo/Slice.hx line 150 column 4)
 
 -- FAIL: TestNativeEndian
 

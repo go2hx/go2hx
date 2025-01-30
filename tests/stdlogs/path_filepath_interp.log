@@ -224,7 +224,7 @@ Try 'chmod --help' for more information.
 
  8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
    |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Uncaught exception zuj9blvdv1/a/bad: Permission denied
+   | Uncaught exception d5ru18y27v/a/bad: Permission denied
 
     11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
        |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m

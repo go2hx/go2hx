@@ -194,4 +194,47 @@ Sscanf expected EOF; got %!q(nil=<nil>)Sscan expected EOF; got %!q(nil=<nil>)Ssc
 -- FAIL: TestEOFAtEndOfInput
 
 === RUN  TestEOFAllTypes
-#0: %s *string not eof on empty string: %!s(nil=<nil>)#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)#1: %q *string not eof on empty string: %!s(nil=<nil>)#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)#2: %x *string not eof on empty string: %!s(nil=<nil>)#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)#3: %v *string not eof on empty string: %!s(nil=<nil>)#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)#5: %v *int not eof on empty string: %!s(nil=<nil>)
+#0: %s *string not eof on empty string: %!s(nil=<nil>)#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)#1: %q *string not eof on empty string: %!s(nil=<nil>)#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)#2: %x *string not eof on empty string: %!s(nil=<nil>)#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)#3: %v *string not eof on empty string: %!s(nil=<nil>)#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)#5: %v *int not eof on empty string: %!s(nil=<nil>)#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)#6: %v *uint not eof on empty string: %!s(nil=<nil>)#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)#7: %v *bool not eof on empty string: %!s(nil=<nil>)#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)#8: %v *float32 not eof on empty string: %!s(nil=<nil>)#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
+-- FAIL: TestEOFAllTypes
+
+=== RUN  TestUnreadRuneWithBufio
+-- PASS: TestUnreadRuneWithBufio
+
+=== RUN  TestMultiLine
+Sscanln: expected error; got none
+
+-- FAIL: TestMultiLine
+
+=== RUN  TestLineByLineFscanf
+-- PASS: TestLineByLineFscanf
+
+=== RUN  TestScanStateCount
+-- PASS: TestScanStateCount
+
+=== RUN  TestScanInts
+-- PASS: TestScanInts
+
+=== RUN  TestHexBytes
+simple: bad length 0simple pair a: bad length 0simple pair b: bad length 0colon: bad length 0colon pair a: bad length 0colon pair b: bad length 0odd count: got count, err = 0, <nil>; expected 0, error
+-- FAIL: TestHexBytes
+
+=== RUN  TestScanNewlinesAreSpaces
+-- PASS: TestScanNewlinesAreSpaces
+
+=== RUN  TestScanlnNewlinesTerminate
+one line one item: expected error; got nonetwo lines two items: expected error; got none
+-- FAIL: TestScanlnNewlinesTerminate
+
+=== RUN  TestScanfNewlineMatchFormat
+newline in input: expected error; got nonespace-newline in input: expected error; got nonenewline in format: expected error; got nonespace-newline in format: expected error; got nonespace vs newline no-percent 0100: expected error; got nonespace vs newline no-percent 0101: expected error; got nonespace vs newline no-percent 0110: expected error; got nonespace vs newline no-percent 1100: expected error; got nonespace vs newline no-percent 1110: expected error; got none
+-- FAIL: TestScanfNewlineMatchFormat
+
+=== RUN  TestHexByte
+-- PASS: TestHexByte
+
+=== RUN  TestFormatString
+-- PASS: TestFormatString
+
+=== RUN  TestStringer
+-- PASS: TestStringer
+

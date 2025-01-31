@@ -620,7 +620,8 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 		case "hl", "neko", "lua", "php":
 			'$target $out';
 		case "js":
-			'node $out';
+			// --stack-size set because bytes.growSize Maximum call stack size exceeded
+			'node --stack-size=65500 $out';
 		default:
 			throw "unknown target: " + target;
 	};

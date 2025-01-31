@@ -53,7 +53,7 @@ Try 'chmod --help' for more information.
 
  8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
    |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Uncaught exception dgv4tvgg5i/a/bad: Permission denied
+   | Uncaught exception f119i47okp/a/bad: Permission denied
 
     11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
        |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m

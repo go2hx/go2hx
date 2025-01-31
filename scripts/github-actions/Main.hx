@@ -27,6 +27,8 @@ function main() {
             continue;
         trace(path);
         for (target in targets) {
+            if (name + "-" + target == "yaegi-medium-interp")
+                continue; // TODO: fix bus error issue
             var content = File.getContent(dir + path);
             var support = "";
             if (FileSystem.exists(dir + target + ".yml")) {

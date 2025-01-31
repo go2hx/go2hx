@@ -51,7 +51,7 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]
-Uncaught exception: SysError(Failed to read directory pa0lmsile7/a/bad)
+Uncaught exception: SysError(Failed to read directory cr1g3a9v4h/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)

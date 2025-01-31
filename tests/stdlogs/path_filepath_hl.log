@@ -252,7 +252,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]
-Uncaught exception: SysError(Failed to read directory 6k0ffth0um/a/bad)
+Uncaught exception: SysError(Failed to read directory zcwhcno64g/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)

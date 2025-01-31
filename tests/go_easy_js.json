@@ -330,5 +330,6 @@
  "js|issue19710",
  "js|method_wrapper",
  "js|receiver",
- "js|intcvt"
+ "js|intcvt",
+ "js|issue27278"
 ]

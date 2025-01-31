@@ -33,7 +33,7 @@ jobs:
         run: npx haxelib dev go2hx .
       # clean stdgo
       - name: Clean go2hx
-        run: npx haxelib run go2hx clean
+        run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Create vendor

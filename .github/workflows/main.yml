@@ -34,7 +34,7 @@ jobs:
         run: npx haxelib dev go2hx .
       # clean stdgo
       - name: Clean go2hx
-        run: npx haxelib run go2hx clean
+        run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Create vendor
@@ -296,7 +296,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -472,7 +474,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -677,7 +681,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -853,7 +859,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1044,7 +1052,9 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 23
       - name: Install lix
         run: npm i lix -g
       - name: Run lix

@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class Rusage {
+@:structInit @:using(stdgo._internal.syscall.Syscall_Rusage_static_extension.Rusage_static_extension) class Rusage {
     public var utime : stdgo._internal.syscall.Syscall_Timeval.Timeval = ({} : stdgo._internal.syscall.Syscall_Timeval.Timeval);
     public var stime : stdgo._internal.syscall.Syscall_Timeval.Timeval = ({} : stdgo._internal.syscall.Syscall_Timeval.Timeval);
     public function new(?utime:stdgo._internal.syscall.Syscall_Timeval.Timeval, ?stime:stdgo._internal.syscall.Syscall_Timeval.Timeval) {

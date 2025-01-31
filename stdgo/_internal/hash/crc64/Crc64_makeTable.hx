@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc64;
+import stdgo._internal.errors.Errors;
 function makeTable(_poly:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table> {
         stdgo._internal.hash.crc64.Crc64__buildSlicing8TablesOnce._buildSlicing8TablesOnce();
         {

@@ -1,4 +1,8 @@
 package stdgo._internal.bufio;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.bufio.Bufio_Scanner_static_extension.Scanner_static_extension) class Scanner {
     public var _r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _split : stdgo._internal.bufio.Bufio_SplitFunc.SplitFunc = (null : stdgo._internal.bufio.Bufio_SplitFunc.SplitFunc);

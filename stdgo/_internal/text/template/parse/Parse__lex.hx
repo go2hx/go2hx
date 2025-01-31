@@ -1,4 +1,10 @@
 package stdgo._internal.text.template.parse;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.strconv.Strconv;
 function _lex(_name:stdgo.GoString, _input:stdgo.GoString, _left:stdgo.GoString, _right:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer> {
         if (_left == (stdgo.Go.str())) {
             _left = ("{{" : stdgo.GoString);

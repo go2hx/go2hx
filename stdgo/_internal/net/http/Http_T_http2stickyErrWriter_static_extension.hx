@@ -15,11 +15,11 @@ package stdgo._internal.net.http;
         };
         while (true) {
             if (_sew._timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
-                _sew._conn.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_sew._timeout)?.__copy__());
+                _sew._conn.setWriteDeadline(stdgo._internal.net.http.Http__time._time.now().add(_sew._timeout)?.__copy__());
             };
             var __tmp__ = _sew._conn.write((_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>)), _nn:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             _n = (_n + (_nn) : stdgo.GoInt);
-            if ((((_n < (_p.length) : Bool) && (_nn > (0 : stdgo.GoInt) : Bool) : Bool) && stdgo._internal.errors.Errors_is_.is_(_err, stdgo._internal.os.Os_errDeadlineExceeded.errDeadlineExceeded) : Bool)) {
+            if ((((_n < (_p.length) : Bool) && (_nn > (0 : stdgo.GoInt) : Bool) : Bool) && stdgo._internal.net.http.Http__errors._errors.is_(_err, stdgo._internal.net.http.Http__os._os.errDeadlineExceeded) : Bool)) {
                 continue;
             };
             if (_sew._timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {

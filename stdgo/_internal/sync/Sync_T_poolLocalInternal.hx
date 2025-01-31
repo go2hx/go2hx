@@ -1,5 +1,9 @@
 package stdgo._internal.sync;
-@:structInit class T_poolLocalInternal {
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
+@:structInit @:using(stdgo._internal.sync.Sync_T_poolLocalInternal_static_extension.T_poolLocalInternal_static_extension) class T_poolLocalInternal {
     public var _private : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var _shared : stdgo._internal.sync.Sync_T_poolChain.T_poolChain = ({} : stdgo._internal.sync.Sync_T_poolChain.T_poolChain);
     public function new(?_private:stdgo.AnyInterface, ?_shared:stdgo._internal.sync.Sync_T_poolChain.T_poolChain) {

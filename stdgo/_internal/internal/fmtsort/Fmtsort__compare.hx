@@ -1,4 +1,6 @@
 package stdgo._internal.internal.fmtsort;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.reflect.Reflect;
 function _compare(_aVal:stdgo._internal.reflect.Reflect_Value.Value, _bVal:stdgo._internal.reflect.Reflect_Value.Value):stdgo.GoInt {
         var __0 = (_aVal.type() : stdgo._internal.reflect.Reflect_Type_.Type_), __1 = (_bVal.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
 var _bType = __1, _aType = __0;

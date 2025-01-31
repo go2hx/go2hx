@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8930 {
     @:embedded
     public var interfaceType : stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType = ({} : stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType);

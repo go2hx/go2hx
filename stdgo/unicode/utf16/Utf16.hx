@@ -9,7 +9,8 @@ class Utf16 {
         IsSurrogate reports whether the specified Unicode code point
         can appear in a surrogate pair.
     **/
-    static public function isSurrogate(_r:StdTypes.Int):Bool {
+    static public inline function isSurrogate(_r:StdTypes.Int):Bool {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.unicode.utf16.Utf16_isSurrogate.isSurrogate(_r);
     }
     /**
@@ -17,7 +18,9 @@ class Utf16 {
         If the pair is not a valid UTF-16 surrogate pair, DecodeRune returns
         the Unicode replacement code point U+FFFD.
     **/
-    static public function decodeRune(_r1:StdTypes.Int, _r2:StdTypes.Int):StdTypes.Int {
+    static public inline function decodeRune(_r1:StdTypes.Int, _r2:StdTypes.Int):StdTypes.Int {
+        final _r1 = (_r1 : stdgo.GoInt32);
+        final _r2 = (_r2 : stdgo.GoInt32);
         return stdgo._internal.unicode.utf16.Utf16_decodeRune.decodeRune(_r1, _r2);
     }
     /**
@@ -25,7 +28,8 @@ class Utf16 {
         If the rune is not a valid Unicode code point or does not need encoding,
         EncodeRune returns U+FFFD, U+FFFD.
     **/
-    static public function encodeRune(_r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public inline function encodeRune(_r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+        final _r = (_r : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.unicode.utf16.Utf16_encodeRune.encodeRune(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -34,8 +38,8 @@ class Utf16 {
     /**
         Encode returns the UTF-16 encoding of the Unicode code point sequence s.
     **/
-    static public function encode(_s:Array<StdTypes.Int>):Array<std.UInt> {
-        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoInt32>);
+    static public inline function encode(_s:Array<StdTypes.Int>):Array<std.UInt> {
+        final _s = ([for (i in _s) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>);
         return [for (i in stdgo._internal.unicode.utf16.Utf16_encode.encode(_s)) i];
     }
     /**
@@ -43,16 +47,17 @@ class Utf16 {
         to the end of p and returns the extended buffer. If the rune is not
         a valid Unicode code point, it appends the encoding of U+FFFD.
     **/
-    static public function appendRune(_a:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoUInt16>);
+    static public inline function appendRune(_a:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
+        final _a = ([for (i in _a) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>);
+        final _r = (_r : stdgo.GoInt32);
         return [for (i in stdgo._internal.unicode.utf16.Utf16_appendRune.appendRune(_a, _r)) i];
     }
     /**
         Decode returns the Unicode code point sequence represented
         by the UTF-16 encoding s.
     **/
-    static public function decode(_s:Array<std.UInt>):Array<StdTypes.Int> {
-        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoUInt16>);
+    static public inline function decode(_s:Array<std.UInt>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>);
         return [for (i in stdgo._internal.unicode.utf16.Utf16_decode.decode(_s)) i];
     }
 }

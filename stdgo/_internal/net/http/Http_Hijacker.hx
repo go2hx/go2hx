@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef Hijacker = stdgo.StructType & {
+@:interface typedef Hijacker = stdgo.StructType & {
     /**
         Hijack lets the caller take over the connection.
         After a call to Hijack the HTTP server library

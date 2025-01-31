@@ -1,4 +1,10 @@
 package stdgo._internal.io.fs;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.internal.oserror.Oserror;
+import stdgo._internal.path.Path;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.io.Io;
 function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -59,7 +65,11 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -94,7 +104,11 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             };
         };

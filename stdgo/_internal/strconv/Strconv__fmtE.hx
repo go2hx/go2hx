@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _fmtE(_dst:stdgo.Slice<stdgo.GoUInt8>, _neg:Bool, _d:stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice, _prec:stdgo.GoInt, _fmt:stdgo.GoUInt8):stdgo.Slice<stdgo.GoUInt8> {
         if (_neg) {
             _dst = (_dst.__append__((45 : stdgo.GoUInt8)));

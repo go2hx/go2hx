@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha256;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 var __K : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(64, 64, ...[
 (1116352408u32 : stdgo.GoUInt32),
 (1899447441u32 : stdgo.GoUInt32),

@@ -1,2 +1,10 @@
 package stdgo._internal.encoding.csv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
 @:keep @:follow @:using(stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension) typedef WriterPointer = stdgo.Pointer<stdgo._internal.encoding.csv.Csv_Writer.Writer>;

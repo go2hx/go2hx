@@ -1,4 +1,22 @@
 package stdgo._internal.net.http.httputil;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.Internal;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.net.textproto.Textproto;
+import _internal.golang_dot_org.x.net.http.httpguts.Httpguts;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.net.Net;
+import stdgo._internal.context.Context;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.net.http.httptrace.Httptrace;
+import stdgo._internal.mime.Mime;
+import stdgo._internal.time.Time;
+import stdgo._internal.log.Log;
 @:keep @:allow(stdgo._internal.net.http.httputil.Httputil.ReverseProxy_asInterface) class ReverseProxy_static_extension {
     @:keep
     @:tdfield
@@ -118,7 +136,11 @@ package stdgo._internal.net.http.httputil;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -153,7 +175,11 @@ package stdgo._internal.net.http.httputil;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
@@ -243,7 +269,11 @@ package stdgo._internal.net.http.httputil;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -278,7 +308,11 @@ package stdgo._internal.net.http.httputil;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -553,7 +587,11 @@ package stdgo._internal.net.http.httputil;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -588,7 +626,11 @@ package stdgo._internal.net.http.httputil;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

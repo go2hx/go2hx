@@ -1,5 +1,5 @@
 package stdgo._internal.reflect;
-@:structInit class EmbedWithUnexpMeth {
+@:structInit @:using(stdgo._internal.reflect.Reflect_EmbedWithUnexpMeth_static_extension.EmbedWithUnexpMeth_static_extension) class EmbedWithUnexpMeth {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {

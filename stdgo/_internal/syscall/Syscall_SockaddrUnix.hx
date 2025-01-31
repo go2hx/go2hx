@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class SockaddrUnix {
+@:structInit @:using(stdgo._internal.syscall.Syscall_SockaddrUnix_static_extension.SockaddrUnix_static_extension) class SockaddrUnix {
     public var name : stdgo.GoString = "";
     public function new(?name:stdgo.GoString) {
         if (name != null) this.name = name;

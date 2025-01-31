@@ -4,6 +4,6 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function error( _e:stdgo._internal.net.http.Http_T_http2GoAwayError.T_http2GoAwayError):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2GoAwayError.T_http2GoAwayError = _e?.__copy__();
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("http2: server sent GOAWAY and closed the connection; LastStreamID=%v, ErrCode=%v, debug=%q" : stdgo.GoString), stdgo.Go.toInterface(_e.lastStreamID), stdgo.Go.toInterface(stdgo.Go.asInterface(_e.errCode)), stdgo.Go.toInterface(_e.debugData))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("http2: server sent GOAWAY and closed the connection; LastStreamID=%v, ErrCode=%v, debug=%q" : stdgo.GoString), stdgo.Go.toInterface(_e.lastStreamID), stdgo.Go.toInterface(stdgo.Go.asInterface(_e.errCode)), stdgo.Go.toInterface(_e.debugData))?.__copy__();
     }
 }

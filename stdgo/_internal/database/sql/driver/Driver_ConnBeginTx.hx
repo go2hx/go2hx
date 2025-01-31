@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef ConnBeginTx = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef ConnBeginTx = stdgo.StructType & {
     /**
         BeginTx starts and returns a new transaction.
         If the context is canceled by the user the sql package will

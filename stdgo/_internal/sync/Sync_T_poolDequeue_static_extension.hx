@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.sync.Sync.T_poolDequeue_asInterface) class T_poolDequeue_static_extension {
     @:keep
     @:tdfield
@@ -18,7 +22,7 @@ package stdgo._internal.sync;
             };
         };
         var _val = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
-        if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil) : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil)))) {
+        if (_val == (stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil))))) {
             _val = (null : stdgo.AnyInterface);
         };
         (@:checkr _slot ?? throw "null pointer dereference")._val = @:default_value null;
@@ -44,7 +48,7 @@ package stdgo._internal.sync;
             };
         };
         var _val = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
-        if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil) : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil)))) {
+        if (_val == (stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil))))) {
             _val = (null : stdgo.AnyInterface);
         };
         {
@@ -70,7 +74,7 @@ package stdgo._internal.sync;
             return false;
         };
         if (_val == null) {
-            _val = stdgo.Go.toInterface((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil));
+            _val = stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo._internal.sync.Sync_T_dequeueNil.T_dequeueNil)));
         };
         (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface).__setData__(_val);
         stdgo._internal.sync.atomic_.Atomic__addUint64.addUint64(stdgo.Go.pointer((@:checkr _d ?? throw "null pointer dereference")._headTail), (4294967296i64 : stdgo.GoUInt64));

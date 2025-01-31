@@ -1,4 +1,8 @@
 package stdgo._internal.mime.quotedprintable;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
 @:structInit @:using(stdgo._internal.mime.quotedprintable.Quotedprintable_Writer_static_extension.Writer_static_extension) class Writer {
     public var binary : Bool = false;
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);

@@ -1,4 +1,20 @@
 package stdgo._internal.text.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.internal.fmtsort.Fmtsort;
 function testIssue39807(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
         var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("foo" : stdgo.GoString)).parse(("{{ template \"bar\" . }}" : stdgo.GoString)), _tplFoo:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -43,7 +59,11 @@ if (_err != null) {
                                     defer.ran = true;
                                     defer.f();
                                 };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                if (stdgo.Go.recover_exception != null) {
+                                    final e = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    throw e;
+                                };
                                 return;
                             };
                         } catch(__exception__) {
@@ -78,7 +98,11 @@ if (_err != null) {
                                     };
                                     f();
                                 };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                if (stdgo.Go.recover_exception != null) {
+                                    final e = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    throw e;
+                                };
                                 return;
                             };
                         };

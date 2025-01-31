@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef StringWriter = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef StringWriter = stdgo.StructType & {
     /**
         
         

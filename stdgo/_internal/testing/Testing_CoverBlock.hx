@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-@:structInit class CoverBlock {
+@:structInit @:using(stdgo._internal.testing.Testing_CoverBlock_static_extension.CoverBlock_static_extension) class CoverBlock {
     public var line0 : stdgo.GoUInt32 = 0;
     public var col0 : stdgo.GoUInt16 = 0;
     public var line1 : stdgo.GoUInt32 = 0;

@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function benchmarkWriteSlice1000Float32s(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _slice = (new stdgo.Slice<stdgo.GoFloat32>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>);
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);

@@ -1,4 +1,31 @@
 package stdgo._internal.encoding.json;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.time.Time;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.Math;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.os.Os;
+import stdgo._internal.compress.gzip.Gzip;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.encoding.base64.Base64;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.runtime.debug.Debug;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.log.Log;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.net.Net;
+import stdgo._internal.net.http.httptest.Httptest;
+import stdgo._internal.net.http.Http;
 function testUnmarshalMaxDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _testcases = (new stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16>(6, 6, ...[({ _name : ("ArrayUnderMaxNestingDepth" : stdgo.GoString), _data : (((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("[" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("]" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : false } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16), ({ _name : ("ArrayOverMaxNestingDepth" : stdgo.GoString), _data : (((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("[" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("]" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : true } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16), ({ _name : ("ArrayOverStackDepth" : stdgo.GoString), _data : (((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("[" : stdgo.GoString), (3000000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("]" : stdgo.GoString), (3000000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : true } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16), ({ _name : ("ObjectUnderMaxNestingDepth" : stdgo.GoString), _data : ((((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("{\"a\":" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("0" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("}" : stdgo.GoString), (9999 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : false } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16), ({ _name : ("ObjectOverMaxNestingDepth" : stdgo.GoString), _data : ((((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("{\"a\":" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("0" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("}" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : true } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16), ({ _name : ("ObjectOverStackDepth" : stdgo.GoString), _data : ((((("{\"a\":" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("{\"a\":" : stdgo.GoString), (3000000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("0" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("}" : stdgo.GoString), (3000000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _errMaxDepth : true } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _data : ("" : stdgo.GoString), _errMaxDepth : false } : stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_16.T__struct_16>);
         var _targets = (new stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17>(4, 4, ...[({ _name : ("unstructured" : stdgo.GoString), _newValue : function():stdgo.AnyInterface {

@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 var _tests : stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(18, 18, ...[
 (-9223372036854775808i64 : stdgo.GoInt64),
 (-9223372036854775807i64 : stdgo.GoInt64),

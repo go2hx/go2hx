@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_closeWriter = stdgo.StructType & {
+@:interface typedef T_closeWriter = stdgo.StructType & {
     /**
         
         

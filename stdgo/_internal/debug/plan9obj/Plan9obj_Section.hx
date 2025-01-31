@@ -1,4 +1,10 @@
 package stdgo._internal.debug.plan9obj;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension) class Section {
     @:embedded
     public var sectionHeader : stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader = ({} : stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader);

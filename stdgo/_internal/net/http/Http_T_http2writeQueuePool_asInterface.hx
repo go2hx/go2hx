@@ -1,11 +1,5 @@
 package stdgo._internal.net.http;
 class T_http2writeQueuePool_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _get():stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue> return @:_0 __self__.value._get();
-    @:keep
-    @:tdfield
-    public dynamic function _put(_q:stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>):Void @:_0 __self__.value._put(_q);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

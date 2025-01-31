@@ -1,4 +1,15 @@
 package stdgo._internal.crypto.rsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.crypto.internal.randutil.Randutil;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import _internal.crypto.internal.boring.bbig.Bbig;
+import stdgo._internal.crypto.internal.bigmod.Bigmod;
+import stdgo._internal.math.Math;
+import stdgo._internal.crypto.rand.Rand;
 function _mgf1XOR(_out:stdgo.Slice<stdgo.GoUInt8>, _hash:stdgo._internal.hash.Hash_Hash.Hash, _seed:stdgo.Slice<stdgo.GoUInt8>):Void {
         var _counter:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
         var _digest:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

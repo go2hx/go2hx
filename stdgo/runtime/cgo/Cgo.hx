@@ -5,6 +5,10 @@ class T__struct_0_static_extension {
 }
 typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_T__struct_0.T__struct_0;
 typedef Handle = stdgo._internal.runtime.cgo.Cgo_Handle.Handle;
+typedef T__struct_0PointerPointer = stdgo._internal.runtime.cgo.Cgo_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
 typedef HandlePointer = stdgo._internal.runtime.cgo.Cgo_HandlePointer.HandlePointer;
 class Handle_static_extension {
     static public function delete(_h:Handle):Void {
@@ -26,7 +30,8 @@ class Cgo {
         The intended use is to pass the returned handle to C code, which
         passes it back to Go, which calls Value.
     **/
-    static public function newHandle(_v:stdgo.AnyInterface):Handle {
+    static public inline function newHandle(_v:stdgo.AnyInterface):Handle {
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.runtime.cgo.Cgo_newHandle.newHandle(_v);
     }
 }

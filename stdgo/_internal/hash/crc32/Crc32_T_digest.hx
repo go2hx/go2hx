@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension) class T_digest {
     public var _crc : stdgo.GoUInt32 = 0;
     public var _tab : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table> = (null : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table>);

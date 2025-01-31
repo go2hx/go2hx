@@ -1,5 +1,11 @@
 package stdgo._internal.text.scanner;
-@:structInit class T_token {
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
+@:structInit @:using(stdgo._internal.text.scanner.Scanner_T_token_static_extension.T_token_static_extension) class T_token {
     public var _tok : stdgo.GoInt32 = 0;
     public var _text : stdgo.GoString = "";
     public function new(?_tok:stdgo.GoInt32, ?_text:stdgo.GoString) {

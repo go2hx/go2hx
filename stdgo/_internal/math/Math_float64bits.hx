@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function float64bits(_f:stdgo.GoFloat64):stdgo.GoUInt64 {
         final bits = haxe.io.Bytes.alloc(8);
         bits.setDouble(0, _f.toBasic());

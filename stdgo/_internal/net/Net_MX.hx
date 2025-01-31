@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-@:structInit class MX {
+@:structInit @:using(stdgo._internal.net.Net_MX_static_extension.MX_static_extension) class MX {
     public var host : stdgo.GoString = "";
     public var pref : stdgo.GoUInt16 = 0;
     public function new(?host:stdgo.GoString, ?pref:stdgo.GoUInt16) {

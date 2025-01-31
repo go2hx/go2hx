@@ -1,4 +1,14 @@
 package stdgo._internal.expvar;
+import stdgo._internal.log.Log;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.math.Math;
+import stdgo._internal.encoding.json.Json;
 function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -21,7 +31,11 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -56,7 +70,11 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

@@ -1,5 +1,5 @@
 package stdgo._internal.runtime.debug;
-@:structInit class GCStats {
+@:structInit @:using(stdgo._internal.runtime.debug.Debug_GCStats_static_extension.GCStats_static_extension) class GCStats {
     public var lastGC : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
     public var numGC : stdgo.GoInt64 = 0;
     public var pauseTotal : stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);

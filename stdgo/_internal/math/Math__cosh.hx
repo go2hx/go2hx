@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _cosh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         _x = stdgo._internal.math.Math_abs.abs(_x);
         if ((_x > (21 : stdgo.GoFloat64) : Bool)) {

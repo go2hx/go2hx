@@ -1,5 +1,5 @@
 package stdgo._internal.internal.unsafeheader;
-@:structInit class Slice_ {
+@:structInit @:using(stdgo._internal.internal.unsafeheader.Unsafeheader_Slice__static_extension.Slice__static_extension) class Slice_ {
     public var data : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
     public var len : stdgo.GoInt = 0;
     public var cap : stdgo.GoInt = 0;

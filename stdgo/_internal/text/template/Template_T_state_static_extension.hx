@@ -1,4 +1,20 @@
 package stdgo._internal.text.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.internal.fmtsort.Fmtsort;
 @:keep @:allow(stdgo._internal.text.template.Template.T_state_asInterface) class T_state_static_extension {
     @:keep
     @:tdfield
@@ -688,7 +704,11 @@ package stdgo._internal.text.template;
                             defer.ran = true;
                             defer.f();
                         };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                        if (stdgo.Go.recover_exception != null) {
+                            final e = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            throw e;
+                        };
                         return;
                     };
                 } catch(__exception__) {
@@ -723,7 +743,11 @@ package stdgo._internal.text.template;
                             };
                             f();
                         };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                        if (stdgo.Go.recover_exception != null) {
+                            final e = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            throw e;
+                        };
                         return;
                     };
                 };
@@ -820,7 +844,11 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -855,7 +883,11 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
@@ -891,7 +923,11 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -926,7 +962,11 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
@@ -987,7 +1027,7 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
     @:tdfield
     static public function _writeError( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _err:stdgo.Error):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
-        throw stdgo.Go.toInterface(({ err : _err } : stdgo._internal.text.template.Template_T_writeError.T_writeError));
+        throw stdgo.Go.toInterface(stdgo.Go.asInterface(({ err : _err } : stdgo._internal.text.template.Template_T_writeError.T_writeError)));
     }
     @:keep
     @:tdfield

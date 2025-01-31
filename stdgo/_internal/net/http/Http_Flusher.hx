@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef Flusher = stdgo.StructType & {
+@:interface typedef Flusher = stdgo.StructType & {
     /**
         Flush sends any buffered data to the client.
         

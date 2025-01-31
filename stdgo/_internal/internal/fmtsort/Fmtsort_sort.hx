@@ -1,4 +1,6 @@
 package stdgo._internal.internal.fmtsort;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.reflect.Reflect;
 function sort(_mapValue:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap> {
         if (_mapValue.type().kind() != ((21u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
             return null;

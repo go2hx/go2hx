@@ -1,5 +1,5 @@
 package stdgo._internal.os;
-@:structInit class ProcAttr {
+@:structInit @:using(stdgo._internal.os.Os_ProcAttr_static_extension.ProcAttr_static_extension) class ProcAttr {
     public var dir : stdgo.GoString = "";
     public var env : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var files : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_File.File>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_File.File>>);

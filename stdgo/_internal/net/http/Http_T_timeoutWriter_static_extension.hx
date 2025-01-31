@@ -18,7 +18,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -53,26 +57,13 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
-        };
-    }
-    @:keep
-    @:tdfield
-    static public function _writeHeaderLocked( _tw:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutWriter.T_timeoutWriter>, _code:stdgo.GoInt):Void {
-        @:recv var _tw:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutWriter.T_timeoutWriter> = _tw;
-        stdgo._internal.net.http.Http__checkWriteHeaderCode._checkWriteHeaderCode(_code);
-        if ((@:checkr _tw ?? throw "null pointer dereference")._err != null) {
-            return;
-        } else if ((@:checkr _tw ?? throw "null pointer dereference")._wroteHeader) {
-            if (((@:checkr _tw ?? throw "null pointer dereference")._req != null && (((@:checkr _tw ?? throw "null pointer dereference")._req : Dynamic).__nil__ == null || !((@:checkr _tw ?? throw "null pointer dereference")._req : Dynamic).__nil__))) {
-                var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
-                stdgo._internal.net.http.Http__logf._logf((@:checkr _tw ?? throw "null pointer dereference")._req, ("http: superfluous response.WriteHeader call from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
-            };
-        } else {
-            (@:checkr _tw ?? throw "null pointer dereference")._wroteHeader = true;
-            (@:checkr _tw ?? throw "null pointer dereference")._code = _code;
         };
     }
     @:keep
@@ -115,7 +106,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -150,7 +145,11 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         };

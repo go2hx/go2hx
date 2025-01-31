@@ -1,5 +1,8 @@
 package stdgo._internal.crypto.elliptic;
-typedef Curve = stdgo.StructType & {
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
+@:interface typedef Curve = stdgo.StructType & {
     /**
         Params returns the parameters for the curve.
         

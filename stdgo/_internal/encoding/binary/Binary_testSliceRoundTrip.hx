@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function testSliceRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         for (__8 => _array in stdgo._internal.encoding.binary.Binary__intArrays._intArrays) {

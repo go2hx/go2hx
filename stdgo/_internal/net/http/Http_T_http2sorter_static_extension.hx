@@ -6,7 +6,7 @@ package stdgo._internal.net.http;
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2sorter.T_http2sorter> = _s;
         var _save = (@:checkr _s ?? throw "null pointer dereference")._v;
         (@:checkr _s ?? throw "null pointer dereference")._v = _ss;
-        stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_s));
+        stdgo._internal.net.http.Http__sort._sort.sort(stdgo.Go.asInterface(_s));
         (@:checkr _s ?? throw "null pointer dereference")._v = _save;
     }
     @:keep
@@ -18,7 +18,7 @@ package stdgo._internal.net.http;
             _keys = (_keys.__append__(_k?.__copy__()));
         };
         (@:checkr _s ?? throw "null pointer dereference")._v = _keys;
-        stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_s));
+        stdgo._internal.net.http.Http__sort._sort.sort(stdgo.Go.asInterface(_s));
         return _keys;
     }
     @:keep

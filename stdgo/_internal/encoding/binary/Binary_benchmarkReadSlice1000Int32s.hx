@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function benchmarkReadSlice1000Int32s(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _bsr = (stdgo.Go.setRef((new stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader() : stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_byteSliceReader.T_byteSliceReader>);
         var _slice = (new stdgo.Slice<stdgo.GoInt32>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);

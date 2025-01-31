@@ -1,4 +1,10 @@
 package stdgo._internal.index.suffixarray;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.regexp.Regexp;
 function new_(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_Index.Index> {
         var _ix = (stdgo.Go.setRef(({ _data : _data } : stdgo._internal.index.suffixarray.Suffixarray_Index.Index)) : stdgo.Ref<stdgo._internal.index.suffixarray.Suffixarray_Index.Index>);
         if (((_data.length) <= stdgo._internal.index.suffixarray.Suffixarray__maxData32._maxData32 : Bool)) {

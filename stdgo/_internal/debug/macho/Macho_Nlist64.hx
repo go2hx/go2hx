@@ -1,5 +1,15 @@
 package stdgo._internal.debug.macho;
-@:structInit class Nlist64 {
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.debug.macho.Macho_Nlist64_static_extension.Nlist64_static_extension) class Nlist64 {
     public var name : stdgo.GoUInt32 = 0;
     public var type : stdgo.GoUInt8 = 0;
     public var sect : stdgo.GoUInt8 = 0;

@@ -1,2 +1,11 @@
 package stdgo._internal.net.smtp;
+import stdgo._internal.net.Net;
+import stdgo._internal.net.textproto.Textproto;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.crypto.hmac.Hmac;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.crypto.tls.Tls;
+import stdgo._internal.encoding.base64.Base64;
 @:keep @:follow @:using(stdgo._internal.net.smtp.Smtp_Client_static_extension.Client_static_extension) typedef ClientPointer = stdgo.Pointer<stdgo._internal.net.smtp.Smtp_Client.Client>;

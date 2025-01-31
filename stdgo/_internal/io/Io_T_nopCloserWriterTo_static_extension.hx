@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.io.Io.T_nopCloserWriterTo_asInterface) class T_nopCloserWriterTo_static_extension {
     @:keep
     @:tdfield

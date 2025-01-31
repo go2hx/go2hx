@@ -1,4 +1,9 @@
 package stdgo._internal.net.http.internal;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.net.http.internal.Internal_FlushAfterChunkWriter_static_extension.FlushAfterChunkWriter_static_extension) class FlushAfterChunkWriter {
     @:embedded
     public var writer : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);

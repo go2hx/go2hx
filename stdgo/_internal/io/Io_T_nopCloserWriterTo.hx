@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_T_nopCloserWriterTo_static_extension.T_nopCloserWriterTo_static_extension) class T_nopCloserWriterTo {
     @:embedded
     public var reader : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);

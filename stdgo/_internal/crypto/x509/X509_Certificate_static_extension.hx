@@ -1,4 +1,33 @@
 package stdgo._internal.crypto.x509;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.Certificate_asInterface) class Certificate_static_extension {
     @:keep
     @:tdfield
@@ -37,7 +66,7 @@ package stdgo._internal.crypto.x509;
             var _aki:stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension = ({} : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension);
             _aki.id = stdgo._internal.crypto.x509.X509__oidExtensionAuthorityKeyId._oidExtensionAuthorityKeyId;
             {
-                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ id : (@:checkr _c ?? throw "null pointer dereference").subjectKeyId } : stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId)));
+                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ id : (@:checkr _c ?? throw "null pointer dereference").subjectKeyId } : stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId))));
                 _aki.value = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };
@@ -46,7 +75,7 @@ package stdgo._internal.crypto.x509;
             };
             _tbsCertList.extensions = (_tbsCertList.extensions.__append__(_aki?.__copy__()));
         };
-        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_tbsCertList)), _tbsCertListContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_tbsCertList))), _tbsCertListContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : _crlBytes, _1 : _err };
         };
@@ -411,10 +440,10 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
                             var _name = ((_data : stdgo.GoString)?.__copy__() : stdgo.GoString);
                             var __tmp__ = stdgo._internal.crypto.x509.X509__parseRFC2821Mailbox._parseRFC2821Mailbox(_name?.__copy__()), _mailbox:stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
-                                return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: cannot parse rfc822Name %q" : stdgo.GoString), stdgo.Go.toInterface(_mailbox));
+                                return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: cannot parse rfc822Name %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mailbox)));
                             };
                             {
-                                var _err = (@:check2r _c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("email address" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(_mailbox), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
+                                var _err = (@:check2r _c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("email address" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_mailbox)), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
                                     return stdgo._internal.crypto.x509.X509__matchEmailConstraint._matchEmailConstraint((stdgo.Go.typeAssert((_parsedName : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox)) : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox)?.__copy__(), (stdgo.Go.typeAssert((_constraint : stdgo.GoString)) : stdgo.GoString)?.__copy__());
                                 }, stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").permittedEmailAddresses), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").excludedEmailAddresses)) : stdgo.Error);
                                 if (_err != null) {

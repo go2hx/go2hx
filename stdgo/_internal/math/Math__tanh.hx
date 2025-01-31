@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _tanh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
         var _z = (stdgo._internal.math.Math_abs.abs(_x) : stdgo.GoFloat64);

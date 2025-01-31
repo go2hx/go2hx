@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef Result = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef Result = stdgo.StructType & {
     /**
         LastInsertId returns the database's auto-generated ID
         after, for example, an INSERT into a table with primary

@@ -19,12 +19,19 @@ package stdgo.internal.fmtsort;
 typedef SortedMapPointer = stdgo._internal.internal.fmtsort.Fmtsort_SortedMapPointer.SortedMapPointer;
 class SortedMap_static_extension {
     static public function swap(_o:SortedMap, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.swap(_o, _i, _j);
     }
     static public function less(_o:SortedMap, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.less(_o, _i, _j);
     }
     static public function len(_o:SortedMap):StdTypes.Int {
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
         return stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.len(_o);
     }
 }
@@ -35,7 +42,7 @@ class SortedMap_static_extension {
     that are valid map keys.
 **/
 class Fmtsort {
-    static public function compare(_a:stdgo._internal.reflect.Reflect_Value.Value, _b:stdgo._internal.reflect.Reflect_Value.Value):StdTypes.Int {
+    static public inline function compare(_a:stdgo._internal.reflect.Reflect_Value.Value, _b:stdgo._internal.reflect.Reflect_Value.Value):StdTypes.Int {
         return stdgo._internal.internal.fmtsort.Fmtsort_compare.compare(_a, _b);
     }
     /**
@@ -58,7 +65,7 @@ class Fmtsort {
           - interface values compare first by reflect.Type describing the concrete type
             and then by concrete value as described in the previous rules.
     **/
-    static public function sort(_mapValue:stdgo._internal.reflect.Reflect_Value.Value):SortedMap {
+    static public inline function sort(_mapValue:stdgo._internal.reflect.Reflect_Value.Value):SortedMap {
         return stdgo._internal.internal.fmtsort.Fmtsort_sort.sort(_mapValue);
     }
 }

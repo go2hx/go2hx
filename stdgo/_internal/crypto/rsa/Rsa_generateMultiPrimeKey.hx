@@ -1,45 +1,56 @@
 package stdgo._internal.crypto.rsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.crypto.internal.randutil.Randutil;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import _internal.crypto.internal.boring.bbig.Bbig;
+import stdgo._internal.crypto.internal.bigmod.Bigmod;
+import stdgo._internal.math.Math;
+import stdgo._internal.crypto.rand.Rand;
 function generateMultiPrimeKey(_random:stdgo._internal.io.Io_Reader.Reader, _nprimes:stdgo.GoInt, _bits:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } {
-        var _j_4068633:stdgo.GoInt = (0 : stdgo.GoInt);
-        var q_4066201:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _bQ_4066022:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
-        var _prime_4068840:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _primes_4067734:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>);
-        var _mq_4066599:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
-        var _e64_4066291:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var dp_4066221:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var d_4066161:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _bDq_4066031:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
-        var _ok_4069241:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var nextSetOfPrimesBreak = false;
-        var _primeLimit_4067220:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-        var _key_4066682:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
-        var e_4066141:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _totient_4068769:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var n_4066121:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _i_4068599:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _todo_4067797:stdgo.GoInt = (0 : stdgo.GoInt);
-        var dq_4066243:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _err_4066043:stdgo.Error = (null : stdgo.Error);
-        var _bQinv_4066036:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
-        var _bDp_4066026:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
         var _bD_4066014:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
+        var _e_4069208:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _prime_4068602:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _key_4066682:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
+        var _bQ_4066022:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
         var _i_4068849_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _primes_4067734:stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>>);
+        var dq_4066243:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var dp_4066221:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _bDp_4066026:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
+        var _n_4068737:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _err_4068399:stdgo.Error = (null : stdgo.Error);
-        var _mp_4066517:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
-        var _pi_4067340:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-        var _mn_4066435:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
+        var _mq_4066599:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
+        var _mp_4066517:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
+        var p_4066181:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _priv_4067055:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
+        var e_4066141:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _err_4066043:stdgo.Error = (null : stdgo.Error);
         var _bP_4066018:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
         var _bE_4066010:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
-        var _e_4069208:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _pminus1_4068807:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _totient_4068769:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _prime_4068602:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _i_4068365:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_4068737:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _priv_4067055:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
-        var qinv_4066265:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var p_4066181:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _bN_4066006:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
+        var _ok_4069241:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _pminus1_4068807:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _i_4068599:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_4068365:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _mn_4066435:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>);
+        var qinv_4066265:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var q_4066201:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var d_4066161:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _prime_4068840:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _j_4068633:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _todo_4067797:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _pi_4067340:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _primeLimit_4067220:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _bQinv_4066036:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
+        var nextSetOfPrimesBreak = false;
+        var _e64_4066291:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _bDq_4066031:stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt = new stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt(0, 0);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -93,7 +104,7 @@ function generateMultiPrimeKey(_random:stdgo._internal.io.Io_Reader.Reader, _npr
                     _gotoNext = 4066435i32;
                 } else if (__value__ == (4066435i32)) {
                     {
-                        var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(n_4066121);
+                        var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(n_4066121);
                         _mn_4066435 = @:tmpset0 __tmp__._0;
                         _err_4066043 = @:tmpset0 __tmp__._1;
                     };
@@ -107,7 +118,7 @@ function generateMultiPrimeKey(_random:stdgo._internal.io.Io_Reader.Reader, _npr
                     _gotoNext = 4066517i32;
                 } else if (__value__ == (4066517i32)) {
                     {
-                        var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(p_4066181);
+                        var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(p_4066181);
                         _mp_4066517 = @:tmpset0 __tmp__._0;
                         _err_4066043 = @:tmpset0 __tmp__._1;
                     };
@@ -121,7 +132,7 @@ function generateMultiPrimeKey(_random:stdgo._internal.io.Io_Reader.Reader, _npr
                     _gotoNext = 4066599i32;
                 } else if (__value__ == (4066599i32)) {
                     {
-                        var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(q_4066201);
+                        var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(q_4066201);
                         _mq_4066599 = @:tmpset0 __tmp__._0;
                         _err_4066043 = @:tmpset0 __tmp__._1;
                     };

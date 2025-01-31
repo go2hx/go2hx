@@ -1,4 +1,10 @@
 package stdgo._internal.regexp.syntax;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
 function _repeatIsValid(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>, _n:stdgo.GoInt):Bool {
         if ((@:checkr _re ?? throw "null pointer dereference").op == ((17 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
             var _m = ((@:checkr _re ?? throw "null pointer dereference").max : stdgo.GoInt);

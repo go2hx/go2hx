@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 function _pdqsort(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void {
         {};
         var __0 = true, __1 = true;

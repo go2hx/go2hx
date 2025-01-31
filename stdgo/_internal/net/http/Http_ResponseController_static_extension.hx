@@ -8,8 +8,8 @@ package stdgo._internal.net.http;
         while (true) {
             {
                 final __type__ = _rw;
-                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_4.T__interface_4))) {
-                    var _t:stdgo._internal.net.http.Http_T__interface_4.T__interface_4 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_4.T__interface_4) : cast __type__;
+                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_3.T__interface_3))) {
+                    var _t:stdgo._internal.net.http.Http_T__interface_3.T__interface_3 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_3.T__interface_3) : cast __type__;
                     return _t.enableFullDuplex();
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper))) {
                     var _t:stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper = __type__ == null ? (null : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper) : cast __type__;
@@ -29,8 +29,8 @@ package stdgo._internal.net.http;
         while (true) {
             {
                 final __type__ = _rw;
-                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_3.T__interface_3))) {
-                    var _t:stdgo._internal.net.http.Http_T__interface_3.T__interface_3 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_3.T__interface_3) : cast __type__;
+                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_2.T__interface_2))) {
+                    var _t:stdgo._internal.net.http.Http_T__interface_2.T__interface_2 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_2.T__interface_2) : cast __type__;
                     return _t.setWriteDeadline(_deadline?.__copy__());
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper))) {
                     var _t:stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper = __type__ == null ? (null : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper) : cast __type__;
@@ -50,8 +50,8 @@ package stdgo._internal.net.http;
         while (true) {
             {
                 final __type__ = _rw;
-                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_2.T__interface_2))) {
-                    var _t:stdgo._internal.net.http.Http_T__interface_2.T__interface_2 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_2.T__interface_2) : cast __type__;
+                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_1.T__interface_1))) {
+                    var _t:stdgo._internal.net.http.Http_T__interface_1.T__interface_1 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_1.T__interface_1) : cast __type__;
                     return _t.setReadDeadline(_deadline?.__copy__());
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper))) {
                     var _t:stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper = __type__ == null ? (null : stdgo._internal.net.http.Http_T_rwUnwrapper.T_rwUnwrapper) : cast __type__;
@@ -92,8 +92,8 @@ package stdgo._internal.net.http;
         while (true) {
             {
                 final __type__ = _rw;
-                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_1.T__interface_1))) {
-                    var _t:stdgo._internal.net.http.Http_T__interface_1.T__interface_1 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_1.T__interface_1) : cast __type__;
+                if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_T__interface_0.T__interface_0))) {
+                    var _t:stdgo._internal.net.http.Http_T__interface_0.T__interface_0 = __type__ == null ? (null : stdgo._internal.net.http.Http_T__interface_0.T__interface_0) : cast __type__;
                     return _t.flushError();
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.net.http.Http_Flusher.Flusher))) {
                     var _t:stdgo._internal.net.http.Http_Flusher.Flusher = __type__ == null ? (null : stdgo._internal.net.http.Http_Flusher.Flusher) : cast __type__;

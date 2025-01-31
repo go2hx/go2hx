@@ -11,7 +11,7 @@ package stdgo._internal.net.http;
         };
         if ((((@:checkr _b ?? throw "null pointer dereference")._pipe == null || ((@:checkr _b ?? throw "null pointer dereference")._pipe : Dynamic).__nil__) || (@:checkr _b ?? throw "null pointer dereference")._sawEOF : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__io._io.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -22,7 +22,7 @@ package stdgo._internal.net.http;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http__io._io.eOF))) {
             (@:checkr _b ?? throw "null pointer dereference")._sawEOF = true;
         };
         if ((((@:checkr _b ?? throw "null pointer dereference")._conn == null || ((@:checkr _b ?? throw "null pointer dereference")._conn : Dynamic).__nil__) && stdgo._internal.net.http.Http__http2inTests._http2inTests : Bool)) {

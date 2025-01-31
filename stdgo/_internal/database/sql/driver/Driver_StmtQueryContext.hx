@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef StmtQueryContext = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef StmtQueryContext = stdgo.StructType & {
     /**
         QueryContext executes a query that may return rows, such as a
         SELECT.

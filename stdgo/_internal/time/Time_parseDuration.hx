@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function parseDuration(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Error; } {
         var _orig = (_s?.__copy__() : stdgo.GoString);
         var _d:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

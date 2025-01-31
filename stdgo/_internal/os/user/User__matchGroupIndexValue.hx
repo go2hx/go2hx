@@ -1,4 +1,12 @@
 package stdgo._internal.os.user;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.os.Os;
+import stdgo._internal.strings.Strings;
 function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._internal.os.user.User_T_lineFunc.T_lineFunc {
         var _leadColon:stdgo.GoString = ("" : stdgo.GoString);
         if ((_idx > (0 : stdgo.GoInt) : Bool)) {
@@ -26,7 +34,7 @@ function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._i
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface((stdgo.Go.setRef(({ name : _parts[(0 : stdgo.GoInt)]?.__copy__(), gid : _parts[(2 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_Group.Group)) : stdgo.Ref<stdgo._internal.os.user.User_Group.Group>)), _1 : (null : stdgo.Error) };
+                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ name : _parts[(0 : stdgo.GoInt)]?.__copy__(), gid : _parts[(2 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_Group.Group)) : stdgo.Ref<stdgo._internal.os.user.User_Group.Group>))), _1 : (null : stdgo.Error) };
                 _v = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

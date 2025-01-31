@@ -1,4 +1,5 @@
 package stdgo._internal.net.http.internal.ascii;
+import stdgo._internal.strings.Strings;
 function toLower(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; } {
         var _lower = ("" : stdgo.GoString), _ok = false;
         if (!stdgo._internal.net.http.internal.ascii.Ascii_isPrint.isPrint(_s?.__copy__())) {

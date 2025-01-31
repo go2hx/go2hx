@@ -1,5 +1,5 @@
 package stdgo._internal.internal.bisect;
-typedef Writer = stdgo.StructType & {
+@:interface typedef Writer = stdgo.StructType & {
     /**
         
         

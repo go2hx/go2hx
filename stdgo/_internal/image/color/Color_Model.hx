@@ -1,5 +1,7 @@
 package stdgo._internal.image.color;
-typedef Model = stdgo.StructType & {
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef Model = stdgo.StructType & {
     /**
         
         

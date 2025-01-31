@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class LoaderHeader64 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64_static_extension.LoaderHeader64_static_extension) class LoaderHeader64 {
     public var lversion : stdgo.GoUInt32 = 0;
     public var lnsyms : stdgo.GoUInt32 = 0;
     public var lnreloc : stdgo.GoUInt32 = 0;

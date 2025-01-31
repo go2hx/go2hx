@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-typedef TestingT = stdgo.StructType & {
+@:interface typedef TestingT = stdgo.StructType & {
     /**
         
         

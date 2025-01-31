@@ -1,4 +1,11 @@
 package stdgo._internal.net.http.cookiejar;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.sort.Sort;
 function _canonicalHost(_host:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var _err:stdgo.Error = (null : stdgo.Error);
         if (stdgo._internal.net.http.cookiejar.Cookiejar__hasPort._hasPort(_host?.__copy__())) {

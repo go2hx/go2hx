@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _permuteFinalBlock(_block:stdgo.GoUInt64):stdgo.GoUInt64 {
         var _b1 = (_block & (-6148914692668172971i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _block = (_block ^ (((_b1 ^ (_b1 >> (33i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) ^ (_b1 << (33i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);

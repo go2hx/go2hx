@@ -1,4 +1,14 @@
 package stdgo._internal.encoding.base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.debug.Debug;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.strconv.Strconv;
 function _assemble32(_n1:stdgo.GoUInt8, _n2:stdgo.GoUInt8, _n3:stdgo.GoUInt8, _n4:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt32; var _1 : Bool; } {
         var _dn = (0 : stdgo.GoUInt32), _ok = false;
         if ((((_n1 | _n2 : stdgo.GoUInt8) | _n3 : stdgo.GoUInt8) | _n4 : stdgo.GoUInt8) == ((255 : stdgo.GoUInt8))) {

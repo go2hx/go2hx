@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class Reloc {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_Reloc_static_extension.Reloc_static_extension) class Reloc {
     public var virtualAddress : stdgo.GoUInt64 = 0;
     public var symbol : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol> = (null : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
     public var signed : Bool = false;

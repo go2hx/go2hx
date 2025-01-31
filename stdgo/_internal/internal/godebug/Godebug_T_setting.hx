@@ -1,5 +1,5 @@
 package stdgo._internal.internal.godebug;
-@:structInit class T_setting {
+@:structInit @:using(stdgo._internal.internal.godebug.Godebug_T_setting_static_extension.T_setting_static_extension) class T_setting {
     public var _value : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value> = ({} : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value>);
     public var _nonDefaultOnce : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);
     public var _nonDefault : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 = ({} : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64);

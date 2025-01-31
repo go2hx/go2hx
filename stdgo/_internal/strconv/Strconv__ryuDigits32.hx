@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _ryuDigits32(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>, _lower:stdgo.GoUInt32, _central:stdgo.GoUInt32, _upper:stdgo.GoUInt32, _c0:Bool, _cup:Bool, _endindex:stdgo.GoInt):Void {
         if (_upper == ((0u32 : stdgo.GoUInt32))) {
             (@:checkr _d ?? throw "null pointer dereference")._dp = (_endindex + (1 : stdgo.GoInt) : stdgo.GoInt);

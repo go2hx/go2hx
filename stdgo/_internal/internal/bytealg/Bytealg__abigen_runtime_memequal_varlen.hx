@@ -1,4 +1,6 @@
 package stdgo._internal.internal.bytealg;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.internal.cpu.Cpu;
 function _abigen_runtime_memequal_varlen(_a:stdgo._internal.unsafe.Unsafe.UnsafePointer, _b:stdgo._internal.unsafe.Unsafe.UnsafePointer):Bool {
         trace("funclit");
         throw "not implemented: _abigen_runtime_memequal_varlen";

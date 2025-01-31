@@ -1,4 +1,9 @@
 package stdgo._internal.encoding.hex;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.encoding.hex.Hex_T_dumper_static_extension.T_dumper_static_extension) class T_dumper {
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _rightChars : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(18, 18).__setNumber32__();

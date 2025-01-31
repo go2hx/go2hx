@@ -1,4 +1,15 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 function testMinMaxNaNs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _fs = (new stdgo.Slice<stdgo.GoFloat64>(5, 5, ...[(1 : stdgo.GoFloat64), (999.9 : stdgo.GoFloat64), (3.14 : stdgo.GoFloat64), (-400.4 : stdgo.GoFloat64), (-5.14 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
         if (stdgo._internal.slices.Slices_min.min(_fs) != (-400.4 : stdgo.GoFloat64)) {

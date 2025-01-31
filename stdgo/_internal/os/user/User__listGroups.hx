@@ -1,4 +1,12 @@
 package stdgo._internal.os.user;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.os.Os;
+import stdgo._internal.strings.Strings;
 function _listGroups(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -25,7 +33,11 @@ function _listGroups(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>):{ var
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -60,7 +72,11 @@ function _listGroups(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>):{ var
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
             };
         };

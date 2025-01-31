@@ -1,4 +1,9 @@
 package stdgo._internal.bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>, _new:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         var _m = (0 : stdgo.GoInt);
         if (_n != ((0 : stdgo.GoInt))) {

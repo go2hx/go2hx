@@ -1,5 +1,8 @@
 package stdgo._internal.crypto.x509.pkix;
-@:structInit class TBSCertificateList {
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList_static_extension.TBSCertificateList_static_extension) class TBSCertificateList {
     public var raw : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent = new stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent(0, 0);
     @:tag("`asn1:\"optional,default:0\"`")
     public var version : stdgo.GoInt = 0;

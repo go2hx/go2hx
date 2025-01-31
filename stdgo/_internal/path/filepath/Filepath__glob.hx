@@ -1,4 +1,10 @@
 package stdgo._internal.path.filepath;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.sort.Sort;
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _m = (null : stdgo.Slice<stdgo.GoString>), _e = (null : stdgo.Error);
@@ -57,7 +63,11 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _m, _1 : _e };
             };
         } catch(__exception__) {
@@ -92,7 +102,11 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _m, _1 : _e };
             };
         };

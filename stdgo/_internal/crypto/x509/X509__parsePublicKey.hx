@@ -1,4 +1,33 @@
 package stdgo._internal.crypto.x509;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
 function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo>):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         var _oid = ((@:checkr _keyData ?? throw "null pointer dereference").algorithm.algorithm : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier);
         var _params = ((@:checkr _keyData ?? throw "null pointer dereference").algorithm.parameters?.__copy__() : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
@@ -53,7 +82,7 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_p
             if ((_params.fullBytes.length) != ((0 : stdgo.GoInt))) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: X25519 key encoded with illegal parameters" : stdgo.GoString)) };
             };
-            return _internal.crypto.ecdh.Ecdh_x25519.x25519().newPublicKey(_der);
+            return stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519().newPublicKey(_der);
         } else if (_oid.equal(stdgo._internal.crypto.x509.X509__oidPublicKeyDSA._oidPublicKeyDSA)) {
             var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
             if (!@:check2 _der.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_y)))) {
@@ -67,7 +96,7 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_p
             if (((((@:check2r (@:checkr _pub ?? throw "null pointer dereference").y.sign() <= (0 : stdgo.GoInt) : Bool) || (@:check2r (@:checkr _pub ?? throw "null pointer dereference").parameters.p.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (@:check2r (@:checkr _pub ?? throw "null pointer dereference").parameters.q.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (@:check2r (@:checkr _pub ?? throw "null pointer dereference").parameters.g.sign() <= (0 : stdgo.GoInt) : Bool) : Bool)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: zero or negative DSA parameter" : stdgo.GoString)) };
             };
-            return { _0 : stdgo.Go.toInterface(_pub), _1 : (null : stdgo.Error) };
+            return { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_pub)), _1 : (null : stdgo.Error) };
         } else {
             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: unknown public key algorithm" : stdgo.GoString)) };
         };

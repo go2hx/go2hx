@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 class ChanType_asInterface {
     @:embedded
     @:embeddededffieldsffun

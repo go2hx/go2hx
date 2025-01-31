@@ -1,2 +1,12 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 var errNotFat : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError> = (stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError((0i64 : stdgo.GoInt64), ("not a fat Mach-O file" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>);

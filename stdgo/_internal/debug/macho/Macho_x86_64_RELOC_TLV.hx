@@ -1,2 +1,12 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 final x86_64_RELOC_TLV : stdgo._internal.debug.macho.Macho_RelocTypeX86_64.RelocTypeX86_64 = (9 : stdgo._internal.debug.macho.Macho_RelocTypeX86_64.RelocTypeX86_64);

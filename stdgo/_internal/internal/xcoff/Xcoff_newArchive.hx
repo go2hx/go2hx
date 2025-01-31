@@ -1,4 +1,12 @@
 package stdgo._internal.internal.xcoff;
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
 function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Archive.Archive>; var _1 : stdgo.Error; } {
         var _parseDecimalBytes = function(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
             return stdgo._internal.strconv.Strconv_parseInt.parseInt(stdgo._internal.strings.Strings_trimSpace.trimSpace((_b : stdgo.GoString)?.__copy__())?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));
@@ -30,21 +38,21 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             };
         };
         {
-            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_fhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader>))) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_fhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader>)))) : stdgo.Error);
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
         };
         var __tmp__ = _parseDecimalBytes((_fhdr.flfstmoff.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _off:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_fhdr), stdgo.Go.toInterface(_err)) };
+            return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fhdr)), stdgo.Go.toInterface(_err)) };
         };
         if (_off == ((0i64 : stdgo.GoInt64))) {
             return { _0 : _arch, _1 : (null : stdgo.Error) };
         };
         var __tmp__ = _parseDecimalBytes((_fhdr.fllstmoff.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _lastoff:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_fhdr), stdgo.Go.toInterface(_err)) };
+            return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fhdr)), stdgo.Go.toInterface(_err)) };
         };
         while (true) {
             {
@@ -55,7 +63,7 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             };
             var _mhdr:stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader = ({} : stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader);
             {
-                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_mhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader>))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_mhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader>)))) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -64,12 +72,12 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             (@:checkr _arch ?? throw "null pointer dereference").members = ((@:checkr _arch ?? throw "null pointer dereference").members.__append__(_member));
             var __tmp__ = _parseDecimalBytes((_mhdr.arsize.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _size:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing size in member header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_mhdr), stdgo.Go.toInterface(_err)) };
+                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing size in member header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mhdr)), stdgo.Go.toInterface(_err)) };
             };
             (@:checkr _member ?? throw "null pointer dereference").memberHeader.size = (_size : stdgo.GoUInt64);
             var __tmp__ = _parseDecimalBytes((_mhdr.arnamlen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _namlen:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing name length in member header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_mhdr), stdgo.Go.toInterface(_err)) };
+                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing name length in member header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mhdr)), stdgo.Go.toInterface(_err)) };
             };
             var _name = (new stdgo.Slice<stdgo.GoUInt8>((_namlen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
@@ -110,7 +118,7 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
                 _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(_fhdr), stdgo.Go.toInterface(_err)) };
+                return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("error parsing offset of first member in archive header(%q); %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fhdr)), stdgo.Go.toInterface(_err)) };
             };
         };
         return { _0 : _arch, _1 : (null : stdgo.Error) };

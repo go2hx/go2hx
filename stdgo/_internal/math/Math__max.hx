@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _max(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         if ((stdgo._internal.math.Math_isInf.isInf(_x, (1 : stdgo.GoInt)) || stdgo._internal.math.Math_isInf.isInf(_y, (1 : stdgo.GoInt)) : Bool)) {
             return stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));

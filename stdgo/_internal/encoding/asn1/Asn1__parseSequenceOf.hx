@@ -1,4 +1,15 @@
 package stdgo._internal.encoding.asn1;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.bytes.Bytes;
 function _parseSequenceOf(_bytes:stdgo.Slice<stdgo.GoUInt8>, _sliceType:stdgo._internal.reflect.Reflect_Type_.Type_, _elemType:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } {
         var _ret = ({} : stdgo._internal.reflect.Reflect_Value.Value), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.encoding.asn1.Asn1__getUniversalType._getUniversalType(_elemType), _matchAny:Bool = __tmp__._0, _expectedTag:stdgo.GoInt = __tmp__._1, _compoundType:Bool = __tmp__._2, _ok:Bool = __tmp__._3;

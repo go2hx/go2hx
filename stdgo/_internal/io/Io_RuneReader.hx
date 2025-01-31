@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef RuneReader = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef RuneReader = stdgo.StructType & {
     /**
         
         

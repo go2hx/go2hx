@@ -2,9 +2,6 @@ package stdgo._internal.net.http;
 class T_http2ErrCode_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _stringToken():stdgo.GoString return @:_0 __self__.value._stringToken();
-    @:keep
-    @:tdfield
     public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     public function new(__self__, __type__) {
         this.__self__ = __self__;

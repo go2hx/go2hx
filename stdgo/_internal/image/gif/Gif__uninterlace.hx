@@ -1,4 +1,13 @@
 package stdgo._internal.image.gif;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.Image;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.image.draw.Draw;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.lzw.Lzw;
+import stdgo._internal.bytes.Bytes;
 function _uninterlace(_m:stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>):Void {
         var _nPix:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _dx = (@:check2r _m.bounds().dx() : stdgo.GoInt);

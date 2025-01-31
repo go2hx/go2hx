@@ -1,5 +1,7 @@
 package stdgo._internal.crypto.hmac;
-typedef T_marshalable = stdgo.StructType & {
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.subtle.Subtle;
+@:interface typedef T_marshalable = stdgo.StructType & {
     /**
         
         

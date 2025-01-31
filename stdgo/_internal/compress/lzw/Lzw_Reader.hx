@@ -1,4 +1,8 @@
 package stdgo._internal.compress.lzw;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
 @:structInit @:using(stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension) class Reader {
     public var _r : stdgo._internal.io.Io_ByteReader.ByteReader = (null : stdgo._internal.io.Io_ByteReader.ByteReader);
     public var _bits : stdgo.GoUInt32 = 0;

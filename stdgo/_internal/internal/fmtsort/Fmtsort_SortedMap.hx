@@ -1,4 +1,6 @@
 package stdgo._internal.internal.fmtsort;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension) class SortedMap {
     public var key : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value> = (null : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
     public var value : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value> = (null : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);

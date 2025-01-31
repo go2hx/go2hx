@@ -1,4 +1,11 @@
 package stdgo._internal.compress.flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension) class T_huffmanBitWriter {
     public var _writer : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _bits : stdgo.GoUInt64 = 0;

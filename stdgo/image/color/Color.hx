@@ -108,28 +108,28 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var r(get, set) : std.UInt;
     function get_r():std.UInt return this.r;
     function set_r(v:std.UInt):std.UInt {
-        this.r = v;
+        this.r = (v : stdgo.GoUInt8);
         return v;
     }
     public var g(get, set) : std.UInt;
     function get_g():std.UInt return this.g;
     function set_g(v:std.UInt):std.UInt {
-        this.g = v;
+        this.g = (v : stdgo.GoUInt8);
         return v;
     }
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
-        this.b = v;
+        this.b = (v : stdgo.GoUInt8);
         return v;
     }
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_RGBA.RGBA(r, g, b, a);
+    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_RGBA.RGBA((r : stdgo.GoUInt8), (g : stdgo.GoUInt8), (b : stdgo.GoUInt8), (a : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -137,28 +137,28 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var r(get, set) : std.UInt;
     function get_r():std.UInt return this.r;
     function set_r(v:std.UInt):std.UInt {
-        this.r = v;
+        this.r = (v : stdgo.GoUInt16);
         return v;
     }
     public var g(get, set) : std.UInt;
     function get_g():std.UInt return this.g;
     function set_g(v:std.UInt):std.UInt {
-        this.g = v;
+        this.g = (v : stdgo.GoUInt16);
         return v;
     }
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
-        this.b = v;
+        this.b = (v : stdgo.GoUInt16);
         return v;
     }
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_RGBA64.RGBA64(r, g, b, a);
+    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_RGBA64.RGBA64((r : stdgo.GoUInt16), (g : stdgo.GoUInt16), (b : stdgo.GoUInt16), (a : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -166,28 +166,28 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var r(get, set) : std.UInt;
     function get_r():std.UInt return this.r;
     function set_r(v:std.UInt):std.UInt {
-        this.r = v;
+        this.r = (v : stdgo.GoUInt8);
         return v;
     }
     public var g(get, set) : std.UInt;
     function get_g():std.UInt return this.g;
     function set_g(v:std.UInt):std.UInt {
-        this.g = v;
+        this.g = (v : stdgo.GoUInt8);
         return v;
     }
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
-        this.b = v;
+        this.b = (v : stdgo.GoUInt8);
         return v;
     }
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NRGBA.NRGBA(r, g, b, a);
+    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NRGBA.NRGBA((r : stdgo.GoUInt8), (g : stdgo.GoUInt8), (b : stdgo.GoUInt8), (a : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -195,28 +195,28 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var r(get, set) : std.UInt;
     function get_r():std.UInt return this.r;
     function set_r(v:std.UInt):std.UInt {
-        this.r = v;
+        this.r = (v : stdgo.GoUInt16);
         return v;
     }
     public var g(get, set) : std.UInt;
     function get_g():std.UInt return this.g;
     function set_g(v:std.UInt):std.UInt {
-        this.g = v;
+        this.g = (v : stdgo.GoUInt16);
         return v;
     }
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
-        this.b = v;
+        this.b = (v : stdgo.GoUInt16);
         return v;
     }
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NRGBA64.NRGBA64(r, g, b, a);
+    public function new(?r:std.UInt, ?g:std.UInt, ?b:std.UInt, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NRGBA64.NRGBA64((r : stdgo.GoUInt16), (g : stdgo.GoUInt16), (b : stdgo.GoUInt16), (a : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -224,10 +224,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?a:std.UInt) this = new stdgo._internal.image.color.Color_Alpha.Alpha(a);
+    public function new(?a:std.UInt) this = new stdgo._internal.image.color.Color_Alpha.Alpha((a : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -235,10 +235,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?a:std.UInt) this = new stdgo._internal.image.color.Color_Alpha16.Alpha16(a);
+    public function new(?a:std.UInt) this = new stdgo._internal.image.color.Color_Alpha16.Alpha16((a : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -246,10 +246,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var y(get, set) : std.UInt;
     function get_y():std.UInt return this.y;
     function set_y(v:std.UInt):std.UInt {
-        this.y = v;
+        this.y = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?y:std.UInt) this = new stdgo._internal.image.color.Color_Gray.Gray(y);
+    public function new(?y:std.UInt) this = new stdgo._internal.image.color.Color_Gray.Gray((y : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -257,10 +257,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var y(get, set) : std.UInt;
     function get_y():std.UInt return this.y;
     function set_y(v:std.UInt):std.UInt {
-        this.y = v;
+        this.y = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?y:std.UInt) this = new stdgo._internal.image.color.Color_Gray16.Gray16(y);
+    public function new(?y:std.UInt) this = new stdgo._internal.image.color.Color_Gray16.Gray16((y : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -279,22 +279,22 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var y(get, set) : std.UInt;
     function get_y():std.UInt return this.y;
     function set_y(v:std.UInt):std.UInt {
-        this.y = v;
+        this.y = (v : stdgo.GoUInt8);
         return v;
     }
     public var cb(get, set) : std.UInt;
     function get_cb():std.UInt return this.cb;
     function set_cb(v:std.UInt):std.UInt {
-        this.cb = v;
+        this.cb = (v : stdgo.GoUInt8);
         return v;
     }
     public var cr(get, set) : std.UInt;
     function get_cr():std.UInt return this.cr;
     function set_cr(v:std.UInt):std.UInt {
-        this.cr = v;
+        this.cr = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?y:std.UInt, ?cb:std.UInt, ?cr:std.UInt) this = new stdgo._internal.image.color.Color_YCbCr.YCbCr(y, cb, cr);
+    public function new(?y:std.UInt, ?cb:std.UInt, ?cr:std.UInt) this = new stdgo._internal.image.color.Color_YCbCr.YCbCr((y : stdgo.GoUInt8), (cb : stdgo.GoUInt8), (cr : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -308,10 +308,10 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
-        this.a = v;
+        this.a = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?yCbCr:YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA(yCbCr, a);
+    public function new(?yCbCr:YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color_NYCbCrA.NYCbCrA(yCbCr, (a : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -319,28 +319,28 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public var c(get, set) : std.UInt;
     function get_c():std.UInt return this.c;
     function set_c(v:std.UInt):std.UInt {
-        this.c = v;
+        this.c = (v : stdgo.GoUInt8);
         return v;
     }
     public var m(get, set) : std.UInt;
     function get_m():std.UInt return this.m;
     function set_m(v:std.UInt):std.UInt {
-        this.m = v;
+        this.m = (v : stdgo.GoUInt8);
         return v;
     }
     public var y(get, set) : std.UInt;
     function get_y():std.UInt return this.y;
     function set_y(v:std.UInt):std.UInt {
-        this.y = v;
+        this.y = (v : stdgo.GoUInt8);
         return v;
     }
     public var k(get, set) : std.UInt;
     function get_k():std.UInt return this.k;
     function set_k(v:std.UInt):std.UInt {
-        this.k = v;
+        this.k = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?c:std.UInt, ?m:std.UInt, ?y:std.UInt, ?k:std.UInt) this = new stdgo._internal.image.color.Color_CMYK.CMYK(c, m, y, k);
+    public function new(?c:std.UInt, ?m:std.UInt, ?y:std.UInt, ?k:std.UInt) this = new stdgo._internal.image.color.Color_CMYK.CMYK((c : stdgo.GoUInt8), (m : stdgo.GoUInt8), (y : stdgo.GoUInt8), (k : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -420,6 +420,7 @@ class Gray16_static_extension {
 typedef T_modelFuncPointer = stdgo._internal.image.color.Color_T_modelFuncPointer.T_modelFuncPointer;
 class T_modelFunc_static_extension {
     static public function convert(_m:T_modelFunc, _c:Color_):Color_ {
+        final _m = (_m : stdgo.Ref<stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc>);
         return stdgo._internal.image.color.Color_T_modelFunc_static_extension.T_modelFunc_static_extension.convert(_m, _c);
     }
 }
@@ -466,17 +467,21 @@ class Color {
     /**
         ModelFunc returns a Model that invokes f to implement the conversion.
     **/
-    static public function modelFunc(_f:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color):Model {
+    static public inline function modelFunc(_f:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color):Model {
         final _f = _f;
         return stdgo._internal.image.color.Color_modelFunc.modelFunc(_f);
     }
-    static public function testSqDiff(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testSqDiff(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testSqDiff.testSqDiff(_t);
     }
     /**
         RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
     **/
-    static public function rGBToYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public inline function rGBToYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        final _r = (_r : stdgo.GoUInt8);
+        final _g = (_g : stdgo.GoUInt8);
+        final _b = (_b : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.color.Color_rGBToYCbCr.rGBToYCbCr(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -485,7 +490,10 @@ class Color {
     /**
         YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
     **/
-    static public function yCbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public inline function yCbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        final _y = (_y : stdgo.GoUInt8);
+        final _cb = (_cb : stdgo.GoUInt8);
+        final _cr = (_cr : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.color.Color_yCbCrToRGB.yCbCrToRGB(_y, _cb, _cr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -494,7 +502,10 @@ class Color {
     /**
         RGBToCMYK converts an RGB triple to a CMYK quadruple.
     **/
-    static public function rGBToCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public inline function rGBToCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+        final _r = (_r : stdgo.GoUInt8);
+        final _g = (_g : stdgo.GoUInt8);
+        final _b = (_b : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.color.Color_rGBToCMYK.rGBToCMYK(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
@@ -503,7 +514,11 @@ class Color {
     /**
         CMYKToRGB converts a CMYK quadruple to an RGB triple.
     **/
-    static public function cMYKToRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public inline function cMYKToRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+        final _c = (_c : stdgo.GoUInt8);
+        final _m = (_m : stdgo.GoUInt8);
+        final _y = (_y : stdgo.GoUInt8);
+        final _k = (_k : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.color.Color_cMYKToRGB.cMYKToRGB(_c, _m, _y, _k);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -513,7 +528,8 @@ class Color {
         TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
         and back to within 2/256 tolerance.
     **/
-    static public function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testYCbCrRoundtrip.testYCbCrRoundtrip(_t);
     }
     /**
@@ -521,32 +537,37 @@ class Color {
         then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
         bit color).
     **/
-    static public function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testYCbCrToRGBConsistency.testYCbCrToRGBConsistency(_t);
     }
     /**
         TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
     **/
-    static public function testYCbCrGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testYCbCrGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testYCbCrGray.testYCbCrGray(_t);
     }
     /**
         TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
     **/
-    static public function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAAlpha.testNYCbCrAAlpha(_t);
     }
     /**
         TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
     **/
-    static public function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAYCbCr.testNYCbCrAYCbCr(_t);
     }
     /**
         TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
         and back to within 1/256 tolerance.
     **/
-    static public function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testCMYKRoundtrip.testCMYKRoundtrip(_t);
     }
     /**
@@ -554,28 +575,35 @@ class Color {
         then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
         bit color).
     **/
-    static public function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testCMYKToRGBConsistency.testCMYKToRGBConsistency(_t);
     }
     /**
         TestCMYKGray tests that CMYK colors are a superset of Gray colors.
     **/
-    static public function testCMYKGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCMYKGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testCMYKGray.testCMYKGray(_t);
     }
-    static public function testPalette(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testPalette(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.image.color.Color_testPalette.testPalette(_t);
     }
-    static public function benchmarkYCbCrToRGB(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkYCbCrToRGB(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.image.color.Color_benchmarkYCbCrToRGB.benchmarkYCbCrToRGB(_b);
     }
-    static public function benchmarkRGBToYCbCr(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkRGBToYCbCr(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.image.color.Color_benchmarkRGBToYCbCr.benchmarkRGBToYCbCr(_b);
     }
-    static public function benchmarkYCbCrToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkYCbCrToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.image.color.Color_benchmarkYCbCrToRGBA.benchmarkYCbCrToRGBA(_b);
     }
-    static public function benchmarkNYCbCrAToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkNYCbCrAToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.image.color.Color_benchmarkNYCbCrAToRGBA.benchmarkNYCbCrAToRGBA(_b);
     }
 }

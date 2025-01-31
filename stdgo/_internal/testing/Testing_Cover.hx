@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-@:structInit class Cover {
+@:structInit @:using(stdgo._internal.testing.Testing_Cover_static_extension.Cover_static_extension) class Cover {
     public var mode : stdgo.GoString = "";
     public var counters : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>);
     public var blocks : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_CoverBlock.CoverBlock>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_CoverBlock.CoverBlock>>);

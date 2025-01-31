@@ -1,4 +1,7 @@
 package stdgo._internal.internal.saferio;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
 function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt {
         if ((((_c : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool) || (_c != ((_c : stdgo.GoInt) : stdgo.GoUInt64)) : Bool)) {
             return (-1 : stdgo.GoInt);

@@ -1,5 +1,7 @@
 package stdgo._internal.runtime.metrics;
-@:structInit class Description {
+import stdgo._internal.internal.godebugs.Godebugs;
+import stdgo._internal.math.Math;
+@:structInit @:using(stdgo._internal.runtime.metrics.Metrics_Description_static_extension.Description_static_extension) class Description {
     public var name : stdgo.GoString = "";
     public var description : stdgo.GoString = "";
     public var kind : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind = ((0 : stdgo.GoInt) : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind);

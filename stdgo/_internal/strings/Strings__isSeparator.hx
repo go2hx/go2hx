@@ -1,4 +1,10 @@
 package stdgo._internal.strings;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function _isSeparator(_r:stdgo.GoInt32):Bool {
         if ((_r <= (127 : stdgo.GoInt32) : Bool)) {
             if ((((48 : stdgo.GoInt32) <= _r : Bool) && (_r <= (57 : stdgo.GoInt32) : Bool) : Bool)) {

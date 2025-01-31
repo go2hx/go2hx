@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 function _choosePivot_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint; } {
         var _pivot = (0 : stdgo.GoInt), _hint = ((0 : stdgo.GoInt) : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint);
         {};

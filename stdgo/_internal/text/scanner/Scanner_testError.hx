@@ -1,4 +1,10 @@
 package stdgo._internal.text.scanner;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
 function testError(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__testError._testError(_t, stdgo.Go.str(0)?.__copy__(), ("<input>:1:1" : stdgo.GoString), ("invalid character NUL" : stdgo.GoString), (0 : stdgo.GoInt32));
         stdgo._internal.text.scanner.Scanner__testError._testError(_t, stdgo.Go.str(128)?.__copy__(), ("<input>:1:1" : stdgo.GoString), ("invalid UTF-8 encoding" : stdgo.GoString), (65533 : stdgo.GoInt32));

@@ -1,5 +1,10 @@
 package stdgo._internal.net.rpc.jsonrpc;
-@:structInit class T_clientRequest {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.json.Json;
+import stdgo._internal.net.rpc.Rpc;
+import stdgo._internal.net.Net;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientRequest_static_extension.T_clientRequest_static_extension) class T_clientRequest {
     @:tag("`json:\"method\"`")
     public var method : stdgo.GoString = "";
     @:tag("`json:\"params\"`")

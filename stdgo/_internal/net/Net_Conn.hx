@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-typedef Conn = stdgo.StructType & {
+@:interface typedef Conn = stdgo.StructType & {
     /**
         Read reads data from the connection.
         Read can be made to time out and return an error after a fixed

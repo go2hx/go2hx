@@ -1,4 +1,9 @@
 package stdgo._internal.bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:stdgo.GoInt32 -> Bool, _truth:Bool):stdgo.GoInt {
         {
             var _i = (_s.length : stdgo.GoInt);

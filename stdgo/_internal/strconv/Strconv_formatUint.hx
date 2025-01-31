@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function formatUint(_i:stdgo.GoUInt64, _base:stdgo.GoInt):stdgo.GoString {
         if (((true && (_i < (100i64 : stdgo.GoUInt64) : Bool) : Bool) && (_base == (10 : stdgo.GoInt)) : Bool)) {
             return stdgo._internal.strconv.Strconv__small._small((_i : stdgo.GoInt))?.__copy__();

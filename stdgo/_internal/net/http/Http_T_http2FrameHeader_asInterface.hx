@@ -2,15 +2,6 @@ package stdgo._internal.net.http;
 class T_http2FrameHeader_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _invalidate():Void @:_0 __self__.value._invalidate();
-    @:keep
-    @:tdfield
-    public dynamic function _checkValid():Void @:_0 __self__.value._checkValid();
-    @:keep
-    @:tdfield
-    public dynamic function _writeDebug(_buf:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):Void @:_0 __self__.value._writeDebug(_buf);
-    @:keep
-    @:tdfield
     public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     @:keep
     @:tdfield

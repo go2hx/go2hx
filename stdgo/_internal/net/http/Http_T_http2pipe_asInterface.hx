@@ -8,15 +8,6 @@ class T_http2pipe_asInterface {
     public dynamic function err():stdgo.Error return @:_0 __self__.value.err();
     @:keep
     @:tdfield
-    public dynamic function _closeDoneLocked():Void @:_0 __self__.value._closeDoneLocked();
-    @:keep
-    @:tdfield
-    public dynamic function _closeWithError(_dst:stdgo.Ref<stdgo.Error>, _err:stdgo.Error, _fn:() -> Void):Void @:_0 __self__.value._closeWithError(_dst, _err, _fn);
-    @:keep
-    @:tdfield
-    public dynamic function _closeWithErrorAndCode(_err:stdgo.Error, _fn:() -> Void):Void @:_0 __self__.value._closeWithErrorAndCode(_err, _fn);
-    @:keep
-    @:tdfield
     public dynamic function breakWithError(_err:stdgo.Error):Void @:_0 __self__.value.breakWithError(_err);
     @:keep
     @:tdfield
@@ -30,9 +21,6 @@ class T_http2pipe_asInterface {
     @:keep
     @:tdfield
     public dynamic function len():stdgo.GoInt return @:_0 __self__.value.len();
-    @:keep
-    @:tdfield
-    public dynamic function _setBuffer(_b:stdgo._internal.net.http.Http_T_http2pipeBuffer.T_http2pipeBuffer):Void @:_0 __self__.value._setBuffer(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

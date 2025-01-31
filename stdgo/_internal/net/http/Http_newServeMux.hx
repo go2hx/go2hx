@@ -1,4 +1,4 @@
 package stdgo._internal.net.http;
 function newServeMux():stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux> {
-        return (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_ServeMux.ServeMux)) : stdgo.Ref<stdgo._internal.net.http.Http_ServeMux.ServeMux>);
+        return stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.Http_ServeMux_static_extension.ServeMux_static_extension.stdgo._internal.net.http.Http_ServeMux_static_extension.ServeMux_static_extension);
     }

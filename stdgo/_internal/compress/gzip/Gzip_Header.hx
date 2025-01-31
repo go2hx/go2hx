@@ -1,5 +1,13 @@
 package stdgo._internal.compress.gzip;
-@:structInit class Header {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.time.Time;
+import stdgo._internal.compress.flate.Flate;
+@:structInit @:using(stdgo._internal.compress.gzip.Gzip_Header_static_extension.Header_static_extension) class Header {
     public var comment : stdgo.GoString = "";
     public var extra : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var modTime : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);

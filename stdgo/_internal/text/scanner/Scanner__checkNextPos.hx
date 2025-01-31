@@ -1,4 +1,10 @@
 package stdgo._internal.text.scanner;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
 function _checkNextPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _s:stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, _offset:stdgo.GoInt, _line:stdgo.GoInt, _column:stdgo.GoInt, _char:stdgo.GoInt32):Void {
         {
             var _ch = (@:check2r _s.next() : stdgo.GoInt32);

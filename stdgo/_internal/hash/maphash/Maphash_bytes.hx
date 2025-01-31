@@ -1,4 +1,6 @@
 package stdgo._internal.hash.maphash;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.math.bits.Bits;
 function bytes(_seed:stdgo._internal.hash.maphash.Maphash_Seed.Seed, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         var _state = (_seed._s : stdgo.GoUInt64);
         if (_state == ((0i64 : stdgo.GoUInt64))) {

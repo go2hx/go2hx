@@ -1,4 +1,25 @@
 package stdgo._internal.encoding.gob;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.os.Os;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.encoding.binary.Binary;
 var _singletons : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(8, 8, ...[stdgo.Go.toInterface(true), stdgo.Go.toInterface((7 : stdgo.GoInt)), stdgo.Go.toInterface((10u32 : stdgo.GoUInt)), stdgo.Go.toInterface((3.2 : stdgo.GoFloat64)), stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(11 : stdgo.GoInt), (22 : stdgo.GoInt), (33 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoFloat32>(3, 3, ...[(0.5 : stdgo.GoFloat64), (0.25 : stdgo.GoFloat64), (0.125 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>)), stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.GoInt);

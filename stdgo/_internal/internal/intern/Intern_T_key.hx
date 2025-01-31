@@ -1,4 +1,6 @@
 package stdgo._internal.internal.intern;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.internal.intern.Intern_T_key_static_extension.T_key_static_extension) class T_key {
     public var _s : stdgo.GoString = "";
     public var _cmpVal : stdgo.AnyInterface = (null : stdgo.AnyInterface);

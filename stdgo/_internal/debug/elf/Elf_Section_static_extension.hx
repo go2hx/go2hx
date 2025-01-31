@@ -1,4 +1,16 @@
 package stdgo._internal.debug.elf;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.debug.dwarf.Dwarf;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.internal.zstd.Zstd;
 @:keep @:allow(stdgo._internal.debug.elf.Elf.Section_asInterface) class Section_static_extension {
     @:keep
     @:tdfield
@@ -30,7 +42,7 @@ package stdgo._internal.debug.elf;
                 _zrd = stdgo._internal.compress.zlib.Zlib_newReader.newReader;
             } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_CompressionType.CompressionType))) {
                 _zrd = function(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
-                    return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(_internal.internal.zstd.Zstd_newReader.newReader(_r))), _1 : (null : stdgo.Error) };
+                    return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.internal.zstd.Zstd_newReader.newReader(_r))), _1 : (null : stdgo.Error) };
                 };
             };
         };

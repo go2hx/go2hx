@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function checkRuntimeTimerPeriodOverflow():Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -16,7 +21,11 @@ function checkRuntimeTimerPeriodOverflow():Void {
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -51,7 +60,11 @@ function checkRuntimeTimerPeriodOverflow():Void {
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

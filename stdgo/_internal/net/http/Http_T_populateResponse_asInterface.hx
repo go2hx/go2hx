@@ -9,12 +9,6 @@ class T_populateResponse_asInterface {
     @:keep
     @:tdfield
     public dynamic function header():stdgo._internal.net.http.Http_Header.Header return @:_0 __self__.value.header();
-    @:keep
-    @:tdfield
-    public dynamic function _sendResponse():Void @:_0 __self__.value._sendResponse();
-    @:keep
-    @:tdfield
-    public dynamic function _finish():Void @:_0 __self__.value._finish();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

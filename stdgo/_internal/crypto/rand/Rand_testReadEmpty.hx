@@ -1,4 +1,10 @@
 package stdgo._internal.crypto.rand;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.compress.flate.Flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.crypto.internal.randutil.Randutil;
 function testReadEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __tmp__ = stdgo._internal.crypto.rand.Rand_reader.reader.read((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_n != (0 : stdgo.GoInt)) || (_err != null) : Bool)) {

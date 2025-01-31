@@ -1,5 +1,5 @@
 package stdgo._internal.context;
-typedef Context = stdgo.StructType & {
+@:interface typedef Context = stdgo.StructType & {
     /**
         Deadline returns the time when work done on behalf of this context
         should be canceled. Deadline returns ok==false when no deadline is

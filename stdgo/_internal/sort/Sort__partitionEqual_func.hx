@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 function _partitionEqual_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _pivot:stdgo.GoInt):stdgo.GoInt {
         var _newpivot = (0 : stdgo.GoInt);
         _data.swap(_a, _pivot);

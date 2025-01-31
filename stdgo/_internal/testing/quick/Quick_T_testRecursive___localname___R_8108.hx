@@ -1,5 +1,11 @@
 package stdgo._internal.testing.quick;
-@:structInit class T_testRecursive___localname___R_8108 {
+import stdgo._internal.flag.Flag;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.time.Time;
+@:structInit @:using(stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108_static_extension.T_testRecursive___localname___R_8108_static_extension) class T_testRecursive___localname___R_8108 {
     public var ptr : stdgo.Ref<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108> = (null : stdgo.Ref<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108>);
     public var sliceP : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108>>);
     public var slice : stdgo.Slice<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108> = (null : stdgo.Slice<stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108.T_testRecursive___localname___R_8108>);

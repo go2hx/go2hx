@@ -1,4 +1,11 @@
 package stdgo._internal.net.http.cookiejar;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.sort.Sort;
 @:keep @:allow(stdgo._internal.net.http.cookiejar.Cookiejar.Jar_asInterface) class Jar_static_extension {
     @:keep
     @:tdfield
@@ -197,7 +204,11 @@ package stdgo._internal.net.http.cookiejar;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -232,7 +243,11 @@ package stdgo._internal.net.http.cookiejar;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
@@ -332,7 +347,11 @@ package stdgo._internal.net.http.cookiejar;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _cookies;
             };
         } catch(__exception__) {
@@ -367,7 +386,11 @@ package stdgo._internal.net.http.cookiejar;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _cookies;
             };
         };

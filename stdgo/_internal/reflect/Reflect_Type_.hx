@@ -1,5 +1,5 @@
 package stdgo._internal.reflect;
-typedef Type_ = stdgo.StructType & {
+@:interface typedef Type_ = stdgo.StructType & {
     /**
         Align returns the alignment in bytes of a value of
         this type when allocated in memory.

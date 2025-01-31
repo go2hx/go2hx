@@ -1,4 +1,7 @@
 package stdgo._internal.embed;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
 function _split(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } {
         var _dir = ("" : stdgo.GoString), _elem = ("" : stdgo.GoString), _isDir = false;
         if (_name[((_name.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == ((47 : stdgo.GoUInt8))) {

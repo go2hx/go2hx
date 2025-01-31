@@ -61,194 +61,9 @@ private function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; 
         return v;
     }
 /**
-    /|*{
-    	Euler_544572 = 0.5772156649015329
-    	gotoNext = 544663
-    	_ = gotoNext == 544663
-    	switch {
-    	case isNegInt(x) || IsInf(x, -1) || IsNaN(x):
-    		gotoNext = 544673
-    		_ = gotoNext == 544673
-    		return NaN()
-    		gotoNext = 544843
-    	case IsInf(x, 1):
-    		gotoNext = 544735
-    		_ = gotoNext == 544735
-    		return Inf(1)
-    		gotoNext = 544843
-    	case x == 0:
-    		gotoNext = 544770
-    		_ = gotoNext == 544770
-    		if Signbit(x) {
-    			gotoNext = 544799
-    			_ = gotoNext == 544799
-    			return Inf(-1)
-    			gotoNext = 544825
-    		} else {
-    			gotoNext = 544825
-    		}
-    		_ = gotoNext == 544825
-    		return Inf(1)
-    		gotoNext = 544843
-    	default:
-    		gotoNext = 544843
-    	}
-    	_ = gotoNext == 544843
-    	q_544843 = Abs(x)
-    	p_544856 = Floor(q_544843)
-    	if q_544843 > 33 {
-    		gotoNext = 544881
-    		_ = gotoNext == 544881
-    		if x >= 0 {
-    			gotoNext = 544895
-    			_ = gotoNext == 544895
-    			y1_544900, y2_544904 = stirling(x)
-    			return y1_544900 * y2_544904
-    			gotoNext = 545145
-    		} else {
-    			gotoNext = 545145
-    		}
-    		_ = gotoNext == 545145
-    		signgam_545145 = 1
-    		if ip_545163 = int64(p_544856); ip_545163&1 == 0 {
-    			gotoNext = 545189
-    			_ = gotoNext == 545189
-    			signgam_545145 = -1
-    			gotoNext = 545213
-    		} else {
-    			gotoNext = 545213
-    		}
-    		_ = gotoNext == 545213
-    		z_545213 = q_544843 - p_544856
-    		if z_545213 > 0.5 {
-    			gotoNext = 545237
-    			_ = gotoNext == 545237
-    			p_544856 = p_544856 + 1
-    			z_545213 = q_544843 - p_544856
-    			gotoNext = 545271
-    		} else {
-    			gotoNext = 545271
-    		}
-    		_ = gotoNext == 545271
-    		z_545213 = q_544843 * Sin(3.141592653589793*z_545213)
-    		if z_545213 == 0 {
-    			gotoNext = 545301
-    			_ = gotoNext == 545301
-    			return Inf(signgam_545145)
-    			gotoNext = 545332
-    		} else {
-    			gotoNext = 545332
-    		}
-    		_ = gotoNext == 545332
-    		sq1_545332, sq2_545337 = stirling(q_544843)
-    		absz_545358 = Abs(z_545213)
-    		d_545375 = absz_545358 * sq1_545332 * sq2_545337
-    		if IsInf(d_545375, 0) {
-    			gotoNext = 545414
-    			_ = gotoNext == 545414
-    			z_545213 = 3.141592653589793 / absz_545358 / sq1_545332 / sq2_545337
-    			gotoNext = 545476
-    		} else {
-    			gotoNext = 545454
-    			_ = gotoNext == 545454
-    			gotoNext = 545454
-    			_ = gotoNext == 545454
-    			z_545213 = 3.141592653589793 / d_545375
-    			_ = 0
-    			gotoNext = 545476
-    		}
-    		_ = gotoNext == 545476
-    		return float64(signgam_545145) * z_545213
-    		gotoNext = 545529
-    	} else {
-    		gotoNext = 545529
-    	}
-    	_ = gotoNext == 545529
-    	z_545529 = 1
-    	_ = 0
-    	gotoNext = 545539
-    	_ = gotoNext == 545539
-    	if x >= 3 {
-    		gotoNext = 545550
-    		_ = gotoNext == 545550
-    		x = x - 1
-    		z_545529 = z_545529 * x
-    		gotoNext = 545539
-    	} else {
-    		gotoNext = 545580
-    	}
-    	_ = gotoNext == 545580
-    	_ = 0
-    	gotoNext = 545580
-    	_ = gotoNext == 545580
-    	if x < 0 {
-    		gotoNext = 545590
-    		_ = gotoNext == 545590
-    		if x > -1e-09 {
-    			gotoNext = 545608
-    			_ = gotoNext == 545608
-    			gotoNext = 545986
-    			gotoNext = 545630
-    		} else {
-    			gotoNext = 545630
-    		}
-    		_ = gotoNext == 545630
-    		z_545529 = z_545529 / x
-    		x = x + 1
-    		gotoNext = 545580
-    	} else {
-    		gotoNext = 545656
-    	}
-    	_ = gotoNext == 545656
-    	_ = 0
-    	gotoNext = 545656
-    	_ = gotoNext == 545656
-    	if x < 2 {
-    		gotoNext = 545666
-    		_ = gotoNext == 545666
-    		if x < 1e-09 {
-    			gotoNext = 545683
-    			_ = gotoNext == 545683
-    			gotoNext = 545986
-    			gotoNext = 545705
-    		} else {
-    			gotoNext = 545705
-    		}
-    		_ = gotoNext == 545705
-    		z_545529 = z_545529 / x
-    		x = x + 1
-    		gotoNext = 545656
-    	} else {
-    		gotoNext = 545732
-    	}
-    	_ = gotoNext == 545732
-    	if x == 2 {
-    		gotoNext = 545742
-    		_ = gotoNext == 545742
-    		return z_545529
-    		gotoNext = 545760
-    	} else {
-    		gotoNext = 545760
-    	}
-    	_ = gotoNext == 545760
-    	x = x - 2
-    	p_544856 = (((((x*_gamP[0]+_gamP[1])*x+_gamP[2])*x+_gamP[3])*x+_gamP[4])*x+_gamP[5])*x + _gamP[6]
-    	q_544843 = ((((((x*_gamQ[0]+_gamQ[1])*x+_gamQ[2])*x+_gamQ[3])*x+_gamQ[4])*x+_gamQ[5])*x+_gamQ[6])*x + _gamQ[7]
-    	return z_545529 * p_544856 / q_544843
-    	gotoNext = 545986
-    	_ = gotoNext == 545986
-    	if x == 0 {
-    		gotoNext = 546004
-    		_ = gotoNext == 546004
-    		return Inf(1)
-    		gotoNext = 546026
-    	} else {
-    		gotoNext = 546026
-    	}
-    	_ = gotoNext == 546026
-    	return z_545529 / ((1 + 0.5772156649015329*x) * x)
-    	gotoNext = -1
-    }*|/
+    Package math provides basic constants and mathematical functions.
+    
+    This package does not guarantee bit-identical results across architectures.
 **/
 class Math {
     /**
@@ -259,7 +74,8 @@ class Math {
         	Abs(±Inf) = +Inf
         	Abs(NaN) = NaN
     **/
-    static public function abs(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function abs(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_abs.abs(_x);
     }
     /**
@@ -271,7 +87,8 @@ class Math {
         	Acosh(x) = NaN if x < 1
         	Acosh(NaN) = NaN
     **/
-    static public function acosh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function acosh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_acosh.acosh(_x);
     }
     /**
@@ -282,7 +99,8 @@ class Math {
         	Asin(±0) = ±0
         	Asin(x) = NaN if x < -1 or x > 1
     **/
-    static public function asin(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function asin(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_asin.asin(_x);
     }
     /**
@@ -292,7 +110,8 @@ class Math {
         
         	Acos(x) = NaN if x < -1 or x > 1
     **/
-    static public function acos(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function acos(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_acos.acos(_x);
     }
     /**
@@ -304,7 +123,8 @@ class Math {
         	Asinh(±Inf) = ±Inf
         	Asinh(NaN) = NaN
     **/
-    static public function asinh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function asinh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_asinh.asinh(_x);
     }
     /**
@@ -315,7 +135,8 @@ class Math {
         	Atan(±0) = ±0
         	Atan(±Inf) = ±Pi/2
     **/
-    static public function atan(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function atan(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_atan.atan(_x);
     }
     /**
@@ -343,7 +164,9 @@ class Math {
         	Atan2(+Inf, x) = +Pi/2
         	Atan2(-Inf, x) = -Pi/2
     **/
-    static public function atan2(_y:StdTypes.Float, _x:StdTypes.Float):StdTypes.Float {
+    static public inline function atan2(_y:StdTypes.Float, _x:StdTypes.Float):StdTypes.Float {
+        final _y = (_y : stdgo.GoFloat64);
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_atan2.atan2(_y, _x);
     }
     /**
@@ -357,25 +180,28 @@ class Math {
         	Atanh(x) = NaN if x < -1 or x > 1
         	Atanh(NaN) = NaN
     **/
-    static public function atanh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function atanh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_atanh.atanh(_x);
     }
     /**
         Inf returns positive infinity if sign >= 0, negative infinity if sign < 0.
     **/
-    static public function inf(_sign:StdTypes.Int):StdTypes.Float {
+    static public inline function inf(_sign:StdTypes.Int):StdTypes.Float {
+        final _sign = (_sign : stdgo.GoInt);
         return stdgo._internal.math.Math_inf.inf(_sign);
     }
     /**
         NaN returns an IEEE 754 “not-a-number” value.
     **/
-    static public function naN():StdTypes.Float {
+    static public inline function naN():StdTypes.Float {
         return stdgo._internal.math.Math_naN.naN();
     }
     /**
         IsNaN reports whether f is an IEEE 754 “not-a-number” value.
     **/
-    static public function isNaN(_f:StdTypes.Float):Bool {
+    static public inline function isNaN(_f:StdTypes.Float):Bool {
+        final _f = (_f : stdgo.GoFloat64);
         return stdgo._internal.math.Math_isNaN.isNaN(_f);
     }
     /**
@@ -384,7 +210,9 @@ class Math {
         If sign < 0, IsInf reports whether f is negative infinity.
         If sign == 0, IsInf reports whether f is either infinity.
     **/
-    static public function isInf(_f:StdTypes.Float, _sign:StdTypes.Int):Bool {
+    static public inline function isInf(_f:StdTypes.Float, _sign:StdTypes.Int):Bool {
+        final _f = (_f : stdgo.GoFloat64);
+        final _sign = (_sign : stdgo.GoInt);
         return stdgo._internal.math.Math_isInf.isInf(_f, _sign);
     }
     /**
@@ -396,14 +224,17 @@ class Math {
         	Cbrt(±Inf) = ±Inf
         	Cbrt(NaN) = NaN
     **/
-    static public function cbrt(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function cbrt(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_cbrt.cbrt(_x);
     }
     /**
         Copysign returns a value with the magnitude of f
         and the sign of sign.
     **/
-    static public function copysign(_f:StdTypes.Float, _sign:StdTypes.Float):StdTypes.Float {
+    static public inline function copysign(_f:StdTypes.Float, _sign:StdTypes.Float):StdTypes.Float {
+        final _f = (_f : stdgo.GoFloat64);
+        final _sign = (_sign : stdgo.GoFloat64);
         return stdgo._internal.math.Math_copysign.copysign(_f, _sign);
     }
     /**
@@ -415,7 +246,9 @@ class Math {
         	Dim(-Inf, -Inf) = NaN
         	Dim(x, NaN) = Dim(NaN, x) = NaN
     **/
-    static public function dim(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function dim(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_dim.dim(_x, _y);
     }
     /**
@@ -431,7 +264,9 @@ class Math {
         Note that this differs from the built-in function max when called
         with NaN and +Inf.
     **/
-    static public function max(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function max(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_max.max(_x, _y);
     }
     /**
@@ -446,7 +281,9 @@ class Math {
         Note that this differs from the built-in function min when called
         with NaN and -Inf.
     **/
-    static public function min(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function min(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_min.min(_x, _y);
     }
     /**
@@ -458,7 +295,8 @@ class Math {
         	Erf(-Inf) = -1
         	Erf(NaN) = NaN
     **/
-    static public function erf(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function erf(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_erf.erf(_x);
     }
     /**
@@ -470,7 +308,8 @@ class Math {
         	Erfc(-Inf) = 2
         	Erfc(NaN) = NaN
     **/
-    static public function erfc(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function erfc(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_erfc.erfc(_x);
     }
     /**
@@ -483,7 +322,8 @@ class Math {
         	Erfinv(x) = NaN if x < -1 or x > 1
         	Erfinv(NaN) = NaN
     **/
-    static public function erfinv(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function erfinv(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_erfinv.erfinv(_x);
     }
     /**
@@ -496,7 +336,8 @@ class Math {
         	Erfcinv(x) = NaN if x < 0 or x > 2
         	Erfcinv(NaN) = NaN
     **/
-    static public function erfcinv(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function erfcinv(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_erfcinv.erfcinv(_x);
     }
     /**
@@ -510,7 +351,8 @@ class Math {
         Very large values overflow to 0 or +Inf.
         Very small values underflow to 1.
     **/
-    static public function exp(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function exp(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_exp.exp(_x);
     }
     /**
@@ -518,7 +360,8 @@ class Math {
         
         Special cases are the same as Exp.
     **/
-    static public function exp2(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function exp2(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_exp2.exp2(_x);
     }
     /**
@@ -533,7 +376,8 @@ class Math {
         
         Very large values overflow to -1 or +Inf.
     **/
-    static public function expm1(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function expm1(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_expm1.expm1(_x);
     }
     /**
@@ -545,7 +389,8 @@ class Math {
         	Floor(±Inf) = ±Inf
         	Floor(NaN) = NaN
     **/
-    static public function floor(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function floor(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_floor.floor(_x);
     }
     /**
@@ -557,7 +402,8 @@ class Math {
         	Ceil(±Inf) = ±Inf
         	Ceil(NaN) = NaN
     **/
-    static public function ceil(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function ceil(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_ceil.ceil(_x);
     }
     /**
@@ -569,7 +415,8 @@ class Math {
         	Trunc(±Inf) = ±Inf
         	Trunc(NaN) = NaN
     **/
-    static public function trunc(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function trunc(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_trunc.trunc(_x);
     }
     /**
@@ -581,7 +428,8 @@ class Math {
         	Round(±Inf) = ±Inf
         	Round(NaN) = NaN
     **/
-    static public function round(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function round(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_round.round(_x);
     }
     /**
@@ -593,14 +441,18 @@ class Math {
         	RoundToEven(±Inf) = ±Inf
         	RoundToEven(NaN) = NaN
     **/
-    static public function roundToEven(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function roundToEven(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_roundToEven.roundToEven(_x);
     }
     /**
         FMA returns x * y + z, computed with only one rounding.
         (That is, FMA returns the fused multiply-add of x, y, and z.)
     **/
-    static public function fMA(_x:StdTypes.Float, _y:StdTypes.Float, _z:StdTypes.Float):StdTypes.Float {
+    static public inline function fMA(_x:StdTypes.Float, _y:StdTypes.Float, _z:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
+        final _z = (_z : stdgo.GoFloat64);
         return stdgo._internal.math.Math_fMA.fMA(_x, _y, _z);
     }
     /**
@@ -615,7 +467,8 @@ class Math {
         	Frexp(±Inf) = ±Inf, 0
         	Frexp(NaN) = NaN, 0
     **/
-    static public function frexp(_f:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Int> {
+    static public inline function frexp(_f:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Int> {
+        final _f = (_f : stdgo.GoFloat64);
         return {
             final obj = stdgo._internal.math.Math_frexp.frexp(_f);
             { _0 : obj._0, _1 : obj._1 };
@@ -633,7 +486,8 @@ class Math {
         	Gamma(-Inf) = NaN
         	Gamma(NaN) = NaN
     **/
-    static public function gamma(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function gamma(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_gamma.gamma(_x);
     }
     /**
@@ -647,7 +501,9 @@ class Math {
         	Hypot(NaN, q) = NaN
         	Hypot(p, NaN) = NaN
     **/
-    static public function hypot(_p:StdTypes.Float, _q:StdTypes.Float):StdTypes.Float {
+    static public inline function hypot(_p:StdTypes.Float, _q:StdTypes.Float):StdTypes.Float {
+        final _p = (_p : stdgo.GoFloat64);
+        final _q = (_q : stdgo.GoFloat64);
         return stdgo._internal.math.Math_hypot.hypot(_p, _q);
     }
     /**
@@ -659,7 +515,8 @@ class Math {
         	J0(0) = 1
         	J0(NaN) = NaN
     **/
-    static public function j0(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function j0(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_j0.j0(_x);
     }
     /**
@@ -672,7 +529,8 @@ class Math {
         	Y0(x < 0) = NaN
         	Y0(NaN) = NaN
     **/
-    static public function y0(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function y0(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_y0.y0(_x);
     }
     /**
@@ -683,7 +541,8 @@ class Math {
         	J1(±Inf) = 0
         	J1(NaN) = NaN
     **/
-    static public function j1(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function j1(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_j1.j1(_x);
     }
     /**
@@ -696,7 +555,8 @@ class Math {
         	Y1(x < 0) = NaN
         	Y1(NaN) = NaN
     **/
-    static public function y1(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function y1(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_y1.y1(_x);
     }
     /**
@@ -707,7 +567,9 @@ class Math {
         	Jn(n, ±Inf) = 0
         	Jn(n, NaN) = NaN
     **/
-    static public function jn(_n:StdTypes.Int, _x:StdTypes.Float):StdTypes.Float {
+    static public inline function jn(_n:StdTypes.Int, _x:StdTypes.Float):StdTypes.Float {
+        final _n = (_n : stdgo.GoInt);
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_jn.jn(_n, _x);
     }
     /**
@@ -721,7 +583,9 @@ class Math {
         	Yn(n, x < 0) = NaN
         	Yn(n, NaN) = NaN
     **/
-    static public function yn(_n:StdTypes.Int, _x:StdTypes.Float):StdTypes.Float {
+    static public inline function yn(_n:StdTypes.Int, _x:StdTypes.Float):StdTypes.Float {
+        final _n = (_n : stdgo.GoInt);
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_yn.yn(_n, _x);
     }
     /**
@@ -734,7 +598,9 @@ class Math {
         	Ldexp(±Inf, exp) = ±Inf
         	Ldexp(NaN, exp) = NaN
     **/
-    static public function ldexp(_frac:StdTypes.Float, _exp:StdTypes.Int):StdTypes.Float {
+    static public inline function ldexp(_frac:StdTypes.Float, _exp:StdTypes.Int):StdTypes.Float {
+        final _frac = (_frac : stdgo.GoFloat64);
+        final _exp = (_exp : stdgo.GoInt);
         return stdgo._internal.math.Math_ldexp.ldexp(_frac, _exp);
     }
     /**
@@ -748,7 +614,8 @@ class Math {
         	Lgamma(-Inf) = -Inf
         	Lgamma(NaN) = NaN
     **/
-    static public function lgamma(_x:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Int> {
+    static public inline function lgamma(_x:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Int> {
+        final _x = (_x : stdgo.GoFloat64);
         return {
             final obj = stdgo._internal.math.Math_lgamma.lgamma(_x);
             { _0 : obj._0, _1 : obj._1 };
@@ -764,21 +631,24 @@ class Math {
         	Log(x < 0) = NaN
         	Log(NaN) = NaN
     **/
-    static public function log(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function log(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_log.log(_x);
     }
     /**
         Log10 returns the decimal logarithm of x.
         The special cases are the same as for Log.
     **/
-    static public function log10(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function log10(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_log10.log10(_x);
     }
     /**
         Log2 returns the binary logarithm of x.
         The special cases are the same as for Log.
     **/
-    static public function log2(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function log2(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_log2.log2(_x);
     }
     /**
@@ -793,7 +663,8 @@ class Math {
         	Log1p(x < -1) = NaN
         	Log1p(NaN) = NaN
     **/
-    static public function log1p(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function log1p(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_log1p.log1p(_x);
     }
     /**
@@ -805,7 +676,8 @@ class Math {
         	Logb(0) = -Inf
         	Logb(NaN) = NaN
     **/
-    static public function logb(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function logb(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_logb.logb(_x);
     }
     /**
@@ -817,7 +689,8 @@ class Math {
         	Ilogb(0) = MinInt32
         	Ilogb(NaN) = MaxInt32
     **/
-    static public function ilogb(_x:StdTypes.Float):StdTypes.Int {
+    static public inline function ilogb(_x:StdTypes.Float):StdTypes.Int {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_ilogb.ilogb(_x);
     }
     /**
@@ -833,7 +706,9 @@ class Math {
         	Mod(x, ±Inf) = x
         	Mod(x, NaN) = NaN
     **/
-    static public function mod(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function mod(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_mod.mod(_x, _y);
     }
     /**
@@ -845,7 +720,8 @@ class Math {
         	Modf(±Inf) = ±Inf, NaN
         	Modf(NaN) = NaN, NaN
     **/
-    static public function modf(_f:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
+    static public inline function modf(_f:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
+        final _f = (_f : stdgo.GoFloat64);
         return {
             final obj = stdgo._internal.math.Math_modf.modf(_f);
             { _0 : obj._0, _1 : obj._1 };
@@ -860,7 +736,9 @@ class Math {
         	Nextafter32(NaN, y) = NaN
         	Nextafter32(x, NaN) = NaN
     **/
-    static public function nextafter32(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function nextafter32(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat32);
+        final _y = (_y : stdgo.GoFloat32);
         return stdgo._internal.math.Math_nextafter32.nextafter32(_x, _y);
     }
     /**
@@ -872,7 +750,9 @@ class Math {
         	Nextafter(NaN, y) = NaN
         	Nextafter(x, NaN) = NaN
     **/
-    static public function nextafter(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function nextafter(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_nextafter.nextafter(_x, _y);
     }
     /**
@@ -901,7 +781,9 @@ class Math {
         	Pow(-Inf, y) = Pow(-0, -y)
         	Pow(x, y) = NaN for finite x < 0 and finite non-integer y
     **/
-    static public function pow(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function pow(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_pow.pow(_x, _y);
     }
     /**
@@ -912,7 +794,8 @@ class Math {
         	Pow10(n) =    0 for n < -323
         	Pow10(n) = +Inf for n > 308
     **/
-    static public function pow10(_n:StdTypes.Int):StdTypes.Float {
+    static public inline function pow10(_n:StdTypes.Int):StdTypes.Float {
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.math.Math_pow10.pow10(_n);
     }
     /**
@@ -926,13 +809,16 @@ class Math {
         	Remainder(x, ±Inf) = x
         	Remainder(x, NaN) = NaN
     **/
-    static public function remainder(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+    static public inline function remainder(_x:StdTypes.Float, _y:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
+        final _y = (_y : stdgo.GoFloat64);
         return stdgo._internal.math.Math_remainder.remainder(_x, _y);
     }
     /**
         Signbit reports whether x is negative or negative zero.
     **/
-    static public function signbit(_x:StdTypes.Float):Bool {
+    static public inline function signbit(_x:StdTypes.Float):Bool {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_signbit.signbit(_x);
     }
     /**
@@ -943,7 +829,8 @@ class Math {
         	Cos(±Inf) = NaN
         	Cos(NaN) = NaN
     **/
-    static public function cos(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function cos(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_cos.cos(_x);
     }
     /**
@@ -955,7 +842,8 @@ class Math {
         	Sin(±Inf) = NaN
         	Sin(NaN) = NaN
     **/
-    static public function sin(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function sin(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_sin.sin(_x);
     }
     /**
@@ -967,7 +855,8 @@ class Math {
         	Sincos(±Inf) = NaN, NaN
         	Sincos(NaN) = NaN, NaN
     **/
-    static public function sincos(_x:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
+    static public inline function sincos(_x:StdTypes.Float):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
+        final _x = (_x : stdgo.GoFloat64);
         return {
             final obj = stdgo._internal.math.Math_sincos.sincos(_x);
             { _0 : obj._0, _1 : obj._1 };
@@ -982,7 +871,8 @@ class Math {
         	Sinh(±Inf) = ±Inf
         	Sinh(NaN) = NaN
     **/
-    static public function sinh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function sinh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_sinh.sinh(_x);
     }
     /**
@@ -994,7 +884,8 @@ class Math {
         	Cosh(±Inf) = +Inf
         	Cosh(NaN) = NaN
     **/
-    static public function cosh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function cosh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_cosh.cosh(_x);
     }
     /**
@@ -1007,7 +898,8 @@ class Math {
         	Sqrt(x < 0) = NaN
         	Sqrt(NaN) = NaN
     **/
-    static public function sqrt(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function sqrt(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_sqrt.sqrt(_x);
     }
     /**
@@ -1019,7 +911,8 @@ class Math {
         	Tan(±Inf) = NaN
         	Tan(NaN) = NaN
     **/
-    static public function tan(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function tan(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_tan.tan(_x);
     }
     /**
@@ -1031,7 +924,8 @@ class Math {
         	Tanh(±Inf) = ±1
         	Tanh(NaN) = NaN
     **/
-    static public function tanh(_x:StdTypes.Float):StdTypes.Float {
+    static public inline function tanh(_x:StdTypes.Float):StdTypes.Float {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.Math_tanh.tanh(_x);
     }
     /**
@@ -1039,7 +933,8 @@ class Math {
         with the sign bit of f and the result in the same bit position.
         Float32bits(Float32frombits(x)) == x.
     **/
-    static public function float32bits(_f:StdTypes.Float):std.UInt {
+    static public inline function float32bits(_f:StdTypes.Float):std.UInt {
+        final _f = (_f : stdgo.GoFloat32);
         return stdgo._internal.math.Math_float32bits.float32bits(_f);
     }
     /**
@@ -1048,7 +943,8 @@ class Math {
         and the result in the same bit position.
         Float32frombits(Float32bits(x)) == x.
     **/
-    static public function float32frombits(_b:std.UInt):StdTypes.Float {
+    static public inline function float32frombits(_b:std.UInt):StdTypes.Float {
+        final _b = (_b : stdgo.GoUInt32);
         return stdgo._internal.math.Math_float32frombits.float32frombits(_b);
     }
     /**
@@ -1056,7 +952,8 @@ class Math {
         with the sign bit of f and the result in the same bit position,
         and Float64bits(Float64frombits(x)) == x.
     **/
-    static public function float64bits(_f:StdTypes.Float):haxe.UInt64 {
+    static public inline function float64bits(_f:StdTypes.Float):haxe.UInt64 {
+        final _f = (_f : stdgo.GoFloat64);
         return stdgo._internal.math.Math_float64bits.float64bits(_f);
     }
     /**
@@ -1065,10 +962,11 @@ class Math {
         and the result in the same bit position.
         Float64frombits(Float64bits(x)) == x.
     **/
-    static public function float64frombits(_b:haxe.UInt64):StdTypes.Float {
+    static public inline function float64frombits(_b:haxe.UInt64):StdTypes.Float {
+        final _b = (_b : stdgo.GoUInt64);
         return stdgo._internal.math.Math_float64frombits.float64frombits(_b);
     }
-    static public function negZero() {
+    static public inline function negZero() {
         stdgo._internal.math.Math_negZero.negZero();
     }
 }

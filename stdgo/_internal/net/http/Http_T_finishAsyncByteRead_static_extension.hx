@@ -19,7 +19,7 @@ package stdgo._internal.net.http;
             _p[(0 : stdgo.GoInt)] = _rres._b;
         };
         if (_err == null) {
-            _err = stdgo._internal.io.Io_eOF.eOF;
+            _err = stdgo._internal.net.http.Http__io._io.eOF;
         };
         return { _0 : _n, _1 : _err };
     }

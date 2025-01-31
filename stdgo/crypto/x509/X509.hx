@@ -62,20 +62,20 @@ final extKeyUsageMicrosoftKernelCodeSigning = stdgo._internal.crypto.x509.X509_e
 var incorrectPasswordError(get, set) : stdgo.Error;
 private function get_incorrectPasswordError():stdgo.Error return stdgo._internal.crypto.x509.X509_incorrectPasswordError.incorrectPasswordError;
 private function set_incorrectPasswordError(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.crypto.x509.X509_incorrectPasswordError.incorrectPasswordError = v;
+        stdgo._internal.crypto.x509.X509_incorrectPasswordError.incorrectPasswordError = (v : stdgo.Error);
         return v;
     }
 var errUnsupportedAlgorithm(get, set) : stdgo.Error;
 private function get_errUnsupportedAlgorithm():stdgo.Error return stdgo._internal.crypto.x509.X509_errUnsupportedAlgorithm.errUnsupportedAlgorithm;
 private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.crypto.x509.X509_errUnsupportedAlgorithm.errUnsupportedAlgorithm = v;
+        stdgo._internal.crypto.x509.X509_errUnsupportedAlgorithm.errUnsupportedAlgorithm = (v : stdgo.Error);
         return v;
     }
 @:structInit @:using(stdgo.crypto.x509.X509.CertPool_static_extension) abstract CertPool(stdgo._internal.crypto.x509.X509_CertPool.CertPool) from stdgo._internal.crypto.x509.X509_CertPool.CertPool to stdgo._internal.crypto.x509.X509_CertPool.CertPool {
     public var _byName(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>;
     function get__byName():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>> return this._byName;
     function set__byName(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>> {
-        this._byName = v;
+        this._byName = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>);
         return v;
     }
     public var _lazyCerts(get, set) : Array<T_lazyCert>;
@@ -87,7 +87,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var _haveSum(get, set) : stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>;
     function get__haveSum():stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool> return this._haveSum;
     function set__haveSum(v:stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>):stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool> {
-        this._haveSum = v;
+        this._haveSum = (v : stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>);
         return v;
     }
     public var _systemPool(get, set) : Bool;
@@ -96,15 +96,15 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this._systemPool = v;
         return v;
     }
-    public function new(?_byName:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>, ?_lazyCerts:Array<T_lazyCert>, ?_haveSum:stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>, ?_systemPool:Bool) this = new stdgo._internal.crypto.x509.X509_CertPool.CertPool(_byName, ([for (i in _lazyCerts) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert>), _haveSum, _systemPool);
+    public function new(?_byName:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>, ?_lazyCerts:Array<T_lazyCert>, ?_haveSum:stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>, ?_systemPool:Bool) this = new stdgo._internal.crypto.x509.X509_CertPool.CertPool((_byName : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>), ([for (i in _lazyCerts) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert>), (_haveSum : stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>), _systemPool);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_lazyCert(stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert) from stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert to stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert {
+@:structInit @:using(stdgo.crypto.x509.X509.T_lazyCert_static_extension) abstract T_lazyCert(stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert) from stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert to stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert {
     public var _rawSubject(get, set) : Array<std.UInt>;
     function get__rawSubject():Array<std.UInt> return [for (i in this._rawSubject) i];
     function set__rawSubject(v:Array<std.UInt>):Array<std.UInt> {
-        this._rawSubject = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._rawSubject = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _getCert(get, set) : () -> { var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>; var _1 : stdgo.Error; };
@@ -113,7 +113,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this._getCert = v;
         return v;
     }
-    public function new(?_rawSubject:Array<std.UInt>, ?_getCert:() -> { var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert(([for (i in _rawSubject) i] : stdgo.Slice<stdgo.GoUInt8>), _getCert);
+    public function new(?_rawSubject:Array<std.UInt>, ?_getCert:() -> { var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert(([for (i in _rawSubject) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _getCert);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -127,7 +127,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
-        this._name = v;
+        this._name = (v : stdgo.GoString);
         return v;
     }
     public var _cipherFunc(get, set) : stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo._internal.crypto.cipher.Cipher_Block.Block; var _1 : stdgo.Error; };
@@ -139,72 +139,72 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var _keySize(get, set) : StdTypes.Int;
     function get__keySize():StdTypes.Int return this._keySize;
     function set__keySize(v:StdTypes.Int):StdTypes.Int {
-        this._keySize = v;
+        this._keySize = (v : stdgo.GoInt);
         return v;
     }
     public var _blockSize(get, set) : StdTypes.Int;
     function get__blockSize():StdTypes.Int return this._blockSize;
     function set__blockSize(v:StdTypes.Int):StdTypes.Int {
-        this._blockSize = v;
+        this._blockSize = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_cipher:PEMCipher, ?_name:String, ?_cipherFunc:stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo._internal.crypto.cipher.Cipher_Block.Block; var _1 : stdgo.Error; }, ?_keySize:StdTypes.Int, ?_blockSize:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_rfc1423Algo.T_rfc1423Algo(_cipher, _name, _cipherFunc, _keySize, _blockSize);
+    public function new(?_cipher:PEMCipher, ?_name:String, ?_cipherFunc:stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo._internal.crypto.cipher.Cipher_Block.Block; var _1 : stdgo.Error; }, ?_keySize:StdTypes.Int, ?_blockSize:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_rfc1423Algo.T_rfc1423Algo(_cipher, (_name : stdgo.GoString), _cipherFunc, (_keySize : stdgo.GoInt), (_blockSize : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pkcs1PrivateKey(stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey) from stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey to stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pkcs1PrivateKey_static_extension) abstract T_pkcs1PrivateKey(stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey) from stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey to stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey {
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var n(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_n():stdgo._internal.math.big.Big_Int_.Int_ return this.n;
     function set_n(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.n = v;
+        this.n = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var e(get, set) : StdTypes.Int;
     function get_e():StdTypes.Int return this.e;
     function set_e(v:StdTypes.Int):StdTypes.Int {
-        this.e = v;
+        this.e = (v : stdgo.GoInt);
         return v;
     }
     public var d(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_d():stdgo._internal.math.big.Big_Int_.Int_ return this.d;
     function set_d(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.d = v;
+        this.d = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var p(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_p():stdgo._internal.math.big.Big_Int_.Int_ return this.p;
     function set_p(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.p = v;
+        this.p = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var q(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_q():stdgo._internal.math.big.Big_Int_.Int_ return this.q;
     function set_q(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.q = v;
+        this.q = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var dp(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_dp():stdgo._internal.math.big.Big_Int_.Int_ return this.dp;
     function set_dp(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.dp = v;
+        this.dp = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var dq(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_dq():stdgo._internal.math.big.Big_Int_.Int_ return this.dq;
     function set_dq(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.dq = v;
+        this.dq = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var qinv(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_qinv():stdgo._internal.math.big.Big_Int_.Int_ return this.qinv;
     function set_qinv(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.qinv = v;
+        this.qinv = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var additionalPrimes(get, set) : Array<T_pkcs1AdditionalRSAPrime>;
@@ -213,55 +213,55 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this.additionalPrimes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime>);
         return v;
     }
-    public function new(?version:StdTypes.Int, ?n:stdgo._internal.math.big.Big_Int_.Int_, ?e:StdTypes.Int, ?d:stdgo._internal.math.big.Big_Int_.Int_, ?p:stdgo._internal.math.big.Big_Int_.Int_, ?q:stdgo._internal.math.big.Big_Int_.Int_, ?dp:stdgo._internal.math.big.Big_Int_.Int_, ?dq:stdgo._internal.math.big.Big_Int_.Int_, ?qinv:stdgo._internal.math.big.Big_Int_.Int_, ?additionalPrimes:Array<T_pkcs1AdditionalRSAPrime>) this = new stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey(version, n, e, d, p, q, dp, dq, qinv, ([for (i in additionalPrimes) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime>));
+    public function new(?version:StdTypes.Int, ?n:stdgo._internal.math.big.Big_Int_.Int_, ?e:StdTypes.Int, ?d:stdgo._internal.math.big.Big_Int_.Int_, ?p:stdgo._internal.math.big.Big_Int_.Int_, ?q:stdgo._internal.math.big.Big_Int_.Int_, ?dp:stdgo._internal.math.big.Big_Int_.Int_, ?dq:stdgo._internal.math.big.Big_Int_.Int_, ?qinv:stdgo._internal.math.big.Big_Int_.Int_, ?additionalPrimes:Array<T_pkcs1AdditionalRSAPrime>) this = new stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKey.T_pkcs1PrivateKey((version : stdgo.GoInt), (n : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (e : stdgo.GoInt), (d : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (dp : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (dq : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (qinv : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), ([for (i in additionalPrimes) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pkcs1AdditionalRSAPrime(stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime) from stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime to stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pkcs1AdditionalRSAPrime_static_extension) abstract T_pkcs1AdditionalRSAPrime(stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime) from stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime to stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime {
     public var prime(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_prime():stdgo._internal.math.big.Big_Int_.Int_ return this.prime;
     function set_prime(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.prime = v;
+        this.prime = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var exp(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_exp():stdgo._internal.math.big.Big_Int_.Int_ return this.exp;
     function set_exp(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.exp = v;
+        this.exp = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var coeff(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_coeff():stdgo._internal.math.big.Big_Int_.Int_ return this.coeff;
     function set_coeff(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.coeff = v;
+        this.coeff = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
-    public function new(?prime:stdgo._internal.math.big.Big_Int_.Int_, ?exp:stdgo._internal.math.big.Big_Int_.Int_, ?coeff:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime(prime, exp, coeff);
+    public function new(?prime:stdgo._internal.math.big.Big_Int_.Int_, ?exp:stdgo._internal.math.big.Big_Int_.Int_, ?coeff:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrime.T_pkcs1AdditionalRSAPrime((prime : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (exp : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (coeff : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pkcs1PublicKey(stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey) from stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey to stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pkcs1PublicKey_static_extension) abstract T_pkcs1PublicKey(stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey) from stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey to stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey {
     public var n(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_n():stdgo._internal.math.big.Big_Int_.Int_ return this.n;
     function set_n(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.n = v;
+        this.n = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var e(get, set) : StdTypes.Int;
     function get_e():StdTypes.Int return this.e;
     function set_e(v:StdTypes.Int):StdTypes.Int {
-        this.e = v;
+        this.e = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?n:stdgo._internal.math.big.Big_Int_.Int_, ?e:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey(n, e);
+    public function new(?n:stdgo._internal.math.big.Big_Int_.Int_, ?e:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey((n : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (e : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pkcs8(stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8) from stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 to stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pkcs8_static_extension) abstract T_pkcs8(stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8) from stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 to stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 {
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var algo(get, set) : AlgorithmIdentifier;
@@ -273,24 +273,24 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var privateKey(get, set) : Array<std.UInt>;
     function get_privateKey():Array<std.UInt> return [for (i in this.privateKey) i];
     function set_privateKey(v:Array<std.UInt>):Array<std.UInt> {
-        this.privateKey = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.privateKey = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?version:StdTypes.Int, ?algo:AlgorithmIdentifier, ?privateKey:Array<std.UInt>) this = new stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8(version, algo, ([for (i in privateKey) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?version:StdTypes.Int, ?algo:AlgorithmIdentifier, ?privateKey:Array<std.UInt>) this = new stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8((version : stdgo.GoInt), algo, ([for (i in privateKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_ecPrivateKey(stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey) from stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey to stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey {
+@:structInit @:using(stdgo.crypto.x509.X509.T_ecPrivateKey_static_extension) abstract T_ecPrivateKey(stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey) from stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey to stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey {
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var privateKey(get, set) : Array<std.UInt>;
     function get_privateKey():Array<std.UInt> return [for (i in this.privateKey) i];
     function set_privateKey(v:Array<std.UInt>):Array<std.UInt> {
-        this.privateKey = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.privateKey = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var namedCurveOID(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
@@ -305,7 +305,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this.publicKey = v;
         return v;
     }
-    public function new(?version:StdTypes.Int, ?privateKey:Array<std.UInt>, ?namedCurveOID:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?publicKey:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey(version, ([for (i in privateKey) i] : stdgo.Slice<stdgo.GoUInt8>), namedCurveOID, publicKey);
+    public function new(?version:StdTypes.Int, ?privateKey:Array<std.UInt>, ?namedCurveOID:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?publicKey:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey((version : stdgo.GoInt), ([for (i in privateKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), namedCurveOID, publicKey);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -313,7 +313,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var cert(get, set) : Certificate;
     function get_cert():Certificate return this.cert;
     function set_cert(v:Certificate):Certificate {
-        this.cert = v;
+        this.cert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return v;
     }
     public var reason(get, set) : InvalidReason;
@@ -325,10 +325,10 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var detail(get, set) : String;
     function get_detail():String return this.detail;
     function set_detail(v:String):String {
-        this.detail = v;
+        this.detail = (v : stdgo.GoString);
         return v;
     }
-    public function new(?cert:Certificate, ?reason:InvalidReason, ?detail:String) this = new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(cert, reason, detail);
+    public function new(?cert:Certificate, ?reason:InvalidReason, ?detail:String) this = new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError((cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>), reason, (detail : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -336,16 +336,16 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var certificate(get, set) : Certificate;
     function get_certificate():Certificate return this.certificate;
     function set_certificate(v:Certificate):Certificate {
-        this.certificate = v;
+        this.certificate = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return v;
     }
     public var host(get, set) : String;
     function get_host():String return this.host;
     function set_host(v:String):String {
-        this.host = v;
+        this.host = (v : stdgo.GoString);
         return v;
     }
-    public function new(?certificate:Certificate, ?host:String) this = new stdgo._internal.crypto.x509.X509_HostnameError.HostnameError(certificate, host);
+    public function new(?certificate:Certificate, ?host:String) this = new stdgo._internal.crypto.x509.X509_HostnameError.HostnameError((certificate : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>), (host : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -353,22 +353,22 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var cert(get, set) : Certificate;
     function get_cert():Certificate return this.cert;
     function set_cert(v:Certificate):Certificate {
-        this.cert = v;
+        this.cert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return v;
     }
     public var _hintErr(get, set) : stdgo.Error;
     function get__hintErr():stdgo.Error return this._hintErr;
     function set__hintErr(v:stdgo.Error):stdgo.Error {
-        this._hintErr = v;
+        this._hintErr = (v : stdgo.Error);
         return v;
     }
     public var _hintCert(get, set) : Certificate;
     function get__hintCert():Certificate return this._hintCert;
     function set__hintCert(v:Certificate):Certificate {
-        this._hintCert = v;
+        this._hintCert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return v;
     }
-    public function new(?cert:Certificate, ?_hintErr:stdgo.Error, ?_hintCert:Certificate) this = new stdgo._internal.crypto.x509.X509_UnknownAuthorityError.UnknownAuthorityError(cert, _hintErr, _hintCert);
+    public function new(?cert:Certificate, ?_hintErr:stdgo.Error, ?_hintCert:Certificate) this = new stdgo._internal.crypto.x509.X509_UnknownAuthorityError.UnknownAuthorityError((cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>), (_hintErr : stdgo.Error), (_hintCert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -376,30 +376,30 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
-        this.err = v;
+        this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?err:stdgo.Error) this = new stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError(err);
+    public function new(?err:stdgo.Error) this = new stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError((err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract VerifyOptions(stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions) from stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions to stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions {
+@:structInit @:using(stdgo.crypto.x509.X509.VerifyOptions_static_extension) abstract VerifyOptions(stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions) from stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions to stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions {
     public var dNSName(get, set) : String;
     function get_dNSName():String return this.dNSName;
     function set_dNSName(v:String):String {
-        this.dNSName = v;
+        this.dNSName = (v : stdgo.GoString);
         return v;
     }
     public var intermediates(get, set) : CertPool;
     function get_intermediates():CertPool return this.intermediates;
     function set_intermediates(v:CertPool):CertPool {
-        this.intermediates = v;
+        this.intermediates = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return v;
     }
     public var roots(get, set) : CertPool;
     function get_roots():CertPool return this.roots;
     function set_roots(v:CertPool):CertPool {
-        this.roots = v;
+        this.roots = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return v;
     }
     public var currentTime(get, set) : stdgo._internal.time.Time_Time.Time;
@@ -417,31 +417,31 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var maxConstraintComparisions(get, set) : StdTypes.Int;
     function get_maxConstraintComparisions():StdTypes.Int return this.maxConstraintComparisions;
     function set_maxConstraintComparisions(v:StdTypes.Int):StdTypes.Int {
-        this.maxConstraintComparisions = v;
+        this.maxConstraintComparisions = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?dNSName:String, ?intermediates:CertPool, ?roots:CertPool, ?currentTime:stdgo._internal.time.Time_Time.Time, ?keyUsages:Array<ExtKeyUsage>, ?maxConstraintComparisions:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions(dNSName, intermediates, roots, currentTime, ([for (i in keyUsages) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>), maxConstraintComparisions);
+    public function new(?dNSName:String, ?intermediates:CertPool, ?roots:CertPool, ?currentTime:stdgo._internal.time.Time_Time.Time, ?keyUsages:Array<ExtKeyUsage>, ?maxConstraintComparisions:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions((dNSName : stdgo.GoString), (intermediates : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>), (roots : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>), currentTime, ([for (i in keyUsages) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>), (maxConstraintComparisions : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_rfc2821Mailbox(stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox) from stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox to stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox {
+@:structInit @:using(stdgo.crypto.x509.X509.T_rfc2821Mailbox_static_extension) abstract T_rfc2821Mailbox(stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox) from stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox to stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox {
     public var _local(get, set) : String;
     function get__local():String return this._local;
     function set__local(v:String):String {
-        this._local = v;
+        this._local = (v : stdgo.GoString);
         return v;
     }
     public var _domain(get, set) : String;
     function get__domain():String return this._domain;
     function set__domain(v:String):String {
-        this._domain = v;
+        this._domain = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_local:String, ?_domain:String) this = new stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox(_local, _domain);
+    public function new(?_local:String, ?_domain:String) this = new stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox((_local : stdgo.GoString), (_domain : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pkixPublicKey(stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey) from stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey to stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pkixPublicKey_static_extension) abstract T_pkixPublicKey(stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey) from stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey to stdgo._internal.crypto.x509.X509_T_pkixPublicKey.T_pkixPublicKey {
     public var algo(get, set) : AlgorithmIdentifier;
     function get_algo():AlgorithmIdentifier return this.algo;
     function set_algo(v:AlgorithmIdentifier):AlgorithmIdentifier {
@@ -458,7 +458,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_certificate(stdgo._internal.crypto.x509.X509_T_certificate.T_certificate) from stdgo._internal.crypto.x509.X509_T_certificate.T_certificate to stdgo._internal.crypto.x509.X509_T_certificate.T_certificate {
+@:structInit @:using(stdgo.crypto.x509.X509.T_certificate_static_extension) abstract T_certificate(stdgo._internal.crypto.x509.X509_T_certificate.T_certificate) from stdgo._internal.crypto.x509.X509_T_certificate.T_certificate to stdgo._internal.crypto.x509.X509_T_certificate.T_certificate {
     public var tBSCertificate(get, set) : T_tbsCertificate;
     function get_tBSCertificate():T_tbsCertificate return this.tBSCertificate;
     function set_tBSCertificate(v:T_tbsCertificate):T_tbsCertificate {
@@ -481,7 +481,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tbsCertificate(stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate) from stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate to stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate {
+@:structInit @:using(stdgo.crypto.x509.X509.T_tbsCertificate_static_extension) abstract T_tbsCertificate(stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate) from stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate to stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
@@ -491,13 +491,13 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var serialNumber(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_serialNumber():stdgo._internal.math.big.Big_Int_.Int_ return this.serialNumber;
     function set_serialNumber(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.serialNumber = v;
+        this.serialNumber = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var signatureAlgorithm(get, set) : AlgorithmIdentifier;
@@ -550,8 +550,8 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     }
     public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?signatureAlgorithm:AlgorithmIdentifier, ?issuer:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?validity:T_validity, ?subject:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?publicKey:T_publicKeyInfo, ?uniqueId:stdgo._internal.encoding.asn1.Asn1_BitString.BitString, ?subjectUniqueId:stdgo._internal.encoding.asn1.Asn1_BitString.BitString, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate(
 raw,
-version,
-serialNumber,
+(version : stdgo.GoInt),
+(serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>),
 signatureAlgorithm,
 issuer,
 validity,
@@ -563,30 +563,30 @@ subjectUniqueId,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_dsaAlgorithmParameters(stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters) from stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters to stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters {
+@:structInit @:using(stdgo.crypto.x509.X509.T_dsaAlgorithmParameters_static_extension) abstract T_dsaAlgorithmParameters(stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters) from stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters to stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters {
     public var p(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_p():stdgo._internal.math.big.Big_Int_.Int_ return this.p;
     function set_p(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.p = v;
+        this.p = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var q(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_q():stdgo._internal.math.big.Big_Int_.Int_ return this.q;
     function set_q(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.q = v;
+        this.q = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var g(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_g():stdgo._internal.math.big.Big_Int_.Int_ return this.g;
     function set_g(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.g = v;
+        this.g = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
-    public function new(?p:stdgo._internal.math.big.Big_Int_.Int_, ?q:stdgo._internal.math.big.Big_Int_.Int_, ?g:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters(p, q, g);
+    public function new(?p:stdgo._internal.math.big.Big_Int_.Int_, ?q:stdgo._internal.math.big.Big_Int_.Int_, ?g:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParameters.T_dsaAlgorithmParameters((p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (g : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_validity(stdgo._internal.crypto.x509.X509_T_validity.T_validity) from stdgo._internal.crypto.x509.X509_T_validity.T_validity to stdgo._internal.crypto.x509.X509_T_validity.T_validity {
+@:structInit @:using(stdgo.crypto.x509.X509.T_validity_static_extension) abstract T_validity(stdgo._internal.crypto.x509.X509_T_validity.T_validity) from stdgo._internal.crypto.x509.X509_T_validity.T_validity to stdgo._internal.crypto.x509.X509_T_validity.T_validity {
     public var notBefore(get, set) : stdgo._internal.time.Time_Time.Time;
     function get_notBefore():stdgo._internal.time.Time_Time.Time return this.notBefore;
     function set_notBefore(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
@@ -603,7 +603,7 @@ subjectUniqueId,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_publicKeyInfo(stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo) from stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo to stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo {
+@:structInit @:using(stdgo.crypto.x509.X509.T_publicKeyInfo_static_extension) abstract T_publicKeyInfo(stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo) from stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo to stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
@@ -626,18 +626,18 @@ subjectUniqueId,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_authKeyId(stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId) from stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId to stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId {
+@:structInit @:using(stdgo.crypto.x509.X509.T_authKeyId_static_extension) abstract T_authKeyId(stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId) from stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId to stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId {
     public var id(get, set) : Array<std.UInt>;
     function get_id():Array<std.UInt> return [for (i in this.id) i];
     function set_id(v:Array<std.UInt>):Array<std.UInt> {
-        this.id = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.id = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?id:Array<std.UInt>) this = new stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId(([for (i in id) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?id:Array<std.UInt>) this = new stdgo._internal.crypto.x509.X509_T_authKeyId.T_authKeyId(([for (i in id) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_pssParameters(stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters) from stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters to stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters {
+@:structInit @:using(stdgo.crypto.x509.X509.T_pssParameters_static_extension) abstract T_pssParameters(stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters) from stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters to stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters {
     public var hash(get, set) : AlgorithmIdentifier;
     function get_hash():AlgorithmIdentifier return this.hash;
     function set_hash(v:AlgorithmIdentifier):AlgorithmIdentifier {
@@ -653,16 +653,16 @@ subjectUniqueId,
     public var saltLength(get, set) : StdTypes.Int;
     function get_saltLength():StdTypes.Int return this.saltLength;
     function set_saltLength(v:StdTypes.Int):StdTypes.Int {
-        this.saltLength = v;
+        this.saltLength = (v : stdgo.GoInt);
         return v;
     }
     public var trailerField(get, set) : StdTypes.Int;
     function get_trailerField():StdTypes.Int return this.trailerField;
     function set_trailerField(v:StdTypes.Int):StdTypes.Int {
-        this.trailerField = v;
+        this.trailerField = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?hash:AlgorithmIdentifier, ?mGF:AlgorithmIdentifier, ?saltLength:StdTypes.Int, ?trailerField:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters(hash, mGF, saltLength, trailerField);
+    public function new(?hash:AlgorithmIdentifier, ?mGF:AlgorithmIdentifier, ?saltLength:StdTypes.Int, ?trailerField:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters(hash, mGF, (saltLength : stdgo.GoInt), (trailerField : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -670,37 +670,37 @@ subjectUniqueId,
     public var raw(get, set) : Array<std.UInt>;
     function get_raw():Array<std.UInt> return [for (i in this.raw) i];
     function set_raw(v:Array<std.UInt>):Array<std.UInt> {
-        this.raw = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.raw = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawTBSCertificate(get, set) : Array<std.UInt>;
     function get_rawTBSCertificate():Array<std.UInt> return [for (i in this.rawTBSCertificate) i];
     function set_rawTBSCertificate(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawTBSCertificate = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawTBSCertificate = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawSubjectPublicKeyInfo(get, set) : Array<std.UInt>;
     function get_rawSubjectPublicKeyInfo():Array<std.UInt> return [for (i in this.rawSubjectPublicKeyInfo) i];
     function set_rawSubjectPublicKeyInfo(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawSubjectPublicKeyInfo = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawSubjectPublicKeyInfo = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawSubject(get, set) : Array<std.UInt>;
     function get_rawSubject():Array<std.UInt> return [for (i in this.rawSubject) i];
     function set_rawSubject(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawSubject = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawSubject = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawIssuer(get, set) : Array<std.UInt>;
     function get_rawIssuer():Array<std.UInt> return [for (i in this.rawIssuer) i];
     function set_rawIssuer(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawIssuer = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawIssuer = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signature(get, set) : Array<std.UInt>;
     function get_signature():Array<std.UInt> return [for (i in this.signature) i];
     function set_signature(v:Array<std.UInt>):Array<std.UInt> {
-        this.signature = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.signature = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signatureAlgorithm(get, set) : SignatureAlgorithm;
@@ -718,19 +718,19 @@ subjectUniqueId,
     public var publicKey(get, set) : stdgo.AnyInterface;
     function get_publicKey():stdgo.AnyInterface return this.publicKey;
     function set_publicKey(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.publicKey = v;
+        this.publicKey = (v : stdgo.AnyInterface);
         return v;
     }
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var serialNumber(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_serialNumber():stdgo._internal.math.big.Big_Int_.Int_ return this.serialNumber;
     function set_serialNumber(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.serialNumber = v;
+        this.serialNumber = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var issuer(get, set) : Name;
@@ -808,7 +808,7 @@ subjectUniqueId,
     public var maxPathLen(get, set) : StdTypes.Int;
     function get_maxPathLen():StdTypes.Int return this.maxPathLen;
     function set_maxPathLen(v:StdTypes.Int):StdTypes.Int {
-        this.maxPathLen = v;
+        this.maxPathLen = (v : stdgo.GoInt);
         return v;
     }
     public var maxPathLenZero(get, set) : Bool;
@@ -820,37 +820,37 @@ subjectUniqueId,
     public var subjectKeyId(get, set) : Array<std.UInt>;
     function get_subjectKeyId():Array<std.UInt> return [for (i in this.subjectKeyId) i];
     function set_subjectKeyId(v:Array<std.UInt>):Array<std.UInt> {
-        this.subjectKeyId = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.subjectKeyId = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var authorityKeyId(get, set) : Array<std.UInt>;
     function get_authorityKeyId():Array<std.UInt> return [for (i in this.authorityKeyId) i];
     function set_authorityKeyId(v:Array<std.UInt>):Array<std.UInt> {
-        this.authorityKeyId = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.authorityKeyId = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var oCSPServer(get, set) : Array<String>;
     function get_oCSPServer():Array<String> return [for (i in this.oCSPServer) i];
     function set_oCSPServer(v:Array<String>):Array<String> {
-        this.oCSPServer = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.oCSPServer = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var issuingCertificateURL(get, set) : Array<String>;
     function get_issuingCertificateURL():Array<String> return [for (i in this.issuingCertificateURL) i];
     function set_issuingCertificateURL(v:Array<String>):Array<String> {
-        this.issuingCertificateURL = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.issuingCertificateURL = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var dNSNames(get, set) : Array<String>;
     function get_dNSNames():Array<String> return [for (i in this.dNSNames) i];
     function set_dNSNames(v:Array<String>):Array<String> {
-        this.dNSNames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.dNSNames = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var emailAddresses(get, set) : Array<String>;
     function get_emailAddresses():Array<String> return [for (i in this.emailAddresses) i];
     function set_emailAddresses(v:Array<String>):Array<String> {
-        this.emailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.emailAddresses = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var iPAddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
@@ -862,7 +862,7 @@ subjectUniqueId,
     public var uRIs(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
     function get_uRIs():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uRIs) i];
     function set_uRIs(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
-        this.uRIs = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+        this.uRIs = ([for (i in v) (i : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
         return v;
     }
     public var permittedDNSDomainsCritical(get, set) : Bool;
@@ -874,55 +874,55 @@ subjectUniqueId,
     public var permittedDNSDomains(get, set) : Array<String>;
     function get_permittedDNSDomains():Array<String> return [for (i in this.permittedDNSDomains) i];
     function set_permittedDNSDomains(v:Array<String>):Array<String> {
-        this.permittedDNSDomains = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.permittedDNSDomains = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var excludedDNSDomains(get, set) : Array<String>;
     function get_excludedDNSDomains():Array<String> return [for (i in this.excludedDNSDomains) i];
     function set_excludedDNSDomains(v:Array<String>):Array<String> {
-        this.excludedDNSDomains = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.excludedDNSDomains = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var permittedIPRanges(get, set) : Array<stdgo._internal.net.Net_IPNet.IPNet>;
     function get_permittedIPRanges():Array<stdgo._internal.net.Net_IPNet.IPNet> return [for (i in this.permittedIPRanges) i];
     function set_permittedIPRanges(v:Array<stdgo._internal.net.Net_IPNet.IPNet>):Array<stdgo._internal.net.Net_IPNet.IPNet> {
-        this.permittedIPRanges = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>);
+        this.permittedIPRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>);
         return v;
     }
     public var excludedIPRanges(get, set) : Array<stdgo._internal.net.Net_IPNet.IPNet>;
     function get_excludedIPRanges():Array<stdgo._internal.net.Net_IPNet.IPNet> return [for (i in this.excludedIPRanges) i];
     function set_excludedIPRanges(v:Array<stdgo._internal.net.Net_IPNet.IPNet>):Array<stdgo._internal.net.Net_IPNet.IPNet> {
-        this.excludedIPRanges = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>);
+        this.excludedIPRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>);
         return v;
     }
     public var permittedEmailAddresses(get, set) : Array<String>;
     function get_permittedEmailAddresses():Array<String> return [for (i in this.permittedEmailAddresses) i];
     function set_permittedEmailAddresses(v:Array<String>):Array<String> {
-        this.permittedEmailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.permittedEmailAddresses = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var excludedEmailAddresses(get, set) : Array<String>;
     function get_excludedEmailAddresses():Array<String> return [for (i in this.excludedEmailAddresses) i];
     function set_excludedEmailAddresses(v:Array<String>):Array<String> {
-        this.excludedEmailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.excludedEmailAddresses = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var permittedURIDomains(get, set) : Array<String>;
     function get_permittedURIDomains():Array<String> return [for (i in this.permittedURIDomains) i];
     function set_permittedURIDomains(v:Array<String>):Array<String> {
-        this.permittedURIDomains = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.permittedURIDomains = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var excludedURIDomains(get, set) : Array<String>;
     function get_excludedURIDomains():Array<String> return [for (i in this.excludedURIDomains) i];
     function set_excludedURIDomains(v:Array<String>):Array<String> {
-        this.excludedURIDomains = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.excludedURIDomains = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var cRLDistributionPoints(get, set) : Array<String>;
     function get_cRLDistributionPoints():Array<String> return [for (i in this.cRLDistributionPoints) i];
     function set_cRLDistributionPoints(v:Array<String>):Array<String> {
-        this.cRLDistributionPoints = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.cRLDistributionPoints = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var policyIdentifiers(get, set) : Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>;
@@ -932,17 +932,17 @@ subjectUniqueId,
         return v;
     }
     public function new(?raw:Array<std.UInt>, ?rawTBSCertificate:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?rawIssuer:Array<std.UInt>, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?version:StdTypes.Int, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?issuer:Name, ?subject:Name, ?notBefore:stdgo._internal.time.Time_Time.Time, ?notAfter:stdgo._internal.time.Time_Time.Time, ?keyUsage:KeyUsage, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?unhandledCriticalExtensions:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?extKeyUsage:Array<ExtKeyUsage>, ?unknownExtKeyUsage:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, ?basicConstraintsValid:Bool, ?isCA:Bool, ?maxPathLen:StdTypes.Int, ?maxPathLenZero:Bool, ?subjectKeyId:Array<std.UInt>, ?authorityKeyId:Array<std.UInt>, ?oCSPServer:Array<String>, ?issuingCertificateURL:Array<String>, ?dNSNames:Array<String>, ?emailAddresses:Array<String>, ?iPAddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uRIs:Array<stdgo._internal.net.url.Url_URL.URL>, ?permittedDNSDomainsCritical:Bool, ?permittedDNSDomains:Array<String>, ?excludedDNSDomains:Array<String>, ?permittedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?excludedIPRanges:Array<stdgo._internal.net.Net_IPNet.IPNet>, ?permittedEmailAddresses:Array<String>, ?excludedEmailAddresses:Array<String>, ?permittedURIDomains:Array<String>, ?excludedURIDomains:Array<String>, ?cRLDistributionPoints:Array<String>, ?policyIdentifiers:Array<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) this = new stdgo._internal.crypto.x509.X509_Certificate.Certificate(
-([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawTBSCertificate) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawSubjectPublicKeyInfo) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawSubject) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawIssuer) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in signature) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawTBSCertificate) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawSubjectPublicKeyInfo) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawSubject) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawIssuer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 signatureAlgorithm,
 publicKeyAlgorithm,
-publicKey,
-version,
-serialNumber,
+(publicKey : stdgo.AnyInterface),
+(version : stdgo.GoInt),
+(serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>),
 issuer,
 subject,
 notBefore,
@@ -955,26 +955,26 @@ keyUsage,
 ([for (i in unknownExtKeyUsage) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>),
 basicConstraintsValid,
 isCA,
-maxPathLen,
+(maxPathLen : stdgo.GoInt),
 maxPathLenZero,
-([for (i in subjectKeyId) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in authorityKeyId) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in oCSPServer) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in issuingCertificateURL) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in dNSNames) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in emailAddresses) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in subjectKeyId) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in authorityKeyId) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in oCSPServer) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in issuingCertificateURL) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in dNSNames) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in emailAddresses) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 ([for (i in iPAddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
-([for (i in uRIs) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>),
+([for (i in uRIs) (i : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>),
 permittedDNSDomainsCritical,
-([for (i in permittedDNSDomains) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in excludedDNSDomains) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in permittedIPRanges) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>),
-([for (i in excludedIPRanges) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>),
-([for (i in permittedEmailAddresses) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in excludedEmailAddresses) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in permittedURIDomains) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in excludedURIDomains) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in cRLDistributionPoints) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in permittedDNSDomains) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in excludedDNSDomains) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in permittedIPRanges) (i : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>),
+([for (i in excludedIPRanges) (i : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>),
+([for (i in permittedEmailAddresses) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in excludedEmailAddresses) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in permittedURIDomains) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in excludedURIDomains) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in cRLDistributionPoints) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 ([for (i in policyIdentifiers) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -989,7 +989,7 @@ permittedDNSDomainsCritical,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicConstraints(stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints) from stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints to stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints {
+@:structInit @:using(stdgo.crypto.x509.X509.T_basicConstraints_static_extension) abstract T_basicConstraints(stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints) from stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints to stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints {
     public var isCA(get, set) : Bool;
     function get_isCA():Bool return this.isCA;
     function set_isCA(v:Bool):Bool {
@@ -999,14 +999,14 @@ permittedDNSDomainsCritical,
     public var maxPathLen(get, set) : StdTypes.Int;
     function get_maxPathLen():StdTypes.Int return this.maxPathLen;
     function set_maxPathLen(v:StdTypes.Int):StdTypes.Int {
-        this.maxPathLen = v;
+        this.maxPathLen = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?isCA:Bool, ?maxPathLen:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints(isCA, maxPathLen);
+    public function new(?isCA:Bool, ?maxPathLen:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_T_basicConstraints.T_basicConstraints(isCA, (maxPathLen : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_policyInformation(stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation) from stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation to stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation {
+@:structInit @:using(stdgo.crypto.x509.X509.T_policyInformation_static_extension) abstract T_policyInformation(stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation) from stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation to stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation {
     public var policy(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
     function get_policy():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.policy;
     function set_policy(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
@@ -1017,7 +1017,7 @@ permittedDNSDomainsCritical,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_authorityInfoAccess(stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess) from stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess to stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess {
+@:structInit @:using(stdgo.crypto.x509.X509.T_authorityInfoAccess_static_extension) abstract T_authorityInfoAccess(stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess) from stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess to stdgo._internal.crypto.x509.X509_T_authorityInfoAccess.T_authorityInfoAccess {
     public var method(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
     function get_method():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.method;
     function set_method(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
@@ -1034,7 +1034,7 @@ permittedDNSDomainsCritical,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_distributionPoint(stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint) from stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint to stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint {
+@:structInit @:using(stdgo.crypto.x509.X509.T_distributionPoint_static_extension) abstract T_distributionPoint(stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint) from stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint to stdgo._internal.crypto.x509.X509_T_distributionPoint.T_distributionPoint {
     public var distributionPoint(get, set) : T_distributionPointName;
     function get_distributionPoint():T_distributionPointName return this.distributionPoint;
     function set_distributionPoint(v:T_distributionPointName):T_distributionPointName {
@@ -1057,7 +1057,7 @@ permittedDNSDomainsCritical,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_distributionPointName(stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName) from stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName to stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName {
+@:structInit @:using(stdgo.crypto.x509.X509.T_distributionPointName_static_extension) abstract T_distributionPointName(stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName) from stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName to stdgo._internal.crypto.x509.X509_T_distributionPointName.T_distributionPointName {
     public var fullName(get, set) : Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>;
     function get_fullName():Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue> return [for (i in this.fullName) i];
     function set_fullName(v:Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>):Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue> {
@@ -1078,37 +1078,37 @@ permittedDNSDomainsCritical,
     public var raw(get, set) : Array<std.UInt>;
     function get_raw():Array<std.UInt> return [for (i in this.raw) i];
     function set_raw(v:Array<std.UInt>):Array<std.UInt> {
-        this.raw = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.raw = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawTBSCertificateRequest(get, set) : Array<std.UInt>;
     function get_rawTBSCertificateRequest():Array<std.UInt> return [for (i in this.rawTBSCertificateRequest) i];
     function set_rawTBSCertificateRequest(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawTBSCertificateRequest = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawTBSCertificateRequest = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawSubjectPublicKeyInfo(get, set) : Array<std.UInt>;
     function get_rawSubjectPublicKeyInfo():Array<std.UInt> return [for (i in this.rawSubjectPublicKeyInfo) i];
     function set_rawSubjectPublicKeyInfo(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawSubjectPublicKeyInfo = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawSubjectPublicKeyInfo = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawSubject(get, set) : Array<std.UInt>;
     function get_rawSubject():Array<std.UInt> return [for (i in this.rawSubject) i];
     function set_rawSubject(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawSubject = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawSubject = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var signature(get, set) : Array<std.UInt>;
     function get_signature():Array<std.UInt> return [for (i in this.signature) i];
     function set_signature(v:Array<std.UInt>):Array<std.UInt> {
-        this.signature = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.signature = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signatureAlgorithm(get, set) : SignatureAlgorithm;
@@ -1126,7 +1126,7 @@ permittedDNSDomainsCritical,
     public var publicKey(get, set) : stdgo.AnyInterface;
     function get_publicKey():stdgo.AnyInterface return this.publicKey;
     function set_publicKey(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.publicKey = v;
+        this.publicKey = (v : stdgo.AnyInterface);
         return v;
     }
     public var subject(get, set) : Name;
@@ -1156,13 +1156,13 @@ permittedDNSDomainsCritical,
     public var dNSNames(get, set) : Array<String>;
     function get_dNSNames():Array<String> return [for (i in this.dNSNames) i];
     function set_dNSNames(v:Array<String>):Array<String> {
-        this.dNSNames = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.dNSNames = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var emailAddresses(get, set) : Array<String>;
     function get_emailAddresses():Array<String> return [for (i in this.emailAddresses) i];
     function set_emailAddresses(v:Array<String>):Array<String> {
-        this.emailAddresses = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.emailAddresses = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var iPAddresses(get, set) : Array<stdgo._internal.net.Net_IP.IP>;
@@ -1174,31 +1174,31 @@ permittedDNSDomainsCritical,
     public var uRIs(get, set) : Array<stdgo._internal.net.url.Url_URL.URL>;
     function get_uRIs():Array<stdgo._internal.net.url.Url_URL.URL> return [for (i in this.uRIs) i];
     function set_uRIs(v:Array<stdgo._internal.net.url.Url_URL.URL>):Array<stdgo._internal.net.url.Url_URL.URL> {
-        this.uRIs = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
+        this.uRIs = ([for (i in v) (i : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>);
         return v;
     }
     public function new(?raw:Array<std.UInt>, ?rawTBSCertificateRequest:Array<std.UInt>, ?rawSubjectPublicKeyInfo:Array<std.UInt>, ?rawSubject:Array<std.UInt>, ?version:StdTypes.Int, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?publicKeyAlgorithm:PublicKeyAlgorithm, ?publicKey:stdgo.AnyInterface, ?subject:Name, ?attributes:Array<AttributeTypeAndValueSET>, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>, ?dNSNames:Array<String>, ?emailAddresses:Array<String>, ?iPAddresses:Array<stdgo._internal.net.Net_IP.IP>, ?uRIs:Array<stdgo._internal.net.url.Url_URL.URL>) this = new stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest(
-([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawTBSCertificateRequest) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawSubjectPublicKeyInfo) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawSubject) i] : stdgo.Slice<stdgo.GoUInt8>),
-version,
-([for (i in signature) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawTBSCertificateRequest) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawSubjectPublicKeyInfo) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawSubject) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+(version : stdgo.GoInt),
+([for (i in signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 signatureAlgorithm,
 publicKeyAlgorithm,
-publicKey,
+(publicKey : stdgo.AnyInterface),
 subject,
 ([for (i in attributes) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>),
 ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>),
 ([for (i in extraExtensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>),
-([for (i in dNSNames) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in emailAddresses) i] : stdgo.Slice<stdgo.GoString>),
+([for (i in dNSNames) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in emailAddresses) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 ([for (i in iPAddresses) i] : stdgo.Slice<stdgo._internal.net.Net_IP.IP>),
-([for (i in uRIs) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>));
+([for (i in uRIs) (i : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tbsCertificateRequest(stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest) from stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest to stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest {
+@:structInit @:using(stdgo.crypto.x509.X509.T_tbsCertificateRequest_static_extension) abstract T_tbsCertificateRequest(stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest) from stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest to stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
@@ -1208,7 +1208,7 @@ subject,
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var subject(get, set) : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue;
@@ -1229,11 +1229,11 @@ subject,
         this.rawAttributes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>);
         return v;
     }
-    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?subject:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?publicKey:T_publicKeyInfo, ?rawAttributes:Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>) this = new stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest(raw, version, subject, publicKey, ([for (i in rawAttributes) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>));
+    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?subject:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?publicKey:T_publicKeyInfo, ?rawAttributes:Array<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>) this = new stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest(raw, (version : stdgo.GoInt), subject, publicKey, ([for (i in rawAttributes) i] : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_certificateRequest(stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest) from stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest to stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest {
+@:structInit @:using(stdgo.crypto.x509.X509.T_certificateRequest_static_extension) abstract T_certificateRequest(stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest) from stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest to stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
@@ -1262,17 +1262,17 @@ subject,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract RevocationListEntry(stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry) from stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry to stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry {
+@:structInit @:using(stdgo.crypto.x509.X509.RevocationListEntry_static_extension) abstract RevocationListEntry(stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry) from stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry to stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry {
     public var raw(get, set) : Array<std.UInt>;
     function get_raw():Array<std.UInt> return [for (i in this.raw) i];
     function set_raw(v:Array<std.UInt>):Array<std.UInt> {
-        this.raw = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.raw = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var serialNumber(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_serialNumber():stdgo._internal.math.big.Big_Int_.Int_ return this.serialNumber;
     function set_serialNumber(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.serialNumber = v;
+        this.serialNumber = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var revocationTime(get, set) : stdgo._internal.time.Time_Time.Time;
@@ -1284,7 +1284,7 @@ subject,
     public var reasonCode(get, set) : StdTypes.Int;
     function get_reasonCode():StdTypes.Int return this.reasonCode;
     function set_reasonCode(v:StdTypes.Int):StdTypes.Int {
-        this.reasonCode = v;
+        this.reasonCode = (v : stdgo.GoInt);
         return v;
     }
     public var extensions(get, set) : Array<Extension>;
@@ -1299,7 +1299,7 @@ subject,
         this.extraExtensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
         return v;
     }
-    public function new(?raw:Array<std.UInt>, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?revocationTime:stdgo._internal.time.Time_Time.Time, ?reasonCode:StdTypes.Int, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry(([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>), serialNumber, revocationTime, reasonCode, ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), ([for (i in extraExtensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
+    public function new(?raw:Array<std.UInt>, ?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?revocationTime:stdgo._internal.time.Time_Time.Time, ?reasonCode:StdTypes.Int, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry(([for (i in raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), revocationTime, (reasonCode : stdgo.GoInt), ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), ([for (i in extraExtensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1307,19 +1307,19 @@ subject,
     public var raw(get, set) : Array<std.UInt>;
     function get_raw():Array<std.UInt> return [for (i in this.raw) i];
     function set_raw(v:Array<std.UInt>):Array<std.UInt> {
-        this.raw = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.raw = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawTBSRevocationList(get, set) : Array<std.UInt>;
     function get_rawTBSRevocationList():Array<std.UInt> return [for (i in this.rawTBSRevocationList) i];
     function set_rawTBSRevocationList(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawTBSRevocationList = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawTBSRevocationList = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var rawIssuer(get, set) : Array<std.UInt>;
     function get_rawIssuer():Array<std.UInt> return [for (i in this.rawIssuer) i];
     function set_rawIssuer(v:Array<std.UInt>):Array<std.UInt> {
-        this.rawIssuer = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.rawIssuer = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var issuer(get, set) : Name;
@@ -1331,13 +1331,13 @@ subject,
     public var authorityKeyId(get, set) : Array<std.UInt>;
     function get_authorityKeyId():Array<std.UInt> return [for (i in this.authorityKeyId) i];
     function set_authorityKeyId(v:Array<std.UInt>):Array<std.UInt> {
-        this.authorityKeyId = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.authorityKeyId = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signature(get, set) : Array<std.UInt>;
     function get_signature():Array<std.UInt> return [for (i in this.signature) i];
     function set_signature(v:Array<std.UInt>):Array<std.UInt> {
-        this.signature = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.signature = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var signatureAlgorithm(get, set) : SignatureAlgorithm;
@@ -1361,7 +1361,7 @@ subject,
     public var number(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_number():stdgo._internal.math.big.Big_Int_.Int_ return this.number;
     function set_number(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.number = v;
+        this.number = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var thisUpdate(get, set) : stdgo._internal.time.Time_Time.Time;
@@ -1389,16 +1389,16 @@ subject,
         return v;
     }
     public function new(?raw:Array<std.UInt>, ?rawTBSRevocationList:Array<std.UInt>, ?rawIssuer:Array<std.UInt>, ?issuer:Name, ?authorityKeyId:Array<std.UInt>, ?signature:Array<std.UInt>, ?signatureAlgorithm:SignatureAlgorithm, ?revokedCertificateEntries:Array<RevocationListEntry>, ?revokedCertificates:Array<RevokedCertificate>, ?number:stdgo._internal.math.big.Big_Int_.Int_, ?thisUpdate:stdgo._internal.time.Time_Time.Time, ?nextUpdate:stdgo._internal.time.Time_Time.Time, ?extensions:Array<Extension>, ?extraExtensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_RevocationList.RevocationList(
-([for (i in raw) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawTBSRevocationList) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in rawIssuer) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawTBSRevocationList) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in rawIssuer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 issuer,
-([for (i in authorityKeyId) i] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in signature) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in authorityKeyId) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 signatureAlgorithm,
 ([for (i in revokedCertificateEntries) i] : stdgo.Slice<stdgo._internal.crypto.x509.X509_RevocationListEntry.RevocationListEntry>),
 ([for (i in revokedCertificates) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>),
-number,
+(number : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>),
 thisUpdate,
 nextUpdate,
 ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>),
@@ -1406,7 +1406,7 @@ nextUpdate,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_certificateList(stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList) from stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList to stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList {
+@:structInit @:using(stdgo.crypto.x509.X509.T_certificateList_static_extension) abstract T_certificateList(stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList) from stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList to stdgo._internal.crypto.x509.X509_T_certificateList.T_certificateList {
     public var tBSCertList(get, set) : T_tbsCertificateList;
     function get_tBSCertList():T_tbsCertificateList return this.tBSCertList;
     function set_tBSCertList(v:T_tbsCertificateList):T_tbsCertificateList {
@@ -1429,7 +1429,7 @@ nextUpdate,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tbsCertificateList(stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList) from stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList to stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList {
+@:structInit @:using(stdgo.crypto.x509.X509.T_tbsCertificateList_static_extension) abstract T_tbsCertificateList(stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList) from stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList to stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
@@ -1439,7 +1439,7 @@ nextUpdate,
     public var version(get, set) : StdTypes.Int;
     function get_version():StdTypes.Int return this.version;
     function set_version(v:StdTypes.Int):StdTypes.Int {
-        this.version = v;
+        this.version = (v : stdgo.GoInt);
         return v;
     }
     public var signature(get, set) : AlgorithmIdentifier;
@@ -1478,7 +1478,7 @@ nextUpdate,
         this.extensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
         return v;
     }
-    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?signature:AlgorithmIdentifier, ?issuer:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?thisUpdate:stdgo._internal.time.Time_Time.Time, ?nextUpdate:stdgo._internal.time.Time_Time.Time, ?revokedCertificates:Array<RevokedCertificate>, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList(raw, version, signature, issuer, thisUpdate, nextUpdate, ([for (i in revokedCertificates) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>), ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
+    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?signature:AlgorithmIdentifier, ?issuer:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue, ?thisUpdate:stdgo._internal.time.Time_Time.Time, ?nextUpdate:stdgo._internal.time.Time_Time.Time, ?revokedCertificates:Array<RevokedCertificate>, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.X509_T_tbsCertificateList.T_tbsCertificateList(raw, (version : stdgo.GoInt), signature, issuer, thisUpdate, nextUpdate, ([for (i in revokedCertificates) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>), ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1529,7 +1529,7 @@ class T_createCertificate___localname___privateKey_54152_static_extension {
     }
 }
 typedef T_createCertificate___localname___privateKey_54152 = stdgo._internal.crypto.x509.X509_T_createCertificate___localname___privateKey_54152.T_createCertificate___localname___privateKey_54152;
-@:structInit abstract T__parseCSRExtensions___localname___pkcs10Attribute_63210(stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210) from stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210 to stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210 {
+@:structInit @:using(stdgo.crypto.x509.X509.T__parseCSRExtensions___localname___pkcs10Attribute_63210_static_extension) abstract T__parseCSRExtensions___localname___pkcs10Attribute_63210(stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210) from stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210 to stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210.T__parseCSRExtensions___localname___pkcs10Attribute_63210 {
     public var id(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
     function get_id():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.id;
     function set_id(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
@@ -1549,48 +1549,88 @@ typedef T_createCertificate___localname___privateKey_54152 = stdgo._internal.cry
 typedef CertPoolPointer = stdgo._internal.crypto.x509.X509_CertPoolPointer.CertPoolPointer;
 class CertPool_static_extension {
     static public function equal(_s:CertPool, _other:CertPool):Bool {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _other = (_other : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.equal(_s, _other);
     }
     static public function subjects(_s:CertPool):Array<Array<std.UInt>> {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return [for (i in stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.subjects(_s)) [for (i in i) i]];
     }
     static public function appendCertsFromPEM(_s:CertPool, _pemCerts:Array<std.UInt>):Bool {
-        final _pemCerts = ([for (i in _pemCerts) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _pemCerts = ([for (i in _pemCerts) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.appendCertsFromPEM(_s, _pemCerts);
     }
     static public function _addCertFunc(_s:CertPool, _rawSum224:T_sum224, _rawSubject:String, _getCert:() -> { var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>; var _1 : stdgo.Error; }):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _rawSubject = (_rawSubject : stdgo.GoString);
         final _getCert = _getCert;
         stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._addCertFunc(_s, _rawSum224, _rawSubject, _getCert);
     }
     static public function addCert(_s:CertPool, _cert:Certificate):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.addCert(_s, _cert);
     }
     static public function _contains(_s:CertPool, _cert:Certificate):Bool {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._contains(_s, _cert);
     }
     static public function _findPotentialParents(_s:CertPool, _cert:Certificate):Array<Certificate> {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return [for (i in stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._findPotentialParents(_s, _cert)) i];
     }
     static public function clone(_s:CertPool):CertPool {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension.clone(_s);
     }
     static public function _cert(_s:CertPool, _n:StdTypes.Int):stdgo.Tuple<Certificate, stdgo.Error> {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
+        final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._cert(_s, _n);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _len(_s:CertPool):StdTypes.Int {
+        final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         return stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension._len(_s);
     }
+}
+typedef T_lazyCertPointer = stdgo._internal.crypto.x509.X509_T_lazyCertPointer.T_lazyCertPointer;
+class T_lazyCert_static_extension {
+
 }
 typedef T_rfc1423AlgoPointer = stdgo._internal.crypto.x509.X509_T_rfc1423AlgoPointer.T_rfc1423AlgoPointer;
 class T_rfc1423Algo_static_extension {
     static public function _deriveKey(_c:T_rfc1423Algo, _password:Array<std.UInt>, _salt:Array<std.UInt>):Array<std.UInt> {
-        final _password = ([for (i in _password) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _salt = ([for (i in _salt) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _password = ([for (i in _password) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _salt = ([for (i in _salt) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.crypto.x509.X509_T_rfc1423Algo_static_extension.T_rfc1423Algo_static_extension._deriveKey(_c, _password, _salt)) i];
     }
+}
+typedef T_pkcs1PrivateKeyPointer = stdgo._internal.crypto.x509.X509_T_pkcs1PrivateKeyPointer.T_pkcs1PrivateKeyPointer;
+class T_pkcs1PrivateKey_static_extension {
+
+}
+typedef T_pkcs1AdditionalRSAPrimePointer = stdgo._internal.crypto.x509.X509_T_pkcs1AdditionalRSAPrimePointer.T_pkcs1AdditionalRSAPrimePointer;
+class T_pkcs1AdditionalRSAPrime_static_extension {
+
+}
+typedef T_pkcs1PublicKeyPointer = stdgo._internal.crypto.x509.X509_T_pkcs1PublicKeyPointer.T_pkcs1PublicKeyPointer;
+class T_pkcs1PublicKey_static_extension {
+
+}
+typedef T_pkcs8Pointer = stdgo._internal.crypto.x509.X509_T_pkcs8Pointer.T_pkcs8Pointer;
+class T_pkcs8_static_extension {
+
+}
+typedef T_ecPrivateKeyPointer = stdgo._internal.crypto.x509.X509_T_ecPrivateKeyPointer.T_ecPrivateKeyPointer;
+class T_ecPrivateKey_static_extension {
+
 }
 typedef CertificateInvalidErrorPointer = stdgo._internal.crypto.x509.X509_CertificateInvalidErrorPointer.CertificateInvalidErrorPointer;
 class CertificateInvalidError_static_extension {
@@ -1619,9 +1659,51 @@ class SystemRootsError_static_extension {
         return stdgo._internal.crypto.x509.X509_SystemRootsError_static_extension.SystemRootsError_static_extension.error(_se);
     }
 }
+typedef VerifyOptionsPointer = stdgo._internal.crypto.x509.X509_VerifyOptionsPointer.VerifyOptionsPointer;
+class VerifyOptions_static_extension {
+
+}
+typedef T_rfc2821MailboxPointer = stdgo._internal.crypto.x509.X509_T_rfc2821MailboxPointer.T_rfc2821MailboxPointer;
+class T_rfc2821Mailbox_static_extension {
+
+}
+typedef T_pkixPublicKeyPointer = stdgo._internal.crypto.x509.X509_T_pkixPublicKeyPointer.T_pkixPublicKeyPointer;
+class T_pkixPublicKey_static_extension {
+
+}
+typedef T_certificatePointer = stdgo._internal.crypto.x509.X509_T_certificatePointer.T_certificatePointer;
+class T_certificate_static_extension {
+
+}
+typedef T_tbsCertificatePointer = stdgo._internal.crypto.x509.X509_T_tbsCertificatePointer.T_tbsCertificatePointer;
+class T_tbsCertificate_static_extension {
+
+}
+typedef T_dsaAlgorithmParametersPointer = stdgo._internal.crypto.x509.X509_T_dsaAlgorithmParametersPointer.T_dsaAlgorithmParametersPointer;
+class T_dsaAlgorithmParameters_static_extension {
+
+}
+typedef T_validityPointer = stdgo._internal.crypto.x509.X509_T_validityPointer.T_validityPointer;
+class T_validity_static_extension {
+
+}
+typedef T_publicKeyInfoPointer = stdgo._internal.crypto.x509.X509_T_publicKeyInfoPointer.T_publicKeyInfoPointer;
+class T_publicKeyInfo_static_extension {
+
+}
+typedef T_authKeyIdPointer = stdgo._internal.crypto.x509.X509_T_authKeyIdPointer.T_authKeyIdPointer;
+class T_authKeyId_static_extension {
+
+}
+typedef T_pssParametersPointer = stdgo._internal.crypto.x509.X509_T_pssParametersPointer.T_pssParametersPointer;
+class T_pssParameters_static_extension {
+
+}
 typedef CertificatePointer = stdgo._internal.crypto.x509.X509_CertificatePointer.CertificatePointer;
 class Certificate_static_extension {
     static public function createCRL(_c:Certificate, _rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.AnyInterface, _revokedCerts:Array<RevokedCertificate>, _now:stdgo._internal.time.Time_Time.Time, _expiry:stdgo._internal.time.Time_Time.Time):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _priv = (_priv : stdgo.AnyInterface);
         final _revokedCerts = ([for (i in _revokedCerts) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.createCRL(_c, _rand, _priv, _revokedCerts, _now, _expiry);
@@ -1629,53 +1711,80 @@ class Certificate_static_extension {
         };
     }
     static public function checkCRLSignature(_c:Certificate, _crl:CertificateList):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _crl = (_crl : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.checkCRLSignature(_c, _crl);
     }
     static public function _getSANExtension(_c:Certificate):Array<std.UInt> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return [for (i in stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._getSANExtension(_c)) i];
     }
     static public function _hasNameConstraints(_c:Certificate):Bool {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._hasNameConstraints(_c);
     }
     static public function checkSignature(_c:Certificate, _algo:SignatureAlgorithm, _signed:Array<std.UInt>, _signature:Array<std.UInt>):stdgo.Error {
-        final _signed = ([for (i in _signed) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _signature = ([for (i in _signature) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _signed = ([for (i in _signed) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _signature = ([for (i in _signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.checkSignature(_c, _algo, _signed, _signature);
     }
     static public function checkSignatureFrom(_c:Certificate, _parent:Certificate):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _parent = (_parent : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.checkSignatureFrom(_c, _parent);
     }
     static public function _hasSANExtension(_c:Certificate):Bool {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._hasSANExtension(_c);
     }
     static public function equal(_c:Certificate, _other:Certificate):Bool {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _other = (_other : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.equal(_c, _other);
     }
     static public function verifyHostname(_c:Certificate, _h:String):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _h = (_h : stdgo.GoString);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.verifyHostname(_c, _h);
     }
     static public function _buildChains(_c:Certificate, _currentChain:Array<Certificate>, _sigChecks:stdgo.Pointer<StdTypes.Int>, _opts:VerifyOptions):stdgo.Tuple<Array<Array<Certificate>>, stdgo.Error> {
-        final _currentChain = ([for (i in _currentChain) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _currentChain = ([for (i in _currentChain) (i : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
+        final _opts = (_opts : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._buildChains(_c, _currentChain, _sigChecks, _opts);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : obj._1 };
         };
     }
     static public function verify(_c:Certificate, _opts:VerifyOptions):stdgo.Tuple<Array<Array<Certificate>>, stdgo.Error> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension.verify(_c, _opts);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : obj._1 };
         };
     }
     static public function _isValid(_c:Certificate, _certType:StdTypes.Int, _currentChain:Array<Certificate>, _opts:VerifyOptions):stdgo.Error {
-        final _currentChain = ([for (i in _currentChain) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _certType = (_certType : stdgo.GoInt);
+        final _currentChain = ([for (i in _currentChain) (i : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
+        final _opts = (_opts : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._isValid(_c, _certType, _currentChain, _opts);
     }
     static public function _checkNameConstraints(_c:Certificate, _count:stdgo.Pointer<StdTypes.Int>, _maxConstraintComparisons:StdTypes.Int, _nameType:String, _name:String, _parsedName:stdgo.AnyInterface, _match:(stdgo.AnyInterface, stdgo.AnyInterface) -> { var _0 : Bool; var _1 : stdgo.Error; }, _permitted:stdgo.AnyInterface, _excluded:stdgo.AnyInterface):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _maxConstraintComparisons = (_maxConstraintComparisons : stdgo.GoInt);
+        final _nameType = (_nameType : stdgo.GoString);
+        final _name = (_name : stdgo.GoString);
+        final _parsedName = (_parsedName : stdgo.AnyInterface);
         final _match = _match;
+        final _permitted = (_permitted : stdgo.AnyInterface);
+        final _excluded = (_excluded : stdgo.AnyInterface);
         return stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._checkNameConstraints(_c, _count, _maxConstraintComparisons, _nameType, _name, _parsedName, _match, _permitted, _excluded);
     }
     static public function _systemVerify(_c:Certificate, _opts:VerifyOptions):stdgo.Tuple<Array<Array<Certificate>>, stdgo.Error> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _opts = (_opts : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_Certificate_static_extension.Certificate_static_extension._systemVerify(_c, _opts);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : obj._1 };
@@ -1694,17 +1803,88 @@ class UnhandledCriticalExtension_static_extension {
         return stdgo._internal.crypto.x509.X509_UnhandledCriticalExtension_static_extension.UnhandledCriticalExtension_static_extension.error(_h);
     }
 }
+typedef T_basicConstraintsPointer = stdgo._internal.crypto.x509.X509_T_basicConstraintsPointer.T_basicConstraintsPointer;
+class T_basicConstraints_static_extension {
+
+}
+typedef T_policyInformationPointer = stdgo._internal.crypto.x509.X509_T_policyInformationPointer.T_policyInformationPointer;
+class T_policyInformation_static_extension {
+
+}
+typedef T_authorityInfoAccessPointer = stdgo._internal.crypto.x509.X509_T_authorityInfoAccessPointer.T_authorityInfoAccessPointer;
+class T_authorityInfoAccess_static_extension {
+
+}
+typedef T_distributionPointPointer = stdgo._internal.crypto.x509.X509_T_distributionPointPointer.T_distributionPointPointer;
+class T_distributionPoint_static_extension {
+
+}
+typedef T_distributionPointNamePointer = stdgo._internal.crypto.x509.X509_T_distributionPointNamePointer.T_distributionPointNamePointer;
+class T_distributionPointName_static_extension {
+
+}
 typedef CertificateRequestPointer = stdgo._internal.crypto.x509.X509_CertificateRequestPointer.CertificateRequestPointer;
 class CertificateRequest_static_extension {
     static public function checkSignature(_c:CertificateRequest):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest>);
         return stdgo._internal.crypto.x509.X509_CertificateRequest_static_extension.CertificateRequest_static_extension.checkSignature(_c);
     }
+}
+typedef T_tbsCertificateRequestPointer = stdgo._internal.crypto.x509.X509_T_tbsCertificateRequestPointer.T_tbsCertificateRequestPointer;
+class T_tbsCertificateRequest_static_extension {
+
+}
+typedef T_certificateRequestPointer = stdgo._internal.crypto.x509.X509_T_certificateRequestPointer.T_certificateRequestPointer;
+class T_certificateRequest_static_extension {
+
+}
+typedef RevocationListEntryPointer = stdgo._internal.crypto.x509.X509_RevocationListEntryPointer.RevocationListEntryPointer;
+class RevocationListEntry_static_extension {
+
 }
 typedef RevocationListPointer = stdgo._internal.crypto.x509.X509_RevocationListPointer.RevocationListPointer;
 class RevocationList_static_extension {
     static public function checkSignatureFrom(_rl:RevocationList, _parent:Certificate):stdgo.Error {
+        final _rl = (_rl : stdgo.Ref<stdgo._internal.crypto.x509.X509_RevocationList.RevocationList>);
+        final _parent = (_parent : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return stdgo._internal.crypto.x509.X509_RevocationList_static_extension.RevocationList_static_extension.checkSignatureFrom(_rl, _parent);
     }
+}
+typedef T_certificateListPointer = stdgo._internal.crypto.x509.X509_T_certificateListPointer.T_certificateListPointer;
+class T_certificateList_static_extension {
+
+}
+typedef T_tbsCertificateListPointer = stdgo._internal.crypto.x509.X509_T_tbsCertificateListPointer.T_tbsCertificateListPointer;
+class T_tbsCertificateList_static_extension {
+
+}
+typedef T__struct_0PointerPointer = stdgo._internal.crypto.x509.X509_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef T__struct_1PointerPointer = stdgo._internal.crypto.x509.X509_T__struct_1PointerPointer.T__struct_1PointerPointer;
+class T__struct_1Pointer_static_extension {
+
+}
+typedef T__struct_2PointerPointer = stdgo._internal.crypto.x509.X509_T__struct_2PointerPointer.T__struct_2PointerPointer;
+class T__struct_2Pointer_static_extension {
+
+}
+typedef T__struct_3PointerPointer = stdgo._internal.crypto.x509.X509_T__struct_3PointerPointer.T__struct_3PointerPointer;
+class T__struct_3Pointer_static_extension {
+
+}
+typedef T_sum224Pointer = stdgo._internal.crypto.x509.X509_T_sum224Pointer.T_sum224Pointer;
+class T_sum224_static_extension {
+
+}
+typedef PEMCipherPointer = stdgo._internal.crypto.x509.X509_PEMCipherPointer.PEMCipherPointer;
+class PEMCipher_static_extension {
+
+}
+typedef InvalidReasonPointer = stdgo._internal.crypto.x509.X509_InvalidReasonPointer.InvalidReasonPointer;
+class InvalidReason_static_extension {
+
 }
 typedef SignatureAlgorithmPointer = stdgo._internal.crypto.x509.X509_SignatureAlgorithmPointer.SignatureAlgorithmPointer;
 class SignatureAlgorithm_static_extension {
@@ -1721,165 +1901,47 @@ class PublicKeyAlgorithm_static_extension {
         return stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm_static_extension.PublicKeyAlgorithm_static_extension.string(_algo);
     }
 }
+typedef KeyUsagePointer = stdgo._internal.crypto.x509.X509_KeyUsagePointer.KeyUsagePointer;
+class KeyUsage_static_extension {
+
+}
+typedef ExtKeyUsagePointer = stdgo._internal.crypto.x509.X509_ExtKeyUsagePointer.ExtKeyUsagePointer;
+class ExtKeyUsage_static_extension {
+
+}
 typedef InsecureAlgorithmErrorPointer = stdgo._internal.crypto.x509.X509_InsecureAlgorithmErrorPointer.InsecureAlgorithmErrorPointer;
 class InsecureAlgorithmError_static_extension {
     static public function error(_e:InsecureAlgorithmError):String {
         return stdgo._internal.crypto.x509.X509_InsecureAlgorithmError_static_extension.InsecureAlgorithmError_static_extension.error(_e);
     }
 }
+typedef T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer = stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer.T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer;
+class T__parseCSRExtensions___localname___pkcs10Attribute_63210_static_extension {
+
+}
 /**
-    /|*{
-    	usages_5630325 = make([]ExtKeyUsage, len(keyUsages))
-    	copy(usages_5630325, keyUsages)
-    	if len(chain) == 0 {
-    		gotoNext = 5630417
-    		_ = gotoNext == 5630417
-    		return false
-    		gotoNext = 5630439
-    	} else {
-    		gotoNext = 5630439
-    	}
-    	_ = gotoNext == 5630439
-    	usagesRemaining_5630439 = len(usages_5630325)
-    	gotoNext = 5630638
-    	_ = gotoNext == 5630638
-    	i_5630653 = len(chain) - 1
-    	NextCertBreak = false
-    	gotoNext = 5630649
-    	_ = gotoNext == 5630649
-    	if !NextCertBreak && (i_5630653 >= 0) {
-    		gotoNext = 5630686
-    		_ = gotoNext == 5630686
-    		cert_5630690 = chain[i_5630653]
-    		if len(cert_5630690.ExtKeyUsage) == 0 && len(cert_5630690.UnknownExtKeyUsage) == 0 {
-    			gotoNext = 5630776
-    			_ = gotoNext == 5630776
-    			i_5630653--
-    			gotoNext = 5630649
-    			gotoNext = 5630866
-    		} else {
-    			gotoNext = 5630866
-    		}
-    		_ = gotoNext == 5630866
-    		if 0 < len(cert_5630690.ExtKeyUsage) {
-    			gotoNext = 5631024
-    			_ = gotoNext == 5631024
-    			i_5630882_0, usage_5630873 = 0, cert_5630690.ExtKeyUsage[0]
-    			gotoNext = 5631025
-    			_ = gotoNext == 5631025
-    			if i_5630882_0 < len(cert_5630690.ExtKeyUsage) {
-    				gotoNext = 5630905
-    				_ = gotoNext == 5630905
-    				usage_5630873 = cert_5630690.ExtKeyUsage[i_5630882_0]
-    				if usage_5630873 == 0 {
-    					gotoNext = 5630937
-    					_ = gotoNext == 5630937
-    					i_5630653--
-    					gotoNext = 5630649
-    					gotoNext = 5630870
-    				} else {
-    					gotoNext = 5630870
-    				}
-    				_ = gotoNext == 5630870
-    				i_5630882_0++
-    				gotoNext = 5631025
-    			} else {
-    				gotoNext = 5631030
-    			}
-    			gotoNext = 5631030
-    		} else {
-    			gotoNext = 5631030
-    		}
-    		_ = gotoNext == 5631030
-    		invalidUsage_5631036 = -1
-    		gotoNext = 5631068
-    		_ = gotoNext == 5631068
-    		if 0 < len(usages_5630325) {
-    			gotoNext = 5631411
-    			_ = gotoNext == 5631411
-    			i_5631094, requestedUsage_5631097 = 0, usages_5630325[0]
-    			gotoNext = 5631412
-    			_ = gotoNext == 5631412
-    			if i_5631094 < len(usages_5630325) {
-    				gotoNext = 5631128
-    				_ = gotoNext == 5631128
-    				requestedUsage_5631097 = usages_5630325[i_5631094]
-    				if requestedUsage_5631097 == -1 {
-    					gotoNext = 5631167
-    					_ = gotoNext == 5631167
-    					i_5631094++
-    					gotoNext = 5631412
-    					gotoNext = 5631191
-    				} else {
-    					gotoNext = 5631191
-    				}
-    				_ = gotoNext == 5631191
-    				if 0 < len(cert_5630690.ExtKeyUsage) {
-    					gotoNext = 5631306
-    					_ = gotoNext == 5631306
-    					i_5631207_0, usage_5631198 = 0, cert_5630690.ExtKeyUsage[0]
-    					gotoNext = 5631307
-    					_ = gotoNext == 5631307
-    					if i_5631207_0 < len(cert_5630690.ExtKeyUsage) {
-    						gotoNext = 5631230
-    						_ = gotoNext == 5631230
-    						usage_5631198 = cert_5630690.ExtKeyUsage[i_5631207_0]
-    						if requestedUsage_5631097 == usage_5631198 {
-    							gotoNext = 5631263
-    							_ = gotoNext == 5631263
-    							i_5631094++
-    							gotoNext = 5631412
-    							gotoNext = 5631195
-    						} else {
-    							gotoNext = 5631195
-    						}
-    						_ = gotoNext == 5631195
-    						i_5631207_0++
-    						gotoNext = 5631307
-    					} else {
-    						gotoNext = 5631313
-    					}
-    					gotoNext = 5631313
-    				} else {
-    					gotoNext = 5631313
-    				}
-    				_ = gotoNext == 5631313
-    				usages_5630325[i_5631094] = -1
-    				usagesRemaining_5630439--
-    				if usagesRemaining_5630439 == 0 {
-    					gotoNext = 5631386
-    					_ = gotoNext == 5631386
-    					return false
-    					gotoNext = 5631094
-    				} else {
-    					gotoNext = 5631094
-    				}
-    				_ = gotoNext == 5631094
-    				i_5631094++
-    				gotoNext = 5631412
-    			} else {
-    				gotoNext = 5630682
-    			}
-    			gotoNext = 5630682
-    		} else {
-    			gotoNext = 5630682
-    		}
-    		_ = gotoNext == 5630682
-    		i_5630653--
-    		gotoNext = 5630649
-    	} else {
-    		gotoNext = 5631419
-    	}
-    	_ = gotoNext == 5631419
-    	return true
-    	gotoNext = -1
-    }*|/
+    Package x509 implements a subset of the X.509 standard.
+    
+    It allows parsing and generating certificates, certificate signing
+    requests, certificate revocation lists, and encoded public and private keys.
+    It provides a certificate verifier, complete with a chain builder.
+    
+    The package targets the X.509 technical profile defined by the IETF (RFC
+    2459/3280/5280), and as further restricted by the CA/Browser Forum Baseline
+    Requirements. There is minimal support for features outside of these
+    profiles, as the primary goal of the package is to provide compatibility
+    with the publicly trusted TLS certificate ecosystem and its policies and
+    constraints.
+    
+    On macOS and Windows, certificate verification is handled by system APIs, but
+    the package aims to apply consistent validation rules across operating
+    systems.
 **/
 class X509 {
     /**
         NewCertPool returns a new, empty CertPool.
     **/
-    static public function newCertPool():CertPool {
+    static public inline function newCertPool():CertPool {
         return stdgo._internal.crypto.x509.X509_newCertPool.newCertPool();
     }
     /**
@@ -1895,7 +1957,7 @@ class X509 {
         
         New changes in the system cert pool might not be reflected in subsequent calls.
     **/
-    static public function systemCertPool():stdgo.Tuple<CertPool, stdgo.Error> {
+    static public inline function systemCertPool():stdgo.Tuple<CertPool, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.x509.X509_systemCertPool.systemCertPool();
             { _0 : obj._0, _1 : obj._1 };
@@ -1904,8 +1966,8 @@ class X509 {
     /**
         ParseCertificate parses a single certificate from the given ASN.1 DER data.
     **/
-    static public function parseCertificate(_der:Array<std.UInt>):stdgo.Tuple<Certificate, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseCertificate(_der:Array<std.UInt>):stdgo.Tuple<Certificate, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseCertificate.parseCertificate(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -1915,8 +1977,8 @@ class X509 {
         ParseCertificates parses one or more certificates from the given ASN.1 DER
         data. The certificates must be concatenated with no intermediate padding.
     **/
-    static public function parseCertificates(_der:Array<std.UInt>):stdgo.Tuple<Array<Certificate>, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseCertificates(_der:Array<std.UInt>):stdgo.Tuple<Array<Certificate>, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseCertificates.parseCertificates(_der);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -1926,8 +1988,8 @@ class X509 {
         ParseRevocationList parses a X509 v2 Certificate Revocation List from the given
         ASN.1 DER data.
     **/
-    static public function parseRevocationList(_der:Array<std.UInt>):stdgo.Tuple<RevocationList, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseRevocationList(_der:Array<std.UInt>):stdgo.Tuple<RevocationList, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseRevocationList.parseRevocationList(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -1941,7 +2003,8 @@ class X509 {
         design. Since it does not authenticate the ciphertext, it is vulnerable to
         padding oracle attacks that can let an attacker recover the plaintext.
     **/
-    static public function isEncryptedPEMBlock(_b:stdgo._internal.encoding.pem.Pem_Block.Block):Bool {
+    static public inline function isEncryptedPEMBlock(_b:stdgo._internal.encoding.pem.Pem_Block.Block):Bool {
+        final _b = (_b : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
         return stdgo._internal.crypto.x509.X509_isEncryptedPEMBlock.isEncryptedPEMBlock(_b);
     }
     /**
@@ -1958,8 +2021,9 @@ class X509 {
         design. Since it does not authenticate the ciphertext, it is vulnerable to
         padding oracle attacks that can let an attacker recover the plaintext.
     **/
-    static public function decryptPEMBlock(_b:stdgo._internal.encoding.pem.Pem_Block.Block, _password:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _password = ([for (i in _password) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function decryptPEMBlock(_b:stdgo._internal.encoding.pem.Pem_Block.Block, _password:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
+        final _password = ([for (i in _password) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_decryptPEMBlock.decryptPEMBlock(_b, _password);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -1974,9 +2038,10 @@ class X509 {
         design. Since it does not authenticate the ciphertext, it is vulnerable to
         padding oracle attacks that can let an attacker recover the plaintext.
     **/
-    static public function encryptPEMBlock(_rand:stdgo._internal.io.Io_Reader.Reader, _blockType:String, _data:Array<std.UInt>, _password:Array<std.UInt>, _alg:PEMCipher):stdgo.Tuple<stdgo._internal.encoding.pem.Pem_Block.Block, stdgo.Error> {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _password = ([for (i in _password) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function encryptPEMBlock(_rand:stdgo._internal.io.Io_Reader.Reader, _blockType:String, _data:Array<std.UInt>, _password:Array<std.UInt>, _alg:PEMCipher):stdgo.Tuple<stdgo._internal.encoding.pem.Pem_Block.Block, stdgo.Error> {
+        final _blockType = (_blockType : stdgo.GoString);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _password = ([for (i in _password) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_encryptPEMBlock.encryptPEMBlock(_rand, _blockType, _data, _password, _alg);
             { _0 : obj._0, _1 : obj._1 };
@@ -1987,8 +2052,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "RSA PRIVATE KEY".
     **/
-    static public function parsePKCS1PrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parsePKCS1PrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parsePKCS1PrivateKey.parsePKCS1PrivateKey(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -2001,7 +2066,8 @@ class X509 {
         For a more flexible key format which is not RSA specific, use
         MarshalPKCS8PrivateKey.
     **/
-    static public function marshalPKCS1PrivateKey(_key:stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey):Array<std.UInt> {
+    static public inline function marshalPKCS1PrivateKey(_key:stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey):Array<std.UInt> {
+        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>);
         return [for (i in stdgo._internal.crypto.x509.X509_marshalPKCS1PrivateKey.marshalPKCS1PrivateKey(_key)) i];
     }
     /**
@@ -2009,8 +2075,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "RSA PUBLIC KEY".
     **/
-    static public function parsePKCS1PublicKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parsePKCS1PublicKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parsePKCS1PublicKey.parsePKCS1PublicKey(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -2021,7 +2087,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "RSA PUBLIC KEY".
     **/
-    static public function marshalPKCS1PublicKey(_key:stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey):Array<std.UInt> {
+    static public inline function marshalPKCS1PublicKey(_key:stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey):Array<std.UInt> {
+        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>);
         return [for (i in stdgo._internal.crypto.x509.X509_marshalPKCS1PublicKey.marshalPKCS1PublicKey(_key)) i];
     }
     /**
@@ -2033,8 +2100,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "PRIVATE KEY".
     **/
-    static public function parsePKCS8PrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parsePKCS8PrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parsePKCS8PrivateKey.parsePKCS8PrivateKey(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -2049,7 +2116,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "PRIVATE KEY".
     **/
-    static public function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _key = (_key : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.crypto.x509.X509_marshalPKCS8PrivateKey.marshalPKCS8PrivateKey(_key);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -2070,7 +2138,8 @@ class X509 {
         APIs and cause the pure Go verifier to be used). Setting
         x509usefallbackroots=1 without calling SetFallbackRoots has no effect.
     **/
-    static public function setFallbackRoots(_roots:CertPool):Void {
+    static public inline function setFallbackRoots(_roots:CertPool):Void {
+        final _roots = (_roots : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         stdgo._internal.crypto.x509.X509_setFallbackRoots.setFallbackRoots(_roots);
     }
     /**
@@ -2078,8 +2147,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "EC PRIVATE KEY".
     **/
-    static public function parseECPrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey, stdgo.Error> {
-        final _der = ([for (i in _der) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseECPrivateKey(_der:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey, stdgo.Error> {
+        final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseECPrivateKey.parseECPrivateKey(_der);
             { _0 : obj._0, _1 : obj._1 };
@@ -2092,7 +2161,8 @@ class X509 {
         For a more flexible key format which is not EC specific, use
         MarshalPKCS8PrivateKey.
     **/
-    static public function marshalECPrivateKey(_key:stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function marshalECPrivateKey(_key:stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_marshalECPrivateKey.marshalECPrivateKey(_key);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -2108,8 +2178,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "PUBLIC KEY".
     **/
-    static public function parsePKIXPublicKey(_derBytes:Array<std.UInt>):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
-        final _derBytes = ([for (i in _derBytes) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parsePKIXPublicKey(_derBytes:Array<std.UInt>):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
+        final _derBytes = ([for (i in _derBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parsePKIXPublicKey.parsePKIXPublicKey(_derBytes);
             { _0 : obj._0, _1 : obj._1 };
@@ -2126,7 +2196,8 @@ class X509 {
         
         This kind of key is commonly encoded in PEM blocks of type "PUBLIC KEY".
     **/
-    static public function marshalPKIXPublicKey(_pub:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function marshalPKIXPublicKey(_pub:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _pub = (_pub : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.crypto.x509.X509_marshalPKIXPublicKey.marshalPKIXPublicKey(_pub);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -2186,7 +2257,11 @@ class X509 {
         If SubjectKeyId from template is empty and the template is a CA, SubjectKeyId
         will be generated from the hash of the public key.
     **/
-    static public function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:Certificate, _parent:Certificate, _pub:stdgo.AnyInterface, _priv:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:Certificate, _parent:Certificate, _pub:stdgo.AnyInterface, _priv:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _template = (_template : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _parent = (_parent : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        final _pub = (_pub : stdgo.AnyInterface);
+        final _priv = (_priv : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.crypto.x509.X509_createCertificate.createCertificate(_rand, _template, _parent, _pub, _priv);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -2200,8 +2275,8 @@ class X509 {
         
         Deprecated: Use ParseRevocationList instead.
     **/
-    static public function parseCRL(_crlBytes:Array<std.UInt>):stdgo.Tuple<CertificateList, stdgo.Error> {
-        final _crlBytes = ([for (i in _crlBytes) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseCRL(_crlBytes:Array<std.UInt>):stdgo.Tuple<CertificateList, stdgo.Error> {
+        final _crlBytes = ([for (i in _crlBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseCRL.parseCRL(_crlBytes);
             { _0 : obj._0, _1 : obj._1 };
@@ -2212,8 +2287,8 @@ class X509 {
         
         Deprecated: Use ParseRevocationList instead.
     **/
-    static public function parseDERCRL(_derBytes:Array<std.UInt>):stdgo.Tuple<CertificateList, stdgo.Error> {
-        final _derBytes = ([for (i in _derBytes) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseDERCRL(_derBytes:Array<std.UInt>):stdgo.Tuple<CertificateList, stdgo.Error> {
+        final _derBytes = ([for (i in _derBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseDERCRL.parseDERCRL(_derBytes);
             { _0 : obj._0, _1 : obj._1 };
@@ -2240,7 +2315,9 @@ class X509 {
         
         The returned slice is the certificate request in DER encoding.
     **/
-    static public function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _template:CertificateRequest, _priv:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _template:CertificateRequest, _priv:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _template = (_template : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest>);
+        final _priv = (_priv : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.crypto.x509.X509_createCertificateRequest.createCertificateRequest(_rand, _template, _priv);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -2250,8 +2327,8 @@ class X509 {
         ParseCertificateRequest parses a single certificate request from the
         given ASN.1 DER data.
     **/
-    static public function parseCertificateRequest(_asn1Data:Array<std.UInt>):stdgo.Tuple<CertificateRequest, stdgo.Error> {
-        final _asn1Data = ([for (i in _asn1Data) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function parseCertificateRequest(_asn1Data:Array<std.UInt>):stdgo.Tuple<CertificateRequest, stdgo.Error> {
+        final _asn1Data = ([for (i in _asn1Data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_parseCertificateRequest.parseCertificateRequest(_asn1Data);
             { _0 : obj._0, _1 : obj._1 };
@@ -2271,7 +2348,9 @@ class X509 {
         extension are populated using the issuer certificate. issuer must have
         SubjectKeyId set.
     **/
-    static public function createRevocationList(_rand:stdgo._internal.io.Io_Reader.Reader, _template:RevocationList, _issuer:Certificate, _priv:stdgo._internal.crypto.Crypto_Signer.Signer):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function createRevocationList(_rand:stdgo._internal.io.Io_Reader.Reader, _template:RevocationList, _issuer:Certificate, _priv:stdgo._internal.crypto.Crypto_Signer.Signer):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _template = (_template : stdgo.Ref<stdgo._internal.crypto.x509.X509_RevocationList.RevocationList>);
+        final _issuer = (_issuer : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return {
             final obj = stdgo._internal.crypto.x509.X509_createRevocationList.createRevocationList(_rand, _template, _issuer, _priv);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };

@@ -1,5 +1,5 @@
 package stdgo._internal.hash;
-typedef Hash = stdgo.StructType & {
+@:interface typedef Hash = stdgo.StructType & {
     > stdgo._internal.io.Io_Writer.Writer,
     /**
         Sum appends the current hash to b and returns the resulting slice.

@@ -1,4 +1,33 @@
 package stdgo._internal.crypto.x509;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
 var _signatureAlgorithmDetails : stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1> = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1>(17, 17, ...[
 ({ _algo : (1 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm), _name : ("MD2-RSA" : stdgo.GoString), _oid : stdgo._internal.crypto.x509.X509__oidSignatureMD2WithRSA._oidSignatureMD2WithRSA, _pubKeyAlgo : (1 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm), _hash : (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash) } : stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1),
 ({ _algo : (2 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm), _name : ("MD5-RSA" : stdgo.GoString), _oid : stdgo._internal.crypto.x509.X509__oidSignatureMD5WithRSA._oidSignatureMD5WithRSA, _pubKeyAlgo : (1 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm), _hash : (2u32 : stdgo._internal.crypto.Crypto_Hash.Hash) } : stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1),

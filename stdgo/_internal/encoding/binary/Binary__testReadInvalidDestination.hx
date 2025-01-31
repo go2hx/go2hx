@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function _testReadInvalidDestination(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _order:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder):Void {
         var _destinations = (new stdgo.Slice<stdgo.AnyInterface>(9, 9, ...[stdgo.Go.toInterface((0 : stdgo.GoInt8)), stdgo.Go.toInterface((0 : stdgo.GoInt16)), stdgo.Go.toInterface((0 : stdgo.GoInt32)), stdgo.Go.toInterface((0i64 : stdgo.GoInt64)), stdgo.Go.toInterface((0 : stdgo.GoUInt8)), stdgo.Go.toInterface((0 : stdgo.GoUInt16)), stdgo.Go.toInterface((0u32 : stdgo.GoUInt32)), stdgo.Go.toInterface((0i64 : stdgo.GoUInt64)), stdgo.Go.toInterface((false : Bool))]) : stdgo.Slice<stdgo.AnyInterface>);
         for (__8 => _dst in _destinations) {

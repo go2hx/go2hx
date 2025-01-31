@@ -1,4 +1,11 @@
 package stdgo._internal.compress.bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.os.Os;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
 function _newMTFDecoderWithRange(_n:stdgo.GoInt):stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder {
         if ((_n > (256 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("newMTFDecoderWithRange: cannot have > 256 symbols" : stdgo.GoString));

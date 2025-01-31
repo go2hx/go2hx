@@ -1,13 +1,34 @@
 package stdgo._internal.encoding.gob;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.os.Os;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.encoding.binary.Binary;
 function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         if (!stdgo._internal.encoding.gob.Gob__doFuzzTests._doFuzzTests.value) {
             @:check2r _t.skipf(("disabled; run with -gob.fuzz to enable" : stdgo.GoString));
         };
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly() : stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly)));
+        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly() : stdgo._internal.encoding.gob.Gob_OnTheFly.OnTheFly))));
         var _dt = (stdgo._internal.encoding.gob.Gob__newDT._newDT()?.__copy__() : stdgo._internal.encoding.gob.Gob_DT.DT);
         {
-            var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf)).encode(stdgo.Go.toInterface(_dt)) : stdgo.Error);
+            var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf)).encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_dt))) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -67,7 +88,7 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                         a();
                                     }) });
                                 };
-                                var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
+                                var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>)))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {
                                     for (defer in __deferstack__) {
@@ -75,7 +96,11 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                         defer.ran = true;
                                         defer.f();
                                     };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                    if (stdgo.Go.recover_exception != null) {
+                                        final e = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        throw e;
+                                    };
                                     return;
                                 };
                             } catch(__exception__) {
@@ -110,7 +135,11 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                         };
                                         f();
                                     };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                    if (stdgo.Go.recover_exception != null) {
+                                        final e = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        throw e;
+                                    };
                                     return;
                                 };
                             };

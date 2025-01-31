@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function canBackquote(_s:stdgo.GoString):Bool {
         while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;

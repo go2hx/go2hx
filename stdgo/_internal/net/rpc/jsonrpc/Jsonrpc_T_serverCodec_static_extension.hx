@@ -1,4 +1,9 @@
 package stdgo._internal.net.rpc.jsonrpc;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.json.Json;
+import stdgo._internal.net.rpc.Rpc;
+import stdgo._internal.net.Net;
+import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.net.rpc.jsonrpc.Jsonrpc.T_serverCodec_asInterface) class T_serverCodec_static_extension {
     @:keep
     @:tdfield
@@ -27,7 +32,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         } else {
             _resp.error = stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").error);
         };
-        return @:check2r (@:checkr _c ?? throw "null pointer dereference")._enc.encode(stdgo.Go.toInterface(_resp));
+        return @:check2r (@:checkr _c ?? throw "null pointer dereference")._enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_resp)));
     }
     @:keep
     @:tdfield

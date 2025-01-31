@@ -1,4 +1,6 @@
 package stdgo._internal.encoding.base32;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
 function _readEncodedData(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<stdgo.GoUInt8>, _min:stdgo.GoInt, _expectsPadding:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         while (((_n < _min : Bool) && (_err == null) : Bool)) {

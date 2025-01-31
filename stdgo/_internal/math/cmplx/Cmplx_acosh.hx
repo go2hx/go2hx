@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         if (_x == (((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)))) {
             return new stdgo.GoComplex128((0 : stdgo.GoFloat64), stdgo._internal.math.Math_copysign.copysign((1.5707963267948966 : stdgo.GoFloat64), (_x : stdgo.GoComplex128).imag));

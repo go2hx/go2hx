@@ -48,26 +48,26 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tester(stdgo._internal.log.Log_T_tester.T_tester) from stdgo._internal.log.Log_T_tester.T_tester to stdgo._internal.log.Log_T_tester.T_tester {
+@:structInit @:using(stdgo.log.Log.T_tester_static_extension) abstract T_tester(stdgo._internal.log.Log_T_tester.T_tester) from stdgo._internal.log.Log_T_tester.T_tester to stdgo._internal.log.Log_T_tester.T_tester {
     public var _flag(get, set) : StdTypes.Int;
     function get__flag():StdTypes.Int return this._flag;
     function set__flag(v:StdTypes.Int):StdTypes.Int {
-        this._flag = v;
+        this._flag = (v : stdgo.GoInt);
         return v;
     }
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
-        this._prefix = v;
+        this._prefix = (v : stdgo.GoString);
         return v;
     }
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
-        this._pattern = v;
+        this._pattern = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_flag:StdTypes.Int, ?_prefix:String, ?_pattern:String) this = new stdgo._internal.log.Log_T_tester.T_tester(_flag, _prefix, _pattern);
+    public function new(?_flag:StdTypes.Int, ?_prefix:String, ?_pattern:String) this = new stdgo._internal.log.Log_T_tester.T_tester((_flag : stdgo.GoInt), (_prefix : stdgo.GoString), (_pattern : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -79,62 +79,92 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
 typedef LoggerPointer = stdgo._internal.log.Log_LoggerPointer.LoggerPointer;
 class Logger_static_extension {
     static public function writer(_l:Logger):stdgo._internal.io.Io_Writer.Writer {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.writer(_l);
     }
     static public function setPrefix(_l:Logger, _prefix:String):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _prefix = (_prefix : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setPrefix(_l, _prefix);
     }
     static public function prefix(_l:Logger):String {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.prefix(_l);
     }
     static public function setFlags(_l:Logger, _flag:StdTypes.Int):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _flag = (_flag : stdgo.GoInt);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setFlags(_l, _flag);
     }
     static public function flags(_l:Logger):StdTypes.Int {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.flags(_l);
     }
     static public function panicln(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panicln(_l, ...[for (i in _v) i]);
     }
     static public function panicf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panicf(_l, _format, ...[for (i in _v) i]);
     }
     static public function panic(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panic(_l, ...[for (i in _v) i]);
     }
     static public function fatalln(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatalln(_l, ...[for (i in _v) i]);
     }
     static public function fatalf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatalf(_l, _format, ...[for (i in _v) i]);
     }
     static public function fatal(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatal(_l, ...[for (i in _v) i]);
     }
     static public function println(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.println(_l, ...[for (i in _v) i]);
     }
     static public function printf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.printf(_l, _format, ...[for (i in _v) i]);
     }
     static public function print(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.print(_l, ...[for (i in _v) i]);
     }
     static public function _output(_l:Logger, _pc:stdgo.GoUIntptr, _calldepth:StdTypes.Int, _appendOutput:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _pc = (_pc : stdgo.GoUIntptr);
+        final _calldepth = (_calldepth : stdgo.GoInt);
         final _appendOutput = _appendOutput;
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension._output(_l, _pc, _calldepth, _appendOutput);
     }
     static public function output(_l:Logger, _calldepth:StdTypes.Int, _s:String):stdgo.Error {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _calldepth = (_calldepth : stdgo.GoInt);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.output(_l, _calldepth, _s);
     }
     static public function setOutput(_l:Logger, _w:stdgo._internal.io.Io_Writer.Writer):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setOutput(_l, _w);
     }
+}
+typedef T_testerPointer = stdgo._internal.log.Log_T_testerPointer.T_testerPointer;
+class T_tester_static_extension {
+
 }
 typedef T_discardPointer = stdgo._internal.log.Log_T_discardPointer.T_discardPointer;
 class T_discard_static_extension {
     static public function write(_:T_discard, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.log.Log_T_discard_static_extension.T_discard_static_extension.write(_, _p);
             { _0 : obj._0, _1 : obj._1 };
@@ -161,108 +191,115 @@ class Log {
         after the log header if the Lmsgprefix flag is provided.
         The flag argument defines the logging properties.
     **/
-    static public function new_(_out:stdgo._internal.io.Io_Writer.Writer, _prefix:String, _flag:StdTypes.Int):Logger {
+    static public inline function new_(_out:stdgo._internal.io.Io_Writer.Writer, _prefix:String, _flag:StdTypes.Int):Logger {
+        final _prefix = (_prefix : stdgo.GoString);
+        final _flag = (_flag : stdgo.GoInt);
         return stdgo._internal.log.Log_new_.new_(_out, _prefix, _flag);
     }
     /**
         Default returns the standard logger used by the package-level output functions.
     **/
-    static public function default_():Logger {
+    static public inline function default_():Logger {
         return stdgo._internal.log.Log_default_.default_();
     }
     /**
         SetOutput sets the output destination for the standard logger.
     **/
-    static public function setOutput(_w:stdgo._internal.io.Io_Writer.Writer):Void {
+    static public inline function setOutput(_w:stdgo._internal.io.Io_Writer.Writer):Void {
         stdgo._internal.log.Log_setOutput.setOutput(_w);
     }
     /**
         Flags returns the output flags for the standard logger.
         The flag bits are Ldate, Ltime, and so on.
     **/
-    static public function flags():StdTypes.Int {
+    static public inline function flags():StdTypes.Int {
         return stdgo._internal.log.Log_flags.flags();
     }
     /**
         SetFlags sets the output flags for the standard logger.
         The flag bits are Ldate, Ltime, and so on.
     **/
-    static public function setFlags(_flag:StdTypes.Int):Void {
+    static public inline function setFlags(_flag:StdTypes.Int):Void {
+        final _flag = (_flag : stdgo.GoInt);
         stdgo._internal.log.Log_setFlags.setFlags(_flag);
     }
     /**
         Prefix returns the output prefix for the standard logger.
     **/
-    static public function prefix():String {
+    static public inline function prefix():String {
         return stdgo._internal.log.Log_prefix.prefix();
     }
     /**
         SetPrefix sets the output prefix for the standard logger.
     **/
-    static public function setPrefix(_prefix:String):Void {
+    static public inline function setPrefix(_prefix:String):Void {
+        final _prefix = (_prefix : stdgo.GoString);
         stdgo._internal.log.Log_setPrefix.setPrefix(_prefix);
     }
     /**
         Writer returns the output destination for the standard logger.
     **/
-    static public function writer():stdgo._internal.io.Io_Writer.Writer {
+    static public inline function writer():stdgo._internal.io.Io_Writer.Writer {
         return stdgo._internal.log.Log_writer.writer();
     }
     /**
         Print calls Output to print to the standard logger.
         Arguments are handled in the manner of fmt.Print.
     **/
-    static public function print(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function print(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_print.print(...[for (i in _v) i]);
     }
     /**
         Printf calls Output to print to the standard logger.
         Arguments are handled in the manner of fmt.Printf.
     **/
-    static public function printf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function printf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_printf.printf(_format, ...[for (i in _v) i]);
     }
     /**
         Println calls Output to print to the standard logger.
         Arguments are handled in the manner of fmt.Println.
     **/
-    static public function println(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function println(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_println.println(...[for (i in _v) i]);
     }
     /**
         Fatal is equivalent to Print() followed by a call to os.Exit(1).
     **/
-    static public function fatal(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function fatal(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_fatal.fatal(...[for (i in _v) i]);
     }
     /**
         Fatalf is equivalent to Printf() followed by a call to os.Exit(1).
     **/
-    static public function fatalf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function fatalf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_fatalf.fatalf(_format, ...[for (i in _v) i]);
     }
     /**
         Fatalln is equivalent to Println() followed by a call to os.Exit(1).
     **/
-    static public function fatalln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function fatalln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_fatalln.fatalln(...[for (i in _v) i]);
     }
     /**
         Panic is equivalent to Print() followed by a call to panic().
     **/
-    static public function panic(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function panic(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_panic.panic(...[for (i in _v) i]);
     }
     /**
         Panicf is equivalent to Printf() followed by a call to panic().
     **/
-    static public function panicf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function panicf(_format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
+        final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_panicf.panicf(_format, ...[for (i in _v) i]);
     }
     /**
         Panicln is equivalent to Println() followed by a call to panic().
     **/
-    static public function panicln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public inline function panicln(_v:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.log.Log_panicln.panicln(...[for (i in _v) i]);
     }
     /**
@@ -274,49 +311,65 @@ class Log {
         if Llongfile or Lshortfile is set; a value of 1 will print the details
         for the caller of Output.
     **/
-    static public function output(_calldepth:StdTypes.Int, _s:String):stdgo.Error {
+    static public inline function output(_calldepth:StdTypes.Int, _s:String):stdgo.Error {
+        final _calldepth = (_calldepth : stdgo.GoInt);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.log.Log_output.output(_calldepth, _s);
     }
-    static public function testDefault(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDefault(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testDefault.testDefault(_t);
     }
-    static public function testAll(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testAll(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testAll.testAll(_t);
     }
-    static public function testOutput(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testOutput(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testOutput.testOutput(_t);
     }
-    static public function testNonNewLogger(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNonNewLogger(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testNonNewLogger.testNonNewLogger(_t);
     }
-    static public function testOutputRace(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testOutputRace(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testOutputRace.testOutputRace(_t);
     }
-    static public function testFlagAndPrefixSetting(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testFlagAndPrefixSetting(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testFlagAndPrefixSetting.testFlagAndPrefixSetting(_t);
     }
-    static public function testUTCFlag(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUTCFlag(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testUTCFlag.testUTCFlag(_t);
     }
-    static public function testEmptyPrintCreatesLine(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEmptyPrintCreatesLine(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testEmptyPrintCreatesLine.testEmptyPrintCreatesLine(_t);
     }
-    static public function testDiscard(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDiscard(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.log.Log_testDiscard.testDiscard(_t);
     }
-    static public function benchmarkItoa(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkItoa(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.log.Log_benchmarkItoa.benchmarkItoa(_b);
     }
-    static public function benchmarkPrintln(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkPrintln(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.log.Log_benchmarkPrintln.benchmarkPrintln(_b);
     }
-    static public function benchmarkPrintlnNoFlags(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkPrintlnNoFlags(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.log.Log_benchmarkPrintlnNoFlags.benchmarkPrintlnNoFlags(_b);
     }
-    static public function benchmarkConcurrent(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkConcurrent(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.log.Log_benchmarkConcurrent.benchmarkConcurrent(_b);
     }
-    static public function benchmarkDiscard(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkDiscard(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.log.Log_benchmarkDiscard.benchmarkDiscard(_b);
     }
 }

@@ -1,2 +1,2 @@
 package stdgo._internal.os;
-@:follow typedef FileInfo = stdgo._internal.io.fs.Fs_FileInfo.FileInfo;
+@:follow @:using(stdgo._internal.os.Os_FileInfo_static_extension.FileInfo_static_extension) typedef FileInfo = stdgo._internal.io.fs.Fs_FileInfo.FileInfo;

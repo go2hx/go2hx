@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-typedef PacketConn = stdgo.StructType & {
+@:interface typedef PacketConn = stdgo.StructType & {
     /**
         ReadFrom reads a packet from the connection,
         copying the payload into p. It returns the number of

@@ -1,2 +1,18 @@
 package stdgo._internal.html.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.text.template.parse.Parse;
+import stdgo._internal.html.Html;
+import stdgo._internal.text.template.Template;
+import stdgo._internal.encoding.json.Json;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
 var __element_index : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(6, 6, ...[(0 : stdgo.GoUInt8), (11 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (36 : stdgo.GoUInt8), (51 : stdgo.GoUInt8), (63 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);

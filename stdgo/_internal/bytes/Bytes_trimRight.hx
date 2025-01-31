@@ -1,4 +1,9 @@
 package stdgo._internal.bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function trimRight(_s:stdgo.Slice<stdgo.GoUInt8>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         if (((_s.length == (0 : stdgo.GoInt)) || (_cutset == stdgo.Go.str()) : Bool)) {
             return _s;

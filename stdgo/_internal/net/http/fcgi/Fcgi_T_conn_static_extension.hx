@@ -1,4 +1,16 @@
 package stdgo._internal.net.http.fcgi;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.os.Os;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.net.http.cgi.Cgi;
+import stdgo._internal.context.Context;
 @:keep @:allow(stdgo._internal.net.http.fcgi.Fcgi.T_conn_asInterface) class T_conn_static_extension {
     @:keep
     @:tdfield
@@ -107,7 +119,11 @@ package stdgo._internal.net.http.fcgi;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -142,7 +158,11 @@ package stdgo._internal.net.http.fcgi;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -177,7 +197,11 @@ package stdgo._internal.net.http.fcgi;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -212,7 +236,11 @@ package stdgo._internal.net.http.fcgi;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };

@@ -1,4 +1,6 @@
 package stdgo._internal.internal.bytealg;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.internal.cpu.Cpu;
 function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {

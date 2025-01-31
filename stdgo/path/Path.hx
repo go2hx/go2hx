@@ -2,120 +2,57 @@ package stdgo.path;
 var errBadPattern(get, set) : stdgo.Error;
 private function get_errBadPattern():stdgo.Error return stdgo._internal.path.Path_errBadPattern.errBadPattern;
 private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.path.Path_errBadPattern.errBadPattern = v;
+        stdgo._internal.path.Path_errBadPattern.errBadPattern = (v : stdgo.Error);
         return v;
     }
 @:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.Path_T_lazybuf.T_lazybuf) from stdgo._internal.path.Path_T_lazybuf.T_lazybuf to stdgo._internal.path.Path_T_lazybuf.T_lazybuf {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
-        this._s = v;
+        this._s = (v : stdgo.GoString);
         return v;
     }
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
-        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _w(get, set) : StdTypes.Int;
     function get__w():StdTypes.Int return this._w;
     function set__w(v:StdTypes.Int):StdTypes.Int {
-        this._w = v;
+        this._w = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_s:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int) this = new stdgo._internal.path.Path_T_lazybuf.T_lazybuf(_s, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _w);
+    public function new(?_s:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int) this = new stdgo._internal.path.Path_T_lazybuf.T_lazybuf((_s : stdgo.GoString), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_w : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_lazybufPointer = stdgo._internal.path.Path_T_lazybufPointer.T_lazybufPointer;
 class T_lazybuf_static_extension {
     static public function _string(_b:T_lazybuf):String {
+        final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_T_lazybuf.T_lazybuf>);
         return stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
     }
     static public function _append(_b:T_lazybuf, _c:std.UInt):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_T_lazybuf.T_lazybuf>);
+        final _c = (_c : stdgo.GoUInt8);
         stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._append(_b, _c);
     }
     static public function _index(_b:T_lazybuf, _i:StdTypes.Int):std.UInt {
+        final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_T_lazybuf.T_lazybuf>);
+        final _i = (_i : stdgo.GoInt);
         return stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
     }
 }
 /**
-    /|*{
-    	_ = 0
-    	gotoNext = 2826128
-    	_ = gotoNext == 2826128
-    	if len(pattern) > 0 && pattern[0] == 42 {
-    		gotoNext = 2826170
-    		_ = gotoNext == 2826170
-    		pattern = pattern[1:]
-    		star = true
-    		gotoNext = 2826128
-    	} else {
-    		gotoNext = 2826214
-    	}
-    	_ = gotoNext == 2826214
-    	inrange_2826214 = false
-    	gotoNext = 2826242
-    	_ = gotoNext == 2826242
-    	i_2826236 = 0
-    	ScanBreak = false
-    	gotoNext = 2826249
-    	_ = gotoNext == 2826249
-    	if !ScanBreak && (i_2826236 < len(pattern)) {
-    		gotoNext = 2826282
-    		_ = gotoNext == 2826282
-    		gotoNext = 2826286
-    		_ = gotoNext == 2826286
-    		switch pattern[i_2826236] {
-    		case 92:
-    			gotoNext = 2826308
-    			_ = gotoNext == 2826308
-    			if i_2826236+1 < len(pattern) {
-    				gotoNext = 2826398
-    				_ = gotoNext == 2826398
-    				i_2826236++
-    				gotoNext = 2826278
-    			} else {
-    				gotoNext = 2826278
-    			}
-    			gotoNext = 2826278
-    		case 91:
-    			gotoNext = 2826415
-    			_ = gotoNext == 2826415
-    			inrange_2826214 = true
-    			gotoNext = 2826278
-    		case 93:
-    			gotoNext = 2826445
-    			_ = gotoNext == 2826445
-    			inrange_2826214 = false
-    			gotoNext = 2826278
-    		case 42:
-    			gotoNext = 2826476
-    			_ = gotoNext == 2826476
-    			if !inrange_2826214 {
-    				gotoNext = 2826501
-    				_ = gotoNext == 2826501
-    				ScanBreak = true
-    				gotoNext = 2826249
-    				gotoNext = 2826278
-    			} else {
-    				gotoNext = 2826278
-    			}
-    			gotoNext = 2826278
-    		default:
-    			gotoNext = 2826278
-    		}
-    		_ = gotoNext == 2826278
-    		i_2826236++
-    		gotoNext = 2826249
-    	} else {
-    		gotoNext = 2826531
-    	}
-    	_ = gotoNext == 2826531
-    	return star, pattern[0:i_2826236], pattern[i_2826236:]
-    	gotoNext = -1
-    }*|/
+    Package path implements utility routines for manipulating slash-separated
+    paths.
+    
+    The path package should only be used for paths separated by forward
+    slashes, such as the paths in URLs. This package does not deal with
+    Windows paths with drive letters or backslashes; to manipulate
+    operating system paths, use the path/filepath package.
 **/
 class Path {
     /**
@@ -141,7 +78,9 @@ class Path {
         The only possible returned error is ErrBadPattern, when pattern
         is malformed.
     **/
-    static public function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public inline function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error> {
+        final _pattern = (_pattern : stdgo.GoString);
+        final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.path.Path_match.match(_pattern, _name);
             { _0 : obj._0, _1 : obj._1 };
@@ -168,7 +107,8 @@ class Path {
         Getting Dot-Dot Right,”
         https://9p.io/sys/doc/lexnames.html
     **/
-    static public function clean(_path:String):String {
+    static public inline function clean(_path:String):String {
+        final _path = (_path : stdgo.GoString);
         return stdgo._internal.path.Path_clean.clean(_path);
     }
     /**
@@ -178,7 +118,8 @@ class Path {
         file set to path.
         The returned values have the property that path = dir+file.
     **/
-    static public function split(_path:String):stdgo.Tuple<String, String> {
+    static public inline function split(_path:String):stdgo.Tuple<String, String> {
+        final _path = (_path : stdgo.GoString);
         return {
             final obj = stdgo._internal.path.Path_split.split(_path);
             { _0 : obj._0, _1 : obj._1 };
@@ -191,7 +132,7 @@ class Path {
         empty or all its elements are empty, Join returns
         an empty string.
     **/
-    static public function join(_elem:haxe.Rest<String>):String {
+    static public inline function join(_elem:haxe.Rest<String>):String {
         return stdgo._internal.path.Path_join.join(...[for (i in _elem) i]);
     }
     /**
@@ -200,7 +141,8 @@ class Path {
         in the final slash-separated element of path;
         it is empty if there is no dot.
     **/
-    static public function ext(_path:String):String {
+    static public inline function ext(_path:String):String {
+        final _path = (_path : stdgo.GoString);
         return stdgo._internal.path.Path_ext.ext(_path);
     }
     /**
@@ -209,13 +151,15 @@ class Path {
         If the path is empty, Base returns ".".
         If the path consists entirely of slashes, Base returns "/".
     **/
-    static public function base(_path:String):String {
+    static public inline function base(_path:String):String {
+        final _path = (_path : stdgo.GoString);
         return stdgo._internal.path.Path_base.base(_path);
     }
     /**
         IsAbs reports whether the path is absolute.
     **/
-    static public function isAbs(_path:String):Bool {
+    static public inline function isAbs(_path:String):Bool {
+        final _path = (_path : stdgo.GoString);
         return stdgo._internal.path.Path_isAbs.isAbs(_path);
     }
     /**
@@ -227,7 +171,8 @@ class Path {
         returns a single slash. In any other case, the returned path does not end in a
         slash.
     **/
-    static public function dir(_path:String):String {
+    static public inline function dir(_path:String):String {
+        final _path = (_path : stdgo.GoString);
         return stdgo._internal.path.Path_dir.dir(_path);
     }
 }

@@ -1,4 +1,10 @@
 package stdgo._internal.testing.iotest;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.log.Log;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
 @:structInit @:using(stdgo._internal.testing.iotest.Iotest_T_dataErrReader_static_extension.T_dataErrReader_static_extension) class T_dataErrReader {
     public var _r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _unread : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

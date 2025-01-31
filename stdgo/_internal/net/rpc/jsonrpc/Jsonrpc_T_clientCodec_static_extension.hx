@@ -1,4 +1,9 @@
 package stdgo._internal.net.rpc.jsonrpc;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.json.Json;
+import stdgo._internal.net.rpc.Rpc;
+import stdgo._internal.net.Net;
+import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.net.rpc.jsonrpc.Jsonrpc.T_clientCodec_asInterface) class T_clientCodec_static_extension {
     @:keep
     @:tdfield
@@ -58,6 +63,6 @@ package stdgo._internal.net.rpc.jsonrpc;
         (@:checkr _c ?? throw "null pointer dereference")._req.method = (@:checkr _r ?? throw "null pointer dereference").serviceMethod?.__copy__();
         (@:checkr _c ?? throw "null pointer dereference")._req.params[(0 : stdgo.GoInt)] = _param;
         (@:checkr _c ?? throw "null pointer dereference")._req.id = (@:checkr _r ?? throw "null pointer dereference").seq;
-        return @:check2r (@:checkr _c ?? throw "null pointer dereference")._enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef((@:checkr _c ?? throw "null pointer dereference")._req) : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientRequest.T_clientRequest>)));
+        return @:check2r (@:checkr _c ?? throw "null pointer dereference")._enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _c ?? throw "null pointer dereference")._req) : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientRequest.T_clientRequest>))));
     }
 }

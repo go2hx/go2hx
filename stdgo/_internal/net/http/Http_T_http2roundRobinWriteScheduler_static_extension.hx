@@ -31,7 +31,7 @@ package stdgo._internal.net.http;
     static public function push( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2roundRobinWriteScheduler.T_http2roundRobinWriteScheduler>, _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Void {
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2roundRobinWriteScheduler.T_http2roundRobinWriteScheduler> = _ws;
         if (_wr._isControl()) {
-            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._control._push(_wr?.__copy__());
+            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._control._push(_wr);
             return;
         };
         var _q = ((@:checkr _ws ?? throw "null pointer dereference")._streams[_wr.streamID()] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>));
@@ -39,10 +39,10 @@ package stdgo._internal.net.http;
             if ((_wr.dataSize() > (0 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("add DATA on non-open stream" : stdgo.GoString));
             };
-            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._control._push(_wr?.__copy__());
+            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._control._push(_wr);
             return;
         };
-        @:check2r _q._push(_wr?.__copy__());
+        @:check2r _q._push(_wr);
     }
     @:keep
     @:tdfield
@@ -74,7 +74,7 @@ package stdgo._internal.net.http;
     static public function openStream( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2roundRobinWriteScheduler.T_http2roundRobinWriteScheduler>, _streamID:stdgo.GoUInt32, _options:stdgo._internal.net.http.Http_T_http2OpenStreamOptions.T_http2OpenStreamOptions):Void {
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2roundRobinWriteScheduler.T_http2roundRobinWriteScheduler> = _ws;
         if ((((@:checkr _ws ?? throw "null pointer dereference")._streams[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>)) != null && (((@:checkr _ws ?? throw "null pointer dereference")._streams[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>) : Dynamic).__nil__ == null || !((@:checkr _ws ?? throw "null pointer dereference")._streams[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>) : Dynamic).__nil__))) {
-            throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_errorf.errorf(("stream %d already opened" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
+            throw stdgo.Go.toInterface(stdgo._internal.net.http.Http__fmt._fmt.errorf(("stream %d already opened" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
         };
         var _q = @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._get();
         (@:checkr _ws ?? throw "null pointer dereference")._streams[_streamID] = _q;

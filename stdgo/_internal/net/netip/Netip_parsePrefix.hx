@@ -1,4 +1,10 @@
 package stdgo._internal.net.netip;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.internal.intern.Intern;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.math.bits.Bits;
 function parsePrefix(_s:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Netip_Prefix.Prefix; var _1 : stdgo.Error; } {
         var _i = (stdgo._internal.net.netip.Netip__stringsLastIndexByte._stringsLastIndexByte(_s?.__copy__(), (47 : stdgo.GoUInt8)) : stdgo.GoInt);
         if ((_i < (0 : stdgo.GoInt) : Bool)) {

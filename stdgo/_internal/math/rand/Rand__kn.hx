@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 var _kn : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(128, 128, ...[
 (1991057938u32 : stdgo.GoUInt32),
 (0u32 : stdgo.GoUInt32),

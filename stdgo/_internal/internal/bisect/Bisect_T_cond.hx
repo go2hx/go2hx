@@ -1,5 +1,5 @@
 package stdgo._internal.internal.bisect;
-@:structInit class T_cond {
+@:structInit @:using(stdgo._internal.internal.bisect.Bisect_T_cond_static_extension.T_cond_static_extension) class T_cond {
     public var _mask : stdgo.GoUInt64 = 0;
     public var _bits : stdgo.GoUInt64 = 0;
     public var _result : Bool = false;

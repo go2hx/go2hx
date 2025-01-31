@@ -1,7 +1,7 @@
 package stdgo.encoding.json;
 class Unmarshaler_static_extension {
     static public function unmarshalJSON(t:stdgo._internal.encoding.json.Json_Unmarshaler.Unmarshaler, _0:Array<std.UInt>):stdgo.Error {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_Unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalJSON(t, _0);
     }
 }
@@ -15,67 +15,67 @@ class Marshaler_static_extension {
     }
 }
 typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
-@:structInit abstract T_codeResponse(stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse) from stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse to stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse {
+@:structInit @:using(stdgo.encoding.json.Json.T_codeResponse_static_extension) abstract T_codeResponse(stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse) from stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse to stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse {
     public var tree(get, set) : T_codeNode;
     function get_tree():T_codeNode return this.tree;
     function set_tree(v:T_codeNode):T_codeNode {
-        this.tree = v;
+        this.tree = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>);
         return v;
     }
     public var username(get, set) : String;
     function get_username():String return this.username;
     function set_username(v:String):String {
-        this.username = v;
+        this.username = (v : stdgo.GoString);
         return v;
     }
-    public function new(?tree:T_codeNode, ?username:String) this = new stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse(tree, username);
+    public function new(?tree:T_codeNode, ?username:String) this = new stdgo._internal.encoding.json.Json_T_codeResponse.T_codeResponse((tree : stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>), (username : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_codeNode(stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode) from stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode to stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode {
+@:structInit @:using(stdgo.encoding.json.Json.T_codeNode_static_extension) abstract T_codeNode(stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode) from stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode to stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var kids(get, set) : Array<T_codeNode>;
     function get_kids():Array<T_codeNode> return [for (i in this.kids) i];
     function set_kids(v:Array<T_codeNode>):Array<T_codeNode> {
-        this.kids = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>>);
+        this.kids = ([for (i in v) (i : stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>>);
         return v;
     }
     public var cLWeight(get, set) : StdTypes.Float;
     function get_cLWeight():StdTypes.Float return this.cLWeight;
     function set_cLWeight(v:StdTypes.Float):StdTypes.Float {
-        this.cLWeight = v;
+        this.cLWeight = (v : stdgo.GoFloat64);
         return v;
     }
     public var touches(get, set) : StdTypes.Int;
     function get_touches():StdTypes.Int return this.touches;
     function set_touches(v:StdTypes.Int):StdTypes.Int {
-        this.touches = v;
+        this.touches = (v : stdgo.GoInt);
         return v;
     }
     public var minT(get, set) : haxe.Int64;
     function get_minT():haxe.Int64 return this.minT;
     function set_minT(v:haxe.Int64):haxe.Int64 {
-        this.minT = v;
+        this.minT = (v : stdgo.GoInt64);
         return v;
     }
     public var maxT(get, set) : haxe.Int64;
     function get_maxT():haxe.Int64 return this.maxT;
     function set_maxT(v:haxe.Int64):haxe.Int64 {
-        this.maxT = v;
+        this.maxT = (v : stdgo.GoInt64);
         return v;
     }
     public var meanT(get, set) : haxe.Int64;
     function get_meanT():haxe.Int64 return this.meanT;
     function set_meanT(v:haxe.Int64):haxe.Int64 {
-        this.meanT = v;
+        this.meanT = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?name:String, ?kids:Array<T_codeNode>, ?cLWeight:StdTypes.Float, ?touches:StdTypes.Int, ?minT:haxe.Int64, ?maxT:haxe.Int64, ?meanT:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode(name, ([for (i in kids) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>>), cLWeight, touches, minT, maxT, meanT);
+    public function new(?name:String, ?kids:Array<T_codeNode>, ?cLWeight:StdTypes.Float, ?touches:StdTypes.Int, ?minT:haxe.Int64, ?maxT:haxe.Int64, ?meanT:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode((name : stdgo.GoString), ([for (i in kids) (i : stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_T_codeNode.T_codeNode>>), (cLWeight : stdgo.GoFloat64), (touches : stdgo.GoInt), (minT : stdgo.GoInt64), (maxT : stdgo.GoInt64), (meanT : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -83,7 +83,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var value(get, set) : String;
     function get_value():String return this.value;
     function set_value(v:String):String {
-        this.value = v;
+        this.value = (v : stdgo.GoString);
         return v;
     }
     public var type(get, set) : stdgo._internal.reflect.Reflect_Type_.Type_;
@@ -95,22 +95,22 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var offset(get, set) : haxe.Int64;
     function get_offset():haxe.Int64 return this.offset;
     function set_offset(v:haxe.Int64):haxe.Int64 {
-        this.offset = v;
+        this.offset = (v : stdgo.GoInt64);
         return v;
     }
     public var struct_(get, set) : String;
     function get_struct_():String return this.struct_;
     function set_struct_(v:String):String {
-        this.struct_ = v;
+        this.struct_ = (v : stdgo.GoString);
         return v;
     }
     public var field(get, set) : String;
     function get_field():String return this.field;
     function set_field(v:String):String {
-        this.field = v;
+        this.field = (v : stdgo.GoString);
         return v;
     }
-    public function new(?value:String, ?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?offset:haxe.Int64, ?struct_:String, ?field:String) this = new stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError(value, type, offset, struct_, field);
+    public function new(?value:String, ?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?offset:haxe.Int64, ?struct_:String, ?field:String) this = new stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError((value : stdgo.GoString), type, (offset : stdgo.GoInt64), (struct_ : stdgo.GoString), (field : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -118,7 +118,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var key(get, set) : String;
     function get_key():String return this.key;
     function set_key(v:String):String {
-        this.key = v;
+        this.key = (v : stdgo.GoString);
         return v;
     }
     public var type(get, set) : stdgo._internal.reflect.Reflect_Type_.Type_;
@@ -133,7 +133,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
         this.field = v;
         return v;
     }
-    public function new(?key:String, ?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?field:stdgo._internal.reflect.Reflect_StructField.StructField) this = new stdgo._internal.encoding.json.Json_UnmarshalFieldError.UnmarshalFieldError(key, type, field);
+    public function new(?key:String, ?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?field:stdgo._internal.reflect.Reflect_StructField.StructField) this = new stdgo._internal.encoding.json.Json_UnmarshalFieldError.UnmarshalFieldError((key : stdgo.GoString), type, field);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -148,7 +148,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_errorContext(stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext) from stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext to stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext {
+@:structInit @:using(stdgo.encoding.json.Json.T_errorContext_static_extension) abstract T_errorContext(stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext) from stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext to stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext {
     public var struct_(get, set) : stdgo._internal.reflect.Reflect_Type_.Type_;
     function get_struct_():stdgo._internal.reflect.Reflect_Type_.Type_ return this.struct_;
     function set_struct_(v:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo._internal.reflect.Reflect_Type_.Type_ {
@@ -158,10 +158,10 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var fieldStack(get, set) : Array<String>;
     function get_fieldStack():Array<String> return [for (i in this.fieldStack) i];
     function set_fieldStack(v:Array<String>):Array<String> {
-        this.fieldStack = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.fieldStack = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?struct_:stdgo._internal.reflect.Reflect_Type_.Type_, ?fieldStack:Array<String>) this = new stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext(struct_, ([for (i in fieldStack) i] : stdgo.Slice<stdgo.GoString>));
+    public function new(?struct_:stdgo._internal.reflect.Reflect_Type_.Type_, ?fieldStack:Array<String>) this = new stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext(struct_, ([for (i in fieldStack) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -169,19 +169,19 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var _data(get, set) : Array<std.UInt>;
     function get__data():Array<std.UInt> return [for (i in this._data) i];
     function set__data(v:Array<std.UInt>):Array<std.UInt> {
-        this._data = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._data = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _off(get, set) : StdTypes.Int;
     function get__off():StdTypes.Int return this._off;
     function set__off(v:StdTypes.Int):StdTypes.Int {
-        this._off = v;
+        this._off = (v : stdgo.GoInt);
         return v;
     }
     public var _opcode(get, set) : StdTypes.Int;
     function get__opcode():StdTypes.Int return this._opcode;
     function set__opcode(v:StdTypes.Int):StdTypes.Int {
-        this._opcode = v;
+        this._opcode = (v : stdgo.GoInt);
         return v;
     }
     public var _scan(get, set) : T_scanner;
@@ -193,13 +193,13 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var _errorContext(get, set) : T_errorContext;
     function get__errorContext():T_errorContext return this._errorContext;
     function set__errorContext(v:T_errorContext):T_errorContext {
-        this._errorContext = v;
+        this._errorContext = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext>);
         return v;
     }
     public var _savedError(get, set) : stdgo.Error;
     function get__savedError():stdgo.Error return this._savedError;
     function set__savedError(v:stdgo.Error):stdgo.Error {
-        this._savedError = v;
+        this._savedError = (v : stdgo.Error);
         return v;
     }
     public var _useNumber(get, set) : Bool;
@@ -214,60 +214,60 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
         this._disallowUnknownFields = v;
         return v;
     }
-    public function new(?_data:Array<std.UInt>, ?_off:StdTypes.Int, ?_opcode:StdTypes.Int, ?_scan:T_scanner, ?_errorContext:T_errorContext, ?_savedError:stdgo.Error, ?_useNumber:Bool, ?_disallowUnknownFields:Bool) this = new stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState(([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>), _off, _opcode, _scan, _errorContext, _savedError, _useNumber, _disallowUnknownFields);
+    public function new(?_data:Array<std.UInt>, ?_off:StdTypes.Int, ?_opcode:StdTypes.Int, ?_scan:T_scanner, ?_errorContext:T_errorContext, ?_savedError:stdgo.Error, ?_useNumber:Bool, ?_disallowUnknownFields:Bool) this = new stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState(([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_off : stdgo.GoInt), (_opcode : stdgo.GoInt), _scan, (_errorContext : stdgo.Ref<stdgo._internal.encoding.json.Json_T_errorContext.T_errorContext>), (_savedError : stdgo.Error), _useNumber, _disallowUnknownFields);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_unquotedValue(stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue) from stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue to stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue {
+@:structInit @:using(stdgo.encoding.json.Json.T_unquotedValue_static_extension) abstract T_unquotedValue(stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue) from stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue to stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue {
     public function new() this = new stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_(stdgo._internal.encoding.json.Json_T_.T_) from stdgo._internal.encoding.json.Json_T_.T_ to stdgo._internal.encoding.json.Json_T_.T_ {
+@:structInit @:using(stdgo.encoding.json.Json.T__static_extension) abstract T_(stdgo._internal.encoding.json.Json_T_.T_) from stdgo._internal.encoding.json.Json_T_.T_ to stdgo._internal.encoding.json.Json_T_.T_ {
     public var x(get, set) : String;
     function get_x():String return this.x;
     function set_x(v:String):String {
-        this.x = v;
+        this.x = (v : stdgo.GoString);
         return v;
     }
     public var y(get, set) : StdTypes.Int;
     function get_y():StdTypes.Int return this.y;
     function set_y(v:StdTypes.Int):StdTypes.Int {
-        this.y = v;
+        this.y = (v : stdgo.GoInt);
         return v;
     }
     public var z(get, set) : StdTypes.Int;
     function get_z():StdTypes.Int return this.z;
     function set_z(v:StdTypes.Int):StdTypes.Int {
-        this.z = v;
+        this.z = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?x:String, ?y:StdTypes.Int, ?z:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_.T_(x, y, z);
+    public function new(?x:String, ?y:StdTypes.Int, ?z:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_.T_((x : stdgo.GoString), (y : stdgo.GoInt), (z : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract U(stdgo._internal.encoding.json.Json_U.U) from stdgo._internal.encoding.json.Json_U.U to stdgo._internal.encoding.json.Json_U.U {
+@:structInit @:using(stdgo.encoding.json.Json.U_static_extension) abstract U(stdgo._internal.encoding.json.Json_U.U) from stdgo._internal.encoding.json.Json_U.U to stdgo._internal.encoding.json.Json_U.U {
     public var alphabet(get, set) : String;
     function get_alphabet():String return this.alphabet;
     function set_alphabet(v:String):String {
-        this.alphabet = v;
+        this.alphabet = (v : stdgo.GoString);
         return v;
     }
-    public function new(?alphabet:String) this = new stdgo._internal.encoding.json.Json_U.U(alphabet);
+    public function new(?alphabet:String) this = new stdgo._internal.encoding.json.Json_U.U((alphabet : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract V(stdgo._internal.encoding.json.Json_V.V) from stdgo._internal.encoding.json.Json_V.V to stdgo._internal.encoding.json.Json_V.V {
+@:structInit @:using(stdgo.encoding.json.Json.V_static_extension) abstract V(stdgo._internal.encoding.json.Json_V.V) from stdgo._internal.encoding.json.Json_V.V to stdgo._internal.encoding.json.Json_V.V {
     public var f1(get, set) : stdgo.AnyInterface;
     function get_f1():stdgo.AnyInterface return this.f1;
     function set_f1(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.f1 = v;
+        this.f1 = (v : stdgo.AnyInterface);
         return v;
     }
     public var f2(get, set) : StdTypes.Int;
     function get_f2():StdTypes.Int return this.f2;
     function set_f2(v:StdTypes.Int):StdTypes.Int {
-        this.f2 = v;
+        this.f2 = (v : stdgo.GoInt32);
         return v;
     }
     public var f3(get, set) : Number;
@@ -279,14 +279,14 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var f4(get, set) : VOuter;
     function get_f4():VOuter return this.f4;
     function set_f4(v:VOuter):VOuter {
-        this.f4 = v;
+        this.f4 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_VOuter.VOuter>);
         return v;
     }
-    public function new(?f1:stdgo.AnyInterface, ?f2:StdTypes.Int, ?f3:Number, ?f4:VOuter) this = new stdgo._internal.encoding.json.Json_V.V(f1, f2, f3, f4);
+    public function new(?f1:stdgo.AnyInterface, ?f2:StdTypes.Int, ?f3:Number, ?f4:VOuter) this = new stdgo._internal.encoding.json.Json_V.V((f1 : stdgo.AnyInterface), (f2 : stdgo.GoInt32), f3, (f4 : stdgo.Ref<stdgo._internal.encoding.json.Json_VOuter.VOuter>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract VOuter(stdgo._internal.encoding.json.Json_VOuter.VOuter) from stdgo._internal.encoding.json.Json_VOuter.VOuter to stdgo._internal.encoding.json.Json_VOuter.VOuter {
+@:structInit @:using(stdgo.encoding.json.Json.VOuter_static_extension) abstract VOuter(stdgo._internal.encoding.json.Json_VOuter.VOuter) from stdgo._internal.encoding.json.Json_VOuter.VOuter to stdgo._internal.encoding.json.Json_VOuter.VOuter {
     public var v(get, set) : V;
     function get_v():V return this.v;
     function set_v(v:V):V {
@@ -297,7 +297,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract W(stdgo._internal.encoding.json.Json_W.W) from stdgo._internal.encoding.json.Json_W.W to stdgo._internal.encoding.json.Json_W.W {
+@:structInit @:using(stdgo.encoding.json.Json.W_static_extension) abstract W(stdgo._internal.encoding.json.Json_W.W) from stdgo._internal.encoding.json.Json_W.W to stdgo._internal.encoding.json.Json_W.W {
     public var s(get, set) : SS;
     function get_s():SS return this.s;
     function set_s(v:SS):SS {
@@ -308,7 +308,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract P(stdgo._internal.encoding.json.Json_P.P) from stdgo._internal.encoding.json.Json_P.P to stdgo._internal.encoding.json.Json_P.P {
+@:structInit @:using(stdgo.encoding.json.Json.P_static_extension) abstract P(stdgo._internal.encoding.json.Json_P.P) from stdgo._internal.encoding.json.Json_P.P to stdgo._internal.encoding.json.Json_P.P {
     public var pP(get, set) : PP;
     function get_pP():PP return this.pP;
     function set_pP(v:PP):PP {
@@ -319,7 +319,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract PP(stdgo._internal.encoding.json.Json_PP.PP) from stdgo._internal.encoding.json.Json_PP.PP to stdgo._internal.encoding.json.Json_PP.PP {
+@:structInit @:using(stdgo.encoding.json.Json.PP_static_extension) abstract PP(stdgo._internal.encoding.json.Json_PP.PP) from stdgo._internal.encoding.json.Json_PP.PP to stdgo._internal.encoding.json.Json_PP.PP {
     public var t(get, set) : T_;
     function get_t():T_ return this.t;
     function set_t(v:T_):T_ {
@@ -336,14 +336,14 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tx(stdgo._internal.encoding.json.Json_T_tx.T_tx) from stdgo._internal.encoding.json.Json_T_tx.T_tx to stdgo._internal.encoding.json.Json_T_tx.T_tx {
+@:structInit @:using(stdgo.encoding.json.Json.T_tx_static_extension) abstract T_tx(stdgo._internal.encoding.json.Json_T_tx.T_tx) from stdgo._internal.encoding.json.Json_T_tx.T_tx to stdgo._internal.encoding.json.Json_T_tx.T_tx {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_tx.T_tx(_x);
+    public function new(?_x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_tx.T_tx((_x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -358,7 +358,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_ustruct(stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct) from stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct to stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct {
+@:structInit @:using(stdgo.encoding.json.Json.T_ustruct_static_extension) abstract T_ustruct(stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct) from stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct to stdgo._internal.encoding.json.Json_T_ustruct.T_ustruct {
     public var m(get, set) : T_unmarshaler;
     function get_m():T_unmarshaler return this.m;
     function set_m(v:T_unmarshaler):T_unmarshaler {
@@ -373,20 +373,20 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var a(get, set) : String;
     function get_a():String return this.a;
     function set_a(v:String):String {
-        this.a = v;
+        this.a = (v : stdgo.GoString);
         return v;
     }
     public var b(get, set) : String;
     function get_b():String return this.b;
     function set_b(v:String):String {
-        this.b = v;
+        this.b = (v : stdgo.GoString);
         return v;
     }
-    public function new(?a:String, ?b:String) this = new stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText(a, b);
+    public function new(?a:String, ?b:String) this = new stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText((a : stdgo.GoString), (b : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_ustructText(stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText) from stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText to stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText {
+@:structInit @:using(stdgo.encoding.json.Json.T_ustructText_static_extension) abstract T_ustructText(stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText) from stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText to stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText {
     public var m(get, set) : T_unmarshalerText;
     function get_m():T_unmarshalerText return this.m;
     function set_m(v:T_unmarshalerText):T_unmarshalerText {
@@ -397,14 +397,14 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Point(stdgo._internal.encoding.json.Json_Point.Point) from stdgo._internal.encoding.json.Json_Point.Point to stdgo._internal.encoding.json.Json_Point.Point {
+@:structInit @:using(stdgo.encoding.json.Json.Point_static_extension) abstract Point(stdgo._internal.encoding.json.Json_Point.Point) from stdgo._internal.encoding.json.Json_Point.Point to stdgo._internal.encoding.json.Json_Point.Point {
     public var z(get, set) : StdTypes.Int;
     function get_z():StdTypes.Int return this.z;
     function set_z(v:StdTypes.Int):StdTypes.Int {
-        this.z = v;
+        this.z = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?z:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Point.Point(z);
+    public function new(?z:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Point.Point((z : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -412,7 +412,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var level0(get, set) : StdTypes.Int;
     function get_level0():StdTypes.Int return this.level0;
     function set_level0(v:StdTypes.Int):StdTypes.Int {
-        this.level0 = v;
+        this.level0 = (v : stdgo.GoInt);
         return v;
     }
     public var embed0(get, set) : Embed0;
@@ -424,13 +424,13 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var embed0a(get, set) : Embed0a;
     function get_embed0a():Embed0a return this.embed0a;
     function set_embed0a(v:Embed0a):Embed0a {
-        this.embed0a = v;
+        this.embed0a = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_Embed0a.Embed0a>);
         return v;
     }
     public var embed0b(get, set) : Embed0b;
     function get_embed0b():Embed0b return this.embed0b;
     function set_embed0b(v:Embed0b):Embed0b {
-        this.embed0b = v;
+        this.embed0b = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_Embed0b.Embed0b>);
         return v;
     }
     public var embed0c(get, set) : Embed0c;
@@ -463,77 +463,77 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
         this._embed = v;
         return v;
     }
-    public function new(?level0:StdTypes.Int, ?embed0:Embed0, ?embed0a:Embed0a, ?embed0b:Embed0b, ?embed0c:Embed0c, ?loop:Loop, ?embed0p:Embed0p, ?embed0q:Embed0q, ?_embed:T_embed) this = new stdgo._internal.encoding.json.Json_Top.Top(level0, embed0, embed0a, embed0b, embed0c, loop, embed0p, embed0q, _embed);
+    public function new(?level0:StdTypes.Int, ?embed0:Embed0, ?embed0a:Embed0a, ?embed0b:Embed0b, ?embed0c:Embed0c, ?loop:Loop, ?embed0p:Embed0p, ?embed0q:Embed0q, ?_embed:T_embed) this = new stdgo._internal.encoding.json.Json_Top.Top((level0 : stdgo.GoInt), embed0, (embed0a : stdgo.Ref<stdgo._internal.encoding.json.Json_Embed0a.Embed0a>), (embed0b : stdgo.Ref<stdgo._internal.encoding.json.Json_Embed0b.Embed0b>), embed0c, loop, embed0p, embed0q, _embed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Embed0(stdgo._internal.encoding.json.Json_Embed0.Embed0) from stdgo._internal.encoding.json.Json_Embed0.Embed0 to stdgo._internal.encoding.json.Json_Embed0.Embed0 {
+@:structInit @:using(stdgo.encoding.json.Json.Embed0_static_extension) abstract Embed0(stdgo._internal.encoding.json.Json_Embed0.Embed0) from stdgo._internal.encoding.json.Json_Embed0.Embed0 to stdgo._internal.encoding.json.Json_Embed0.Embed0 {
     public var level1a(get, set) : StdTypes.Int;
     function get_level1a():StdTypes.Int return this.level1a;
     function set_level1a(v:StdTypes.Int):StdTypes.Int {
-        this.level1a = v;
+        this.level1a = (v : stdgo.GoInt);
         return v;
     }
     public var level1b(get, set) : StdTypes.Int;
     function get_level1b():StdTypes.Int return this.level1b;
     function set_level1b(v:StdTypes.Int):StdTypes.Int {
-        this.level1b = v;
+        this.level1b = (v : stdgo.GoInt);
         return v;
     }
     public var level1c(get, set) : StdTypes.Int;
     function get_level1c():StdTypes.Int return this.level1c;
     function set_level1c(v:StdTypes.Int):StdTypes.Int {
-        this.level1c = v;
+        this.level1c = (v : stdgo.GoInt);
         return v;
     }
     public var level1d(get, set) : StdTypes.Int;
     function get_level1d():StdTypes.Int return this.level1d;
     function set_level1d(v:StdTypes.Int):StdTypes.Int {
-        this.level1d = v;
+        this.level1d = (v : stdgo.GoInt);
         return v;
     }
     public var level1e(get, set) : StdTypes.Int;
     function get_level1e():StdTypes.Int return this.level1e;
     function set_level1e(v:StdTypes.Int):StdTypes.Int {
-        this.level1e = v;
+        this.level1e = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?level1a:StdTypes.Int, ?level1b:StdTypes.Int, ?level1c:StdTypes.Int, ?level1d:StdTypes.Int, ?level1e:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Embed0.Embed0(level1a, level1b, level1c, level1d, level1e);
+    public function new(?level1a:StdTypes.Int, ?level1b:StdTypes.Int, ?level1c:StdTypes.Int, ?level1d:StdTypes.Int, ?level1e:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Embed0.Embed0((level1a : stdgo.GoInt), (level1b : stdgo.GoInt), (level1c : stdgo.GoInt), (level1d : stdgo.GoInt), (level1e : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Embed0a(stdgo._internal.encoding.json.Json_Embed0a.Embed0a) from stdgo._internal.encoding.json.Json_Embed0a.Embed0a to stdgo._internal.encoding.json.Json_Embed0a.Embed0a {
+@:structInit @:using(stdgo.encoding.json.Json.Embed0a_static_extension) abstract Embed0a(stdgo._internal.encoding.json.Json_Embed0a.Embed0a) from stdgo._internal.encoding.json.Json_Embed0a.Embed0a to stdgo._internal.encoding.json.Json_Embed0a.Embed0a {
     public var level1a(get, set) : StdTypes.Int;
     function get_level1a():StdTypes.Int return this.level1a;
     function set_level1a(v:StdTypes.Int):StdTypes.Int {
-        this.level1a = v;
+        this.level1a = (v : stdgo.GoInt);
         return v;
     }
     public var level1b(get, set) : StdTypes.Int;
     function get_level1b():StdTypes.Int return this.level1b;
     function set_level1b(v:StdTypes.Int):StdTypes.Int {
-        this.level1b = v;
+        this.level1b = (v : stdgo.GoInt);
         return v;
     }
     public var level1c(get, set) : StdTypes.Int;
     function get_level1c():StdTypes.Int return this.level1c;
     function set_level1c(v:StdTypes.Int):StdTypes.Int {
-        this.level1c = v;
+        this.level1c = (v : stdgo.GoInt);
         return v;
     }
     public var level1d(get, set) : StdTypes.Int;
     function get_level1d():StdTypes.Int return this.level1d;
     function set_level1d(v:StdTypes.Int):StdTypes.Int {
-        this.level1d = v;
+        this.level1d = (v : stdgo.GoInt);
         return v;
     }
     public var level1f(get, set) : StdTypes.Int;
     function get_level1f():StdTypes.Int return this.level1f;
     function set_level1f(v:StdTypes.Int):StdTypes.Int {
-        this.level1f = v;
+        this.level1f = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?level1a:StdTypes.Int, ?level1b:StdTypes.Int, ?level1c:StdTypes.Int, ?level1d:StdTypes.Int, ?level1f:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Embed0a.Embed0a(level1a, level1b, level1c, level1d, level1f);
+    public function new(?level1a:StdTypes.Int, ?level1b:StdTypes.Int, ?level1c:StdTypes.Int, ?level1d:StdTypes.Int, ?level1f:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Embed0a.Embed0a((level1a : stdgo.GoInt), (level1b : stdgo.GoInt), (level1c : stdgo.GoInt), (level1d : stdgo.GoInt), (level1f : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -559,14 +559,14 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_embed(stdgo._internal.encoding.json.Json_T_embed.T_embed) from stdgo._internal.encoding.json.Json_T_embed.T_embed to stdgo._internal.encoding.json.Json_T_embed.T_embed {
+@:structInit @:using(stdgo.encoding.json.Json.T_embed_static_extension) abstract T_embed(stdgo._internal.encoding.json.Json_T_embed.T_embed) from stdgo._internal.encoding.json.Json_T_embed.T_embed to stdgo._internal.encoding.json.Json_T_embed.T_embed {
     public var q(get, set) : StdTypes.Int;
     function get_q():StdTypes.Int return this.q;
     function set_q(v:StdTypes.Int):StdTypes.Int {
-        this.q = v;
+        this.q = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_embed.T_embed(q);
+    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_embed.T_embed((q : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -574,22 +574,22 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var loop1(get, set) : StdTypes.Int;
     function get_loop1():StdTypes.Int return this.loop1;
     function set_loop1(v:StdTypes.Int):StdTypes.Int {
-        this.loop1 = v;
+        this.loop1 = (v : stdgo.GoInt);
         return v;
     }
     public var loop2(get, set) : StdTypes.Int;
     function get_loop2():StdTypes.Int return this.loop2;
     function set_loop2(v:StdTypes.Int):StdTypes.Int {
-        this.loop2 = v;
+        this.loop2 = (v : stdgo.GoInt);
         return v;
     }
     public var loop(get, set) : Loop;
     function get_loop():Loop return this.loop;
     function set_loop(v:Loop):Loop {
-        this.loop = v;
+        this.loop = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_Loop.Loop>);
         return v;
     }
-    public function new(?loop1:StdTypes.Int, ?loop2:StdTypes.Int, ?loop:Loop) this = new stdgo._internal.encoding.json.Json_Loop.Loop(loop1, loop2, loop);
+    public function new(?loop1:StdTypes.Int, ?loop2:StdTypes.Int, ?loop:Loop) this = new stdgo._internal.encoding.json.Json_Loop.Loop((loop1 : stdgo.GoInt), (loop2 : stdgo.GoInt), (loop : stdgo.Ref<stdgo._internal.encoding.json.Json_Loop.Loop>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -616,14 +616,14 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract S6(stdgo._internal.encoding.json.Json_S6.S6) from stdgo._internal.encoding.json.Json_S6.S6 to stdgo._internal.encoding.json.Json_S6.S6 {
+@:structInit @:using(stdgo.encoding.json.Json.S6_static_extension) abstract S6(stdgo._internal.encoding.json.Json_S6.S6) from stdgo._internal.encoding.json.Json_S6.S6 to stdgo._internal.encoding.json.Json_S6.S6 {
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_S6.S6(x);
+    public function new(?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_S6.S6((x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -638,20 +638,20 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract S9(stdgo._internal.encoding.json.Json_S9.S9) from stdgo._internal.encoding.json.Json_S9.S9 to stdgo._internal.encoding.json.Json_S9.S9 {
+@:structInit @:using(stdgo.encoding.json.Json.S9_static_extension) abstract S9(stdgo._internal.encoding.json.Json_S9.S9) from stdgo._internal.encoding.json.Json_S9.S9 to stdgo._internal.encoding.json.Json_S9.S9 {
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
     public var y(get, set) : StdTypes.Int;
     function get_y():StdTypes.Int return this.y;
     function set_y(v:StdTypes.Int):StdTypes.Int {
-        this.y = v;
+        this.y = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?x:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_S9.S9(x, y);
+    public function new(?x:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_S9.S9((x : stdgo.GoInt), (y : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -711,43 +711,43 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Ambig(stdgo._internal.encoding.json.Json_Ambig.Ambig) from stdgo._internal.encoding.json.Json_Ambig.Ambig to stdgo._internal.encoding.json.Json_Ambig.Ambig {
+@:structInit @:using(stdgo.encoding.json.Json.Ambig_static_extension) abstract Ambig(stdgo._internal.encoding.json.Json_Ambig.Ambig) from stdgo._internal.encoding.json.Json_Ambig.Ambig to stdgo._internal.encoding.json.Json_Ambig.Ambig {
     public var first(get, set) : StdTypes.Int;
     function get_first():StdTypes.Int return this.first;
     function set_first(v:StdTypes.Int):StdTypes.Int {
-        this.first = v;
+        this.first = (v : stdgo.GoInt);
         return v;
     }
     public var second(get, set) : StdTypes.Int;
     function get_second():StdTypes.Int return this.second;
     function set_second(v:StdTypes.Int):StdTypes.Int {
-        this.second = v;
+        this.second = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?first:StdTypes.Int, ?second:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Ambig.Ambig(first, second);
+    public function new(?first:StdTypes.Int, ?second:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Ambig.Ambig((first : stdgo.GoInt), (second : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract XYZ(stdgo._internal.encoding.json.Json_XYZ.XYZ) from stdgo._internal.encoding.json.Json_XYZ.XYZ to stdgo._internal.encoding.json.Json_XYZ.XYZ {
+@:structInit @:using(stdgo.encoding.json.Json.XYZ_static_extension) abstract XYZ(stdgo._internal.encoding.json.Json_XYZ.XYZ) from stdgo._internal.encoding.json.Json_XYZ.XYZ to stdgo._internal.encoding.json.Json_XYZ.XYZ {
     public var x(get, set) : stdgo.AnyInterface;
     function get_x():stdgo.AnyInterface return this.x;
     function set_x(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.x = v;
+        this.x = (v : stdgo.AnyInterface);
         return v;
     }
     public var y(get, set) : stdgo.AnyInterface;
     function get_y():stdgo.AnyInterface return this.y;
     function set_y(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.y = v;
+        this.y = (v : stdgo.AnyInterface);
         return v;
     }
     public var z(get, set) : stdgo.AnyInterface;
     function get_z():stdgo.AnyInterface return this.z;
     function set_z(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.z = v;
+        this.z = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?x:stdgo.AnyInterface, ?y:stdgo.AnyInterface, ?z:stdgo.AnyInterface) this = new stdgo._internal.encoding.json.Json_XYZ.XYZ(x, y, z);
+    public function new(?x:stdgo.AnyInterface, ?y:stdgo.AnyInterface, ?z:stdgo.AnyInterface) this = new stdgo._internal.encoding.json.Json_XYZ.XYZ((x : stdgo.AnyInterface), (y : stdgo.AnyInterface), (z : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -756,40 +756,40 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_mapStringToStringData(stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData) from stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData to stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData {
+@:structInit @:using(stdgo.encoding.json.Json.T_mapStringToStringData_static_extension) abstract T_mapStringToStringData(stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData) from stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData to stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData {
     public var data(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
     function get_data():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.data;
     function set_data(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.data = v;
+        this.data = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         return v;
     }
-    public function new(?data:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData(data);
+    public function new(?data:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.encoding.json.Json_T_mapStringToStringData.T_mapStringToStringData((data : stdgo.GoMap<stdgo.GoString, stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_unmarshalTest(stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest) from stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest to stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest {
+@:structInit @:using(stdgo.encoding.json.Json.T_unmarshalTest_static_extension) abstract T_unmarshalTest(stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest) from stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest to stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
-        this._in = v;
+        this._in = (v : stdgo.GoString);
         return v;
     }
     public var _ptr(get, set) : stdgo.AnyInterface;
     function get__ptr():stdgo.AnyInterface return this._ptr;
     function set__ptr(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this._ptr = v;
+        this._ptr = (v : stdgo.AnyInterface);
         return v;
     }
     public var _out(get, set) : stdgo.AnyInterface;
     function get__out():stdgo.AnyInterface return this._out;
     function set__out(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this._out = v;
+        this._out = (v : stdgo.AnyInterface);
         return v;
     }
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
     public var _useNumber(get, set) : Bool;
@@ -810,11 +810,11 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
         this._disallowUnknownFields = v;
         return v;
     }
-    public function new(?_in:String, ?_ptr:stdgo.AnyInterface, ?_out:stdgo.AnyInterface, ?_err:stdgo.Error, ?_useNumber:Bool, ?_golden:Bool, ?_disallowUnknownFields:Bool) this = new stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest(_in, _ptr, _out, _err, _useNumber, _golden, _disallowUnknownFields);
+    public function new(?_in:String, ?_ptr:stdgo.AnyInterface, ?_out:stdgo.AnyInterface, ?_err:stdgo.Error, ?_useNumber:Bool, ?_golden:Bool, ?_disallowUnknownFields:Bool) this = new stdgo._internal.encoding.json.Json_T_unmarshalTest.T_unmarshalTest((_in : stdgo.GoString), (_ptr : stdgo.AnyInterface), (_out : stdgo.AnyInterface), (_err : stdgo.Error), _useNumber, _golden, _disallowUnknownFields);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract B(stdgo._internal.encoding.json.Json_B.B) from stdgo._internal.encoding.json.Json_B.B to stdgo._internal.encoding.json.Json_B.B {
+@:structInit @:using(stdgo.encoding.json.Json.B_static_extension) abstract B(stdgo._internal.encoding.json.Json_B.B) from stdgo._internal.encoding.json.Json_B.B to stdgo._internal.encoding.json.Json_B.B {
     public var b(get, set) : Bool;
     function get_b():Bool return this.b;
     function set_b(v:Bool):Bool {
@@ -825,7 +825,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract DoublePtr(stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr) from stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr to stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr {
+@:structInit @:using(stdgo.encoding.json.Json.DoublePtr_static_extension) abstract DoublePtr(stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr) from stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr to stdgo._internal.encoding.json.Json_DoublePtr.DoublePtr {
     public var i(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>;
     function get_i():stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> return this.i;
     function set_i(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> {
@@ -842,46 +842,46 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Xint(stdgo._internal.encoding.json.Json_Xint.Xint) from stdgo._internal.encoding.json.Json_Xint.Xint to stdgo._internal.encoding.json.Json_Xint.Xint {
+@:structInit @:using(stdgo.encoding.json.Json.Xint_static_extension) abstract Xint(stdgo._internal.encoding.json.Json_Xint.Xint) from stdgo._internal.encoding.json.Json_Xint.Xint to stdgo._internal.encoding.json.Json_Xint.Xint {
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Xint.Xint(x);
+    public function new(?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_Xint.Xint((x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract WrongString(stdgo._internal.encoding.json.Json_WrongString.WrongString) from stdgo._internal.encoding.json.Json_WrongString.WrongString to stdgo._internal.encoding.json.Json_WrongString.WrongString {
+@:structInit @:using(stdgo.encoding.json.Json.WrongString_static_extension) abstract WrongString(stdgo._internal.encoding.json.Json_WrongString.WrongString) from stdgo._internal.encoding.json.Json_WrongString.WrongString to stdgo._internal.encoding.json.Json_WrongString.WrongString {
     public var message(get, set) : String;
     function get_message():String return this.message;
     function set_message(v:String):String {
-        this.message = v;
+        this.message = (v : stdgo.GoString);
         return v;
     }
-    public function new(?message:String) this = new stdgo._internal.encoding.json.Json_WrongString.WrongString(message);
+    public function new(?message:String) this = new stdgo._internal.encoding.json.Json_WrongString.WrongString((message : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_wrongStringTest(stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest) from stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest to stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest {
+@:structInit @:using(stdgo.encoding.json.Json.T_wrongStringTest_static_extension) abstract T_wrongStringTest(stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest) from stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest to stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
-        this._in = v;
+        this._in = (v : stdgo.GoString);
         return v;
     }
     public var _err(get, set) : String;
     function get__err():String return this._err;
     function set__err(v:String):String {
-        this._err = v;
+        this._err = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_in:String, ?_err:String) this = new stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest(_in, _err);
+    public function new(?_in:String, ?_err:String) this = new stdgo._internal.encoding.json.Json_T_wrongStringTest.T_wrongStringTest((_in : stdgo.GoString), (_err : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract All(stdgo._internal.encoding.json.Json_All.All) from stdgo._internal.encoding.json.Json_All.All to stdgo._internal.encoding.json.Json_All.All {
+@:structInit @:using(stdgo.encoding.json.Json.All_static_extension) abstract All(stdgo._internal.encoding.json.Json_All.All) from stdgo._internal.encoding.json.Json_All.All to stdgo._internal.encoding.json.Json_All.All {
     public var bool_(get, set) : Bool;
     function get_bool_():Bool return this.bool_;
     function set_bool_(v:Bool):Bool {
@@ -891,103 +891,103 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var int_(get, set) : StdTypes.Int;
     function get_int_():StdTypes.Int return this.int_;
     function set_int_(v:StdTypes.Int):StdTypes.Int {
-        this.int_ = v;
+        this.int_ = (v : stdgo.GoInt);
         return v;
     }
     public var int8(get, set) : StdTypes.Int;
     function get_int8():StdTypes.Int return this.int8;
     function set_int8(v:StdTypes.Int):StdTypes.Int {
-        this.int8 = v;
+        this.int8 = (v : stdgo.GoInt8);
         return v;
     }
     public var int16(get, set) : StdTypes.Int;
     function get_int16():StdTypes.Int return this.int16;
     function set_int16(v:StdTypes.Int):StdTypes.Int {
-        this.int16 = v;
+        this.int16 = (v : stdgo.GoInt16);
         return v;
     }
     public var int32(get, set) : StdTypes.Int;
     function get_int32():StdTypes.Int return this.int32;
     function set_int32(v:StdTypes.Int):StdTypes.Int {
-        this.int32 = v;
+        this.int32 = (v : stdgo.GoInt32);
         return v;
     }
     public var int64(get, set) : haxe.Int64;
     function get_int64():haxe.Int64 return this.int64;
     function set_int64(v:haxe.Int64):haxe.Int64 {
-        this.int64 = v;
+        this.int64 = (v : stdgo.GoInt64);
         return v;
     }
     public var uint(get, set) : std.UInt;
     function get_uint():std.UInt return this.uint;
     function set_uint(v:std.UInt):std.UInt {
-        this.uint = v;
+        this.uint = (v : stdgo.GoUInt);
         return v;
     }
     public var uint8(get, set) : std.UInt;
     function get_uint8():std.UInt return this.uint8;
     function set_uint8(v:std.UInt):std.UInt {
-        this.uint8 = v;
+        this.uint8 = (v : stdgo.GoUInt8);
         return v;
     }
     public var uint16(get, set) : std.UInt;
     function get_uint16():std.UInt return this.uint16;
     function set_uint16(v:std.UInt):std.UInt {
-        this.uint16 = v;
+        this.uint16 = (v : stdgo.GoUInt16);
         return v;
     }
     public var uint32(get, set) : std.UInt;
     function get_uint32():std.UInt return this.uint32;
     function set_uint32(v:std.UInt):std.UInt {
-        this.uint32 = v;
+        this.uint32 = (v : stdgo.GoUInt32);
         return v;
     }
     public var uint64(get, set) : haxe.UInt64;
     function get_uint64():haxe.UInt64 return this.uint64;
     function set_uint64(v:haxe.UInt64):haxe.UInt64 {
-        this.uint64 = v;
+        this.uint64 = (v : stdgo.GoUInt64);
         return v;
     }
     public var uintptr(get, set) : stdgo.GoUIntptr;
     function get_uintptr():stdgo.GoUIntptr return this.uintptr;
     function set_uintptr(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        this.uintptr = v;
+        this.uintptr = (v : stdgo.GoUIntptr);
         return v;
     }
     public var float32(get, set) : StdTypes.Float;
     function get_float32():StdTypes.Float return this.float32;
     function set_float32(v:StdTypes.Float):StdTypes.Float {
-        this.float32 = v;
+        this.float32 = (v : stdgo.GoFloat32);
         return v;
     }
     public var float64(get, set) : StdTypes.Float;
     function get_float64():StdTypes.Float return this.float64;
     function set_float64(v:StdTypes.Float):StdTypes.Float {
-        this.float64 = v;
+        this.float64 = (v : stdgo.GoFloat64);
         return v;
     }
     public var foo(get, set) : String;
     function get_foo():String return this.foo;
     function set_foo(v:String):String {
-        this.foo = v;
+        this.foo = (v : stdgo.GoString);
         return v;
     }
     public var foo2(get, set) : String;
     function get_foo2():String return this.foo2;
     function set_foo2(v:String):String {
-        this.foo2 = v;
+        this.foo2 = (v : stdgo.GoString);
         return v;
     }
     public var intStr(get, set) : haxe.Int64;
     function get_intStr():haxe.Int64 return this.intStr;
     function set_intStr(v:haxe.Int64):haxe.Int64 {
-        this.intStr = v;
+        this.intStr = (v : stdgo.GoInt64);
         return v;
     }
     public var uintptrStr(get, set) : stdgo.GoUIntptr;
     function get_uintptrStr():stdgo.GoUIntptr return this.uintptrStr;
     function set_uintptrStr(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        this.uintptrStr = v;
+        this.uintptrStr = (v : stdgo.GoUIntptr);
         return v;
     }
     public var pBool(get, set) : stdgo.Pointer<Bool>;
@@ -1077,7 +1077,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var string(get, set) : String;
     function get_string():String return this.string;
     function set_string(v:String):String {
-        this.string = v;
+        this.string = (v : stdgo.GoString);
         return v;
     }
     public var pString(get, set) : stdgo.Pointer<String>;
@@ -1089,37 +1089,37 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var map_(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>;
     function get_map_():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> return this.map_;
     function set_map_(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> {
-        this.map_ = v;
+        this.map_ = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>);
         return v;
     }
     public var mapP(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>;
     function get_mapP():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>> return this.mapP;
     function set_mapP(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>> {
-        this.mapP = v;
+        this.mapP = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>);
         return v;
     }
     public var pMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>;
     function get_pMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> return this.pMap;
     function set_pMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> {
-        this.pMap = v;
+        this.pMap = (v : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>>);
         return v;
     }
     public var pMapP(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>;
     function get_pMapP():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>> return this.pMapP;
     function set_pMapP(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>> {
-        this.pMapP = v;
+        this.pMapP = (v : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>>);
         return v;
     }
     public var emptyMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>;
     function get_emptyMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> return this.emptyMap;
     function set_emptyMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> {
-        this.emptyMap = v;
+        this.emptyMap = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>);
         return v;
     }
     public var nilMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>;
     function get_nilMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> return this.nilMap;
     function set_nilMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small> {
-        this.nilMap = v;
+        this.nilMap = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>);
         return v;
     }
     public var slice(get, set) : Array<Small>;
@@ -1131,19 +1131,19 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var sliceP(get, set) : Array<Small>;
     function get_sliceP():Array<Small> return [for (i in this.sliceP) i];
     function set_sliceP(v:Array<Small>):Array<Small> {
-        this.sliceP = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>);
+        this.sliceP = ([for (i in v) (i : stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>);
         return v;
     }
     public var pSlice(get, set) : Array<Small>;
     function get_pSlice():Array<Small> return this.pSlice;
     function set_pSlice(v:Array<Small>):Array<Small> {
-        this.pSlice = v;
+        this.pSlice = (v : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json.Json_Small.Small>>);
         return v;
     }
     public var pSliceP(get, set) : Array<Small>;
     function get_pSliceP():Array<Small> return this.pSliceP;
     function set_pSliceP(v:Array<Small>):Array<Small> {
-        this.pSliceP = v;
+        this.pSliceP = (v : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>>);
         return v;
     }
     public var emptySlice(get, set) : Array<Small>;
@@ -1161,13 +1161,13 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var stringSlice(get, set) : Array<String>;
     function get_stringSlice():Array<String> return [for (i in this.stringSlice) i];
     function set_stringSlice(v:Array<String>):Array<String> {
-        this.stringSlice = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.stringSlice = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var byteSlice(get, set) : Array<std.UInt>;
     function get_byteSlice():Array<std.UInt> return [for (i in this.byteSlice) i];
     function set_byteSlice(v:Array<std.UInt>):Array<std.UInt> {
-        this.byteSlice = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this.byteSlice = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var small(get, set) : Small;
@@ -1179,52 +1179,52 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_Marshaler.Marshaler;
     public var pSmall(get, set) : Small;
     function get_pSmall():Small return this.pSmall;
     function set_pSmall(v:Small):Small {
-        this.pSmall = v;
+        this.pSmall = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>);
         return v;
     }
     public var pPSmall(get, set) : Small;
     function get_pPSmall():Small return this.pPSmall;
     function set_pPSmall(v:Small):Small {
-        this.pPSmall = v;
+        this.pPSmall = (v : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>);
         return v;
     }
     public var interface_(get, set) : stdgo.AnyInterface;
     function get_interface_():stdgo.AnyInterface return this.interface_;
     function set_interface_(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.interface_ = v;
+        this.interface_ = (v : stdgo.AnyInterface);
         return v;
     }
     public var pInterface(get, set) : stdgo.AnyInterface;
     function get_pInterface():stdgo.AnyInterface return this.pInterface;
     function set_pInterface(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.pInterface = v;
+        this.pInterface = (v : stdgo.Ref<stdgo.AnyInterface>);
         return v;
     }
     public var _unexported(get, set) : StdTypes.Int;
     function get__unexported():StdTypes.Int return this._unexported;
     function set__unexported(v:StdTypes.Int):StdTypes.Int {
-        this._unexported = v;
+        this._unexported = (v : stdgo.GoInt);
         return v;
     }
     public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?uintptr:stdgo.GoUIntptr, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?foo:String, ?foo2:String, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?pBool:stdgo.Pointer<Bool>, ?pInt:stdgo.Pointer<StdTypes.Int>, ?pInt8:stdgo.Pointer<StdTypes.Int>, ?pInt16:stdgo.Pointer<StdTypes.Int>, ?pInt32:stdgo.Pointer<StdTypes.Int>, ?pInt64:stdgo.Pointer<haxe.Int64>, ?pUint:stdgo.Pointer<std.UInt>, ?pUint8:stdgo.Pointer<std.UInt>, ?pUint16:stdgo.Pointer<std.UInt>, ?pUint32:stdgo.Pointer<std.UInt>, ?pUint64:stdgo.Pointer<haxe.UInt64>, ?pUintptr:stdgo.Pointer<stdgo.GoUIntptr>, ?pFloat32:stdgo.Pointer<StdTypes.Float>, ?pFloat64:stdgo.Pointer<StdTypes.Float>, ?string:String, ?pString:stdgo.Pointer<String>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>, ?mapP:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>, ?pMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>, ?pMapP:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>, ?nilMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>, ?slice:Array<Small>, ?sliceP:Array<Small>, ?pSlice:Array<Small>, ?pSliceP:Array<Small>, ?emptySlice:Array<Small>, ?nilSlice:Array<Small>, ?stringSlice:Array<String>, ?byteSlice:Array<std.UInt>, ?small:Small, ?pSmall:Small, ?pPSmall:Small, ?interface_:stdgo.AnyInterface, ?pInterface:stdgo.AnyInterface, ?_unexported:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_All.All(
 bool_,
-int_,
-int8,
-int16,
-int32,
-int64,
-uint,
-uint8,
-uint16,
-uint32,
-uint64,
-uintptr,
-float32,
-float64,
-foo,
-foo2,
-intStr,
-uintptrStr,
+(int_ : stdgo.GoInt),
+(int8 : stdgo.GoInt8),
+(int16 : stdgo.GoInt16),
+(int32 : stdgo.GoInt32),
+(int64 : stdgo.GoInt64),
+(uint : stdgo.GoUInt),
+(uint8 : stdgo.GoUInt8),
+(uint16 : stdgo.GoUInt16),
+(uint32 : stdgo.GoUInt32),
+(uint64 : stdgo.GoUInt64),
+(uintptr : stdgo.GoUIntptr),
+(float32 : stdgo.GoFloat32),
+(float64 : stdgo.GoFloat64),
+(foo : stdgo.GoString),
+(foo2 : stdgo.GoString),
+(intStr : stdgo.GoInt64),
+(uintptrStr : stdgo.GoUIntptr),
 pBool,
 pInt,
 pInt8,
@@ -1239,43 +1239,43 @@ pUint64,
 pUintptr,
 pFloat32,
 pFloat64,
-string,
+(string : stdgo.GoString),
 pString,
-map_,
-mapP,
-pMap,
-pMapP,
-emptyMap,
-nilMap,
+(map_ : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>),
+(mapP : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>),
+(pMap : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>>),
+(pMapP : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>>),
+(emptyMap : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>),
+(nilMap : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_Small.Small>),
 ([for (i in slice) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_Small.Small>),
-([for (i in sliceP) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>),
-pSlice,
-pSliceP,
+([for (i in sliceP) (i : stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>),
+(pSlice : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json.Json_Small.Small>>),
+(pSliceP : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>>),
 ([for (i in emptySlice) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_Small.Small>),
 ([for (i in nilSlice) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_Small.Small>),
-([for (i in stringSlice) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in byteSlice) i] : stdgo.Slice<stdgo.GoUInt8>),
+([for (i in stringSlice) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in byteSlice) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 small,
-pSmall,
-pPSmall,
-interface_,
-pInterface,
-_unexported);
+(pSmall : stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>),
+(pPSmall : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.json.Json_Small.Small>>),
+(interface_ : stdgo.AnyInterface),
+(pInterface : stdgo.Ref<stdgo.AnyInterface>),
+(_unexported : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Small(stdgo._internal.encoding.json.Json_Small.Small) from stdgo._internal.encoding.json.Json_Small.Small to stdgo._internal.encoding.json.Json_Small.Small {
+@:structInit @:using(stdgo.encoding.json.Json.Small_static_extension) abstract Small(stdgo._internal.encoding.json.Json_Small.Small) from stdgo._internal.encoding.json.Json_Small.Small to stdgo._internal.encoding.json.Json_Small.Small {
     public var tag(get, set) : String;
     function get_tag():String return this.tag;
     function set_tag(v:String):String {
-        this.tag = v;
+        this.tag = (v : stdgo.GoString);
         return v;
     }
-    public function new(?tag:String) this = new stdgo._internal.encoding.json.Json_Small.Small(tag);
+    public function new(?tag:String) this = new stdgo._internal.encoding.json.Json_Small.Small((tag : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract NullTest(stdgo._internal.encoding.json.Json_NullTest.NullTest) from stdgo._internal.encoding.json.Json_NullTest.NullTest to stdgo._internal.encoding.json.Json_NullTest.NullTest {
+@:structInit @:using(stdgo.encoding.json.Json.NullTest_static_extension) abstract NullTest(stdgo._internal.encoding.json.Json_NullTest.NullTest) from stdgo._internal.encoding.json.Json_NullTest.NullTest to stdgo._internal.encoding.json.Json_NullTest.NullTest {
     public var bool_(get, set) : Bool;
     function get_bool_():Bool return this.bool_;
     function set_bool_(v:Bool):Bool {
@@ -1285,79 +1285,79 @@ _unexported);
     public var int_(get, set) : StdTypes.Int;
     function get_int_():StdTypes.Int return this.int_;
     function set_int_(v:StdTypes.Int):StdTypes.Int {
-        this.int_ = v;
+        this.int_ = (v : stdgo.GoInt);
         return v;
     }
     public var int8(get, set) : StdTypes.Int;
     function get_int8():StdTypes.Int return this.int8;
     function set_int8(v:StdTypes.Int):StdTypes.Int {
-        this.int8 = v;
+        this.int8 = (v : stdgo.GoInt8);
         return v;
     }
     public var int16(get, set) : StdTypes.Int;
     function get_int16():StdTypes.Int return this.int16;
     function set_int16(v:StdTypes.Int):StdTypes.Int {
-        this.int16 = v;
+        this.int16 = (v : stdgo.GoInt16);
         return v;
     }
     public var int32(get, set) : StdTypes.Int;
     function get_int32():StdTypes.Int return this.int32;
     function set_int32(v:StdTypes.Int):StdTypes.Int {
-        this.int32 = v;
+        this.int32 = (v : stdgo.GoInt32);
         return v;
     }
     public var int64(get, set) : haxe.Int64;
     function get_int64():haxe.Int64 return this.int64;
     function set_int64(v:haxe.Int64):haxe.Int64 {
-        this.int64 = v;
+        this.int64 = (v : stdgo.GoInt64);
         return v;
     }
     public var uint(get, set) : std.UInt;
     function get_uint():std.UInt return this.uint;
     function set_uint(v:std.UInt):std.UInt {
-        this.uint = v;
+        this.uint = (v : stdgo.GoUInt);
         return v;
     }
     public var uint8(get, set) : std.UInt;
     function get_uint8():std.UInt return this.uint8;
     function set_uint8(v:std.UInt):std.UInt {
-        this.uint8 = v;
+        this.uint8 = (v : stdgo.GoUInt8);
         return v;
     }
     public var uint16(get, set) : std.UInt;
     function get_uint16():std.UInt return this.uint16;
     function set_uint16(v:std.UInt):std.UInt {
-        this.uint16 = v;
+        this.uint16 = (v : stdgo.GoUInt16);
         return v;
     }
     public var uint32(get, set) : std.UInt;
     function get_uint32():std.UInt return this.uint32;
     function set_uint32(v:std.UInt):std.UInt {
-        this.uint32 = v;
+        this.uint32 = (v : stdgo.GoUInt32);
         return v;
     }
     public var uint64(get, set) : haxe.UInt64;
     function get_uint64():haxe.UInt64 return this.uint64;
     function set_uint64(v:haxe.UInt64):haxe.UInt64 {
-        this.uint64 = v;
+        this.uint64 = (v : stdgo.GoUInt64);
         return v;
     }
     public var float32(get, set) : StdTypes.Float;
     function get_float32():StdTypes.Float return this.float32;
     function set_float32(v:StdTypes.Float):StdTypes.Float {
-        this.float32 = v;
+        this.float32 = (v : stdgo.GoFloat32);
         return v;
     }
     public var float64(get, set) : StdTypes.Float;
     function get_float64():StdTypes.Float return this.float64;
     function set_float64(v:StdTypes.Float):StdTypes.Float {
-        this.float64 = v;
+        this.float64 = (v : stdgo.GoFloat64);
         return v;
     }
     public var string(get, set) : String;
     function get_string():String return this.string;
     function set_string(v:String):String {
-        this.string = v;
+        this.string = (v : stdgo.GoString);
         return v;
     }
     public var pBool(get, set) : stdgo.Pointer<Bool>;
@@ -1369,55 +1369,55 @@ _unexported);
     public var map_(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
     function get_map_():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.map_;
     function set_map_(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.map_ = v;
+        this.map_ = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         return v;
     }
     public var slice(get, set) : Array<String>;
     function get_slice():Array<String> return [for (i in this.slice) i];
     function set_slice(v:Array<String>):Array<String> {
-        this.slice = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.slice = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var interface_(get, set) : stdgo.AnyInterface;
     function get_interface_():stdgo.AnyInterface return this.interface_;
     function set_interface_(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.interface_ = v;
+        this.interface_ = (v : stdgo.AnyInterface);
         return v;
     }
     public var pRaw(get, set) : RawMessage;
     function get_pRaw():RawMessage return this.pRaw;
     function set_pRaw(v:RawMessage):RawMessage {
-        this.pRaw = v;
+        this.pRaw = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>);
         return v;
     }
     public var pTime(get, set) : stdgo._internal.time.Time_Time.Time;
     function get_pTime():stdgo._internal.time.Time_Time.Time return this.pTime;
     function set_pTime(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
-        this.pTime = v;
+        this.pTime = (v : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
         return v;
     }
     public var pBigInt(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
     function get_pBigInt():stdgo._internal.math.big.Big_Int_.Int_ return this.pBigInt;
     function set_pBigInt(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.pBigInt = v;
+        this.pBigInt = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return v;
     }
     public var pText(get, set) : MustNotUnmarshalText;
     function get_pText():MustNotUnmarshalText return this.pText;
     function set_pText(v:MustNotUnmarshalText):MustNotUnmarshalText {
-        this.pText = v;
+        this.pText = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_MustNotUnmarshalText.MustNotUnmarshalText>);
         return v;
     }
     public var pBuffer(get, set) : stdgo._internal.bytes.Bytes_Buffer.Buffer;
     function get_pBuffer():stdgo._internal.bytes.Bytes_Buffer.Buffer return this.pBuffer;
     function set_pBuffer(v:stdgo._internal.bytes.Bytes_Buffer.Buffer):stdgo._internal.bytes.Bytes_Buffer.Buffer {
-        this.pBuffer = v;
+        this.pBuffer = (v : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         return v;
     }
     public var pStruct(get, set) : stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue;
     function get_pStruct():stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue return this.pStruct;
     function set_pStruct(v:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue):stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue {
-        this.pStruct = v;
+        this.pStruct = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>);
         return v;
     }
     public var raw(get, set) : RawMessage;
@@ -1458,29 +1458,29 @@ _unexported);
     }
     public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?string:String, ?pBool:stdgo.Pointer<Bool>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?slice:Array<String>, ?interface_:stdgo.AnyInterface, ?pRaw:RawMessage, ?pTime:stdgo._internal.time.Time_Time.Time, ?pBigInt:stdgo._internal.math.big.Big_Int_.Int_, ?pText:MustNotUnmarshalText, ?pBuffer:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?pStruct:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue, ?raw:RawMessage, ?time:stdgo._internal.time.Time_Time.Time, ?bigInt:stdgo._internal.math.big.Big_Int_.Int_, ?text:MustNotUnmarshalText, ?buffer:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?struct_:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_NullTest.NullTest(
 bool_,
-int_,
-int8,
-int16,
-int32,
-int64,
-uint,
-uint8,
-uint16,
-uint32,
-uint64,
-float32,
-float64,
-string,
+(int_ : stdgo.GoInt),
+(int8 : stdgo.GoInt8),
+(int16 : stdgo.GoInt16),
+(int32 : stdgo.GoInt32),
+(int64 : stdgo.GoInt64),
+(uint : stdgo.GoUInt),
+(uint8 : stdgo.GoUInt8),
+(uint16 : stdgo.GoUInt16),
+(uint32 : stdgo.GoUInt32),
+(uint64 : stdgo.GoUInt64),
+(float32 : stdgo.GoFloat32),
+(float64 : stdgo.GoFloat64),
+(string : stdgo.GoString),
 pBool,
-map_,
-([for (i in slice) i] : stdgo.Slice<stdgo.GoString>),
-interface_,
-pRaw,
-pTime,
-pBigInt,
-pText,
-pBuffer,
-pStruct,
+(map_ : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+([for (i in slice) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+(interface_ : stdgo.AnyInterface),
+(pRaw : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>),
+(pTime : stdgo.Ref<stdgo._internal.time.Time_Time.Time>),
+(pBigInt : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>),
+(pText : stdgo.Ref<stdgo._internal.encoding.json.Json_MustNotUnmarshalText.MustNotUnmarshalText>),
+(pBuffer : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>),
+(pStruct : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>),
 raw,
 time,
 bigInt,
@@ -1500,32 +1500,32 @@ struct_);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_unexportedFields(stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields) from stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields to stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields {
+@:structInit @:using(stdgo.encoding.json.Json.T_unexportedFields_static_extension) abstract T_unexportedFields(stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields) from stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields to stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var _m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
     function get__m():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._m;
     function set__m(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._m = v;
+        this._m = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
     public var _m2(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
     function get__m2():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._m2;
     function set__m2(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._m2 = v;
+        this._m2 = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
     public var _s(get, set) : Array<StdTypes.Int>;
     function get__s():Array<StdTypes.Int> return [for (i in this._s) i];
     function set__s(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        this._s = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        this._s = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?name:String, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_m2:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_s:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields(name, _m, _m2, ([for (i in _s) i] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?name:String, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_m2:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_s:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_T_unexportedFields.T_unexportedFields((name : stdgo.GoString), (_m : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), (_m2 : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), ([for (i in _s) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1555,10 +1555,10 @@ struct_);
     public var str(get, set) : String;
     function get_str():String return this.str;
     function set_str(v:String):String {
-        this.str = v;
+        this.str = (v : stdgo.GoString);
         return v;
     }
-    public function new(?value:stdgo._internal.reflect.Reflect_Value.Value, ?str:String) this = new stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError(value, str);
+    public function new(?value:stdgo._internal.reflect.Reflect_Value.Value, ?str:String) this = new stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError(value, (str : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1566,10 +1566,10 @@ struct_);
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
-        this.s = v;
+        this.s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_InvalidUTF8Error.InvalidUTF8Error(s);
+    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_InvalidUTF8Error.InvalidUTF8Error((s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1583,16 +1583,16 @@ struct_);
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
-        this.err = v;
+        this.err = (v : stdgo.Error);
         return v;
     }
     public var _sourceFunc(get, set) : String;
     function get__sourceFunc():String return this._sourceFunc;
     function set__sourceFunc(v:String):String {
-        this._sourceFunc = v;
+        this._sourceFunc = (v : stdgo.GoString);
         return v;
     }
-    public function new(?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?err:stdgo.Error, ?_sourceFunc:String) this = new stdgo._internal.encoding.json.Json_MarshalerError.MarshalerError(type, err, _sourceFunc);
+    public function new(?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?err:stdgo.Error, ?_sourceFunc:String) this = new stdgo._internal.encoding.json.Json_MarshalerError.MarshalerError(type, (err : stdgo.Error), (_sourceFunc : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1606,16 +1606,16 @@ struct_);
     public var _ptrLevel(get, set) : std.UInt;
     function get__ptrLevel():std.UInt return this._ptrLevel;
     function set__ptrLevel(v:std.UInt):std.UInt {
-        this._ptrLevel = v;
+        this._ptrLevel = (v : stdgo.GoUInt);
         return v;
     }
     public var _ptrSeen(get, set) : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>;
     function get__ptrSeen():stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue> return this._ptrSeen;
     function set__ptrSeen(v:stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>):stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue> {
-        this._ptrSeen = v;
+        this._ptrSeen = (v : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>);
         return v;
     }
-    public function new(?buffer:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_ptrLevel:std.UInt, ?_ptrSeen:stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>) this = new stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState(buffer, _ptrLevel, _ptrSeen);
+    public function new(?buffer:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_ptrLevel:std.UInt, ?_ptrSeen:stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>) this = new stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState(buffer, (_ptrLevel : stdgo.GoUInt), (_ptrSeen : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1623,14 +1623,14 @@ struct_);
     public var _error(get, set) : stdgo.Error;
     function get__error():stdgo.Error return this._error;
     function set__error(v:stdgo.Error):stdgo.Error {
-        this._error = v;
+        this._error = (v : stdgo.Error);
         return v;
     }
-    public function new(?_error:stdgo.Error) this = new stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError(_error);
+    public function new(?_error:stdgo.Error) this = new stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError((_error : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_encOpts(stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts) from stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts to stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts {
+@:structInit @:using(stdgo.encoding.json.Json.T_encOpts_static_extension) abstract T_encOpts(stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts) from stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts to stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts {
     public var _quoted(get, set) : Bool;
     function get__quoted():Bool return this._quoted;
     function set__quoted(v:Bool):Bool {
@@ -1658,7 +1658,7 @@ struct_);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_structFields(stdgo._internal.encoding.json.Json_T_structFields.T_structFields) from stdgo._internal.encoding.json.Json_T_structFields.T_structFields to stdgo._internal.encoding.json.Json_T_structFields.T_structFields {
+@:structInit @:using(stdgo.encoding.json.Json.T_structFields_static_extension) abstract T_structFields(stdgo._internal.encoding.json.Json_T_structFields.T_structFields) from stdgo._internal.encoding.json.Json_T_structFields.T_structFields to stdgo._internal.encoding.json.Json_T_structFields.T_structFields {
     public var _list(get, set) : Array<T_field>;
     function get__list():Array<T_field> return [for (i in this._list) i];
     function set__list(v:Array<T_field>):Array<T_field> {
@@ -1668,16 +1668,16 @@ struct_);
     public var _byExactName(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>;
     function get__byExactName():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>> return this._byExactName;
     function set__byExactName(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>> {
-        this._byExactName = v;
+        this._byExactName = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
         return v;
     }
     public var _byFoldedName(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>;
     function get__byFoldedName():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>> return this._byFoldedName;
     function set__byFoldedName(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>> {
-        this._byFoldedName = v;
+        this._byFoldedName = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>);
         return v;
     }
-    public function new(?_list:Array<T_field>, ?_byExactName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>, ?_byFoldedName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>) this = new stdgo._internal.encoding.json.Json_T_structFields.T_structFields(([for (i in _list) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_T_field.T_field>), _byExactName, _byFoldedName);
+    public function new(?_list:Array<T_field>, ?_byExactName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>, ?_byFoldedName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>) this = new stdgo._internal.encoding.json.Json_T_structFields.T_structFields(([for (i in _list) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_T_field.T_field>), (_byExactName : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>), (_byFoldedName : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1758,36 +1758,36 @@ struct_);
     public var _ks(get, set) : String;
     function get__ks():String return this._ks;
     function set__ks(v:String):String {
-        this._ks = v;
+        this._ks = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_k:stdgo._internal.reflect.Reflect_Value.Value, ?_v:stdgo._internal.reflect.Reflect_Value.Value, ?_ks:String) this = new stdgo._internal.encoding.json.Json_T_reflectWithString.T_reflectWithString(_k, _v, _ks);
+    public function new(?_k:stdgo._internal.reflect.Reflect_Value.Value, ?_v:stdgo._internal.reflect.Reflect_Value.Value, ?_ks:String) this = new stdgo._internal.encoding.json.Json_T_reflectWithString.T_reflectWithString(_k, _v, (_ks : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_field(stdgo._internal.encoding.json.Json_T_field.T_field) from stdgo._internal.encoding.json.Json_T_field.T_field to stdgo._internal.encoding.json.Json_T_field.T_field {
+@:structInit @:using(stdgo.encoding.json.Json.T_field_static_extension) abstract T_field(stdgo._internal.encoding.json.Json_T_field.T_field) from stdgo._internal.encoding.json.Json_T_field.T_field to stdgo._internal.encoding.json.Json_T_field.T_field {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
-        this._name = v;
+        this._name = (v : stdgo.GoString);
         return v;
     }
     public var _nameBytes(get, set) : Array<std.UInt>;
     function get__nameBytes():Array<std.UInt> return [for (i in this._nameBytes) i];
     function set__nameBytes(v:Array<std.UInt>):Array<std.UInt> {
-        this._nameBytes = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._nameBytes = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _nameNonEsc(get, set) : String;
     function get__nameNonEsc():String return this._nameNonEsc;
     function set__nameNonEsc(v:String):String {
-        this._nameNonEsc = v;
+        this._nameNonEsc = (v : stdgo.GoString);
         return v;
     }
     public var _nameEscHTML(get, set) : String;
     function get__nameEscHTML():String return this._nameEscHTML;
     function set__nameEscHTML(v:String):String {
-        this._nameEscHTML = v;
+        this._nameEscHTML = (v : stdgo.GoString);
         return v;
     }
     public var _tag(get, set) : Bool;
@@ -1799,7 +1799,7 @@ struct_);
     public var _index(get, set) : Array<StdTypes.Int>;
     function get__index():Array<StdTypes.Int> return [for (i in this._index) i];
     function set__index(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        this._index = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        this._index = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
     public var _typ(get, set) : stdgo._internal.reflect.Reflect_Type_.Type_;
@@ -1826,75 +1826,75 @@ struct_);
         this._encoder = v;
         return v;
     }
-    public function new(?_name:String, ?_nameBytes:Array<std.UInt>, ?_nameNonEsc:String, ?_nameEscHTML:String, ?_tag:Bool, ?_index:Array<StdTypes.Int>, ?_typ:stdgo._internal.reflect.Reflect_Type_.Type_, ?_omitEmpty:Bool, ?_quoted:Bool, ?_encoder:T_encoderFunc) this = new stdgo._internal.encoding.json.Json_T_field.T_field(_name, ([for (i in _nameBytes) i] : stdgo.Slice<stdgo.GoUInt8>), _nameNonEsc, _nameEscHTML, _tag, ([for (i in _index) i] : stdgo.Slice<stdgo.GoInt>), _typ, _omitEmpty, _quoted, _encoder);
+    public function new(?_name:String, ?_nameBytes:Array<std.UInt>, ?_nameNonEsc:String, ?_nameEscHTML:String, ?_tag:Bool, ?_index:Array<StdTypes.Int>, ?_typ:stdgo._internal.reflect.Reflect_Type_.Type_, ?_omitEmpty:Bool, ?_quoted:Bool, ?_encoder:T_encoderFunc) this = new stdgo._internal.encoding.json.Json_T_field.T_field((_name : stdgo.GoString), ([for (i in _nameBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_nameNonEsc : stdgo.GoString), (_nameEscHTML : stdgo.GoString), _tag, ([for (i in _index) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), _typ, _omitEmpty, _quoted, _encoder);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Optionals(stdgo._internal.encoding.json.Json_Optionals.Optionals) from stdgo._internal.encoding.json.Json_Optionals.Optionals to stdgo._internal.encoding.json.Json_Optionals.Optionals {
+@:structInit @:using(stdgo.encoding.json.Json.Optionals_static_extension) abstract Optionals(stdgo._internal.encoding.json.Json_Optionals.Optionals) from stdgo._internal.encoding.json.Json_Optionals.Optionals to stdgo._internal.encoding.json.Json_Optionals.Optionals {
     public var sr(get, set) : String;
     function get_sr():String return this.sr;
     function set_sr(v:String):String {
-        this.sr = v;
+        this.sr = (v : stdgo.GoString);
         return v;
     }
     public var so(get, set) : String;
     function get_so():String return this.so;
     function set_so(v:String):String {
-        this.so = v;
+        this.so = (v : stdgo.GoString);
         return v;
     }
     public var sw(get, set) : String;
     function get_sw():String return this.sw;
     function set_sw(v:String):String {
-        this.sw = v;
+        this.sw = (v : stdgo.GoString);
         return v;
     }
     public var ir(get, set) : StdTypes.Int;
     function get_ir():StdTypes.Int return this.ir;
     function set_ir(v:StdTypes.Int):StdTypes.Int {
-        this.ir = v;
+        this.ir = (v : stdgo.GoInt);
         return v;
     }
     public var io(get, set) : StdTypes.Int;
     function get_io():StdTypes.Int return this.io;
     function set_io(v:StdTypes.Int):StdTypes.Int {
-        this.io = v;
+        this.io = (v : stdgo.GoInt);
         return v;
     }
     public var slr(get, set) : Array<String>;
     function get_slr():Array<String> return [for (i in this.slr) i];
     function set_slr(v:Array<String>):Array<String> {
-        this.slr = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.slr = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var slo(get, set) : Array<String>;
     function get_slo():Array<String> return [for (i in this.slo) i];
     function set_slo(v:Array<String>):Array<String> {
-        this.slo = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this.slo = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
     public var mr(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
     function get_mr():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this.mr;
     function set_mr(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this.mr = v;
+        this.mr = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
     public var mo(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
     function get_mo():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this.mo;
     function set_mo(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this.mo = v;
+        this.mo = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
     public var fr(get, set) : StdTypes.Float;
     function get_fr():StdTypes.Float return this.fr;
     function set_fr(v:StdTypes.Float):StdTypes.Float {
-        this.fr = v;
+        this.fr = (v : stdgo.GoFloat64);
         return v;
     }
     public var fo(get, set) : StdTypes.Float;
     function get_fo():StdTypes.Float return this.fo;
     function set_fo(v:StdTypes.Float):StdTypes.Float {
-        this.fo = v;
+        this.fo = (v : stdgo.GoFloat64);
         return v;
     }
     public var br(get, set) : Bool;
@@ -1912,13 +1912,13 @@ struct_);
     public var ur(get, set) : std.UInt;
     function get_ur():std.UInt return this.ur;
     function set_ur(v:std.UInt):std.UInt {
-        this.ur = v;
+        this.ur = (v : stdgo.GoUInt);
         return v;
     }
     public var uo(get, set) : std.UInt;
     function get_uo():std.UInt return this.uo;
     function set_uo(v:std.UInt):std.UInt {
-        this.uo = v;
+        this.uo = (v : stdgo.GoUInt);
         return v;
     }
     public var str(get, set) : stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue;
@@ -1934,27 +1934,27 @@ struct_);
         return v;
     }
     public function new(?sr:String, ?so:String, ?sw:String, ?ir:StdTypes.Int, ?io:StdTypes.Int, ?slr:Array<String>, ?slo:Array<String>, ?mr:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?mo:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?fr:StdTypes.Float, ?fo:StdTypes.Float, ?br:Bool, ?bo:Bool, ?ur:std.UInt, ?uo:std.UInt, ?str:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue, ?sto:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_Optionals.Optionals(
-sr,
-so,
-sw,
-ir,
-io,
-([for (i in slr) i] : stdgo.Slice<stdgo.GoString>),
-([for (i in slo) i] : stdgo.Slice<stdgo.GoString>),
-mr,
-mo,
-fr,
-fo,
+(sr : stdgo.GoString),
+(so : stdgo.GoString),
+(sw : stdgo.GoString),
+(ir : stdgo.GoInt),
+(io : stdgo.GoInt),
+([for (i in slr) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+([for (i in slo) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
+(mr : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>),
+(mo : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>),
+(fr : stdgo.GoFloat64),
+(fo : stdgo.GoFloat64),
 br,
 bo,
-ur,
-uo,
+(ur : stdgo.GoUInt),
+(uo : stdgo.GoUInt),
 str,
 sto);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract StringTag(stdgo._internal.encoding.json.Json_StringTag.StringTag) from stdgo._internal.encoding.json.Json_StringTag.StringTag to stdgo._internal.encoding.json.Json_StringTag.StringTag {
+@:structInit @:using(stdgo.encoding.json.Json.StringTag_static_extension) abstract StringTag(stdgo._internal.encoding.json.Json_StringTag.StringTag) from stdgo._internal.encoding.json.Json_StringTag.StringTag to stdgo._internal.encoding.json.Json_StringTag.StringTag {
     public var boolStr(get, set) : Bool;
     function get_boolStr():Bool return this.boolStr;
     function set_boolStr(v:Bool):Bool {
@@ -1964,19 +1964,19 @@ sto);
     public var intStr(get, set) : haxe.Int64;
     function get_intStr():haxe.Int64 return this.intStr;
     function set_intStr(v:haxe.Int64):haxe.Int64 {
-        this.intStr = v;
+        this.intStr = (v : stdgo.GoInt64);
         return v;
     }
     public var uintptrStr(get, set) : stdgo.GoUIntptr;
     function get_uintptrStr():stdgo.GoUIntptr return this.uintptrStr;
     function set_uintptrStr(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        this.uintptrStr = v;
+        this.uintptrStr = (v : stdgo.GoUIntptr);
         return v;
     }
     public var strStr(get, set) : String;
     function get_strStr():String return this.strStr;
     function set_strStr(v:String):String {
-        this.strStr = v;
+        this.strStr = (v : stdgo.GoString);
         return v;
     }
     public var numberStr(get, set) : Number;
@@ -1985,57 +1985,57 @@ sto);
         this.numberStr = v;
         return v;
     }
-    public function new(?boolStr:Bool, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?strStr:String, ?numberStr:Number) this = new stdgo._internal.encoding.json.Json_StringTag.StringTag(boolStr, intStr, uintptrStr, strStr, numberStr);
+    public function new(?boolStr:Bool, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?strStr:String, ?numberStr:Number) this = new stdgo._internal.encoding.json.Json_StringTag.StringTag(boolStr, (intStr : stdgo.GoInt64), (uintptrStr : stdgo.GoUIntptr), (strStr : stdgo.GoString), numberStr);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract SamePointerNoCycle(stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle) from stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle to stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle {
+@:structInit @:using(stdgo.encoding.json.Json.SamePointerNoCycle_static_extension) abstract SamePointerNoCycle(stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle) from stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle to stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle {
     public var ptr1(get, set) : SamePointerNoCycle;
     function get_ptr1():SamePointerNoCycle return this.ptr1;
     function set_ptr1(v:SamePointerNoCycle):SamePointerNoCycle {
-        this.ptr1 = v;
+        this.ptr1 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle>);
         return v;
     }
     public var ptr2(get, set) : SamePointerNoCycle;
     function get_ptr2():SamePointerNoCycle return this.ptr2;
     function set_ptr2(v:SamePointerNoCycle):SamePointerNoCycle {
-        this.ptr2 = v;
+        this.ptr2 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle>);
         return v;
     }
-    public function new(?ptr1:SamePointerNoCycle, ?ptr2:SamePointerNoCycle) this = new stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle(ptr1, ptr2);
+    public function new(?ptr1:SamePointerNoCycle, ?ptr2:SamePointerNoCycle) this = new stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle((ptr1 : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle>), (ptr2 : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract PointerCycle(stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle) from stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle to stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle {
+@:structInit @:using(stdgo.encoding.json.Json.PointerCycle_static_extension) abstract PointerCycle(stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle) from stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle to stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle {
     public var ptr(get, set) : PointerCycle;
     function get_ptr():PointerCycle return this.ptr;
     function set_ptr(v:PointerCycle):PointerCycle {
-        this.ptr = v;
+        this.ptr = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle>);
         return v;
     }
-    public function new(?ptr:PointerCycle) this = new stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle(ptr);
+    public function new(?ptr:PointerCycle) this = new stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle((ptr : stdgo.Ref<stdgo._internal.encoding.json.Json_PointerCycle.PointerCycle>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract PointerCycleIndirect(stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect) from stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect to stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect {
+@:structInit @:using(stdgo.encoding.json.Json.PointerCycleIndirect_static_extension) abstract PointerCycleIndirect(stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect) from stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect to stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect {
     public var ptrs(get, set) : Array<stdgo.AnyInterface>;
     function get_ptrs():Array<stdgo.AnyInterface> return [for (i in this.ptrs) i];
     function set_ptrs(v:Array<stdgo.AnyInterface>):Array<stdgo.AnyInterface> {
-        this.ptrs = ([for (i in v) i] : stdgo.Slice<stdgo.AnyInterface>);
+        this.ptrs = ([for (i in v) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
         return v;
     }
-    public function new(?ptrs:Array<stdgo.AnyInterface>) this = new stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect(([for (i in ptrs) i] : stdgo.Slice<stdgo.AnyInterface>));
+    public function new(?ptrs:Array<stdgo.AnyInterface>) this = new stdgo._internal.encoding.json.Json_PointerCycleIndirect.PointerCycleIndirect(([for (i in ptrs) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract BugA(stdgo._internal.encoding.json.Json_BugA.BugA) from stdgo._internal.encoding.json.Json_BugA.BugA to stdgo._internal.encoding.json.Json_BugA.BugA {
+@:structInit @:using(stdgo.encoding.json.Json.BugA_static_extension) abstract BugA(stdgo._internal.encoding.json.Json_BugA.BugA) from stdgo._internal.encoding.json.Json_BugA.BugA to stdgo._internal.encoding.json.Json_BugA.BugA {
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
-        this.s = v;
+        this.s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_BugA.BugA(s);
+    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_BugA.BugA((s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2049,21 +2049,21 @@ sto);
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
-        this.s = v;
+        this.s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?bugA:BugA, ?s:String) this = new stdgo._internal.encoding.json.Json_BugB.BugB(bugA, s);
+    public function new(?bugA:BugA, ?s:String) this = new stdgo._internal.encoding.json.Json_BugB.BugB(bugA, (s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract BugC(stdgo._internal.encoding.json.Json_BugC.BugC) from stdgo._internal.encoding.json.Json_BugC.BugC to stdgo._internal.encoding.json.Json_BugC.BugC {
+@:structInit @:using(stdgo.encoding.json.Json.BugC_static_extension) abstract BugC(stdgo._internal.encoding.json.Json_BugC.BugC) from stdgo._internal.encoding.json.Json_BugC.BugC to stdgo._internal.encoding.json.Json_BugC.BugC {
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
-        this.s = v;
+        this.s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_BugC.BugC(s);
+    public function new(?s:String) this = new stdgo._internal.encoding.json.Json_BugC.BugC((s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2071,7 +2071,7 @@ sto);
     public var a(get, set) : StdTypes.Int;
     function get_a():StdTypes.Int return this.a;
     function set_a(v:StdTypes.Int):StdTypes.Int {
-        this.a = v;
+        this.a = (v : stdgo.GoInt);
         return v;
     }
     public var bugA(get, set) : BugA;
@@ -2086,18 +2086,18 @@ sto);
         this.bugB = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?bugA:BugA, ?bugB:BugB) this = new stdgo._internal.encoding.json.Json_BugX.BugX(a, bugA, bugB);
+    public function new(?a:StdTypes.Int, ?bugA:BugA, ?bugB:BugB) this = new stdgo._internal.encoding.json.Json_BugX.BugX((a : stdgo.GoInt), bugA, bugB);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract BugD(stdgo._internal.encoding.json.Json_BugD.BugD) from stdgo._internal.encoding.json.Json_BugD.BugD to stdgo._internal.encoding.json.Json_BugD.BugD {
+@:structInit @:using(stdgo.encoding.json.Json.BugD_static_extension) abstract BugD(stdgo._internal.encoding.json.Json_BugD.BugD) from stdgo._internal.encoding.json.Json_BugD.BugD to stdgo._internal.encoding.json.Json_BugD.BugD {
     public var xXX(get, set) : String;
     function get_xXX():String return this.xXX;
     function set_xXX(v:String):String {
-        this.xXX = v;
+        this.xXX = (v : stdgo.GoString);
         return v;
     }
-    public function new(?xXX:String) this = new stdgo._internal.encoding.json.Json_BugD.BugD(xXX);
+    public function new(?xXX:String) this = new stdgo._internal.encoding.json.Json_BugD.BugD((xXX : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2150,16 +2150,16 @@ sto);
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
-        this._msg = v;
+        this._msg = (v : stdgo.GoString);
         return v;
     }
     public var offset(get, set) : haxe.Int64;
     function get_offset():haxe.Int64 return this.offset;
     function set_offset(v:haxe.Int64):haxe.Int64 {
-        this.offset = v;
+        this.offset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_msg:String, ?offset:haxe.Int64) this = new stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError(_msg, offset);
+    public function new(?_msg:String, ?offset:haxe.Int64) this = new stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError((_msg : stdgo.GoString), (offset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2179,56 +2179,56 @@ sto);
     public var _parseState(get, set) : Array<StdTypes.Int>;
     function get__parseState():Array<StdTypes.Int> return [for (i in this._parseState) i];
     function set__parseState(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        this._parseState = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        this._parseState = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
     public var _bytes(get, set) : haxe.Int64;
     function get__bytes():haxe.Int64 return this._bytes;
     function set__bytes(v:haxe.Int64):haxe.Int64 {
-        this._bytes = v;
+        this._bytes = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_step:(stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_scanner.T_scanner(_step, _endTop, ([for (i in _parseState) i] : stdgo.Slice<stdgo.GoInt>), _err, _bytes);
+    public function new(?_step:(stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_scanner.T_scanner(_step, _endTop, ([for (i in _parseState) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_err : stdgo.Error), (_bytes : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_example(stdgo._internal.encoding.json.Json_T_example.T_example) from stdgo._internal.encoding.json.Json_T_example.T_example to stdgo._internal.encoding.json.Json_T_example.T_example {
+@:structInit @:using(stdgo.encoding.json.Json.T_example_static_extension) abstract T_example(stdgo._internal.encoding.json.Json_T_example.T_example) from stdgo._internal.encoding.json.Json_T_example.T_example to stdgo._internal.encoding.json.Json_T_example.T_example {
     public var _compact(get, set) : String;
     function get__compact():String return this._compact;
     function set__compact(v:String):String {
-        this._compact = v;
+        this._compact = (v : stdgo.GoString);
         return v;
     }
     public var _indent(get, set) : String;
     function get__indent():String return this._indent;
     function set__indent(v:String):String {
-        this._indent = v;
+        this._indent = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_compact:String, ?_indent:String) this = new stdgo._internal.encoding.json.Json_T_example.T_example(_compact, _indent);
+    public function new(?_compact:String, ?_indent:String) this = new stdgo._internal.encoding.json.Json_T_example.T_example((_compact : stdgo.GoString), (_indent : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_indentErrorTest(stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest) from stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest to stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest {
+@:structInit @:using(stdgo.encoding.json.Json.T_indentErrorTest_static_extension) abstract T_indentErrorTest(stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest) from stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest to stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
-        this._in = v;
+        this._in = (v : stdgo.GoString);
         return v;
     }
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_in:String, ?_err:stdgo.Error) this = new stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest(_in, _err);
+    public function new(?_in:String, ?_err:stdgo.Error) this = new stdgo._internal.encoding.json.Json_T_indentErrorTest.T_indentErrorTest((_in : stdgo.GoString), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2242,7 +2242,7 @@ sto);
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
-        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _d(get, set) : T_decodeState;
@@ -2254,13 +2254,13 @@ sto);
     public var _scanp(get, set) : StdTypes.Int;
     function get__scanp():StdTypes.Int return this._scanp;
     function set__scanp(v:StdTypes.Int):StdTypes.Int {
-        this._scanp = v;
+        this._scanp = (v : stdgo.GoInt);
         return v;
     }
     public var _scanned(get, set) : haxe.Int64;
     function get__scanned():haxe.Int64 return this._scanned;
     function set__scanned(v:haxe.Int64):haxe.Int64 {
-        this._scanned = v;
+        this._scanned = (v : stdgo.GoInt64);
         return v;
     }
     public var _scan(get, set) : T_scanner;
@@ -2272,22 +2272,22 @@ sto);
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
     public var _tokenState(get, set) : StdTypes.Int;
     function get__tokenState():StdTypes.Int return this._tokenState;
     function set__tokenState(v:StdTypes.Int):StdTypes.Int {
-        this._tokenState = v;
+        this._tokenState = (v : stdgo.GoInt);
         return v;
     }
     public var _tokenStack(get, set) : Array<StdTypes.Int>;
     function get__tokenStack():Array<StdTypes.Int> return [for (i in this._tokenStack) i];
     function set__tokenStack(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        this._tokenStack = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        this._tokenStack = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_Reader.Reader, ?_buf:Array<std.UInt>, ?_d:T_decodeState, ?_scanp:StdTypes.Int, ?_scanned:haxe.Int64, ?_scan:T_scanner, ?_err:stdgo.Error, ?_tokenState:StdTypes.Int, ?_tokenStack:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_Decoder.Decoder(_r, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _d, _scanp, _scanned, _scan, _err, _tokenState, ([for (i in _tokenStack) i] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?_r:stdgo._internal.io.Io_Reader.Reader, ?_buf:Array<std.UInt>, ?_d:T_decodeState, ?_scanp:StdTypes.Int, ?_scanned:haxe.Int64, ?_scan:T_scanner, ?_err:stdgo.Error, ?_tokenState:StdTypes.Int, ?_tokenStack:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_Decoder.Decoder(_r, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _d, (_scanp : stdgo.GoInt), (_scanned : stdgo.GoInt64), _scan, (_err : stdgo.Error), (_tokenState : stdgo.GoInt), ([for (i in _tokenStack) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2301,7 +2301,7 @@ sto);
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
     public var _escapeHTML(get, set) : Bool;
@@ -2313,226 +2313,226 @@ sto);
     public var _indentBuf(get, set) : Array<std.UInt>;
     function get__indentBuf():Array<std.UInt> return [for (i in this._indentBuf) i];
     function set__indentBuf(v:Array<std.UInt>):Array<std.UInt> {
-        this._indentBuf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._indentBuf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _indentPrefix(get, set) : String;
     function get__indentPrefix():String return this._indentPrefix;
     function set__indentPrefix(v:String):String {
-        this._indentPrefix = v;
+        this._indentPrefix = (v : stdgo.GoString);
         return v;
     }
     public var _indentValue(get, set) : String;
     function get__indentValue():String return this._indentValue;
     function set__indentValue(v:String):String {
-        this._indentValue = v;
+        this._indentValue = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_err:stdgo.Error, ?_escapeHTML:Bool, ?_indentBuf:Array<std.UInt>, ?_indentPrefix:String, ?_indentValue:String) this = new stdgo._internal.encoding.json.Json_Encoder.Encoder(_w, _err, _escapeHTML, ([for (i in _indentBuf) i] : stdgo.Slice<stdgo.GoUInt8>), _indentPrefix, _indentValue);
+    public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_err:stdgo.Error, ?_escapeHTML:Bool, ?_indentBuf:Array<std.UInt>, ?_indentPrefix:String, ?_indentValue:String) this = new stdgo._internal.encoding.json.Json_Encoder.Encoder(_w, (_err : stdgo.Error), _escapeHTML, ([for (i in _indentBuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_indentPrefix : stdgo.GoString), (_indentValue : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_tokenStreamCase(stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase) from stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase to stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase {
+@:structInit @:using(stdgo.encoding.json.Json.T_tokenStreamCase_static_extension) abstract T_tokenStreamCase(stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase) from stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase to stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase {
     public var _json(get, set) : String;
     function get__json():String return this._json;
     function set__json(v:String):String {
-        this._json = v;
+        this._json = (v : stdgo.GoString);
         return v;
     }
     public var _expTokens(get, set) : Array<stdgo.AnyInterface>;
     function get__expTokens():Array<stdgo.AnyInterface> return [for (i in this._expTokens) i];
     function set__expTokens(v:Array<stdgo.AnyInterface>):Array<stdgo.AnyInterface> {
-        this._expTokens = ([for (i in v) i] : stdgo.Slice<stdgo.AnyInterface>);
+        this._expTokens = ([for (i in v) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
         return v;
     }
-    public function new(?_json:String, ?_expTokens:Array<stdgo.AnyInterface>) this = new stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase(_json, ([for (i in _expTokens) i] : stdgo.Slice<stdgo.AnyInterface>));
+    public function new(?_json:String, ?_expTokens:Array<stdgo.AnyInterface>) this = new stdgo._internal.encoding.json.Json_T_tokenStreamCase.T_tokenStreamCase((_json : stdgo.GoString), ([for (i in _expTokens) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_decodeThis(stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis) from stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis to stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis {
+@:structInit @:using(stdgo.encoding.json.Json.T_decodeThis_static_extension) abstract T_decodeThis(stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis) from stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis to stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis {
     public var _v(get, set) : stdgo.AnyInterface;
     function get__v():stdgo.AnyInterface return this._v;
     function set__v(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this._v = v;
+        this._v = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?_v:stdgo.AnyInterface) this = new stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis(_v);
+    public function new(?_v:stdgo.AnyInterface) this = new stdgo._internal.encoding.json.Json_T_decodeThis.T_decodeThis((_v : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin2xTag(stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag) from stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag to stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin2xTag_static_extension) abstract T_basicLatin2xTag(stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag) from stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag to stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin2xTag.T_basicLatin2xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin3xTag(stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag) from stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag to stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin3xTag_static_extension) abstract T_basicLatin3xTag(stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag) from stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag to stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin3xTag.T_basicLatin3xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin4xTag(stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag) from stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag to stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin4xTag_static_extension) abstract T_basicLatin4xTag(stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag) from stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag to stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin4xTag.T_basicLatin4xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin5xTag(stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag) from stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag to stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin5xTag_static_extension) abstract T_basicLatin5xTag(stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag) from stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag to stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin5xTag.T_basicLatin5xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin6xTag(stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag) from stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag to stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin6xTag_static_extension) abstract T_basicLatin6xTag(stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag) from stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag to stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin6xTag.T_basicLatin6xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_basicLatin7xTag(stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag) from stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag to stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_basicLatin7xTag_static_extension) abstract T_basicLatin7xTag(stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag) from stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag to stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_basicLatin7xTag.T_basicLatin7xTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_miscPlaneTag(stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag) from stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag to stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_miscPlaneTag_static_extension) abstract T_miscPlaneTag(stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag) from stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag to stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_miscPlaneTag.T_miscPlaneTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_percentSlashTag(stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag) from stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag to stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_percentSlashTag_static_extension) abstract T_percentSlashTag(stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag) from stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag to stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_percentSlashTag.T_percentSlashTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_punctuationTag(stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag) from stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag to stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_punctuationTag_static_extension) abstract T_punctuationTag(stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag) from stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag to stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_punctuationTag.T_punctuationTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_dashTag(stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag) from stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag to stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_dashTag_static_extension) abstract T_dashTag(stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag) from stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag to stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
-        this.v = v;
+        this.v = (v : stdgo.GoString);
         return v;
     }
-    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag(v);
+    public function new(?v:String) this = new stdgo._internal.encoding.json.Json_T_dashTag.T_dashTag((v : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_emptyTag(stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag) from stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag to stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_emptyTag_static_extension) abstract T_emptyTag(stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag) from stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag to stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag {
     public var w(get, set) : String;
     function get_w():String return this.w;
     function set_w(v:String):String {
-        this.w = v;
+        this.w = (v : stdgo.GoString);
         return v;
     }
-    public function new(?w:String) this = new stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag(w);
+    public function new(?w:String) this = new stdgo._internal.encoding.json.Json_T_emptyTag.T_emptyTag((w : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_misnamedTag(stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag) from stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag to stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_misnamedTag_static_extension) abstract T_misnamedTag(stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag) from stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag to stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag {
     public var x(get, set) : String;
     function get_x():String return this.x;
     function set_x(v:String):String {
-        this.x = v;
+        this.x = (v : stdgo.GoString);
         return v;
     }
-    public function new(?x:String) this = new stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag(x);
+    public function new(?x:String) this = new stdgo._internal.encoding.json.Json_T_misnamedTag.T_misnamedTag((x : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_badFormatTag(stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag) from stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag to stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_badFormatTag_static_extension) abstract T_badFormatTag(stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag) from stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag to stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag {
     public var y(get, set) : String;
     function get_y():String return this.y;
     function set_y(v:String):String {
-        this.y = v;
+        this.y = (v : stdgo.GoString);
         return v;
     }
-    public function new(?y:String) this = new stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag(y);
+    public function new(?y:String) this = new stdgo._internal.encoding.json.Json_T_badFormatTag.T_badFormatTag((y : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_badCodeTag(stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag) from stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag to stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_badCodeTag_static_extension) abstract T_badCodeTag(stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag) from stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag to stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag {
     public var z(get, set) : String;
     function get_z():String return this.z;
     function set_z(v:String):String {
-        this.z = v;
+        this.z = (v : stdgo.GoString);
         return v;
     }
-    public function new(?z:String) this = new stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag(z);
+    public function new(?z:String) this = new stdgo._internal.encoding.json.Json_T_badCodeTag.T_badCodeTag((z : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_spaceTag(stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag) from stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag to stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_spaceTag_static_extension) abstract T_spaceTag(stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag) from stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag to stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag {
     public var q(get, set) : String;
     function get_q():String return this.q;
     function set_q(v:String):String {
-        this.q = v;
+        this.q = (v : stdgo.GoString);
         return v;
     }
-    public function new(?q:String) this = new stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag(q);
+    public function new(?q:String) this = new stdgo._internal.encoding.json.Json_T_spaceTag.T_spaceTag((q : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_unicodeTag(stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag) from stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag to stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag {
+@:structInit @:using(stdgo.encoding.json.Json.T_unicodeTag_static_extension) abstract T_unicodeTag(stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag) from stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag to stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag {
     public var w(get, set) : String;
     function get_w():String return this.w;
     function set_w(v:String):String {
-        this.w = v;
+        this.w = (v : stdgo.GoString);
         return v;
     }
-    public function new(?w:String) this = new stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag(w);
+    public function new(?w:String) this = new stdgo._internal.encoding.json.Json_T_unicodeTag.T_unicodeTag((w : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2814,75 +2814,75 @@ typedef Delim = stdgo._internal.encoding.json.Json_Delim.Delim;
 typedef T_strMarshaler = stdgo._internal.encoding.json.Json_T_strMarshaler.T_strMarshaler;
 typedef T_strPtrMarshaler = stdgo._internal.encoding.json.Json_T_strPtrMarshaler.T_strPtrMarshaler;
 typedef T_tagOptions = stdgo._internal.encoding.json.Json_T_tagOptions.T_tagOptions;
-@:structInit abstract T_benchmarkCodeEncoderError___localname___Dummy_2370(stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370) from stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370 to stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370 {
+@:structInit @:using(stdgo.encoding.json.Json.T_benchmarkCodeEncoderError___localname___Dummy_2370_static_extension) abstract T_benchmarkCodeEncoderError___localname___Dummy_2370(stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370) from stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370 to stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370 {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var next(get, set) : T_benchmarkCodeEncoderError___localname___Dummy_2370;
     function get_next():T_benchmarkCodeEncoderError___localname___Dummy_2370 return this.next;
     function set_next(v:T_benchmarkCodeEncoderError___localname___Dummy_2370):T_benchmarkCodeEncoderError___localname___Dummy_2370 {
-        this.next = v;
+        this.next = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370>);
         return v;
     }
-    public function new(?name:String, ?next:T_benchmarkCodeEncoderError___localname___Dummy_2370) this = new stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370(name, next);
+    public function new(?name:String, ?next:T_benchmarkCodeEncoderError___localname___Dummy_2370) this = new stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370((name : stdgo.GoString), (next : stdgo.Ref<stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_benchmarkCodeMarshalError___localname___Dummy_3282(stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282) from stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282 to stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282 {
+@:structInit @:using(stdgo.encoding.json.Json.T_benchmarkCodeMarshalError___localname___Dummy_3282_static_extension) abstract T_benchmarkCodeMarshalError___localname___Dummy_3282(stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282) from stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282 to stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282 {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var next(get, set) : T_benchmarkCodeMarshalError___localname___Dummy_3282;
     function get_next():T_benchmarkCodeMarshalError___localname___Dummy_3282 return this.next;
     function set_next(v:T_benchmarkCodeMarshalError___localname___Dummy_3282):T_benchmarkCodeMarshalError___localname___Dummy_3282 {
-        this.next = v;
+        this.next = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282>);
         return v;
     }
-    public function new(?name:String, ?next:T_benchmarkCodeMarshalError___localname___Dummy_3282) this = new stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282(name, next);
+    public function new(?name:String, ?next:T_benchmarkCodeMarshalError___localname___Dummy_3282) this = new stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282((name : stdgo.GoString), (next : stdgo.Ref<stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282.T_benchmarkCodeMarshalError___localname___Dummy_3282>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T__benchMarshalBytesError___localname___Dummy_4406(stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406) from stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406 to stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406 {
+@:structInit @:using(stdgo.encoding.json.Json.T__benchMarshalBytesError___localname___Dummy_4406_static_extension) abstract T__benchMarshalBytesError___localname___Dummy_4406(stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406) from stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406 to stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406 {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var next(get, set) : T__benchMarshalBytesError___localname___Dummy_4406;
     function get_next():T__benchMarshalBytesError___localname___Dummy_4406 return this.next;
     function set_next(v:T__benchMarshalBytesError___localname___Dummy_4406):T__benchMarshalBytesError___localname___Dummy_4406 {
-        this.next = v;
+        this.next = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406>);
         return v;
     }
-    public function new(?name:String, ?next:T__benchMarshalBytesError___localname___Dummy_4406) this = new stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406(name, next);
+    public function new(?name:String, ?next:T__benchMarshalBytesError___localname___Dummy_4406) this = new stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406((name : stdgo.GoString), (next : stdgo.Ref<stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_benchmarkEncoderEncode___localname___T_11092(stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092) from stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092 to stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092 {
+@:structInit @:using(stdgo.encoding.json.Json.T_benchmarkEncoderEncode___localname___T_11092_static_extension) abstract T_benchmarkEncoderEncode___localname___T_11092(stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092) from stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092 to stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092 {
     public var x(get, set) : String;
     function get_x():String return this.x;
     function set_x(v:String):String {
-        this.x = v;
+        this.x = (v : stdgo.GoString);
         return v;
     }
     public var y(get, set) : String;
     function get_y():String return this.y;
     function set_y(v:String):String {
-        this.y = v;
+        this.y = (v : stdgo.GoString);
         return v;
     }
-    public function new(?x:String, ?y:String) this = new stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092(x, y);
+    public function new(?x:String, ?y:String) this = new stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092.T_benchmarkEncoderEncode___localname___T_11092((x : stdgo.GoString), (y : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testRefUnmarshal___localname___S_40168(stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168) from stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168 to stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testRefUnmarshal___localname___S_40168_static_extension) abstract T_testRefUnmarshal___localname___S_40168(stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168) from stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168 to stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168.T_testRefUnmarshal___localname___S_40168 {
     public var r0(get, set) : Ref;
     function get_r0():Ref return this.r0;
     function set_r0(v:Ref):Ref {
@@ -2911,34 +2911,34 @@ typedef T_tagOptions = stdgo._internal.encoding.json.Json_T_tagOptions.T_tagOpti
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testEmptyString___localname___T2_40735(stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735) from stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735 to stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testEmptyString___localname___T2_40735_static_extension) abstract T_testEmptyString___localname___T2_40735(stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735) from stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735 to stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735 {
     public var number1(get, set) : StdTypes.Int;
     function get_number1():StdTypes.Int return this.number1;
     function set_number1(v:StdTypes.Int):StdTypes.Int {
-        this.number1 = v;
+        this.number1 = (v : stdgo.GoInt);
         return v;
     }
     public var number2(get, set) : StdTypes.Int;
     function get_number2():StdTypes.Int return this.number2;
     function set_number2(v:StdTypes.Int):StdTypes.Int {
-        this.number2 = v;
+        this.number2 = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?number1:StdTypes.Int, ?number2:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735(number1, number2);
+    public function new(?number1:StdTypes.Int, ?number2:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735.T_testEmptyString___localname___T2_40735((number1 : stdgo.GoInt), (number2 : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testNullString___localname___T_41259(stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259) from stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259 to stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testNullString___localname___T_41259_static_extension) abstract T_testNullString___localname___T_41259(stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259) from stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259 to stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259 {
     public var a(get, set) : StdTypes.Int;
     function get_a():StdTypes.Int return this.a;
     function set_a(v:StdTypes.Int):StdTypes.Int {
-        this.a = v;
+        this.a = (v : stdgo.GoInt);
         return v;
     }
     public var b(get, set) : StdTypes.Int;
     function get_b():StdTypes.Int return this.b;
     function set_b(v:StdTypes.Int):StdTypes.Int {
-        this.b = v;
+        this.b = (v : stdgo.GoInt);
         return v;
     }
     public var c(get, set) : stdgo.Pointer<StdTypes.Int>;
@@ -2947,43 +2947,43 @@ typedef T_tagOptions = stdgo._internal.encoding.json.Json_T_tagOptions.T_tagOpti
         this.c = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:stdgo.Pointer<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259(a, b, c);
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:stdgo.Pointer<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259.T_testNullString___localname___T_41259((a : stdgo.GoInt), (b : stdgo.GoInt), c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_testStringKind___localname___stringKind_47067 = stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067;
 typedef T_testByteKind___localname___byteKind_47617 = stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617;
 typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.encoding.json.Json_T_testSliceOfCustomByte___localname___Uint8_47988.T_testSliceOfCustomByte___localname___Uint8_47988;
-@:structInit abstract T_testUnmarshalEmbeddedUnexported___localname___embed1_54365(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365_static_extension) abstract T_testUnmarshalEmbeddedUnexported___localname___embed1_54365(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 {
     public var q(get, set) : StdTypes.Int;
     function get_q():StdTypes.Int return this.q;
     function set_q(v:StdTypes.Int):StdTypes.Int {
-        this.q = v;
+        this.q = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365(q);
+    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365((q : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testUnmarshalEmbeddedUnexported___localname___embed2_54390(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390_static_extension) abstract T_testUnmarshalEmbeddedUnexported___localname___embed2_54390(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390 {
     public var q(get, set) : StdTypes.Int;
     function get_q():StdTypes.Int return this.q;
     function set_q(v:StdTypes.Int):StdTypes.Int {
-        this.q = v;
+        this.q = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390(q);
+    public function new(?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390((q : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testUnmarshalEmbeddedUnexported___localname___embed3_54415(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415_static_extension) abstract T_testUnmarshalEmbeddedUnexported___localname___embed3_54415(stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415) from stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 to stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 {
     public var q(get, set) : haxe.Int64;
     function get_q():haxe.Int64 return this.q;
     function set_q(v:haxe.Int64):haxe.Int64 {
-        this.q = v;
+        this.q = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?q:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415(q);
+    public function new(?q:haxe.Int64) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415((q : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2991,16 +2991,16 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var _embed1(get, set) : T_testUnmarshalEmbeddedUnexported___localname___embed1_54365;
     function get__embed1():T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 return this._embed1;
     function set__embed1(v:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365):T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 {
-        this._embed1 = v;
+        this._embed1 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>);
         return v;
     }
     public var r(get, set) : StdTypes.Int;
     function get_r():StdTypes.Int return this.r;
     function set_r(v:StdTypes.Int):StdTypes.Int {
-        this.r = v;
+        this.r = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S1_54465.T_testUnmarshalEmbeddedUnexported___localname___S1_54465(_embed1, r);
+    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S1_54465.T_testUnmarshalEmbeddedUnexported___localname___S1_54465((_embed1 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>), (r : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3008,16 +3008,16 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var _embed1(get, set) : T_testUnmarshalEmbeddedUnexported___localname___embed1_54365;
     function get__embed1():T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 return this._embed1;
     function set__embed1(v:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365):T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 {
-        this._embed1 = v;
+        this._embed1 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>);
         return v;
     }
     public var q(get, set) : StdTypes.Int;
     function get_q():StdTypes.Int return this.q;
     function set_q(v:StdTypes.Int):StdTypes.Int {
-        this.q = v;
+        this.q = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S2_54503.T_testUnmarshalEmbeddedUnexported___localname___S2_54503(_embed1, q);
+    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S2_54503.T_testUnmarshalEmbeddedUnexported___localname___S2_54503((_embed1 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>), (q : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3031,10 +3031,10 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var r(get, set) : StdTypes.Int;
     function get_r():StdTypes.Int return this.r;
     function set_r(v:StdTypes.Int):StdTypes.Int {
-        this.r = v;
+        this.r = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S3_54541.T_testUnmarshalEmbeddedUnexported___localname___S3_54541(_embed1, r);
+    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S3_54541.T_testUnmarshalEmbeddedUnexported___localname___S3_54541(_embed1, (r : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3042,7 +3042,7 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var _embed1(get, set) : T_testUnmarshalEmbeddedUnexported___localname___embed1_54365;
     function get__embed1():T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 return this._embed1;
     function set__embed1(v:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365):T_testUnmarshalEmbeddedUnexported___localname___embed1_54365 {
-        this._embed1 = v;
+        this._embed1 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>);
         return v;
     }
     public var _embed2(get, set) : T_testUnmarshalEmbeddedUnexported___localname___embed2_54390;
@@ -3051,7 +3051,7 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
         this._embed2 = v;
         return v;
     }
-    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?_embed2:T_testUnmarshalEmbeddedUnexported___localname___embed2_54390) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S4_54578.T_testUnmarshalEmbeddedUnexported___localname___S4_54578(_embed1, _embed2);
+    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?_embed2:T_testUnmarshalEmbeddedUnexported___localname___embed2_54390) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S4_54578.T_testUnmarshalEmbeddedUnexported___localname___S4_54578((_embed1 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365>), _embed2);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3059,16 +3059,16 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var _embed3(get, set) : T_testUnmarshalEmbeddedUnexported___localname___embed3_54415;
     function get__embed3():T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 return this._embed3;
     function set__embed3(v:T_testUnmarshalEmbeddedUnexported___localname___embed3_54415):T_testUnmarshalEmbeddedUnexported___localname___embed3_54415 {
-        this._embed3 = v;
+        this._embed3 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415>);
         return v;
     }
     public var r(get, set) : StdTypes.Int;
     function get_r():StdTypes.Int return this.r;
     function set_r(v:StdTypes.Int):StdTypes.Int {
-        this.r = v;
+        this.r = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_embed3:T_testUnmarshalEmbeddedUnexported___localname___embed3_54415, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S5_54617.T_testUnmarshalEmbeddedUnexported___localname___S5_54617(_embed3, r);
+    public function new(?_embed3:T_testUnmarshalEmbeddedUnexported___localname___embed3_54415, ?r:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S5_54617.T_testUnmarshalEmbeddedUnexported___localname___S5_54617((_embed3 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415>), (r : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3116,10 +3116,10 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var q(get, set) : StdTypes.Int;
     function get_q():StdTypes.Int return this.q;
     function set_q(v:StdTypes.Int):StdTypes.Int {
-        this.q = v;
+        this.q = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?_embed2:T_testUnmarshalEmbeddedUnexported___localname___embed2_54390, ?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S8_54753.T_testUnmarshalEmbeddedUnexported___localname___S8_54753(_embed1, _embed2, q);
+    public function new(?_embed1:T_testUnmarshalEmbeddedUnexported___localname___embed1_54365, ?_embed2:T_testUnmarshalEmbeddedUnexported___localname___embed2_54390, ?q:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S8_54753.T_testUnmarshalEmbeddedUnexported___localname___S8_54753(_embed1, _embed2, (q : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3134,48 +3134,48 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829(stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829) from stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829 to stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829_static_extension) abstract T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829(stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829) from stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829 to stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829 {
     public var f1(get, set) : String;
     function get_f1():String return this.f1;
     function set_f1(v:String):String {
-        this.f1 = v;
+        this.f1 = (v : stdgo.GoString);
         return v;
     }
-    public function new(?f1:String) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829(f1);
+    public function new(?f1:String) this = new stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829((f1 : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S1_8122(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S1_8122_static_extension) abstract T_testAnonymousFields___localname___S1_8122(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122.T_testAnonymousFields___localname___S1_8122((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S2_8148(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S2_8148_static_extension) abstract T_testAnonymousFields___localname___S2_8148(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148.T_testAnonymousFields___localname___S2_8148((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3196,37 +3196,37 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S1_8459(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S1_8459_static_extension) abstract T_testAnonymousFields___localname___S1_8459(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459.T_testAnonymousFields___localname___S1_8459((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S2_8485(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S2_8485_static_extension) abstract T_testAnonymousFields___localname___S2_8485(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485.T_testAnonymousFields___localname___S2_8485((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3246,16 +3246,16 @@ typedef T_testSliceOfCustomByte___localname___Uint8_47988 = stdgo._internal.enco
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?s1:T_testAnonymousFields___localname___S1_8459, ?s2:T_testAnonymousFields___localname___S2_8485, ?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_8511.T_testAnonymousFields___localname___S_8511(s1, s2, _x, x);
+    public function new(?s1:T_testAnonymousFields___localname___S1_8459, ?s2:T_testAnonymousFields___localname___S2_8485, ?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_8511.T_testAnonymousFields___localname___S_8511(s1, s2, (_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3307,37 +3307,37 @@ typedef T_testAnonymousFields___localname___MyInt_9550 = stdgo._internal.encodin
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___s1_9906(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___s1_9906_static_extension) abstract T_testAnonymousFields___localname___s1_9906(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906.T_testAnonymousFields___localname___s1_9906((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S2_9932(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S2_9932_static_extension) abstract T_testAnonymousFields___localname___S2_9932(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932 {
     public var _y(get, set) : StdTypes.Int;
     function get__y():StdTypes.Int return this._y;
     function set__y(v:StdTypes.Int):StdTypes.Int {
-        this._y = v;
+        this._y = (v : stdgo.GoInt);
         return v;
     }
     public var y(get, set) : StdTypes.Int;
     function get_y():StdTypes.Int return this.y;
     function set_y(v:StdTypes.Int):StdTypes.Int {
-        this.y = v;
+        this.y = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_y:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932(_y, y);
+    public function new(?_y:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932.T_testAnonymousFields___localname___S2_9932((_y : stdgo.GoInt), (y : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3358,37 +3358,37 @@ typedef T_testAnonymousFields___localname___MyInt_9550 = stdgo._internal.encodin
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___s1_10314(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___s1_10314_static_extension) abstract T_testAnonymousFields___localname___s1_10314(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314 {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
-        this._x = v;
+        this._x = (v : stdgo.GoInt);
         return v;
     }
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
-        this.x = v;
+        this.x = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314(_x, x);
+    public function new(?_x:StdTypes.Int, ?x:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314((_x : stdgo.GoInt), (x : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S2_10340(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S2_10340_static_extension) abstract T_testAnonymousFields___localname___S2_10340(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340 {
     public var _y(get, set) : StdTypes.Int;
     function get__y():StdTypes.Int return this._y;
     function set__y(v:StdTypes.Int):StdTypes.Int {
-        this._y = v;
+        this._y = (v : stdgo.GoInt);
         return v;
     }
     public var y(get, set) : StdTypes.Int;
     function get_y():StdTypes.Int return this.y;
     function set_y(v:StdTypes.Int):StdTypes.Int {
-        this.y = v;
+        this.y = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_y:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340(_y, y);
+    public function new(?_y:StdTypes.Int, ?y:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340((_y : stdgo.GoInt), (y : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3396,16 +3396,16 @@ typedef T_testAnonymousFields___localname___MyInt_9550 = stdgo._internal.encodin
     public var _s1(get, set) : T_testAnonymousFields___localname___s1_10314;
     function get__s1():T_testAnonymousFields___localname___s1_10314 return this._s1;
     function set__s1(v:T_testAnonymousFields___localname___s1_10314):T_testAnonymousFields___localname___s1_10314 {
-        this._s1 = v;
+        this._s1 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314>);
         return v;
     }
     public var s2(get, set) : T_testAnonymousFields___localname___S2_10340;
     function get_s2():T_testAnonymousFields___localname___S2_10340 return this.s2;
     function set_s2(v:T_testAnonymousFields___localname___S2_10340):T_testAnonymousFields___localname___S2_10340 {
-        this.s2 = v;
+        this.s2 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340>);
         return v;
     }
-    public function new(?_s1:T_testAnonymousFields___localname___s1_10314, ?s2:T_testAnonymousFields___localname___S2_10340) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_10366.T_testAnonymousFields___localname___S_10366(_s1, s2);
+    public function new(?_s1:T_testAnonymousFields___localname___s1_10314, ?s2:T_testAnonymousFields___localname___S2_10340) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_10366.T_testAnonymousFields___localname___S_10366((_s1 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314.T_testAnonymousFields___localname___s1_10314>), (s2 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340.T_testAnonymousFields___localname___S2_10340>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3469,14 +3469,14 @@ typedef T_testAnonymousFields___localname___myInt_10694 = stdgo._internal.encodi
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testAnonymousFields___localname___S2_11195(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testAnonymousFields___localname___S2_11195_static_extension) abstract T_testAnonymousFields___localname___S2_11195(stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195) from stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195 to stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195 {
     public var field(get, set) : String;
     function get_field():String return this.field;
     function set_field(v:String):String {
-        this.field = v;
+        this.field = (v : stdgo.GoString);
         return v;
     }
-    public function new(?field:String) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195(field);
+    public function new(?field:String) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195((field : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3484,14 +3484,14 @@ typedef T_testAnonymousFields___localname___myInt_10694 = stdgo._internal.encodi
     public var s2(get, set) : T_testAnonymousFields___localname___S2_11195;
     function get_s2():T_testAnonymousFields___localname___S2_11195 return this.s2;
     function set_s2(v:T_testAnonymousFields___localname___S2_11195):T_testAnonymousFields___localname___S2_11195 {
-        this.s2 = v;
+        this.s2 = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195>);
         return v;
     }
-    public function new(?s2:T_testAnonymousFields___localname___S2_11195) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_11225.T_testAnonymousFields___localname___S_11225(s2);
+    public function new(?s2:T_testAnonymousFields___localname___S2_11195) this = new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_11225.T_testAnonymousFields___localname___S_11225((s2 : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195.T_testAnonymousFields___localname___S2_11195>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testIssue10281___localname___Foo_15026(stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026) from stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026 to stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testIssue10281___localname___Foo_15026_static_extension) abstract T_testIssue10281___localname___Foo_15026(stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026) from stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026 to stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026.T_testIssue10281___localname___Foo_15026 {
     public var n(get, set) : Number;
     function get_n():Number return this.n;
     function set_n(v:Number):Number {
@@ -3502,41 +3502,41 @@ typedef T_testAnonymousFields___localname___myInt_10694 = stdgo._internal.encodi
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460(stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460) from stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 to stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460_static_extension) abstract T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460(stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460) from stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 to stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var next(get, set) : T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460;
     function get_next():T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 return this.next;
     function set_next(v:T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460):T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460 {
-        this.next = v;
+        this.next = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460>);
         return v;
     }
-    public function new(?name:String, ?next:T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460) this = new stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460(name, next);
+    public function new(?name:String, ?next:T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460) this = new stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460((name : stdgo.GoString), (next : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testMarshalErrorAndReuseEncodeState___localname___Data_15661(stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661) from stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661 to stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661_static_extension) abstract T_testMarshalErrorAndReuseEncodeState___localname___Data_15661(stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661) from stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661 to stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661 {
     public var a(get, set) : String;
     function get_a():String return this.a;
     function set_a(v:String):String {
-        this.a = v;
+        this.a = (v : stdgo.GoString);
         return v;
     }
     public var i(get, set) : StdTypes.Int;
     function get_i():StdTypes.Int return this.i;
     function set_i(v:StdTypes.Int):StdTypes.Int {
-        this.i = v;
+        this.i = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?a:String, ?i:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661(a, i);
+    public function new(?a:String, ?i:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661((a : stdgo.GoString), (i : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testEncodePointerString___localname___stringPointer_16452(stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452) from stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452 to stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testEncodePointerString___localname___stringPointer_16452_static_extension) abstract T_testEncodePointerString___localname___stringPointer_16452(stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452) from stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452 to stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452.T_testEncodePointerString___localname___stringPointer_16452 {
     public var n(get, set) : stdgo.Pointer<haxe.Int64>;
     function get_n():stdgo.Pointer<haxe.Int64> return this.n;
     function set_n(v:stdgo.Pointer<haxe.Int64>):stdgo.Pointer<haxe.Int64> {
@@ -3547,7 +3547,7 @@ typedef T_testAnonymousFields___localname___myInt_10694 = stdgo._internal.encodi
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testMarshalRawMessageValue___localname___T1_23519(stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519) from stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519 to stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testMarshalRawMessageValue___localname___T1_23519_static_extension) abstract T_testMarshalRawMessageValue___localname___T1_23519(stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519) from stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519 to stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519.T_testMarshalRawMessageValue___localname___T1_23519 {
     public var m(get, set) : RawMessage;
     function get_m():RawMessage return this.m;
     function set_m(v:RawMessage):RawMessage {
@@ -3558,145 +3558,226 @@ typedef T_testAnonymousFields___localname___myInt_10694 = stdgo._internal.encodi
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testMarshalRawMessageValue___localname___T2_23573(stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573) from stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573 to stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testMarshalRawMessageValue___localname___T2_23573_static_extension) abstract T_testMarshalRawMessageValue___localname___T2_23573(stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573) from stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573 to stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573 {
     public var m(get, set) : RawMessage;
     function get_m():RawMessage return this.m;
     function set_m(v:RawMessage):RawMessage {
-        this.m = v;
+        this.m = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>);
         return v;
     }
-    public function new(?m:RawMessage) this = new stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573(m);
+    public function new(?m:RawMessage) this = new stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573.T_testMarshalRawMessageValue___localname___T2_23573((m : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487(stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487) from stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 to stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487_static_extension) abstract T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487(stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487) from stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 to stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var next(get, set) : T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487;
     function get_next():T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 return this.next;
     function set_next(v:T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487):T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487 {
-        this.next = v;
+        this.next = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487>);
         return v;
     }
-    public function new(?name:String, ?next:T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487) this = new stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487(name, next);
+    public function new(?name:String, ?next:T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487) this = new stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487((name : stdgo.GoString), (next : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_testEncoderErrorAndReuseEncodeState___localname___Data_1733(stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733) from stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 to stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 {
+@:structInit @:using(stdgo.encoding.json.Json.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733_static_extension) abstract T_testEncoderErrorAndReuseEncodeState___localname___Data_1733(stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733) from stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 to stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 {
     public var a(get, set) : String;
     function get_a():String return this.a;
     function set_a(v:String):String {
-        this.a = v;
+        this.a = (v : stdgo.GoString);
         return v;
     }
     public var i(get, set) : StdTypes.Int;
     function get_i():StdTypes.Int return this.i;
     function set_i(v:StdTypes.Int):StdTypes.Int {
-        this.i = v;
+        this.i = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?a:String, ?i:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733(a, i);
+    public function new(?a:String, ?i:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733((a : stdgo.GoString), (i : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
+}
+typedef T_codeResponsePointer = stdgo._internal.encoding.json.Json_T_codeResponsePointer.T_codeResponsePointer;
+class T_codeResponse_static_extension {
+
+}
+typedef T_codeNodePointer = stdgo._internal.encoding.json.Json_T_codeNodePointer.T_codeNodePointer;
+class T_codeNode_static_extension {
+
 }
 typedef UnmarshalTypeErrorPointer = stdgo._internal.encoding.json.Json_UnmarshalTypeErrorPointer.UnmarshalTypeErrorPointer;
 class UnmarshalTypeError_static_extension {
     static public function error(_e:UnmarshalTypeError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalTypeError.UnmarshalTypeError>);
         return stdgo._internal.encoding.json.Json_UnmarshalTypeError_static_extension.UnmarshalTypeError_static_extension.error(_e);
     }
 }
 typedef UnmarshalFieldErrorPointer = stdgo._internal.encoding.json.Json_UnmarshalFieldErrorPointer.UnmarshalFieldErrorPointer;
 class UnmarshalFieldError_static_extension {
     static public function error(_e:UnmarshalFieldError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_UnmarshalFieldError.UnmarshalFieldError>);
         return stdgo._internal.encoding.json.Json_UnmarshalFieldError_static_extension.UnmarshalFieldError_static_extension.error(_e);
     }
 }
 typedef InvalidUnmarshalErrorPointer = stdgo._internal.encoding.json.Json_InvalidUnmarshalErrorPointer.InvalidUnmarshalErrorPointer;
 class InvalidUnmarshalError_static_extension {
     static public function error(_e:InvalidUnmarshalError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_InvalidUnmarshalError.InvalidUnmarshalError>);
         return stdgo._internal.encoding.json.Json_InvalidUnmarshalError_static_extension.InvalidUnmarshalError_static_extension.error(_e);
     }
+}
+typedef T_errorContextPointer = stdgo._internal.encoding.json.Json_T_errorContextPointer.T_errorContextPointer;
+class T_errorContext_static_extension {
+
 }
 typedef T_decodeStatePointer = stdgo._internal.encoding.json.Json_T_decodeStatePointer.T_decodeStatePointer;
 class T_decodeState_static_extension {
     static public function _literalInterface(_d:T_decodeState):stdgo.AnyInterface {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._literalInterface(_d);
     }
     static public function _objectInterface(_d:T_decodeState):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._objectInterface(_d);
     }
     static public function _arrayInterface(_d:T_decodeState):Array<stdgo.AnyInterface> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return [for (i in stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._arrayInterface(_d)) i];
     }
     static public function _valueInterface(_d:T_decodeState):stdgo.AnyInterface {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._valueInterface(_d);
     }
     static public function _literalStore(_d:T_decodeState, _item:Array<std.UInt>, _v:stdgo._internal.reflect.Reflect_Value.Value, _fromQuoted:Bool):stdgo.Error {
-        final _item = ([for (i in _item) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _item = ([for (i in _item) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._literalStore(_d, _item, _v, _fromQuoted);
     }
     static public function _convertNumber(_d:T_decodeState, _s:String):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._convertNumber(_d, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _object(_d:T_decodeState, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._object(_d, _v);
     }
     static public function _array(_d:T_decodeState, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._array(_d, _v);
     }
     static public function _valueQuoted(_d:T_decodeState):stdgo.AnyInterface {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._valueQuoted(_d);
     }
     static public function _value(_d:T_decodeState, _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._value(_d, _v);
     }
     static public function _rescanLiteral(_d:T_decodeState):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._rescanLiteral(_d);
     }
     static public function _scanWhile(_d:T_decodeState, _op:StdTypes.Int):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _op = (_op : stdgo.GoInt);
         stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._scanWhile(_d, _op);
     }
     static public function _scanNext(_d:T_decodeState):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._scanNext(_d);
     }
     static public function _skip(_d:T_decodeState):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._skip(_d);
     }
     static public function _addErrorContext(_d:T_decodeState, _err:stdgo.Error):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _err = (_err : stdgo.Error);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._addErrorContext(_d, _err);
     }
     static public function _saveError(_d:T_decodeState, _err:stdgo.Error):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _err = (_err : stdgo.Error);
         stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._saveError(_d, _err);
     }
     static public function _init(_d:T_decodeState, _data:Array<std.UInt>):T_decodeState {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._init(_d, _data);
     }
     static public function _readIndex(_d:T_decodeState):StdTypes.Int {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._readIndex(_d);
     }
     static public function _unmarshal(_d:T_decodeState, _v:stdgo.AnyInterface):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_T_decodeState.T_decodeState>);
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.encoding.json.Json_T_decodeState_static_extension.T_decodeState_static_extension._unmarshal(_d, _v);
     }
+}
+typedef T_unquotedValuePointer = stdgo._internal.encoding.json.Json_T_unquotedValuePointer.T_unquotedValuePointer;
+class T_unquotedValue_static_extension {
+
+}
+typedef T_Pointer = stdgo._internal.encoding.json.Json_T_Pointer.T_Pointer;
+class T__static_extension {
+
+}
+typedef UPointer = stdgo._internal.encoding.json.Json_UPointer.UPointer;
+class U_static_extension {
+
+}
+typedef VPointer = stdgo._internal.encoding.json.Json_VPointer.VPointer;
+class V_static_extension {
+
+}
+typedef VOuterPointer = stdgo._internal.encoding.json.Json_VOuterPointer.VOuterPointer;
+class VOuter_static_extension {
+
+}
+typedef WPointer = stdgo._internal.encoding.json.Json_WPointer.WPointer;
+class W_static_extension {
+
+}
+typedef PPointer = stdgo._internal.encoding.json.Json_PPointer.PPointer;
+class P_static_extension {
+
+}
+typedef PPPointer = stdgo._internal.encoding.json.Json_PPPointer.PPPointer;
+class PP_static_extension {
+
+}
+typedef T_txPointer = stdgo._internal.encoding.json.Json_T_txPointer.T_txPointer;
+class T_tx_static_extension {
+
 }
 typedef T_unmarshalerPointer = stdgo._internal.encoding.json.Json_T_unmarshalerPointer.T_unmarshalerPointer;
 class T_unmarshaler_static_extension {
     static public function unmarshalJSON(_u:T_unmarshaler, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_unmarshaler_static_extension.T_unmarshaler_static_extension.unmarshalJSON(_u, _b);
     }
+}
+typedef T_ustructPointer = stdgo._internal.encoding.json.Json_T_ustructPointer.T_ustructPointer;
+class T_ustruct_static_extension {
+
 }
 typedef T_unmarshalerTextPointer = stdgo._internal.encoding.json.Json_T_unmarshalerTextPointer.T_unmarshalerTextPointer;
 class T_unmarshalerText_static_extension {
     static public function unmarshalText(_u:T_unmarshalerText, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_unmarshalerText_static_extension.T_unmarshalerText_static_extension.unmarshalText(_u, _b);
     }
     static public function marshalText(_u:T_unmarshalerText):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -3705,6 +3786,14 @@ class T_unmarshalerText_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
+}
+typedef T_ustructTextPointer = stdgo._internal.encoding.json.Json_T_ustructTextPointer.T_ustructTextPointer;
+class T_ustructText_static_extension {
+
+}
+typedef PointPointer = stdgo._internal.encoding.json.Json_PointPointer.PointPointer;
+class Point_static_extension {
+
 }
 typedef TopPointer = stdgo._internal.encoding.json.Json_TopPointer.TopPointer;
 class Top_static_extension {
@@ -3715,6 +3804,7 @@ class Top_static_extension {
         return stdgo._internal.encoding.json.Json_Top_static_extension.Top_static_extension.string(__self__);
     }
     public static function mul(__self__:stdgo._internal.encoding.json.Json_Top.Top, _0:StdTypes.Int):stdgo._internal.image.Image_Point.Point {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_Top_static_extension.Top_static_extension.mul(__self__, _0);
     }
     public static function mod(__self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Rectangle.Rectangle):stdgo._internal.image.Image_Point.Point {
@@ -3727,11 +3817,20 @@ class Top_static_extension {
         return stdgo._internal.encoding.json.Json_Top_static_extension.Top_static_extension.eq(__self__, _0);
     }
     public static function div(__self__:stdgo._internal.encoding.json.Json_Top.Top, _0:StdTypes.Int):stdgo._internal.image.Image_Point.Point {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_Top_static_extension.Top_static_extension.div(__self__, _0);
     }
     public static function add(__self__:stdgo._internal.encoding.json.Json_Top.Top, _0:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point {
         return stdgo._internal.encoding.json.Json_Top_static_extension.Top_static_extension.add(__self__, _0);
     }
+}
+typedef Embed0Pointer = stdgo._internal.encoding.json.Json_Embed0Pointer.Embed0Pointer;
+class Embed0_static_extension {
+
+}
+typedef Embed0aPointer = stdgo._internal.encoding.json.Json_Embed0aPointer.Embed0aPointer;
+class Embed0a_static_extension {
+
 }
 typedef Embed0pPointer = stdgo._internal.encoding.json.Json_Embed0pPointer.Embed0pPointer;
 class Embed0p_static_extension {
@@ -3742,6 +3841,7 @@ class Embed0p_static_extension {
         return stdgo._internal.encoding.json.Json_Embed0p_static_extension.Embed0p_static_extension.string(__self__);
     }
     public static function mul(__self__:stdgo._internal.encoding.json.Json_Embed0p.Embed0p, _0:StdTypes.Int):stdgo._internal.image.Image_Point.Point {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_Embed0p_static_extension.Embed0p_static_extension.mul(__self__, _0);
     }
     public static function mod(__self__:stdgo._internal.encoding.json.Json_Embed0p.Embed0p, _0:stdgo._internal.image.Image_Rectangle.Rectangle):stdgo._internal.image.Image_Point.Point {
@@ -3754,6 +3854,7 @@ class Embed0p_static_extension {
         return stdgo._internal.encoding.json.Json_Embed0p_static_extension.Embed0p_static_extension.eq(__self__, _0);
     }
     public static function div(__self__:stdgo._internal.encoding.json.Json_Embed0p.Embed0p, _0:StdTypes.Int):stdgo._internal.image.Image_Point.Point {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_Embed0p_static_extension.Embed0p_static_extension.div(__self__, _0);
     }
     public static function add(__self__:stdgo._internal.encoding.json.Json_Embed0p.Embed0p, _0:stdgo._internal.image.Image_Point.Point):stdgo._internal.image.Image_Point.Point {
@@ -3764,6 +3865,10 @@ typedef Embed0qPointer = stdgo._internal.encoding.json.Json_Embed0qPointer.Embed
 class Embed0q_static_extension {
 
 }
+typedef T_embedPointer = stdgo._internal.encoding.json.Json_T_embedPointer.T_embedPointer;
+class T_embed_static_extension {
+
+}
 typedef LoopPointer = stdgo._internal.encoding.json.Json_LoopPointer.LoopPointer;
 class Loop_static_extension {
 
@@ -3772,8 +3877,16 @@ typedef S5Pointer = stdgo._internal.encoding.json.Json_S5Pointer.S5Pointer;
 class S5_static_extension {
 
 }
+typedef S6Pointer = stdgo._internal.encoding.json.Json_S6Pointer.S6Pointer;
+class S6_static_extension {
+
+}
 typedef S8Pointer = stdgo._internal.encoding.json.Json_S8Pointer.S8Pointer;
 class S8_static_extension {
+
+}
+typedef S9Pointer = stdgo._internal.encoding.json.Json_S9Pointer.S9Pointer;
+class S9_static_extension {
 
 }
 typedef S10Pointer = stdgo._internal.encoding.json.Json_S10Pointer.S10Pointer;
@@ -3792,84 +3905,149 @@ typedef S13Pointer = stdgo._internal.encoding.json.Json_S13Pointer.S13Pointer;
 class S13_static_extension {
 
 }
+typedef AmbigPointer = stdgo._internal.encoding.json.Json_AmbigPointer.AmbigPointer;
+class Ambig_static_extension {
+
+}
+typedef XYZPointer = stdgo._internal.encoding.json.Json_XYZPointer.XYZPointer;
+class XYZ_static_extension {
+
+}
 typedef T_unexportedWithMethodsPointer = stdgo._internal.encoding.json.Json_T_unexportedWithMethodsPointer.T_unexportedWithMethodsPointer;
 class T_unexportedWithMethods_static_extension {
     static public function f(_:T_unexportedWithMethods):Void {
         stdgo._internal.encoding.json.Json_T_unexportedWithMethods_static_extension.T_unexportedWithMethods_static_extension.f(_);
     }
 }
+typedef T_mapStringToStringDataPointer = stdgo._internal.encoding.json.Json_T_mapStringToStringDataPointer.T_mapStringToStringDataPointer;
+class T_mapStringToStringData_static_extension {
+
+}
+typedef T_unmarshalTestPointer = stdgo._internal.encoding.json.Json_T_unmarshalTestPointer.T_unmarshalTestPointer;
+class T_unmarshalTest_static_extension {
+
+}
+typedef BPointer = stdgo._internal.encoding.json.Json_BPointer.BPointer;
+class B_static_extension {
+
+}
+typedef DoublePtrPointer = stdgo._internal.encoding.json.Json_DoublePtrPointer.DoublePtrPointer;
+class DoublePtr_static_extension {
+
+}
+typedef XintPointer = stdgo._internal.encoding.json.Json_XintPointer.XintPointer;
+class Xint_static_extension {
+
+}
+typedef WrongStringPointer = stdgo._internal.encoding.json.Json_WrongStringPointer.WrongStringPointer;
+class WrongString_static_extension {
+
+}
+typedef T_wrongStringTestPointer = stdgo._internal.encoding.json.Json_T_wrongStringTestPointer.T_wrongStringTestPointer;
+class T_wrongStringTest_static_extension {
+
+}
+typedef AllPointer = stdgo._internal.encoding.json.Json_AllPointer.AllPointer;
+class All_static_extension {
+
+}
+typedef SmallPointer = stdgo._internal.encoding.json.Json_SmallPointer.SmallPointer;
+class Small_static_extension {
+
+}
+typedef NullTestPointer = stdgo._internal.encoding.json.Json_NullTestPointer.NullTestPointer;
+class NullTest_static_extension {
+
+}
 typedef MustNotUnmarshalJSONPointer = stdgo._internal.encoding.json.Json_MustNotUnmarshalJSONPointer.MustNotUnmarshalJSONPointer;
 class MustNotUnmarshalJSON_static_extension {
     static public function unmarshalJSON(_x:MustNotUnmarshalJSON, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_MustNotUnmarshalJSON_static_extension.MustNotUnmarshalJSON_static_extension.unmarshalJSON(_x, _data);
     }
 }
 typedef MustNotUnmarshalTextPointer = stdgo._internal.encoding.json.Json_MustNotUnmarshalTextPointer.MustNotUnmarshalTextPointer;
 class MustNotUnmarshalText_static_extension {
     static public function unmarshalText(_x:MustNotUnmarshalText, _text:Array<std.UInt>):stdgo.Error {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_MustNotUnmarshalText_static_extension.MustNotUnmarshalText_static_extension.unmarshalText(_x, _text);
     }
+}
+typedef T_unexportedFieldsPointer = stdgo._internal.encoding.json.Json_T_unexportedFieldsPointer.T_unexportedFieldsPointer;
+class T_unexportedFields_static_extension {
+
 }
 typedef T_unmarshalPanicPointer = stdgo._internal.encoding.json.Json_T_unmarshalPanicPointer.T_unmarshalPanicPointer;
 class T_unmarshalPanic_static_extension {
     static public function unmarshalJSON(_:T_unmarshalPanic, _0:Array<std.UInt>):stdgo.Error {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_unmarshalPanic_static_extension.T_unmarshalPanic_static_extension.unmarshalJSON(_, _0);
     }
 }
 typedef UnsupportedTypeErrorPointer = stdgo._internal.encoding.json.Json_UnsupportedTypeErrorPointer.UnsupportedTypeErrorPointer;
 class UnsupportedTypeError_static_extension {
     static public function error(_e:UnsupportedTypeError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_UnsupportedTypeError.UnsupportedTypeError>);
         return stdgo._internal.encoding.json.Json_UnsupportedTypeError_static_extension.UnsupportedTypeError_static_extension.error(_e);
     }
 }
 typedef UnsupportedValueErrorPointer = stdgo._internal.encoding.json.Json_UnsupportedValueErrorPointer.UnsupportedValueErrorPointer;
 class UnsupportedValueError_static_extension {
     static public function error(_e:UnsupportedValueError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_UnsupportedValueError.UnsupportedValueError>);
         return stdgo._internal.encoding.json.Json_UnsupportedValueError_static_extension.UnsupportedValueError_static_extension.error(_e);
     }
 }
 typedef InvalidUTF8ErrorPointer = stdgo._internal.encoding.json.Json_InvalidUTF8ErrorPointer.InvalidUTF8ErrorPointer;
 class InvalidUTF8Error_static_extension {
     static public function error(_e:InvalidUTF8Error):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_InvalidUTF8Error.InvalidUTF8Error>);
         return stdgo._internal.encoding.json.Json_InvalidUTF8Error_static_extension.InvalidUTF8Error_static_extension.error(_e);
     }
 }
 typedef MarshalerErrorPointer = stdgo._internal.encoding.json.Json_MarshalerErrorPointer.MarshalerErrorPointer;
 class MarshalerError_static_extension {
     static public function unwrap(_e:MarshalerError):stdgo.Error {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_MarshalerError.MarshalerError>);
         return stdgo._internal.encoding.json.Json_MarshalerError_static_extension.MarshalerError_static_extension.unwrap(_e);
     }
     static public function error(_e:MarshalerError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_MarshalerError.MarshalerError>);
         return stdgo._internal.encoding.json.Json_MarshalerError_static_extension.MarshalerError_static_extension.error(_e);
     }
 }
 typedef T_encodeStatePointer = stdgo._internal.encoding.json.Json_T_encodeStatePointer.T_encodeStatePointer;
 class T_encodeState_static_extension {
     static public function _reflectValue(_e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._reflectValue(_e, _v, _opts);
     }
     static public function _error(_e:T_encodeState, _err:stdgo.Error):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
+        final _err = (_err : stdgo.Error);
         stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._error(_e, _err);
     }
     static public function _marshal(_e:T_encodeState, _v:stdgo.AnyInterface, _opts:T_encOpts):stdgo.Error {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._marshal(_e, _v, _opts);
     }
     public static function _tryGrowByReslice(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _0 = (_0 : stdgo.GoInt);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._tryGrowByReslice(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _readSlice(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _0 = (_0 : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._readSlice(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     public static function _grow(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):StdTypes.Int {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension._grow(__self__, _0);
     }
     public static function _empty(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):Bool {
@@ -3882,22 +4060,25 @@ class T_encodeState_static_extension {
         };
     }
     public static function writeString(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = (_0 : stdgo.GoString);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.writeString(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function writeRune(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = (_0 : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.writeRune(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function writeByte(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:std.UInt):stdgo.Error {
+        final _0 = (_0 : stdgo.GoUInt8);
         return stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.writeByte(__self__, _0);
     }
     public static function write(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
@@ -3910,6 +4091,7 @@ class T_encodeState_static_extension {
         return stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.unreadByte(__self__);
     }
     public static function truncate(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):Void {
+        final _0 = (_0 : stdgo.GoInt);
         stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.truncate(__self__, _0);
     }
     public static function string(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):String {
@@ -3919,6 +4101,7 @@ class T_encodeState_static_extension {
         stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.reset(__self__);
     }
     public static function readString(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:std.UInt):stdgo.Tuple<String, stdgo.Error> {
+        final _0 = (_0 : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.readString(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
@@ -3937,6 +4120,7 @@ class T_encodeState_static_extension {
         };
     }
     public static function readBytes(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _0 = (_0 : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.readBytes(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -3949,19 +4133,21 @@ class T_encodeState_static_extension {
         };
     }
     public static function read(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function next(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):Array<std.UInt> {
+        final _0 = (_0 : stdgo.GoInt);
         return [for (i in stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.next(__self__, _0)) i];
     }
     public static function len(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):StdTypes.Int {
         return stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.len(__self__);
     }
     public static function grow(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState, _0:StdTypes.Int):Void {
+        final _0 = (_0 : stdgo.GoInt);
         stdgo._internal.encoding.json.Json_T_encodeState_static_extension.T_encodeState_static_extension.grow(__self__, _0);
     }
     public static function cap(__self__:stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState):StdTypes.Int {
@@ -3983,54 +4169,105 @@ class T_jsonError_static_extension {
         return stdgo._internal.encoding.json.Json_T_jsonError_static_extension.T_jsonError_static_extension.error(__self__);
     }
 }
+typedef T_encOptsPointer = stdgo._internal.encoding.json.Json_T_encOptsPointer.T_encOptsPointer;
+class T_encOpts_static_extension {
+
+}
 typedef T_structEncoderPointer = stdgo._internal.encoding.json.Json_T_structEncoderPointer.T_structEncoderPointer;
 class T_structEncoder_static_extension {
     static public function _encode(_se:T_structEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_structEncoder_static_extension.T_structEncoder_static_extension._encode(_se, _e, _v, _opts);
     }
+}
+typedef T_structFieldsPointer = stdgo._internal.encoding.json.Json_T_structFieldsPointer.T_structFieldsPointer;
+class T_structFields_static_extension {
+
 }
 typedef T_mapEncoderPointer = stdgo._internal.encoding.json.Json_T_mapEncoderPointer.T_mapEncoderPointer;
 class T_mapEncoder_static_extension {
     static public function _encode(_me:T_mapEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_mapEncoder_static_extension.T_mapEncoder_static_extension._encode(_me, _e, _v, _opts);
     }
 }
 typedef T_sliceEncoderPointer = stdgo._internal.encoding.json.Json_T_sliceEncoderPointer.T_sliceEncoderPointer;
 class T_sliceEncoder_static_extension {
     static public function _encode(_se:T_sliceEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_sliceEncoder_static_extension.T_sliceEncoder_static_extension._encode(_se, _e, _v, _opts);
     }
 }
 typedef T_arrayEncoderPointer = stdgo._internal.encoding.json.Json_T_arrayEncoderPointer.T_arrayEncoderPointer;
 class T_arrayEncoder_static_extension {
     static public function _encode(_ae:T_arrayEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_arrayEncoder_static_extension.T_arrayEncoder_static_extension._encode(_ae, _e, _v, _opts);
     }
 }
 typedef T_ptrEncoderPointer = stdgo._internal.encoding.json.Json_T_ptrEncoderPointer.T_ptrEncoderPointer;
 class T_ptrEncoder_static_extension {
     static public function _encode(_pe:T_ptrEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_ptrEncoder_static_extension.T_ptrEncoder_static_extension._encode(_pe, _e, _v, _opts);
     }
 }
 typedef T_condAddrEncoderPointer = stdgo._internal.encoding.json.Json_T_condAddrEncoderPointer.T_condAddrEncoderPointer;
 class T_condAddrEncoder_static_extension {
     static public function _encode(_ce:T_condAddrEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_condAddrEncoder_static_extension.T_condAddrEncoder_static_extension._encode(_ce, _e, _v, _opts);
     }
 }
 typedef T_reflectWithStringPointer = stdgo._internal.encoding.json.Json_T_reflectWithStringPointer.T_reflectWithStringPointer;
 class T_reflectWithString_static_extension {
     static public function _resolve(_w:T_reflectWithString):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.encoding.json.Json_T_reflectWithString.T_reflectWithString>);
         return stdgo._internal.encoding.json.Json_T_reflectWithString_static_extension.T_reflectWithString_static_extension._resolve(_w);
     }
+}
+typedef T_fieldPointer = stdgo._internal.encoding.json.Json_T_fieldPointer.T_fieldPointer;
+class T_field_static_extension {
+
+}
+typedef OptionalsPointer = stdgo._internal.encoding.json.Json_OptionalsPointer.OptionalsPointer;
+class Optionals_static_extension {
+
+}
+typedef StringTagPointer = stdgo._internal.encoding.json.Json_StringTagPointer.StringTagPointer;
+class StringTag_static_extension {
+
+}
+typedef SamePointerNoCyclePointer = stdgo._internal.encoding.json.Json_SamePointerNoCyclePointer.SamePointerNoCyclePointer;
+class SamePointerNoCycle_static_extension {
+
+}
+typedef PointerCyclePointer = stdgo._internal.encoding.json.Json_PointerCyclePointer.PointerCyclePointer;
+class PointerCycle_static_extension {
+
+}
+typedef PointerCycleIndirectPointer = stdgo._internal.encoding.json.Json_PointerCycleIndirectPointer.PointerCycleIndirectPointer;
+class PointerCycleIndirect_static_extension {
+
+}
+typedef BugAPointer = stdgo._internal.encoding.json.Json_BugAPointer.BugAPointer;
+class BugA_static_extension {
+
 }
 typedef BugBPointer = stdgo._internal.encoding.json.Json_BugBPointer.BugBPointer;
 class BugB_static_extension {
 
 }
+typedef BugCPointer = stdgo._internal.encoding.json.Json_BugCPointer.BugCPointer;
+class BugC_static_extension {
+
+}
 typedef BugXPointer = stdgo._internal.encoding.json.Json_BugXPointer.BugXPointer;
 class BugX_static_extension {
+
+}
+typedef BugDPointer = stdgo._internal.encoding.json.Json_BugDPointer.BugDPointer;
+class BugD_static_extension {
 
 }
 typedef BugYPointer = stdgo._internal.encoding.json.Json_BugYPointer.BugYPointer;
@@ -4053,95 +4290,396 @@ class T_marshalPanic_static_extension {
 typedef SyntaxErrorPointer = stdgo._internal.encoding.json.Json_SyntaxErrorPointer.SyntaxErrorPointer;
 class SyntaxError_static_extension {
     static public function error(_e:SyntaxError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError>);
         return stdgo._internal.encoding.json.Json_SyntaxError_static_extension.SyntaxError_static_extension.error(_e);
     }
 }
 typedef T_scannerPointer = stdgo._internal.encoding.json.Json_T_scannerPointer.T_scannerPointer;
 class T_scanner_static_extension {
     static public function _error(_s:T_scanner, _c:std.UInt, _context:String):StdTypes.Int {
+        final _s = (_s : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
+        final _c = (_c : stdgo.GoUInt8);
+        final _context = (_context : stdgo.GoString);
         return stdgo._internal.encoding.json.Json_T_scanner_static_extension.T_scanner_static_extension._error(_s, _c, _context);
     }
     static public function _popParseState(_s:T_scanner):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
         stdgo._internal.encoding.json.Json_T_scanner_static_extension.T_scanner_static_extension._popParseState(_s);
     }
     static public function _pushParseState(_s:T_scanner, _c:std.UInt, _newParseState:StdTypes.Int, _successState:StdTypes.Int):StdTypes.Int {
+        final _s = (_s : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
+        final _c = (_c : stdgo.GoUInt8);
+        final _newParseState = (_newParseState : stdgo.GoInt);
+        final _successState = (_successState : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_T_scanner_static_extension.T_scanner_static_extension._pushParseState(_s, _c, _newParseState, _successState);
     }
     static public function _eof(_s:T_scanner):StdTypes.Int {
+        final _s = (_s : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
         return stdgo._internal.encoding.json.Json_T_scanner_static_extension.T_scanner_static_extension._eof(_s);
     }
     static public function _reset(_s:T_scanner):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
         stdgo._internal.encoding.json.Json_T_scanner_static_extension.T_scanner_static_extension._reset(_s);
     }
+}
+typedef T_examplePointer = stdgo._internal.encoding.json.Json_T_examplePointer.T_examplePointer;
+class T_example_static_extension {
+
+}
+typedef T_indentErrorTestPointer = stdgo._internal.encoding.json.Json_T_indentErrorTestPointer.T_indentErrorTestPointer;
+class T_indentErrorTest_static_extension {
+
 }
 typedef DecoderPointer = stdgo._internal.encoding.json.Json_DecoderPointer.DecoderPointer;
 class Decoder_static_extension {
     static public function inputOffset(_dec:Decoder):haxe.Int64 {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.inputOffset(_dec);
     }
     static public function _peek(_dec:Decoder):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return {
             final obj = stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._peek(_dec);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function more(_dec:Decoder):Bool {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.more(_dec);
     }
     static public function _tokenError(_dec:Decoder, _c:std.UInt):stdgo.Tuple<Token, stdgo.Error> {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
+        final _c = (_c : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._tokenError(_dec, _c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function token(_dec:Decoder):stdgo.Tuple<Token, stdgo.Error> {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return {
             final obj = stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.token(_dec);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _tokenValueEnd(_dec:Decoder):Void {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._tokenValueEnd(_dec);
     }
     static public function _tokenValueAllowed(_dec:Decoder):Bool {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._tokenValueAllowed(_dec);
     }
     static public function _tokenPrepareForDecode(_dec:Decoder):stdgo.Error {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._tokenPrepareForDecode(_dec);
     }
     static public function _refill(_dec:Decoder):stdgo.Error {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._refill(_dec);
     }
     static public function _readValue(_dec:Decoder):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return {
             final obj = stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension._readValue(_dec);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function buffered(_dec:Decoder):stdgo._internal.io.Io_Reader.Reader {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.buffered(_dec);
     }
     static public function decode(_dec:Decoder, _v:stdgo.AnyInterface):stdgo.Error {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.decode(_dec, _v);
     }
     static public function disallowUnknownFields(_dec:Decoder):Void {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.disallowUnknownFields(_dec);
     }
     static public function useNumber(_dec:Decoder):Void {
+        final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
         stdgo._internal.encoding.json.Json_Decoder_static_extension.Decoder_static_extension.useNumber(_dec);
     }
 }
 typedef EncoderPointer = stdgo._internal.encoding.json.Json_EncoderPointer.EncoderPointer;
 class Encoder_static_extension {
     static public function setEscapeHTML(_enc:Encoder, _on:Bool):Void {
+        final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>);
         stdgo._internal.encoding.json.Json_Encoder_static_extension.Encoder_static_extension.setEscapeHTML(_enc, _on);
     }
     static public function setIndent(_enc:Encoder, _prefix:String, _indent:String):Void {
+        final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>);
+        final _prefix = (_prefix : stdgo.GoString);
+        final _indent = (_indent : stdgo.GoString);
         stdgo._internal.encoding.json.Json_Encoder_static_extension.Encoder_static_extension.setIndent(_enc, _prefix, _indent);
     }
     static public function encode(_enc:Encoder, _v:stdgo.AnyInterface):stdgo.Error {
+        final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>);
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.encoding.json.Json_Encoder_static_extension.Encoder_static_extension.encode(_enc, _v);
     }
+}
+typedef T_tokenStreamCasePointer = stdgo._internal.encoding.json.Json_T_tokenStreamCasePointer.T_tokenStreamCasePointer;
+class T_tokenStreamCase_static_extension {
+
+}
+typedef T_decodeThisPointer = stdgo._internal.encoding.json.Json_T_decodeThisPointer.T_decodeThisPointer;
+class T_decodeThis_static_extension {
+
+}
+typedef T_basicLatin2xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin2xTagPointer.T_basicLatin2xTagPointer;
+class T_basicLatin2xTag_static_extension {
+
+}
+typedef T_basicLatin3xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin3xTagPointer.T_basicLatin3xTagPointer;
+class T_basicLatin3xTag_static_extension {
+
+}
+typedef T_basicLatin4xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin4xTagPointer.T_basicLatin4xTagPointer;
+class T_basicLatin4xTag_static_extension {
+
+}
+typedef T_basicLatin5xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin5xTagPointer.T_basicLatin5xTagPointer;
+class T_basicLatin5xTag_static_extension {
+
+}
+typedef T_basicLatin6xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin6xTagPointer.T_basicLatin6xTagPointer;
+class T_basicLatin6xTag_static_extension {
+
+}
+typedef T_basicLatin7xTagPointer = stdgo._internal.encoding.json.Json_T_basicLatin7xTagPointer.T_basicLatin7xTagPointer;
+class T_basicLatin7xTag_static_extension {
+
+}
+typedef T_miscPlaneTagPointer = stdgo._internal.encoding.json.Json_T_miscPlaneTagPointer.T_miscPlaneTagPointer;
+class T_miscPlaneTag_static_extension {
+
+}
+typedef T_percentSlashTagPointer = stdgo._internal.encoding.json.Json_T_percentSlashTagPointer.T_percentSlashTagPointer;
+class T_percentSlashTag_static_extension {
+
+}
+typedef T_punctuationTagPointer = stdgo._internal.encoding.json.Json_T_punctuationTagPointer.T_punctuationTagPointer;
+class T_punctuationTag_static_extension {
+
+}
+typedef T_dashTagPointer = stdgo._internal.encoding.json.Json_T_dashTagPointer.T_dashTagPointer;
+class T_dashTag_static_extension {
+
+}
+typedef T_emptyTagPointer = stdgo._internal.encoding.json.Json_T_emptyTagPointer.T_emptyTagPointer;
+class T_emptyTag_static_extension {
+
+}
+typedef T_misnamedTagPointer = stdgo._internal.encoding.json.Json_T_misnamedTagPointer.T_misnamedTagPointer;
+class T_misnamedTag_static_extension {
+
+}
+typedef T_badFormatTagPointer = stdgo._internal.encoding.json.Json_T_badFormatTagPointer.T_badFormatTagPointer;
+class T_badFormatTag_static_extension {
+
+}
+typedef T_badCodeTagPointer = stdgo._internal.encoding.json.Json_T_badCodeTagPointer.T_badCodeTagPointer;
+class T_badCodeTag_static_extension {
+
+}
+typedef T_spaceTagPointer = stdgo._internal.encoding.json.Json_T_spaceTagPointer.T_spaceTagPointer;
+class T_spaceTag_static_extension {
+
+}
+typedef T_unicodeTagPointer = stdgo._internal.encoding.json.Json_T_unicodeTagPointer.T_unicodeTagPointer;
+class T_unicodeTag_static_extension {
+
+}
+typedef T__struct_0PointerPointer = stdgo._internal.encoding.json.Json_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef T__struct_1PointerPointer = stdgo._internal.encoding.json.Json_T__struct_1PointerPointer.T__struct_1PointerPointer;
+class T__struct_1Pointer_static_extension {
+
+}
+typedef T__struct_2PointerPointer = stdgo._internal.encoding.json.Json_T__struct_2PointerPointer.T__struct_2PointerPointer;
+class T__struct_2Pointer_static_extension {
+
+}
+typedef T__struct_3PointerPointer = stdgo._internal.encoding.json.Json_T__struct_3PointerPointer.T__struct_3PointerPointer;
+class T__struct_3Pointer_static_extension {
+
+}
+typedef T__struct_4PointerPointer = stdgo._internal.encoding.json.Json_T__struct_4PointerPointer.T__struct_4PointerPointer;
+class T__struct_4Pointer_static_extension {
+
+}
+typedef T__struct_5PointerPointer = stdgo._internal.encoding.json.Json_T__struct_5PointerPointer.T__struct_5PointerPointer;
+class T__struct_5Pointer_static_extension {
+
+}
+typedef T__struct_6PointerPointer = stdgo._internal.encoding.json.Json_T__struct_6PointerPointer.T__struct_6PointerPointer;
+class T__struct_6Pointer_static_extension {
+
+}
+typedef T__struct_7PointerPointer = stdgo._internal.encoding.json.Json_T__struct_7PointerPointer.T__struct_7PointerPointer;
+class T__struct_7Pointer_static_extension {
+
+}
+typedef T__struct_8PointerPointer = stdgo._internal.encoding.json.Json_T__struct_8PointerPointer.T__struct_8PointerPointer;
+class T__struct_8Pointer_static_extension {
+
+}
+typedef T__struct_9PointerPointer = stdgo._internal.encoding.json.Json_T__struct_9PointerPointer.T__struct_9PointerPointer;
+class T__struct_9Pointer_static_extension {
+
+}
+typedef T__struct_10PointerPointer = stdgo._internal.encoding.json.Json_T__struct_10PointerPointer.T__struct_10PointerPointer;
+class T__struct_10Pointer_static_extension {
+
+}
+typedef T__struct_11PointerPointer = stdgo._internal.encoding.json.Json_T__struct_11PointerPointer.T__struct_11PointerPointer;
+class T__struct_11Pointer_static_extension {
+
+}
+typedef T__struct_12PointerPointer = stdgo._internal.encoding.json.Json_T__struct_12PointerPointer.T__struct_12PointerPointer;
+class T__struct_12Pointer_static_extension {
+
+}
+typedef T__struct_13PointerPointer = stdgo._internal.encoding.json.Json_T__struct_13PointerPointer.T__struct_13PointerPointer;
+class T__struct_13Pointer_static_extension {
+
+}
+typedef T__struct_14PointerPointer = stdgo._internal.encoding.json.Json_T__struct_14PointerPointer.T__struct_14PointerPointer;
+class T__struct_14Pointer_static_extension {
+
+}
+typedef T__struct_15PointerPointer = stdgo._internal.encoding.json.Json_T__struct_15PointerPointer.T__struct_15PointerPointer;
+class T__struct_15Pointer_static_extension {
+
+}
+typedef T__struct_16PointerPointer = stdgo._internal.encoding.json.Json_T__struct_16PointerPointer.T__struct_16PointerPointer;
+class T__struct_16Pointer_static_extension {
+
+}
+typedef T__struct_17PointerPointer = stdgo._internal.encoding.json.Json_T__struct_17PointerPointer.T__struct_17PointerPointer;
+class T__struct_17Pointer_static_extension {
+
+}
+typedef T__struct_18PointerPointer = stdgo._internal.encoding.json.Json_T__struct_18PointerPointer.T__struct_18PointerPointer;
+class T__struct_18Pointer_static_extension {
+
+}
+typedef T__struct_19PointerPointer = stdgo._internal.encoding.json.Json_T__struct_19PointerPointer.T__struct_19PointerPointer;
+class T__struct_19Pointer_static_extension {
+
+}
+typedef T__struct_20PointerPointer = stdgo._internal.encoding.json.Json_T__struct_20PointerPointer.T__struct_20PointerPointer;
+class T__struct_20Pointer_static_extension {
+
+}
+typedef T__struct_21PointerPointer = stdgo._internal.encoding.json.Json_T__struct_21PointerPointer.T__struct_21PointerPointer;
+class T__struct_21Pointer_static_extension {
+
+}
+typedef T__struct_22PointerPointer = stdgo._internal.encoding.json.Json_T__struct_22PointerPointer.T__struct_22PointerPointer;
+class T__struct_22Pointer_static_extension {
+
+}
+typedef T__struct_23PointerPointer = stdgo._internal.encoding.json.Json_T__struct_23PointerPointer.T__struct_23PointerPointer;
+class T__struct_23Pointer_static_extension {
+
+}
+typedef T__struct_24PointerPointer = stdgo._internal.encoding.json.Json_T__struct_24PointerPointer.T__struct_24PointerPointer;
+class T__struct_24Pointer_static_extension {
+
+}
+typedef T__struct_25PointerPointer = stdgo._internal.encoding.json.Json_T__struct_25PointerPointer.T__struct_25PointerPointer;
+class T__struct_25Pointer_static_extension {
+
+}
+typedef T__struct_26PointerPointer = stdgo._internal.encoding.json.Json_T__struct_26PointerPointer.T__struct_26PointerPointer;
+class T__struct_26Pointer_static_extension {
+
+}
+typedef T__struct_27PointerPointer = stdgo._internal.encoding.json.Json_T__struct_27PointerPointer.T__struct_27PointerPointer;
+class T__struct_27Pointer_static_extension {
+
+}
+typedef T__struct_28PointerPointer = stdgo._internal.encoding.json.Json_T__struct_28PointerPointer.T__struct_28PointerPointer;
+class T__struct_28Pointer_static_extension {
+
+}
+typedef T__struct_29PointerPointer = stdgo._internal.encoding.json.Json_T__struct_29PointerPointer.T__struct_29PointerPointer;
+class T__struct_29Pointer_static_extension {
+
+}
+typedef T__struct_30PointerPointer = stdgo._internal.encoding.json.Json_T__struct_30PointerPointer.T__struct_30PointerPointer;
+class T__struct_30Pointer_static_extension {
+
+}
+typedef T__struct_31PointerPointer = stdgo._internal.encoding.json.Json_T__struct_31PointerPointer.T__struct_31PointerPointer;
+class T__struct_31Pointer_static_extension {
+
+}
+typedef T__struct_32PointerPointer = stdgo._internal.encoding.json.Json_T__struct_32PointerPointer.T__struct_32PointerPointer;
+class T__struct_32Pointer_static_extension {
+
+}
+typedef T__struct_33PointerPointer = stdgo._internal.encoding.json.Json_T__struct_33PointerPointer.T__struct_33PointerPointer;
+class T__struct_33Pointer_static_extension {
+
+}
+typedef T__struct_34PointerPointer = stdgo._internal.encoding.json.Json_T__struct_34PointerPointer.T__struct_34PointerPointer;
+class T__struct_34Pointer_static_extension {
+
+}
+typedef T__struct_35PointerPointer = stdgo._internal.encoding.json.Json_T__struct_35PointerPointer.T__struct_35PointerPointer;
+class T__struct_35Pointer_static_extension {
+
+}
+typedef T__struct_36PointerPointer = stdgo._internal.encoding.json.Json_T__struct_36PointerPointer.T__struct_36PointerPointer;
+class T__struct_36Pointer_static_extension {
+
+}
+typedef T__struct_37PointerPointer = stdgo._internal.encoding.json.Json_T__struct_37PointerPointer.T__struct_37PointerPointer;
+class T__struct_37Pointer_static_extension {
+
+}
+typedef T__struct_38PointerPointer = stdgo._internal.encoding.json.Json_T__struct_38PointerPointer.T__struct_38PointerPointer;
+class T__struct_38Pointer_static_extension {
+
+}
+typedef T__struct_39PointerPointer = stdgo._internal.encoding.json.Json_T__struct_39PointerPointer.T__struct_39PointerPointer;
+class T__struct_39Pointer_static_extension {
+
+}
+typedef T__struct_40PointerPointer = stdgo._internal.encoding.json.Json_T__struct_40PointerPointer.T__struct_40PointerPointer;
+class T__struct_40Pointer_static_extension {
+
+}
+typedef T__struct_41PointerPointer = stdgo._internal.encoding.json.Json_T__struct_41PointerPointer.T__struct_41PointerPointer;
+class T__struct_41Pointer_static_extension {
+
+}
+typedef T__struct_42PointerPointer = stdgo._internal.encoding.json.Json_T__struct_42PointerPointer.T__struct_42PointerPointer;
+class T__struct_42Pointer_static_extension {
+
+}
+typedef T__struct_43PointerPointer = stdgo._internal.encoding.json.Json_T__struct_43PointerPointer.T__struct_43PointerPointer;
+class T__struct_43Pointer_static_extension {
+
+}
+typedef T__struct_44PointerPointer = stdgo._internal.encoding.json.Json_T__struct_44PointerPointer.T__struct_44PointerPointer;
+class T__struct_44Pointer_static_extension {
+
+}
+typedef T__struct_45PointerPointer = stdgo._internal.encoding.json.Json_T__struct_45PointerPointer.T__struct_45PointerPointer;
+class T__struct_45Pointer_static_extension {
+
+}
+typedef T__struct_46PointerPointer = stdgo._internal.encoding.json.Json_T__struct_46PointerPointer.T__struct_46PointerPointer;
+class T__struct_46Pointer_static_extension {
+
 }
 typedef NumberPointer = stdgo._internal.encoding.json.Json_NumberPointer.NumberPointer;
 class Number_static_extension {
@@ -4164,14 +4702,18 @@ class Number_static_extension {
 typedef SSPointer = stdgo._internal.encoding.json.Json_SSPointer.SSPointer;
 class SS_static_extension {
     static public function unmarshalJSON(_:stdgo.Pointer<SS>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_SS_static_extension.SS_static_extension.unmarshalJSON(_, _data);
     }
+}
+typedef T_u8Pointer = stdgo._internal.encoding.json.Json_T_u8Pointer.T_u8Pointer;
+class T_u8_static_extension {
+
 }
 typedef T_u8marshalPointer = stdgo._internal.encoding.json.Json_T_u8marshalPointer.T_u8marshalPointer;
 class T_u8marshal_static_extension {
     static public function unmarshalText(_u8:stdgo.Pointer<T_u8marshal>, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_u8marshal_static_extension.T_u8marshal_static_extension.unmarshalText(_u8, _b);
     }
     static public function marshalText(_u8:T_u8marshal):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4181,10 +4723,22 @@ class T_u8marshal_static_extension {
         };
     }
 }
+typedef Embed0bPointer = stdgo._internal.encoding.json.Json_Embed0bPointer.Embed0bPointer;
+class Embed0b_static_extension {
+
+}
+typedef Embed0cPointer = stdgo._internal.encoding.json.Json_Embed0cPointer.Embed0cPointer;
+class Embed0c_static_extension {
+
+}
+typedef S7Pointer = stdgo._internal.encoding.json.Json_S7Pointer.S7Pointer;
+class S7_static_extension {
+
+}
 typedef T_byteWithMarshalJSONPointer = stdgo._internal.encoding.json.Json_T_byteWithMarshalJSONPointer.T_byteWithMarshalJSONPointer;
 class T_byteWithMarshalJSON_static_extension {
     static public function unmarshalJSON(_b:stdgo.Pointer<T_byteWithMarshalJSON>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_byteWithMarshalJSON_static_extension.T_byteWithMarshalJSON_static_extension.unmarshalJSON(_b, _data);
     }
     static public function marshalJSON(_b:T_byteWithMarshalJSON):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4197,7 +4751,7 @@ class T_byteWithMarshalJSON_static_extension {
 typedef T_byteWithPtrMarshalJSONPointer = stdgo._internal.encoding.json.Json_T_byteWithPtrMarshalJSONPointer.T_byteWithPtrMarshalJSONPointer;
 class T_byteWithPtrMarshalJSON_static_extension {
     static public function unmarshalJSON(_b:stdgo.Pointer<T_byteWithPtrMarshalJSON>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_byteWithPtrMarshalJSON_static_extension.T_byteWithPtrMarshalJSON_static_extension.unmarshalJSON(_b, _data);
     }
     static public function marshalJSON(_b:stdgo.Pointer<T_byteWithPtrMarshalJSON>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4210,7 +4764,7 @@ class T_byteWithPtrMarshalJSON_static_extension {
 typedef T_byteWithMarshalTextPointer = stdgo._internal.encoding.json.Json_T_byteWithMarshalTextPointer.T_byteWithMarshalTextPointer;
 class T_byteWithMarshalText_static_extension {
     static public function unmarshalText(_b:stdgo.Pointer<T_byteWithMarshalText>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_byteWithMarshalText_static_extension.T_byteWithMarshalText_static_extension.unmarshalText(_b, _data);
     }
     static public function marshalText(_b:T_byteWithMarshalText):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4223,7 +4777,7 @@ class T_byteWithMarshalText_static_extension {
 typedef T_byteWithPtrMarshalTextPointer = stdgo._internal.encoding.json.Json_T_byteWithPtrMarshalTextPointer.T_byteWithPtrMarshalTextPointer;
 class T_byteWithPtrMarshalText_static_extension {
     static public function unmarshalText(_b:stdgo.Pointer<T_byteWithPtrMarshalText>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_byteWithPtrMarshalText_static_extension.T_byteWithPtrMarshalText_static_extension.unmarshalText(_b, _data);
     }
     static public function marshalText(_b:stdgo.Pointer<T_byteWithPtrMarshalText>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4236,7 +4790,7 @@ class T_byteWithPtrMarshalText_static_extension {
 typedef T_intWithMarshalJSONPointer = stdgo._internal.encoding.json.Json_T_intWithMarshalJSONPointer.T_intWithMarshalJSONPointer;
 class T_intWithMarshalJSON_static_extension {
     static public function unmarshalJSON(_b:stdgo.Pointer<T_intWithMarshalJSON>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_intWithMarshalJSON_static_extension.T_intWithMarshalJSON_static_extension.unmarshalJSON(_b, _data);
     }
     static public function marshalJSON(_b:T_intWithMarshalJSON):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4249,7 +4803,7 @@ class T_intWithMarshalJSON_static_extension {
 typedef T_intWithPtrMarshalJSONPointer = stdgo._internal.encoding.json.Json_T_intWithPtrMarshalJSONPointer.T_intWithPtrMarshalJSONPointer;
 class T_intWithPtrMarshalJSON_static_extension {
     static public function unmarshalJSON(_b:stdgo.Pointer<T_intWithPtrMarshalJSON>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_intWithPtrMarshalJSON_static_extension.T_intWithPtrMarshalJSON_static_extension.unmarshalJSON(_b, _data);
     }
     static public function marshalJSON(_b:stdgo.Pointer<T_intWithPtrMarshalJSON>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4262,7 +4816,7 @@ class T_intWithPtrMarshalJSON_static_extension {
 typedef T_intWithMarshalTextPointer = stdgo._internal.encoding.json.Json_T_intWithMarshalTextPointer.T_intWithMarshalTextPointer;
 class T_intWithMarshalText_static_extension {
     static public function unmarshalText(_b:stdgo.Pointer<T_intWithMarshalText>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_intWithMarshalText_static_extension.T_intWithMarshalText_static_extension.unmarshalText(_b, _data);
     }
     static public function marshalText(_b:T_intWithMarshalText):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4275,7 +4829,7 @@ class T_intWithMarshalText_static_extension {
 typedef T_intWithPtrMarshalTextPointer = stdgo._internal.encoding.json.Json_T_intWithPtrMarshalTextPointer.T_intWithPtrMarshalTextPointer;
 class T_intWithPtrMarshalText_static_extension {
     static public function unmarshalText(_b:stdgo.Pointer<T_intWithPtrMarshalText>, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_intWithPtrMarshalText_static_extension.T_intWithPtrMarshalText_static_extension.unmarshalText(_b, _data);
     }
     static public function marshalText(_b:stdgo.Pointer<T_intWithPtrMarshalText>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4288,39 +4842,65 @@ class T_intWithPtrMarshalText_static_extension {
 typedef Time3339Pointer = stdgo._internal.encoding.json.Json_Time3339Pointer.Time3339Pointer;
 class Time3339_static_extension {
     static public function unmarshalJSON(_t:Time3339, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.encoding.json.Json_Time3339.Time3339>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_Time3339_static_extension.Time3339_static_extension.unmarshalJSON(_t, _b);
     }
 }
 typedef T_textUnmarshalerStringPointer = stdgo._internal.encoding.json.Json_T_textUnmarshalerStringPointer.T_textUnmarshalerStringPointer;
 class T_textUnmarshalerString_static_extension {
     static public function unmarshalText(_m:stdgo.Pointer<T_textUnmarshalerString>, _text:Array<std.UInt>):stdgo.Error {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_T_textUnmarshalerString_static_extension.T_textUnmarshalerString_static_extension.unmarshalText(_m, _text);
     }
+}
+typedef T_encoderFuncPointer = stdgo._internal.encoding.json.Json_T_encoderFuncPointer.T_encoderFuncPointer;
+class T_encoderFunc_static_extension {
+
 }
 typedef T_floatEncoderPointer = stdgo._internal.encoding.json.Json_T_floatEncoderPointer.T_floatEncoderPointer;
 class T_floatEncoder_static_extension {
     static public function _encode(_bits:T_floatEncoder, _e:T_encodeState, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:T_encOpts):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>);
         stdgo._internal.encoding.json.Json_T_floatEncoder_static_extension.T_floatEncoder_static_extension._encode(_bits, _e, _v, _opts);
     }
 }
 typedef T_byIndexPointer = stdgo._internal.encoding.json.Json_T_byIndexPointer.T_byIndexPointer;
 class T_byIndex_static_extension {
     static public function less(_x:T_byIndex, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.encoding.json.Json_T_byIndex_static_extension.T_byIndex_static_extension.less(_x, _i, _j);
     }
     static public function swap(_x:T_byIndex, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.encoding.json.Json_T_byIndex_static_extension.T_byIndex_static_extension.swap(_x, _i, _j);
     }
     static public function len(_x:T_byIndex):StdTypes.Int {
         return stdgo._internal.encoding.json.Json_T_byIndex_static_extension.T_byIndex_static_extension.len(_x);
     }
 }
+typedef T_renamedBytePointer = stdgo._internal.encoding.json.Json_T_renamedBytePointer.T_renamedBytePointer;
+class T_renamedByte_static_extension {
+
+}
+typedef T_renamedByteSlicePointer = stdgo._internal.encoding.json.Json_T_renamedByteSlicePointer.T_renamedByteSlicePointer;
+class T_renamedByteSlice_static_extension {
+
+}
+typedef T_renamedRenamedByteSlicePointer = stdgo._internal.encoding.json.Json_T_renamedRenamedByteSlicePointer.T_renamedRenamedByteSlicePointer;
+class T_renamedRenamedByteSlice_static_extension {
+
+}
+typedef RecursiveSlicePointer = stdgo._internal.encoding.json.Json_RecursiveSlicePointer.RecursiveSlicePointer;
+class RecursiveSlice_static_extension {
+
+}
 typedef RefPointer = stdgo._internal.encoding.json.Json_RefPointer.RefPointer;
 class Ref_static_extension {
     static public function unmarshalJSON(_r:stdgo.Pointer<Ref>, _0:Array<std.UInt>):stdgo.Error {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_Ref_static_extension.Ref_static_extension.unmarshalJSON(_r, _0);
     }
     static public function marshalJSON(_:stdgo.Pointer<Ref>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4342,7 +4922,7 @@ class Val_static_extension {
 typedef RefTextPointer = stdgo._internal.encoding.json.Json_RefTextPointer.RefTextPointer;
 class RefText_static_extension {
     static public function unmarshalText(_r:stdgo.Pointer<RefText>, _0:Array<std.UInt>):stdgo.Error {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_RefText_static_extension.RefText_static_extension.unmarshalText(_r, _0);
     }
     static public function marshalText(_:stdgo.Pointer<RefText>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4445,7 +5025,8 @@ class T_textfloat_static_extension {
 typedef RawMessagePointer = stdgo._internal.encoding.json.Json_RawMessagePointer.RawMessagePointer;
 class RawMessage_static_extension {
     static public function unmarshalJSON(_m:RawMessage, _data:Array<std.UInt>):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>);
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_RawMessage_static_extension.RawMessage_static_extension.unmarshalJSON(_m, _data);
     }
     static public function marshalJSON(_m:RawMessage):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -4454,6 +5035,10 @@ class RawMessage_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
+}
+typedef TokenPointer = stdgo._internal.encoding.json.Json_TokenPointer.TokenPointer;
+class Token_static_extension {
+
 }
 typedef DelimPointer = stdgo._internal.encoding.json.Json_DelimPointer.DelimPointer;
 class Delim_static_extension {
@@ -4482,8 +5067,61 @@ class T_strPtrMarshaler_static_extension {
 typedef T_tagOptionsPointer = stdgo._internal.encoding.json.Json_T_tagOptionsPointer.T_tagOptionsPointer;
 class T_tagOptions_static_extension {
     static public function contains(_o:T_tagOptions, _optionName:String):Bool {
+        final _optionName = (_optionName : stdgo.GoString);
         return stdgo._internal.encoding.json.Json_T_tagOptions_static_extension.T_tagOptions_static_extension.contains(_o, _optionName);
     }
+}
+typedef T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer = stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer.T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer;
+class T_benchmarkCodeEncoderError___localname___Dummy_2370_static_extension {
+
+}
+typedef T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer = stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer.T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer;
+class T_benchmarkCodeMarshalError___localname___Dummy_3282_static_extension {
+
+}
+typedef T__benchMarshalBytesError___localname___Dummy_4406Pointer = stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406Pointer.T__benchMarshalBytesError___localname___Dummy_4406Pointer;
+class T__benchMarshalBytesError___localname___Dummy_4406_static_extension {
+
+}
+typedef T_benchmarkEncoderEncode___localname___T_11092Pointer = stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092Pointer.T_benchmarkEncoderEncode___localname___T_11092Pointer;
+class T_benchmarkEncoderEncode___localname___T_11092_static_extension {
+
+}
+typedef T_testRefUnmarshal___localname___S_40168Pointer = stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168Pointer.T_testRefUnmarshal___localname___S_40168Pointer;
+class T_testRefUnmarshal___localname___S_40168_static_extension {
+
+}
+typedef T_testEmptyString___localname___T2_40735Pointer = stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735Pointer.T_testEmptyString___localname___T2_40735Pointer;
+class T_testEmptyString___localname___T2_40735_static_extension {
+
+}
+typedef T_testNullString___localname___T_41259Pointer = stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259Pointer.T_testNullString___localname___T_41259Pointer;
+class T_testNullString___localname___T_41259_static_extension {
+
+}
+typedef T_testStringKind___localname___stringKind_47067Pointer = stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067Pointer.T_testStringKind___localname___stringKind_47067Pointer;
+class T_testStringKind___localname___stringKind_47067_static_extension {
+
+}
+typedef T_testByteKind___localname___byteKind_47617Pointer = stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617Pointer.T_testByteKind___localname___byteKind_47617Pointer;
+class T_testByteKind___localname___byteKind_47617_static_extension {
+
+}
+typedef T_testSliceOfCustomByte___localname___Uint8_47988Pointer = stdgo._internal.encoding.json.Json_T_testSliceOfCustomByte___localname___Uint8_47988Pointer.T_testSliceOfCustomByte___localname___Uint8_47988Pointer;
+class T_testSliceOfCustomByte___localname___Uint8_47988_static_extension {
+
+}
+typedef T_testUnmarshalEmbeddedUnexported___localname___embed1_54365Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed1_54365Pointer.T_testUnmarshalEmbeddedUnexported___localname___embed1_54365Pointer;
+class T_testUnmarshalEmbeddedUnexported___localname___embed1_54365_static_extension {
+
+}
+typedef T_testUnmarshalEmbeddedUnexported___localname___embed2_54390Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed2_54390Pointer.T_testUnmarshalEmbeddedUnexported___localname___embed2_54390Pointer;
+class T_testUnmarshalEmbeddedUnexported___localname___embed2_54390_static_extension {
+
+}
+typedef T_testUnmarshalEmbeddedUnexported___localname___embed3_54415Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___embed3_54415Pointer.T_testUnmarshalEmbeddedUnexported___localname___embed3_54415Pointer;
+class T_testUnmarshalEmbeddedUnexported___localname___embed3_54415_static_extension {
+
 }
 typedef T_testUnmarshalEmbeddedUnexported___localname___S1_54465Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S1_54465Pointer.T_testUnmarshalEmbeddedUnexported___localname___S1_54465Pointer;
 class T_testUnmarshalEmbeddedUnexported___localname___S1_54465_static_extension {
@@ -4523,36 +5161,100 @@ class T_testUnmarshalEmbeddedUnexported___localname___S9_54837_static_extension 
         stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S9_54837_static_extension.T_testUnmarshalEmbeddedUnexported___localname___S9_54837_static_extension.f(__self__);
     }
 }
+typedef T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829Pointer.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829Pointer;
+class T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S1_8122Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8122Pointer.T_testAnonymousFields___localname___S1_8122Pointer;
+class T_testAnonymousFields___localname___S1_8122_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S2_8148Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8148Pointer.T_testAnonymousFields___localname___S2_8148Pointer;
+class T_testAnonymousFields___localname___S2_8148_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_8174Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_8174Pointer.T_testAnonymousFields___localname___S_8174Pointer;
 class T_testAnonymousFields___localname___S_8174_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S1_8459Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S1_8459Pointer.T_testAnonymousFields___localname___S1_8459Pointer;
+class T_testAnonymousFields___localname___S1_8459_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S2_8485Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_8485Pointer.T_testAnonymousFields___localname___S2_8485Pointer;
+class T_testAnonymousFields___localname___S2_8485_static_extension {
 
 }
 typedef T_testAnonymousFields___localname___S_8511Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_8511Pointer.T_testAnonymousFields___localname___S_8511Pointer;
 class T_testAnonymousFields___localname___S_8511_static_extension {
 
 }
+typedef T_testAnonymousFields___localname___myInt_8782Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___myInt_8782Pointer.T_testAnonymousFields___localname___myInt_8782Pointer;
+class T_testAnonymousFields___localname___myInt_8782_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_8796Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_8796Pointer.T_testAnonymousFields___localname___S_8796Pointer;
 class T_testAnonymousFields___localname___S_8796_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___MyInt_9005Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___MyInt_9005Pointer.T_testAnonymousFields___localname___MyInt_9005Pointer;
+class T_testAnonymousFields___localname___MyInt_9005_static_extension {
 
 }
 typedef T_testAnonymousFields___localname___S_9019Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9019Pointer.T_testAnonymousFields___localname___S_9019Pointer;
 class T_testAnonymousFields___localname___S_9019_static_extension {
 
 }
+typedef T_testAnonymousFields___localname___myInt_9268Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___myInt_9268Pointer.T_testAnonymousFields___localname___myInt_9268Pointer;
+class T_testAnonymousFields___localname___myInt_9268_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_9282Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9282Pointer.T_testAnonymousFields___localname___S_9282Pointer;
 class T_testAnonymousFields___localname___S_9282_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___MyInt_9550Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___MyInt_9550Pointer.T_testAnonymousFields___localname___MyInt_9550Pointer;
+class T_testAnonymousFields___localname___MyInt_9550_static_extension {
 
 }
 typedef T_testAnonymousFields___localname___S_9564Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9564Pointer.T_testAnonymousFields___localname___S_9564Pointer;
 class T_testAnonymousFields___localname___S_9564_static_extension {
 
 }
+typedef T_testAnonymousFields___localname___s1_9906Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_9906Pointer.T_testAnonymousFields___localname___s1_9906Pointer;
+class T_testAnonymousFields___localname___s1_9906_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S2_9932Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_9932Pointer.T_testAnonymousFields___localname___S2_9932Pointer;
+class T_testAnonymousFields___localname___S2_9932_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_9958Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_9958Pointer.T_testAnonymousFields___localname___S_9958Pointer;
 class T_testAnonymousFields___localname___S_9958_static_extension {
 
 }
+typedef T_testAnonymousFields___localname___s1_10314Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s1_10314Pointer.T_testAnonymousFields___localname___s1_10314Pointer;
+class T_testAnonymousFields___localname___s1_10314_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___S2_10340Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_10340Pointer.T_testAnonymousFields___localname___S2_10340Pointer;
+class T_testAnonymousFields___localname___S2_10340_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_10366Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_10366Pointer.T_testAnonymousFields___localname___S_10366Pointer;
 class T_testAnonymousFields___localname___S_10366_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___MyInt1_10664Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___MyInt1_10664Pointer.T_testAnonymousFields___localname___MyInt1_10664Pointer;
+class T_testAnonymousFields___localname___MyInt1_10664_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___MyInt2_10679Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___MyInt2_10679Pointer.T_testAnonymousFields___localname___MyInt2_10679Pointer;
+class T_testAnonymousFields___localname___MyInt2_10679_static_extension {
+
+}
+typedef T_testAnonymousFields___localname___myInt_10694Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___myInt_10694Pointer.T_testAnonymousFields___localname___myInt_10694Pointer;
+class T_testAnonymousFields___localname___myInt_10694_static_extension {
 
 }
 typedef T_testAnonymousFields___localname___s2_10709Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___s2_10709Pointer.T_testAnonymousFields___localname___s2_10709Pointer;
@@ -4567,184 +5269,141 @@ typedef T_testAnonymousFields___localname___S_10811Pointer = stdgo._internal.enc
 class T_testAnonymousFields___localname___S_10811_static_extension {
 
 }
+typedef T_testAnonymousFields___localname___S2_11195Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S2_11195Pointer.T_testAnonymousFields___localname___S2_11195Pointer;
+class T_testAnonymousFields___localname___S2_11195_static_extension {
+
+}
 typedef T_testAnonymousFields___localname___S_11225Pointer = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_11225Pointer.T_testAnonymousFields___localname___S_11225Pointer;
 class T_testAnonymousFields___localname___S_11225_static_extension {
 
 }
+typedef T_testIssue10281___localname___Foo_15026Pointer = stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026Pointer.T_testIssue10281___localname___Foo_15026Pointer;
+class T_testIssue10281___localname___Foo_15026_static_extension {
+
+}
+typedef T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460Pointer = stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460Pointer.T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460Pointer;
+class T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460_static_extension {
+
+}
+typedef T_testMarshalErrorAndReuseEncodeState___localname___Data_15661Pointer = stdgo._internal.encoding.json.Json_T_testMarshalErrorAndReuseEncodeState___localname___Data_15661Pointer.T_testMarshalErrorAndReuseEncodeState___localname___Data_15661Pointer;
+class T_testMarshalErrorAndReuseEncodeState___localname___Data_15661_static_extension {
+
+}
+typedef T_testEncodePointerString___localname___stringPointer_16452Pointer = stdgo._internal.encoding.json.Json_T_testEncodePointerString___localname___stringPointer_16452Pointer.T_testEncodePointerString___localname___stringPointer_16452Pointer;
+class T_testEncodePointerString___localname___stringPointer_16452_static_extension {
+
+}
+typedef T_testMarshalRawMessageValue___localname___T1_23519Pointer = stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519Pointer.T_testMarshalRawMessageValue___localname___T1_23519Pointer;
+class T_testMarshalRawMessageValue___localname___T1_23519_static_extension {
+
+}
+typedef T_testMarshalRawMessageValue___localname___T2_23573Pointer = stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T2_23573Pointer.T_testMarshalRawMessageValue___localname___T2_23573Pointer;
+class T_testMarshalRawMessageValue___localname___T2_23573_static_extension {
+
+}
+typedef T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487Pointer = stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487Pointer.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487Pointer;
+class T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487_static_extension {
+
+}
+typedef T_testEncoderErrorAndReuseEncodeState___localname___Data_1733Pointer = stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733Pointer.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733Pointer;
+class T_testEncoderErrorAndReuseEncodeState___localname___Data_1733_static_extension {
+
+}
 /**
-    /|*{
-    	dec.scan.reset()
-    	scanp_5485431 = dec.scanp
-    	gotoNext = 5485465
-    	_ = gotoNext == 5485465
-    	_ = 0
-    	InputBreak = false
-    	gotoNext = 5485576
-    	_ = gotoNext == 5485576
-    	if !InputBreak && (scanp_5485431 >= 0) {
-    		gotoNext = 5485591
-    		_ = gotoNext == 5485591
-    		_ = 0
-    		gotoNext = 5485637
-    		_ = gotoNext == 5485637
-    		if scanp_5485431 < len(dec.buf) {
-    			gotoNext = 5485673
-    			_ = gotoNext == 5485673
-    			c_5485678 = dec.buf[scanp_5485431]
-    			dec.scan.bytes++
-    			gotoNext = 5485721
-    			_ = gotoNext == 5485721
-    			switch dec.scan.step(&dec.scan, c_5485678) {
-    			case 10:
-    				gotoNext = 5485761
-    				_ = gotoNext == 5485761
-    				dec.scan.bytes--
-    				InputBreak = true
-    				gotoNext = 5485576
-    				gotoNext = 5485665
-    			case 5, 8:
-    				gotoNext = 5485974
-    				_ = gotoNext == 5485974
-    				if stateEndValue(&dec.scan, 32) == 10 {
-    					gotoNext = 5486187
-    					_ = gotoNext == 5486187
-    					scanp_5485431++
-    					InputBreak = true
-    					gotoNext = 5485576
-    					gotoNext = 5485665
-    				} else {
-    					gotoNext = 5485665
-    				}
-    				gotoNext = 5485665
-    			case 11:
-    				gotoNext = 5486228
-    				_ = gotoNext == 5486228
-    				dec.err = dec.scan.err
-    				return 0, dec.scan.err
-    				gotoNext = 5485665
-    			default:
-    				gotoNext = 5485665
-    			}
-    			_ = gotoNext == 5485665
-    			scanp_5485431++
-    			gotoNext = 5485637
-    		} else {
-    			gotoNext = 5486393
-    		}
-    		_ = gotoNext == 5486393
-    		if err_5485455 != nil {
-    			gotoNext = 5486407
-    			_ = gotoNext == 5486407
-    			if err_5485455 == io.EOF {
-    				gotoNext = 5486429
-    				_ = gotoNext == 5486429
-    				if dec.scan.step(&dec.scan, 32) == 10 {
-    					gotoNext = 5486479
-    					_ = gotoNext == 5486479
-    					InputBreak = true
-    					gotoNext = 5485576
-    					gotoNext = 5486508
-    				} else {
-    					gotoNext = 5486508
-    				}
-    				_ = gotoNext == 5486508
-    				if nonSpace(dec.buf) {
-    					gotoNext = 5486529
-    					_ = gotoNext == 5486529
-    					err_5485455 = io.ErrUnexpectedEOF
-    					gotoNext = 5486576
-    				} else {
-    					gotoNext = 5486576
-    				}
-    				gotoNext = 5486576
-    			} else {
-    				gotoNext = 5486576
-    			}
-    			_ = gotoNext == 5486576
-    			dec.err = err_5485455
-    			return 0, err_5485455
-    			gotoNext = 5486614
-    		} else {
-    			gotoNext = 5486614
-    		}
-    		_ = gotoNext == 5486614
-    		n_5486614 = scanp_5485431 - dec.scanp
-    		err_5485455 = dec.refill()
-    		scanp_5485431 = dec.scanp + n_5486614
-    		gotoNext = 5485576
-    	} else {
-    		gotoNext = 5486686
-    	}
-    	_ = gotoNext == 5486686
-    	return scanp_5485431 - dec.scanp, nil
-    	gotoNext = -1
-    }*|/
+    Package json implements encoding and decoding of JSON as defined in
+    RFC 7159. The mapping between JSON and Go values is described
+    in the documentation for the Marshal and Unmarshal functions.
+    
+    See "JSON and Go" for an introduction to this package:
+    https://golang.org/doc/articles/json_and_go.html
 **/
 class Json {
-    static public function benchmarkCodeEncoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeEncoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeEncoder.benchmarkCodeEncoder(_b);
     }
-    static public function benchmarkCodeEncoderError(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeEncoderError(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeEncoderError.benchmarkCodeEncoderError(_b);
     }
-    static public function benchmarkCodeMarshal(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeMarshal(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeMarshal.benchmarkCodeMarshal(_b);
     }
-    static public function benchmarkCodeMarshalError(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeMarshalError(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeMarshalError.benchmarkCodeMarshalError(_b);
     }
-    static public function benchmarkMarshalBytes(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkMarshalBytes(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkMarshalBytes.benchmarkMarshalBytes(_b);
     }
-    static public function benchmarkMarshalBytesError(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkMarshalBytesError(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkMarshalBytesError.benchmarkMarshalBytesError(_b);
     }
-    static public function benchmarkCodeDecoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeDecoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeDecoder.benchmarkCodeDecoder(_b);
     }
-    static public function benchmarkUnicodeDecoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkUnicodeDecoder(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkUnicodeDecoder.benchmarkUnicodeDecoder(_b);
     }
-    static public function benchmarkDecoderStream(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkDecoderStream(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkDecoderStream.benchmarkDecoderStream(_b);
     }
-    static public function benchmarkCodeUnmarshal(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeUnmarshal(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeUnmarshal.benchmarkCodeUnmarshal(_b);
     }
-    static public function benchmarkCodeUnmarshalReuse(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkCodeUnmarshalReuse(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkCodeUnmarshalReuse.benchmarkCodeUnmarshalReuse(_b);
     }
-    static public function benchmarkUnmarshalString(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkUnmarshalString(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkUnmarshalString.benchmarkUnmarshalString(_b);
     }
-    static public function benchmarkUnmarshalFloat64(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkUnmarshalFloat64(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkUnmarshalFloat64.benchmarkUnmarshalFloat64(_b);
     }
-    static public function benchmarkUnmarshalInt64(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkUnmarshalInt64(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkUnmarshalInt64.benchmarkUnmarshalInt64(_b);
     }
-    static public function benchmarkIssue10335(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkIssue10335(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkIssue10335.benchmarkIssue10335(_b);
     }
-    static public function benchmarkIssue34127(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkIssue34127(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkIssue34127.benchmarkIssue34127(_b);
     }
-    static public function benchmarkUnmapped(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkUnmapped(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkUnmapped.benchmarkUnmapped(_b);
     }
-    static public function benchmarkTypeFieldsCache(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkTypeFieldsCache(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkTypeFieldsCache.benchmarkTypeFieldsCache(_b);
     }
-    static public function benchmarkEncodeMarshaler(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkEncodeMarshaler(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkEncodeMarshaler.benchmarkEncodeMarshaler(_b);
     }
-    static public function benchmarkEncoderEncode(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkEncoderEncode(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkEncoderEncode.benchmarkEncoderEncode(_b);
     }
-    static public function benchmarkNumberIsValid(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkNumberIsValid(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkNumberIsValid.benchmarkNumberIsValid(_b);
     }
-    static public function benchmarkNumberIsValidRegexp(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkNumberIsValidRegexp(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.encoding.json.Json_benchmarkNumberIsValidRegexp.benchmarkNumberIsValidRegexp(_b);
     }
     /**
@@ -4824,81 +5483,100 @@ class Json {
         Instead, they are replaced by the Unicode replacement
         character U+FFFD.
     **/
-    static public function unmarshal(_data:Array<std.UInt>, _v:stdgo.AnyInterface):stdgo.Error {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function unmarshal(_data:Array<std.UInt>, _v:stdgo.AnyInterface):stdgo.Error {
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _v = (_v : stdgo.AnyInterface);
         return stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, _v);
     }
-    static public function testMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshal.testMarshal(_t);
     }
-    static public function testMarshalBadUTF8(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalBadUTF8(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalBadUTF8.testMarshalBadUTF8(_t);
     }
-    static public function testMarshalNumberZeroVal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalNumberZeroVal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalNumberZeroVal.testMarshalNumberZeroVal(_t);
     }
-    static public function testMarshalEmbeds(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalEmbeds(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalEmbeds.testMarshalEmbeds(_t);
     }
-    static public function testUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshal.testUnmarshal(_t);
     }
-    static public function testUnmarshalMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalMarshal.testUnmarshalMarshal(_t);
     }
     /**
         Independent of Decode, basic coverage of the accessors in Number
     **/
-    static public function testNumberAccessors(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNumberAccessors(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNumberAccessors.testNumberAccessors(_t);
     }
-    static public function testLargeByteSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testLargeByteSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testLargeByteSlice.testLargeByteSlice(_t);
     }
-    static public function testUnmarshalInterface(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalInterface(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalInterface.testUnmarshalInterface(_t);
     }
-    static public function testUnmarshalPtrPtr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalPtrPtr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalPtrPtr.testUnmarshalPtrPtr(_t);
     }
-    static public function testEscape(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEscape(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEscape.testEscape(_t);
     }
     /**
         If people misuse the ,string modifier, the error message should be
         helpful, telling the user that they're doing it wrong.
     **/
-    static public function testErrorMessageFromMisusedString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testErrorMessageFromMisusedString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testErrorMessageFromMisusedString.testErrorMessageFromMisusedString(_t);
     }
-    static public function testRefUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testRefUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testRefUnmarshal.testRefUnmarshal(_t);
     }
     /**
         Test that the empty string doesn't panic decoding when ,string is specified
         Issue 3450
     **/
-    static public function testEmptyString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEmptyString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEmptyString.testEmptyString(_t);
     }
     /**
         Test that a null for ,string is not replaced with the previous quoted string (issue 7046).
         It should also not be an error (issue 2540, issue 8587).
     **/
-    static public function testNullString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNullString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNullString.testNullString(_t);
     }
-    static public function testInterfaceSet(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testInterfaceSet(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testInterfaceSet.testInterfaceSet(_t);
     }
     /**
         JSON null values should be ignored for primitives and string values instead of resulting in an error.
         Issue 2540
     **/
-    static public function testUnmarshalNulls(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalNulls(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalNulls.testUnmarshalNulls(_t);
     }
-    static public function testStringKind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testStringKind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testStringKind.testStringKind(_t);
     }
     /**
@@ -4906,26 +5584,32 @@ class Json {
         and then unmarshaled.
         Issue 8962.
     **/
-    static public function testByteKind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testByteKind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testByteKind.testByteKind(_t);
     }
     /**
         The fix for issue 8962 introduced a regression.
         Issue 12921.
     **/
-    static public function testSliceOfCustomByte(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testSliceOfCustomByte(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testSliceOfCustomByte.testSliceOfCustomByte(_t);
     }
-    static public function testUnmarshalTypeError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalTypeError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalTypeError.testUnmarshalTypeError(_t);
     }
-    static public function testUnmarshalSyntax(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalSyntax(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalSyntax.testUnmarshalSyntax(_t);
     }
-    static public function testUnmarshalUnexported(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalUnexported(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalUnexported.testUnmarshalUnexported(_t);
     }
-    static public function testUnmarshalJSONLiteralError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalJSONLiteralError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalJSONLiteralError.testUnmarshalJSONLiteralError(_t);
     }
     /**
@@ -4933,7 +5617,8 @@ class Json {
         "data changing underfoot" error.
         Issue 3717
     **/
-    static public function testSkipArrayObjects(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testSkipArrayObjects(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testSkipArrayObjects.testSkipArrayObjects(_t);
     }
     /**
@@ -4941,20 +5626,24 @@ class Json {
         slices, and arrays.
         Issues 4900 and 8837, among others.
     **/
-    static public function testPrefilled(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testPrefilled(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testPrefilled.testPrefilled(_t);
     }
-    static public function testInvalidUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testInvalidUnmarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testInvalidUnmarshal.testInvalidUnmarshal(_t);
     }
-    static public function testInvalidUnmarshalText(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testInvalidUnmarshalText(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testInvalidUnmarshalText.testInvalidUnmarshalText(_t);
     }
     /**
         Test that string option is ignored for invalid types.
         Issue 9812.
     **/
-    static public function testInvalidStringOption(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testInvalidStringOption(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testInvalidStringOption.testInvalidStringOption(_t);
     }
     /**
@@ -4969,33 +5658,40 @@ class Json {
         (Issue 28145) If the embedded struct is given an explicit name and has
         exported methods, don't cause a panic trying to get its value.
     **/
-    static public function testUnmarshalEmbeddedUnexported(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalEmbeddedUnexported(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalEmbeddedUnexported.testUnmarshalEmbeddedUnexported(_t);
     }
-    static public function testUnmarshalErrorAfterMultipleJSON(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalErrorAfterMultipleJSON(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalErrorAfterMultipleJSON.testUnmarshalErrorAfterMultipleJSON(_t);
     }
-    static public function testUnmarshalPanic(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalPanic(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalPanic.testUnmarshalPanic(_t);
     }
     /**
         The decoder used to hang if decoding into an interface pointing to its own address.
         See golang.org/issues/31740.
     **/
-    static public function testUnmarshalRecursivePointer(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalRecursivePointer(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalRecursivePointer.testUnmarshalRecursivePointer(_t);
     }
     /**
         Test unmarshal to a map, where the map key is a user defined type.
         See golang.org/issues/34437.
     **/
-    static public function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalMapWithTextUnmarshalerStringKey.testUnmarshalMapWithTextUnmarshalerStringKey(_t);
     }
-    static public function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalRescanLiteralMangledUnquote.testUnmarshalRescanLiteralMangledUnquote(_t);
     }
-    static public function testUnmarshalMaxDepth(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnmarshalMaxDepth(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnmarshalMaxDepth.testUnmarshalMaxDepth(_t);
     }
     /**
@@ -5130,7 +5826,8 @@ class Json {
         handle them. Passing cyclic structures to Marshal will result in
         an error.
     **/
-    static public function marshal(_v:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function marshal(_v:stdgo.AnyInterface):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _v = (_v : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.encoding.json.Json_marshal.marshal(_v);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -5141,121 +5838,154 @@ class Json {
         Each JSON element in the output will begin on a new line beginning with prefix
         followed by one or more copies of indent according to the indentation nesting.
     **/
-    static public function marshalIndent(_v:stdgo.AnyInterface, _prefix:String, _indent:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function marshalIndent(_v:stdgo.AnyInterface, _prefix:String, _indent:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _v = (_v : stdgo.AnyInterface);
+        final _prefix = (_prefix : stdgo.GoString);
+        final _indent = (_indent : stdgo.GoString);
         return {
             final obj = stdgo._internal.encoding.json.Json_marshalIndent.marshalIndent(_v, _prefix, _indent);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function testOmitEmpty(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testOmitEmpty(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testOmitEmpty.testOmitEmpty(_t);
     }
-    static public function testRoundtripStringTag(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testRoundtripStringTag(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testRoundtripStringTag.testRoundtripStringTag(_t);
     }
-    static public function testEncodeRenamedByteSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncodeRenamedByteSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncodeRenamedByteSlice.testEncodeRenamedByteSlice(_t);
     }
-    static public function testSamePointerNoCycle(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testSamePointerNoCycle(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testSamePointerNoCycle.testSamePointerNoCycle(_t);
     }
-    static public function testSliceNoCycle(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testSliceNoCycle(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testSliceNoCycle.testSliceNoCycle(_t);
     }
-    static public function testUnsupportedValues(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testUnsupportedValues(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testUnsupportedValues.testUnsupportedValues(_t);
     }
     /**
         Issue 43207
     **/
-    static public function testMarshalTextFloatMap(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalTextFloatMap(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalTextFloatMap.testMarshalTextFloatMap(_t);
     }
-    static public function testRefValMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testRefValMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testRefValMarshal.testRefValMarshal(_t);
     }
-    static public function testMarshalerEscaping(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalerEscaping(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalerEscaping.testMarshalerEscaping(_t);
     }
-    static public function testAnonymousFields(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testAnonymousFields(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testAnonymousFields.testAnonymousFields(_t);
     }
     /**
         See golang.org/issue/16042 and golang.org/issue/34235.
     **/
-    static public function testNilMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNilMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNilMarshal.testNilMarshal(_t);
     }
     /**
         Issue 5245.
     **/
-    static public function testEmbeddedBug(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEmbeddedBug(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEmbeddedBug.testEmbeddedBug(_t);
     }
     /**
         Test that a field with a tag dominates untagged fields.
     **/
-    static public function testTaggedFieldDominates(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testTaggedFieldDominates(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testTaggedFieldDominates.testTaggedFieldDominates(_t);
     }
-    static public function testDuplicatedFieldDisappears(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDuplicatedFieldDisappears(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testDuplicatedFieldDisappears.testDuplicatedFieldDisappears(_t);
     }
-    static public function testIssue10281(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testIssue10281(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testIssue10281.testIssue10281(_t);
     }
-    static public function testMarshalErrorAndReuseEncodeState(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalErrorAndReuseEncodeState(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalErrorAndReuseEncodeState.testMarshalErrorAndReuseEncodeState(_t);
     }
-    static public function testHTMLEscape(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testHTMLEscape(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testHTMLEscape.testHTMLEscape(_t);
     }
     /**
         golang.org/issue/8582
     **/
-    static public function testEncodePointerString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncodePointerString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncodePointerString.testEncodePointerString(_t);
     }
-    static public function testEncodeString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncodeString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncodeString.testEncodeString(_t);
     }
     /**
         Issue 13783
     **/
-    static public function testEncodeBytekind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncodeBytekind(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncodeBytekind.testEncodeBytekind(_t);
     }
-    static public function testTextMarshalerMapKeysAreSorted(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testTextMarshalerMapKeysAreSorted(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testTextMarshalerMapKeysAreSorted.testTextMarshalerMapKeysAreSorted(_t);
     }
     /**
         https://golang.org/issue/33675
     **/
-    static public function testNilMarshalerTextMapKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNilMarshalerTextMapKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNilMarshalerTextMapKey.testNilMarshalerTextMapKey(_t);
     }
-    static public function testMarshalFloat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalFloat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalFloat.testMarshalFloat(_t);
     }
-    static public function testMarshalRawMessageValue(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalRawMessageValue(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalRawMessageValue.testMarshalRawMessageValue(_t);
     }
-    static public function testMarshalPanic(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalPanic(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalPanic.testMarshalPanic(_t);
     }
-    static public function testMarshalUncommonFieldNames(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalUncommonFieldNames(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalUncommonFieldNames.testMarshalUncommonFieldNames(_t);
     }
-    static public function testMarshalerError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testMarshalerError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testMarshalerError.testMarshalerError(_t);
     }
-    static public function fuzzEqualFold(_f:stdgo._internal.testing.Testing_F.F):Void {
+    static public inline function fuzzEqualFold(_f:stdgo._internal.testing.Testing_F.F):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_F.F>);
         stdgo._internal.encoding.json.Json_fuzzEqualFold.fuzzEqualFold(_f);
     }
-    static public function fuzzUnmarshalJSON(_f:stdgo._internal.testing.Testing_F.F):Void {
+    static public inline function fuzzUnmarshalJSON(_f:stdgo._internal.testing.Testing_F.F):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_F.F>);
         stdgo._internal.encoding.json.Json_fuzzUnmarshalJSON.fuzzUnmarshalJSON(_f);
     }
-    static public function fuzzDecoderToken(_f:stdgo._internal.testing.Testing_F.F):Void {
+    static public inline function fuzzDecoderToken(_f:stdgo._internal.testing.Testing_F.F):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_F.F>);
         stdgo._internal.encoding.json.Json_fuzzDecoderToken.fuzzDecoderToken(_f);
     }
     /**
@@ -5265,16 +5995,18 @@ class Json {
         For historical reasons, web browsers don't honor standard HTML
         escaping within <script> tags, so an alternative JSON encoding must be used.
     **/
-    static public function hTMLEscape(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>):Void {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function hTMLEscape(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>):Void {
+        final _dst = (_dst : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.json.Json_hTMLEscape.hTMLEscape(_dst, _src);
     }
     /**
         Compact appends to dst the JSON-encoded src with
         insignificant space characters elided.
     **/
-    static public function compact(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>):stdgo.Error {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function compact(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>):stdgo.Error {
+        final _dst = (_dst : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_compact.compact(_dst, _src);
     }
     /**
@@ -5290,39 +6022,50 @@ class Json {
         For example, if src has no trailing spaces, neither will dst;
         if src ends in a trailing newline, so will dst.
     **/
-    static public function indent(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>, _prefix:String, _indent:String):stdgo.Error {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function indent(_dst:stdgo._internal.bytes.Bytes_Buffer.Buffer, _src:Array<std.UInt>, _prefix:String, _indent:String):stdgo.Error {
+        final _dst = (_dst : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _prefix = (_prefix : stdgo.GoString);
+        final _indent = (_indent : stdgo.GoString);
         return stdgo._internal.encoding.json.Json_indent.indent(_dst, _src, _prefix, _indent);
     }
-    static public function testNumberIsValid(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNumberIsValid(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNumberIsValid.testNumberIsValid(_t);
     }
     /**
         Valid reports whether data is a valid JSON encoding.
     **/
-    static public function valid(_data:Array<std.UInt>):Bool {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function valid(_data:Array<std.UInt>):Bool {
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.json.Json_valid.valid(_data);
     }
-    static public function testValid(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testValid(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testValid.testValid(_t);
     }
-    static public function testCompact(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCompact(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testCompact.testCompact(_t);
     }
-    static public function testCompactSeparators(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCompactSeparators(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testCompactSeparators.testCompactSeparators(_t);
     }
-    static public function testIndent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testIndent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testIndent.testIndent(_t);
     }
-    static public function testCompactBig(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testCompactBig(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testCompactBig.testCompactBig(_t);
     }
-    static public function testIndentBig(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testIndentBig(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testIndentBig.testIndentBig(_t);
     }
-    static public function testIndentErrors(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testIndentErrors(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testIndentErrors.testIndentErrors(_t);
     }
     /**
@@ -5331,55 +6074,68 @@ class Json {
         The decoder introduces its own buffering and may
         read data from r beyond the JSON values requested.
     **/
-    static public function newDecoder(_r:stdgo._internal.io.Io_Reader.Reader):Decoder {
+    static public inline function newDecoder(_r:stdgo._internal.io.Io_Reader.Reader):Decoder {
         return stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_r);
     }
     /**
         NewEncoder returns a new encoder that writes to w.
     **/
-    static public function newEncoder(_w:stdgo._internal.io.Io_Writer.Writer):Encoder {
+    static public inline function newEncoder(_w:stdgo._internal.io.Io_Writer.Writer):Encoder {
         return stdgo._internal.encoding.json.Json_newEncoder.newEncoder(_w);
     }
-    static public function testEncoder(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncoder(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncoder.testEncoder(_t);
     }
-    static public function testEncoderErrorAndReuseEncodeState(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncoderErrorAndReuseEncodeState(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncoderErrorAndReuseEncodeState.testEncoderErrorAndReuseEncodeState(_t);
     }
-    static public function testEncoderIndent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncoderIndent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncoderIndent.testEncoderIndent(_t);
     }
-    static public function testEncoderSetEscapeHTML(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testEncoderSetEscapeHTML(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testEncoderSetEscapeHTML.testEncoderSetEscapeHTML(_t);
     }
-    static public function testDecoder(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDecoder(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testDecoder.testDecoder(_t);
     }
-    static public function testDecoderBuffered(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDecoderBuffered(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testDecoderBuffered.testDecoderBuffered(_t);
     }
-    static public function testRawMessage(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testRawMessage(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testRawMessage.testRawMessage(_t);
     }
-    static public function testNullRawMessage(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testNullRawMessage(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testNullRawMessage.testNullRawMessage(_t);
     }
-    static public function testBlocking(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testBlocking(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testBlocking.testBlocking(_t);
     }
-    static public function testDecodeInStream(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testDecodeInStream(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testDecodeInStream.testDecodeInStream(_t);
     }
     /**
         Test from golang.org/issue/11893
     **/
-    static public function testHTTPDecoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testHTTPDecoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testHTTPDecoding.testHTTPDecoding(_t);
     }
-    static public function testStructTagObjectKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testStructTagObjectKey(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testStructTagObjectKey.testStructTagObjectKey(_t);
     }
-    static public function testTagParsing(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testTagParsing(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.encoding.json.Json_testTagParsing.testTagParsing(_t);
     }
 }

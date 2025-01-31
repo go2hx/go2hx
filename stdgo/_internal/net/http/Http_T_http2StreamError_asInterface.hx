@@ -5,12 +5,6 @@ class T_http2StreamError_asInterface {
     public dynamic function as(_target:stdgo.AnyInterface):Bool return @:_0 __self__.value.as(_target);
     @:keep
     @:tdfield
-    public dynamic function _staysWithinBuffer(_max:stdgo.GoInt):Bool return @:_0 __self__.value._staysWithinBuffer(_max);
-    @:keep
-    @:tdfield
-    public dynamic function _writeFrame(_ctx:stdgo._internal.net.http.Http_T_http2writeContext.T_http2writeContext):stdgo.Error return @:_0 __self__.value._writeFrame(_ctx);
-    @:keep
-    @:tdfield
     public dynamic function error():stdgo.GoString return @:_0 __self__.value.error();
     public function new(__self__, __type__) {
         this.__self__ = __self__;

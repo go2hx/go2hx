@@ -1,5 +1,14 @@
 package stdgo._internal.image.png;
-@:structInit class T_interlaceScan {
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+@:structInit @:using(stdgo._internal.image.png.Png_T_interlaceScan_static_extension.T_interlaceScan_static_extension) class T_interlaceScan {
     public var _xFactor : stdgo.GoInt = 0;
     public var _yFactor : stdgo.GoInt = 0;
     public var _xOffset : stdgo.GoInt = 0;

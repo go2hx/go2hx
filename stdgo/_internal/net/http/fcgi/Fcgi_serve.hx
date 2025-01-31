@@ -1,4 +1,16 @@
 package stdgo._internal.net.http.fcgi;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.os.Os;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.net.http.cgi.Cgi;
+import stdgo._internal.context.Context;
 function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._internal.net.http.Http_Handler.Handler):stdgo.Error {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -41,7 +53,11 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -76,7 +92,11 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };

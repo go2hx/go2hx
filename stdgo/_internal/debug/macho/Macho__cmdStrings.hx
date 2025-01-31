@@ -1,2 +1,12 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 var _cmdStrings : stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName> = (new stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName>(6, 6, ...[(new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((1u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdSegment" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((4u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdThread" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((5u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdUnixThread" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((12u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdDylib" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((25u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdSegment64" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((-2147483620u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd) : stdgo.GoUInt32), ("LoadCmdRpath" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.macho.Macho_T_intName.T_intName)])) : stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName>);

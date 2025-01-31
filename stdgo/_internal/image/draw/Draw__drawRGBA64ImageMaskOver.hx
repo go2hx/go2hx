@@ -1,4 +1,6 @@
 package stdgo._internal.image.draw;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+import stdgo._internal.image.color.Color;
 function _drawRGBA64ImageMaskOver(_dst:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_RGBA64Image.RGBA64Image, _sp:stdgo._internal.image.Image_Point.Point, _mask:stdgo.Ref<stdgo._internal.image.Image_Alpha.Alpha>, _mp:stdgo._internal.image.Image_Point.Point):Void {
         var __0 = (_r.min.x : stdgo.GoInt), __1 = (_r.max.x : stdgo.GoInt), __2 = (1 : stdgo.GoInt);
 var _dx = __2, _x1 = __1, _x0 = __0;

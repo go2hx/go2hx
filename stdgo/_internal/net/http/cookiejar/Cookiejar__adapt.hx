@@ -1,4 +1,11 @@
 package stdgo._internal.net.http.cookiejar;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.sort.Sort;
 function _adapt(_delta:stdgo.GoInt32, _numPoints:stdgo.GoInt32, _firstTime:Bool):stdgo.GoInt32 {
         if (_firstTime) {
             _delta = (_delta / ((700 : stdgo.GoInt32)) : stdgo.GoInt32);

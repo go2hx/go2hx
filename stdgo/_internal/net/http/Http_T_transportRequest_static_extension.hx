@@ -1,45 +1,5 @@
 package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_transportRequest_asInterface) class T_transportRequest_static_extension {
-    @:keep
-    @:tdfield
-    static public function _logf( _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
-        var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
-        @:recv var _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest> = _tr;
-        {
-            var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((@:check2r (@:checkr _tr ?? throw "null pointer dereference").request.context().value(stdgo.Go.toInterface((new stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey() : stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey))) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void)) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void), _1 : true };
-            } catch(_) {
-                { _0 : null, _1 : false };
-            }, _logf = __tmp__._0, _ok = __tmp__._1;
-            if (_ok) {
-                _logf(((stdgo._internal.time.Time_now.now().format(("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString)) + (": " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _format?.__copy__() : stdgo.GoString)?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
-            };
-        };
-    }
-    @:keep
-    @:tdfield
-    static public function _setError( _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest>, _err:stdgo.Error):Void {
-        @:recv var _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest> = _tr;
-        @:check2 (@:checkr _tr ?? throw "null pointer dereference")._mu.lock();
-        if ((@:checkr _tr ?? throw "null pointer dereference")._err == null) {
-            (@:checkr _tr ?? throw "null pointer dereference")._err = _err;
-        };
-        @:check2 (@:checkr _tr ?? throw "null pointer dereference")._mu.unlock();
-    }
-    @:keep
-    @:tdfield
-    static public function _extraHeaders( _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest>):stdgo._internal.net.http.Http_Header.Header {
-        @:recv var _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest> = _tr;
-        if ((@:checkr _tr ?? throw "null pointer dereference")._extra == null) {
-            (@:checkr _tr ?? throw "null pointer dereference")._extra = (({
-                final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
-                x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
-                {};
-                x;
-            } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
-        };
-        return (@:checkr _tr ?? throw "null pointer dereference")._extra;
-    }
     @:embedded
     @:embeddededffieldsffun
     public static function _write( __self__:stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest, _0:stdgo._internal.io.Io_Writer.Writer, _1:Bool, _2:stdgo._internal.net.http.Http_Header.Header, _3:() -> Bool):stdgo.Error return @:_5 __self__._write(_0, _1, _2, _3);

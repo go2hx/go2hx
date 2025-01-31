@@ -1,4 +1,8 @@
 package stdgo._internal.bufio;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.bufio.Bufio_Reader_static_extension.Reader_static_extension) class Reader {
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _rd : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);

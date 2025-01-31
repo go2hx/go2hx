@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef NamedValueChecker = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef NamedValueChecker = stdgo.StructType & {
     /**
         CheckNamedValue is called before passing arguments to the driver
         and is called in place of any ColumnConverter. CheckNamedValue must do type

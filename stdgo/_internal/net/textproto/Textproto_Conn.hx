@@ -1,4 +1,12 @@
 package stdgo._internal.net.textproto;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.net.textproto.Textproto_Conn_static_extension.Conn_static_extension) class Conn {
     @:embedded
     public var reader : stdgo._internal.net.textproto.Textproto_Reader.Reader = ({} : stdgo._internal.net.textproto.Textproto_Reader.Reader);

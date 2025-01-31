@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_http2ClientConnPool = stdgo.StructType & {
+@:interface typedef T_http2ClientConnPool = stdgo.StructType & {
     /**
         GetClientConn returns a specific HTTP/2 connection (usually
         a TLS-TCP connection) to an HTTP/2 server. On success, the

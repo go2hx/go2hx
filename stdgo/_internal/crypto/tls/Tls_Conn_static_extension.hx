@@ -1,4 +1,41 @@
 package stdgo._internal.crypto.tls;
+import stdgo._internal.internal.cpu.Cpu;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.rc4.Rc4;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.crypto.hmac.Hmac;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.internal.boring.Boring;
+import _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305;
+import stdgo._internal.container.list.List;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.crypto.sha512.Sha512;
+import stdgo._internal.context.Context;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.x509.X509;
+import stdgo._internal.runtime.Runtime;
+import _internal.golang_dot_org.x.crypto.hkdf.Hkdf;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.time.Time;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.encoding.binary.Binary;
+import _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.Conn_asInterface) class Conn_static_extension {
     @:keep
     @:tdfield
@@ -95,7 +132,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -130,7 +171,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -809,7 +854,7 @@ package stdgo._internal.crypto.tls;
                 (@:checkr _c ?? throw "null pointer dereference")._config = stdgo._internal.crypto.tls.Tls__defaultConfig._defaultConfig();
             };
             (@:checkr _c ?? throw "null pointer dereference")._didResume = false;
-            var __tmp__ = @:check2r _c._makeClientHello(), _hello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg> = __tmp__._0, _ecdheKey:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = @:check2r _c._makeClientHello(), _hello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg> = __tmp__._0, _ecdheKey:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return _err;
             };
@@ -964,7 +1009,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _err;
             };
         } catch(__exception__) {
@@ -999,14 +1048,18 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _err;
             };
         };
     }
     @:keep
     @:tdfield
-    static public function _makeClientHello( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg>; var _1 : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>; var _2 : stdgo.Error; } {
+    static public function _makeClientHello( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg>; var _1 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>; var _2 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
         var _config = (@:checkr _c ?? throw "null pointer dereference")._config;
         if ((((@:checkr _config ?? throw "null pointer dereference").serverName.length == (0 : stdgo.GoInt)) && !(@:checkr _config ?? throw "null pointer dereference").insecureSkipVerify : Bool)) {
@@ -1073,7 +1126,7 @@ package stdgo._internal.crypto.tls;
         if (stdgo._internal.crypto.tls.Tls__testingOnlyForceClientHelloSignatureAlgorithms._testingOnlyForceClientHelloSignatureAlgorithms != null) {
             (@:checkr _hello ?? throw "null pointer dereference")._supportedSignatureAlgorithms = stdgo._internal.crypto.tls.Tls__testingOnlyForceClientHelloSignatureAlgorithms._testingOnlyForceClientHelloSignatureAlgorithms;
         };
-        var _key:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        var _key:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
         if ((@:checkr _hello ?? throw "null pointer dereference")._supportedVersions[(0 : stdgo.GoInt)] == ((772 : stdgo.GoUInt16))) {
             if (((@:checkr _hello ?? throw "null pointer dereference")._supportedVersions.length) == ((1 : stdgo.GoInt))) {
                 (@:checkr _hello ?? throw "null pointer dereference")._cipherSuites = (null : stdgo.Slice<stdgo.GoUInt16>);
@@ -1085,7 +1138,7 @@ package stdgo._internal.crypto.tls;
             };
             var _curveID = (@:check2r _config._curvePreferences()[(0 : stdgo.GoInt)] : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
             {
-                var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __136:_internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __136:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString)) };
                 };
@@ -1171,7 +1224,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -1206,7 +1263,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -1237,7 +1298,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Slice<stdgo.GoUInt8>);
             };
         } catch(__exception__) {
@@ -1272,7 +1337,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
@@ -1333,7 +1402,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return ({} : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
             };
         } catch(__exception__) {
@@ -1368,7 +1441,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return ({} : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
             };
         };
@@ -1518,7 +1595,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _ret;
             };
         } catch(__exception__) {
@@ -1553,7 +1634,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _ret;
             };
         };
@@ -1602,7 +1687,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -1637,7 +1726,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -1769,7 +1862,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -1804,7 +1901,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         };
@@ -1877,7 +1978,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -1912,7 +2017,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -2011,7 +2120,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -2046,7 +2159,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -2172,7 +2289,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -2207,7 +2328,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         };
@@ -2342,7 +2467,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -2377,7 +2506,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -2423,7 +2556,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -2458,7 +2595,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         };
@@ -2584,7 +2725,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -2619,7 +2764,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
         };
@@ -2720,7 +2869,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -2755,7 +2908,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };

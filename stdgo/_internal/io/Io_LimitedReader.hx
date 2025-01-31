@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_LimitedReader_static_extension.LimitedReader_static_extension) class LimitedReader {
     public var r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var n : stdgo.GoInt64 = 0;

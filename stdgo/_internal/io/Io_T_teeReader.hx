@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_T_teeReader_static_extension.T_teeReader_static_extension) class T_teeReader {
     public var _r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);

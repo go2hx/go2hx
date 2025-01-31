@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 function _siftDown(_data:stdgo._internal.sort.Sort_Interface.Interface, _lo:stdgo.GoInt, _hi:stdgo.GoInt, _first:stdgo.GoInt):Void {
         var _root = (_lo : stdgo.GoInt);
         while (true) {

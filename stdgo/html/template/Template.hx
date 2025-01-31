@@ -58,10 +58,10 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public var _err(get, set) : Error;
     function get__err():Error return this._err;
     function set__err(v:Error):Error {
-        this._err = v;
+        this._err = (v : stdgo.Ref<stdgo._internal.html.template.Template_Error.Error>);
         return v;
     }
-    public function new(?_state:T_state, ?_delim:T_delim, ?_urlPart:T_urlPart, ?_jsCtx:T_jsCtx, ?_attr:T_attr, ?_element:T_element, ?_n:stdgo._internal.text.template.parse.Parse_Node.Node, ?_err:Error) this = new stdgo._internal.html.template.Template_T_context.T_context(_state, _delim, _urlPart, _jsCtx, _attr, _element, _n, _err);
+    public function new(?_state:T_state, ?_delim:T_delim, ?_urlPart:T_urlPart, ?_jsCtx:T_jsCtx, ?_attr:T_attr, ?_element:T_element, ?_n:stdgo._internal.text.template.parse.Parse_Node.Node, ?_err:Error) this = new stdgo._internal.html.template.Template_T_context.T_context(_state, _delim, _urlPart, _jsCtx, _attr, _element, _n, (_err : stdgo.Ref<stdgo._internal.html.template.Template_Error.Error>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -81,22 +81,22 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
     function get_line():StdTypes.Int return this.line;
     function set_line(v:StdTypes.Int):StdTypes.Int {
-        this.line = v;
+        this.line = (v : stdgo.GoInt);
         return v;
     }
     public var description(get, set) : String;
     function get_description():String return this.description;
     function set_description(v:String):String {
-        this.description = v;
+        this.description = (v : stdgo.GoString);
         return v;
     }
-    public function new(?errorCode:ErrorCode, ?node:stdgo._internal.text.template.parse.Parse_Node.Node, ?name:String, ?line:StdTypes.Int, ?description:String) this = new stdgo._internal.html.template.Template_Error.Error(errorCode, node, name, line, description);
+    public function new(?errorCode:ErrorCode, ?node:stdgo._internal.text.template.parse.Parse_Node.Node, ?name:String, ?line:StdTypes.Int, ?description:String) this = new stdgo._internal.html.template.Template_Error.Error(errorCode, node, (name : stdgo.GoString), (line : stdgo.GoInt), (description : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -104,60 +104,60 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public var _ns(get, set) : T_nameSpace;
     function get__ns():T_nameSpace return this._ns;
     function set__ns(v:T_nameSpace):T_nameSpace {
-        this._ns = v;
+        this._ns = (v : stdgo.Ref<stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace>);
         return v;
     }
     public var _output(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>;
     function get__output():stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context> return this._output;
     function set__output(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>):stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context> {
-        this._output = v;
+        this._output = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>);
         return v;
     }
     public var _derived(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>;
     function get__derived():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>> return this._derived;
     function set__derived(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>> {
-        this._derived = v;
+        this._derived = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
         return v;
     }
     public var _called(get, set) : stdgo.GoMap<stdgo.GoString, Bool>;
     function get__called():stdgo.GoMap<stdgo.GoString, Bool> return this._called;
     function set__called(v:stdgo.GoMap<stdgo.GoString, Bool>):stdgo.GoMap<stdgo.GoString, Bool> {
-        this._called = v;
+        this._called = (v : stdgo.GoMap<stdgo.GoString, Bool>);
         return v;
     }
     public var _actionNodeEdits(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>;
     function get__actionNodeEdits():stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>> return this._actionNodeEdits;
     function set__actionNodeEdits(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>):stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>> {
-        this._actionNodeEdits = v;
+        this._actionNodeEdits = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>);
         return v;
     }
     public var _templateNodeEdits(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>;
     function get__templateNodeEdits():stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString> return this._templateNodeEdits;
     function set__templateNodeEdits(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>):stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString> {
-        this._templateNodeEdits = v;
+        this._templateNodeEdits = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>);
         return v;
     }
     public var _textNodeEdits(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>;
     function get__textNodeEdits():stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>> return this._textNodeEdits;
     function set__textNodeEdits(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>):stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>> {
-        this._textNodeEdits = v;
+        this._textNodeEdits = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
     public var _rangeContext(get, set) : T_rangeContext;
     function get__rangeContext():T_rangeContext return this._rangeContext;
     function set__rangeContext(v:T_rangeContext):T_rangeContext {
-        this._rangeContext = v;
+        this._rangeContext = (v : stdgo.Ref<stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext>);
         return v;
     }
-    public function new(?_ns:T_nameSpace, ?_output:stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>, ?_derived:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>, ?_called:stdgo.GoMap<stdgo.GoString, Bool>, ?_actionNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>, ?_templateNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>, ?_textNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>, ?_rangeContext:T_rangeContext) this = new stdgo._internal.html.template.Template_T_escaper.T_escaper(_ns, _output, _derived, _called, _actionNodeEdits, _templateNodeEdits, _textNodeEdits, _rangeContext);
+    public function new(?_ns:T_nameSpace, ?_output:stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>, ?_derived:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>, ?_called:stdgo.GoMap<stdgo.GoString, Bool>, ?_actionNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>, ?_templateNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>, ?_textNodeEdits:stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>, ?_rangeContext:T_rangeContext) this = new stdgo._internal.html.template.Template_T_escaper.T_escaper((_ns : stdgo.Ref<stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace>), (_output : stdgo.GoMap<stdgo.GoString, stdgo._internal.html.template.Template_T_context.T_context>), (_derived : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>), (_called : stdgo.GoMap<stdgo.GoString, Bool>), (_actionNodeEdits : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>, stdgo.Slice<stdgo.GoString>>), (_templateNodeEdits : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>, stdgo.GoString>), (_textNodeEdits : stdgo.GoMap<stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>, stdgo.Slice<stdgo.GoUInt8>>), (_rangeContext : stdgo.Ref<stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_rangeContext(stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext) from stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext to stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext {
+@:structInit @:using(stdgo.html.template.Template.T_rangeContext_static_extension) abstract T_rangeContext(stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext) from stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext to stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext {
     public var _outer(get, set) : T_rangeContext;
     function get__outer():T_rangeContext return this._outer;
     function set__outer(v:T_rangeContext):T_rangeContext {
-        this._outer = v;
+        this._outer = (v : stdgo.Ref<stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext>);
         return v;
     }
     public var _breaks(get, set) : Array<T_context>;
@@ -172,7 +172,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
         this._continues = ([for (i in v) i] : stdgo.Slice<stdgo._internal.html.template.Template_T_context.T_context>);
         return v;
     }
-    public function new(?_outer:T_rangeContext, ?_breaks:Array<T_context>, ?_continues:Array<T_context>) this = new stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext(_outer, ([for (i in _breaks) i] : stdgo.Slice<stdgo._internal.html.template.Template_T_context.T_context>), ([for (i in _continues) i] : stdgo.Slice<stdgo._internal.html.template.Template_T_context.T_context>));
+    public function new(?_outer:T_rangeContext, ?_breaks:Array<T_context>, ?_continues:Array<T_context>) this = new stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext((_outer : stdgo.Ref<stdgo._internal.html.template.Template_T_rangeContext.T_rangeContext>), ([for (i in _breaks) i] : stdgo.Slice<stdgo._internal.html.template.Template_T_context.T_context>), ([for (i in _continues) i] : stdgo.Slice<stdgo._internal.html.template.Template_T_context.T_context>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -180,32 +180,32 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public var _escapeErr(get, set) : stdgo.Error;
     function get__escapeErr():stdgo.Error return this._escapeErr;
     function set__escapeErr(v:stdgo.Error):stdgo.Error {
-        this._escapeErr = v;
+        this._escapeErr = (v : stdgo.Error);
         return v;
     }
     public var _text(get, set) : stdgo._internal.text.template.Template_Template.Template;
     function get__text():stdgo._internal.text.template.Template_Template.Template return this._text;
     function set__text(v:stdgo._internal.text.template.Template_Template.Template):stdgo._internal.text.template.Template_Template.Template {
-        this._text = v;
+        this._text = (v : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
         return v;
     }
     public var tree(get, set) : stdgo._internal.text.template.parse.Parse_Tree.Tree;
     function get_tree():stdgo._internal.text.template.parse.Parse_Tree.Tree return this.tree;
     function set_tree(v:stdgo._internal.text.template.parse.Parse_Tree.Tree):stdgo._internal.text.template.parse.Parse_Tree.Tree {
-        this.tree = v;
+        this.tree = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
         return v;
     }
     public var _nameSpace(get, set) : T_nameSpace;
     function get__nameSpace():T_nameSpace return this._nameSpace;
     function set__nameSpace(v:T_nameSpace):T_nameSpace {
-        this._nameSpace = v;
+        this._nameSpace = (v : stdgo.Ref<stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace>);
         return v;
     }
-    public function new(?_escapeErr:stdgo.Error, ?_text:stdgo._internal.text.template.Template_Template.Template, ?tree:stdgo._internal.text.template.parse.Parse_Tree.Tree, ?_nameSpace:T_nameSpace) this = new stdgo._internal.html.template.Template_Template.Template(_escapeErr, _text, tree, _nameSpace);
+    public function new(?_escapeErr:stdgo.Error, ?_text:stdgo._internal.text.template.Template_Template.Template, ?tree:stdgo._internal.text.template.parse.Parse_Tree.Tree, ?_nameSpace:T_nameSpace) this = new stdgo._internal.html.template.Template_Template.Template((_escapeErr : stdgo.Error), (_text : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (tree : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (_nameSpace : stdgo.Ref<stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_nameSpace(stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace) from stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace to stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace {
+@:structInit @:using(stdgo.html.template.Template.T_nameSpace_static_extension) abstract T_nameSpace(stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace) from stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace to stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace {
     public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
     function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
@@ -215,7 +215,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
     public var _set(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>;
     function get__set():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>> return this._set;
     function set__set(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>> {
-        this._set = v;
+        this._set = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
         return v;
     }
     public var _escaped(get, set) : Bool;
@@ -230,7 +230,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errJSTemplate.errJS
         this._esc = v;
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_set:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>, ?_escaped:Bool, ?_esc:T_escaper) this = new stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace(_mu, _set, _escaped, _esc);
+    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_set:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>, ?_escaped:Bool, ?_esc:T_escaper) this = new stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace(_mu, (_set : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>), _escaped, _esc);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -258,6 +258,7 @@ typedef FuncMap = stdgo._internal.html.template.Template_FuncMap.FuncMap;
 typedef T_contextPointer = stdgo._internal.html.template.Template_T_contextPointer.T_contextPointer;
 class T_context_static_extension {
     static public function _mangle(_c:T_context, _templateName:String):String {
+        final _templateName = (_templateName : stdgo.GoString);
         return stdgo._internal.html.template.Template_T_context_static_extension.T_context_static_extension._mangle(_c, _templateName);
     }
     static public function _eq(_c:T_context, _d:T_context):Bool {
@@ -270,53 +271,78 @@ class T_context_static_extension {
 typedef ErrorPointer = stdgo._internal.html.template.Template_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function error(_e:Error):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_Error.Error>);
         return stdgo._internal.html.template.Template_Error_static_extension.Error_static_extension.error(_e);
     }
 }
 typedef T_escaperPointer = stdgo._internal.html.template.Template_T_escaperPointer.T_escaperPointer;
 class T_escaper_static_extension {
     static public function _arbitraryTemplate(_e:T_escaper):Template_ {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._arbitraryTemplate(_e);
     }
     static public function _template(_e:T_escaper, _name:String):stdgo._internal.text.template.Template_Template.Template {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._template(_e, _name);
     }
     static public function _commit(_e:T_escaper):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
         stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._commit(_e);
     }
     static public function _editTextNode(_e:T_escaper, _n:stdgo._internal.text.template.parse.Parse_TextNode.TextNode, _text:Array<std.UInt>):Void {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._editTextNode(_e, _n, _text);
     }
     static public function _editTemplateNode(_e:T_escaper, _n:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode, _callee:String):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
+        final _callee = (_callee : stdgo.GoString);
         stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._editTemplateNode(_e, _n, _callee);
     }
     static public function _editActionNode(_e:T_escaper, _n:stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode, _cmds:Array<String>):Void {
-        final _cmds = ([for (i in _cmds) i] : stdgo.Slice<stdgo.GoString>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
+        final _cmds = ([for (i in _cmds) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._editActionNode(_e, _n, _cmds);
     }
     static public function _escapeText(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_TextNode.TextNode):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeText(_e, _c, _n);
     }
     static public function _escapeTemplateBody(_e:T_escaper, _c:T_context, _t:stdgo._internal.text.template.Template_Template.Template):stdgo.Tuple<T_context, Bool> {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
         return {
             final obj = stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeTemplateBody(_e, _c, _t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _computeOutCtx(_e:T_escaper, _c:T_context, _t:stdgo._internal.text.template.Template_Template.Template):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._computeOutCtx(_e, _c, _t);
     }
     static public function _escapeTree(_e:T_escaper, _c:T_context, _node:stdgo._internal.text.template.parse.Parse_Node.Node, _name:String, _line:StdTypes.Int):stdgo.Tuple<T_context, String> {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _name = (_name : stdgo.GoString);
+        final _line = (_line : stdgo.GoInt);
         return {
             final obj = stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeTree(_e, _c, _node, _name, _line);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _escapeTemplate(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeTemplate(_e, _c, _n);
     }
     static public function _escapeListConditionally(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_ListNode.ListNode, _filter:(stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>, stdgo._internal.html.template.Template_T_context.T_context) -> Bool):stdgo.Tuple<T_context, Bool> {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
         final _filter = _filter;
         return {
             final obj = stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeListConditionally(_e, _c, _n, _filter);
@@ -324,101 +350,186 @@ class T_escaper_static_extension {
         };
     }
     static public function _escapeList(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_ListNode.ListNode):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeList(_e, _c, _n);
     }
     static public function _escapeBranch(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode, _nodeName:String):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>);
+        final _nodeName = (_nodeName : stdgo.GoString);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeBranch(_e, _c, _n, _nodeName);
     }
     static public function _escapeAction(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escapeAction(_e, _c, _n);
     }
     static public function _escape(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_Node.Node):T_context {
+        final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
         return stdgo._internal.html.template.Template_T_escaper_static_extension.T_escaper_static_extension._escape(_e, _c, _n);
     }
+}
+typedef T_rangeContextPointer = stdgo._internal.html.template.Template_T_rangeContextPointer.T_rangeContextPointer;
+class T_rangeContext_static_extension {
+
 }
 typedef TemplatePointer = stdgo._internal.html.template.Template_TemplatePointer.TemplatePointer;
 class Template_static_extension {
     static public function parseFS(_t:Template_, _fs:stdgo._internal.io.fs.Fs_FS.FS, _patterns:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.parseFS(_t, _fs, ...[for (i in _patterns) i]);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function parseGlob(_t:Template_, _pattern:String):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _pattern = (_pattern : stdgo.GoString);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.parseGlob(_t, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function parseFiles(_t:Template_, _filenames:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.parseFiles(_t, ...[for (i in _filenames) i]);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function lookup(_t:Template_, _name:String):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.lookup(_t, _name);
     }
     static public function delims(_t:Template_, _left:String, _right:String):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _left = (_left : stdgo.GoString);
+        final _right = (_right : stdgo.GoString);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.delims(_t, _left, _right);
     }
     static public function funcs(_t:Template_, _funcMap:stdgo._internal.text.template.Template_FuncMap.FuncMap):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.funcs(_t, _funcMap);
     }
     static public function name(_t:Template_):String {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.name(_t);
     }
     static public function _new(_t:Template_, _name:String):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension._new(_t, _name);
     }
     static public function new_(_t:Template_, _name:String):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.new_(_t, _name);
     }
     static public function clone(_t:Template_):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.clone(_t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function addParseTree(_t:Template_, _name:String, _tree:stdgo._internal.text.template.parse.Parse_Tree.Tree):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
+        final _tree = (_tree : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.addParseTree(_t, _name, _tree);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function parse(_t:Template_, _text:String):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _text = (_text : stdgo.GoString);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.parse(_t, _text);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function definedTemplates(_t:Template_):String {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.definedTemplates(_t);
     }
     static public function _lookupAndEscapeTemplate(_t:Template_, _name:String):stdgo.Tuple<Template_, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension._lookupAndEscapeTemplate(_t, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function executeTemplate(_t:Template_, _wr:stdgo._internal.io.Io_Writer.Writer, _name:String, _data:stdgo.AnyInterface):stdgo.Error {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _name = (_name : stdgo.GoString);
+        final _data = (_data : stdgo.AnyInterface);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.executeTemplate(_t, _wr, _name, _data);
     }
     static public function execute(_t:Template_, _wr:stdgo._internal.io.Io_Writer.Writer, _data:stdgo.AnyInterface):stdgo.Error {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _data = (_data : stdgo.AnyInterface);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.execute(_t, _wr, _data);
     }
     static public function _escape(_t:Template_):stdgo.Error {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension._escape(_t);
     }
     static public function _checkCanParse(_t:Template_):stdgo.Error {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension._checkCanParse(_t);
     }
     static public function option(_t:Template_, _opt:haxe.Rest<String>):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.option(_t, ...[for (i in _opt) i]);
     }
     static public function templates(_t:Template_):Array<Template_> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         return [for (i in stdgo._internal.html.template.Template_Template_static_extension.Template_static_extension.templates(_t)) i];
     }
+}
+typedef T_nameSpacePointer = stdgo._internal.html.template.Template_T_nameSpacePointer.T_nameSpacePointer;
+class T_nameSpace_static_extension {
+
+}
+typedef T__struct_0PointerPointer = stdgo._internal.html.template.Template_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef CSSPointer = stdgo._internal.html.template.Template_CSSPointer.CSSPointer;
+class CSS_static_extension {
+
+}
+typedef HTMLPointer = stdgo._internal.html.template.Template_HTMLPointer.HTMLPointer;
+class HTML_static_extension {
+
+}
+typedef HTMLAttrPointer = stdgo._internal.html.template.Template_HTMLAttrPointer.HTMLAttrPointer;
+class HTMLAttr_static_extension {
+
+}
+typedef JSPointer = stdgo._internal.html.template.Template_JSPointer.JSPointer;
+class JS_static_extension {
+
+}
+typedef JSStrPointer = stdgo._internal.html.template.Template_JSStrPointer.JSStrPointer;
+class JSStr_static_extension {
+
+}
+typedef URLPointer = stdgo._internal.html.template.Template_URLPointer.URLPointer;
+class URL_static_extension {
+
+}
+typedef SrcsetPointer = stdgo._internal.html.template.Template_SrcsetPointer.SrcsetPointer;
+class Srcset_static_extension {
+
+}
+typedef T_contentTypePointer = stdgo._internal.html.template.Template_T_contentTypePointer.T_contentTypePointer;
+class T_contentType_static_extension {
+
 }
 typedef T_statePointer = stdgo._internal.html.template.Template_T_statePointer.T_statePointer;
 class T_state_static_extension {
@@ -455,6 +566,14 @@ class T_attr_static_extension {
     static public function string(_i:T_attr):String {
         return stdgo._internal.html.template.Template_T_attr_static_extension.T_attr_static_extension.string(_i);
     }
+}
+typedef ErrorCodePointer = stdgo._internal.html.template.Template_ErrorCodePointer.ErrorCodePointer;
+class ErrorCode_static_extension {
+
+}
+typedef FuncMapPointer = stdgo._internal.html.template.Template_FuncMapPointer.FuncMapPointer;
+class FuncMap_static_extension {
+
 }
 /**
     /|*
@@ -699,54 +818,57 @@ class Template {
     /**
         HTMLEscape writes to w the escaped HTML equivalent of the plain text data b.
     **/
-    static public function hTMLEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function hTMLEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.html.template.Template_hTMLEscape.hTMLEscape(_w, _b);
     }
     /**
         HTMLEscapeString returns the escaped HTML equivalent of the plain text data s.
     **/
-    static public function hTMLEscapeString(_s:String):String {
+    static public inline function hTMLEscapeString(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.html.template.Template_hTMLEscapeString.hTMLEscapeString(_s);
     }
     /**
         HTMLEscaper returns the escaped HTML equivalent of the textual
         representation of its arguments.
     **/
-    static public function hTMLEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+    static public inline function hTMLEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
         return stdgo._internal.html.template.Template_hTMLEscaper.hTMLEscaper(...[for (i in _args) i]);
     }
     /**
         JSEscape writes to w the escaped JavaScript equivalent of the plain text data b.
     **/
-    static public function jSEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function jSEscape(_w:stdgo._internal.io.Io_Writer.Writer, _b:Array<std.UInt>):Void {
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.html.template.Template_jSEscape.jSEscape(_w, _b);
     }
     /**
         JSEscapeString returns the escaped JavaScript equivalent of the plain text data s.
     **/
-    static public function jSEscapeString(_s:String):String {
+    static public inline function jSEscapeString(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.html.template.Template_jSEscapeString.jSEscapeString(_s);
     }
     /**
         JSEscaper returns the escaped JavaScript equivalent of the textual
         representation of its arguments.
     **/
-    static public function jSEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+    static public inline function jSEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
         return stdgo._internal.html.template.Template_jSEscaper.jSEscaper(...[for (i in _args) i]);
     }
     /**
         URLQueryEscaper returns the escaped value of the textual representation of
         its arguments in a form suitable for embedding in a URL query.
     **/
-    static public function uRLQueryEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
+    static public inline function uRLQueryEscaper(_args:haxe.Rest<stdgo.AnyInterface>):String {
         return stdgo._internal.html.template.Template_uRLQueryEscaper.uRLQueryEscaper(...[for (i in _args) i]);
     }
     /**
         New allocates a new HTML template with the given name.
     **/
-    static public function new_(_name:String):Template_ {
+    static public inline function new_(_name:String):Template_ {
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.html.template.Template_new_.new_(_name);
     }
     /**
@@ -756,7 +878,9 @@ class Template {
         
         	var t = template.Must(template.New("name").Parse("html"))
     **/
-    static public function must(_t:Template_, _err:stdgo.Error):Template_ {
+    static public inline function must(_t:Template_, _err:stdgo.Error):Template_ {
+        final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
+        final _err = (_err : stdgo.Error);
         return stdgo._internal.html.template.Template_must.must(_t, _err);
     }
     /**
@@ -770,7 +894,7 @@ class Template {
         For instance, ParseFiles("a/foo", "b/foo") stores "b/foo" as the template
         named "foo", while "a/foo" is unavailable.
     **/
-    static public function parseFiles(_filenames:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
+    static public inline function parseFiles(_filenames:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
         return {
             final obj = stdgo._internal.html.template.Template_parseFiles.parseFiles(...[for (i in _filenames) i]);
             { _0 : obj._0, _1 : obj._1 };
@@ -787,7 +911,8 @@ class Template {
         When parsing multiple files with the same name in different directories,
         the last one mentioned will be the one that results.
     **/
-    static public function parseGlob(_pattern:String):stdgo.Tuple<Template_, stdgo.Error> {
+    static public inline function parseGlob(_pattern:String):stdgo.Tuple<Template_, stdgo.Error> {
+        final _pattern = (_pattern : stdgo.GoString);
         return {
             final obj = stdgo._internal.html.template.Template_parseGlob.parseGlob(_pattern);
             { _0 : obj._0, _1 : obj._1 };
@@ -798,7 +923,8 @@ class Template {
         and whether the value has a meaningful truth value. This is the definition of
         truth used by if and other such actions.
     **/
-    static public function isTrue(_val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> {
+    static public inline function isTrue(_val:stdgo.AnyInterface):stdgo.Tuple<Bool, Bool> {
+        final _val = (_val : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.html.template.Template_isTrue.isTrue(_val);
             { _0 : obj._0, _1 : obj._1 };
@@ -810,7 +936,7 @@ class Template {
         It accepts a list of glob patterns.
         (Note that most file names serve as glob patterns matching only themselves.)
     **/
-    static public function parseFS(_fs:stdgo._internal.io.fs.Fs_FS.FS, _patterns:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
+    static public inline function parseFS(_fs:stdgo._internal.io.fs.Fs_FS.FS, _patterns:haxe.Rest<String>):stdgo.Tuple<Template_, stdgo.Error> {
         return {
             final obj = stdgo._internal.html.template.Template_parseFS.parseFS(_fs, ...[for (i in _patterns) i]);
             { _0 : obj._0, _1 : obj._1 };

@@ -1,4 +1,10 @@
 package stdgo._internal.strings;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function _makeStringFinder(_pattern:stdgo.GoString):stdgo.Ref<stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder> {
         var _f = (stdgo.Go.setRef(({ _pattern : _pattern?.__copy__(), _goodSuffixSkip : (new stdgo.Slice<stdgo.GoInt>((_pattern.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder)) : stdgo.Ref<stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder>);
         var _last = ((_pattern.length) - (1 : stdgo.GoInt) : stdgo.GoInt);

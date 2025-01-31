@@ -1,4 +1,20 @@
 package stdgo._internal.runtime.pprof;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.context.Context;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.text.tabwriter.Tabwriter;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.time.Time;
+import stdgo._internal.compress.gzip.Gzip;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.abi.Abi;
 @:keep @:allow(stdgo._internal.runtime.pprof.Pprof.T_profileBuilder_asInterface) class T_profileBuilder_static_extension {
     @:keep
     @:tdfield
@@ -87,7 +103,11 @@ package stdgo._internal.runtime.pprof;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (0 : stdgo.GoUInt64);
             };
         } catch(__exception__) {
@@ -122,7 +142,11 @@ package stdgo._internal.runtime.pprof;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (0 : stdgo.GoUInt64);
             };
         };

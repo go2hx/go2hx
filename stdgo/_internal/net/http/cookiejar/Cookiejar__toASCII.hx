@@ -1,4 +1,11 @@
 package stdgo._internal.net.http.cookiejar;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.sort.Sort;
 function _toASCII(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (stdgo._internal.net.http.internal.ascii.Ascii_is_.is_(_s?.__copy__())) {
             return { _0 : _s?.__copy__(), _1 : (null : stdgo.Error) };

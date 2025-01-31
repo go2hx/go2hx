@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _getnum(_s:stdgo.GoString, _fixed:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         if (!stdgo._internal.time.Time__isDigit._isDigit(_s?.__copy__(), (0 : stdgo.GoInt))) {
             return { _0 : (0 : stdgo.GoInt), _1 : _s?.__copy__(), _2 : stdgo._internal.time.Time__errBad._errBad };

@@ -2,12 +2,6 @@ package stdgo._internal.net.http;
 class T_http2Framer_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _readMetaFrame(_hf:stdgo.Ref<stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } return @:_0 __self__.value._readMetaFrame(_hf);
-    @:keep
-    @:tdfield
-    public dynamic function _maxHeaderStringLen():stdgo.GoInt return @:_0 __self__.value._maxHeaderStringLen();
-    @:keep
-    @:tdfield
     public dynamic function writeRawFrame(_t:stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType, _flags:stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags, _streamID:stdgo.GoUInt32, _payload:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.value.writeRawFrame(_t, _flags, _streamID, _payload);
     @:keep
     @:tdfield
@@ -41,19 +35,10 @@ class T_http2Framer_asInterface {
     public dynamic function writeSettings(_settings:haxe.Rest<stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting>):stdgo.Error return @:_0 __self__.value.writeSettings(..._settings);
     @:keep
     @:tdfield
-    public dynamic function _startWriteDataPadded(_streamID:stdgo.GoUInt32, _endStream:Bool, _data:stdgo.Slice<stdgo.GoUInt8>, _pad:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.value._startWriteDataPadded(_streamID, _endStream, _data, _pad);
-    @:keep
-    @:tdfield
     public dynamic function writeDataPadded(_streamID:stdgo.GoUInt32, _endStream:Bool, _data:stdgo.Slice<stdgo.GoUInt8>, _pad:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.value.writeDataPadded(_streamID, _endStream, _data, _pad);
     @:keep
     @:tdfield
     public dynamic function writeData(_streamID:stdgo.GoUInt32, _endStream:Bool, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return @:_0 __self__.value.writeData(_streamID, _endStream, _data);
-    @:keep
-    @:tdfield
-    public dynamic function _checkFrameOrder(_f:stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame):stdgo.Error return @:_0 __self__.value._checkFrameOrder(_f);
-    @:keep
-    @:tdfield
-    public dynamic function _connError(_code:stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode, _reason:stdgo.GoString):stdgo.Error return @:_0 __self__.value._connError(_code, _reason);
     @:keep
     @:tdfield
     public dynamic function readFrame():{ var _0 : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame; var _1 : stdgo.Error; } return @:_0 __self__.value.readFrame();
@@ -66,30 +51,6 @@ class T_http2Framer_asInterface {
     @:keep
     @:tdfield
     public dynamic function setReuseFrames():Void @:_0 __self__.value.setReuseFrames();
-    @:keep
-    @:tdfield
-    public dynamic function _writeUint32(_v:stdgo.GoUInt32):Void @:_0 __self__.value._writeUint32(_v);
-    @:keep
-    @:tdfield
-    public dynamic function _writeUint16(_v:stdgo.GoUInt16):Void @:_0 __self__.value._writeUint16(_v);
-    @:keep
-    @:tdfield
-    public dynamic function _writeBytes(_v:stdgo.Slice<stdgo.GoUInt8>):Void @:_0 __self__.value._writeBytes(_v);
-    @:keep
-    @:tdfield
-    public dynamic function _writeByte(_v:stdgo.GoUInt8):Void @:_0 __self__.value._writeByte(_v);
-    @:keep
-    @:tdfield
-    public dynamic function _logWrite():Void @:_0 __self__.value._logWrite();
-    @:keep
-    @:tdfield
-    public dynamic function _endWrite():stdgo.Error return @:_0 __self__.value._endWrite();
-    @:keep
-    @:tdfield
-    public dynamic function _startWrite(_ftype:stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType, _flags:stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags, _streamID:stdgo.GoUInt32):Void @:_0 __self__.value._startWrite(_ftype, _flags, _streamID);
-    @:keep
-    @:tdfield
-    public dynamic function _maxHeaderListSize():stdgo.GoUInt32 return @:_0 __self__.value._maxHeaderListSize();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

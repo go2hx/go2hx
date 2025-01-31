@@ -1,4 +1,5 @@
 package stdgo._internal.encoding.ascii85;
+import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.encoding.ascii85.Ascii85_T_encoder_static_extension.T_encoder_static_extension) class T_encoder {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);

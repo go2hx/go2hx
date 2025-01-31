@@ -1,5 +1,5 @@
 package stdgo._internal.encoding;
-typedef TextUnmarshaler = stdgo.StructType & {
+@:interface typedef TextUnmarshaler = stdgo.StructType & {
     /**
         
         

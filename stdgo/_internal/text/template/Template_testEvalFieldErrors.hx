@@ -1,4 +1,20 @@
 package stdgo._internal.text.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.internal.fmtsort.Fmtsort;
 function testEvalFieldErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _tests = (new stdgo.Slice<stdgo._internal.text.template.Template_T__struct_4.T__struct_4>(6, 6, ...[({ _name : ("MissingFieldOnNil" : stdgo.GoString), _src : ("{{.MissingField}}" : stdgo.GoString), _value : stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.text.template.Template_T_.T_>))), _want : ("can\'t evaluate field MissingField in type *template.T" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_4.T__struct_4), ({ _name : ("MissingFieldOnNonNil" : stdgo.GoString), _src : ("{{.MissingField}}" : stdgo.GoString), _value : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.text.template.Template_T_.T_() : stdgo._internal.text.template.Template_T_.T_)) : stdgo.Ref<stdgo._internal.text.template.Template_T_.T_>))), _want : ("can\'t evaluate field MissingField in type *template.T" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_4.T__struct_4), ({ _name : ("ExistingFieldOnNil" : stdgo.GoString), _src : ("{{.X}}" : stdgo.GoString), _value : stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.text.template.Template_T_.T_>))), _want : ("nil pointer evaluating *template.T.X" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_4.T__struct_4), ({ _name : ("MissingKeyOnNilMap" : stdgo.GoString), _src : ("{{.MissingKey}}" : stdgo.GoString), _value : stdgo.Go.toInterface((null : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>)), _want : ("nil pointer evaluating *map[string]string.MissingKey" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_4.T__struct_4), ({ _name : ("MissingKeyOnNilMapPtr" : stdgo.GoString), _src : ("{{.MissingKey}}" : stdgo.GoString), _value : stdgo.Go.toInterface((null : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>)), _want : ("nil pointer evaluating *map[string]string.MissingKey" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_4.T__struct_4), ({ _name : ("MissingKeyOnMapPtrToNil" : stdgo.GoString), _src : ("{{.MissingKey}}" : stdgo.GoString), _value : stdgo.Go.toInterface((stdgo.Go.setRef(({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();

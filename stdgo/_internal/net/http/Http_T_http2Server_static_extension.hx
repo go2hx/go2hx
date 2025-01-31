@@ -33,13 +33,13 @@ package stdgo._internal.net.http;
             };
             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._flow._add((65535 : stdgo.GoInt32));
             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._inflow._init((65535 : stdgo.GoInt32));
-            (@:checkr _sc ?? throw "null pointer dereference")._hpackEncoder = _internal.golang_dot_org.x.net.http2.hpack.Hpack_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _sc ?? throw "null pointer dereference")._headerWriteBuf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            (@:checkr _sc ?? throw "null pointer dereference")._hpackEncoder = stdgo._internal.net.http.Http__hpack._hpack.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _sc ?? throw "null pointer dereference")._headerWriteBuf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
             @:check2r (@:checkr _sc ?? throw "null pointer dereference")._hpackEncoder.setMaxDynamicTableSizeLimit(@:check2r _s._maxEncoderHeaderTableSize());
             var _fr = stdgo._internal.net.http.Http__http2NewFramer._http2NewFramer(stdgo.Go.asInterface((@:checkr _sc ?? throw "null pointer dereference")._bw), _c);
             if ((@:checkr _s ?? throw "null pointer dereference").countError != null) {
                 (@:checkr _fr ?? throw "null pointer dereference")._countError = (@:checkr _s ?? throw "null pointer dereference").countError;
             };
-            (@:checkr _fr ?? throw "null pointer dereference").readMetaHeaders = _internal.golang_dot_org.x.net.http2.hpack.Hpack_newDecoder.newDecoder(@:check2r _s._maxDecoderHeaderTableSize(), null);
+            (@:checkr _fr ?? throw "null pointer dereference").readMetaHeaders = stdgo._internal.net.http.Http__hpack._hpack.newDecoder(@:check2r _s._maxDecoderHeaderTableSize(), null);
             (@:checkr _fr ?? throw "null pointer dereference").maxHeaderListSize = @:check2r _sc._maxHeaderListSize();
             @:check2r _fr.setMaxReadFrameSize(@:check2r _s._maxReadFrameSize());
             (@:checkr _sc ?? throw "null pointer dereference")._framer = _fr;
@@ -50,7 +50,7 @@ package stdgo._internal.net.http;
                     { _0 : (null : stdgo._internal.net.http.Http_T_http2connectionStater.T_http2connectionStater), _1 : false };
                 }, _tc = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    (@:checkr _sc ?? throw "null pointer dereference")._tlsState = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+                    (@:checkr _sc ?? throw "null pointer dereference")._tlsState = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http__tls._tls.connectionState);
                     {
                         var __tmp__ = _tc.connectionState()?.__copy__();
                         var x = ((@:checkr _sc ?? throw "null pointer dereference")._tlsState : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
@@ -81,7 +81,7 @@ package stdgo._internal.net.http;
                     };
                     if ((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").serverName == (stdgo.Go.str())) {};
                     if ((!(@:checkr _s ?? throw "null pointer dereference").permitProhibitedCipherSuites && stdgo._internal.net.http.Http__http2isBadCipher._http2isBadCipher((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite) : Bool)) {
-                        @:check2r _sc._rejectConn((12u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), stdgo._internal.fmt.Fmt_sprintf.sprintf(("Prohibited TLS 1.2 Cipher Suite: %x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite))?.__copy__());
+                        @:check2r _sc._rejectConn((12u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), stdgo._internal.net.http.Http__fmt._fmt.sprintf(("Prohibited TLS 1.2 Cipher Suite: %x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite))?.__copy__());
                         {
                             for (defer in __deferstack__) {
                                 if (defer.ran) continue;
@@ -128,7 +128,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -163,81 +167,13 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
-    }
-    @:keep
-    @:tdfield
-    static public function _maxQueuedControlFrames( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoInt {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        return (10000 : stdgo.GoInt);
-    }
-    @:keep
-    @:tdfield
-    static public function _maxEncoderHeaderTableSize( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoUInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        {
-            var _v = ((@:checkr _s ?? throw "null pointer dereference").maxEncoderHeaderTableSize : stdgo.GoUInt32);
-            if ((_v > (0u32 : stdgo.GoUInt32) : Bool)) {
-                return _v;
-            };
-        };
-        return (4096u32 : stdgo.GoUInt32);
-    }
-    @:keep
-    @:tdfield
-    static public function _maxDecoderHeaderTableSize( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoUInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        {
-            var _v = ((@:checkr _s ?? throw "null pointer dereference").maxDecoderHeaderTableSize : stdgo.GoUInt32);
-            if ((_v > (0u32 : stdgo.GoUInt32) : Bool)) {
-                return _v;
-            };
-        };
-        return (4096u32 : stdgo.GoUInt32);
-    }
-    @:keep
-    @:tdfield
-    static public function _maxConcurrentStreams( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoUInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        {
-            var _v = ((@:checkr _s ?? throw "null pointer dereference").maxConcurrentStreams : stdgo.GoUInt32);
-            if ((_v > (0u32 : stdgo.GoUInt32) : Bool)) {
-                return _v;
-            };
-        };
-        return (250u32 : stdgo.GoUInt32);
-    }
-    @:keep
-    @:tdfield
-    static public function _maxReadFrameSize( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoUInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        {
-            var _v = ((@:checkr _s ?? throw "null pointer dereference").maxReadFrameSize : stdgo.GoUInt32);
-            if (((_v >= (16384u32 : stdgo.GoUInt32) : Bool) && (_v <= (16777215u32 : stdgo.GoUInt32) : Bool) : Bool)) {
-                return _v;
-            };
-        };
-        return (1048576u32 : stdgo.GoUInt32);
-    }
-    @:keep
-    @:tdfield
-    static public function _initialStreamRecvWindowSize( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        if (((@:checkr _s ?? throw "null pointer dereference").maxUploadBufferPerStream > (0 : stdgo.GoInt32) : Bool)) {
-            return (@:checkr _s ?? throw "null pointer dereference").maxUploadBufferPerStream;
-        };
-        return (1048576 : stdgo.GoInt32);
-    }
-    @:keep
-    @:tdfield
-    static public function _initialConnRecvWindowSize( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.GoInt32 {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server> = _s;
-        if (((@:checkr _s ?? throw "null pointer dereference").maxUploadBufferPerConnection >= (65535 : stdgo.GoInt32) : Bool)) {
-            return (@:checkr _s ?? throw "null pointer dereference").maxUploadBufferPerConnection;
-        };
-        return (1048576 : stdgo.GoInt32);
     }
 }

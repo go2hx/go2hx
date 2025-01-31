@@ -1,4 +1,6 @@
 package stdgo._internal.image.draw;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+import stdgo._internal.image.color.Color;
 @:keep class Image_static_extension {
     @:interfacetypeffun
     static public function set(t:stdgo._internal.image.draw.Draw_Image.Image, _x:stdgo.GoInt, _y:stdgo.GoInt, _c:stdgo._internal.image.color.Color_Color.Color):Void t.set(_x, _y, _c);

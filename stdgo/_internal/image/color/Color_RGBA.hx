@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_RGBA_static_extension.RGBA_static_extension) class RGBA {
     public var r : stdgo.GoUInt8 = 0;
     public var g : stdgo.GoUInt8 = 0;

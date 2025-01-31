@@ -1,4 +1,7 @@
 package stdgo._internal.hash.adler32;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.setBytes((1024i64 : stdgo.GoInt64));
         var _data = (new stdgo.Slice<stdgo.GoUInt8>((1024 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

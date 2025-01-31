@@ -1,5 +1,6 @@
 package stdgo._internal.errors;
-typedef T__interface_3 = stdgo.StructType & {
+import stdgo._internal.internal.reflectlite.Reflectlite;
+@:interface typedef T__interface_3 = stdgo.StructType & {
     /**
         
         

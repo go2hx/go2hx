@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-typedef Error = stdgo.StructType & {
+@:interface typedef Error = stdgo.StructType & {
     > stdgo.Error,
     /**
         

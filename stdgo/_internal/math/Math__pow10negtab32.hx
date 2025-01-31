@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 var _pow10negtab32 : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(11, 11, ...[
 (1 : stdgo.GoFloat64),
 (1e-32 : stdgo.GoFloat64),

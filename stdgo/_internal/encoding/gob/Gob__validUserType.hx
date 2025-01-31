@@ -1,4 +1,25 @@
 package stdgo._internal.encoding.gob;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.os.Os;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.encoding.binary.Binary;
 function _validUserType(_rt:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>; var _1 : stdgo.Error; } {
         {
             var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__userTypeCache._userTypeCache.load(stdgo.Go.toInterface(_rt)), _ui:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -66,6 +87,6 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _
                 };
             };
         };
-        var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__userTypeCache._userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_ut)), _ui:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__userTypeCache._userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(stdgo.Go.asInterface(_ut))), _ui:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
         return { _0 : (stdgo.Go.typeAssert((_ui : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>), _1 : (null : stdgo.Error) };
     }

@@ -10,7 +10,7 @@ package stdgo._internal.net.http;
         };
         var _err = (@:check2r _bw.flush() : stdgo.Error);
         @:check2r _bw.reset((null : stdgo._internal.io.Io_Writer.Writer));
-        @:check2 stdgo._internal.net.http.Http__http2bufWriterPool._http2bufWriterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface(_bw)));
+        stdgo._internal.net.http.Http__http2bufWriterPool._http2bufWriterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface(_bw)));
         (@:checkr _w ?? throw "null pointer dereference")._bw = null;
         return _err;
     }
@@ -20,7 +20,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2bufferedWriter.T_http2bufferedWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((@:checkr _w ?? throw "null pointer dereference")._bw == null || ((@:checkr _w ?? throw "null pointer dereference")._bw : Dynamic).__nil__)) {
-            var _bw = (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__http2bufWriterPool._http2bufWriterPool.get() : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>)) : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);
+            var _bw = (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2bufWriterPool._http2bufWriterPool.get() : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>)) : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);
             @:check2r _bw.reset((@:checkr _w ?? throw "null pointer dereference")._w);
             (@:checkr _w ?? throw "null pointer dereference")._bw = _bw;
         };

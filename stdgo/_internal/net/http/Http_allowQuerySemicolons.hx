@@ -1,8 +1,8 @@
 package stdgo._internal.net.http;
 function allowQuerySemicolons(_h:stdgo._internal.net.http.Http_Handler.Handler):stdgo._internal.net.http.Http_Handler.Handler {
         return stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
-            if (stdgo._internal.strings.Strings_contains.contains((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__(), (";" : stdgo.GoString))) {
-                var _r2 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_Request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+            if (stdgo._internal.net.http.Http__strings._strings.contains((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__(), (";" : stdgo.GoString))) {
+                var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension.stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension);
                 {
                     var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();
                     var x = (_r2 : stdgo._internal.net.http.Http_Request.Request);
@@ -29,7 +29,7 @@ function allowQuerySemicolons(_h:stdgo._internal.net.http.Http_Handler.Handler):
                     x.response = __tmp__?.response;
                     x._ctx = __tmp__?._ctx;
                 };
-                (@:checkr _r2 ?? throw "null pointer dereference").uRL = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+                (@:checkr _r2 ?? throw "null pointer dereference").uRL = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http__url._url.uRL);
                 {
                     var __tmp__ = ((@:checkr _r ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_URL.URL)?.__copy__();
                     var x = ((@:checkr _r2 ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_URL.URL);
@@ -45,7 +45,7 @@ function allowQuerySemicolons(_h:stdgo._internal.net.http.Http_Handler.Handler):
                     x.fragment = __tmp__?.fragment;
                     x.rawFragment = __tmp__?.rawFragment;
                 };
-                (@:checkr (@:checkr _r2 ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery = stdgo._internal.strings.Strings_replaceAll.replaceAll((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__(), (";" : stdgo.GoString), ("&" : stdgo.GoString))?.__copy__();
+                (@:checkr (@:checkr _r2 ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery = stdgo._internal.net.http.Http__strings._strings.replaceAll((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__(), (";" : stdgo.GoString), ("&" : stdgo.GoString))?.__copy__();
                 _h.serveHTTP(_w, _r2);
             } else {
                 _h.serveHTTP(_w, _r);

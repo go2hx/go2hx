@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _split(_b:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoInt32; var _2 : stdgo.GoUInt64; } {
         var _sign = (0 : stdgo.GoUInt32), _exp = (0 : stdgo.GoInt32), _mantissa = (0 : stdgo.GoUInt64);
         _sign = ((_b >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);

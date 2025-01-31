@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function _simplePopulateTable(_poly:stdgo.GoUInt32, _t:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table>):Void {
         {
             var _i = (0 : stdgo.GoInt);

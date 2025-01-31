@@ -1,5 +1,5 @@
 package stdgo._internal.os;
-class JsOutput extends haxe.io.Output {
+@:using(stdgo._internal.os.Os_JsOutput_static_extension.JsOutput_static_extension) class JsOutput extends haxe.io.Output {
     public function new() {}
     override public function writeBytes(buf, pos, len) {
         if (pos == 0 && len == buf.length) {

@@ -1,4 +1,6 @@
 package stdgo._internal.image.draw;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+import stdgo._internal.image.color.Color;
 function _drawGlyphOver(_dst:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform>, _mask:stdgo.Ref<stdgo._internal.image.Image_Alpha.Alpha>, _mp:stdgo._internal.image.Image_Point.Point):Void {
         var _i0 = (@:check2r _dst.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         var _i1 = (_i0 + (_r.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);

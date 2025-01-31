@@ -59,7 +59,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _rwc, _1 : _buf, _2 : _err };
             };
         } catch(__exception__) {
@@ -94,18 +98,14 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _rwc, _1 : _buf, _2 : _err };
             };
         };
-    }
-    @:keep
-    @:tdfield
-    static public function _sendExpectationFailed( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Void {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        @:check2r _w.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
-        @:check2r _w.writeHeader((417 : stdgo.GoInt));
-        @:check2r _w._finishRequest();
     }
     @:keep
     @:tdfield
@@ -126,119 +126,6 @@ package stdgo._internal.net.http;
     static public function flush( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         @:check2r _w.flushError();
-    }
-    @:keep
-    @:tdfield
-    static public function _closedRequestBodyEarly( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Bool {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        var __tmp__ = try {
-            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").body) : stdgo.Ref<stdgo._internal.net.http.Http_T_body.T_body>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_body.T_body>), _1 : true };
-        } catch(_) {
-            { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_body.T_body>), _1 : false };
-        }, _body = __tmp__._0, _ok = __tmp__._1;
-        return (_ok && @:check2r _body._didEarlyClose() : Bool);
-    }
-    @:keep
-    @:tdfield
-    static public function _shouldReuseConnection( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Bool {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        if ((@:checkr _w ?? throw "null pointer dereference")._closeAfterReply) {
-            return false;
-        };
-        if (((((@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").method != (("HEAD" : stdgo.GoString)) && (@:checkr _w ?? throw "null pointer dereference")._contentLength != ((-1i64 : stdgo.GoInt64)) : Bool) && @:check2r _w._bodyAllowed() : Bool) && ((@:checkr _w ?? throw "null pointer dereference")._contentLength != (@:checkr _w ?? throw "null pointer dereference")._written) : Bool)) {
-            return false;
-        };
-        if ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._werr != null) {
-            return false;
-        };
-        if (@:check2r _w._closedRequestBodyEarly()) {
-            return false;
-        };
-        return true;
-    }
-    @:keep
-    @:tdfield
-    static public function _finishRequest( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Void {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        @:check2 (@:checkr _w ?? throw "null pointer dereference")._handlerDone.store(true);
-        if (!(@:checkr _w ?? throw "null pointer dereference")._wroteHeader) {
-            @:check2r _w.writeHeader((200 : stdgo.GoInt));
-        };
-        @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.flush();
-        stdgo._internal.net.http.Http__putBufioWriter._putBufioWriter((@:checkr _w ?? throw "null pointer dereference")._w);
-        @:check2 (@:checkr _w ?? throw "null pointer dereference")._cw._close();
-        @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._bufw.flush();
-        @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._r._abortPendingRead();
-        (@:checkr _w ?? throw "null pointer dereference")._reqBody.close();
-        if (((@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").multipartForm != null && (((@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__ == null || !((@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").multipartForm : Dynamic).__nil__))) {
-            @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").multipartForm.removeAll();
-        };
-    }
-    @:keep
-    @:tdfield
-    static public function _write( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>, _lenData:stdgo.GoInt, _dataB:stdgo.Slice<stdgo.GoUInt8>, _dataS:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if (@:check2r (@:checkr _w ?? throw "null pointer dereference")._conn._hijacked()) {
-            if ((_lenData > (0 : stdgo.GoInt) : Bool)) {
-                var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
-                @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._server._logf(("http: response.Write on hijacked connection from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
-            };
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errHijacked.errHijacked };
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        };
-        if (@:check2 (@:checkr _w ?? throw "null pointer dereference")._canWriteContinue.load()) {
-            @:check2 (@:checkr _w ?? throw "null pointer dereference")._writeContinueMu.lock();
-            @:check2 (@:checkr _w ?? throw "null pointer dereference")._canWriteContinue.store(false);
-            @:check2 (@:checkr _w ?? throw "null pointer dereference")._writeContinueMu.unlock();
-        };
-        if (!(@:checkr _w ?? throw "null pointer dereference")._wroteHeader) {
-            @:check2r _w.writeHeader((200 : stdgo.GoInt));
-        };
-        if (_lenData == ((0 : stdgo.GoInt))) {
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        };
-        if (!@:check2r _w._bodyAllowed()) {
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        };
-        (@:checkr _w ?? throw "null pointer dereference")._written = ((@:checkr _w ?? throw "null pointer dereference")._written + ((_lenData : stdgo.GoInt64)) : stdgo.GoInt64);
-        if ((((@:checkr _w ?? throw "null pointer dereference")._contentLength != (-1i64 : stdgo.GoInt64)) && ((@:checkr _w ?? throw "null pointer dereference")._written > (@:checkr _w ?? throw "null pointer dereference")._contentLength : Bool) : Bool)) {
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errContentLength.errContentLength };
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        };
-        if (_dataB != null) {
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.write(_dataB);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        } else {
-            return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r (@:checkr _w ?? throw "null pointer dereference")._w.writeString(_dataS?.__copy__());
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                __tmp__;
-            };
-        };
     }
     @:keep
     @:tdfield
@@ -266,25 +153,16 @@ package stdgo._internal.net.http;
     }
     @:keep
     @:tdfield
-    static public function _bodyAllowed( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Bool {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        if (!(@:checkr _w ?? throw "null pointer dereference")._wroteHeader) {
-            throw stdgo.Go.toInterface(stdgo.Go.str());
-        };
-        return stdgo._internal.net.http.Http__bodyAllowedForStatus._bodyAllowedForStatus((@:checkr _w ?? throw "null pointer dereference")._status);
-    }
-    @:keep
-    @:tdfield
     static public function writeHeader( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>, _code:stdgo.GoInt):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         if (@:check2r (@:checkr _w ?? throw "null pointer dereference")._conn._hijacked()) {
             var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
-            @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._server._logf(("http: response.WriteHeader on hijacked connection from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
+            @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._server._logf(("http: response.WriteHeader on hijacked connection from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.net.http.Http__path._path.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
             return;
         };
         if ((@:checkr _w ?? throw "null pointer dereference")._wroteHeader) {
             var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
-            @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._server._logf(("http: superfluous response.WriteHeader call from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
+            @:check2r (@:checkr (@:checkr _w ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._server._logf(("http: superfluous response.WriteHeader call from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.net.http.Http__path._path.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
             return;
         };
         stdgo._internal.net.http.Http__checkWriteHeaderCode._checkWriteHeaderCode(_code);
@@ -308,7 +186,7 @@ package stdgo._internal.net.http;
         {
             var _cl = ((@:checkr _w ?? throw "null pointer dereference")._handlerHeader._get(("Content-Length" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_cl != (stdgo.Go.str())) {
-                var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_cl?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _v:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.net.http.Http__strconv._strconv.parseInt(_cl?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _v:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) && (_v >= (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
                     (@:checkr _w ?? throw "null pointer dereference")._contentLength = _v;
                 } else {
@@ -335,11 +213,11 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         try {
-            var _bufp = (stdgo.Go.typeAssert((@:check2 stdgo._internal.net.http.Http__copyBufPool._copyBufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
+            var _bufp = (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__copyBufPool._copyBufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _buf = (_bufp : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var _a0 = _bufp;
-                final __f__ = @:check2 stdgo._internal.net.http.Http__copyBufPool._copyBufPool.put;
+                final __f__ = stdgo._internal.net.http.Http__copyBufPool._copyBufPool.put;
                 __deferstack__.unshift({ ran : false, f : () -> __f__(stdgo.Go.toInterface(_a0)) });
             };
             var __tmp__ = try {
@@ -350,7 +228,7 @@ package stdgo._internal.net.http;
             if (!_ok) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
+                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.net.http.Http__io._io.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -364,7 +242,7 @@ package stdgo._internal.net.http;
                 };
             };
             if (!(@:checkr _w ?? throw "null pointer dereference")._cw._wroteHeader) {
-                var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), stdgo._internal.io.Io_limitReader.limitReader(_src, (512i64 : stdgo.GoInt64)), _buf), _n0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.net.http.Http__io._io.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), stdgo._internal.net.http.Http__io._io.limitReader(_src, (512i64 : stdgo.GoInt64)), _buf), _n0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _n = (_n + (_n0) : stdgo.GoInt64);
                 if (((_err != null) || (_n0 < (512i64 : stdgo.GoInt64) : Bool) : Bool)) {
                     {
@@ -404,7 +282,7 @@ package stdgo._internal.net.http;
                     return __ret__;
                 };
             };
-            var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf), _n0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.net.http.Http__io._io.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf), _n0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             _n = (_n + (_n0) : stdgo.GoInt64);
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
@@ -426,7 +304,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
@@ -461,66 +343,14 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         };
-    }
-    @:keep
-    @:tdfield
-    static public function _requestTooLarge( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Void {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        (@:checkr _w ?? throw "null pointer dereference")._closeAfterReply = true;
-        (@:checkr _w ?? throw "null pointer dereference")._requestBodyLimitHit = true;
-        if (!(@:checkr _w ?? throw "null pointer dereference")._wroteHeader) {
-            @:check2r _w.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
-        };
-    }
-    @:keep
-    @:tdfield
-    static public function _declareTrailer( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>, _k:stdgo.GoString):Void {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        _k = stdgo._internal.net.http.Http_canonicalHeaderKey.canonicalHeaderKey(_k?.__copy__())?.__copy__();
-        if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validTrailerHeader.validTrailerHeader(_k?.__copy__())) {
-            return;
-        };
-        (@:checkr _w ?? throw "null pointer dereference")._trailers = ((@:checkr _w ?? throw "null pointer dereference")._trailers.__append__(_k?.__copy__()));
-    }
-    @:keep
-    @:tdfield
-    static public function _finalTrailers( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):stdgo._internal.net.http.Http_Header.Header {
-        @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        var _t:stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
-        for (_k => _vv in (@:checkr _w ?? throw "null pointer dereference")._handlerHeader) {
-            {
-                var __tmp__ = stdgo._internal.strings.Strings_cutPrefix.cutPrefix(_k?.__copy__(), ("Trailer:" : stdgo.GoString)), _kk:stdgo.GoString = __tmp__._0, _found:Bool = __tmp__._1;
-                if (_found) {
-                    if (_t == null) {
-                        _t = (({
-                            final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
-                            x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
-                            {};
-                            x;
-                        } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
-                    };
-                    _t[_kk] = _vv;
-                };
-            };
-        };
-        for (__34245 => _k in (@:checkr _w ?? throw "null pointer dereference")._trailers) {
-            if (_t == null) {
-                _t = (({
-                    final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
-                    x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoString>);
-                    {};
-                    x;
-                } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
-            };
-            for (__34280 => _v in ((@:checkr _w ?? throw "null pointer dereference")._handlerHeader[_k] ?? (null : stdgo.Slice<stdgo.GoString>))) {
-                _t.add(_k?.__copy__(), _v?.__copy__());
-            };
-        };
-        return _t;
     }
     @:keep
     @:tdfield

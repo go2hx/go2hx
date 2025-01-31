@@ -1,10 +1,10 @@
 package stdgo._internal.net.http;
-typedef T__interface_1 = stdgo.StructType & {
+@:interface typedef T__interface_1 = stdgo.StructType & {
     /**
         
         
         
     **/
     @:interfacetypeffun
-    public dynamic function flushError():stdgo.Error;
+    public dynamic function setReadDeadline(_0:stdgo._internal.time.Time_Time.Time):stdgo.Error;
 };

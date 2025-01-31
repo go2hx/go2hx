@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 function _tanSeries(_z:stdgo.GoComplex128):stdgo.GoFloat64 {
         {};
         var _x = (stdgo._internal.math.Math_abs.abs(((2 : stdgo.GoFloat64) * (_z : stdgo.GoComplex128).real : stdgo.GoFloat64)) : stdgo.GoFloat64);

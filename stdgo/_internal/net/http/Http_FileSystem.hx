@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef FileSystem = stdgo.StructType & {
+@:interface typedef FileSystem = stdgo.StructType & {
     /**
         
         

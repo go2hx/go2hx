@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef Connector = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef Connector = stdgo.StructType & {
     /**
         Connect returns a connection to the database.
         Connect may return a cached connection (one previously

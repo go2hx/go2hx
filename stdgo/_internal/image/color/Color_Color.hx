@@ -1,5 +1,7 @@
 package stdgo._internal.image.color;
-typedef Color = stdgo.StructType & {
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef Color = stdgo.StructType & {
     /**
         RGBA returns the alpha-premultiplied red, green, blue and alpha values
         for the color. Each value ranges within [0, 0xffff], but is represented

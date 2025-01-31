@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function _castagnoliInit():Void {
         stdgo._internal.hash.crc32.Crc32__castagnoliTable._castagnoliTable = stdgo._internal.hash.crc32.Crc32__simpleMakeTable._simpleMakeTable((-2097792136u32 : stdgo.GoUInt32));
         if (stdgo._internal.hash.crc32.Crc32__archAvailableCastagnoli._archAvailableCastagnoli()) {

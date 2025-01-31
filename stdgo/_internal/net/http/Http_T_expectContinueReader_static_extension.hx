@@ -36,7 +36,7 @@ package stdgo._internal.net.http;
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };
-        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http__io._io.eOF))) {
             @:check2 (@:checkr _ecr ?? throw "null pointer dereference")._sawEOF.store(true);
         };
         return { _0 : _n, _1 : _err };

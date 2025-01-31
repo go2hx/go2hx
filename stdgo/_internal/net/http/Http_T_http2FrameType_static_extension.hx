@@ -10,6 +10,6 @@ package stdgo._internal.net.http;
                 return _s?.__copy__();
             };
         };
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("UNKNOWN_FRAME_TYPE_%d" : stdgo.GoString), stdgo.Go.toInterface((_t : stdgo.GoUInt8)))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("UNKNOWN_FRAME_TYPE_%d" : stdgo.GoString), stdgo.Go.toInterface((_t : stdgo.GoUInt8)))?.__copy__();
     }
 }

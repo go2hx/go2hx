@@ -10,7 +10,8 @@ class Safefilepath {
         system. For example, paths containing '\' and ':' characters are rejected
         on Windows.
     **/
-    static public function fromFS(_path:String):stdgo.Tuple<String, stdgo.Error> {
+    static public inline function fromFS(_path:String):stdgo.Tuple<String, stdgo.Error> {
+        final _path = (_path : stdgo.GoString);
         return {
             final obj = stdgo._internal.internal.safefilepath.Safefilepath_fromFS.fromFS(_path);
             { _0 : obj._0, _1 : obj._1 };

@@ -3,13 +3,13 @@ final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv_intSize.intSize;
 var errRange(get, set) : stdgo.Error;
 private function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv_errRange.errRange;
 private function set_errRange(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.strconv.Strconv_errRange.errRange = v;
+        stdgo._internal.strconv.Strconv_errRange.errRange = (v : stdgo.Error);
         return v;
     }
 var errSyntax(get, set) : stdgo.Error;
 private function get_errSyntax():stdgo.Error return stdgo._internal.strconv.Strconv_errSyntax.errSyntax;
 private function set_errSyntax(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.strconv.Strconv_errSyntax.errSyntax = v;
+        stdgo._internal.strconv.Strconv_errSyntax.errSyntax = (v : stdgo.Error);
         return v;
     }
 var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>;
@@ -28,22 +28,22 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public var func(get, set) : String;
     function get_func():String return this.func;
     function set_func(v:String):String {
-        this.func = v;
+        this.func = (v : stdgo.GoString);
         return v;
     }
     public var num(get, set) : String;
     function get_num():String return this.num;
     function set_num(v:String):String {
-        this.num = v;
+        this.num = (v : stdgo.GoString);
         return v;
     }
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
-        this.err = v;
+        this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?func:String, ?num:String, ?err:stdgo.Error) this = new stdgo._internal.strconv.Strconv_NumError.NumError(func, num, err);
+    public function new(?func:String, ?num:String, ?err:stdgo.Error) this = new stdgo._internal.strconv.Strconv_NumError.NumError((func : stdgo.GoString), (num : stdgo.GoString), (err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -51,19 +51,19 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public var _d(get, set) : haxe.ds.Vector<std.UInt>;
     function get__d():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._d) i]);
     function set__d(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._d = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._d = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
     public var _nd(get, set) : StdTypes.Int;
     function get__nd():StdTypes.Int return this._nd;
     function set__nd(v:StdTypes.Int):StdTypes.Int {
-        this._nd = v;
+        this._nd = (v : stdgo.GoInt);
         return v;
     }
     public var _dp(get, set) : StdTypes.Int;
     function get__dp():StdTypes.Int return this._dp;
     function set__dp(v:StdTypes.Int):StdTypes.Int {
-        this._dp = v;
+        this._dp = (v : stdgo.GoInt);
         return v;
     }
     public var _neg(get, set) : Bool;
@@ -78,277 +78,197 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
         this._trunc = v;
         return v;
     }
-    public function new(?_d:haxe.ds.Vector<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int, ?_neg:Bool, ?_trunc:Bool) this = new stdgo._internal.strconv.Strconv_T_decimal.T_decimal(([for (i in _d) i] : stdgo.GoArray<stdgo.GoUInt8>), _nd, _dp, _neg, _trunc);
+    public function new(?_d:haxe.ds.Vector<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int, ?_neg:Bool, ?_trunc:Bool) this = new stdgo._internal.strconv.Strconv_T_decimal.T_decimal(([for (i in _d) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_nd : stdgo.GoInt), (_dp : stdgo.GoInt), _neg, _trunc);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_leftCheat(stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat) from stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat to stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat {
+@:structInit @:using(stdgo.strconv.Strconv.T_leftCheat_static_extension) abstract T_leftCheat(stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat) from stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat to stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat {
     public var _delta(get, set) : StdTypes.Int;
     function get__delta():StdTypes.Int return this._delta;
     function set__delta(v:StdTypes.Int):StdTypes.Int {
-        this._delta = v;
+        this._delta = (v : stdgo.GoInt);
         return v;
     }
     public var _cutoff(get, set) : String;
     function get__cutoff():String return this._cutoff;
     function set__cutoff(v:String):String {
-        this._cutoff = v;
+        this._cutoff = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_delta:StdTypes.Int, ?_cutoff:String) this = new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat(_delta, _cutoff);
+    public function new(?_delta:StdTypes.Int, ?_cutoff:String) this = new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((_delta : stdgo.GoInt), (_cutoff : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_floatInfo(stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo) from stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo to stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo {
+@:structInit @:using(stdgo.strconv.Strconv.T_floatInfo_static_extension) abstract T_floatInfo(stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo) from stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo to stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo {
     public var _mantbits(get, set) : std.UInt;
     function get__mantbits():std.UInt return this._mantbits;
     function set__mantbits(v:std.UInt):std.UInt {
-        this._mantbits = v;
+        this._mantbits = (v : stdgo.GoUInt);
         return v;
     }
     public var _expbits(get, set) : std.UInt;
     function get__expbits():std.UInt return this._expbits;
     function set__expbits(v:std.UInt):std.UInt {
-        this._expbits = v;
+        this._expbits = (v : stdgo.GoUInt);
         return v;
     }
     public var _bias(get, set) : StdTypes.Int;
     function get__bias():StdTypes.Int return this._bias;
     function set__bias(v:StdTypes.Int):StdTypes.Int {
-        this._bias = v;
+        this._bias = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_mantbits:std.UInt, ?_expbits:std.UInt, ?_bias:StdTypes.Int) this = new stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo(_mantbits, _expbits, _bias);
+    public function new(?_mantbits:std.UInt, ?_expbits:std.UInt, ?_bias:StdTypes.Int) this = new stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo((_mantbits : stdgo.GoUInt), (_expbits : stdgo.GoUInt), (_bias : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_decimalSlice(stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice) from stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice to stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice {
+@:structInit @:using(stdgo.strconv.Strconv.T_decimalSlice_static_extension) abstract T_decimalSlice(stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice) from stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice to stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice {
     public var _d(get, set) : Array<std.UInt>;
     function get__d():Array<std.UInt> return [for (i in this._d) i];
     function set__d(v:Array<std.UInt>):Array<std.UInt> {
-        this._d = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._d = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _nd(get, set) : StdTypes.Int;
     function get__nd():StdTypes.Int return this._nd;
     function set__nd(v:StdTypes.Int):StdTypes.Int {
-        this._nd = v;
+        this._nd = (v : stdgo.GoInt);
         return v;
     }
     public var _dp(get, set) : StdTypes.Int;
     function get__dp():StdTypes.Int return this._dp;
     function set__dp(v:StdTypes.Int):StdTypes.Int {
-        this._dp = v;
+        this._dp = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_d:Array<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int) this = new stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice(([for (i in _d) i] : stdgo.Slice<stdgo.GoUInt8>), _nd, _dp);
+    public function new(?_d:Array<std.UInt>, ?_nd:StdTypes.Int, ?_dp:StdTypes.Int) this = new stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice(([for (i in _d) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_nd : stdgo.GoInt), (_dp : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef NumErrorPointer = stdgo._internal.strconv.Strconv_NumErrorPointer.NumErrorPointer;
 class NumError_static_extension {
     static public function unwrap(_e:NumError):stdgo.Error {
+        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>);
         return stdgo._internal.strconv.Strconv_NumError_static_extension.NumError_static_extension.unwrap(_e);
     }
     static public function error(_e:NumError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>);
         return stdgo._internal.strconv.Strconv_NumError_static_extension.NumError_static_extension.error(_e);
     }
 }
 typedef T_decimalPointer = stdgo._internal.strconv.Strconv_T_decimalPointer.T_decimalPointer;
 class T_decimal_static_extension {
     static public function roundedInteger(_a:T_decimal):haxe.UInt64 {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundedInteger(_a);
     }
     static public function roundUp(_a:T_decimal, _nd:StdTypes.Int):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundUp(_a, _nd);
     }
     static public function roundDown(_a:T_decimal, _nd:StdTypes.Int):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundDown(_a, _nd);
     }
     static public function round(_a:T_decimal, _nd:StdTypes.Int):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.round(_a, _nd);
     }
     static public function shift(_a:T_decimal, _k:StdTypes.Int):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _k = (_k : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.shift(_a, _k);
     }
     static public function assign(_a:T_decimal, _v:haxe.UInt64):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _v = (_v : stdgo.GoUInt64);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.assign(_a, _v);
     }
     static public function string(_a:T_decimal):String {
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.string(_a);
     }
     static public function _floatBits(_d:T_decimal, _flt:T_floatInfo):stdgo.Tuple<haxe.UInt64, Bool> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _flt = (_flt : stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>);
         return {
             final obj = stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension._floatBits(_d, _flt);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _set(_b:T_decimal, _s:String):Bool {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension._set(_b, _s);
     }
 }
+typedef T_leftCheatPointer = stdgo._internal.strconv.Strconv_T_leftCheatPointer.T_leftCheatPointer;
+class T_leftCheat_static_extension {
+
+}
+typedef T_floatInfoPointer = stdgo._internal.strconv.Strconv_T_floatInfoPointer.T_floatInfoPointer;
+class T_floatInfo_static_extension {
+
+}
+typedef T_decimalSlicePointer = stdgo._internal.strconv.Strconv_T_decimalSlicePointer.T_decimalSlicePointer;
+class T_decimalSlice_static_extension {
+
+}
 /**
-    /|*{
-    	if d.nd == 0 {
-    		gotoNext = 2682618
-    		_ = gotoNext == 2682618
-    		mant_2682556 = 0
-    		exp_2682543 = flt.bias
-    		gotoNext = 2684020
-    		gotoNext = 2682811
-    	} else {
-    		gotoNext = 2682811
-    	}
-    	_ = gotoNext == 2682811
-    	if d.dp > 310 {
-    		gotoNext = 2682825
-    		_ = gotoNext == 2682825
-    		gotoNext = 2683935
-    		gotoNext = 2682847
-    	} else {
-    		gotoNext = 2682847
-    	}
-    	_ = gotoNext == 2682847
-    	if d.dp < -330 {
-    		gotoNext = 2682862
-    		_ = gotoNext == 2682862
-    		mant_2682556 = 0
-    		exp_2682543 = flt.bias
-    		gotoNext = 2684020
-    		gotoNext = 2682971
-    	} else {
-    		gotoNext = 2682971
-    	}
-    	_ = gotoNext == 2682971
-    	exp_2682543 = 0
-    	_ = 0
-    	gotoNext = 2682980
-    	_ = gotoNext == 2682980
-    	if d.dp > 0 {
-    		gotoNext = 2682993
-    		_ = gotoNext == 2682993
-    		if d.dp >= len(powtab) {
-    			gotoNext = 2683032
-    			_ = gotoNext == 2683032
-    			n_2683001 = 27
-    			gotoNext = 2683081
-    		} else {
-    			gotoNext = 2683053
-    			_ = gotoNext == 2683053
-    			gotoNext = 2683053
-    			_ = gotoNext == 2683053
-    			n_2683001 = powtab[d.dp]
-    			_ = 0
-    			gotoNext = 2683081
-    		}
-    		_ = gotoNext == 2683081
-    		d.Shift(-n_2683001)
-    		exp_2682543 += n_2683001
-    		gotoNext = 2682980
-    	} else {
-    		gotoNext = 2683108
-    	}
-    	_ = gotoNext == 2683108
-    	_ = 0
-    	gotoNext = 2683108
-    	_ = gotoNext == 2683108
-    	if d.dp < 0 || d.dp == 0 && d.d[0] < 53 {
-    		gotoNext = 2683150
-    		_ = gotoNext == 2683150
-    		if -d.dp >= len(powtab) {
-    			gotoNext = 2683190
-    			_ = gotoNext == 2683190
-    			n_2683158 = 27
-    			gotoNext = 2683240
-    		} else {
-    			gotoNext = 2683211
-    			_ = gotoNext == 2683211
-    			gotoNext = 2683211
-    			_ = gotoNext == 2683211
-    			n_2683158 = powtab[-d.dp]
-    			_ = 0
-    			gotoNext = 2683240
-    		}
-    		_ = gotoNext == 2683240
-    		d.Shift(n_2683158)
-    		exp_2682543 -= n_2683158
-    		gotoNext = 2683108
-    	} else {
-    		gotoNext = 2683327
-    	}
-    	_ = gotoNext == 2683327
-    	exp_2682543--
-    	if exp_2682543 < flt.bias+1 {
-    		gotoNext = 2683478
-    		_ = gotoNext == 2683478
-    		n_2683482 = flt.bias + 1 - exp_2682543
-    		d.Shift(-n_2683482)
-    		exp_2682543 += n_2683482
-    		gotoNext = 2683536
-    	} else {
-    		gotoNext = 2683536
-    	}
-    	_ = gotoNext == 2683536
-    	if exp_2682543-flt.bias >= 1<<flt.expbits-1 {
-    		gotoNext = 2683572
-    		_ = gotoNext == 2683572
-    		gotoNext = 2683935
-    		gotoNext = 2683628
-    	} else {
-    		gotoNext = 2683628
-    	}
-    	_ = gotoNext == 2683628
-    	d.Shift(int(1 + flt.mantbits))
-    	mant_2682556 = d.RoundedInteger()
-    	if mant_2682556 == 2<<flt.mantbits {
-    		gotoNext = 2683764
-    		_ = gotoNext == 2683764
-    		mant_2682556 >>= 1
-    		exp_2682543++
-    		if exp_2682543-flt.bias >= 1<<flt.expbits-1 {
-    			gotoNext = 2683825
-    			_ = gotoNext == 2683825
-    			gotoNext = 2683935
-    			gotoNext = 2683871
-    		} else {
-    			gotoNext = 2683871
-    		}
-    		gotoNext = 2683871
-    	} else {
-    		gotoNext = 2683871
-    	}
-    	_ = gotoNext == 2683871
-    	if mant_2682556&(1<<flt.mantbits) == 0 {
-    		gotoNext = 2683902
-    		_ = gotoNext == 2683902
-    		exp_2682543 = flt.bias
-    		gotoNext = 2683925
-    	} else {
-    		gotoNext = 2683925
-    	}
-    	_ = gotoNext == 2683925
-    	gotoNext = 2684020
-    	gotoNext = 2683935
-    	_ = gotoNext == 2683935
-    	mant_2682556 = 0
-    	exp_2682543 = 1<<flt.expbits - 1 + flt.bias
-    	overflow = true
-    	gotoNext = 2684020
-    	_ = gotoNext == 2684020
-    	bits_2684045 = mant_2682556 & (uint64(1)<<flt.mantbits - 1)
-    	bits_2684045 |= uint64((exp_2682543-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
-    	if d.neg {
-    		gotoNext = 2684167
-    		_ = gotoNext == 2684167
-    		bits_2684045 |= 1 << flt.mantbits << flt.expbits
-    		gotoNext = 2684216
-    	} else {
-    		gotoNext = 2684216
-    	}
-    	_ = gotoNext == 2684216
-    	return bits_2684045, overflow
-    	gotoNext = -1
-    }*|/
+    Package strconv implements conversions to and from string representations
+    of basic data types.
+    
+    # Numeric Conversions
+    
+    The most common numeric conversions are Atoi (string to int) and Itoa (int to string).
+    
+    	i, err := strconv.Atoi("-42")
+    	s := strconv.Itoa(-42)
+    
+    These assume decimal and the Go int type.
+    
+    [ParseBool], [ParseFloat], [ParseInt], and [ParseUint] convert strings to values:
+    
+    	b, err := strconv.ParseBool("true")
+    	f, err := strconv.ParseFloat("3.1415", 64)
+    	i, err := strconv.ParseInt("-42", 10, 64)
+    	u, err := strconv.ParseUint("42", 10, 64)
+    
+    The parse functions return the widest type (float64, int64, and uint64),
+    but if the size argument specifies a narrower width the result can be
+    converted to that narrower type without data loss:
+    
+    	s := "2147483647" // biggest int32
+    	i64, err := strconv.ParseInt(s, 10, 32)
+    	...
+    	i := int32(i64)
+    
+    [FormatBool], [FormatFloat], [FormatInt], and [FormatUint] convert values to strings:
+    
+    	s := strconv.FormatBool(true)
+    	s := strconv.FormatFloat(3.1415, 'E', -1, 64)
+    	s := strconv.FormatInt(-42, 16)
+    	s := strconv.FormatUint(42, 16)
+    
+    [AppendBool], [AppendFloat], [AppendInt], and [AppendUint] are similar but
+    append the formatted value to a destination slice.
+    
+    # String Conversions
+    
+    [Quote] and [QuoteToASCII] convert strings to quoted Go string literals.
+    The latter guarantees that the result is an ASCII string, by escaping
+    any non-ASCII Unicode with \u:
+    
+    	q := strconv.Quote("Hello, 世界")
+    	q := strconv.QuoteToASCII("Hello, 世界")
+    
+    [QuoteRune] and [QuoteRuneToASCII] are similar but accept runes and
+    return quoted Go rune literals.
+    
+    [Unquote] and [UnquoteChar] unquote Go string and rune literals.
 **/
 class Strconv {
     /**
@@ -356,7 +276,8 @@ class Strconv {
         It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.
         Any other value returns an error.
     **/
-    static public function parseBool(_str:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public inline function parseBool(_str:String):stdgo.Tuple<Bool, stdgo.Error> {
+        final _str = (_str : stdgo.GoString);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseBool.parseBool(_str);
             { _0 : obj._0, _1 : obj._1 };
@@ -365,15 +286,15 @@ class Strconv {
     /**
         FormatBool returns "true" or "false" according to the value of b.
     **/
-    static public function formatBool(_b:Bool):String {
+    static public inline function formatBool(_b:Bool):String {
         return stdgo._internal.strconv.Strconv_formatBool.formatBool(_b);
     }
     /**
         AppendBool appends "true" or "false", according to the value of b,
         to dst and returns the extended buffer.
     **/
-    static public function appendBool(_dst:Array<std.UInt>, _b:Bool):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendBool(_dst:Array<std.UInt>, _b:Bool):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.strconv.Strconv_appendBool.appendBool(_dst, _b)) i];
     }
     /**
@@ -398,7 +319,9 @@ class Strconv {
         away from the largest floating point number of the given component's size,
         ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.
     **/
-    static public function parseComplex(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error> {
+    static public inline function parseComplex(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseComplex.parseComplex(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
@@ -433,7 +356,9 @@ class Strconv {
         
         [floating-point literals]: https://go.dev/ref/spec#Floating-point_literals
     **/
-    static public function parseFloat(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<StdTypes.Float, stdgo.Error> {
+    static public inline function parseFloat(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<StdTypes.Float, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
@@ -444,7 +369,10 @@ class Strconv {
         
         A sign prefix is not permitted.
     **/
-    static public function parseUint(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
+    static public inline function parseUint(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _base = (_base : stdgo.GoInt);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseUint.parseUint(_s, _base, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
@@ -477,7 +405,10 @@ class Strconv {
         
         [integer literals]: https://go.dev/ref/spec#Integer_literals
     **/
-    static public function parseInt(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public inline function parseInt(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _base = (_base : stdgo.GoInt);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseInt.parseInt(_s, _base, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
@@ -486,7 +417,8 @@ class Strconv {
     /**
         Atoi is equivalent to ParseInt(s, 10, 0), converted to type int.
     **/
-    static public function atoi(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public inline function atoi(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strconv.Strconv_atoi.atoi(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -501,7 +433,11 @@ class Strconv {
         It rounds the result assuming that the original was obtained from a complex
         value of bitSize bits, which must be 64 for complex64 and 128 for complex128.
     **/
-    static public function formatComplex(_c:stdgo.GoComplex128, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+    static public inline function formatComplex(_c:stdgo.GoComplex128, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+        final _c = (_c : stdgo.GoComplex128);
+        final _fmt = (_fmt : stdgo.GoUInt8);
+        final _prec = (_prec : stdgo.GoInt);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_formatComplex.formatComplex(_c, _fmt, _prec, _bitSize);
     }
     /**
@@ -528,33 +464,46 @@ class Strconv {
         The special precision -1 uses the smallest number of digits
         necessary such that ParseFloat will return f exactly.
     **/
-    static public function formatFloat(_f:StdTypes.Float, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+    static public inline function formatFloat(_f:StdTypes.Float, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+        final _f = (_f : stdgo.GoFloat64);
+        final _fmt = (_fmt : stdgo.GoUInt8);
+        final _prec = (_prec : stdgo.GoInt);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_formatFloat.formatFloat(_f, _fmt, _prec, _bitSize);
     }
     /**
         AppendFloat appends the string form of the floating-point number f,
         as generated by FormatFloat, to dst and returns the extended buffer.
     **/
-    static public function appendFloat(_dst:Array<std.UInt>, _f:StdTypes.Float, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendFloat(_dst:Array<std.UInt>, _f:StdTypes.Float, _fmt:std.UInt, _prec:StdTypes.Int, _bitSize:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _f = (_f : stdgo.GoFloat64);
+        final _fmt = (_fmt : stdgo.GoUInt8);
+        final _prec = (_prec : stdgo.GoInt);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return [for (i in stdgo._internal.strconv.Strconv_appendFloat.appendFloat(_dst, _f, _fmt, _prec, _bitSize)) i];
     }
-    static public function newDecimal(_i:haxe.UInt64):T_decimal {
+    static public inline function newDecimal(_i:haxe.UInt64):T_decimal {
+        final _i = (_i : stdgo.GoUInt64);
         return stdgo._internal.strconv.Strconv_newDecimal.newDecimal(_i);
     }
-    static public function setOptimize(_b:Bool):Bool {
+    static public inline function setOptimize(_b:Bool):Bool {
         return stdgo._internal.strconv.Strconv_setOptimize.setOptimize(_b);
     }
-    static public function parseFloatPrefix(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Float, StdTypes.Int, stdgo.Error> {
+    static public inline function parseFloatPrefix(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Float, StdTypes.Int, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _bitSize = (_bitSize : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strconv.Strconv_parseFloatPrefix.parseFloatPrefix(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function mulByLog2Log10(_x:StdTypes.Int):StdTypes.Int {
+    static public inline function mulByLog2Log10(_x:StdTypes.Int):StdTypes.Int {
+        final _x = (_x : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_mulByLog2Log10.mulByLog2Log10(_x);
     }
-    static public function mulByLog10Log2(_x:StdTypes.Int):StdTypes.Int {
+    static public inline function mulByLog10Log2(_x:StdTypes.Int):StdTypes.Int {
+        final _x = (_x : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_mulByLog10Log2.mulByLog10Log2(_x);
     }
     /**
@@ -562,7 +511,9 @@ class Strconv {
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
     **/
-    static public function formatUint(_i:haxe.UInt64, _base:StdTypes.Int):String {
+    static public inline function formatUint(_i:haxe.UInt64, _base:StdTypes.Int):String {
+        final _i = (_i : stdgo.GoUInt64);
+        final _base = (_base : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_formatUint.formatUint(_i, _base);
     }
     /**
@@ -570,29 +521,36 @@ class Strconv {
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
     **/
-    static public function formatInt(_i:haxe.Int64, _base:StdTypes.Int):String {
+    static public inline function formatInt(_i:haxe.Int64, _base:StdTypes.Int):String {
+        final _i = (_i : stdgo.GoInt64);
+        final _base = (_base : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_formatInt.formatInt(_i, _base);
     }
     /**
         Itoa is equivalent to FormatInt(int64(i), 10).
     **/
-    static public function itoa(_i:StdTypes.Int):String {
+    static public inline function itoa(_i:StdTypes.Int):String {
+        final _i = (_i : stdgo.GoInt);
         return stdgo._internal.strconv.Strconv_itoa.itoa(_i);
     }
     /**
         AppendInt appends the string form of the integer i,
         as generated by FormatInt, to dst and returns the extended buffer.
     **/
-    static public function appendInt(_dst:Array<std.UInt>, _i:haxe.Int64, _base:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendInt(_dst:Array<std.UInt>, _i:haxe.Int64, _base:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _i = (_i : stdgo.GoInt64);
+        final _base = (_base : stdgo.GoInt);
         return [for (i in stdgo._internal.strconv.Strconv_appendInt.appendInt(_dst, _i, _base)) i];
     }
     /**
         AppendUint appends the string form of the unsigned integer i,
         as generated by FormatUint, to dst and returns the extended buffer.
     **/
-    static public function appendUint(_dst:Array<std.UInt>, _i:haxe.UInt64, _base:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendUint(_dst:Array<std.UInt>, _i:haxe.UInt64, _base:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _i = (_i : stdgo.GoUInt64);
+        final _base = (_base : stdgo.GoInt);
         return [for (i in stdgo._internal.strconv.Strconv_appendUint.appendUint(_dst, _i, _base)) i];
     }
     /**
@@ -601,15 +559,17 @@ class Strconv {
         control characters and non-printable characters as defined by
         IsPrint.
     **/
-    static public function quote(_s:String):String {
+    static public inline function quote(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_quote.quote(_s);
     }
     /**
         AppendQuote appends a double-quoted Go string literal representing s,
         as generated by Quote, to dst and returns the extended buffer.
     **/
-    static public function appendQuote(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuote(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _s = (_s : stdgo.GoString);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuote.appendQuote(_dst, _s)) i];
     }
     /**
@@ -617,15 +577,17 @@ class Strconv {
         The returned string uses Go escape sequences (\t, \n, \xFF, \u0100) for
         non-ASCII characters and non-printable characters as defined by IsPrint.
     **/
-    static public function quoteToASCII(_s:String):String {
+    static public inline function quoteToASCII(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_quoteToASCII.quoteToASCII(_s);
     }
     /**
         AppendQuoteToASCII appends a double-quoted Go string literal representing s,
         as generated by QuoteToASCII, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteToASCII(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuoteToASCII(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _s = (_s : stdgo.GoString);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuoteToASCII.appendQuoteToASCII(_dst, _s)) i];
     }
     /**
@@ -634,15 +596,17 @@ class Strconv {
         IsGraphic, unchanged and uses Go escape sequences (\t, \n, \xFF, \u0100)
         for non-graphic characters.
     **/
-    static public function quoteToGraphic(_s:String):String {
+    static public inline function quoteToGraphic(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_quoteToGraphic.quoteToGraphic(_s);
     }
     /**
         AppendQuoteToGraphic appends a double-quoted Go string literal representing s,
         as generated by QuoteToGraphic, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteToGraphic(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuoteToGraphic(_dst:Array<std.UInt>, _s:String):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _s = (_s : stdgo.GoString);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuoteToGraphic.appendQuoteToGraphic(_dst, _s)) i];
     }
     /**
@@ -652,15 +616,17 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRune(_r:StdTypes.Int):String {
+    static public inline function quoteRune(_r:StdTypes.Int):String {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strconv.Strconv_quoteRune.quoteRune(_r);
     }
     /**
         AppendQuoteRune appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRune, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRune(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuoteRune(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _r = (_r : stdgo.GoInt32);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuoteRune.appendQuoteRune(_dst, _r)) i];
     }
     /**
@@ -671,15 +637,17 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRuneToASCII(_r:StdTypes.Int):String {
+    static public inline function quoteRuneToASCII(_r:StdTypes.Int):String {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strconv.Strconv_quoteRuneToASCII.quoteRuneToASCII(_r);
     }
     /**
         AppendQuoteRuneToASCII appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToASCII, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRuneToASCII(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuoteRuneToASCII(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _r = (_r : stdgo.GoInt32);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuoteRuneToASCII.appendQuoteRuneToASCII(_dst, _r)) i];
     }
     /**
@@ -690,15 +658,17 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRuneToGraphic(_r:StdTypes.Int):String {
+    static public inline function quoteRuneToGraphic(_r:StdTypes.Int):String {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strconv.Strconv_quoteRuneToGraphic.quoteRuneToGraphic(_r);
     }
     /**
         AppendQuoteRuneToGraphic appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRuneToGraphic(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function appendQuoteRuneToGraphic(_dst:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _r = (_r : stdgo.GoInt32);
         return [for (i in stdgo._internal.strconv.Strconv_appendQuoteRuneToGraphic.appendQuoteRuneToGraphic(_dst, _r)) i];
     }
     /**
@@ -706,7 +676,8 @@ class Strconv {
         unchanged as a single-line backquoted string without control
         characters other than tab.
     **/
-    static public function canBackquote(_s:String):Bool {
+    static public inline function canBackquote(_s:String):Bool {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_canBackquote.canBackquote(_s);
     }
     /**
@@ -725,7 +696,9 @@ class Strconv {
         If set to a double quote, it permits \" and disallows unescaped ".
         If set to zero, it does not permit either escape and allows both quote characters to appear unescaped.
     **/
-    static public function unquoteChar(_s:String, _quote:std.UInt):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
+    static public inline function unquoteChar(_s:String, _quote:std.UInt):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
+        final _quote = (_quote : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.strconv.Strconv_unquoteChar.unquoteChar(_s, _quote);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
@@ -735,7 +708,8 @@ class Strconv {
         QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix of s.
         If s does not start with a valid quoted string, QuotedPrefix returns an error.
     **/
-    static public function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public inline function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strconv.Strconv_quotedPrefix.quotedPrefix(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -748,7 +722,8 @@ class Strconv {
         character literal; Unquote returns the corresponding
         one-character string.)
     **/
-    static public function unquote(_s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public inline function unquote(_s:String):stdgo.Tuple<String, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strconv.Strconv_unquote.unquote(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -759,7 +734,8 @@ class Strconv {
         the same definition as unicode.IsPrint: letters, numbers, punctuation,
         symbols and ASCII space.
     **/
-    static public function isPrint(_r:StdTypes.Int):Bool {
+    static public inline function isPrint(_r:StdTypes.Int):Bool {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strconv.Strconv_isPrint.isPrint(_r);
     }
     /**
@@ -767,7 +743,8 @@ class Strconv {
         characters include letters, marks, numbers, punctuation, symbols, and
         spaces, from categories L, M, N, P, S, and Zs.
     **/
-    static public function isGraphic(_r:StdTypes.Int):Bool {
+    static public inline function isGraphic(_r:StdTypes.Int):Bool {
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strconv.Strconv_isGraphic.isGraphic(_r);
     }
 }

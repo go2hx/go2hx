@@ -1,2 +1,3 @@
 package stdgo._internal.internal.abi;
-@:named typedef ChanDir = stdgo.GoInt;
+import stdgo._internal.unsafe.Unsafe;
+@:named @:using(stdgo._internal.internal.abi.Abi_ChanDir_static_extension.ChanDir_static_extension) typedef ChanDir = stdgo.GoInt;

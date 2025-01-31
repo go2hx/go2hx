@@ -1,4 +1,6 @@
 package stdgo._internal.internal.intern;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.runtime.Runtime;
 function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -48,7 +50,11 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             };
         } catch(__exception__) {
@@ -83,7 +89,11 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             };
         };

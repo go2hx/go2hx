@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_http2WriteScheduler = stdgo.StructType & {
+@:interface typedef T_http2WriteScheduler = stdgo.StructType & {
     /**
         OpenStream opens a new stream in the write scheduler.
         It is illegal to call this with streamID=0 or with a streamID that is

@@ -2,18 +2,8 @@ package stdgo._internal.net.http;
 @:structInit @:using(stdgo._internal.net.http.Http_T_transportRequest_static_extension.T_transportRequest_static_extension) class T_transportRequest {
     @:embedded
     public var request : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
-    public var _extra : stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
-    public var _trace : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = (null : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>);
-    public var _cancelKey : stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey = ({} : stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey);
-    public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
-    public var _err : stdgo.Error = (null : stdgo.Error);
-    public function new(?request:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, ?_extra:stdgo._internal.net.http.Http_Header.Header, ?_trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>, ?_cancelKey:stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_err:stdgo.Error) {
+    public function new(?request:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) {
         if (request != null) this.request = request;
-        if (_extra != null) this._extra = _extra;
-        if (_trace != null) this._trace = _trace;
-        if (_cancelKey != null) this._cancelKey = _cancelKey;
-        if (_mu != null) this._mu = _mu;
-        if (_err != null) this._err = _err;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public var addCookie(get, never) : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie> -> Void;
@@ -133,6 +123,6 @@ package stdgo._internal.net.http;
     @:embeddededffieldsffun
     public function get__write():(stdgo._internal.io.Io_Writer.Writer, Bool, stdgo._internal.net.http.Http_Header.Header, () -> Bool) -> stdgo.Error return @:check32 this.request._write;
     public function __copy__() {
-        return new T_transportRequest(request, _extra, _trace, _cancelKey, _mu, _err);
+        return new T_transportRequest(request);
     }
 }

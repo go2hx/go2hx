@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef ValueConverter = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef ValueConverter = stdgo.StructType & {
     /**
         ConvertValue converts a value to a driver Value.
         

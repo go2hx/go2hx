@@ -1,4 +1,12 @@
 package stdgo._internal.internal.xcoff;
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
 @:keep @:allow(stdgo._internal.internal.xcoff.Xcoff.File_asInterface) class File_static_extension {
     @:keep
     @:tdfield
@@ -34,7 +42,7 @@ package stdgo._internal.internal.xcoff;
             if (__value__ == ((479 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_lhdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                     };
@@ -46,7 +54,7 @@ package stdgo._internal.internal.xcoff;
             } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_lhdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                     };
@@ -92,7 +100,7 @@ var _ok:Bool = false;
                     if (__value__ == ((479 : stdgo.GoUInt16))) {
                         var _ldsym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_ldsym))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                             };
@@ -124,7 +132,7 @@ var _ok:Bool = false;
                     } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                         var _ldsym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol64.LoaderSymbol64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol64.LoaderSymbol64>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ldsym)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_ldsym))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : _err };
                             };
@@ -178,7 +186,7 @@ _all = (_all.__append__(_sym.__copy__()));
             if (__value__ == ((479 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader32.LoaderHeader32>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_lhdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
                     };
@@ -189,7 +197,7 @@ _all = (_all.__append__(_sym.__copy__()));
             } else if (__value__ == ((503 : stdgo.GoUInt16))) {
                 var _lhdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderHeader64.LoaderHeader64>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_lhdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_lhdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
                     };

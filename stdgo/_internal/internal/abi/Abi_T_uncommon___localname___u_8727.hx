@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8727 {
     @:embedded
     public var chanType : stdgo._internal.internal.abi.Abi_ChanType.ChanType = ({} : stdgo._internal.internal.abi.Abi_ChanType.ChanType);

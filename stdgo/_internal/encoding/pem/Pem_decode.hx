@@ -1,4 +1,9 @@
 package stdgo._internal.encoding.pem;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.base64.Base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.sort.Sort;
 function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } {
         var _p = (null : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>), _rest = (null : stdgo.Slice<stdgo.GoUInt8>);
         _rest = _data;

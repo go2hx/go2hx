@@ -1,5 +1,11 @@
 package stdgo._internal.image.jpeg;
-@:structInit class T_component {
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+@:structInit @:using(stdgo._internal.image.jpeg.Jpeg_T_component_static_extension.T_component_static_extension) class T_component {
     public var _h : stdgo.GoInt = 0;
     public var _v : stdgo.GoInt = 0;
     public var _c : stdgo.GoUInt8 = 0;

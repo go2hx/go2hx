@@ -1,5 +1,5 @@
 package stdgo._internal.reflect;
-@:structInit class OtherPkgFields {
+@:structInit @:using(stdgo._internal.reflect.Reflect_OtherPkgFields_static_extension.OtherPkgFields_static_extension) class OtherPkgFields {
     public var otherExported : stdgo.GoInt = 0;
     public function new(?otherExported:stdgo.GoInt) {
         if (otherExported != null) this.otherExported = otherExported;

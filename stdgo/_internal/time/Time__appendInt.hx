@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _appendInt(_b:stdgo.Slice<stdgo.GoUInt8>, _x:stdgo.GoInt, _width:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         var _u = (_x : stdgo.GoUInt);
         if ((_x < (0 : stdgo.GoInt) : Bool)) {

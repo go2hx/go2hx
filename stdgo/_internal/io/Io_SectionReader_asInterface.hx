@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 class SectionReader_asInterface {
     @:keep
     @:tdfield

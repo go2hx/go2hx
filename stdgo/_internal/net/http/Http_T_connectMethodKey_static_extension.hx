@@ -8,6 +8,6 @@ package stdgo._internal.net.http;
         if (_k._onlyH1) {
             _h1 = (",h1" : stdgo.GoString);
         };
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s|%s%s|%s" : stdgo.GoString), stdgo.Go.toInterface(_k._proxy), stdgo.Go.toInterface(_k._scheme), stdgo.Go.toInterface(_h1), stdgo.Go.toInterface(_k._addr))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("%s|%s%s|%s" : stdgo.GoString), stdgo.Go.toInterface(_k._proxy), stdgo.Go.toInterface(_k._scheme), stdgo.Go.toInterface(_h1), stdgo.Go.toInterface(_k._addr))?.__copy__();
     }
 }

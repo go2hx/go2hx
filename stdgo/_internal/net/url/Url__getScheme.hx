@@ -1,4 +1,10 @@
 package stdgo._internal.net.url;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.sort.Sort;
 function _getScheme(_rawURL:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _scheme = ("" : stdgo.GoString), _path = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         {

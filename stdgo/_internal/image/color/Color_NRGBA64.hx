@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_NRGBA64_static_extension.NRGBA64_static_extension) class NRGBA64 {
     public var r : stdgo.GoUInt16 = 0;
     public var g : stdgo.GoUInt16 = 0;

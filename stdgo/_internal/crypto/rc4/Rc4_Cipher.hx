@@ -1,4 +1,6 @@
 package stdgo._internal.crypto.rc4;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.crypto.rc4.Rc4_Cipher_static_extension.Cipher_static_extension) class Cipher {
     public var _s : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(256, 256).__setNumber32__();
     public var _i : stdgo.GoUInt8 = 0;

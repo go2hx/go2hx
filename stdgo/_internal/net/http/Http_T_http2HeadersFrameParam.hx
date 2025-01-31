@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-@:structInit class T_http2HeadersFrameParam {
+@:structInit @:using(stdgo._internal.net.http.Http_T_http2HeadersFrameParam_static_extension.T_http2HeadersFrameParam_static_extension) class T_http2HeadersFrameParam {
     public var streamID : stdgo.GoUInt32 = 0;
     public var blockFragment : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var endStream : Bool = false;

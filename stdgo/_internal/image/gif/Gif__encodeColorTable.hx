@@ -1,4 +1,13 @@
 package stdgo._internal.image.gif;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.Image;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.image.draw.Draw;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.lzw.Lzw;
+import stdgo._internal.bytes.Bytes;
 function _encodeColorTable(_dst:stdgo.Slice<stdgo.GoUInt8>, _p:stdgo._internal.image.color.Color_Palette.Palette, _size:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         if (((_size : stdgo.GoUInt) >= (stdgo._internal.image.gif.Gif__log2Lookup._log2Lookup.length : stdgo.GoUInt) : Bool)) {
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("gif: cannot encode color table with more than 256 entries" : stdgo.GoString)) };

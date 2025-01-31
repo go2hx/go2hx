@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha256;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.crypto.sha256.Sha256___K.__K;

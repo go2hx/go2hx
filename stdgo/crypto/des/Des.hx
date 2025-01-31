@@ -4,10 +4,10 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.des.Des_blockSize.blockSi
     public var _subkeys(get, set) : haxe.ds.Vector<haxe.UInt64>;
     function get__subkeys():haxe.ds.Vector<haxe.UInt64> return haxe.ds.Vector.fromArrayCopy([for (i in this._subkeys) i]);
     function set__subkeys(v:haxe.ds.Vector<haxe.UInt64>):haxe.ds.Vector<haxe.UInt64> {
-        this._subkeys = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt64>);
+        this._subkeys = ([for (i in v) (i : stdgo.GoUInt64)] : stdgo.GoArray<stdgo.GoUInt64>);
         return v;
     }
-    public function new(?_subkeys:haxe.ds.Vector<haxe.UInt64>) this = new stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher(([for (i in _subkeys) i] : stdgo.GoArray<stdgo.GoUInt64>));
+    public function new(?_subkeys:haxe.ds.Vector<haxe.UInt64>) this = new stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher(([for (i in _subkeys) (i : stdgo.GoUInt64)] : stdgo.GoArray<stdgo.GoUInt64>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -38,36 +38,43 @@ typedef KeySizeError = stdgo._internal.crypto.des.Des_KeySizeError.KeySizeError;
 typedef T_desCipherPointer = stdgo._internal.crypto.des.Des_T_desCipherPointer.T_desCipherPointer;
 class T_desCipher_static_extension {
     static public function decrypt(_c:T_desCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher>);
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.des.Des_T_desCipher_static_extension.T_desCipher_static_extension.decrypt(_c, _dst, _src);
     }
     static public function encrypt(_c:T_desCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher>);
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.des.Des_T_desCipher_static_extension.T_desCipher_static_extension.encrypt(_c, _dst, _src);
     }
     static public function blockSize(_c:T_desCipher):StdTypes.Int {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher>);
         return stdgo._internal.crypto.des.Des_T_desCipher_static_extension.T_desCipher_static_extension.blockSize(_c);
     }
     static public function _generateSubkeys(_c:T_desCipher, _keyBytes:Array<std.UInt>):Void {
-        final _keyBytes = ([for (i in _keyBytes) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher>);
+        final _keyBytes = ([for (i in _keyBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.des.Des_T_desCipher_static_extension.T_desCipher_static_extension._generateSubkeys(_c, _keyBytes);
     }
 }
 typedef T_tripleDESCipherPointer = stdgo._internal.crypto.des.Des_T_tripleDESCipherPointer.T_tripleDESCipherPointer;
 class T_tripleDESCipher_static_extension {
     static public function decrypt(_c:T_tripleDESCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_tripleDESCipher.T_tripleDESCipher>);
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.des.Des_T_tripleDESCipher_static_extension.T_tripleDESCipher_static_extension.decrypt(_c, _dst, _src);
     }
     static public function encrypt(_c:T_tripleDESCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_tripleDESCipher.T_tripleDESCipher>);
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.des.Des_T_tripleDESCipher_static_extension.T_tripleDESCipher_static_extension.encrypt(_c, _dst, _src);
     }
     static public function blockSize(_c:T_tripleDESCipher):StdTypes.Int {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.des.Des_T_tripleDESCipher.T_tripleDESCipher>);
         return stdgo._internal.crypto.des.Des_T_tripleDESCipher_static_extension.T_tripleDESCipher_static_extension.blockSize(_c);
     }
 }
@@ -89,8 +96,8 @@ class Des {
     /**
         NewCipher creates and returns a new cipher.Block.
     **/
-    static public function newCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_Block.Block, stdgo.Error> {
-        final _key = ([for (i in _key) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function newCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_Block.Block, stdgo.Error> {
+        final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.des.Des_newCipher.newCipher(_key);
             { _0 : obj._0, _1 : obj._1 };
@@ -99,8 +106,8 @@ class Des {
     /**
         NewTripleDESCipher creates and returns a new cipher.Block.
     **/
-    static public function newTripleDESCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_Block.Block, stdgo.Error> {
-        final _key = ([for (i in _key) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function newTripleDESCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_Block.Block, stdgo.Error> {
+        final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.des.Des_newTripleDESCipher.newTripleDESCipher(_key);
             { _0 : obj._0, _1 : obj._1 };

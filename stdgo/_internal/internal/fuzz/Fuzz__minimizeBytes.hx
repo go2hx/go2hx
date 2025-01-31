@@ -1,4 +1,28 @@
 package stdgo._internal.internal.fuzz;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.math.Math;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.go.token.Token;
+import stdgo._internal.go.parser.Parser;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.context.Context;
+import stdgo._internal.os.Os;
+import stdgo._internal.time.Time;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.os.exec.Exec;
+import stdgo._internal.encoding.json.Json;
 function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.GoUInt8> -> Bool, _shouldStop:() -> Bool):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -120,7 +144,11 @@ _j = (_v.length);
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -155,7 +183,11 @@ _j = (_v.length);
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

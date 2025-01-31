@@ -1,4 +1,6 @@
 package stdgo._internal.internal.intern;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.runtime.Runtime;
 function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -26,7 +28,11 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -61,7 +67,11 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

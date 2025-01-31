@@ -1,4 +1,9 @@
 package stdgo._internal.encoding.pem;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.base64.Base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.sort.Sort;
 function _getLine(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } {
         var _line = (null : stdgo.Slice<stdgo.GoUInt8>), _rest = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i = (stdgo._internal.bytes.Bytes_indexByte.indexByte(_data, (10 : stdgo.GoUInt8)) : stdgo.GoInt);

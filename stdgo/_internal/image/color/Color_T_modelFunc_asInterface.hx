@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 class T_modelFunc_asInterface {
     @:keep
     @:tdfield

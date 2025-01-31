@@ -1,4 +1,5 @@
 package stdgo._internal.crypto.internal.boring;
+import _internal.crypto.internal.boring.sig.Sig;
 class PublicKeyECDH_asInterface {
     @:keep
     @:tdfield

@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-var errWriteAfterFlush : stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("unused" : stdgo.GoString));
+var errWriteAfterFlush : stdgo.Error = stdgo._internal.net.http.Http__errors._errors.new_(("unused" : stdgo.GoString));

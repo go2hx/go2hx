@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha256;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.crypto.sha256.Sha256_T_digest_static_extension.T_digest_static_extension) class T_digest {
     public var _h : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(8, 8).__setNumber32__();
     public var _x : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();

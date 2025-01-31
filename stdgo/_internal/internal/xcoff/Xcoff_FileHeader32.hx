@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class FileHeader32 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_FileHeader32_static_extension.FileHeader32_static_extension) class FileHeader32 {
     public var fmagic : stdgo.GoUInt16 = 0;
     public var fnscns : stdgo.GoUInt16 = 0;
     public var ftimedat : stdgo.GoUInt32 = 0;

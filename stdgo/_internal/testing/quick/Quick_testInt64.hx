@@ -1,4 +1,10 @@
 package stdgo._internal.testing.quick;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.time.Time;
 function testInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
 var _hi = __1, _lo = __0;

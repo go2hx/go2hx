@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function ilogb(_x:stdgo.GoFloat64):stdgo.GoInt {
         if (_x == (0 : stdgo.GoFloat64)) {
             return (-2147483648 : stdgo.GoInt);

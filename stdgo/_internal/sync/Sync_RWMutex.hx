@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension) class RWMutex {
     public var _w : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _writerSem : stdgo.GoUInt32 = 0;

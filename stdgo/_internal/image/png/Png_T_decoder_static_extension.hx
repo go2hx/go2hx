@@ -1,4 +1,13 @@
 package stdgo._internal.image.png;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
 @:keep @:allow(stdgo._internal.image.png.Png.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
     @:tdfield
@@ -909,7 +918,11 @@ if (_imagePass != null) {
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -944,7 +957,11 @@ if (_imagePass != null) {
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
             };
         };

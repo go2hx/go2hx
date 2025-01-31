@@ -1,4 +1,14 @@
 package stdgo._internal.flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
 @:structInit @:using(stdgo._internal.flag.Flag_T_textValue_static_extension.T_textValue_static_extension) class T_textValue {
     public var _p : stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler = (null : stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler);
     public function new(?_p:stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler) {

@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _orig = (function(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
             var _d:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);

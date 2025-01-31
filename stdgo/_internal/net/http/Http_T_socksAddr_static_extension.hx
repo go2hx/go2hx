@@ -7,11 +7,11 @@ package stdgo._internal.net.http;
         if ((_a == null || (_a : Dynamic).__nil__)) {
             return ("<nil>" : stdgo.GoString);
         };
-        var _port = (stdgo._internal.strconv.Strconv_itoa.itoa((@:checkr _a ?? throw "null pointer dereference").port)?.__copy__() : stdgo.GoString);
+        var _port = (stdgo._internal.net.http.Http__strconv._strconv.itoa((@:checkr _a ?? throw "null pointer dereference").port)?.__copy__() : stdgo.GoString);
         if ((@:checkr _a ?? throw "null pointer dereference").iP == null) {
-            return stdgo._internal.net.Net_joinHostPort.joinHostPort((@:checkr _a ?? throw "null pointer dereference").name?.__copy__(), _port?.__copy__())?.__copy__();
+            return stdgo._internal.net.http.Http__net._net.joinHostPort((@:checkr _a ?? throw "null pointer dereference").name?.__copy__(), _port?.__copy__())?.__copy__();
         };
-        return stdgo._internal.net.Net_joinHostPort.joinHostPort(((@:checkr _a ?? throw "null pointer dereference").iP.string() : stdgo.GoString)?.__copy__(), _port?.__copy__())?.__copy__();
+        return stdgo._internal.net.http.Http__net._net.joinHostPort(((@:checkr _a ?? throw "null pointer dereference").iP.string() : stdgo.GoString)?.__copy__(), _port?.__copy__())?.__copy__();
     }
     @:keep
     @:tdfield

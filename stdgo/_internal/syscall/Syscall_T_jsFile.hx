@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class T_jsFile {
+@:structInit @:using(stdgo._internal.syscall.Syscall_T_jsFile_static_extension.T_jsFile_static_extension) class T_jsFile {
     public var _path : stdgo.GoString = "";
     public var _entries : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var _dirIdx : stdgo.GoInt = 0;

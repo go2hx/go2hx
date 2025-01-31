@@ -1,4 +1,14 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 function newFatFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatFile.FatFile>; var _1 : stdgo.Error; } {
         var _ff:stdgo._internal.debug.macho.Macho_FatFile.FatFile = ({} : stdgo._internal.debug.macho.Macho_FatFile.FatFile);
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
@@ -42,7 +52,7 @@ function newFatFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
             while ((_i < _narch : Bool)) {
                 var _fa:stdgo._internal.debug.macho.Macho_FatArch.FatArch = ({} : stdgo._internal.debug.macho.Macho_FatArch.FatArch);
-_err = stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_fa.fatArchHeader) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader>)));
+_err = stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_fa.fatArchHeader) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader>))));
 if (_err != null) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid fat_arch header" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                 };

@@ -1,4 +1,10 @@
 package stdgo._internal.testing.iotest;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.log.Log;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
 @:structInit @:using(stdgo._internal.testing.iotest.Iotest_T_truncateWriter_static_extension.T_truncateWriter_static_extension) class T_truncateWriter {
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _n : stdgo.GoInt64 = 0;

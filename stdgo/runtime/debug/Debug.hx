@@ -1,5 +1,5 @@
 package stdgo.runtime.debug;
-@:structInit abstract GCStats(stdgo._internal.runtime.debug.Debug_GCStats.GCStats) from stdgo._internal.runtime.debug.Debug_GCStats.GCStats to stdgo._internal.runtime.debug.Debug_GCStats.GCStats {
+@:structInit @:using(stdgo.runtime.debug.Debug.GCStats_static_extension) abstract GCStats(stdgo._internal.runtime.debug.Debug_GCStats.GCStats) from stdgo._internal.runtime.debug.Debug_GCStats.GCStats to stdgo._internal.runtime.debug.Debug_GCStats.GCStats {
     public var lastGC(get, set) : stdgo._internal.time.Time_Time.Time;
     function get_lastGC():stdgo._internal.time.Time_Time.Time return this.lastGC;
     function set_lastGC(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
@@ -9,7 +9,7 @@ package stdgo.runtime.debug;
     public var numGC(get, set) : haxe.Int64;
     function get_numGC():haxe.Int64 return this.numGC;
     function set_numGC(v:haxe.Int64):haxe.Int64 {
-        this.numGC = v;
+        this.numGC = (v : stdgo.GoInt64);
         return v;
     }
     public var pauseTotal(get, set) : stdgo._internal.time.Time_Duration.Duration;
@@ -36,7 +36,7 @@ package stdgo.runtime.debug;
         this.pauseQuantiles = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>);
         return v;
     }
-    public function new(?lastGC:stdgo._internal.time.Time_Time.Time, ?numGC:haxe.Int64, ?pauseTotal:stdgo._internal.time.Time_Duration.Duration, ?pause:Array<stdgo._internal.time.Time_Duration.Duration>, ?pauseEnd:Array<stdgo._internal.time.Time_Time.Time>, ?pauseQuantiles:Array<stdgo._internal.time.Time_Duration.Duration>) this = new stdgo._internal.runtime.debug.Debug_GCStats.GCStats(lastGC, numGC, pauseTotal, ([for (i in pause) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>), ([for (i in pauseEnd) i] : stdgo.Slice<stdgo._internal.time.Time_Time.Time>), ([for (i in pauseQuantiles) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>));
+    public function new(?lastGC:stdgo._internal.time.Time_Time.Time, ?numGC:haxe.Int64, ?pauseTotal:stdgo._internal.time.Time_Duration.Duration, ?pause:Array<stdgo._internal.time.Time_Duration.Duration>, ?pauseEnd:Array<stdgo._internal.time.Time_Time.Time>, ?pauseQuantiles:Array<stdgo._internal.time.Time_Duration.Duration>) this = new stdgo._internal.runtime.debug.Debug_GCStats.GCStats(lastGC, (numGC : stdgo.GoInt64), pauseTotal, ([for (i in pause) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>), ([for (i in pauseEnd) i] : stdgo.Slice<stdgo._internal.time.Time_Time.Time>), ([for (i in pauseQuantiles) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -44,13 +44,13 @@ package stdgo.runtime.debug;
     public var goVersion(get, set) : String;
     function get_goVersion():String return this.goVersion;
     function set_goVersion(v:String):String {
-        this.goVersion = v;
+        this.goVersion = (v : stdgo.GoString);
         return v;
     }
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
-        this.path = v;
+        this.path = (v : stdgo.GoString);
         return v;
     }
     public var __Main(get, set) : Module;
@@ -62,7 +62,7 @@ package stdgo.runtime.debug;
     public var deps(get, set) : Array<Module>;
     function get_deps():Array<Module> return [for (i in this.deps) i];
     function set_deps(v:Array<Module>):Array<Module> {
-        this.deps = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>);
+        this.deps = ([for (i in v) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>);
         return v;
     }
     public var settings(get, set) : Array<BuildSetting>;
@@ -71,61 +71,74 @@ package stdgo.runtime.debug;
         this.settings = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting>);
         return v;
     }
-    public function new(?goVersion:String, ?path:String, ?__Main:Module, ?deps:Array<Module>, ?settings:Array<BuildSetting>) this = new stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo(goVersion, path, __Main, ([for (i in deps) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting>));
+    public function new(?goVersion:String, ?path:String, ?__Main:Module, ?deps:Array<Module>, ?settings:Array<BuildSetting>) this = new stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo((goVersion : stdgo.GoString), (path : stdgo.GoString), __Main, ([for (i in deps) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Module(stdgo._internal.runtime.debug.Debug_Module.Module) from stdgo._internal.runtime.debug.Debug_Module.Module to stdgo._internal.runtime.debug.Debug_Module.Module {
+@:structInit @:using(stdgo.runtime.debug.Debug.Module_static_extension) abstract Module(stdgo._internal.runtime.debug.Debug_Module.Module) from stdgo._internal.runtime.debug.Debug_Module.Module to stdgo._internal.runtime.debug.Debug_Module.Module {
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
-        this.path = v;
+        this.path = (v : stdgo.GoString);
         return v;
     }
     public var version(get, set) : String;
     function get_version():String return this.version;
     function set_version(v:String):String {
-        this.version = v;
+        this.version = (v : stdgo.GoString);
         return v;
     }
     public var sum(get, set) : String;
     function get_sum():String return this.sum;
     function set_sum(v:String):String {
-        this.sum = v;
+        this.sum = (v : stdgo.GoString);
         return v;
     }
     public var replace(get, set) : Module;
     function get_replace():Module return this.replace;
     function set_replace(v:Module):Module {
-        this.replace = v;
+        this.replace = (v : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>);
         return v;
     }
-    public function new(?path:String, ?version:String, ?sum:String, ?replace:Module) this = new stdgo._internal.runtime.debug.Debug_Module.Module(path, version, sum, replace);
+    public function new(?path:String, ?version:String, ?sum:String, ?replace:Module) this = new stdgo._internal.runtime.debug.Debug_Module.Module((path : stdgo.GoString), (version : stdgo.GoString), (sum : stdgo.GoString), (replace : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract BuildSetting(stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting) from stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting to stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting {
+@:structInit @:using(stdgo.runtime.debug.Debug.BuildSetting_static_extension) abstract BuildSetting(stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting) from stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting to stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting {
     public var key(get, set) : String;
     function get_key():String return this.key;
     function set_key(v:String):String {
-        this.key = v;
+        this.key = (v : stdgo.GoString);
         return v;
     }
     public var value(get, set) : String;
     function get_value():String return this.value;
     function set_value(v:String):String {
-        this.value = v;
+        this.value = (v : stdgo.GoString);
         return v;
     }
-    public function new(?key:String, ?value:String) this = new stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting(key, value);
+    public function new(?key:String, ?value:String) this = new stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting((key : stdgo.GoString), (value : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
+}
+typedef GCStatsPointer = stdgo._internal.runtime.debug.Debug_GCStatsPointer.GCStatsPointer;
+class GCStats_static_extension {
+
 }
 typedef BuildInfoPointer = stdgo._internal.runtime.debug.Debug_BuildInfoPointer.BuildInfoPointer;
 class BuildInfo_static_extension {
     static public function string(_bi:BuildInfo):String {
+        final _bi = (_bi : stdgo.Ref<stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo>);
         return stdgo._internal.runtime.debug.Debug_BuildInfo_static_extension.BuildInfo_static_extension.string(_bi);
     }
+}
+typedef ModulePointer = stdgo._internal.runtime.debug.Debug_ModulePointer.ModulePointer;
+class Module_static_extension {
+
+}
+typedef BuildSettingPointer = stdgo._internal.runtime.debug.Debug_BuildSettingPointer.BuildSettingPointer;
+class BuildSetting_static_extension {
+
 }
 /**
     Package debug contains facilities for programs to debug themselves while
@@ -142,7 +155,8 @@ class Debug {
         len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
         25%, 50%, 75%, and maximum pause times.
     **/
-    static public function readGCStats(_stats:GCStats):Void {
+    static public inline function readGCStats(_stats:GCStats):Void {
+        final _stats = (_stats : stdgo.Ref<stdgo._internal.runtime.debug.Debug_GCStats.GCStats>);
         stdgo._internal.runtime.debug.Debug_readGCStats.readGCStats(_stats);
     }
     /**
@@ -158,7 +172,8 @@ class Debug {
         the memory limit is reached.
         See SetMemoryLimit for more details.
     **/
-    static public function setGCPercent(_percent:StdTypes.Int):StdTypes.Int {
+    static public inline function setGCPercent(_percent:StdTypes.Int):StdTypes.Int {
+        final _percent = (_percent : stdgo.GoInt);
         return stdgo._internal.runtime.debug.Debug_setGCPercent.setGCPercent(_percent);
     }
     /**
@@ -167,7 +182,7 @@ class Debug {
         as possible. (Even if this is not called, the runtime gradually
         returns memory to the operating system in a background task.)
     **/
-    static public function freeOSMemory():Void {
+    static public inline function freeOSMemory():Void {
         stdgo._internal.runtime.debug.Debug_freeOSMemory.freeOSMemory();
     }
     /**
@@ -184,7 +199,8 @@ class Debug {
         goroutines that enter an infinite recursion. It only limits future
         stack growth.
     **/
-    static public function setMaxStack(_bytes:StdTypes.Int):StdTypes.Int {
+    static public inline function setMaxStack(_bytes:StdTypes.Int):StdTypes.Int {
+        final _bytes = (_bytes : stdgo.GoInt);
         return stdgo._internal.runtime.debug.Debug_setMaxStack.setMaxStack(_bytes);
     }
     /**
@@ -203,7 +219,8 @@ class Debug {
         programs that create an unbounded number of threads. The idea is
         to take down the program before it takes down the operating system.
     **/
-    static public function setMaxThreads(_threads:StdTypes.Int):StdTypes.Int {
+    static public inline function setMaxThreads(_threads:StdTypes.Int):StdTypes.Int {
+        final _threads = (_threads : stdgo.GoInt);
         return stdgo._internal.runtime.debug.Debug_setMaxThreads.setMaxThreads(_threads);
     }
     /**
@@ -224,7 +241,7 @@ class Debug {
         SetPanicOnFault applies only to the current goroutine.
         It returns the previous setting.
     **/
-    static public function setPanicOnFault(_enabled:Bool):Bool {
+    static public inline function setPanicOnFault(_enabled:Bool):Bool {
         return stdgo._internal.runtime.debug.Debug_setPanicOnFault.setPanicOnFault(_enabled);
     }
     /**
@@ -238,7 +255,8 @@ class Debug {
         
         The heap dump format is defined at https://golang.org/s/go15heapdump.
     **/
-    static public function writeHeapDump(_fd:stdgo.GoUIntptr):Void {
+    static public inline function writeHeapDump(_fd:stdgo.GoUIntptr):Void {
+        final _fd = (_fd : stdgo.GoUIntptr);
         stdgo._internal.runtime.debug.Debug_writeHeapDump.writeHeapDump(_fd);
     }
     /**
@@ -252,7 +270,8 @@ class Debug {
         If SetTraceback is called with a level lower than that of the
         environment variable, the call is ignored.
     **/
-    static public function setTraceback(_level:String):Void {
+    static public inline function setTraceback(_level:String):Void {
+        final _level = (_level : stdgo.GoString);
         stdgo._internal.runtime.debug.Debug_setTraceback.setTraceback(_level);
     }
     /**
@@ -310,7 +329,8 @@ class Debug {
         A negative input does not adjust the limit, and allows for
         retrieval of the currently set memory limit.
     **/
-    static public function setMemoryLimit(_limit:haxe.Int64):haxe.Int64 {
+    static public inline function setMemoryLimit(_limit:haxe.Int64):haxe.Int64 {
+        final _limit = (_limit : stdgo.GoInt64);
         return stdgo._internal.runtime.debug.Debug_setMemoryLimit.setMemoryLimit(_limit);
     }
     /**
@@ -318,13 +338,14 @@ class Debug {
         in the running binary. The information is available only
         in binaries built with module support.
     **/
-    static public function readBuildInfo():stdgo.Tuple<BuildInfo, Bool> {
+    static public inline function readBuildInfo():stdgo.Tuple<BuildInfo, Bool> {
         return {
             final obj = stdgo._internal.runtime.debug.Debug_readBuildInfo.readBuildInfo();
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function parseBuildInfo(_data:String):stdgo.Tuple<BuildInfo, stdgo.Error> {
+    static public inline function parseBuildInfo(_data:String):stdgo.Tuple<BuildInfo, stdgo.Error> {
+        final _data = (_data : stdgo.GoString);
         return {
             final obj = stdgo._internal.runtime.debug.Debug_parseBuildInfo.parseBuildInfo(_data);
             { _0 : obj._0, _1 : obj._1 };
@@ -333,14 +354,14 @@ class Debug {
     /**
         PrintStack prints to standard error the stack trace returned by runtime.Stack.
     **/
-    static public function printStack():Void {
+    static public inline function printStack():Void {
         stdgo._internal.runtime.debug.Debug_printStack.printStack();
     }
     /**
         Stack returns a formatted stack trace of the goroutine that calls it.
         It calls runtime.Stack with a large enough buffer to capture the entire trace.
     **/
-    static public function stack():Array<std.UInt> {
+    static public inline function stack():Array<std.UInt> {
         return [for (i in stdgo._internal.runtime.debug.Debug_stack.stack()) i];
     }
 }

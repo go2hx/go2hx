@@ -1,4 +1,14 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 @:keep @:allow(stdgo._internal.debug.macho.Macho.File_asInterface) class File_static_extension {
     @:keep
     @:tdfield
@@ -180,7 +190,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
                 var _rel = (stdgo.Go.setRef((@:checkr _sh ?? throw "null pointer dereference").relocs[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Reloc.Reloc>);
                 var _ri:stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo = ({} : stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_ri) : stdgo.Ref<stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo>))) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ri) : stdgo.Ref<stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo>)))) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -223,7 +233,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     static public function _parseSymtab( _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>, _symdat:stdgo.Slice<stdgo.GoUInt8>, _strtab:stdgo.Slice<stdgo.GoUInt8>, _cmddat:stdgo.Slice<stdgo.GoUInt8>, _hdr:stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>, _offset:stdgo.GoInt64):{ var _0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File> = _f;
         var _bo = ((@:checkr _f ?? throw "null pointer dereference").byteOrder : stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder);
-        var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface((null : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symbol.Symbol>)), ((@:checkr _hdr ?? throw "null pointer dereference").nsyms : stdgo.GoUInt64)) : stdgo.GoInt);
+        var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface(stdgo.Go.asInterface((null : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symbol.Symbol>))), ((@:checkr _hdr ?? throw "null pointer dereference").nsyms : stdgo.GoUInt64)) : stdgo.GoInt);
         if ((_c < (0 : stdgo.GoInt) : Bool)) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("too many symbols" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
         };
@@ -235,7 +245,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
                 var _n:stdgo._internal.debug.macho.Macho_Nlist64.Nlist64 = ({} : stdgo._internal.debug.macho.Macho_Nlist64.Nlist64);
 if ((@:checkr _f ?? throw "null pointer dereference").fileHeader.magic == ((-17958193u32 : stdgo.GoUInt32))) {
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist64.Nlist64>))) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist64.Nlist64>)))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
@@ -243,7 +253,7 @@ if ((@:checkr _f ?? throw "null pointer dereference").fileHeader.magic == ((-179
                 } else {
                     var _n32:stdgo._internal.debug.macho.Macho_Nlist32.Nlist32 = ({} : stdgo._internal.debug.macho.Macho_Nlist32.Nlist32);
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_n32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist32.Nlist32>))) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_n32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist32.Nlist32>)))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };

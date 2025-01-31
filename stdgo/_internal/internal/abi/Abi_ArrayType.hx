@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_ArrayType_static_extension.ArrayType_static_extension) class ArrayType {
     @:embedded
     public var type : stdgo._internal.internal.abi.Abi_Type_.Type_ = ({} : stdgo._internal.internal.abi.Abi_Type_.Type_);

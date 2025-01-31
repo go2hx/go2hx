@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc64;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension) class T_digest {
     public var _crc : stdgo.GoUInt64 = 0;
     public var _tab : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table> = (null : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table>);

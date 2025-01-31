@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function _simpleUpdate(_crc:stdgo.GoUInt32, _tab:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table>, _p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32 {
         _crc = (-1 ^ _crc);
         for (__4 => _v in _p) {

@@ -1,4 +1,10 @@
 package stdgo._internal.strings;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function join(_elems:stdgo.Slice<stdgo.GoString>, _sep:stdgo.GoString):stdgo.GoString {
         {
             final __value__ = (_elems.length);

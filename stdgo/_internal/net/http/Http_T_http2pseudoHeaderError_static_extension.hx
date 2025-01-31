@@ -4,6 +4,6 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function error( _e:stdgo._internal.net.http.Http_T_http2pseudoHeaderError.T_http2pseudoHeaderError):stdgo.GoString {
         @:recv var _e:stdgo._internal.net.http.Http_T_http2pseudoHeaderError.T_http2pseudoHeaderError = _e;
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid pseudo-header %q" : stdgo.GoString), stdgo.Go.toInterface((_e : stdgo.GoString)))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("invalid pseudo-header %q" : stdgo.GoString), stdgo.Go.toInterface((_e : stdgo.GoString)))?.__copy__();
     }
 }

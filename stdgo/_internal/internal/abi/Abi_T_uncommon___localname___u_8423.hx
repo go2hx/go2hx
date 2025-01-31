@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8423 {
     @:embedded
     public var funcType : stdgo._internal.internal.abi.Abi_FuncType.FuncType = ({} : stdgo._internal.internal.abi.Abi_FuncType.FuncType);

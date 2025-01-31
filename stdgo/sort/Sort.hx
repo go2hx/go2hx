@@ -1,9 +1,13 @@
 package stdgo.sort;
 class Interface_static_extension {
     static public function swap(t:stdgo._internal.sort.Sort_Interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.sort.Sort_Interface_static_extension.Interface_static_extension.swap(t, _i, _j);
     }
     static public function less(t:stdgo._internal.sort.Sort_Interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_Interface_static_extension.Interface_static_extension.less(t, _i, _j);
     }
     static public function len(t:stdgo._internal.sort.Sort_Interface.Interface):StdTypes.Int {
@@ -11,7 +15,7 @@ class Interface_static_extension {
     }
 }
 typedef Interface = stdgo._internal.sort.Sort_Interface.Interface;
-@:structInit abstract T_lessSwap(stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap) from stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap to stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap {
+@:structInit @:using(stdgo.sort.Sort.T_lessSwap_static_extension) abstract T_lessSwap(stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap) from stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap to stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap {
     public var less(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Bool;
     function get_less():(stdgo.GoInt, stdgo.GoInt) -> Bool return (_0, _1) -> this.less(_0, _1);
     function set_less(v:(stdgo.GoInt, stdgo.GoInt) -> Bool):(stdgo.GoInt, stdgo.GoInt) -> Bool {
@@ -44,17 +48,29 @@ typedef T_xorshift = stdgo._internal.sort.Sort_T_xorshift.T_xorshift;
 typedef IntSlice = stdgo._internal.sort.Sort_IntSlice.IntSlice;
 typedef Float64Slice = stdgo._internal.sort.Sort_Float64Slice.Float64Slice;
 typedef StringSlice = stdgo._internal.sort.Sort_StringSlice.StringSlice;
+typedef T_lessSwapPointer = stdgo._internal.sort.Sort_T_lessSwapPointer.T_lessSwapPointer;
+class T_lessSwap_static_extension {
+
+}
 typedef T_reversePointer = stdgo._internal.sort.Sort_T_reversePointer.T_reversePointer;
 class T_reverse_static_extension {
     static public function less(_r:T_reverse, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.less(_r, _i, _j);
     }
     public static function swap(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse, _0:StdTypes.Int, _1:StdTypes.Int):Void {
+        final _0 = (_0 : stdgo.GoInt);
+        final _1 = (_1 : stdgo.GoInt);
         stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.swap(__self__, _0, _1);
     }
     public static function len(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse):StdTypes.Int {
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.len(__self__);
     }
+}
+typedef T_sortedHintPointer = stdgo._internal.sort.Sort_T_sortedHintPointer.T_sortedHintPointer;
+class T_sortedHint_static_extension {
+
 }
 typedef T_xorshiftPointer = stdgo._internal.sort.Sort_T_xorshiftPointer.T_xorshiftPointer;
 class T_xorshift_static_extension {
@@ -68,15 +84,20 @@ class IntSlice_static_extension {
         stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.sort(_x);
     }
     static public function swap(_x:IntSlice, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.swap(_x, _i, _j);
     }
     static public function less(_x:IntSlice, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.less(_x, _i, _j);
     }
     static public function len(_x:IntSlice):StdTypes.Int {
         return stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.len(_x);
     }
     static public function search(_p:IntSlice, _x:StdTypes.Int):StdTypes.Int {
+        final _x = (_x : stdgo.GoInt);
         return stdgo._internal.sort.Sort_IntSlice_static_extension.IntSlice_static_extension.search(_p, _x);
     }
 }
@@ -86,15 +107,20 @@ class Float64Slice_static_extension {
         stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.sort(_x);
     }
     static public function swap(_x:Float64Slice, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.swap(_x, _i, _j);
     }
     static public function less(_x:Float64Slice, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.less(_x, _i, _j);
     }
     static public function len(_x:Float64Slice):StdTypes.Int {
         return stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.len(_x);
     }
     static public function search(_p:Float64Slice, _x:StdTypes.Float):StdTypes.Int {
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.sort.Sort_Float64Slice_static_extension.Float64Slice_static_extension.search(_p, _x);
     }
 }
@@ -104,15 +130,20 @@ class StringSlice_static_extension {
         stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.sort(_x);
     }
     static public function swap(_x:StringSlice, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.swap(_x, _i, _j);
     }
     static public function less(_x:StringSlice, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.less(_x, _i, _j);
     }
     static public function len(_x:StringSlice):StdTypes.Int {
         return stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.len(_x);
     }
     static public function search(_p:StringSlice, _x:String):StdTypes.Int {
+        final _x = (_x : stdgo.GoString);
         return stdgo._internal.sort.Sort_StringSlice_static_extension.StringSlice_static_extension.search(_p, _x);
     }
 }
@@ -120,10 +151,12 @@ class StringSlice_static_extension {
     Package sort provides primitives for sorting slices and user-defined collections.
 **/
 class Sort {
-    static public function heapsort(_data:Interface):Void {
+    static public inline function heapsort(_data:Interface):Void {
         stdgo._internal.sort.Sort_heapsort.heapsort(_data);
     }
-    static public function reverseRange(_data:Interface, _a:StdTypes.Int, _b:StdTypes.Int):Void {
+    static public inline function reverseRange(_data:Interface, _a:StdTypes.Int, _b:StdTypes.Int):Void {
+        final _a = (_a : stdgo.GoInt);
+        final _b = (_b : stdgo.GoInt);
         stdgo._internal.sort.Sort_reverseRange.reverseRange(_data, _a, _b);
     }
     /**
@@ -177,7 +210,8 @@ class Sort {
         		fmt.Printf("Your number is %d.\n", answer)
         	}
     **/
-    static public function search(_n:StdTypes.Int, _f:stdgo.GoInt -> Bool):StdTypes.Int {
+    static public inline function search(_n:StdTypes.Int, _f:stdgo.GoInt -> Bool):StdTypes.Int {
+        final _n = (_n : stdgo.GoInt);
         final _f = _f;
         return stdgo._internal.sort.Sort_search.search(_n, _f);
     }
@@ -207,7 +241,8 @@ class Sort {
         	    fmt.Printf("%s not found, would insert at %d", target, i)
         	}
     **/
-    static public function find(_n:StdTypes.Int, _cmp:stdgo.GoInt -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public inline function find(_n:StdTypes.Int, _cmp:stdgo.GoInt -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _n = (_n : stdgo.GoInt);
         final _cmp = _cmp;
         return {
             final obj = stdgo._internal.sort.Sort_find.find(_n, _cmp);
@@ -220,8 +255,9 @@ class Sort {
         not present (it could be len(a)).
         The slice must be sorted in ascending order.
     **/
-    static public function searchInts(_a:Array<StdTypes.Int>, _x:StdTypes.Int):StdTypes.Int {
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoInt>);
+    static public inline function searchInts(_a:Array<StdTypes.Int>, _x:StdTypes.Int):StdTypes.Int {
+        final _a = ([for (i in _a) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
+        final _x = (_x : stdgo.GoInt);
         return stdgo._internal.sort.Sort_searchInts.searchInts(_a, _x);
     }
     /**
@@ -230,8 +266,9 @@ class Sort {
         present (it could be len(a)).
         The slice must be sorted in ascending order.
     **/
-    static public function searchFloat64s(_a:Array<StdTypes.Float>, _x:StdTypes.Float):StdTypes.Int {
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoFloat64>);
+    static public inline function searchFloat64s(_a:Array<StdTypes.Float>, _x:StdTypes.Float):StdTypes.Int {
+        final _a = ([for (i in _a) (i : stdgo.GoFloat64)] : stdgo.Slice<stdgo.GoFloat64>);
+        final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.sort.Sort_searchFloat64s.searchFloat64s(_a, _x);
     }
     /**
@@ -240,8 +277,9 @@ class Sort {
         present (it could be len(a)).
         The slice must be sorted in ascending order.
     **/
-    static public function searchStrings(_a:Array<String>, _x:String):StdTypes.Int {
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoString>);
+    static public inline function searchStrings(_a:Array<String>, _x:String):StdTypes.Int {
+        final _a = ([for (i in _a) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
+        final _x = (_x : stdgo.GoString);
         return stdgo._internal.sort.Sort_searchStrings.searchStrings(_a, _x);
     }
     /**
@@ -255,7 +293,8 @@ class Sort {
         The less function must satisfy the same requirements as
         the Interface type's Less method.
     **/
-    static public function slice(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+    static public inline function slice(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+        final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         stdgo._internal.sort.Sort_slice.slice(_x, _less);
     }
@@ -267,7 +306,8 @@ class Sort {
         The less function must satisfy the same requirements as
         the Interface type's Less method.
     **/
-    static public function sliceStable(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+    static public inline function sliceStable(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+        final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         stdgo._internal.sort.Sort_sliceStable.sliceStable(_x, _less);
     }
@@ -275,7 +315,8 @@ class Sort {
         SliceIsSorted reports whether the slice x is sorted according to the provided less function.
         It panics if x is not a slice.
     **/
-    static public function sliceIsSorted(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Bool {
+    static public inline function sliceIsSorted(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Bool {
+        final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         return stdgo._internal.sort.Sort_sliceIsSorted.sliceIsSorted(_x, _less);
     }
@@ -287,13 +328,13 @@ class Sort {
         Note: in many situations, the newer slices.SortFunc function is more
         ergonomic and runs faster.
     **/
-    static public function sort(_data:Interface):Void {
+    static public inline function sort(_data:Interface):Void {
         stdgo._internal.sort.Sort_sort.sort(_data);
     }
     /**
         Reverse returns the reverse order for data.
     **/
-    static public function reverse(_data:Interface):Interface {
+    static public inline function reverse(_data:Interface):Interface {
         return stdgo._internal.sort.Sort_reverse.reverse(_data);
     }
     /**
@@ -302,7 +343,7 @@ class Sort {
         Note: in many situations, the newer slices.IsSortedFunc function is more
         ergonomic and runs faster.
     **/
-    static public function isSorted(_data:Interface):Bool {
+    static public inline function isSorted(_data:Interface):Bool {
         return stdgo._internal.sort.Sort_isSorted.isSorted(_data);
     }
     /**
@@ -310,8 +351,8 @@ class Sort {
         
         Note: consider using the newer slices.Sort function, which runs faster.
     **/
-    static public function ints(_x:Array<StdTypes.Int>):Void {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoInt>);
+    static public inline function ints(_x:Array<StdTypes.Int>):Void {
+        final _x = ([for (i in _x) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         stdgo._internal.sort.Sort_ints.ints(_x);
     }
     /**
@@ -320,8 +361,8 @@ class Sort {
         
         Note: consider using the newer slices.Sort function, which runs faster.
     **/
-    static public function float64s(_x:Array<StdTypes.Float>):Void {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoFloat64>);
+    static public inline function float64s(_x:Array<StdTypes.Float>):Void {
+        final _x = ([for (i in _x) (i : stdgo.GoFloat64)] : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.sort.Sort_float64s.float64s(_x);
     }
     /**
@@ -329,8 +370,8 @@ class Sort {
         
         Note: consider using the newer slices.Sort function, which runs faster.
     **/
-    static public function strings(_x:Array<String>):Void {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoString>);
+    static public inline function strings(_x:Array<String>):Void {
+        final _x = ([for (i in _x) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.sort.Sort_strings.strings(_x);
     }
     /**
@@ -338,8 +379,8 @@ class Sort {
         
         Note: consider using the newer slices.IsSorted function, which runs faster.
     **/
-    static public function intsAreSorted(_x:Array<StdTypes.Int>):Bool {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoInt>);
+    static public inline function intsAreSorted(_x:Array<StdTypes.Int>):Bool {
+        final _x = ([for (i in _x) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return stdgo._internal.sort.Sort_intsAreSorted.intsAreSorted(_x);
     }
     /**
@@ -348,8 +389,8 @@ class Sort {
         
         Note: consider using the newer slices.IsSorted function, which runs faster.
     **/
-    static public function float64sAreSorted(_x:Array<StdTypes.Float>):Bool {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoFloat64>);
+    static public inline function float64sAreSorted(_x:Array<StdTypes.Float>):Bool {
+        final _x = ([for (i in _x) (i : stdgo.GoFloat64)] : stdgo.Slice<stdgo.GoFloat64>);
         return stdgo._internal.sort.Sort_float64sAreSorted.float64sAreSorted(_x);
     }
     /**
@@ -357,8 +398,8 @@ class Sort {
         
         Note: consider using the newer slices.IsSorted function, which runs faster.
     **/
-    static public function stringsAreSorted(_x:Array<String>):Bool {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoString>);
+    static public inline function stringsAreSorted(_x:Array<String>):Bool {
+        final _x = ([for (i in _x) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return stdgo._internal.sort.Sort_stringsAreSorted.stringsAreSorted(_x);
     }
     /**
@@ -371,7 +412,7 @@ class Sort {
         Note: in many situations, the newer slices.SortStableFunc function is more
         ergonomic and runs faster.
     **/
-    static public function stable(_data:Interface):Void {
+    static public inline function stable(_data:Interface):Void {
         stdgo._internal.sort.Sort_stable.stable(_data);
     }
 }

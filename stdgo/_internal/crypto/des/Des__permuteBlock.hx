@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _permuteBlock(_src:stdgo.GoUInt64, _permutation:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         var _block = (0 : stdgo.GoUInt64);
         for (_position => _n in _permutation) {

@@ -1,4 +1,5 @@
 package stdgo._internal.errors;
+import stdgo._internal.internal.reflectlite.Reflectlite;
 function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
         var _errs = new stdgo.Slice<stdgo.Error>(_errs.length, 0, ..._errs);
         var _n = (0 : stdgo.GoInt);

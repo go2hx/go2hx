@@ -1,4 +1,10 @@
 package stdgo._internal.debug.plan9obj;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>; var _1 : stdgo.Error; } {
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
         var _magic:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
@@ -14,7 +20,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
         };
         var _ph = (stdgo.Go.setRef(({} : stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog)) : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog>);
         {
-            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ph)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_ph))) : stdgo.Error);
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };

@@ -1,4 +1,6 @@
 package stdgo._internal.hash.fnv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.bits.Bits;
 class T_sum128a_asInterface {
     @:keep
     @:tdfield

@@ -1,5 +1,5 @@
 package stdgo._internal.unicode.utf8;
-@:structInit class T_acceptRange {
+@:structInit @:using(stdgo._internal.unicode.utf8.Utf8_T_acceptRange_static_extension.T_acceptRange_static_extension) class T_acceptRange {
     public var _lo : stdgo.GoUInt8 = 0;
     public var _hi : stdgo.GoUInt8 = 0;
     public function new(?_lo:stdgo.GoUInt8, ?_hi:stdgo.GoUInt8) {

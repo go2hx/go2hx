@@ -1,4 +1,9 @@
 package stdgo._internal.bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoUInt8>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
             var __0 = (_s[((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt32), __1 = (1 : stdgo.GoInt);

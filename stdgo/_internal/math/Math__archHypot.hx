@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _archHypot(_p:stdgo.GoFloat64, _q:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (stdgo._internal.math.Math_isInf.isInf(_p, 0) || stdgo._internal.math.Math_isInf.isInf(_q, 0)) return stdgo._internal.math.Math_inf.inf(1);
         if (!std.Math.isFinite(_p.toBasic()) || std.Math.isNaN(_q.toBasic())) return stdgo._internal.math.Math_naN.naN();

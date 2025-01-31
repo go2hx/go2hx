@@ -13,10 +13,10 @@ final seedSize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_seedSize.s
     public var context(get, set) : String;
     function get_context():String return this.context;
     function set_context(v:String):String {
-        this.context = v;
+        this.context = (v : stdgo.GoString);
         return v;
     }
-    public function new(?hash:stdgo._internal.crypto.Crypto_Hash.Hash, ?context:String) this = new stdgo._internal.crypto.ed25519.Ed25519_Options.Options(hash, context);
+    public function new(?hash:stdgo._internal.crypto.Crypto_Hash.Hash, ?context:String) this = new stdgo._internal.crypto.ed25519.Ed25519_Options.Options(hash, (context : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -25,6 +25,7 @@ typedef PrivateKey = stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKe
 typedef OptionsPointer = stdgo._internal.crypto.ed25519.Ed25519_OptionsPointer.OptionsPointer;
 class Options_static_extension {
     static public function hashFunc(_o:Options):stdgo._internal.crypto.Crypto_Hash.Hash {
+        final _o = (_o : stdgo.Ref<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>);
         return stdgo._internal.crypto.ed25519.Ed25519_Options_static_extension.Options_static_extension.hashFunc(_o);
     }
 }
@@ -37,7 +38,7 @@ class PublicKey_static_extension {
 typedef PrivateKeyPointer = stdgo._internal.crypto.ed25519.Ed25519_PrivateKeyPointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
     static public function sign(_priv:PrivateKey, _rand:stdgo._internal.io.Io_Reader.Reader, _message:Array<std.UInt>, _opts:stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _message = ([for (i in _message) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _message = ([for (i in _message) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ed25519.Ed25519_PrivateKey_static_extension.PrivateKey_static_extension.sign(_priv, _rand, _message, _opts);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -71,7 +72,7 @@ class Ed25519 {
         The output of this function is deterministic, and equivalent to reading
         [SeedSize] bytes from rand, and passing them to [NewKeyFromSeed].
     **/
-    static public function generateKey(_rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple.Tuple3<PublicKey, PrivateKey, stdgo.Error> {
+    static public inline function generateKey(_rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple.Tuple3<PublicKey, PrivateKey, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.ed25519.Ed25519_generateKey.generateKey(_rand);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -83,25 +84,25 @@ class Ed25519 {
         with RFC 8032. RFC 8032's private keys correspond to seeds in this
         package.
     **/
-    static public function newKeyFromSeed(_seed:Array<std.UInt>):PrivateKey {
-        final _seed = ([for (i in _seed) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function newKeyFromSeed(_seed:Array<std.UInt>):PrivateKey {
+        final _seed = ([for (i in _seed) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.ed25519.Ed25519_newKeyFromSeed.newKeyFromSeed(_seed);
     }
     /**
         Sign signs the message with privateKey and returns a signature. It will
         panic if len(privateKey) is not [PrivateKeySize].
     **/
-    static public function sign(_privateKey:PrivateKey, _message:Array<std.UInt>):Array<std.UInt> {
-        final _message = ([for (i in _message) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function sign(_privateKey:PrivateKey, _message:Array<std.UInt>):Array<std.UInt> {
+        final _message = ([for (i in _message) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.crypto.ed25519.Ed25519_sign.sign(_privateKey, _message)) i];
     }
     /**
         Verify reports whether sig is a valid signature of message by publicKey. It
         will panic if len(publicKey) is not [PublicKeySize].
     **/
-    static public function verify(_publicKey:PublicKey, _message:Array<std.UInt>, _sig:Array<std.UInt>):Bool {
-        final _message = ([for (i in _message) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _sig = ([for (i in _sig) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function verify(_publicKey:PublicKey, _message:Array<std.UInt>, _sig:Array<std.UInt>):Bool {
+        final _message = ([for (i in _message) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _sig = ([for (i in _sig) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.ed25519.Ed25519_verify.verify(_publicKey, _message, _sig);
     }
     /**
@@ -114,9 +115,10 @@ class Ed25519 {
         [crypto.Hash](0) and the message must not be hashed, as Ed25519 performs two
         passes over messages to be signed.
     **/
-    static public function verifyWithOptions(_publicKey:PublicKey, _message:Array<std.UInt>, _sig:Array<std.UInt>, _opts:Options):stdgo.Error {
-        final _message = ([for (i in _message) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _sig = ([for (i in _sig) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function verifyWithOptions(_publicKey:PublicKey, _message:Array<std.UInt>, _sig:Array<std.UInt>, _opts:Options):stdgo.Error {
+        final _message = ([for (i in _message) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _sig = ([for (i in _sig) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _opts = (_opts : stdgo.Ref<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>);
         return stdgo._internal.crypto.ed25519.Ed25519_verifyWithOptions.verifyWithOptions(_publicKey, _message, _sig, _opts);
     }
 }

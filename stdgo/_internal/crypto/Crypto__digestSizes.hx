@@ -1,4 +1,5 @@
 package stdgo._internal.crypto;
+import stdgo._internal.strconv.Strconv;
 var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
         var s = new stdgo.Slice<stdgo.GoUInt8>(20, 0).__setNumber32__();
         s[1] = (16 : stdgo.GoUInt8);

@@ -1,4 +1,33 @@
 package stdgo._internal.crypto.x509;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
 function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _parent:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _pub:stdgo.AnyInterface, _priv:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_priv : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
@@ -64,7 +93,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         };
         var _encodedPublicKey = ({ bitLength : ((_publicKeyBytes.length) * (8 : stdgo.GoInt) : stdgo.GoInt), bytes : _publicKeyBytes } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString);
         var _c = ({ version : (2 : stdgo.GoInt), serialNumber : (@:checkr _template ?? throw "null pointer dereference").serialNumber, signatureAlgorithm : _signatureAlgorithm?.__copy__(), issuer : ({ fullBytes : _asn1Issuer } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), validity : (new stdgo._internal.crypto.x509.X509_T_validity.T_validity((@:checkr _template ?? throw "null pointer dereference").notBefore.uTC()?.__copy__(), (@:checkr _template ?? throw "null pointer dereference").notAfter.uTC()?.__copy__()) : stdgo._internal.crypto.x509.X509_T_validity.T_validity), subject : ({ fullBytes : _asn1Subject } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), publicKey : (new stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo(null, _publicKeyAlgorithm?.__copy__(), _encodedPublicKey?.__copy__()) : stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo), extensions : _extensions } : stdgo._internal.crypto.x509.X509_T_tbsCertificate.T_tbsCertificate);
-        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_c)), _tbsCertContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_c))), _tbsCertContents:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
@@ -88,7 +117,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
-        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface((new stdgo._internal.crypto.x509.X509_T_certificate.T_certificate(_c?.__copy__(), _signatureAlgorithm?.__copy__(), ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString)) : stdgo._internal.crypto.x509.X509_T_certificate.T_certificate))), _signedCert:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_T_certificate.T_certificate(_c?.__copy__(), _signatureAlgorithm?.__copy__(), ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString)) : stdgo._internal.crypto.x509.X509_T_certificate.T_certificate)))), _signedCert:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };

@@ -1,4 +1,6 @@
 package stdgo._internal.encoding.base32;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
 @:keep @:allow(stdgo._internal.encoding.base32.Base32.Encoding_asInterface) class Encoding_static_extension {
     @:keep
     @:tdfield

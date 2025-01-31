@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function read( _:stdgo._internal.net.http.Http_T_http2noBodyReader.T_http2noBodyReader, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _:stdgo._internal.net.http.Http_T_http2noBodyReader.T_http2noBodyReader = _?.__copy__();
-        return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
+        return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__io._io.eOF };
     }
     @:keep
     @:tdfield

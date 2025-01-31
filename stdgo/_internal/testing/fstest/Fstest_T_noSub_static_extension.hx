@@ -1,8 +1,22 @@
 package stdgo._internal.testing.fstest;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.Io;
+import stdgo._internal.path.Path;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.testing.iotest.Iotest;
 @:keep @:allow(stdgo._internal.testing.fstest.Fstest.T_noSub_asInterface) class T_noSub_static_extension {
     @:keep
     @:tdfield
-    static public function sub( _:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub):Void throw "T_noSub:testing.fstest.sub is not yet implemented";
+    static public function sub( _:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub):Void {
+        @:recv var _:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub = _?.__copy__();
+    }
     @:embedded
     @:embeddededffieldsffun
     public static function stat( __self__:stdgo._internal.testing.fstest.Fstest_T_noSub.T_noSub, _0:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return @:_5 __self__.stat(_0);

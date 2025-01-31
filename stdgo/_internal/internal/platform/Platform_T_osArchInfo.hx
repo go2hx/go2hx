@@ -1,5 +1,5 @@
 package stdgo._internal.internal.platform;
-@:structInit class T_osArchInfo {
+@:structInit @:using(stdgo._internal.internal.platform.Platform_T_osArchInfo_static_extension.T_osArchInfo_static_extension) class T_osArchInfo {
     public var cgoSupported : Bool = false;
     public var firstClass : Bool = false;
     public var broken : Bool = false;

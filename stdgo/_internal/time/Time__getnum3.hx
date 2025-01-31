@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _getnum3(_s:stdgo.GoString, _fixed:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _i = __1, _n = __0;

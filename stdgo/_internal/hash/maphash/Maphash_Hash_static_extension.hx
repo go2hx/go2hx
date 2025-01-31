@@ -1,4 +1,6 @@
 package stdgo._internal.hash.maphash;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.math.bits.Bits;
 @:keep @:allow(stdgo._internal.hash.maphash.Maphash.Hash_asInterface) class Hash_static_extension {
     @:keep
     @:tdfield

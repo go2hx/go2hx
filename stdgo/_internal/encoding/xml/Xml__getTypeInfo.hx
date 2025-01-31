@@ -1,4 +1,14 @@
 package stdgo._internal.encoding.xml;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function _getTypeInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0 : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } {
         {
             var __tmp__ = @:check2 stdgo._internal.encoding.xml.Xml__tinfoMap._tinfoMap.load(stdgo.Go.toInterface(_typ)), _ti:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -68,6 +78,6 @@ if (_f.name == (("XMLName" : stdgo.GoString))) {
                 };
             };
         };
-        var __tmp__ = @:check2 stdgo._internal.encoding.xml.Xml__tinfoMap._tinfoMap.loadOrStore(stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_tinfo)), _ti:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.encoding.xml.Xml__tinfoMap._tinfoMap.loadOrStore(stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(stdgo.Go.asInterface(_tinfo))), _ti:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;
         return { _0 : (stdgo.Go.typeAssert((_ti : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>), _1 : (null : stdgo.Error) };
     }

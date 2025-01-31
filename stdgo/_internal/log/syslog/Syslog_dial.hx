@@ -1,4 +1,11 @@
 package stdgo._internal.log.syslog;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.log.Log;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
 function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._internal.log.syslog.Syslog_Priority.Priority, _tag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -42,7 +49,11 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -77,7 +88,11 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>), _1 : (null : stdgo.Error) };
             };
         };

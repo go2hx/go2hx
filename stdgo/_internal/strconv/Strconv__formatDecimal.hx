@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _formatDecimal(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>, _m:stdgo.GoUInt64, _trunc:Bool, _roundUp:Bool, _prec:stdgo.GoInt):Void {
         var _max = (stdgo._internal.strconv.Strconv__uint64pow10._uint64pow10[(_prec : stdgo.GoInt)] : stdgo.GoUInt64);
         var _trimmed = (0 : stdgo.GoInt);

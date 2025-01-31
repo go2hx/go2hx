@@ -1,4 +1,10 @@
 package stdgo._internal.net.url;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.sort.Sort;
 function parseQuery(_query:stdgo.GoString):{ var _0 : stdgo._internal.net.url.Url_Values.Values; var _1 : stdgo.Error; } {
         var _m = ((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();

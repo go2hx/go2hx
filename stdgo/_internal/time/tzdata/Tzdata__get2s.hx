@@ -1,4 +1,5 @@
 package stdgo._internal.time.tzdata;
+import stdgo._internal.errors.Errors;
 function _get2s(_s:stdgo.GoString):stdgo.GoInt {
         if (((_s.length) < (2 : stdgo.GoInt) : Bool)) {
             return (0 : stdgo.GoInt);

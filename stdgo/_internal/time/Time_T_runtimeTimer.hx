@@ -1,5 +1,10 @@
 package stdgo._internal.time;
-@:structInit class T_runtimeTimer {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
+@:structInit @:using(stdgo._internal.time.Time_T_runtimeTimer_static_extension.T_runtimeTimer_static_extension) class T_runtimeTimer {
     public var _pp : stdgo.GoUIntptr = 0;
     public var _when : stdgo.GoInt64 = 0;
     public var _period : stdgo.GoInt64 = 0;

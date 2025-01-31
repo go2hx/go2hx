@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 function _rotate(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
         var _i = (_m - _a : stdgo.GoInt);
         var _j = (_b - _m : stdgo.GoInt);

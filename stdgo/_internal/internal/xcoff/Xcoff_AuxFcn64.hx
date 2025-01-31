@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class AuxFcn64 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_AuxFcn64_static_extension.AuxFcn64_static_extension) class AuxFcn64 {
     public var xlnnoptr : stdgo.GoUInt64 = 0;
     public var xfsize : stdgo.GoUInt32 = 0;
     public var xendndx : stdgo.GoUInt32 = 0;

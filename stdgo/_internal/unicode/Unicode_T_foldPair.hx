@@ -1,5 +1,5 @@
 package stdgo._internal.unicode;
-@:structInit class T_foldPair {
+@:structInit @:using(stdgo._internal.unicode.Unicode_T_foldPair_static_extension.T_foldPair_static_extension) class T_foldPair {
     public var from : stdgo.GoUInt16 = 0;
     public var to : stdgo.GoUInt16 = 0;
     public function new(?from:stdgo.GoUInt16, ?to:stdgo.GoUInt16) {

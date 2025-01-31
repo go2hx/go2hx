@@ -1,4 +1,5 @@
 package stdgo._internal.errors;
+import stdgo._internal.internal.reflectlite.Reflectlite;
 function unwrap(_err:stdgo.Error):stdgo.Error {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.errors.Errors_T__interface_0.T__interface_0)) : stdgo._internal.errors.Errors_T__interface_0.T__interface_0), _1 : true };

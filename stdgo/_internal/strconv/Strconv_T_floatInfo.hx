@@ -1,5 +1,9 @@
 package stdgo._internal.strconv;
-@:structInit class T_floatInfo {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
+@:structInit @:using(stdgo._internal.strconv.Strconv_T_floatInfo_static_extension.T_floatInfo_static_extension) class T_floatInfo {
     public var _mantbits : stdgo.GoUInt = 0;
     public var _expbits : stdgo.GoUInt = 0;
     public var _bias : stdgo.GoInt = 0;

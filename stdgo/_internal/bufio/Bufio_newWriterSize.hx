@@ -1,4 +1,8 @@
 package stdgo._internal.bufio;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
 function newWriterSize(_w:stdgo._internal.io.Io_Writer.Writer, _size:stdgo.GoInt):stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>)) : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _1 : true };

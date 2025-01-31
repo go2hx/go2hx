@@ -1,5 +1,5 @@
 package stdgo._internal.internal.godebug;
-@:structInit class T_value {
+@:structInit @:using(stdgo._internal.internal.godebug.Godebug_T_value_static_extension.T_value_static_extension) class T_value {
     public var _text : stdgo.GoString = "";
     public var _bisect : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher> = (null : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher>);
     public function new(?_text:stdgo.GoString, ?_bisect:stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher>) {

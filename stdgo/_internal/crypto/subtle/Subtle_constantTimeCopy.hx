@@ -1,4 +1,5 @@
 package stdgo._internal.crypto.subtle;
+import stdgo._internal.unsafe.Unsafe;
 function constantTimeCopy(_v:stdgo.GoInt, _x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Void {
         if ((_x.length) != ((_y.length))) {
             throw stdgo.Go.toInterface(("subtle: slices have different lengths" : stdgo.GoString));

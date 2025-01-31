@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _ryuFtoaFixed64(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>, _mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _prec:stdgo.GoInt):Void {
         if ((_prec > (18 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("ryuFtoaFixed64 called with prec > 18" : stdgo.GoString));

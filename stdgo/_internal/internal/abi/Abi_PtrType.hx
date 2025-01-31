@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_PtrType_static_extension.PtrType_static_extension) class PtrType {
     @:embedded
     public var type : stdgo._internal.internal.abi.Abi_Type_.Type_ = ({} : stdgo._internal.internal.abi.Abi_Type_.Type_);

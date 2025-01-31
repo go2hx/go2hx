@@ -1,2 +1,11 @@
 package stdgo._internal.internal.pkgbits;
-@:named typedef T_frameVisitor = (stdgo.GoString, stdgo.GoInt, stdgo.GoString, stdgo.GoUIntptr) -> Void;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.go.constant.Constant;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.strconv.Strconv;
+@:named @:using(stdgo._internal.internal.pkgbits.Pkgbits_T_frameVisitor_static_extension.T_frameVisitor_static_extension) typedef T_frameVisitor = (stdgo.GoString, stdgo.GoInt, stdgo.GoString, stdgo.GoUIntptr) -> Void;

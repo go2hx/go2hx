@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-typedef T_fuzzCrashError = stdgo.StructType & {
+@:interface typedef T_fuzzCrashError = stdgo.StructType & {
     > stdgo.Error,
     /**
         

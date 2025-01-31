@@ -1,4 +1,11 @@
 package stdgo._internal.log.syslog;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.log.Log;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension) class Writer {
     public var _priority : stdgo._internal.log.syslog.Syslog_Priority.Priority = ((0 : stdgo.GoInt) : stdgo._internal.log.syslog.Syslog_Priority.Priority);
     public var _tag : stdgo.GoString = "";

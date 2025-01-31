@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-@:structInit class T_http2OpenStreamOptions {
+@:structInit @:using(stdgo._internal.net.http.Http_T_http2OpenStreamOptions_static_extension.T_http2OpenStreamOptions_static_extension) class T_http2OpenStreamOptions {
     public var pusherID : stdgo.GoUInt32 = 0;
     public function new(?pusherID:stdgo.GoUInt32) {
         if (pusherID != null) this.pusherID = pusherID;

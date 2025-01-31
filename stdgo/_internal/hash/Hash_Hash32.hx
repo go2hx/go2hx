@@ -1,5 +1,5 @@
 package stdgo._internal.hash;
-typedef Hash32 = stdgo.StructType & {
+@:interface typedef Hash32 = stdgo.StructType & {
     > stdgo._internal.hash.Hash_Hash.Hash,
     /**
         

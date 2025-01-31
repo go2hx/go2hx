@@ -1,5 +1,5 @@
 package stdgo._internal.runtime.debug;
-@:structInit class Module {
+@:structInit @:using(stdgo._internal.runtime.debug.Debug_Module_static_extension.Module_static_extension) class Module {
     public var path : stdgo.GoString = "";
     public var version : stdgo.GoString = "";
     public var sum : stdgo.GoString = "";

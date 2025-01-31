@@ -34,7 +34,9 @@ package stdgo._internal.testing;
     public var _tempDir : stdgo.GoString = "";
     public var _tempDirErr : stdgo.Error = (null : stdgo.Error);
     public var _tempDirSeq : stdgo.GoInt32 = 0;
-    public function new(?_mu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_output:stdgo.Slice<stdgo.GoUInt8>, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_helperNames:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_cleanups:stdgo.Slice<() -> Void>, ?_cleanupName:stdgo.GoString, ?_cleanupPc:stdgo.Slice<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:stdgo.Ref<stdgo._internal.testing.Testing_T_chattyPrinter.T_chattyPrinter>, ?_bench:Bool, ?_hasSub:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_cleanupStarted:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_raceErrors:stdgo.GoInt, ?_runner:stdgo.GoString, ?_isParallel:Bool, ?_parent:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, ?_level:stdgo.GoInt, ?_creator:stdgo.Slice<stdgo.GoUIntptr>, ?_name:stdgo.GoString, ?_start:stdgo._internal.time.Time_Time.Time, ?_duration:stdgo._internal.time.Time_Duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:stdgo.Slice<stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>>, ?_tempDirMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_tempDir:stdgo.GoString, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:stdgo.GoInt32) {
+    @:local
+    var failCount = 0;
+    public function new(?_mu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_output:stdgo.Slice<stdgo.GoUInt8>, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_helperNames:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_cleanups:stdgo.Slice<() -> Void>, ?_cleanupName:stdgo.GoString, ?_cleanupPc:stdgo.Slice<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:stdgo.Ref<stdgo._internal.testing.Testing_T_chattyPrinter.T_chattyPrinter>, ?_bench:Bool, ?_hasSub:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_cleanupStarted:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_raceErrors:stdgo.GoInt, ?_runner:stdgo.GoString, ?_isParallel:Bool, ?_parent:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, ?_level:stdgo.GoInt, ?_creator:stdgo.Slice<stdgo.GoUIntptr>, ?_name:stdgo.GoString, ?_start:stdgo._internal.time.Time_Time.Time, ?_duration:stdgo._internal.time.Time_Duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:stdgo.Slice<stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>>, ?_tempDirMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_tempDir:stdgo.GoString, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:stdgo.GoInt32, ?failCount) {
         if (_mu != null) this._mu = _mu;
         if (_output != null) this._output = _output;
         if (_w != null) this._w = _w;
@@ -69,6 +71,7 @@ package stdgo._internal.testing;
         if (_tempDir != null) this._tempDir = _tempDir;
         if (_tempDirErr != null) this._tempDirErr = _tempDirErr;
         if (_tempDirSeq != null) this._tempDirSeq = _tempDirSeq;
+        if (failCount != null) this.failCount = failCount;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
@@ -106,6 +109,7 @@ _sub,
 _tempDirMu,
 _tempDir,
 _tempDirErr,
-_tempDirSeq);
+_tempDirSeq,
+failCount);
     }
 }

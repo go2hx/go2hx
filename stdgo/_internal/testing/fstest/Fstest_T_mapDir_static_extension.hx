@@ -1,17 +1,53 @@
 package stdgo._internal.testing.fstest;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.Io;
+import stdgo._internal.path.Path;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.testing.iotest.Iotest;
 @:keep @:allow(stdgo._internal.testing.fstest.Fstest.T_mapDir_asInterface) class T_mapDir_static_extension {
     @:keep
     @:tdfield
-    static public function readDir( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>, _count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } throw "T_mapDir:testing.fstest.readDir is not yet implemented";
+    static public function readDir( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>, _count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir> = _d;
+        var _n = (((@:checkr _d ?? throw "null pointer dereference")._entry.length) - (@:checkr _d ?? throw "null pointer dereference")._offset : stdgo.GoInt);
+        if (((_n == (0 : stdgo.GoInt)) && (_count > (0 : stdgo.GoInt) : Bool) : Bool)) {
+            return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>), _1 : stdgo._internal.io.Io_eOF.eOF };
+        };
+        if (((_count > (0 : stdgo.GoInt) : Bool) && (_n > _count : Bool) : Bool)) {
+            _n = _count;
+        };
+        var _list = (new stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>((_n : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>);
+        for (_i => _ in _list) {
+            _list[(_i : stdgo.GoInt)] = stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._entry[((@:checkr _d ?? throw "null pointer dereference")._offset + _i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapFileInfo.T_mapFileInfo>));
+        };
+        (@:checkr _d ?? throw "null pointer dereference")._offset = ((@:checkr _d ?? throw "null pointer dereference")._offset + (_n) : stdgo.GoInt);
+        return { _0 : _list, _1 : (null : stdgo.Error) };
+    }
     @:keep
     @:tdfield
-    static public function read( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "T_mapDir:testing.fstest.read is not yet implemented";
+    static public function read( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir> = _d;
+        return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : (@:checkr _d ?? throw "null pointer dereference")._path?.__copy__(), err : stdgo._internal.io.fs.Fs_errInvalid.errInvalid } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
+    }
     @:keep
     @:tdfield
-    static public function close( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>):stdgo.Error throw "T_mapDir:testing.fstest.close is not yet implemented";
+    static public function close( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>):stdgo.Error {
+        @:recv var _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir> = _d;
+        return (null : stdgo.Error);
+    }
     @:keep
     @:tdfield
-    static public function stat( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>):{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } throw "T_mapDir:testing.fstest.stat is not yet implemented";
+    static public function stat( _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir>):{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } {
+        @:recv var _d:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir> = _d;
+        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _d ?? throw "null pointer dereference")._mapFileInfo) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_mapFileInfo.T_mapFileInfo>)), _1 : (null : stdgo.Error) };
+    }
     @:embedded
     @:embeddededffieldsffun
     public static function type( __self__:stdgo._internal.testing.fstest.Fstest_T_mapDir.T_mapDir):stdgo._internal.io.fs.Fs_FileMode.FileMode return @:_5 __self__.type();

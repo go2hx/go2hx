@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 var _permutationFunction : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
 (16 : stdgo.GoUInt8),
 (25 : stdgo.GoUInt8),

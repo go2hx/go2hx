@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 function _read(_p:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo._internal.math.rand.Rand_Source.Source, _readVal:stdgo.Pointer<stdgo.GoInt64>, _readPos:stdgo.Pointer<stdgo.GoInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _pos = (_readPos.value : stdgo.GoInt8);

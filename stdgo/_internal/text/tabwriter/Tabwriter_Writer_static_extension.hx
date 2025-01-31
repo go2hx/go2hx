@@ -1,4 +1,6 @@
 package stdgo._internal.text.tabwriter;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
 @:keep @:allow(stdgo._internal.text.tabwriter.Tabwriter.Writer_asInterface) class Writer_static_extension {
     @:keep
     @:tdfield
@@ -77,7 +79,11 @@ package stdgo._internal.text.tabwriter;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
@@ -112,7 +118,11 @@ package stdgo._internal.text.tabwriter;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         };
@@ -159,7 +169,11 @@ package stdgo._internal.text.tabwriter;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _err;
             };
         } catch(__exception__) {
@@ -194,7 +208,11 @@ package stdgo._internal.text.tabwriter;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return _err;
             };
         };
@@ -429,7 +447,7 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (((@:checkr _b ?? throw "null poin
             _err = stdgo._internal.io.Io_errShortWrite.errShortWrite;
         };
         if (_err != null) {
-            throw stdgo.Go.toInterface((new stdgo._internal.text.tabwriter.Tabwriter_T_osError.T_osError(_err) : stdgo._internal.text.tabwriter.Tabwriter_T_osError.T_osError));
+            throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.text.tabwriter.Tabwriter_T_osError.T_osError(_err) : stdgo._internal.text.tabwriter.Tabwriter_T_osError.T_osError)));
         };
     }
     @:keep

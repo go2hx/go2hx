@@ -5,9 +5,6 @@ class T_timeoutWriter_asInterface {
     public dynamic function writeHeader(_code:stdgo.GoInt):Void @:_0 __self__.value.writeHeader(_code);
     @:keep
     @:tdfield
-    public dynamic function _writeHeaderLocked(_code:stdgo.GoInt):Void @:_0 __self__.value._writeHeaderLocked(_code);
-    @:keep
-    @:tdfield
     public dynamic function write(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.write(_p);
     @:keep
     @:tdfield

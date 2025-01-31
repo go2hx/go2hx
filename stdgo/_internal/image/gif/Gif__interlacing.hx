@@ -1,2 +1,11 @@
 package stdgo._internal.image.gif;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.Image;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.image.draw.Draw;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.lzw.Lzw;
+import stdgo._internal.bytes.Bytes;
 var _interlacing : stdgo.Slice<stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan> = (new stdgo.Slice<stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan>(4, 4, ...[(new stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan((8 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan), (new stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan((8 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan), (new stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan((4 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan), (new stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan((2 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan)])) : stdgo.Slice<stdgo._internal.image.gif.Gif_T_interlaceScan.T_interlaceScan>);

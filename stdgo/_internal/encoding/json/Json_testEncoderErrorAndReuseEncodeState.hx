@@ -1,4 +1,31 @@
 package stdgo._internal.encoding.json;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.time.Time;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.Math;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.os.Os;
+import stdgo._internal.compress.gzip.Gzip;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.encoding.base64.Base64;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.runtime.debug.Debug;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.log.Log;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.net.Net;
+import stdgo._internal.net.http.httptest.Httptest;
+import stdgo._internal.net.http.Http;
 function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -14,7 +41,7 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
             var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
             {
-                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_dummy)) : stdgo.Error);
+                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_dummy))) : stdgo.Error);
                 if (_err == null) {
                     @:check2r _t.errorf(("Encode(dummy) == nil; want error" : stdgo.GoString));
                 };
@@ -22,20 +49,20 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
             {};
             var _data = ({ a : ("a" : stdgo.GoString), i : (1 : stdgo.GoInt) } : stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733);
             {
-                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_data)) : stdgo.Error);
+                var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_data))) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.errorf(("Marshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Marshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(_err));
                 };
             };
             var _data2:stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733 = ({} : stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733);
             {
-                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(@:check2 _buf.bytes(), stdgo.Go.toInterface((stdgo.Go.setRef(_data2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733>))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(@:check2 _buf.bytes(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Data_1733.T_testEncoderErrorAndReuseEncodeState___localname___Data_1733>)))) : stdgo.Error);
                 if (_err != null) {
-                    @:check2r _t.errorf(("Unmarshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(_data2), stdgo.Go.toInterface(_err));
+                    @:check2r _t.errorf(("Unmarshal(%v) = %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)), stdgo.Go.toInterface(_err));
                 };
             };
             if (stdgo.Go.toInterface(_data2) != stdgo.Go.toInterface(_data)) {
-                @:check2r _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(_data), stdgo.Go.toInterface(_data2));
+                @:check2r _t.errorf(("expect: %v, but get: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_data)), stdgo.Go.toInterface(stdgo.Go.asInterface(_data2)));
             };
             {
                 for (defer in __deferstack__) {
@@ -43,7 +70,11 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -78,7 +109,11 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

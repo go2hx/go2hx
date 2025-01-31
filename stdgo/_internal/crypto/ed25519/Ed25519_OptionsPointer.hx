@@ -1,2 +1,10 @@
 package stdgo._internal.crypto.ed25519;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.crypto.sha512.Sha512;
+import _internal.crypto.internal.edwards25519.Edwards25519;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.subtle.Subtle;
 @:keep @:follow @:using(stdgo._internal.crypto.ed25519.Ed25519_Options_static_extension.Options_static_extension) typedef OptionsPointer = stdgo.Pointer<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>;

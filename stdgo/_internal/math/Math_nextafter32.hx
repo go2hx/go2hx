@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function nextafter32(_x:stdgo.GoFloat32, _y:stdgo.GoFloat32):stdgo.GoFloat32 {
         var _r = (0 : stdgo.GoFloat32);
         if ((stdgo._internal.math.Math_isNaN.isNaN((_x : stdgo.GoFloat64)) || stdgo._internal.math.Math_isNaN.isNaN((_y : stdgo.GoFloat64)) : Bool)) {

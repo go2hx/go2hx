@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class SectionHeader64 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_SectionHeader64_static_extension.SectionHeader64_static_extension) class SectionHeader64 {
     public var sname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public var spaddr : stdgo.GoUInt64 = 0;
     public var svaddr : stdgo.GoUInt64 = 0;

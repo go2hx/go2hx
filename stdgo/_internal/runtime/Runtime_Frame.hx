@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-@:structInit class Frame {
+@:structInit @:using(stdgo._internal.runtime.Runtime_Frame_static_extension.Frame_static_extension) class Frame {
     public var pC : stdgo.GoUIntptr = 0;
     public var func : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func> = (null : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>);
     public var function_ : stdgo.GoString = "";

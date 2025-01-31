@@ -2,34 +2,6 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2FrameWriteRequest_asInterface) class T_http2FrameWriteRequest_static_extension {
     @:keep
     @:tdfield
-    static public function _replyToWriter( _wr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>, _err:stdgo.Error):Void {
-        @:recv var _wr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest> = _wr;
-        if ((@:checkr _wr ?? throw "null pointer dereference")._done == null) {
-            return;
-        };
-        {
-            var __select__ = true;
-            while (__select__) {
-                if ((@:checkr _wr ?? throw "null pointer dereference")._done != null && (@:checkr _wr ?? throw "null pointer dereference")._done.__isSend__()) {
-                    __select__ = false;
-                    {
-                        (@:checkr _wr ?? throw "null pointer dereference")._done.__send__(_err);
-                        {};
-                    };
-                } else {
-                    __select__ = false;
-                    {
-                        throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unbuffered done channel passed in for type %T" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _wr ?? throw "null pointer dereference")._write)));
-                    };
-                };
-                #if !js Sys.sleep(0.01) #else null #end;
-                stdgo._internal.internal.Async.tick();
-            };
-        };
-        (@:checkr _wr ?? throw "null pointer dereference")._write = (null : stdgo._internal.net.http.Http_T_http2writeFramer.T_http2writeFramer);
-    }
-    @:keep
-    @:tdfield
     static public function string( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):stdgo.GoString {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
         var _des:stdgo.GoString = ("" : stdgo.GoString);
@@ -42,10 +14,10 @@ package stdgo._internal.net.http;
             if (_ok) {
                 _des = (_s.string() : stdgo.GoString)?.__copy__();
             } else {
-                _des = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%T" : stdgo.GoString), stdgo.Go.toInterface(_wr._write))?.__copy__();
+                _des = stdgo._internal.net.http.Http__fmt._fmt.sprintf(("%T" : stdgo.GoString), stdgo.Go.toInterface(_wr._write))?.__copy__();
             };
         };
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[FrameWriteRequest stream=%d, ch=%v, writer=%v]" : stdgo.GoString), stdgo.Go.toInterface(_wr.streamID()), stdgo.Go.toInterface(_wr._done != null), stdgo.Go.toInterface(_des))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("[FrameWriteRequest stream=%d, ch=%v, writer=%v]" : stdgo.GoString), stdgo.Go.toInterface(_wr.streamID()), stdgo.Go.toInterface(_wr._done != null), stdgo.Go.toInterface(_des))?.__copy__();
     }
     @:keep
     @:tdfield
@@ -94,12 +66,6 @@ package stdgo._internal.net.http;
             };
         };
         return (0 : stdgo.GoInt);
-    }
-    @:keep
-    @:tdfield
-    static public function _isControl( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Bool {
-        @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
-        return (_wr._stream == null || (_wr._stream : Dynamic).__nil__);
     }
     @:keep
     @:tdfield

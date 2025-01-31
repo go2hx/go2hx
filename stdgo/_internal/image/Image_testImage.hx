@@ -1,4 +1,12 @@
 package stdgo._internal.image;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.strconv.Strconv;
 function testImage(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _tc in stdgo._internal.image.Image__testImages._testImages) {
             var _m = (_tc._image() : stdgo._internal.image.Image_T_image.T_image);

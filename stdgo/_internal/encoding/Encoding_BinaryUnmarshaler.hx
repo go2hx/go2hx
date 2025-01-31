@@ -1,5 +1,5 @@
 package stdgo._internal.encoding;
-typedef BinaryUnmarshaler = stdgo.StructType & {
+@:interface typedef BinaryUnmarshaler = stdgo.StructType & {
     /**
         
         

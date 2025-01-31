@@ -1,5 +1,5 @@
 package stdgo._internal.unicode;
-@:structInit class Range16 {
+@:structInit @:using(stdgo._internal.unicode.Unicode_Range16_static_extension.Range16_static_extension) class Range16 {
     public var lo : stdgo.GoUInt16 = 0;
     public var hi : stdgo.GoUInt16 = 0;
     public var stride : stdgo.GoUInt16 = 0;

@@ -2,14 +2,14 @@ package stdgo.internal.buildcfg;
 var error(get, set) : stdgo.Error;
 private function get_error():stdgo.Error return stdgo._internal.internal.buildcfg.Buildcfg_error.error;
 private function set_error(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.internal.buildcfg.Buildcfg_error.error = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_error.error = (v : stdgo.Error);
         return v;
     }
 final defaultGOEXPERIMENT : String = stdgo._internal.internal.buildcfg.Buildcfg_defaultGOEXPERIMENT.defaultGOEXPERIMENT;
 var gOROOT(get, set) : String;
 private function get_gOROOT():String return stdgo._internal.internal.buildcfg.Buildcfg_gOROOT.gOROOT;
 private function set_gOROOT(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOROOT.gOROOT = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOROOT.gOROOT = (v : stdgo.GoString);
         return v;
     }
 var gOWASM(get, set) : T_gowasmFeatures;
@@ -21,61 +21,61 @@ private function set_gOWASM(v:T_gowasmFeatures):T_gowasmFeatures {
 var gO386(get, set) : String;
 private function get_gO386():String return stdgo._internal.internal.buildcfg.Buildcfg_gO386.gO386;
 private function set_gO386(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gO386.gO386 = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gO386.gO386 = (v : stdgo.GoString);
         return v;
     }
 var gOAMD64(get, set) : StdTypes.Int;
 private function get_gOAMD64():StdTypes.Int return stdgo._internal.internal.buildcfg.Buildcfg_gOAMD64.gOAMD64;
 private function set_gOAMD64(v:StdTypes.Int):StdTypes.Int {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOAMD64.gOAMD64 = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOAMD64.gOAMD64 = (v : stdgo.GoInt);
         return v;
     }
 var gOMIPS(get, set) : String;
 private function get_gOMIPS():String return stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS.gOMIPS;
 private function set_gOMIPS(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS.gOMIPS = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS.gOMIPS = (v : stdgo.GoString);
         return v;
     }
 var gOMIPS64(get, set) : String;
 private function get_gOMIPS64():String return stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS64.gOMIPS64;
 private function set_gOMIPS64(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS64.gOMIPS64 = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOMIPS64.gOMIPS64 = (v : stdgo.GoString);
         return v;
     }
 var gOPPC64(get, set) : StdTypes.Int;
 private function get_gOPPC64():StdTypes.Int return stdgo._internal.internal.buildcfg.Buildcfg_gOPPC64.gOPPC64;
 private function set_gOPPC64(v:StdTypes.Int):StdTypes.Int {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOPPC64.gOPPC64 = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOPPC64.gOPPC64 = (v : stdgo.GoInt);
         return v;
     }
 var gO_LDSO(get, set) : String;
 private function get_gO_LDSO():String return stdgo._internal.internal.buildcfg.Buildcfg_gO_LDSO.gO_LDSO;
 private function set_gO_LDSO(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gO_LDSO.gO_LDSO = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gO_LDSO.gO_LDSO = (v : stdgo.GoString);
         return v;
     }
 var version(get, set) : String;
 private function get_version():String return stdgo._internal.internal.buildcfg.Buildcfg_version.version;
 private function set_version(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_version.version = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_version.version = (v : stdgo.GoString);
         return v;
     }
 var gOOS(get, set) : String;
 private function get_gOOS():String return stdgo._internal.internal.buildcfg.Buildcfg_gOOS.gOOS;
 private function set_gOOS(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOOS.gOOS = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOOS.gOOS = (v : stdgo.GoString);
         return v;
     }
 var gOARCH(get, set) : String;
 private function get_gOARCH():String return stdgo._internal.internal.buildcfg.Buildcfg_gOARCH.gOARCH;
 private function set_gOARCH(v:String):String {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOARCH.gOARCH = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOARCH.gOARCH = (v : stdgo.GoString);
         return v;
     }
 var gOARM(get, set) : StdTypes.Int;
 private function get_gOARM():StdTypes.Int return stdgo._internal.internal.buildcfg.Buildcfg_gOARM.gOARM;
 private function set_gOARM(v:StdTypes.Int):StdTypes.Int {
-        stdgo._internal.internal.buildcfg.Buildcfg_gOARM.gOARM = v;
+        stdgo._internal.internal.buildcfg.Buildcfg_gOARM.gOARM = (v : stdgo.GoInt);
         return v;
     }
 var experiment(get, set) : ExperimentFlags;
@@ -87,7 +87,7 @@ private function set_experiment(v:ExperimentFlags):ExperimentFlags {
 var toolTags(get, set) : Array<String>;
 private function get_toolTags():Array<String> return [for (i in stdgo._internal.internal.buildcfg.Buildcfg_toolTags.toolTags) i];
 private function set_toolTags(v:Array<String>):Array<String> {
-        stdgo._internal.internal.buildcfg.Buildcfg_toolTags.toolTags = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        stdgo._internal.internal.buildcfg.Buildcfg_toolTags.toolTags = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
 var framePointerEnabled(get, set) : Bool;
@@ -139,12 +139,15 @@ class T_gowasmFeatures_static_extension {
 typedef ExperimentFlagsPointer = stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlagsPointer.ExperimentFlagsPointer;
 class ExperimentFlags_static_extension {
     static public function all(_exp:ExperimentFlags):Array<String> {
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
         return [for (i in stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.all(_exp)) i];
     }
     static public function enabled(_exp:ExperimentFlags):Array<String> {
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
         return [for (i in stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.enabled(_exp)) i];
     }
     static public function string(_exp:ExperimentFlags):String {
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
         return stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.string(_exp);
     }
 }
@@ -161,17 +164,17 @@ class Buildcfg {
     /**
         Check exits the program with a fatal error if Error is non-nil.
     **/
-    static public function check():Void {
+    static public inline function check():Void {
         stdgo._internal.internal.buildcfg.Buildcfg_check.check();
     }
-    static public function getgoextlinkenabled():String {
+    static public inline function getgoextlinkenabled():String {
         return stdgo._internal.internal.buildcfg.Buildcfg_getgoextlinkenabled.getgoextlinkenabled();
     }
     /**
         GOGOARCH returns the name and value of the GO$GOARCH setting.
         For example, if GOARCH is "amd64" it might return "GOAMD64", "v2".
     **/
-    static public function gOGOARCH():stdgo.Tuple<String, String> {
+    static public inline function gOGOARCH():stdgo.Tuple<String, String> {
         return {
             final obj = stdgo._internal.internal.buildcfg.Buildcfg_gOGOARCH.gOGOARCH();
             { _0 : obj._0, _1 : obj._1 };
@@ -184,7 +187,10 @@ class Buildcfg {
         
         TODO(mdempsky): Move to internal/goexperiment.
     **/
-    static public function parseGOEXPERIMENT(_goos:String, _goarch:String, _goexp:String):stdgo.Tuple<ExperimentFlags, stdgo.Error> {
+    static public inline function parseGOEXPERIMENT(_goos:String, _goarch:String, _goexp:String):stdgo.Tuple<ExperimentFlags, stdgo.Error> {
+        final _goos = (_goos : stdgo.GoString);
+        final _goarch = (_goarch : stdgo.GoString);
+        final _goexp = (_goexp : stdgo.GoString);
         return {
             final obj = stdgo._internal.internal.buildcfg.Buildcfg_parseGOEXPERIMENT.parseGOEXPERIMENT(_goos, _goarch, _goexp);
             { _0 : obj._0, _1 : obj._1 };

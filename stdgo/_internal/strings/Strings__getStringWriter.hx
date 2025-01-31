@@ -1,4 +1,10 @@
 package stdgo._internal.strings;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function _getStringWriter(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_StringWriter.StringWriter {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.io.Io_StringWriter.StringWriter)) : stdgo._internal.io.Io_StringWriter.StringWriter), _1 : true };

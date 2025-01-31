@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 function _seedrand(_x:stdgo.GoInt32):stdgo.GoInt32 {
         {};
         var _hi = (_x / (44488 : stdgo.GoInt32) : stdgo.GoInt32);

@@ -23,10 +23,10 @@ private function set_jSGo(v:Value):Value {
     public var _id(get, set) : std.UInt;
     function get__id():std.UInt return this._id;
     function set__id(v:std.UInt):std.UInt {
-        this._id = v;
+        this._id = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?value:Value, ?_id:std.UInt) this = new stdgo._internal.syscall.js.Js_Func.Func(value, _id);
+    public function new(?value:Value, ?_id:std.UInt) this = new stdgo._internal.syscall.js.Js_Func.Func(value, (_id : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -49,7 +49,7 @@ private function set_jSGo(v:Value):Value {
         this._gcPtr = v;
         return v;
     }
-    public function new(?__32:haxe.ds.Vector<() -> Void>, ?_ref:T_ref, ?_gcPtr:stdgo.Pointer<T_ref>) this = new stdgo._internal.syscall.js.Js_Value.Value(([for (i in __32) i] : stdgo.GoArray<() -> Void>), _ref, _gcPtr);
+    public function new(?__32:haxe.ds.Vector<() -> Void>, ?_ref:T_ref, ?_gcPtr:stdgo.Pointer<T_ref>, ?value) this = new stdgo._internal.syscall.js.Js_Value.Value(([for (i in __32) i] : stdgo.GoArray<() -> Void>), _ref, _gcPtr, value);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -68,7 +68,7 @@ private function set_jSGo(v:Value):Value {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
-        this.method = v;
+        this.method = (v : stdgo.GoString);
         return v;
     }
     public var type(get, set) : Type_;
@@ -77,7 +77,7 @@ private function set_jSGo(v:Value):Value {
         this.type = v;
         return v;
     }
-    public function new(?method:String, ?type:Type_) this = new stdgo._internal.syscall.js.Js_ValueError.ValueError(method, type);
+    public function new(?method:String, ?type:Type_) this = new stdgo._internal.syscall.js.Js_ValueError.ValueError((method : stdgo.GoString), type);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -92,6 +92,7 @@ class Func_static_extension {
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension._isNumber(__self__);
     }
     public static function _float(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:String):StdTypes.Float {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension._float(__self__, _0);
     }
     public static function type(__self__:stdgo._internal.syscall.js.Js_Func.Func):Type_ {
@@ -104,9 +105,13 @@ class Func_static_extension {
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.string(__self__);
     }
     public static function setIndex(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:StdTypes.Int, _1:stdgo.AnyInterface):Void {
+        final _0 = (_0 : stdgo.GoInt);
+        final _1 = (_1 : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.setIndex(__self__, _0, _1);
     }
     public static function set(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:String, _1:stdgo.AnyInterface):Void {
+        final _0 = (_0 : stdgo.GoString);
+        final _1 = (_1 : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.set(__self__, _0, _1);
     }
     public static function new_(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:haxe.Rest<stdgo.AnyInterface>):Value {
@@ -134,9 +139,11 @@ class Func_static_extension {
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.instanceOf(__self__, _0);
     }
     public static function index(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:StdTypes.Int):Value {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.index(__self__, _0);
     }
     public static function get(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:String):Value {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.get(__self__, _0);
     }
     public static function float_(__self__:stdgo._internal.syscall.js.Js_Func.Func):StdTypes.Float {
@@ -146,9 +153,11 @@ class Func_static_extension {
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.equal(__self__, _0);
     }
     public static function delete(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:String):Void {
+        final _0 = (_0 : stdgo.GoString);
         stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.delete(__self__, _0);
     }
     public static function call(__self__:stdgo._internal.syscall.js.Js_Func.Func, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Value {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Func_static_extension.Func_static_extension.call(__self__, _0, ...[for (i in _1) i]);
     }
     public static function bool_(__self__:stdgo._internal.syscall.js.Js_Func.Func):Bool {
@@ -176,6 +185,7 @@ class Value_static_extension {
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.float_(_v);
     }
     static public function _float(_v:Value, _method:String):StdTypes.Float {
+        final _method = (_method : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension._float(_v, _method);
     }
     static public function _isNumber(_v:Value):Bool {
@@ -188,24 +198,32 @@ class Value_static_extension {
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.invoke(_v, ...[for (i in _args) i]);
     }
     static public function call(_v:Value, _m:String, _args:haxe.Rest<stdgo.AnyInterface>):Value {
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.call(_v, _m, ...[for (i in _args) i]);
     }
     static public function length_(_v:Value):StdTypes.Int {
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.length_(_v);
     }
     static public function setIndex(_v:Value, _i:StdTypes.Int, _x:stdgo.AnyInterface):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _x = (_x : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.setIndex(_v, _i, _x);
     }
     static public function index(_v:Value, _i:StdTypes.Int):Value {
+        final _i = (_i : stdgo.GoInt);
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.index(_v, _i);
     }
     static public function delete(_v:Value, _p:String):Void {
+        final _p = (_p : stdgo.GoString);
         stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.delete(_v, _p);
     }
     static public function set(_v:Value, _p:String, _x:stdgo.AnyInterface):Void {
+        final _p = (_p : stdgo.GoString);
+        final _x = (_x : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.set(_v, _p, _x);
     }
     static public function get(_v:Value, _p:String):Value {
+        final _p = (_p : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Value_static_extension.Value_static_extension.get(_v, _p);
     }
     static public function type(_v:Value):Type_ {
@@ -233,6 +251,7 @@ class Error_static_extension {
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension._isNumber(__self__);
     }
     public static function _float(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:String):StdTypes.Float {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension._float(__self__, _0);
     }
     public static function type(__self__:stdgo._internal.syscall.js.Js_Error.Error):Type_ {
@@ -245,9 +264,13 @@ class Error_static_extension {
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.string(__self__);
     }
     public static function setIndex(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:StdTypes.Int, _1:stdgo.AnyInterface):Void {
+        final _0 = (_0 : stdgo.GoInt);
+        final _1 = (_1 : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.setIndex(__self__, _0, _1);
     }
     public static function set(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:String, _1:stdgo.AnyInterface):Void {
+        final _0 = (_0 : stdgo.GoString);
+        final _1 = (_1 : stdgo.AnyInterface);
         stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.set(__self__, _0, _1);
     }
     public static function new_(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:haxe.Rest<stdgo.AnyInterface>):Value {
@@ -275,9 +298,11 @@ class Error_static_extension {
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.instanceOf(__self__, _0);
     }
     public static function index(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:StdTypes.Int):Value {
+        final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.index(__self__, _0);
     }
     public static function get(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:String):Value {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.get(__self__, _0);
     }
     public static function float_(__self__:stdgo._internal.syscall.js.Js_Error.Error):StdTypes.Float {
@@ -287,9 +312,11 @@ class Error_static_extension {
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.equal(__self__, _0);
     }
     public static function delete(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:String):Void {
+        final _0 = (_0 : stdgo.GoString);
         stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.delete(__self__, _0);
     }
     public static function call(__self__:stdgo._internal.syscall.js.Js_Error.Error, _0:String, _1:haxe.Rest<stdgo.AnyInterface>):Value {
+        final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.syscall.js.Js_Error_static_extension.Error_static_extension.call(__self__, _0, ...[for (i in _1) i]);
     }
     public static function bool_(__self__:stdgo._internal.syscall.js.Js_Error.Error):Bool {
@@ -299,8 +326,13 @@ class Error_static_extension {
 typedef ValueErrorPointer = stdgo._internal.syscall.js.Js_ValueErrorPointer.ValueErrorPointer;
 class ValueError_static_extension {
     static public function error(_e:ValueError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.syscall.js.Js_ValueError.ValueError>);
         return stdgo._internal.syscall.js.Js_ValueError_static_extension.ValueError_static_extension.error(_e);
     }
+}
+typedef T_refPointer = stdgo._internal.syscall.js.Js_T_refPointer.T_refPointer;
+class T_ref_static_extension {
+
 }
 typedef Type_Pointer = stdgo._internal.syscall.js.Js_Type_Pointer.Type_Pointer;
 class Type__static_extension {
@@ -339,26 +371,26 @@ class Js {
         
         Func.Release must be called to free up resources when the function will not be invoked any more.
     **/
-    static public function funcOf(_fn:(stdgo._internal.syscall.js.Js_Value.Value, stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>) -> stdgo.AnyInterface):Func {
+    static public inline function funcOf(_fn:(stdgo._internal.syscall.js.Js_Value.Value, stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>) -> stdgo.AnyInterface):Func {
         final _fn = _fn;
         return stdgo._internal.syscall.js.Js_funcOf.funcOf(_fn);
     }
     /**
         Undefined returns the JavaScript value "undefined".
     **/
-    static public function undefined():Value {
+    static public inline function undefined():Value {
         return stdgo._internal.syscall.js.Js_undefined.undefined();
     }
     /**
         Null returns the JavaScript value "null".
     **/
-    static public function null_():Value {
+    static public inline function null_():Value {
         return stdgo._internal.syscall.js.Js_null_.null_();
     }
     /**
         Global returns the JavaScript global object, usually "window" or "global".
     **/
-    static public function global():Value {
+    static public inline function global():Value {
         return stdgo._internal.syscall.js.Js_global.global();
     }
     /**
@@ -377,7 +409,8 @@ class Js {
         
         Panics if x is not one of the expected types.
     **/
-    static public function valueOf(_x:stdgo.AnyInterface):Value {
+    static public inline function valueOf(_x:stdgo.AnyInterface):Value {
+        final _x = (_x : stdgo.AnyInterface);
         return stdgo._internal.syscall.js.Js_valueOf.valueOf(_x);
     }
     /**
@@ -385,8 +418,8 @@ class Js {
         It panics if src is not a Uint8Array or Uint8ClampedArray.
         It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
     **/
-    static public function copyBytesToGo(_dst:Array<std.UInt>, _src:Value):StdTypes.Int {
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function copyBytesToGo(_dst:Array<std.UInt>, _src:Value):StdTypes.Int {
+        final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.syscall.js.Js_copyBytesToGo.copyBytesToGo(_dst, _src);
     }
     /**
@@ -394,8 +427,8 @@ class Js {
         It panics if dst is not a Uint8Array or Uint8ClampedArray.
         It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
     **/
-    static public function copyBytesToJS(_dst:Value, _src:Array<std.UInt>):StdTypes.Int {
-        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function copyBytesToJS(_dst:Value, _src:Array<std.UInt>):StdTypes.Int {
+        final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.syscall.js.Js_copyBytesToJS.copyBytesToJS(_dst, _src);
     }
 }

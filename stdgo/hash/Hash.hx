@@ -10,7 +10,7 @@ class Hash_static_extension {
         stdgo._internal.hash.Hash_Hash_static_extension.Hash_static_extension.reset(t);
     }
     static public function sum(t:stdgo._internal.hash.Hash_Hash.Hash, _b:Array<std.UInt>):Array<std.UInt> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.hash.Hash_Hash_static_extension.Hash_static_extension.sum(t, _b)) i];
     }
 }

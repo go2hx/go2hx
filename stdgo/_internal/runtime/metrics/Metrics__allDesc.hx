@@ -1,4 +1,6 @@
 package stdgo._internal.runtime.metrics;
+import stdgo._internal.internal.godebugs.Godebugs;
+import stdgo._internal.math.Math;
 var _allDesc : stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_Description.Description> = (new stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_Description.Description>(52, 52, ...[
 ({ name : ("/cgo/go-to-c-calls:calls" : stdgo.GoString), description : ("Count of calls made from Go to C by the current process." : stdgo.GoString), kind : (1 : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind), cumulative : true } : stdgo._internal.runtime.metrics.Metrics_Description.Description),
 ({ name : ("/cpu/classes/gc/mark/assist:cpu-seconds" : stdgo.GoString), description : ("Estimated total CPU time goroutines spent performing GC tasks to assist the GC and prevent it from falling behind the application. This metric is an overestimate, and not directly comparable to system CPU time measurements. Compare only with other /cpu/classes metrics." : stdgo.GoString), kind : (2 : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind), cumulative : true } : stdgo._internal.runtime.metrics.Metrics_Description.Description),

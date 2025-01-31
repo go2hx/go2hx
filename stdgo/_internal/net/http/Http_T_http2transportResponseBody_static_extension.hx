@@ -78,7 +78,7 @@ package stdgo._internal.net.http;
                 if (((_n : stdgo.GoInt64) > (@:checkr _cs ?? throw "null pointer dereference")._bytesRemain : Bool)) {
                     _n = ((@:checkr _cs ?? throw "null pointer dereference")._bytesRemain : stdgo.GoInt);
                     if (_err == null) {
-                        _err = stdgo._internal.errors.Errors_new_.new_(("net/http: server replied with more than declared Content-Length; truncated" : stdgo.GoString));
+                        _err = stdgo._internal.net.http.Http__errors._errors.new_(("net/http: server replied with more than declared Content-Length; truncated" : stdgo.GoString));
                         @:check2r _cs._abortStream(_err);
                     };
                     (@:checkr _cs ?? throw "null pointer dereference")._readErr = _err;
@@ -90,8 +90,8 @@ package stdgo._internal.net.http;
                     };
                 };
                 (@:checkr _cs ?? throw "null pointer dereference")._bytesRemain = ((@:checkr _cs ?? throw "null pointer dereference")._bytesRemain - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
-                if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) && ((@:checkr _cs ?? throw "null pointer dereference")._bytesRemain > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-                    _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
+                if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.net.http.Http__io._io.eOF)) && ((@:checkr _cs ?? throw "null pointer dereference")._bytesRemain > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
+                    _err = stdgo._internal.net.http.Http__io._io.errUnexpectedEOF;
                     (@:checkr _cs ?? throw "null pointer dereference")._readErr = _err;
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
@@ -139,7 +139,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
@@ -174,7 +178,11 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         };

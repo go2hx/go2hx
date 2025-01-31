@@ -1,2 +1,11 @@
 package stdgo._internal.image.png;
-@:named typedef EncoderBuffer = stdgo._internal.image.png.Png_T_encoder.T_encoder;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+@:named @:using(stdgo._internal.image.png.Png_EncoderBuffer_static_extension.EncoderBuffer_static_extension) typedef EncoderBuffer = stdgo._internal.image.png.Png_T_encoder.T_encoder;

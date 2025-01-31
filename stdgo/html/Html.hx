@@ -9,7 +9,8 @@ class Html {
         UnescapeString(EscapeString(s)) == s always holds, but the converse isn't
         always true.
     **/
-    static public function escapeString(_s:String):String {
+    static public inline function escapeString(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.html.Html_escapeString.escapeString(_s);
     }
     /**
@@ -19,7 +20,8 @@ class Html {
         UnescapeString(EscapeString(s)) == s always holds, but the converse isn't
         always true.
     **/
-    static public function unescapeString(_s:String):String {
+    static public inline function unescapeString(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.html.Html_unescapeString.unescapeString(_s);
     }
 }

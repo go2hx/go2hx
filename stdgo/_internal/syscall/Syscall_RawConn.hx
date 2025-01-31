@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-typedef RawConn = stdgo.StructType & {
+@:interface typedef RawConn = stdgo.StructType & {
     /**
         Control invokes f on the underlying connection's file
         descriptor or handle.

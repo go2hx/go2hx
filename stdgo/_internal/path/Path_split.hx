@@ -1,4 +1,7 @@
 package stdgo._internal.path;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
 function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _dir = ("" : stdgo.GoString), _file = ("" : stdgo.GoString);
         var _i = (stdgo._internal.path.Path__lastSlash._lastSlash(_path?.__copy__()) : stdgo.GoInt);

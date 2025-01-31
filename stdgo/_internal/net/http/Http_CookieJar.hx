@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef CookieJar = stdgo.StructType & {
+@:interface typedef CookieJar = stdgo.StructType & {
     /**
         SetCookies handles the receipt of the cookies in a reply for the
         given URL.  It may or may not choose to save the cookies, depending

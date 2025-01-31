@@ -1,4 +1,13 @@
 package stdgo._internal.fmt;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.fmtsort.Fmtsort;
+import stdgo._internal.math.Math;
 @:keep @:allow(stdgo._internal.fmt.Fmt.T_ss_asInterface) class T_ss_static_extension {
     @:keep
     @:tdfield
@@ -81,7 +90,11 @@ package stdgo._internal.fmt;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
@@ -116,7 +129,11 @@ package stdgo._internal.fmt;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _numProcessed, _1 : _err };
             };
         };
@@ -238,7 +255,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
@@ -273,7 +294,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _numProcessed, _1 : _err };
             };
         };
@@ -1026,7 +1051,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _tok, _1 : _err };
             };
         } catch(__exception__) {
@@ -1061,7 +1090,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _tok, _1 : _err };
             };
         };
@@ -1070,13 +1103,13 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
     @:tdfield
     static public function _errorString( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _err:stdgo.GoString):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
-        throw stdgo.Go.toInterface((new stdgo._internal.fmt.Fmt_T_scanError.T_scanError(stdgo._internal.errors.Errors_new_.new_(_err?.__copy__())) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError));
+        throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt.Fmt_T_scanError.T_scanError(stdgo._internal.errors.Errors_new_.new_(_err?.__copy__())) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)));
     }
     @:keep
     @:tdfield
     static public function _error( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _err:stdgo.Error):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
-        throw stdgo.Go.toInterface((new stdgo._internal.fmt.Fmt_T_scanError.T_scanError(_err) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError));
+        throw stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt.Fmt_T_scanError.T_scanError(_err) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)));
     }
     @:keep
     @:tdfield

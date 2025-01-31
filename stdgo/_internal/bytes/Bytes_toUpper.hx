@@ -1,4 +1,9 @@
 package stdgo._internal.bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function toUpper(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         var __0 = (true : Bool), __1 = (false : Bool);
 var _hasLower = __1, _isASCII = __0;

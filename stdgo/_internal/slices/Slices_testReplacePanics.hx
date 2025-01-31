@@ -1,4 +1,15 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 function testReplacePanics(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo._internal.slices.Slices_T__struct_11.T__struct_11>(3, 3, ...[({ _name : ("indexes out of order" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _i : (2 : stdgo.GoInt), _j : (1 : stdgo.GoInt) } : stdgo._internal.slices.Slices_T__struct_11.T__struct_11), ({ _name : ("large index" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _i : (1 : stdgo.GoInt), _j : (10 : stdgo.GoInt) } : stdgo._internal.slices.Slices_T__struct_11.T__struct_11), ({ _name : ("negative index" : stdgo.GoString), _s : (new stdgo.Slice<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _v : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _i : (-1 : stdgo.GoInt), _j : (2 : stdgo.GoInt) } : stdgo._internal.slices.Slices_T__struct_11.T__struct_11)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _s : (null : stdgo.Slice<stdgo.GoInt>), _v : (null : stdgo.Slice<stdgo.GoInt>), _i : (0 : stdgo.GoInt), _j : (0 : stdgo.GoInt) } : stdgo._internal.slices.Slices_T__struct_11.T__struct_11)])) : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_11.T__struct_11>)) {
             var __0 = stdgo._internal.slices.Slices_clone.clone(_test._s), __1 = stdgo._internal.slices.Slices_clone.clone(_test._v);

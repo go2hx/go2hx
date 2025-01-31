@@ -10,7 +10,7 @@ package stdgo._internal.net.http;
                 return _err;
             };
         };
-        (@:checkr _gz ?? throw "null pointer dereference")._zerr = stdgo._internal.io.fs.Fs_errClosed.errClosed;
+        (@:checkr _gz ?? throw "null pointer dereference")._zerr = stdgo._internal.net.http.Http__fs._fs.errClosed;
         return (null : stdgo.Error);
     }
     @:keep
@@ -28,7 +28,7 @@ package stdgo._internal.net.http;
         };
         if (((@:checkr _gz ?? throw "null pointer dereference")._zr == null || ((@:checkr _gz ?? throw "null pointer dereference")._zr : Dynamic).__nil__)) {
             {
-                var __tmp__ = stdgo._internal.compress.gzip.Gzip_newReader.newReader((@:checkr _gz ?? throw "null pointer dereference")._body);
+                var __tmp__ = stdgo._internal.net.http.Http__gzip._gzip.newReader((@:checkr _gz ?? throw "null pointer dereference")._body);
                 (@:checkr _gz ?? throw "null pointer dereference")._zr = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };

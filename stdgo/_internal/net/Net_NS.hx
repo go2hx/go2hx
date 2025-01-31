@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-@:structInit class NS {
+@:structInit @:using(stdgo._internal.net.Net_NS_static_extension.NS_static_extension) class NS {
     public var host : stdgo.GoString = "";
     public function new(?host:stdgo.GoString) {
         if (host != null) this.host = host;

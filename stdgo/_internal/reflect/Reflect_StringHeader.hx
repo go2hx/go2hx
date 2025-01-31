@@ -1,5 +1,5 @@
 package stdgo._internal.reflect;
-@:structInit class StringHeader {
+@:structInit @:using(stdgo._internal.reflect.Reflect_StringHeader_static_extension.StringHeader_static_extension) class StringHeader {
     public var data : stdgo.GoUIntptr = 0;
     public var len : stdgo.GoInt = 0;
     public function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt) {

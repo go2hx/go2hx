@@ -1,4 +1,8 @@
 package stdgo._internal.bufio;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.bufio.Bufio_ReadWriter_static_extension.ReadWriter_static_extension) class ReadWriter {
     @:embedded
     public var reader : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);

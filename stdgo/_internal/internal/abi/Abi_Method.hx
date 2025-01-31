@@ -1,5 +1,6 @@
 package stdgo._internal.internal.abi;
-@:structInit class Method {
+import stdgo._internal.unsafe.Unsafe;
+@:structInit @:using(stdgo._internal.internal.abi.Abi_Method_static_extension.Method_static_extension) class Method {
     public var name : stdgo._internal.internal.abi.Abi_NameOff.NameOff = ((0 : stdgo.GoInt32) : stdgo._internal.internal.abi.Abi_NameOff.NameOff);
     public var mtyp : stdgo._internal.internal.abi.Abi_TypeOff.TypeOff = ((0 : stdgo.GoInt32) : stdgo._internal.internal.abi.Abi_TypeOff.TypeOff);
     public var ifn : stdgo._internal.internal.abi.Abi_TextOff.TextOff = ((0 : stdgo.GoInt32) : stdgo._internal.internal.abi.Abi_TextOff.TextOff);

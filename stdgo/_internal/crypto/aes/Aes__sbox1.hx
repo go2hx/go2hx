@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.aes;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 var _sbox1 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[
 (82 : stdgo.GoUInt8),
 (9 : stdgo.GoUInt8),

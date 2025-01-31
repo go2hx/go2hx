@@ -1,4 +1,33 @@
 package stdgo._internal.crypto.x509;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.utf16.Utf16;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.time.Time;
 function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _privKey:stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 = ({} : stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8);
         {
@@ -36,9 +65,9 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to marshal private key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };
                 _privKey.privateKey = _curvePrivateKey;
-            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>))) {
-                var _k:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __type__ == null ? (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__ == null ? (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__.__underlying__().value;
-                if (stdgo.Go.toInterface(@:check2r _k.curve()) == (stdgo.Go.toInterface(_internal.crypto.ecdh.Ecdh_x25519.x25519()))) {
+            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>))) {
+                var _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>) : __type__.__underlying__().value;
+                if (stdgo.Go.toInterface(@:check2r _k.curve()) == (stdgo.Go.toInterface(stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519()))) {
                     _privKey.algo = ({ algorithm : stdgo._internal.crypto.x509.X509__oidPublicKeyX25519._oidPublicKeyX25519 } : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
                     var _err:stdgo.Error = (null : stdgo.Error);
                     {
@@ -77,5 +106,5 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: unknown key type while marshaling PKCS#8: %T" : stdgo.GoString), _key) };
             };
         };
-        return stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_privKey));
+        return stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_privKey)));
     }

@@ -1,5 +1,11 @@
 package stdgo._internal.debug.gosym;
-@:structInit class T_sym {
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.debug.gosym.Gosym_T_sym_static_extension.T_sym_static_extension) class T_sym {
     public var _value : stdgo.GoUInt64 = 0;
     public var _gotype : stdgo.GoUInt64 = 0;
     public var _typ : stdgo.GoUInt8 = 0;

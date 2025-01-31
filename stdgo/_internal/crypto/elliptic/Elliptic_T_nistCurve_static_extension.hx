@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.elliptic;
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.crypto.elliptic.Elliptic.T_nistCurve_asInterface) class T_nistCurve_static_extension {
     @:keep
     @:tdfield

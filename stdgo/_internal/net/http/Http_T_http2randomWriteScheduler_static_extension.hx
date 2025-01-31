@@ -26,7 +26,7 @@ package stdgo._internal.net.http;
     static public function push( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2randomWriteScheduler.T_http2randomWriteScheduler>, _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Void {
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2randomWriteScheduler.T_http2randomWriteScheduler> = _ws;
         if (_wr._isControl()) {
-            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._zero._push(_wr?.__copy__());
+            @:check2 (@:checkr _ws ?? throw "null pointer dereference")._zero._push(_wr);
             return;
         };
         var _id = (_wr.streamID() : stdgo.GoUInt32);
@@ -35,7 +35,7 @@ package stdgo._internal.net.http;
             _q = @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._get();
             (@:checkr _ws ?? throw "null pointer dereference")._sq[_id] = _q;
         };
-        @:check2r _q._push(_wr?.__copy__());
+        @:check2r _q._push(_wr);
     }
     @:keep
     @:tdfield

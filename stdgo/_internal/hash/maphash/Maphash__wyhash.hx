@@ -1,4 +1,6 @@
 package stdgo._internal.hash.maphash;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.math.bits.Bits;
 function _wyhash(_key:stdgo.Slice<stdgo.GoUInt8>, _seed:stdgo.GoUInt64, _len:stdgo.GoUInt64):stdgo.GoUInt64 {
         var _p = _key;
         var _i = (_len : stdgo.GoUInt64);

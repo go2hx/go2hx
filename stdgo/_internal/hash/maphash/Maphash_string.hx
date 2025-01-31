@@ -1,4 +1,6 @@
 package stdgo._internal.hash.maphash;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.math.bits.Bits;
 function string(_seed:stdgo._internal.hash.maphash.Maphash_Seed.Seed, _s:stdgo.GoString):stdgo.GoUInt64 {
         var _state = (_seed._s : stdgo.GoUInt64);
         if (_state == ((0i64 : stdgo.GoUInt64))) {

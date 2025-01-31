@@ -1,5 +1,5 @@
 package stdgo._internal.unicode;
-@:structInit class Range32 {
+@:structInit @:using(stdgo._internal.unicode.Unicode_Range32_static_extension.Range32_static_extension) class Range32 {
     public var lo : stdgo.GoUInt32 = 0;
     public var hi : stdgo.GoUInt32 = 0;
     public var stride : stdgo.GoUInt32 = 0;

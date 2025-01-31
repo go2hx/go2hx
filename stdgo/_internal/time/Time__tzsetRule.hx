@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_rule.T_rule; var _1 : stdgo.GoString; var _2 : Bool; } {
         var _r:stdgo._internal.time.Time_T_rule.T_rule = ({} : stdgo._internal.time.Time_T_rule.T_rule);
         if ((_s.length) == ((0 : stdgo.GoInt))) {

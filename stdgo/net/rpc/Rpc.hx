@@ -4,13 +4,13 @@ final defaultDebugPath : String = stdgo._internal.net.rpc.Rpc_defaultDebugPath.d
 var errShutdown(get, set) : stdgo.Error;
 private function get_errShutdown():stdgo.Error return stdgo._internal.net.rpc.Rpc_errShutdown.errShutdown;
 private function set_errShutdown(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.net.rpc.Rpc_errShutdown.errShutdown = v;
+        stdgo._internal.net.rpc.Rpc_errShutdown.errShutdown = (v : stdgo.Error);
         return v;
     }
 var defaultServer(get, set) : Server;
 private function get_defaultServer():Server return stdgo._internal.net.rpc.Rpc_defaultServer.defaultServer;
 private function set_defaultServer(v:Server):Server {
-        stdgo._internal.net.rpc.Rpc_defaultServer.defaultServer = v;
+        stdgo._internal.net.rpc.Rpc_defaultServer.defaultServer = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return v;
     }
 class ClientCodec_static_extension {
@@ -18,12 +18,16 @@ class ClientCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_ClientCodec_static_extension.ClientCodec_static_extension.close(t);
     }
     static public function readResponseBody(t:stdgo._internal.net.rpc.Rpc_ClientCodec.ClientCodec, _0:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_ClientCodec_static_extension.ClientCodec_static_extension.readResponseBody(t, _0);
     }
     static public function readResponseHeader(t:stdgo._internal.net.rpc.Rpc_ClientCodec.ClientCodec, _0:Response):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         return stdgo._internal.net.rpc.Rpc_ClientCodec_static_extension.ClientCodec_static_extension.readResponseHeader(t, _0);
     }
     static public function writeRequest(t:stdgo._internal.net.rpc.Rpc_ClientCodec.ClientCodec, _0:Request, _1:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
+        final _1 = (_1 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_ClientCodec_static_extension.ClientCodec_static_extension.writeRequest(t, _0, _1);
     }
 }
@@ -33,12 +37,16 @@ class ServerCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_ServerCodec_static_extension.ServerCodec_static_extension.close(t);
     }
     static public function writeResponse(t:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, _0:Response, _1:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
+        final _1 = (_1 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_ServerCodec_static_extension.ServerCodec_static_extension.writeResponse(t, _0, _1);
     }
     static public function readRequestBody(t:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, _0:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_ServerCodec_static_extension.ServerCodec_static_extension.readRequestBody(t, _0);
     }
     static public function readRequestHeader(t:stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec, _0:Request):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         return stdgo._internal.net.rpc.Rpc_ServerCodec_static_extension.ServerCodec_static_extension.readRequestHeader(t, _0);
     }
 }
@@ -47,34 +55,34 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var serviceMethod(get, set) : String;
     function get_serviceMethod():String return this.serviceMethod;
     function set_serviceMethod(v:String):String {
-        this.serviceMethod = v;
+        this.serviceMethod = (v : stdgo.GoString);
         return v;
     }
     public var args(get, set) : stdgo.AnyInterface;
     function get_args():stdgo.AnyInterface return this.args;
     function set_args(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.args = v;
+        this.args = (v : stdgo.AnyInterface);
         return v;
     }
     public var reply(get, set) : stdgo.AnyInterface;
     function get_reply():stdgo.AnyInterface return this.reply;
     function set_reply(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this.reply = v;
+        this.reply = (v : stdgo.AnyInterface);
         return v;
     }
     public var error(get, set) : stdgo.Error;
     function get_error():stdgo.Error return this.error;
     function set_error(v:stdgo.Error):stdgo.Error {
-        this.error = v;
+        this.error = (v : stdgo.Error);
         return v;
     }
     public var done(get, set) : stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>;
     function get_done():stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>> return this.done;
     function set_done(v:stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>):stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>> {
-        this.done = v;
+        this.done = (v : stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>);
         return v;
     }
-    public function new(?serviceMethod:String, ?args:stdgo.AnyInterface, ?reply:stdgo.AnyInterface, ?error:stdgo.Error, ?done:stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>) this = new stdgo._internal.net.rpc.Rpc_Call.Call(serviceMethod, args, reply, error, done);
+    public function new(?serviceMethod:String, ?args:stdgo.AnyInterface, ?reply:stdgo.AnyInterface, ?error:stdgo.Error, ?done:stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>) this = new stdgo._internal.net.rpc.Rpc_Call.Call((serviceMethod : stdgo.GoString), (args : stdgo.AnyInterface), (reply : stdgo.AnyInterface), (error : stdgo.Error), (done : stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -106,13 +114,13 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _seq(get, set) : haxe.UInt64;
     function get__seq():haxe.UInt64 return this._seq;
     function set__seq(v:haxe.UInt64):haxe.UInt64 {
-        this._seq = v;
+        this._seq = (v : stdgo.GoUInt64);
         return v;
     }
     public var _pending(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>;
     function get__pending():stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>> return this._pending;
     function set__pending(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>> {
-        this._pending = v;
+        this._pending = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>);
         return v;
     }
     public var _closing(get, set) : Bool;
@@ -127,7 +135,7 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
         this._shutdown = v;
         return v;
     }
-    public function new(?_codec:ClientCodec, ?_reqMutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_request:Request, ?_mutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>, ?_closing:Bool, ?_shutdown:Bool) this = new stdgo._internal.net.rpc.Rpc_Client.Client(_codec, _reqMutex, _request, _mutex, _seq, _pending, _closing, _shutdown);
+    public function new(?_codec:ClientCodec, ?_reqMutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_request:Request, ?_mutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>, ?_closing:Bool, ?_shutdown:Bool) this = new stdgo._internal.net.rpc.Rpc_Client.Client(_codec, _reqMutex, _request, _mutex, (_seq : stdgo.GoUInt64), (_pending : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>), _closing, _shutdown);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -141,53 +149,53 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _dec(get, set) : stdgo._internal.encoding.gob.Gob_Decoder.Decoder;
     function get__dec():stdgo._internal.encoding.gob.Gob_Decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.gob.Gob_Decoder.Decoder):stdgo._internal.encoding.gob.Gob_Decoder.Decoder {
-        this._dec = v;
+        this._dec = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>);
         return v;
     }
     public var _enc(get, set) : stdgo._internal.encoding.gob.Gob_Encoder.Encoder;
     function get__enc():stdgo._internal.encoding.gob.Gob_Encoder.Encoder return this._enc;
     function set__enc(v:stdgo._internal.encoding.gob.Gob_Encoder.Encoder):stdgo._internal.encoding.gob.Gob_Encoder.Encoder {
-        this._enc = v;
+        this._enc = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>);
         return v;
     }
     public var _encBuf(get, set) : stdgo._internal.bufio.Bufio_Writer.Writer;
     function get__encBuf():stdgo._internal.bufio.Bufio_Writer.Writer return this._encBuf;
     function set__encBuf(v:stdgo._internal.bufio.Bufio_Writer.Writer):stdgo._internal.bufio.Bufio_Writer.Writer {
-        this._encBuf = v;
+        this._encBuf = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);
         return v;
     }
-    public function new(?_rwc:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser, ?_dec:stdgo._internal.encoding.gob.Gob_Decoder.Decoder, ?_enc:stdgo._internal.encoding.gob.Gob_Encoder.Encoder, ?_encBuf:stdgo._internal.bufio.Bufio_Writer.Writer) this = new stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec(_rwc, _dec, _enc, _encBuf);
+    public function new(?_rwc:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser, ?_dec:stdgo._internal.encoding.gob.Gob_Decoder.Decoder, ?_enc:stdgo._internal.encoding.gob.Gob_Encoder.Encoder, ?_encBuf:stdgo._internal.bufio.Bufio_Writer.Writer) this = new stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec(_rwc, (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>), (_encBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_debugMethod(stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod) from stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod to stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod {
+@:structInit @:using(stdgo.net.rpc.Rpc.T_debugMethod_static_extension) abstract T_debugMethod(stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod) from stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod to stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod {
     public var type(get, set) : T_methodType;
     function get_type():T_methodType return this.type;
     function set_type(v:T_methodType):T_methodType {
-        this.type = v;
+        this.type = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>);
         return v;
     }
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
-    public function new(?type:T_methodType, ?name:String) this = new stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod(type, name);
+    public function new(?type:T_methodType, ?name:String) this = new stdgo._internal.net.rpc.Rpc_T_debugMethod.T_debugMethod((type : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>), (name : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_debugService(stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService) from stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService to stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService {
+@:structInit @:using(stdgo.net.rpc.Rpc.T_debugService_static_extension) abstract T_debugService(stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService) from stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService to stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService {
     public var service(get, set) : T_service;
     function get_service():T_service return this.service;
     function set_service(v:T_service):T_service {
-        this.service = v;
+        this.service = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>);
         return v;
     }
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var method(get, set) : T_methodArray;
@@ -196,7 +204,7 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
         this.method = v;
         return v;
     }
-    public function new(?service:T_service, ?name:String, ?method:T_methodArray) this = new stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService(service, name, method);
+    public function new(?service:T_service, ?name:String, ?method:T_methodArray) this = new stdgo._internal.net.rpc.Rpc_T_debugService.T_debugService((service : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>), (name : stdgo.GoString), method);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -204,10 +212,10 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var server(get, set) : Server;
     function get_server():Server return this.server;
     function set_server(v:Server):Server {
-        this.server = v;
+        this.server = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return v;
     }
-    public function new(?server:Server) this = new stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP(server);
+    public function new(?server:Server) this = new stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP((server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -239,10 +247,10 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _numCalls(get, set) : std.UInt;
     function get__numCalls():std.UInt return this._numCalls;
     function set__numCalls(v:std.UInt):std.UInt {
-        this._numCalls = v;
+        this._numCalls = (v : stdgo.GoUInt);
         return v;
     }
-    public function new(?mutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_method:stdgo._internal.reflect.Reflect_Method.Method, ?argType:stdgo._internal.reflect.Reflect_Type_.Type_, ?replyType:stdgo._internal.reflect.Reflect_Type_.Type_, ?_numCalls:std.UInt) this = new stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType(mutex, _method, argType, replyType, _numCalls);
+    public function new(?mutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_method:stdgo._internal.reflect.Reflect_Method.Method, ?argType:stdgo._internal.reflect.Reflect_Type_.Type_, ?replyType:stdgo._internal.reflect.Reflect_Type_.Type_, ?_numCalls:std.UInt) this = new stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType(mutex, _method, argType, replyType, (_numCalls : stdgo.GoUInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -250,7 +258,7 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
-        this._name = v;
+        this._name = (v : stdgo.GoString);
         return v;
     }
     public var _rcvr(get, set) : stdgo._internal.reflect.Reflect_Value.Value;
@@ -268,62 +276,62 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _method(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>;
     function get__method():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>> return this._method;
     function set__method(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>> {
-        this._method = v;
+        this._method = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>);
         return v;
     }
-    public function new(?_name:String, ?_rcvr:stdgo._internal.reflect.Reflect_Value.Value, ?_typ:stdgo._internal.reflect.Reflect_Type_.Type_, ?_method:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>) this = new stdgo._internal.net.rpc.Rpc_T_service.T_service(_name, _rcvr, _typ, _method);
+    public function new(?_name:String, ?_rcvr:stdgo._internal.reflect.Reflect_Value.Value, ?_typ:stdgo._internal.reflect.Reflect_Type_.Type_, ?_method:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>) this = new stdgo._internal.net.rpc.Rpc_T_service.T_service((_name : stdgo.GoString), _rcvr, _typ, (_method : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Request(stdgo._internal.net.rpc.Rpc_Request.Request) from stdgo._internal.net.rpc.Rpc_Request.Request to stdgo._internal.net.rpc.Rpc_Request.Request {
+@:structInit @:using(stdgo.net.rpc.Rpc.Request_static_extension) abstract Request(stdgo._internal.net.rpc.Rpc_Request.Request) from stdgo._internal.net.rpc.Rpc_Request.Request to stdgo._internal.net.rpc.Rpc_Request.Request {
     public var serviceMethod(get, set) : String;
     function get_serviceMethod():String return this.serviceMethod;
     function set_serviceMethod(v:String):String {
-        this.serviceMethod = v;
+        this.serviceMethod = (v : stdgo.GoString);
         return v;
     }
     public var seq(get, set) : haxe.UInt64;
     function get_seq():haxe.UInt64 return this.seq;
     function set_seq(v:haxe.UInt64):haxe.UInt64 {
-        this.seq = v;
+        this.seq = (v : stdgo.GoUInt64);
         return v;
     }
     public var _next(get, set) : Request;
     function get__next():Request return this._next;
     function set__next(v:Request):Request {
-        this._next = v;
+        this._next = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         return v;
     }
-    public function new(?serviceMethod:String, ?seq:haxe.UInt64, ?_next:Request) this = new stdgo._internal.net.rpc.Rpc_Request.Request(serviceMethod, seq, _next);
+    public function new(?serviceMethod:String, ?seq:haxe.UInt64, ?_next:Request) this = new stdgo._internal.net.rpc.Rpc_Request.Request((serviceMethod : stdgo.GoString), (seq : stdgo.GoUInt64), (_next : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Response(stdgo._internal.net.rpc.Rpc_Response.Response) from stdgo._internal.net.rpc.Rpc_Response.Response to stdgo._internal.net.rpc.Rpc_Response.Response {
+@:structInit @:using(stdgo.net.rpc.Rpc.Response_static_extension) abstract Response(stdgo._internal.net.rpc.Rpc_Response.Response) from stdgo._internal.net.rpc.Rpc_Response.Response to stdgo._internal.net.rpc.Rpc_Response.Response {
     public var serviceMethod(get, set) : String;
     function get_serviceMethod():String return this.serviceMethod;
     function set_serviceMethod(v:String):String {
-        this.serviceMethod = v;
+        this.serviceMethod = (v : stdgo.GoString);
         return v;
     }
     public var seq(get, set) : haxe.UInt64;
     function get_seq():haxe.UInt64 return this.seq;
     function set_seq(v:haxe.UInt64):haxe.UInt64 {
-        this.seq = v;
+        this.seq = (v : stdgo.GoUInt64);
         return v;
     }
     public var error(get, set) : String;
     function get_error():String return this.error;
     function set_error(v:String):String {
-        this.error = v;
+        this.error = (v : stdgo.GoString);
         return v;
     }
     public var _next(get, set) : Response;
     function get__next():Response return this._next;
     function set__next(v:Response):Response {
-        this._next = v;
+        this._next = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         return v;
     }
-    public function new(?serviceMethod:String, ?seq:haxe.UInt64, ?error:String, ?_next:Response) this = new stdgo._internal.net.rpc.Rpc_Response.Response(serviceMethod, seq, error, _next);
+    public function new(?serviceMethod:String, ?seq:haxe.UInt64, ?error:String, ?_next:Response) this = new stdgo._internal.net.rpc.Rpc_Response.Response((serviceMethod : stdgo.GoString), (seq : stdgo.GoUInt64), (error : stdgo.GoString), (_next : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -343,7 +351,7 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _freeReq(get, set) : Request;
     function get__freeReq():Request return this._freeReq;
     function set__freeReq(v:Request):Request {
-        this._freeReq = v;
+        this._freeReq = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         return v;
     }
     public var _respLock(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
@@ -355,10 +363,10 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _freeResp(get, set) : Response;
     function get__freeResp():Response return this._freeResp;
     function set__freeResp(v:Response):Response {
-        this._freeResp = v;
+        this._freeResp = (v : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         return v;
     }
-    public function new(?_serviceMap:stdgo._internal.sync.Sync_Map_.Map_, ?_reqLock:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeReq:Request, ?_respLock:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeResp:Response) this = new stdgo._internal.net.rpc.Rpc_Server.Server(_serviceMap, _reqLock, _freeReq, _respLock, _freeResp);
+    public function new(?_serviceMap:stdgo._internal.sync.Sync_Map_.Map_, ?_reqLock:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeReq:Request, ?_respLock:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeResp:Response) this = new stdgo._internal.net.rpc.Rpc_Server.Server(_serviceMap, _reqLock, (_freeReq : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>), _respLock, (_freeResp : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -372,19 +380,19 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
     public var _dec(get, set) : stdgo._internal.encoding.gob.Gob_Decoder.Decoder;
     function get__dec():stdgo._internal.encoding.gob.Gob_Decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.gob.Gob_Decoder.Decoder):stdgo._internal.encoding.gob.Gob_Decoder.Decoder {
-        this._dec = v;
+        this._dec = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>);
         return v;
     }
     public var _enc(get, set) : stdgo._internal.encoding.gob.Gob_Encoder.Encoder;
     function get__enc():stdgo._internal.encoding.gob.Gob_Encoder.Encoder return this._enc;
     function set__enc(v:stdgo._internal.encoding.gob.Gob_Encoder.Encoder):stdgo._internal.encoding.gob.Gob_Encoder.Encoder {
-        this._enc = v;
+        this._enc = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>);
         return v;
     }
     public var _encBuf(get, set) : stdgo._internal.bufio.Bufio_Writer.Writer;
     function get__encBuf():stdgo._internal.bufio.Bufio_Writer.Writer return this._encBuf;
     function set__encBuf(v:stdgo._internal.bufio.Bufio_Writer.Writer):stdgo._internal.bufio.Bufio_Writer.Writer {
-        this._encBuf = v;
+        this._encBuf = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);
         return v;
     }
     public var _closed(get, set) : Bool;
@@ -393,7 +401,7 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_ServerCodec.ServerCodec;
         this._closed = v;
         return v;
     }
-    public function new(?_rwc:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser, ?_dec:stdgo._internal.encoding.gob.Gob_Decoder.Decoder, ?_enc:stdgo._internal.encoding.gob.Gob_Encoder.Encoder, ?_encBuf:stdgo._internal.bufio.Bufio_Writer.Writer, ?_closed:Bool) this = new stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec(_rwc, _dec, _enc, _encBuf, _closed);
+    public function new(?_rwc:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser, ?_dec:stdgo._internal.encoding.gob.Gob_Decoder.Decoder, ?_enc:stdgo._internal.encoding.gob.Gob_Encoder.Encoder, ?_encBuf:stdgo._internal.bufio.Bufio_Writer.Writer, ?_closed:Bool) this = new stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec(_rwc, (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>), (_encBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _closed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -408,51 +416,88 @@ typedef T_serviceArray = stdgo._internal.net.rpc.Rpc_T_serviceArray.T_serviceArr
 typedef CallPointer = stdgo._internal.net.rpc.Rpc_CallPointer.CallPointer;
 class Call_static_extension {
     static public function _done(_call:Call):Void {
+        final _call = (_call : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>);
         stdgo._internal.net.rpc.Rpc_Call_static_extension.Call_static_extension._done(_call);
     }
 }
 typedef ClientPointer = stdgo._internal.net.rpc.Rpc_ClientPointer.ClientPointer;
 class Client_static_extension {
     static public function call(_client:Client, _serviceMethod:String, _args:stdgo.AnyInterface, _reply:stdgo.AnyInterface):stdgo.Error {
+        final _client = (_client : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>);
+        final _serviceMethod = (_serviceMethod : stdgo.GoString);
+        final _args = (_args : stdgo.AnyInterface);
+        final _reply = (_reply : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_Client_static_extension.Client_static_extension.call(_client, _serviceMethod, _args, _reply);
     }
     static public function go(_client:Client, _serviceMethod:String, _args:stdgo.AnyInterface, _reply:stdgo.AnyInterface, _done:stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>):Call {
+        final _client = (_client : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>);
+        final _serviceMethod = (_serviceMethod : stdgo.GoString);
+        final _args = (_args : stdgo.AnyInterface);
+        final _reply = (_reply : stdgo.AnyInterface);
+        final _done = (_done : stdgo.Chan<stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>>);
         return stdgo._internal.net.rpc.Rpc_Client_static_extension.Client_static_extension.go(_client, _serviceMethod, _args, _reply, _done);
     }
     static public function close(_client:Client):stdgo.Error {
+        final _client = (_client : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>);
         return stdgo._internal.net.rpc.Rpc_Client_static_extension.Client_static_extension.close(_client);
     }
     static public function _input(_client:Client):Void {
+        final _client = (_client : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>);
         stdgo._internal.net.rpc.Rpc_Client_static_extension.Client_static_extension._input(_client);
     }
     static public function _send(_client:Client, _call:Call):Void {
+        final _client = (_client : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client>);
+        final _call = (_call : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>);
         stdgo._internal.net.rpc.Rpc_Client_static_extension.Client_static_extension._send(_client, _call);
     }
 }
 typedef T_gobClientCodecPointer = stdgo._internal.net.rpc.Rpc_T_gobClientCodecPointer.T_gobClientCodecPointer;
 class T_gobClientCodec_static_extension {
     static public function close(_c:T_gobClientCodec):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec>);
         return stdgo._internal.net.rpc.Rpc_T_gobClientCodec_static_extension.T_gobClientCodec_static_extension.close(_c);
     }
     static public function readResponseBody(_c:T_gobClientCodec, _body:stdgo.AnyInterface):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec>);
+        final _body = (_body : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_gobClientCodec_static_extension.T_gobClientCodec_static_extension.readResponseBody(_c, _body);
     }
     static public function readResponseHeader(_c:T_gobClientCodec, _r:Response):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         return stdgo._internal.net.rpc.Rpc_T_gobClientCodec_static_extension.T_gobClientCodec_static_extension.readResponseHeader(_c, _r);
     }
     static public function writeRequest(_c:T_gobClientCodec, _r:Request, _body:stdgo.AnyInterface):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobClientCodec.T_gobClientCodec>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
+        final _body = (_body : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_gobClientCodec_static_extension.T_gobClientCodec_static_extension.writeRequest(_c, _r, _body);
     }
+}
+typedef T_debugMethodPointer = stdgo._internal.net.rpc.Rpc_T_debugMethodPointer.T_debugMethodPointer;
+class T_debugMethod_static_extension {
+
+}
+typedef T_debugServicePointer = stdgo._internal.net.rpc.Rpc_T_debugServicePointer.T_debugServicePointer;
+class T_debugService_static_extension {
+
 }
 typedef T_debugHTTPPointer = stdgo._internal.net.rpc.Rpc_T_debugHTTPPointer.T_debugHTTPPointer;
 class T_debugHTTP_static_extension {
     static public function serveHTTP(_server:T_debugHTTP, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request):Void {
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension.serveHTTP(_server, _w, _req);
     }
     public static function _sendResponse(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:stdgo._internal.sync.Sync_Mutex.Mutex, _1:Request, _2:stdgo.AnyInterface, _3:ServerCodec, _4:String):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>);
+        final _1 = (_1 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
+        final _2 = (_2 : stdgo.AnyInterface);
+        final _4 = (_4 : stdgo.GoString);
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension._sendResponse(__self__, _0, _1, _2, _3, _4);
     }
     public static function _register(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:stdgo.AnyInterface, _1:String, _2:Bool):stdgo.Error {
+        final _0 = (_0 : stdgo.AnyInterface);
+        final _1 = (_1 : stdgo.GoString);
         return stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension._register(__self__, _0, _1, _2);
     }
     public static function _readRequestHeader(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:ServerCodec):stdgo.Tuple.Tuple5<T_service, T_methodType, Request, Bool, stdgo.Error> {
@@ -474,9 +519,11 @@ class T_debugHTTP_static_extension {
         return stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension._getRequest(__self__);
     }
     public static function _freeResponse(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:Response):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension._freeResponse(__self__, _0);
     }
     public static function _freeRequest(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:Request):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension._freeRequest(__self__, _0);
     }
     public static function serveRequest(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:ServerCodec):stdgo.Error {
@@ -489,12 +536,17 @@ class T_debugHTTP_static_extension {
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension.serveCodec(__self__, _0);
     }
     public static function registerName(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:String, _1:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.GoString);
+        final _1 = (_1 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension.registerName(__self__, _0, _1);
     }
     public static function register(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:stdgo.AnyInterface):stdgo.Error {
+        final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension.register(__self__, _0);
     }
     public static function handleHTTP(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:String, _1:String):Void {
+        final _0 = (_0 : stdgo.GoString);
+        final _1 = (_1 : stdgo.GoString);
         stdgo._internal.net.rpc.Rpc_T_debugHTTP_static_extension.T_debugHTTP_static_extension.handleHTTP(__self__, _0, _1);
     }
     public static function accept(__self__:stdgo._internal.net.rpc.Rpc_T_debugHTTP.T_debugHTTP, _0:stdgo._internal.net.Net_Listener.Listener):Void {
@@ -504,9 +556,11 @@ class T_debugHTTP_static_extension {
 typedef T_methodTypePointer = stdgo._internal.net.rpc.Rpc_T_methodTypePointer.T_methodTypePointer;
 class T_methodType_static_extension {
     static public function numCalls(_m:T_methodType):std.UInt {
+        final _m = (_m : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>);
         return stdgo._internal.net.rpc.Rpc_T_methodType_static_extension.T_methodType_static_extension.numCalls(_m);
     }
     public static function _unlockSlow(__self__:stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType, _0:StdTypes.Int):Void {
+        final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.net.rpc.Rpc_T_methodType_static_extension.T_methodType_static_extension._unlockSlow(__self__, _0);
     }
     public static function _lockSlow(__self__:stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType):Void {
@@ -525,80 +579,136 @@ class T_methodType_static_extension {
 typedef T_servicePointer = stdgo._internal.net.rpc.Rpc_T_servicePointer.T_servicePointer;
 class T_service_static_extension {
     static public function _call(_s:T_service, _server:Server, _sending:stdgo._internal.sync.Sync_Mutex.Mutex, _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup, _mtype:T_methodType, _req:Request, _argv:stdgo._internal.reflect.Reflect_Value.Value, _replyv:stdgo._internal.reflect.Reflect_Value.Value, _codec:ServerCodec):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>);
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _sending = (_sending : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>);
+        final _wg = (_wg : stdgo.Ref<stdgo._internal.sync.Sync_WaitGroup.WaitGroup>);
+        final _mtype = (_mtype : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         stdgo._internal.net.rpc.Rpc_T_service_static_extension.T_service_static_extension._call(_s, _server, _sending, _wg, _mtype, _req, _argv, _replyv, _codec);
     }
+}
+typedef RequestPointer = stdgo._internal.net.rpc.Rpc_RequestPointer.RequestPointer;
+class Request_static_extension {
+
+}
+typedef ResponsePointer = stdgo._internal.net.rpc.Rpc_ResponsePointer.ResponsePointer;
+class Response_static_extension {
+
 }
 typedef ServerPointer = stdgo._internal.net.rpc.Rpc_ServerPointer.ServerPointer;
 class Server_static_extension {
     static public function handleHTTP(_server:Server, _rpcPath:String, _debugPath:String):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _rpcPath = (_rpcPath : stdgo.GoString);
+        final _debugPath = (_debugPath : stdgo.GoString);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.handleHTTP(_server, _rpcPath, _debugPath);
     }
     static public function serveHTTP(_server:Server, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.serveHTTP(_server, _w, _req);
     }
     static public function accept(_server:Server, _lis:stdgo._internal.net.Net_Listener.Listener):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.accept(_server, _lis);
     }
     static public function _readRequestHeader(_server:Server, _codec:ServerCodec):stdgo.Tuple.Tuple5<T_service, T_methodType, Request, Bool, stdgo.Error> {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return {
             final obj = stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._readRequestHeader(_server, _codec);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
     static public function _readRequest(_server:Server, _codec:ServerCodec):{ var _0 : T_service; var _1 : T_methodType; var _2 : Request; var _3 : stdgo._internal.reflect.Reflect_Value.Value; var _4 : stdgo._internal.reflect.Reflect_Value.Value; var _5 : Bool; var _6 : stdgo.Error; } {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return {
             final obj = stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._readRequest(_server, _codec);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4, _5 : obj._5, _6 : obj._6 };
         };
     }
     static public function _freeResponse(_server:Server, _resp:Response):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _resp = (_resp : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._freeResponse(_server, _resp);
     }
     static public function _getResponse(_server:Server):Response {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._getResponse(_server);
     }
     static public function _freeRequest(_server:Server, _req:Request):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._freeRequest(_server, _req);
     }
     static public function _getRequest(_server:Server):Request {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._getRequest(_server);
     }
     static public function serveRequest(_server:Server, _codec:ServerCodec):stdgo.Error {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.serveRequest(_server, _codec);
     }
     static public function serveCodec(_server:Server, _codec:ServerCodec):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.serveCodec(_server, _codec);
     }
     static public function serveConn(_server:Server, _conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.serveConn(_server, _conn);
     }
     static public function _sendResponse(_server:Server, _sending:stdgo._internal.sync.Sync_Mutex.Mutex, _req:Request, _reply:stdgo.AnyInterface, _codec:ServerCodec, _errmsg:String):Void {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _sending = (_sending : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
+        final _reply = (_reply : stdgo.AnyInterface);
+        final _errmsg = (_errmsg : stdgo.GoString);
         stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._sendResponse(_server, _sending, _req, _reply, _codec, _errmsg);
     }
     static public function _register(_server:Server, _rcvr:stdgo.AnyInterface, _name:String, _useName:Bool):stdgo.Error {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _rcvr = (_rcvr : stdgo.AnyInterface);
+        final _name = (_name : stdgo.GoString);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension._register(_server, _rcvr, _name, _useName);
     }
     static public function registerName(_server:Server, _name:String, _rcvr:stdgo.AnyInterface):stdgo.Error {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _name = (_name : stdgo.GoString);
+        final _rcvr = (_rcvr : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.registerName(_server, _name, _rcvr);
     }
     static public function register(_server:Server, _rcvr:stdgo.AnyInterface):stdgo.Error {
+        final _server = (_server : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>);
+        final _rcvr = (_rcvr : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_Server_static_extension.Server_static_extension.register(_server, _rcvr);
     }
 }
 typedef T_gobServerCodecPointer = stdgo._internal.net.rpc.Rpc_T_gobServerCodecPointer.T_gobServerCodecPointer;
 class T_gobServerCodec_static_extension {
     static public function close(_c:T_gobServerCodec):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec>);
         return stdgo._internal.net.rpc.Rpc_T_gobServerCodec_static_extension.T_gobServerCodec_static_extension.close(_c);
     }
     static public function writeResponse(_c:T_gobServerCodec, _r:Response, _body:stdgo.AnyInterface):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
+        final _body = (_body : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_gobServerCodec_static_extension.T_gobServerCodec_static_extension.writeResponse(_c, _r, _body);
     }
     static public function readRequestBody(_c:T_gobServerCodec, _body:stdgo.AnyInterface):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec>);
+        final _body = (_body : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_T_gobServerCodec_static_extension.T_gobServerCodec_static_extension.readRequestBody(_c, _body);
     }
     static public function readRequestHeader(_c:T_gobServerCodec, _r:Request):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         return stdgo._internal.net.rpc.Rpc_T_gobServerCodec_static_extension.T_gobServerCodec_static_extension.readRequestHeader(_c, _r);
     }
+}
+typedef T__struct_0PointerPointer = stdgo._internal.net.rpc.Rpc_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
 }
 typedef ServerErrorPointer = stdgo._internal.net.rpc.Rpc_ServerErrorPointer.ServerErrorPointer;
 class ServerError_static_extension {
@@ -609,9 +719,13 @@ class ServerError_static_extension {
 typedef T_methodArrayPointer = stdgo._internal.net.rpc.Rpc_T_methodArrayPointer.T_methodArrayPointer;
 class T_methodArray_static_extension {
     static public function swap(_m:T_methodArray, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.net.rpc.Rpc_T_methodArray_static_extension.T_methodArray_static_extension.swap(_m, _i, _j);
     }
     static public function less(_m:T_methodArray, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.net.rpc.Rpc_T_methodArray_static_extension.T_methodArray_static_extension.less(_m, _i, _j);
     }
     static public function len(_m:T_methodArray):StdTypes.Int {
@@ -621,9 +735,13 @@ class T_methodArray_static_extension {
 typedef T_serviceArrayPointer = stdgo._internal.net.rpc.Rpc_T_serviceArrayPointer.T_serviceArrayPointer;
 class T_serviceArray_static_extension {
     static public function swap(_s:T_serviceArray, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         stdgo._internal.net.rpc.Rpc_T_serviceArray_static_extension.T_serviceArray_static_extension.swap(_s, _i, _j);
     }
     static public function less(_s:T_serviceArray, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        final _i = (_i : stdgo.GoInt);
+        final _j = (_j : stdgo.GoInt);
         return stdgo._internal.net.rpc.Rpc_T_serviceArray_static_extension.T_serviceArray_static_extension.less(_s, _i, _j);
     }
     static public function len(_s:T_serviceArray):StdTypes.Int {
@@ -766,21 +884,23 @@ class Rpc {
         concurrently so the implementation of conn should protect against
         concurrent reads or concurrent writes.
     **/
-    static public function newClient(_conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser):Client {
+    static public inline function newClient(_conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser):Client {
         return stdgo._internal.net.rpc.Rpc_newClient.newClient(_conn);
     }
     /**
         NewClientWithCodec is like NewClient but uses the specified
         codec to encode requests and decode responses.
     **/
-    static public function newClientWithCodec(_codec:ClientCodec):Client {
+    static public inline function newClientWithCodec(_codec:ClientCodec):Client {
         return stdgo._internal.net.rpc.Rpc_newClientWithCodec.newClientWithCodec(_codec);
     }
     /**
         DialHTTP connects to an HTTP RPC server at the specified network address
         listening on the default HTTP RPC path.
     **/
-    static public function dialHTTP(_network:String, _address:String):stdgo.Tuple<Client, stdgo.Error> {
+    static public inline function dialHTTP(_network:String, _address:String):stdgo.Tuple<Client, stdgo.Error> {
+        final _network = (_network : stdgo.GoString);
+        final _address = (_address : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.rpc.Rpc_dialHTTP.dialHTTP(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
@@ -790,7 +910,10 @@ class Rpc {
         DialHTTPPath connects to an HTTP RPC server
         at the specified network address and path.
     **/
-    static public function dialHTTPPath(_network:String, _address:String, _path:String):stdgo.Tuple<Client, stdgo.Error> {
+    static public inline function dialHTTPPath(_network:String, _address:String, _path:String):stdgo.Tuple<Client, stdgo.Error> {
+        final _network = (_network : stdgo.GoString);
+        final _address = (_address : stdgo.GoString);
+        final _path = (_path : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.rpc.Rpc_dialHTTPPath.dialHTTPPath(_network, _address, _path);
             { _0 : obj._0, _1 : obj._1 };
@@ -799,7 +922,9 @@ class Rpc {
     /**
         Dial connects to an RPC server at the specified network address.
     **/
-    static public function dial(_network:String, _address:String):stdgo.Tuple<Client, stdgo.Error> {
+    static public inline function dial(_network:String, _address:String):stdgo.Tuple<Client, stdgo.Error> {
+        final _network = (_network : stdgo.GoString);
+        final _address = (_address : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.rpc.Rpc_dial.dial(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
@@ -808,20 +933,23 @@ class Rpc {
     /**
         NewServer returns a new Server.
     **/
-    static public function newServer():Server {
+    static public inline function newServer():Server {
         return stdgo._internal.net.rpc.Rpc_newServer.newServer();
     }
     /**
         Register publishes the receiver's methods in the DefaultServer.
     **/
-    static public function register(_rcvr:stdgo.AnyInterface):stdgo.Error {
+    static public inline function register(_rcvr:stdgo.AnyInterface):stdgo.Error {
+        final _rcvr = (_rcvr : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_register.register(_rcvr);
     }
     /**
         RegisterName is like Register but uses the provided name for the type
         instead of the receiver's concrete type.
     **/
-    static public function registerName(_name:String, _rcvr:stdgo.AnyInterface):stdgo.Error {
+    static public inline function registerName(_name:String, _rcvr:stdgo.AnyInterface):stdgo.Error {
+        final _name = (_name : stdgo.GoString);
+        final _rcvr = (_rcvr : stdgo.AnyInterface);
         return stdgo._internal.net.rpc.Rpc_registerName.registerName(_name, _rcvr);
     }
     /**
@@ -832,21 +960,21 @@ class Rpc {
         connection. To use an alternate codec, use ServeCodec.
         See NewClient's comment for information about concurrent access.
     **/
-    static public function serveConn(_conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser):Void {
+    static public inline function serveConn(_conn:stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser):Void {
         stdgo._internal.net.rpc.Rpc_serveConn.serveConn(_conn);
     }
     /**
         ServeCodec is like ServeConn but uses the specified codec to
         decode requests and encode responses.
     **/
-    static public function serveCodec(_codec:ServerCodec):Void {
+    static public inline function serveCodec(_codec:ServerCodec):Void {
         stdgo._internal.net.rpc.Rpc_serveCodec.serveCodec(_codec);
     }
     /**
         ServeRequest is like ServeCodec but synchronously serves a single request.
         It does not close the codec upon completion.
     **/
-    static public function serveRequest(_codec:ServerCodec):stdgo.Error {
+    static public inline function serveRequest(_codec:ServerCodec):stdgo.Error {
         return stdgo._internal.net.rpc.Rpc_serveRequest.serveRequest(_codec);
     }
     /**
@@ -854,7 +982,7 @@ class Rpc {
         to DefaultServer for each incoming connection.
         Accept blocks; the caller typically invokes it in a go statement.
     **/
-    static public function accept(_lis:stdgo._internal.net.Net_Listener.Listener):Void {
+    static public inline function accept(_lis:stdgo._internal.net.Net_Listener.Listener):Void {
         stdgo._internal.net.rpc.Rpc_accept.accept(_lis);
     }
     /**
@@ -862,7 +990,7 @@ class Rpc {
         on DefaultRPCPath and a debugging handler on DefaultDebugPath.
         It is still necessary to invoke http.Serve(), typically in a go statement.
     **/
-    static public function handleHTTP():Void {
+    static public inline function handleHTTP():Void {
         stdgo._internal.net.rpc.Rpc_handleHTTP.handleHTTP();
     }
 }

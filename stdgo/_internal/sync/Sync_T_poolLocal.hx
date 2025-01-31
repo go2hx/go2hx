@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_T_poolLocal_static_extension.T_poolLocal_static_extension) class T_poolLocal {
     @:embedded
     public var _poolLocalInternal : stdgo._internal.sync.Sync_T_poolLocalInternal.T_poolLocalInternal = ({} : stdgo._internal.sync.Sync_T_poolLocalInternal.T_poolLocalInternal);

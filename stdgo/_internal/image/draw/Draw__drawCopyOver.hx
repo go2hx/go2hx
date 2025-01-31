@@ -1,4 +1,6 @@
 package stdgo._internal.image.draw;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+import stdgo._internal.image.color.Color;
 function _drawCopyOver(_dst:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _sp:stdgo._internal.image.Image_Point.Point):Void {
         var __0 = (_r.dx() : stdgo.GoInt), __1 = (_r.dy() : stdgo.GoInt);
 var _dy = __1, _dx = __0;

@@ -1,4 +1,10 @@
 package stdgo._internal.text.template.parse;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.strconv.Strconv;
 function _lexRawQuote(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):stdgo._internal.text.template.parse.Parse_T_stateFn.T_stateFn {
         var loopBreak = false;
         var _gotoNext = 0i32;
@@ -7,37 +13,37 @@ function _lexRawQuote(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_l
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 3645724i32;
-                } else if (__value__ == (3645724i32)) {
+                    _gotoNext = 3624062i32;
+                } else if (__value__ == (3624062i32)) {
                     var __blank__ = 0i32;
                     loopBreak = false;
-                    _gotoNext = 3645731i32;
-                } else if (__value__ == (3645731i32)) {
+                    _gotoNext = 3624069i32;
+                } else if (__value__ == (3624069i32)) {
                     if (!loopBreak) {
-                        _gotoNext = 3645735i32;
+                        _gotoNext = 3624073i32;
                     } else {
-                        _gotoNext = 3645856i32;
+                        _gotoNext = 3624194i32;
                     };
-                } else if (__value__ == (3645735i32)) {
-                    _gotoNext = 3645739i32;
-                } else if (__value__ == (3645739i32)) {
+                } else if (__value__ == (3624073i32)) {
+                    _gotoNext = 3624077i32;
+                } else if (__value__ == (3624077i32)) {
                     {
                         final __value__ = @:check2r _l._next();
                         if (__value__ == ((-1 : stdgo.GoInt32))) {
-                            _gotoNext = 3645759i32;
+                            _gotoNext = 3624097i32;
                         } else if (__value__ == ((96 : stdgo.GoInt32))) {
-                            _gotoNext = 3645824i32;
+                            _gotoNext = 3624162i32;
                         } else {
-                            _gotoNext = 3645731i32;
+                            _gotoNext = 3624069i32;
                         };
                     };
-                } else if (__value__ == (3645759i32)) {
+                } else if (__value__ == (3624097i32)) {
                     return @:check2r _l._errorf(("unterminated raw quoted string" : stdgo.GoString));
-                    _gotoNext = 3645731i32;
-                } else if (__value__ == (3645824i32)) {
+                    _gotoNext = 3624069i32;
+                } else if (__value__ == (3624162i32)) {
                     loopBreak = true;
-                    _gotoNext = 3645731i32;
-                } else if (__value__ == (3645856i32)) {
+                    _gotoNext = 3624069i32;
+                } else if (__value__ == (3624194i32)) {
                     return @:check2r _l._emit((15 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType));
                     _gotoNext = -1i32;
                 };

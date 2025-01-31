@@ -1,4 +1,5 @@
 package stdgo._internal.net.http.internal.ascii;
+import stdgo._internal.strings.Strings;
 function isPrint(_s:stdgo.GoString):Bool {
         {
             var _i = (0 : stdgo.GoInt);

@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-@:structInit class NamedValue {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.database.sql.driver.Driver_NamedValue_static_extension.NamedValue_static_extension) class NamedValue {
     public var name : stdgo.GoString = "";
     public var ordinal : stdgo.GoInt = 0;
     public var value : stdgo._internal.database.sql.driver.Driver_Value.Value = (null : stdgo._internal.database.sql.driver.Driver_Value.Value);

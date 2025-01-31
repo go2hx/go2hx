@@ -1,4 +1,13 @@
 package stdgo._internal.log;
+import stdgo._internal.os.Os;
+import stdgo._internal.log.internal.Internal;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.time.Time;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension) class Logger {
     public var _outMu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _out : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);

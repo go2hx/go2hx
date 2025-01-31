@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
         if ((stdgo._internal.math.Math_abs.abs(_x) < (1.073741824e+09 : stdgo.GoFloat64) : Bool)) {

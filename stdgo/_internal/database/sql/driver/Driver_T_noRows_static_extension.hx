@@ -1,4 +1,8 @@
 package stdgo._internal.database.sql.driver;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.database.sql.driver.Driver.T_noRows_asInterface) class T_noRows_static_extension {
     @:keep
     @:tdfield

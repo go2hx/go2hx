@@ -1,5 +1,6 @@
 package stdgo._internal.internal.abi;
-@:structInit class Imethod {
+import stdgo._internal.unsafe.Unsafe;
+@:structInit @:using(stdgo._internal.internal.abi.Abi_Imethod_static_extension.Imethod_static_extension) class Imethod {
     public var name : stdgo._internal.internal.abi.Abi_NameOff.NameOff = ((0 : stdgo.GoInt32) : stdgo._internal.internal.abi.Abi_NameOff.NameOff);
     public var typ : stdgo._internal.internal.abi.Abi_TypeOff.TypeOff = ((0 : stdgo.GoInt32) : stdgo._internal.internal.abi.Abi_TypeOff.TypeOff);
     public function new(?name:stdgo._internal.internal.abi.Abi_NameOff.NameOff, ?typ:stdgo._internal.internal.abi.Abi_TypeOff.TypeOff) {

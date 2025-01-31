@@ -1,2 +1,11 @@
 package stdgo._internal.image.gif;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.Image;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.image.draw.Draw;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.lzw.Lzw;
+import stdgo._internal.bytes.Bytes;
 var _log2Lookup : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(8, 8, ...[(2 : stdgo.GoInt), (4 : stdgo.GoInt), (8 : stdgo.GoInt), (16 : stdgo.GoInt), (32 : stdgo.GoInt), (64 : stdgo.GoInt), (128 : stdgo.GoInt), (256 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>);

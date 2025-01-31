@@ -1,4 +1,10 @@
 package stdgo._internal.regexp.syntax;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.regexp.syntax.Syntax_T_parser_static_extension.T_parser_static_extension) class T_parser {
     public var _flags : stdgo._internal.regexp.syntax.Syntax_Flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
     public var _stack : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>);

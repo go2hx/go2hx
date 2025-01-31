@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha256;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 function sum256(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoArray<stdgo.GoUInt8> {
         if (false) {
             return stdgo._internal.crypto.internal.boring.Boring_sHA256.sHA256(_data)?.__copy__();

@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

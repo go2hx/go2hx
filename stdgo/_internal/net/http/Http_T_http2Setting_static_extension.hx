@@ -26,6 +26,6 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function string( _s:stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting):stdgo.GoString {
         @:recv var _s:stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting = _s?.__copy__();
-        return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[%v = %d]" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.iD)), stdgo.Go.toInterface(_s.val))?.__copy__();
+        return stdgo._internal.net.http.Http__fmt._fmt.sprintf(("[%v = %d]" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.iD)), stdgo.Go.toInterface(_s.val))?.__copy__();
     }
 }

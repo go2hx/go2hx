@@ -1,5 +1,5 @@
 package stdgo._internal.os.exec;
-@:structInit class T_ctxResult {
+@:structInit @:using(stdgo._internal.os.exec.Exec_T_ctxResult_static_extension.T_ctxResult_static_extension) class T_ctxResult {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _timer : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer> = (null : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>);
     public function new(?_err:stdgo.Error, ?_timer:stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>) {

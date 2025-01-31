@@ -1,14 +1,5 @@
 package stdgo._internal.net.http;
 class T_http2priorityNode_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _walkReadyInOrder(_openParent:Bool, _tmp:stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>>, _f:(stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>, Bool) -> Bool):Bool return @:_0 __self__.value._walkReadyInOrder(_openParent, _tmp, _f);
-    @:keep
-    @:tdfield
-    public dynamic function _addBytes(_b:stdgo.GoInt64):Void @:_0 __self__.value._addBytes(_b);
-    @:keep
-    @:tdfield
-    public dynamic function _setParent(_parent:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void @:_0 __self__.value._setParent(_parent);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

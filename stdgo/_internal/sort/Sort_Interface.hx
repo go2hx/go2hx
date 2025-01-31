@@ -1,5 +1,7 @@
 package stdgo._internal.sort;
-typedef Interface = stdgo.StructType & {
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
+@:interface typedef Interface = stdgo.StructType & {
     /**
         Len is the number of elements in the collection.
         

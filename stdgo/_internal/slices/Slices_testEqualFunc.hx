@@ -1,8 +1,19 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _test in stdgo._internal.slices.Slices__equalIntTests._equalIntTests) {
             {
-                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoInt), _0, _1)) : Bool);
+                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal(_0, _1)) : Bool);
                 if (_got != (_test._want)) {
                     @:check2r _t.errorf(("EqualFunc(%v, %v, equal[int]) = %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
@@ -10,13 +21,13 @@ function testEqualFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         };
         for (__1 => _test in stdgo._internal.slices.Slices__equalFloatTests._equalFloatTests) {
             {
-                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoFloat64), _0, _1)) : Bool);
+                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equal._equal(_0, _1)) : Bool);
                 if (_got != (_test._wantEqual)) {
                     @:check2r _t.errorf(("Equal(%v, %v, equal[float64]) = %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._wantEqual));
                 };
             };
             {
-                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equalNaN._equalNaN((0 : stdgo.GoFloat64), _0, _1)) : Bool);
+                var _got = (stdgo._internal.slices.Slices_equalFunc.equalFunc(_test._s1, _test._s2, function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equalNaN._equalNaN(_0, _1)) : Bool);
                 if (_got != (_test._wantEqualNaN)) {
                     @:check2r _t.errorf(("Equal(%v, %v, equalNaN[float64]) = %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._wantEqualNaN));
                 };

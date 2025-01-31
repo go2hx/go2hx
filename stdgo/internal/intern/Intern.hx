@@ -9,7 +9,7 @@ package stdgo.internal.intern;
     public var _cmpVal(get, set) : stdgo.AnyInterface;
     function get__cmpVal():stdgo.AnyInterface return this._cmpVal;
     function set__cmpVal(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this._cmpVal = v;
+        this._cmpVal = (v : stdgo.AnyInterface);
         return v;
     }
     public var _resurrected(get, set) : Bool;
@@ -18,7 +18,7 @@ package stdgo.internal.intern;
         this._resurrected = v;
         return v;
     }
-    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_Value.Value(([for (i in __1) i] : stdgo.GoArray<() -> Void>), _cmpVal, _resurrected);
+    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_Value.Value(([for (i in __1) i] : stdgo.GoArray<() -> Void>), (_cmpVal : stdgo.AnyInterface), _resurrected);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -26,13 +26,13 @@ package stdgo.internal.intern;
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
-        this._s = v;
+        this._s = (v : stdgo.GoString);
         return v;
     }
     public var _cmpVal(get, set) : stdgo.AnyInterface;
     function get__cmpVal():stdgo.AnyInterface return this._cmpVal;
     function set__cmpVal(v:stdgo.AnyInterface):stdgo.AnyInterface {
-        this._cmpVal = v;
+        this._cmpVal = (v : stdgo.AnyInterface);
         return v;
     }
     public var _isString(get, set) : Bool;
@@ -41,13 +41,14 @@ package stdgo.internal.intern;
         this._isString = v;
         return v;
     }
-    public function new(?_s:String, ?_cmpVal:stdgo.AnyInterface, ?_isString:Bool) this = new stdgo._internal.internal.intern.Intern_T_key.T_key(_s, _cmpVal, _isString);
+    public function new(?_s:String, ?_cmpVal:stdgo.AnyInterface, ?_isString:Bool) this = new stdgo._internal.internal.intern.Intern_T_key.T_key((_s : stdgo.GoString), (_cmpVal : stdgo.AnyInterface), _isString);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef ValuePointer = stdgo._internal.internal.intern.Intern_ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function get(_v:Value):stdgo.AnyInterface {
+        final _v = (_v : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
         return stdgo._internal.internal.intern.Intern_Value_static_extension.Value_static_extension.get(_v);
     }
 }
@@ -72,7 +73,8 @@ class Intern {
         The returned pointer will be the same for Get(v) and Get(v2)
         if and only if v == v2, and can be used as a map key.
     **/
-    static public function get(_cmpVal:stdgo.AnyInterface):Value {
+    static public inline function get(_cmpVal:stdgo.AnyInterface):Value {
+        final _cmpVal = (_cmpVal : stdgo.AnyInterface);
         return stdgo._internal.internal.intern.Intern_get.get(_cmpVal);
     }
     /**
@@ -80,7 +82,8 @@ class Intern {
         This avoids an allocation from putting a string into an interface{}
         to pass as an argument to Get.
     **/
-    static public function getByString(_s:String):Value {
+    static public inline function getByString(_s:String):Value {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.internal.intern.Intern_getByString.getByString(_s);
     }
 }

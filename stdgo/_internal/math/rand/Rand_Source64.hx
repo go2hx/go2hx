@@ -1,5 +1,7 @@
 package stdgo._internal.math.rand;
-typedef Source64 = stdgo.StructType & {
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
+@:interface typedef Source64 = stdgo.StructType & {
     > stdgo._internal.math.rand.Rand_Source.Source,
     /**
         

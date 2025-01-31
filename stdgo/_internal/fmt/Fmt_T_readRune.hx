@@ -1,4 +1,13 @@
 package stdgo._internal.fmt;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.fmtsort.Fmtsort;
+import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.fmt.Fmt_T_readRune_static_extension.T_readRune_static_extension) class T_readRune {
     public var _reader : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();

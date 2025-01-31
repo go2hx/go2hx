@@ -1,12 +1,14 @@
 package stdgo.strings;
 class T_replacer_static_extension {
     static public function writeString(t:stdgo._internal.strings.Strings_T_replacer.T_replacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_replacer_static_extension.T_replacer_static_extension.writeString(t, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(t:stdgo._internal.strings.Strings_T_replacer.T_replacer, _s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_replacer_static_extension.T_replacer_static_extension.replace(t, _s);
     }
 }
@@ -15,16 +17,16 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _addr(get, set) : Builder;
     function get__addr():Builder return this._addr;
     function set__addr(v:Builder):Builder {
-        this._addr = v;
+        this._addr = (v : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         return v;
     }
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
-        this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_addr:Builder, ?_buf:Array<std.UInt>) this = new stdgo._internal.strings.Strings_Builder.Builder(_addr, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_addr:Builder, ?_buf:Array<std.UInt>) this = new stdgo._internal.strings.Strings_Builder.Builder((_addr : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -32,22 +34,22 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
-        this._s = v;
+        this._s = (v : stdgo.GoString);
         return v;
     }
     public var _i(get, set) : haxe.Int64;
     function get__i():haxe.Int64 return this._i;
     function set__i(v:haxe.Int64):haxe.Int64 {
-        this._i = v;
+        this._i = (v : stdgo.GoInt64);
         return v;
     }
     public var _prevRune(get, set) : StdTypes.Int;
     function get__prevRune():StdTypes.Int return this._prevRune;
     function set__prevRune(v:StdTypes.Int):StdTypes.Int {
-        this._prevRune = v;
+        this._prevRune = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_s:String, ?_i:haxe.Int64, ?_prevRune:StdTypes.Int) this = new stdgo._internal.strings.Strings_Reader.Reader(_s, _i, _prevRune);
+    public function new(?_s:String, ?_i:haxe.Int64, ?_prevRune:StdTypes.Int) this = new stdgo._internal.strings.Strings_Reader.Reader((_s : stdgo.GoString), (_i : stdgo.GoInt64), (_prevRune : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -67,10 +69,10 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _oldnew(get, set) : Array<String>;
     function get__oldnew():Array<String> return [for (i in this._oldnew) i];
     function set__oldnew(v:Array<String>):Array<String> {
-        this._oldnew = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this._oldnew = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_once:stdgo._internal.sync.Sync_Once.Once, ?_r:T_replacer, ?_oldnew:Array<String>) this = new stdgo._internal.strings.Strings_Replacer.Replacer(_once, _r, ([for (i in _oldnew) i] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_once:stdgo._internal.sync.Sync_Once.Once, ?_r:T_replacer, ?_oldnew:Array<String>) this = new stdgo._internal.strings.Strings_Replacer.Replacer(_once, _r, ([for (i in _oldnew) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -78,34 +80,34 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _value(get, set) : String;
     function get__value():String return this._value;
     function set__value(v:String):String {
-        this._value = v;
+        this._value = (v : stdgo.GoString);
         return v;
     }
     public var _priority(get, set) : StdTypes.Int;
     function get__priority():StdTypes.Int return this._priority;
     function set__priority(v:StdTypes.Int):StdTypes.Int {
-        this._priority = v;
+        this._priority = (v : stdgo.GoInt);
         return v;
     }
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
-        this._prefix = v;
+        this._prefix = (v : stdgo.GoString);
         return v;
     }
     public var _next(get, set) : T_trieNode;
     function get__next():T_trieNode return this._next;
     function set__next(v:T_trieNode):T_trieNode {
-        this._next = v;
+        this._next = (v : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>);
         return v;
     }
     public var _table(get, set) : Array<T_trieNode>;
     function get__table():Array<T_trieNode> return [for (i in this._table) i];
     function set__table(v:Array<T_trieNode>):Array<T_trieNode> {
-        this._table = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>>);
+        this._table = ([for (i in v) (i : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>>);
         return v;
     }
-    public function new(?_value:String, ?_priority:StdTypes.Int, ?_prefix:String, ?_next:T_trieNode, ?_table:Array<T_trieNode>) this = new stdgo._internal.strings.Strings_T_trieNode.T_trieNode(_value, _priority, _prefix, _next, ([for (i in _table) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>>));
+    public function new(?_value:String, ?_priority:StdTypes.Int, ?_prefix:String, ?_next:T_trieNode, ?_table:Array<T_trieNode>) this = new stdgo._internal.strings.Strings_T_trieNode.T_trieNode((_value : stdgo.GoString), (_priority : stdgo.GoInt), (_prefix : stdgo.GoString), (_next : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>), ([for (i in _table) (i : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -119,16 +121,16 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _tableSize(get, set) : StdTypes.Int;
     function get__tableSize():StdTypes.Int return this._tableSize;
     function set__tableSize(v:StdTypes.Int):StdTypes.Int {
-        this._tableSize = v;
+        this._tableSize = (v : stdgo.GoInt);
         return v;
     }
     public var _mapping(get, set) : haxe.ds.Vector<std.UInt>;
     function get__mapping():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._mapping) i]);
     function set__mapping(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._mapping = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._mapping = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_root:T_trieNode, ?_tableSize:StdTypes.Int, ?_mapping:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer(_root, _tableSize, ([for (i in _mapping) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_root:T_trieNode, ?_tableSize:StdTypes.Int, ?_mapping:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer(_root, (_tableSize : stdgo.GoInt), ([for (i in _mapping) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -147,16 +149,16 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _finder(get, set) : T_stringFinder;
     function get__finder():T_stringFinder return this._finder;
     function set__finder(v:T_stringFinder):T_stringFinder {
-        this._finder = v;
+        this._finder = (v : stdgo.Ref<stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder>);
         return v;
     }
     public var _value(get, set) : String;
     function get__value():String return this._value;
     function set__value(v:String):String {
-        this._value = v;
+        this._value = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_finder:T_stringFinder, ?_value:String) this = new stdgo._internal.strings.Strings_T_singleStringReplacer.T_singleStringReplacer(_finder, _value);
+    public function new(?_finder:T_stringFinder, ?_value:String) this = new stdgo._internal.strings.Strings_T_singleStringReplacer.T_singleStringReplacer((_finder : stdgo.Ref<stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder>), (_value : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -164,16 +166,16 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _replacements(get, set) : haxe.ds.Vector<Array<std.UInt>>;
     function get__replacements():haxe.ds.Vector<Array<std.UInt>> return haxe.ds.Vector.fromArrayCopy([for (i in this._replacements) [for (i in i) i]]);
     function set__replacements(v:haxe.ds.Vector<Array<std.UInt>>):haxe.ds.Vector<Array<std.UInt>> {
-        this._replacements = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>);
+        this._replacements = ([for (i in v) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
     public var _toReplace(get, set) : Array<String>;
     function get__toReplace():Array<String> return [for (i in this._toReplace) i];
     function set__toReplace(v:Array<String>):Array<String> {
-        this._toReplace = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
+        this._toReplace = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_replacements:haxe.ds.Vector<Array<std.UInt>>, ?_toReplace:Array<String>) this = new stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer(([for (i in _replacements) ([for (i in i) i] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>), ([for (i in _toReplace) i] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_replacements:haxe.ds.Vector<Array<std.UInt>>, ?_toReplace:Array<String>) this = new stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer(([for (i in _replacements) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>), ([for (i in _toReplace) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -181,201 +183,255 @@ typedef T_replacer = stdgo._internal.strings.Strings_T_replacer.T_replacer;
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
-        this._pattern = v;
+        this._pattern = (v : stdgo.GoString);
         return v;
     }
     public var _badCharSkip(get, set) : haxe.ds.Vector<StdTypes.Int>;
     function get__badCharSkip():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this._badCharSkip) i]);
     function set__badCharSkip(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
-        this._badCharSkip = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt>);
+        this._badCharSkip = ([for (i in v) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>);
         return v;
     }
     public var _goodSuffixSkip(get, set) : Array<StdTypes.Int>;
     function get__goodSuffixSkip():Array<StdTypes.Int> return [for (i in this._goodSuffixSkip) i];
     function set__goodSuffixSkip(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        this._goodSuffixSkip = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
+        this._goodSuffixSkip = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?_pattern:String, ?_badCharSkip:haxe.ds.Vector<StdTypes.Int>, ?_goodSuffixSkip:Array<StdTypes.Int>) this = new stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder(_pattern, ([for (i in _badCharSkip) i] : stdgo.GoArray<stdgo.GoInt>), ([for (i in _goodSuffixSkip) i] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?_pattern:String, ?_badCharSkip:haxe.ds.Vector<StdTypes.Int>, ?_goodSuffixSkip:Array<StdTypes.Int>) this = new stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder((_pattern : stdgo.GoString), ([for (i in _badCharSkip) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>), ([for (i in _goodSuffixSkip) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_appendSliceWriter = stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter;
 typedef T_byteReplacer = stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer;
 typedef T_asciiSet = stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet;
-@:structInit abstract T_fieldsFunc___localname___span_9921(stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921) from stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921 to stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921 {
+@:structInit @:using(stdgo.strings.Strings.T_fieldsFunc___localname___span_9921_static_extension) abstract T_fieldsFunc___localname___span_9921(stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921) from stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921 to stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {
-        this._start = v;
+        this._start = (v : stdgo.GoInt);
         return v;
     }
     public var _end(get, set) : StdTypes.Int;
     function get__end():StdTypes.Int return this._end;
     function set__end(v:StdTypes.Int):StdTypes.Int {
-        this._end = v;
+        this._end = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921(_start, _end);
+    public function new(?_start:StdTypes.Int, ?_end:StdTypes.Int) this = new stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921.T_fieldsFunc___localname___span_9921((_start : stdgo.GoInt), (_end : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef BuilderPointer = stdgo._internal.strings.Strings_BuilderPointer.BuilderPointer;
 class Builder_static_extension {
     static public function writeString(_b:Builder, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.writeString(_b, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function writeRune(_b:Builder, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _r = (_r : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.writeRune(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function writeByte(_b:Builder, _c:std.UInt):stdgo.Error {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.writeByte(_b, _c);
     }
     static public function write(_b:Builder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.write(_b, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function grow(_b:Builder, _n:StdTypes.Int):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _n = (_n : stdgo.GoInt);
         stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.grow(_b, _n);
     }
     static public function _grow(_b:Builder, _n:StdTypes.Int):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        final _n = (_n : stdgo.GoInt);
         stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension._grow(_b, _n);
     }
     static public function reset(_b:Builder):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.reset(_b);
     }
     static public function cap(_b:Builder):StdTypes.Int {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         return stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.cap(_b);
     }
     static public function len(_b:Builder):StdTypes.Int {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         return stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.len(_b);
     }
     static public function string(_b:Builder):String {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         return stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension.string(_b);
     }
     static public function _copyCheck(_b:Builder):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         stdgo._internal.strings.Strings_Builder_static_extension.Builder_static_extension._copyCheck(_b);
     }
 }
 typedef ReaderPointer = stdgo._internal.strings.Strings_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function reset(_r:Reader, _s:String):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
+        final _s = (_s : stdgo.GoString);
         stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.reset(_r, _s);
     }
     static public function writeTo(_r:Reader, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.writeTo(_r, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function seek(_r:Reader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
+        final _offset = (_offset : stdgo.GoInt64);
+        final _whence = (_whence : stdgo.GoInt);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.seek(_r, _offset, _whence);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function unreadRune(_r:Reader):stdgo.Error {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.unreadRune(_r);
     }
     static public function readRune(_r:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.readRune(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function unreadByte(_r:Reader):stdgo.Error {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.unreadByte(_r);
     }
     static public function readByte(_r:Reader):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.readByte(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function readAt(_r:Reader, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _off = (_off : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.readAt(_r, _b, _off);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function read(_r:Reader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function size(_r:Reader):haxe.Int64 {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.size(_r);
     }
     static public function len(_r:Reader):StdTypes.Int {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
         return stdgo._internal.strings.Strings_Reader_static_extension.Reader_static_extension.len(_r);
     }
 }
 typedef ReplacerPointer = stdgo._internal.strings.Strings_ReplacerPointer.ReplacerPointer;
 class Replacer_static_extension {
     static public function writeString(_r:Replacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension.writeString(_r, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(_r:Replacer, _s:String):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension.replace(_r, _s);
     }
     static public function _build(_b:Replacer):T_replacer {
+        final _b = (_b : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
         return stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension._build(_b);
     }
     static public function _buildOnce(_r:Replacer):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
         stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension._buildOnce(_r);
     }
     static public function printTrie(_r:Replacer):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
         return stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension.printTrie(_r);
     }
     static public function replacer(_r:Replacer):stdgo.AnyInterface {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>);
         return stdgo._internal.strings.Strings_Replacer_static_extension.Replacer_static_extension.replacer(_r);
     }
 }
 typedef T_trieNodePointer = stdgo._internal.strings.Strings_T_trieNodePointer.T_trieNodePointer;
 class T_trieNode_static_extension {
     static public function _add(_t:T_trieNode, _key:String, _val:String, _priority:StdTypes.Int, _r:T_genericReplacer):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>);
+        final _key = (_key : stdgo.GoString);
+        final _val = (_val : stdgo.GoString);
+        final _priority = (_priority : stdgo.GoInt);
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
         stdgo._internal.strings.Strings_T_trieNode_static_extension.T_trieNode_static_extension._add(_t, _key, _val, _priority, _r);
     }
 }
 typedef T_genericReplacerPointer = stdgo._internal.strings.Strings_T_genericReplacerPointer.T_genericReplacerPointer;
 class T_genericReplacer_static_extension {
     static public function writeString(_r:T_genericReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_genericReplacer_static_extension.T_genericReplacer_static_extension.writeString(_r, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(_r:T_genericReplacer, _s:String):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_genericReplacer_static_extension.T_genericReplacer_static_extension.replace(_r, _s);
     }
     static public function _lookup(_r:T_genericReplacer, _s:String, _ignoreRoot:Bool):stdgo.Tuple.Tuple3<String, StdTypes.Int, Bool> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_genericReplacer_static_extension.T_genericReplacer_static_extension._lookup(_r, _s, _ignoreRoot);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function _printNode(_r:T_genericReplacer, _t:T_trieNode, _depth:StdTypes.Int):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>);
+        final _depth = (_depth : stdgo.GoInt);
         return stdgo._internal.strings.Strings_T_genericReplacer_static_extension.T_genericReplacer_static_extension._printNode(_r, _t, _depth);
     }
 }
 typedef T_stringWriterPointer = stdgo._internal.strings.Strings_T_stringWriterPointer.T_stringWriterPointer;
 class T_stringWriter_static_extension {
     static public function writeString(_w:T_stringWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_stringWriter_static_extension.T_stringWriter_static_extension.writeString(_w, _s);
             { _0 : obj._0, _1 : obj._1 };
@@ -385,43 +441,56 @@ class T_stringWriter_static_extension {
 typedef T_singleStringReplacerPointer = stdgo._internal.strings.Strings_T_singleStringReplacerPointer.T_singleStringReplacerPointer;
 class T_singleStringReplacer_static_extension {
     static public function writeString(_r:T_singleStringReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_singleStringReplacer.T_singleStringReplacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_singleStringReplacer_static_extension.T_singleStringReplacer_static_extension.writeString(_r, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(_r:T_singleStringReplacer, _s:String):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_singleStringReplacer.T_singleStringReplacer>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_singleStringReplacer_static_extension.T_singleStringReplacer_static_extension.replace(_r, _s);
     }
 }
 typedef T_byteStringReplacerPointer = stdgo._internal.strings.Strings_T_byteStringReplacerPointer.T_byteStringReplacerPointer;
 class T_byteStringReplacer_static_extension {
     static public function writeString(_r:T_byteStringReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_byteStringReplacer_static_extension.T_byteStringReplacer_static_extension.writeString(_r, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(_r:T_byteStringReplacer, _s:String):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_byteStringReplacer_static_extension.T_byteStringReplacer_static_extension.replace(_r, _s);
     }
 }
 typedef T_stringFinderPointer = stdgo._internal.strings.Strings_T_stringFinderPointer.T_stringFinderPointer;
 class T_stringFinder_static_extension {
     static public function _next(_f:T_stringFinder, _text:String):StdTypes.Int {
+        final _f = (_f : stdgo.Ref<stdgo._internal.strings.Strings_T_stringFinder.T_stringFinder>);
+        final _text = (_text : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_stringFinder_static_extension.T_stringFinder_static_extension._next(_f, _text);
     }
 }
 typedef T_appendSliceWriterPointer = stdgo._internal.strings.Strings_T_appendSliceWriterPointer.T_appendSliceWriterPointer;
 class T_appendSliceWriter_static_extension {
     static public function writeString(_w:T_appendSliceWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_appendSliceWriter_static_extension.T_appendSliceWriter_static_extension.writeString(_w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function write(_w:T_appendSliceWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.strings.Strings_T_appendSliceWriter_static_extension.T_appendSliceWriter_static_extension.write(_w, _p);
             { _0 : obj._0, _1 : obj._1 };
@@ -431,199 +500,35 @@ class T_appendSliceWriter_static_extension {
 typedef T_byteReplacerPointer = stdgo._internal.strings.Strings_T_byteReplacerPointer.T_byteReplacerPointer;
 class T_byteReplacer_static_extension {
     static public function writeString(_r:T_byteReplacer, _w:stdgo._internal.io.Io_Writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_T_byteReplacer_static_extension.T_byteReplacer_static_extension.writeString(_r, _w, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function replace(_r:T_byteReplacer, _s:String):String {
+        final _r = (_r : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_T_byteReplacer_static_extension.T_byteReplacer_static_extension.replace(_r, _s);
     }
 }
 typedef T_asciiSetPointer = stdgo._internal.strings.Strings_T_asciiSetPointer.T_asciiSetPointer;
 class T_asciiSet_static_extension {
     static public function _contains(_as:T_asciiSet, _c:std.UInt):Bool {
+        final _as = (_as : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>);
+        final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.strings.Strings_T_asciiSet_static_extension.T_asciiSet_static_extension._contains(_as, _c);
     }
 }
+typedef T_fieldsFunc___localname___span_9921Pointer = stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921Pointer.T_fieldsFunc___localname___span_9921Pointer;
+class T_fieldsFunc___localname___span_9921_static_extension {
+
+}
 /**
-    /|*{
-    	i_2964981 = 0
-    	_ = 0
-    	gotoNext = 2964989
-    	_ = gotoNext == 2964989
-    	if i_2964981 < len(s) && i_2964981 < len(t) {
-    		gotoNext = 2965025
-    		_ = gotoNext == 2965025
-    		sr_2965029 = s[i_2964981]
-    		tr_2965042 = t[i_2964981]
-    		if sr_2965029|tr_2965042 >= 128 {
-    			gotoNext = 2965081
-    			_ = gotoNext == 2965081
-    			gotoNext = 2965439
-    			gotoNext = 2965125
-    		} else {
-    			gotoNext = 2965125
-    		}
-    		_ = gotoNext == 2965125
-    		if tr_2965042 == sr_2965029 {
-    			gotoNext = 2965137
-    			_ = gotoNext == 2965137
-    			i_2964981++
-    			gotoNext = 2964989
-    			gotoNext = 2965202
-    		} else {
-    			gotoNext = 2965202
-    		}
-    		_ = gotoNext == 2965202
-    		if tr_2965042 < sr_2965029 {
-    			gotoNext = 2965213
-    			_ = gotoNext == 2965213
-    			tr_2965042, sr_2965029 = sr_2965029, tr_2965042
-    			gotoNext = 2965288
-    		} else {
-    			gotoNext = 2965288
-    		}
-    		_ = gotoNext == 2965288
-    		if 65 <= sr_2965029 && sr_2965029 <= 90 && tr_2965042 == sr_2965029+97-65 {
-    			gotoNext = 2965334
-    			_ = gotoNext == 2965334
-    			i_2964981++
-    			gotoNext = 2964989
-    			gotoNext = 2965354
-    		} else {
-    			gotoNext = 2965354
-    		}
-    		_ = gotoNext == 2965354
-    		return false
-    		i_2964981++
-    		gotoNext = 2964989
-    	} else {
-    		gotoNext = 2965414
-    	}
-    	_ = gotoNext == 2965414
-    	return len(s) == len(t)
-    	gotoNext = 2965439
-    	_ = gotoNext == 2965439
-    	s = s[i_2964981:]
-    	t = t[i_2964981:]
-    	keys_2965474 = []int{}
-    	values_2965474 = []rune{}
-    	for key, value := range s {
-    		keys_2965474 = append(keys_2965474, key)
-    		values_2965474 = append(values_2965474, value)
-    	}
-    	if 0 < len(keys_2965474) {
-    		gotoNext = 2966405
-    		_ = gotoNext == 2966405
-    		i_2965487 = 0
-    		gotoNext = 2966406
-    		_ = gotoNext == 2966406
-    		if i_2965487 < len(keys_2965474) {
-    			gotoNext = 2965495
-    			_ = gotoNext == 2965495
-    			sr_2965481 = values_2965474[i_2965487]
-    			_ = keys_2965474[i_2965487]
-    			if len(t) == 0 {
-    				gotoNext = 2965564
-    				_ = gotoNext == 2965564
-    				return false
-    				gotoNext = 2965633
-    			} else {
-    				gotoNext = 2965633
-    			}
-    			_ = gotoNext == 2965633
-    			if t[0] < 128 {
-    				gotoNext = 2965671
-    				_ = gotoNext == 2965671
-    				tr_2965637, t = rune(t[0]), t[1:]
-    				gotoNext = 2965855
-    			} else {
-    				gotoNext = 2965711
-    				_ = gotoNext == 2965711
-    				gotoNext = 2965711
-    				_ = gotoNext == 2965711
-    				r_2965716, size_2965719 = utf8.DecodeRuneInString(t)
-    				tr_2965637, t = r_2965716, t[size_2965719:]
-    				_ = 0
-    				gotoNext = 2965855
-    			}
-    			_ = gotoNext == 2965855
-    			if tr_2965637 == sr_2965481 {
-    				gotoNext = 2965867
-    				_ = gotoNext == 2965867
-    				i_2965487++
-    				gotoNext = 2966406
-    				gotoNext = 2965932
-    			} else {
-    				gotoNext = 2965932
-    			}
-    			_ = gotoNext == 2965932
-    			if tr_2965637 < sr_2965481 {
-    				gotoNext = 2965943
-    				_ = gotoNext == 2965943
-    				tr_2965637, sr_2965481 = sr_2965481, tr_2965637
-    				gotoNext = 2965997
-    			} else {
-    				gotoNext = 2965997
-    			}
-    			_ = gotoNext == 2965997
-    			if tr_2965637 < 128 {
-    				gotoNext = 2966019
-    				_ = gotoNext == 2966019
-    				if 65 <= sr_2965481 && sr_2965481 <= 90 && tr_2965637 == sr_2965481+97-65 {
-    					gotoNext = 2966119
-    					_ = gotoNext == 2966119
-    					i_2965487++
-    					gotoNext = 2966406
-    					gotoNext = 2966142
-    				} else {
-    					gotoNext = 2966142
-    				}
-    				_ = gotoNext == 2966142
-    				return false
-    				gotoNext = 2966272
-    			} else {
-    				gotoNext = 2966272
-    			}
-    			_ = gotoNext == 2966272
-    			r_2966272 = unicode.SimpleFold(sr_2965481)
-    			_ = 0
-    			gotoNext = 2966302
-    			_ = gotoNext == 2966302
-    			if r_2966272 != sr_2965481 && r_2966272 < tr_2965637 {
-    				gotoNext = 2966324
-    				_ = gotoNext == 2966324
-    				r_2966272 = unicode.SimpleFold(r_2966272)
-    				gotoNext = 2966302
-    			} else {
-    				gotoNext = 2966361
-    			}
-    			_ = gotoNext == 2966361
-    			if r_2966272 == tr_2965637 {
-    				gotoNext = 2966372
-    				_ = gotoNext == 2966372
-    				i_2965487++
-    				gotoNext = 2966406
-    				gotoNext = 2966392
-    			} else {
-    				gotoNext = 2966392
-    			}
-    			_ = gotoNext == 2966392
-    			return false
-    			i_2965487++
-    			gotoNext = 2966406
-    		} else {
-    			gotoNext = 2966479
-    		}
-    		gotoNext = 2966479
-    	} else {
-    		gotoNext = 2966479
-    	}
-    	_ = gotoNext == 2966479
-    	return len(t) == 0
-    	gotoNext = -1
-    }*|/
+    Package strings implements simple functions to manipulate UTF-8 encoded strings.
+    
+    For information about UTF-8 strings in Go, see https://blog.golang.org/strings.
 **/
 class Strings {
     /**
@@ -638,7 +543,8 @@ class Strings {
         For strings of length zero the string "" will be returned
         and no allocation is made.
     **/
-    static public function clone(_s:String):String {
+    static public inline function clone(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_clone.clone(_s);
     }
     /**
@@ -649,13 +555,18 @@ class Strings {
         It is usually clearer and always faster to use the built-in
         string comparison operators ==, <, >, and so on.
     **/
-    static public function compare(_a:String, _b:String):StdTypes.Int {
+    static public inline function compare(_a:String, _b:String):StdTypes.Int {
+        final _a = (_a : stdgo.GoString);
+        final _b = (_b : stdgo.GoString);
         return stdgo._internal.strings.Strings_compare.compare(_a, _b);
     }
-    static public function stringFind(_pattern:String, _text:String):StdTypes.Int {
+    static public inline function stringFind(_pattern:String, _text:String):StdTypes.Int {
+        final _pattern = (_pattern : stdgo.GoString);
+        final _text = (_text : stdgo.GoString);
         return stdgo._internal.strings.Strings_stringFind.stringFind(_pattern, _text);
     }
-    static public function dumpTables(_pattern:String):stdgo.Tuple<Array<StdTypes.Int>, Array<StdTypes.Int>> {
+    static public inline function dumpTables(_pattern:String):stdgo.Tuple<Array<StdTypes.Int>, Array<StdTypes.Int>> {
+        final _pattern = (_pattern : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_dumpTables.dumpTables(_pattern);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i] };
@@ -665,7 +576,8 @@ class Strings {
         NewReader returns a new Reader reading from s.
         It is similar to bytes.NewBufferString but more efficient and non-writable.
     **/
-    static public function newReader(_s:String):Reader {
+    static public inline function newReader(_s:String):Reader {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_newReader.newReader(_s);
     }
     /**
@@ -676,51 +588,64 @@ class Strings {
         
         NewReplacer panics if given an odd number of arguments.
     **/
-    static public function newReplacer(_oldnew:haxe.Rest<String>):Replacer {
+    static public inline function newReplacer(_oldnew:haxe.Rest<String>):Replacer {
         return stdgo._internal.strings.Strings_newReplacer.newReplacer(...[for (i in _oldnew) i]);
     }
     /**
         Count counts the number of non-overlapping instances of substr in s.
         If substr is an empty string, Count returns 1 + the number of Unicode code points in s.
     **/
-    static public function count(_s:String, _substr:String):StdTypes.Int {
+    static public inline function count(_s:String, _substr:String):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _substr = (_substr : stdgo.GoString);
         return stdgo._internal.strings.Strings_count.count(_s, _substr);
     }
     /**
         Contains reports whether substr is within s.
     **/
-    static public function contains(_s:String, _substr:String):Bool {
+    static public inline function contains(_s:String, _substr:String):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _substr = (_substr : stdgo.GoString);
         return stdgo._internal.strings.Strings_contains.contains(_s, _substr);
     }
     /**
         ContainsAny reports whether any Unicode code points in chars are within s.
     **/
-    static public function containsAny(_s:String, _chars:String):Bool {
+    static public inline function containsAny(_s:String, _chars:String):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _chars = (_chars : stdgo.GoString);
         return stdgo._internal.strings.Strings_containsAny.containsAny(_s, _chars);
     }
     /**
         ContainsRune reports whether the Unicode code point r is within s.
     **/
-    static public function containsRune(_s:String, _r:StdTypes.Int):Bool {
+    static public inline function containsRune(_s:String, _r:StdTypes.Int):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strings.Strings_containsRune.containsRune(_s, _r);
     }
     /**
         ContainsFunc reports whether any Unicode code points r within s satisfy f(r).
     **/
-    static public function containsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Bool {
+    static public inline function containsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Bool {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_containsFunc.containsFunc(_s, _f);
     }
     /**
         LastIndex returns the index of the last instance of substr in s, or -1 if substr is not present in s.
     **/
-    static public function lastIndex(_s:String, _substr:String):StdTypes.Int {
+    static public inline function lastIndex(_s:String, _substr:String):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _substr = (_substr : stdgo.GoString);
         return stdgo._internal.strings.Strings_lastIndex.lastIndex(_s, _substr);
     }
     /**
         IndexByte returns the index of the first instance of c in s, or -1 if c is not present in s.
     **/
-    static public function indexByte(_s:String, _c:std.UInt):StdTypes.Int {
+    static public inline function indexByte(_s:String, _c:std.UInt):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.strings.Strings_indexByte.indexByte(_s, _c);
     }
     /**
@@ -729,14 +654,18 @@ class Strings {
         If r is utf8.RuneError, it returns the first instance of any
         invalid UTF-8 byte sequence.
     **/
-    static public function indexRune(_s:String, _r:StdTypes.Int):StdTypes.Int {
+    static public inline function indexRune(_s:String, _r:StdTypes.Int):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _r = (_r : stdgo.GoInt32);
         return stdgo._internal.strings.Strings_indexRune.indexRune(_s, _r);
     }
     /**
         IndexAny returns the index of the first instance of any Unicode code point
         from chars in s, or -1 if no Unicode code point from chars is present in s.
     **/
-    static public function indexAny(_s:String, _chars:String):StdTypes.Int {
+    static public inline function indexAny(_s:String, _chars:String):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _chars = (_chars : stdgo.GoString);
         return stdgo._internal.strings.Strings_indexAny.indexAny(_s, _chars);
     }
     /**
@@ -744,13 +673,17 @@ class Strings {
         point from chars in s, or -1 if no Unicode code point from chars is
         present in s.
     **/
-    static public function lastIndexAny(_s:String, _chars:String):StdTypes.Int {
+    static public inline function lastIndexAny(_s:String, _chars:String):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _chars = (_chars : stdgo.GoString);
         return stdgo._internal.strings.Strings_lastIndexAny.lastIndexAny(_s, _chars);
     }
     /**
         LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s.
     **/
-    static public function lastIndexByte(_s:String, _c:std.UInt):StdTypes.Int {
+    static public inline function lastIndexByte(_s:String, _c:std.UInt):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.strings.Strings_lastIndexByte.lastIndexByte(_s, _c);
     }
     /**
@@ -768,7 +701,10 @@ class Strings {
         
         To split around the first instance of a separator, see Cut.
     **/
-    static public function splitN(_s:String, _sep:String, _n:StdTypes.Int):Array<String> {
+    static public inline function splitN(_s:String, _sep:String, _n:StdTypes.Int):Array<String> {
+        final _s = (_s : stdgo.GoString);
+        final _sep = (_sep : stdgo.GoString);
+        final _n = (_n : stdgo.GoInt);
         return [for (i in stdgo._internal.strings.Strings_splitN.splitN(_s, _sep, _n)) i];
     }
     /**
@@ -784,7 +720,10 @@ class Strings {
         Edge cases for s and sep (for example, empty strings) are handled
         as described in the documentation for SplitAfter.
     **/
-    static public function splitAfterN(_s:String, _sep:String, _n:StdTypes.Int):Array<String> {
+    static public inline function splitAfterN(_s:String, _sep:String, _n:StdTypes.Int):Array<String> {
+        final _s = (_s : stdgo.GoString);
+        final _sep = (_sep : stdgo.GoString);
+        final _n = (_n : stdgo.GoInt);
         return [for (i in stdgo._internal.strings.Strings_splitAfterN.splitAfterN(_s, _sep, _n)) i];
     }
     /**
@@ -801,7 +740,9 @@ class Strings {
         
         To split around the first instance of a separator, see Cut.
     **/
-    static public function split(_s:String, _sep:String):Array<String> {
+    static public inline function split(_s:String, _sep:String):Array<String> {
+        final _s = (_s : stdgo.GoString);
+        final _sep = (_sep : stdgo.GoString);
         return [for (i in stdgo._internal.strings.Strings_split.split(_s, _sep)) i];
     }
     /**
@@ -816,7 +757,9 @@ class Strings {
         
         It is equivalent to SplitAfterN with a count of -1.
     **/
-    static public function splitAfter(_s:String, _sep:String):Array<String> {
+    static public inline function splitAfter(_s:String, _sep:String):Array<String> {
+        final _s = (_s : stdgo.GoString);
+        final _sep = (_sep : stdgo.GoString);
         return [for (i in stdgo._internal.strings.Strings_splitAfter.splitAfter(_s, _sep)) i];
     }
     /**
@@ -824,7 +767,8 @@ class Strings {
         characters, as defined by unicode.IsSpace, returning a slice of substrings of s or an
         empty slice if s contains only white space.
     **/
-    static public function fields(_s:String):Array<String> {
+    static public inline function fields(_s:String):Array<String> {
+        final _s = (_s : stdgo.GoString);
         return [for (i in stdgo._internal.strings.Strings_fields.fields(_s)) i];
     }
     /**
@@ -835,7 +779,8 @@ class Strings {
         FieldsFunc makes no guarantees about the order in which it calls f(c)
         and assumes that f always returns the same value for a given c.
     **/
-    static public function fieldsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Array<String> {
+    static public inline function fieldsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Array<String> {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return [for (i in stdgo._internal.strings.Strings_fieldsFunc.fieldsFunc(_s, _f)) i];
     }
@@ -843,20 +788,25 @@ class Strings {
         Join concatenates the elements of its first argument to create a single string. The separator
         string sep is placed between elements in the resulting string.
     **/
-    static public function join(_elems:Array<String>, _sep:String):String {
-        final _elems = ([for (i in _elems) i] : stdgo.Slice<stdgo.GoString>);
+    static public inline function join(_elems:Array<String>, _sep:String):String {
+        final _elems = ([for (i in _elems) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
+        final _sep = (_sep : stdgo.GoString);
         return stdgo._internal.strings.Strings_join.join(_elems, _sep);
     }
     /**
         HasPrefix tests whether the string s begins with prefix.
     **/
-    static public function hasPrefix(_s:String, _prefix:String):Bool {
+    static public inline function hasPrefix(_s:String, _prefix:String):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _prefix = (_prefix : stdgo.GoString);
         return stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_s, _prefix);
     }
     /**
         HasSuffix tests whether the string s ends with suffix.
     **/
-    static public function hasSuffix(_s:String, _suffix:String):Bool {
+    static public inline function hasSuffix(_s:String, _suffix:String):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _suffix = (_suffix : stdgo.GoString);
         return stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_s, _suffix);
     }
     /**
@@ -864,8 +814,9 @@ class Strings {
         according to the mapping function. If mapping returns a negative value, the character is
         dropped from the string with no replacement.
     **/
-    static public function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:String):String {
+    static public inline function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:String):String {
         final _mapping = _mapping;
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_map_.map_(_mapping, _s);
     }
     /**
@@ -874,54 +825,64 @@ class Strings {
         It panics if count is negative or if the result of (len(s) * count)
         overflows.
     **/
-    static public function repeat(_s:String, _count:StdTypes.Int):String {
+    static public inline function repeat(_s:String, _count:StdTypes.Int):String {
+        final _s = (_s : stdgo.GoString);
+        final _count = (_count : stdgo.GoInt);
         return stdgo._internal.strings.Strings_repeat.repeat(_s, _count);
     }
     /**
         ToUpper returns s with all Unicode letters mapped to their upper case.
     **/
-    static public function toUpper(_s:String):String {
+    static public inline function toUpper(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toUpper.toUpper(_s);
     }
     /**
         ToLower returns s with all Unicode letters mapped to their lower case.
     **/
-    static public function toLower(_s:String):String {
+    static public inline function toLower(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toLower.toLower(_s);
     }
     /**
         ToTitle returns a copy of the string s with all Unicode letters mapped to
         their Unicode title case.
     **/
-    static public function toTitle(_s:String):String {
+    static public inline function toTitle(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toTitle.toTitle(_s);
     }
     /**
         ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to their
         upper case using the case mapping specified by c.
     **/
-    static public function toUpperSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+    static public inline function toUpperSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toUpperSpecial.toUpperSpecial(_c, _s);
     }
     /**
         ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to their
         lower case using the case mapping specified by c.
     **/
-    static public function toLowerSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+    static public inline function toLowerSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toLowerSpecial.toLowerSpecial(_c, _s);
     }
     /**
         ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to their
         Unicode title case, giving priority to the special casing rules.
     **/
-    static public function toTitleSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+    static public inline function toTitleSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_toTitleSpecial.toTitleSpecial(_c, _s);
     }
     /**
         ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte sequences
         replaced by the replacement string, which may be empty.
     **/
-    static public function toValidUTF8(_s:String, _replacement:String):String {
+    static public inline function toValidUTF8(_s:String, _replacement:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _replacement = (_replacement : stdgo.GoString);
         return stdgo._internal.strings.Strings_toValidUTF8.toValidUTF8(_s, _replacement);
     }
     /**
@@ -931,14 +892,16 @@ class Strings {
         Deprecated: The rule Title uses for word boundaries does not handle Unicode
         punctuation properly. Use golang.org/x/text/cases instead.
     **/
-    static public function title(_s:String):String {
+    static public inline function title(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_title.title(_s);
     }
     /**
         TrimLeftFunc returns a slice of the string s with all leading
         Unicode code points c satisfying f(c) removed.
     **/
-    static public function trimLeftFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimLeftFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimLeftFunc.trimLeftFunc(_s, _f);
     }
@@ -946,7 +909,8 @@ class Strings {
         TrimRightFunc returns a slice of the string s with all trailing
         Unicode code points c satisfying f(c) removed.
     **/
-    static public function trimRightFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimRightFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimRightFunc.trimRightFunc(_s, _f);
     }
@@ -954,7 +918,8 @@ class Strings {
         TrimFunc returns a slice of the string s with all leading
         and trailing Unicode code points c satisfying f(c) removed.
     **/
-    static public function trimFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimFunc.trimFunc(_s, _f);
     }
@@ -962,7 +927,8 @@ class Strings {
         IndexFunc returns the index into s of the first Unicode
         code point satisfying f(c), or -1 if none do.
     **/
-    static public function indexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function indexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_indexFunc.indexFunc(_s, _f);
     }
@@ -970,7 +936,8 @@ class Strings {
         LastIndexFunc returns the index into s of the last
         Unicode code point satisfying f(c), or -1 if none do.
     **/
-    static public function lastIndexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function lastIndexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_lastIndexFunc.lastIndexFunc(_s, _f);
     }
@@ -978,7 +945,9 @@ class Strings {
         Trim returns a slice of the string s with all leading and
         trailing Unicode code points contained in cutset removed.
     **/
-    static public function trim(_s:String, _cutset:String):String {
+    static public inline function trim(_s:String, _cutset:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _cutset = (_cutset : stdgo.GoString);
         return stdgo._internal.strings.Strings_trim.trim(_s, _cutset);
     }
     /**
@@ -987,7 +956,9 @@ class Strings {
         
         To remove a prefix, use TrimPrefix instead.
     **/
-    static public function trimLeft(_s:String, _cutset:String):String {
+    static public inline function trimLeft(_s:String, _cutset:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _cutset = (_cutset : stdgo.GoString);
         return stdgo._internal.strings.Strings_trimLeft.trimLeft(_s, _cutset);
     }
     /**
@@ -996,28 +967,35 @@ class Strings {
         
         To remove a suffix, use TrimSuffix instead.
     **/
-    static public function trimRight(_s:String, _cutset:String):String {
+    static public inline function trimRight(_s:String, _cutset:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _cutset = (_cutset : stdgo.GoString);
         return stdgo._internal.strings.Strings_trimRight.trimRight(_s, _cutset);
     }
     /**
         TrimSpace returns a slice of the string s, with all leading
         and trailing white space removed, as defined by Unicode.
     **/
-    static public function trimSpace(_s:String):String {
+    static public inline function trimSpace(_s:String):String {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_trimSpace.trimSpace(_s);
     }
     /**
         TrimPrefix returns s without the provided leading prefix string.
         If s doesn't start with prefix, s is returned unchanged.
     **/
-    static public function trimPrefix(_s:String, _prefix:String):String {
+    static public inline function trimPrefix(_s:String, _prefix:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _prefix = (_prefix : stdgo.GoString);
         return stdgo._internal.strings.Strings_trimPrefix.trimPrefix(_s, _prefix);
     }
     /**
         TrimSuffix returns s without the provided trailing suffix string.
         If s doesn't end with suffix, s is returned unchanged.
     **/
-    static public function trimSuffix(_s:String, _suffix:String):String {
+    static public inline function trimSuffix(_s:String, _suffix:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _suffix = (_suffix : stdgo.GoString);
         return stdgo._internal.strings.Strings_trimSuffix.trimSuffix(_s, _suffix);
     }
     /**
@@ -1028,7 +1006,11 @@ class Strings {
         for a k-rune string.
         If n < 0, there is no limit on the number of replacements.
     **/
-    static public function replace(_s:String, _old:String, _new:String, _n:StdTypes.Int):String {
+    static public inline function replace(_s:String, _old:String, _new:String, _n:StdTypes.Int):String {
+        final _s = (_s : stdgo.GoString);
+        final _old = (_old : stdgo.GoString);
+        final _new = (_new : stdgo.GoString);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.strings.Strings_replace.replace(_s, _old, _new, _n);
     }
     /**
@@ -1038,7 +1020,10 @@ class Strings {
         and after each UTF-8 sequence, yielding up to k+1 replacements
         for a k-rune string.
     **/
-    static public function replaceAll(_s:String, _old:String, _new:String):String {
+    static public inline function replaceAll(_s:String, _old:String, _new:String):String {
+        final _s = (_s : stdgo.GoString);
+        final _old = (_old : stdgo.GoString);
+        final _new = (_new : stdgo.GoString);
         return stdgo._internal.strings.Strings_replaceAll.replaceAll(_s, _old, _new);
     }
     /**
@@ -1046,13 +1031,17 @@ class Strings {
         are equal under simple Unicode case-folding, which is a more general
         form of case-insensitivity.
     **/
-    static public function equalFold(_s:String, _t:String):Bool {
+    static public inline function equalFold(_s:String, _t:String):Bool {
+        final _s = (_s : stdgo.GoString);
+        final _t = (_t : stdgo.GoString);
         return stdgo._internal.strings.Strings_equalFold.equalFold(_s, _t);
     }
     /**
         Index returns the index of the first instance of substr in s, or -1 if substr is not present in s.
     **/
-    static public function index(_s:String, _substr:String):StdTypes.Int {
+    static public inline function index(_s:String, _substr:String):StdTypes.Int {
+        final _s = (_s : stdgo.GoString);
+        final _substr = (_substr : stdgo.GoString);
         return stdgo._internal.strings.Strings_index.index(_s, _substr);
     }
     /**
@@ -1061,7 +1050,9 @@ class Strings {
         The found result reports whether sep appears in s.
         If sep does not appear in s, cut returns s, "", false.
     **/
-    static public function cut(_s:String, _sep:String):stdgo.Tuple.Tuple3<String, String, Bool> {
+    static public inline function cut(_s:String, _sep:String):stdgo.Tuple.Tuple3<String, String, Bool> {
+        final _s = (_s : stdgo.GoString);
+        final _sep = (_sep : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_cut.cut(_s, _sep);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -1073,7 +1064,9 @@ class Strings {
         If s doesn't start with prefix, CutPrefix returns s, false.
         If prefix is the empty string, CutPrefix returns s, true.
     **/
-    static public function cutPrefix(_s:String, _prefix:String):stdgo.Tuple<String, Bool> {
+    static public inline function cutPrefix(_s:String, _prefix:String):stdgo.Tuple<String, Bool> {
+        final _s = (_s : stdgo.GoString);
+        final _prefix = (_prefix : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_cutPrefix.cutPrefix(_s, _prefix);
             { _0 : obj._0, _1 : obj._1 };
@@ -1085,7 +1078,9 @@ class Strings {
         If s doesn't end with suffix, CutSuffix returns s, false.
         If suffix is the empty string, CutSuffix returns s, true.
     **/
-    static public function cutSuffix(_s:String, _suffix:String):stdgo.Tuple<String, Bool> {
+    static public inline function cutSuffix(_s:String, _suffix:String):stdgo.Tuple<String, Bool> {
+        final _s = (_s : stdgo.GoString);
+        final _suffix = (_suffix : stdgo.GoString);
         return {
             final obj = stdgo._internal.strings.Strings_cutSuffix.cutSuffix(_s, _suffix);
             { _0 : obj._0, _1 : obj._1 };

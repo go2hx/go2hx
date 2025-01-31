@@ -1,4 +1,13 @@
 package stdgo._internal.internal.pkgbits;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.go.constant.Constant;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.internal.pkgbits.Pkgbits_Decoder_static_extension.Decoder_static_extension) class Decoder {
     public var _common : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder.PkgDecoder> = (null : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder.PkgDecoder>);
     public var relocs : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt> = (null : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt>);

@@ -41,6 +41,9 @@ package stdgo._internal.testing;
                     error = true;
                 };
             };
+            for (f in t._common._cleanups) {
+                f();
+            };
             final dstr = (#if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
                 stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));

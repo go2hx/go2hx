@@ -1,2 +1,3 @@
 package stdgo._internal.internal.abi;
-@:named typedef FuncFlag = stdgo.GoUInt8;
+import stdgo._internal.unsafe.Unsafe;
+@:named @:using(stdgo._internal.internal.abi.Abi_FuncFlag_static_extension.FuncFlag_static_extension) typedef FuncFlag = stdgo.GoUInt8;

@@ -1,4 +1,10 @@
 package stdgo._internal.text.scanner;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
 function testIssue50909(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _s:stdgo._internal.text.scanner.Scanner_Scanner.Scanner = ({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner);
         @:check2 _s.init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(("hello \n\nworld\n!\n" : stdgo.GoString))));

@@ -1,5 +1,14 @@
 package stdgo._internal.crypto.sha1;
-@:structInit class T_unmarshalTest {
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
+@:structInit @:using(stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest_static_extension.T_unmarshalTest_static_extension) class T_unmarshalTest {
     public var _state : stdgo.GoString = "";
     public var _sum : stdgo.GoString = "";
     public function new(?_state:stdgo.GoString, ?_sum:stdgo.GoString) {

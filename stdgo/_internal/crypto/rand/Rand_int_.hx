@@ -1,4 +1,10 @@
 package stdgo._internal.crypto.rand;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.compress.flate.Flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.crypto.internal.randutil.Randutil;
 function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } {
         var _n = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _err = (null : stdgo.Error);
         if ((@:check2r _max.sign() <= (0 : stdgo.GoInt) : Bool)) {

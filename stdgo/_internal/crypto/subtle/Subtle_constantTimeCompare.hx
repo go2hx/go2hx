@@ -1,4 +1,5 @@
 package stdgo._internal.crypto.subtle;
+import stdgo._internal.unsafe.Unsafe;
 function constantTimeCompare(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         if ((_x.length) != ((_y.length))) {
             return (0 : stdgo.GoInt);

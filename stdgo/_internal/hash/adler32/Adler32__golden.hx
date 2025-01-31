@@ -1,4 +1,7 @@
 package stdgo._internal.hash.adler32;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 var _golden : stdgo.Slice<stdgo._internal.hash.adler32.Adler32_T__struct_0.T__struct_0> = (new stdgo.Slice<stdgo._internal.hash.adler32.Adler32_T__struct_0.T__struct_0>(43, 43, ...[
 ({ _out : (1u32 : stdgo.GoUInt32), _in : stdgo.Go.str()?.__copy__(), _halfState : stdgo.Go.str("adl", 1, 0, 0, 0, 1)?.__copy__() } : stdgo._internal.hash.adler32.Adler32_T__struct_0.T__struct_0),
 ({ _out : (6422626u32 : stdgo.GoUInt32), _in : ("a" : stdgo.GoString), _halfState : stdgo.Go.str("adl", 1, 0, 0, 0, 1)?.__copy__() } : stdgo._internal.hash.adler32.Adler32_T__struct_0.T__struct_0),

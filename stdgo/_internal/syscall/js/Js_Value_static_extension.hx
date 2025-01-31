@@ -50,7 +50,10 @@ package stdgo._internal.syscall.js;
     static public function set( _v:stdgo._internal.syscall.js.Js_Value.Value, _p:stdgo.GoString, _x:stdgo.AnyInterface):Void throw "Value:syscall.js.set is not yet implemented";
     @:keep
     @:tdfield
-    static public function get( _v:stdgo._internal.syscall.js.Js_Value.Value, _p:stdgo.GoString):stdgo._internal.syscall.js.Js_Value.Value throw "Value:syscall.js.get is not yet implemented";
+    static public function get( _v:stdgo._internal.syscall.js.Js_Value.Value, _p:stdgo.GoString):stdgo._internal.syscall.js.Js_Value.Value {
+        @:recv var _v:stdgo._internal.syscall.js.Js_Value.Value = _v?.__copy__();
+        return null;
+    }
     @:keep
     @:tdfield
     static public function type( _v:stdgo._internal.syscall.js.Js_Value.Value):stdgo._internal.syscall.js.Js_Type_.Type_ throw "Value:syscall.js.type is not yet implemented";

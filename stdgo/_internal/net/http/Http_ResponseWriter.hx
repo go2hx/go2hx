@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef ResponseWriter = stdgo.StructType & {
+@:interface typedef ResponseWriter = stdgo.StructType & {
     /**
         Header returns the header map that will be sent by
         WriteHeader. The Header map also is the mechanism with which

@@ -1,4 +1,6 @@
 package stdgo._internal.runtime.metrics;
+import stdgo._internal.internal.godebugs.Godebugs;
+import stdgo._internal.math.Math;
 class Value_asInterface {
     @:keep
     @:tdfield

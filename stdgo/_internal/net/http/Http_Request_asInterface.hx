@@ -2,27 +2,6 @@ package stdgo._internal.net.http;
 class Request_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _requiresHTTP1():Bool return @:_0 __self__.value._requiresHTTP1();
-    @:keep
-    @:tdfield
-    public dynamic function _outgoingLength():stdgo.GoInt64 return @:_0 __self__.value._outgoingLength();
-    @:keep
-    @:tdfield
-    public dynamic function _isReplayable():Bool return @:_0 __self__.value._isReplayable();
-    @:keep
-    @:tdfield
-    public dynamic function _closeBody():stdgo.Error return @:_0 __self__.value._closeBody();
-    @:keep
-    @:tdfield
-    public dynamic function _wantsClose():Bool return @:_0 __self__.value._wantsClose();
-    @:keep
-    @:tdfield
-    public dynamic function _wantsHttp10KeepAlive():Bool return @:_0 __self__.value._wantsHttp10KeepAlive();
-    @:keep
-    @:tdfield
-    public dynamic function _expectsContinue():Bool return @:_0 __self__.value._expectsContinue();
-    @:keep
-    @:tdfield
     public dynamic function formFile(_key:stdgo.GoString):{ var _0 : stdgo._internal.mime.multipart.Multipart_File.File; var _1 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>; var _2 : stdgo.Error; } return @:_0 __self__.value.formFile(_key);
     @:keep
     @:tdfield
@@ -44,19 +23,10 @@ class Request_asInterface {
     public dynamic function basicAuth():{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } return @:_0 __self__.value.basicAuth();
     @:keep
     @:tdfield
-    public dynamic function _write(_w:stdgo._internal.io.Io_Writer.Writer, _usingProxy:Bool, _extraHeaders:stdgo._internal.net.http.Http_Header.Header, _waitForContinue:() -> Bool):stdgo.Error return @:_0 __self__.value._write(_w, _usingProxy, _extraHeaders, _waitForContinue);
-    @:keep
-    @:tdfield
     public dynamic function writeProxy(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error return @:_0 __self__.value.writeProxy(_w);
     @:keep
     @:tdfield
     public dynamic function write(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error return @:_0 __self__.value.write(_w);
-    @:keep
-    @:tdfield
-    public dynamic function _isH2Upgrade():Bool return @:_0 __self__.value._isH2Upgrade();
-    @:keep
-    @:tdfield
-    public dynamic function _multipartReader(_allowMixed:Bool):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>; var _1 : stdgo.Error; } return @:_0 __self__.value._multipartReader(_allowMixed);
     @:keep
     @:tdfield
     public dynamic function multipartReader():{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>; var _1 : stdgo.Error; } return @:_0 __self__.value.multipartReader();

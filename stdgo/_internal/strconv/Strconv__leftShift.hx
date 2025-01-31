@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _leftShift(_a:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>, _k:stdgo.GoUInt):Void {
         var _delta = (stdgo._internal.strconv.Strconv__leftcheats._leftcheats[(_k : stdgo.GoInt)]._delta : stdgo.GoInt);
         if (stdgo._internal.strconv.Strconv__prefixIsLessThan._prefixIsLessThan(((@:checkr _a ?? throw "null pointer dereference")._d.__slice__((0 : stdgo.GoInt), (@:checkr _a ?? throw "null pointer dereference")._nd) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.strconv.Strconv__leftcheats._leftcheats[(_k : stdgo.GoInt)]._cutoff?.__copy__())) {

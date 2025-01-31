@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.sync.Sync.Once_asInterface) class Once_static_extension {
     @:keep
     @:tdfield
@@ -26,7 +30,11 @@ package stdgo._internal.sync;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -61,7 +69,11 @@ package stdgo._internal.sync;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

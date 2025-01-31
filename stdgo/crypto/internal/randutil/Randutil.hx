@@ -4,6 +4,10 @@ class T__struct_0_static_extension {
 
 }
 typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0.T__struct_0;
+typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
 /**
     Package randutil contains internal randomness utilities for various
     crypto packages.
@@ -17,7 +21,7 @@ class Randutil {
         This does not affect tests that pass a stream of fixed bytes as the random
         source (e.g. a zeroReader).
     **/
-    static public function maybeReadByte(_r:stdgo._internal.io.Io_Reader.Reader):Void {
+    static public inline function maybeReadByte(_r:stdgo._internal.io.Io_Reader.Reader):Void {
         stdgo._internal.crypto.internal.randutil.Randutil_maybeReadByte.maybeReadByte(_r);
     }
 }

@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 function _delta(_x:stdgo.GoUInt8, _y:stdgo.GoUInt8):stdgo.GoUInt8 {
         if ((_x >= _y : Bool)) {
             return (_x - _y : stdgo.GoUInt8);

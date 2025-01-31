@@ -1,5 +1,5 @@
 package stdgo._internal.sync.atomic_;
-@:structInit class T_efaceWords {
+@:structInit @:using(stdgo._internal.sync.atomic_.Atomic__T_efaceWords_static_extension.T_efaceWords_static_extension) class T_efaceWords {
     public var _typ : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
     public var _data : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
     public function new(?_typ:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_data:stdgo._internal.unsafe.Unsafe.UnsafePointer) {

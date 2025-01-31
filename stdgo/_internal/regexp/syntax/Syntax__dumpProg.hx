@@ -1,4 +1,10 @@
 package stdgo._internal.regexp.syntax;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
 function _dumpProg(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.Prog>):Void {
         for (_j => _ in (@:checkr _p ?? throw "null pointer dereference").inst) {
             var _i = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[(_j : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>);

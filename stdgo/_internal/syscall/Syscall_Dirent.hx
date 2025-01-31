@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class Dirent {
+@:structInit @:using(stdgo._internal.syscall.Syscall_Dirent_static_extension.Dirent_static_extension) class Dirent {
     public var reclen : stdgo.GoUInt16 = 0;
     public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256).__setNumber32__();
     public function new(?reclen:stdgo.GoUInt16, ?name:stdgo.GoArray<stdgo.GoUInt8>) {

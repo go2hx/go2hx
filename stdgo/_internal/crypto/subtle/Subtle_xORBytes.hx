@@ -1,4 +1,5 @@
 package stdgo._internal.crypto.subtle;
+import stdgo._internal.unsafe.Unsafe;
 function xORBytes(_dst:stdgo.Slice<stdgo.GoUInt8>, _x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         var _n = (_x.length : stdgo.GoInt);
         if (((_y.length) < _n : Bool)) {

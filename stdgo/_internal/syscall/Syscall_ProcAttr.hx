@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class ProcAttr {
+@:structInit @:using(stdgo._internal.syscall.Syscall_ProcAttr_static_extension.ProcAttr_static_extension) class ProcAttr {
     public var dir : stdgo.GoString = "";
     public var env : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var files : stdgo.Slice<stdgo.GoUIntptr> = (null : stdgo.Slice<stdgo.GoUIntptr>);

@@ -1,14 +1,5 @@
 package stdgo._internal.net.http;
 class T_transportRequest_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void @:_0 __self__.value._logf(_format, ..._args);
-    @:keep
-    @:tdfield
-    public dynamic function _setError(_err:stdgo.Error):Void @:_0 __self__.value._setError(_err);
-    @:keep
-    @:tdfield
-    public dynamic function _extraHeaders():stdgo._internal.net.http.Http_Header.Header return @:_0 __self__.value._extraHeaders();
     @:embedded
     @:embeddededffieldsffun
     public dynamic function _write(_0:stdgo._internal.io.Io_Writer.Writer, _1:Bool, _2:stdgo._internal.net.http.Http_Header.Header, _3:() -> Bool):stdgo.Error return @:_0 __self__.value._write(_0, _1, _2, _3);

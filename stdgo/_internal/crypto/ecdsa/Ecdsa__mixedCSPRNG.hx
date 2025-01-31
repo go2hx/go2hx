@@ -1,4 +1,19 @@
 package stdgo._internal.crypto.ecdsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.crypto.internal.randutil.Randutil;
+import stdgo._internal.crypto.internal.boring.Boring;
+import _internal.crypto.internal.boring.bbig.Bbig;
+import stdgo._internal.crypto.internal.bigmod.Bigmod;
+import stdgo._internal.io.Io;
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.sha512.Sha512;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.math.big.Big;
 function _mixedCSPRNG(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>, _hash:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; } {
         var _entropy = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {

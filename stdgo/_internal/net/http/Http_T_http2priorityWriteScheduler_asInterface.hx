@@ -2,12 +2,6 @@ package stdgo._internal.net.http;
 class T_http2priorityWriteScheduler_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _removeNode(_n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void @:_0 __self__.value._removeNode(_n);
-    @:keep
-    @:tdfield
-    public dynamic function _addClosedOrIdleNode(_list:stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>>, _maxSize:stdgo.GoInt, _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void @:_0 __self__.value._addClosedOrIdleNode(_list, _maxSize, _n);
-    @:keep
-    @:tdfield
     public dynamic function pop():{ var _0 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _1 : Bool; } return @:_0 __self__.value.pop();
     @:keep
     @:tdfield

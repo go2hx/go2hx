@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-@:structInit class GCControllerReviseDelta {
+@:structInit @:using(stdgo._internal.runtime.Runtime_GCControllerReviseDelta_static_extension.GCControllerReviseDelta_static_extension) class GCControllerReviseDelta {
     public var heapLive : stdgo.GoInt64 = 0;
     public var heapScan : stdgo.GoInt64 = 0;
     public var heapScanWork : stdgo.GoInt64 = 0;

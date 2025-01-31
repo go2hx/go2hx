@@ -1,4 +1,10 @@
 package stdgo._internal.net.netip;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.internal.intern.Intern;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.math.bits.Bits;
 function _parseIPv4(_s:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Netip_Addr.Addr; var _1 : stdgo.Error; } {
         var _ip = ({} : stdgo._internal.net.netip.Netip_Addr.Addr), _err = (null : stdgo.Error);
         var _fields:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();

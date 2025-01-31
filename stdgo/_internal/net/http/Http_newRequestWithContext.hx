@@ -4,12 +4,12 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
             _method = ("GET" : stdgo.GoString);
         };
         if (!stdgo._internal.net.http.Http__validMethod._validMethod(_method?.__copy__())) {
-            return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("net/http: invalid method %q" : stdgo.GoString), stdgo.Go.toInterface(_method)) };
+            return { _0 : null, _1 : stdgo._internal.net.http.Http__fmt._fmt.errorf(("net/http: invalid method %q" : stdgo.GoString), stdgo.Go.toInterface(_method)) };
         };
         if (_ctx == null) {
-            return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("net/http: nil Context" : stdgo.GoString)) };
+            return { _0 : null, _1 : stdgo._internal.net.http.Http__errors._errors.new_(("net/http: nil Context" : stdgo.GoString)) };
         };
-        var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_url?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.net.http.Http__urlpkg._urlpkg.parse(_url?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
@@ -19,7 +19,7 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
             { _0 : (null : stdgo._internal.io.Io_ReadCloser.ReadCloser), _1 : false };
         }, _rc = __tmp__._0, _ok = __tmp__._1;
         if ((!_ok && (_body != null) : Bool)) {
-            _rc = stdgo._internal.io.Io_nopCloser.nopCloser(_body);
+            _rc = stdgo._internal.net.http.Http__io._io.nopCloser(_body);
         };
         (@:checkr _u ?? throw "null pointer dereference").host = stdgo._internal.net.http.Http__removeEmptyPort._removeEmptyPort((@:checkr _u ?? throw "null pointer dereference").host?.__copy__())?.__copy__();
         var _req = (stdgo.Go.setRef(({ _ctx : _ctx, method : _method?.__copy__(), uRL : _u, proto : ("HTTP/1.1" : stdgo.GoString), protoMajor : (1 : stdgo.GoInt), protoMinor : (1 : stdgo.GoInt), header : (({
@@ -36,8 +36,8 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
                     (@:checkr _req ?? throw "null pointer dereference").contentLength = (@:check2r _v.len() : stdgo.GoInt64);
                     var _buf = @:check2r _v.bytes();
                     (@:checkr _req ?? throw "null pointer dereference").getBody = function():{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
-                        var _r = stdgo._internal.bytes.Bytes_newReader.newReader(_buf);
-                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(_r)), _1 : (null : stdgo.Error) };
+                        var _r = stdgo._internal.net.http.Http__bytes._bytes.newReader(_buf);
+                        return { _0 : stdgo._internal.net.http.Http__io._io.nopCloser(stdgo.Go.asInterface(_r)), _1 : (null : stdgo.Error) };
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>))) {
                     var _v:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>) : __type__.__underlying__().value;
@@ -45,7 +45,7 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
                     var _snapshot = ((_v : stdgo._internal.bytes.Bytes_Reader.Reader)?.__copy__() : stdgo._internal.bytes.Bytes_Reader.Reader);
                     (@:checkr _req ?? throw "null pointer dereference").getBody = function():{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
                         var _r = (_snapshot?.__copy__() : stdgo._internal.bytes.Bytes_Reader.Reader);
-                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>))), _1 : (null : stdgo.Error) };
+                        return { _0 : stdgo._internal.net.http.Http__io._io.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>))), _1 : (null : stdgo.Error) };
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))) {
                     var _v:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__().value;
@@ -53,7 +53,7 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
                     var _snapshot = ((_v : stdgo._internal.strings.Strings_Reader.Reader)?.__copy__() : stdgo._internal.strings.Strings_Reader.Reader);
                     (@:checkr _req ?? throw "null pointer dereference").getBody = function():{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
                         var _r = (_snapshot?.__copy__() : stdgo._internal.strings.Strings_Reader.Reader);
-                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))), _1 : (null : stdgo.Error) };
+                        return { _0 : stdgo._internal.net.http.Http__io._io.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))), _1 : (null : stdgo.Error) };
                     };
                 } else {
                     var _v:stdgo._internal.io.Io_Reader.Reader = __type__ == null ? (null : stdgo._internal.io.Io_Reader.Reader) : cast __type__;

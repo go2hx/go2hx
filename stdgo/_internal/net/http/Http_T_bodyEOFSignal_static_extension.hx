@@ -2,17 +2,6 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_bodyEOFSignal_asInterface) class T_bodyEOFSignal_static_extension {
     @:keep
     @:tdfield
-    static public function _condfn( _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal>, _err:stdgo.Error):stdgo.Error {
-        @:recv var _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal> = _es;
-        if ((@:checkr _es ?? throw "null pointer dereference")._fn == null) {
-            return _err;
-        };
-        _err = (@:checkr _es ?? throw "null pointer dereference")._fn(_err);
-        (@:checkr _es ?? throw "null pointer dereference")._fn = null;
-        return _err;
-    }
-    @:keep
-    @:tdfield
     static public function close( _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal>):stdgo.Error {
         @:recv var _es:stdgo.Ref<stdgo._internal.net.http.Http_T_bodyEOFSignal.T_bodyEOFSignal> = _es;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
@@ -34,7 +23,7 @@ package stdgo._internal.net.http;
                 };
             };
             (@:checkr _es ?? throw "null pointer dereference")._closed = true;
-            if ((((@:checkr _es ?? throw "null pointer dereference")._earlyCloseFn != null) && (stdgo.Go.toInterface((@:checkr _es ?? throw "null pointer dereference")._rerr) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
+            if ((((@:checkr _es ?? throw "null pointer dereference")._earlyCloseFn != null) && (stdgo.Go.toInterface((@:checkr _es ?? throw "null pointer dereference")._rerr) != stdgo.Go.toInterface(stdgo._internal.net.http.Http__io._io.eOF)) : Bool)) {
                 {
                     final __ret__:stdgo.Error = (@:checkr _es ?? throw "null pointer dereference")._earlyCloseFn();
                     for (defer in __deferstack__) {
@@ -61,7 +50,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -96,7 +89,11 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -158,7 +155,11 @@ var _rerr = __1, _closed = __0;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
@@ -193,7 +194,11 @@ var _rerr = __1, _closed = __0;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         };

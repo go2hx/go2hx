@@ -1,4 +1,5 @@
 package stdgo._internal.plugin;
+import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.plugin.Plugin.Plugin_asInterface) class Plugin_static_extension {
     @:keep
     @:tdfield

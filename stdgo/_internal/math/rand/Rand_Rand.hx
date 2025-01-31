@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension) class Rand {
     public var _src : stdgo._internal.math.rand.Rand_Source.Source = (null : stdgo._internal.math.rand.Rand_Source.Source);
     public var _s64 : stdgo._internal.math.rand.Rand_Source64.Source64 = (null : stdgo._internal.math.rand.Rand_Source64.Source64);

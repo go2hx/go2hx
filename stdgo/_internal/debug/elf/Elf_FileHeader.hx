@@ -1,5 +1,17 @@
 package stdgo._internal.debug.elf;
-@:structInit class FileHeader {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.debug.dwarf.Dwarf;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.internal.zstd.Zstd;
+@:structInit @:using(stdgo._internal.debug.elf.Elf_FileHeader_static_extension.FileHeader_static_extension) class FileHeader {
     public var class_ : stdgo._internal.debug.elf.Elf_Class_.Class_ = ((0 : stdgo.GoUInt8) : stdgo._internal.debug.elf.Elf_Class_.Class_);
     public var data : stdgo._internal.debug.elf.Elf_Data.Data = ((0 : stdgo.GoUInt8) : stdgo._internal.debug.elf.Elf_Data.Data);
     public var version : stdgo._internal.debug.elf.Elf_Version.Version = ((0 : stdgo.GoUInt8) : stdgo._internal.debug.elf.Elf_Version.Version);

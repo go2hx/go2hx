@@ -10,7 +10,7 @@ package stdgo._internal.net.http;
             if (_ctx == null) {
                 var _cancelCtx:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
                 {
-                    var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(@:check2r _r.context(), (@:checkr _h ?? throw "null pointer dereference")._dt);
+                    var __tmp__ = stdgo._internal.net.http.Http__context._context.withTimeout(@:check2r _r.context(), (@:checkr _h ?? throw "null pointer dereference")._dt);
                     _ctx = @:tmpset0 __tmp__._0;
                     _cancelCtx = @:tmpset0 __tmp__._1;
                 };
@@ -57,7 +57,11 @@ package stdgo._internal.net.http;
                                 defer.ran = true;
                                 defer.f();
                             };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            if (stdgo.Go.recover_exception != null) {
+                                final e = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                throw e;
+                            };
                             return;
                         };
                     } catch(__exception__) {
@@ -92,7 +96,11 @@ package stdgo._internal.net.http;
                                 };
                                 f();
                             };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                            if (stdgo.Go.recover_exception != null) {
+                                final e = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                throw e;
+                            };
                             return;
                         };
                     };
@@ -145,9 +153,9 @@ package stdgo._internal.net.http;
                                     var _err = (_ctx.err() : stdgo.Error);
                                     {
                                         final __value__ = _err;
-                                        if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.context.Context_deadlineExceeded.deadlineExceeded))) {
+                                        if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http__context._context.deadlineExceeded))) {
                                             _w.writeHeader((503 : stdgo.GoInt));
-                                            stdgo._internal.io.Io_writeString.writeString(_w, @:check2r _h._errorBody()?.__copy__());
+                                            stdgo._internal.net.http.Http__io._io.writeString(_w, @:check2r _h._errorBody()?.__copy__());
                                             (@:checkr _tw ?? throw "null pointer dereference")._err = stdgo._internal.net.http.Http_errHandlerTimeout.errHandlerTimeout;
                                         } else {
                                             _w.writeHeader((503 : stdgo.GoInt));
@@ -168,7 +176,11 @@ package stdgo._internal.net.http;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -203,18 +215,13 @@ package stdgo._internal.net.http;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };
-    }
-    @:keep
-    @:tdfield
-    static public function _errorBody( _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler>):stdgo.GoString {
-        @:recv var _h:stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutHandler.T_timeoutHandler> = _h;
-        if ((@:checkr _h ?? throw "null pointer dereference")._body != (stdgo.Go.str())) {
-            return (@:checkr _h ?? throw "null pointer dereference")._body?.__copy__();
-        };
-        return ("<html><head><title>Timeout</title></head><body><h1>Timeout</h1></body></html>" : stdgo.GoString);
     }
 }

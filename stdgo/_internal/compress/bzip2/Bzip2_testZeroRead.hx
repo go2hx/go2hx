@@ -1,4 +1,11 @@
 package stdgo._internal.compress.bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.os.Os;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
 function testZeroRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b = stdgo._internal.compress.bzip2.Bzip2__mustDecodeHex._mustDecodeHex(("425a6839314159265359b5aa5098000000600040000004200021008283177245385090b5aa5098" : stdgo.GoString));
         var _r = (stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))) : stdgo._internal.io.Io_Reader.Reader);

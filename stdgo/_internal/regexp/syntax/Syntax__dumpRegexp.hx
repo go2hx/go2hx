@@ -1,4 +1,10 @@
 package stdgo._internal.regexp.syntax;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
 function _dumpRegexp(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):Void {
         if (((((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt) >= (stdgo._internal.regexp.syntax.Syntax__opNames._opNames.length) : Bool) || (stdgo._internal.regexp.syntax.Syntax__opNames._opNames[((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt)] == stdgo.Go.str()) : Bool)) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("op%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _re ?? throw "null pointer dereference").op)));

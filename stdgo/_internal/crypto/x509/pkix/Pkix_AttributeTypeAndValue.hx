@@ -1,5 +1,8 @@
 package stdgo._internal.crypto.x509.pkix;
-@:structInit class AttributeTypeAndValue {
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue_static_extension.AttributeTypeAndValue_static_extension) class AttributeTypeAndValue {
     public var type : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier(0, 0);
     public var value : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public function new(?type:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?value:stdgo.AnyInterface) {

@@ -1,4 +1,15 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 function testMinMax(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _intCmp = (function(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt {
             return (_a - _b : stdgo.GoInt);
@@ -28,11 +39,11 @@ function testMinMax(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _gotMin = (stdgo._internal.slices.Slices_minFunc.minFunc(_svals, stdgo._internal.slices.Slices__cmpS._cmpS)?.__copy__() : stdgo._internal.slices.Slices_S.S);
         var _wantMin = (new stdgo._internal.slices.Slices_S.S((1 : stdgo.GoInt), ("a" : stdgo.GoString)) : stdgo._internal.slices.Slices_S.S);
         if (stdgo.Go.toInterface(_gotMin) != stdgo.Go.toInterface(_wantMin)) {
-            @:check2r _t.errorf(("MinFunc(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_svals), stdgo.Go.toInterface(_gotMin), stdgo.Go.toInterface(_wantMin));
+            @:check2r _t.errorf(("MinFunc(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_svals), stdgo.Go.toInterface(stdgo.Go.asInterface(_gotMin)), stdgo.Go.toInterface(stdgo.Go.asInterface(_wantMin)));
         };
         var _gotMax = (stdgo._internal.slices.Slices_maxFunc.maxFunc(_svals, stdgo._internal.slices.Slices__cmpS._cmpS)?.__copy__() : stdgo._internal.slices.Slices_S.S);
         var _wantMax = (new stdgo._internal.slices.Slices_S.S((2 : stdgo.GoInt), ("a" : stdgo.GoString)) : stdgo._internal.slices.Slices_S.S);
         if (stdgo.Go.toInterface(_gotMax) != stdgo.Go.toInterface(_wantMax)) {
-            @:check2r _t.errorf(("MaxFunc(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_svals), stdgo.Go.toInterface(_gotMax), stdgo.Go.toInterface(_wantMax));
+            @:check2r _t.errorf(("MaxFunc(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_svals), stdgo.Go.toInterface(stdgo.Go.asInterface(_gotMax)), stdgo.Go.toInterface(stdgo.Go.asInterface(_wantMax)));
         };
     }

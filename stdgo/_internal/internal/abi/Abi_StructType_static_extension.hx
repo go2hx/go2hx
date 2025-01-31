@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.abi.Abi.StructType_asInterface) class StructType_static_extension {
     @:embedded
     @:embeddededffieldsffun

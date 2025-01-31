@@ -1,5 +1,5 @@
 package stdgo._internal.internal.singleflight;
-@:structInit class Result {
+@:structInit @:using(stdgo._internal.internal.singleflight.Singleflight_Result_static_extension.Result_static_extension) class Result {
     public var val : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var err : stdgo.Error = (null : stdgo.Error);
     public var shared : Bool = false;

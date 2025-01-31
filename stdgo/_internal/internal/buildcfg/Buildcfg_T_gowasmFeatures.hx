@@ -1,4 +1,11 @@
 package stdgo._internal.internal.buildcfg;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.internal.buildcfg.Buildcfg_T_gowasmFeatures_static_extension.T_gowasmFeatures_static_extension) class T_gowasmFeatures {
     public var satConv : Bool = false;
     public var signExt : Bool = false;

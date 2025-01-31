@@ -1,2 +1,10 @@
 package stdgo._internal.compress.gzip;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.time.Time;
+import stdgo._internal.compress.flate.Flate;
 var errChecksum : stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("gzip: invalid checksum" : stdgo.GoString));

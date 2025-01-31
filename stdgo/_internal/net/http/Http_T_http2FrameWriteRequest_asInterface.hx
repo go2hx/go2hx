@@ -2,9 +2,6 @@ package stdgo._internal.net.http;
 class T_http2FrameWriteRequest_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _replyToWriter(_err:stdgo.Error):Void @:_0 __self__.value._replyToWriter(_err);
-    @:keep
-    @:tdfield
     public dynamic function string():stdgo.GoString return @:_0 __self__.value.string();
     @:keep
     @:tdfield
@@ -12,9 +9,6 @@ class T_http2FrameWriteRequest_asInterface {
     @:keep
     @:tdfield
     public dynamic function dataSize():stdgo.GoInt return @:_0 __self__.value.dataSize();
-    @:keep
-    @:tdfield
-    public dynamic function _isControl():Bool return @:_0 __self__.value._isControl();
     @:keep
     @:tdfield
     public dynamic function streamID():stdgo.GoUInt32 return @:_0 __self__.value.streamID();

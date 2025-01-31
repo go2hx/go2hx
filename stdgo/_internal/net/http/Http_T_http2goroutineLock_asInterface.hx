@@ -1,11 +1,5 @@
 package stdgo._internal.net.http;
 class T_http2goroutineLock_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _checkNotOn():Void @:_0 __self__.value._checkNotOn();
-    @:keep
-    @:tdfield
-    public dynamic function _check():Void @:_0 __self__.value._check();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

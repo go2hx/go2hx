@@ -1,4 +1,10 @@
 package stdgo._internal.testing.quick;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.time.Time;
 @:structInit @:using(stdgo._internal.testing.quick.Quick_CheckEqualError_static_extension.CheckEqualError_static_extension) class CheckEqualError {
     @:embedded
     public var checkError : stdgo._internal.testing.quick.Quick_CheckError.CheckError = ({} : stdgo._internal.testing.quick.Quick_CheckError.CheckError);

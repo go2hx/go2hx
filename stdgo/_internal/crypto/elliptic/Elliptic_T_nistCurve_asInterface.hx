@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.elliptic;
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 class T_nistCurve_asInterface<Point> {
     @:keep
     @:tdfield
@@ -41,6 +44,6 @@ class T_nistCurve_asInterface<Point> {
         this.__type__ = __type__;
     }
     public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
-    var __self__ : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurvePointer.T_nistCurvePointer;
+    var __self__ : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurvePointer.T_nistCurvePointer<Point>;
     var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
 }

@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef Seeker = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef Seeker = stdgo.StructType & {
     /**
         
         

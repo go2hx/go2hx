@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-@:named typedef SameSite = stdgo.GoInt;
+@:named @:using(stdgo._internal.net.http.Http_SameSite_static_extension.SameSite_static_extension) typedef SameSite = stdgo.GoInt;

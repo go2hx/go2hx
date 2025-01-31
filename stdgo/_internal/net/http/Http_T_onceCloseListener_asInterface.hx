@@ -2,9 +2,6 @@ package stdgo._internal.net.http;
 class T_onceCloseListener_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _close():Void @:_0 __self__.value._close();
-    @:keep
-    @:tdfield
     public dynamic function close():stdgo.Error return @:_0 __self__.value.close();
     @:embedded
     @:embeddededffieldsffun

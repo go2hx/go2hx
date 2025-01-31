@@ -1,4 +1,20 @@
 package stdgo._internal.runtime.pprof;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.context.Context;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.text.tabwriter.Tabwriter;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.time.Time;
+import stdgo._internal.compress.gzip.Gzip;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.abi.Abi;
 function _printCountProfile(_w:stdgo._internal.io.Io_Writer.Writer, _debug:stdgo.GoInt, _name:stdgo.GoString, _p:stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_countProfile):stdgo.Error {
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         var _key = function(_stk:stdgo.Slice<stdgo.GoUIntptr>, _lbls:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>):stdgo.GoString {

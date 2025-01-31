@@ -1,4 +1,22 @@
 package stdgo._internal.net.http.httputil;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.http.internal.Internal;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.net.textproto.Textproto;
+import _internal.golang_dot_org.x.net.http.httpguts.Httpguts;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.net.Net;
+import stdgo._internal.context.Context;
+import stdgo._internal.net.http.internal.ascii.Ascii;
+import stdgo._internal.net.http.httptrace.Httptrace;
+import stdgo._internal.mime.Mime;
+import stdgo._internal.time.Time;
+import stdgo._internal.log.Log;
 function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _body:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -160,7 +178,11 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -195,7 +217,11 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             };
         };

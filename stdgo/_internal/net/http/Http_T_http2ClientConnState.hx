@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-@:structInit class T_http2ClientConnState {
+@:structInit @:using(stdgo._internal.net.http.Http_T_http2ClientConnState_static_extension.T_http2ClientConnState_static_extension) class T_http2ClientConnState {
     public var closed : Bool = false;
     public var closing : Bool = false;
     public var streamsActive : stdgo.GoInt = 0;

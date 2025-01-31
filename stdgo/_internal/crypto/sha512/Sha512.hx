@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha512;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.crypto.sha512.Sha512___K.__K;

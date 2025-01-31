@@ -1,4 +1,11 @@
 package stdgo._internal.compress.bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.os.Os;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
 function _inverseBWT(_tt:stdgo.Slice<stdgo.GoUInt32>, _origPtr:stdgo.GoUInt, _c:stdgo.Slice<stdgo.GoUInt>):stdgo.GoUInt32 {
         var _sum = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
         {

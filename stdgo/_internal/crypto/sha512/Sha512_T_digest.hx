@@ -1,4 +1,9 @@
 package stdgo._internal.crypto.sha512;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
 @:structInit @:using(stdgo._internal.crypto.sha512.Sha512_T_digest_static_extension.T_digest_static_extension) class T_digest {
     public var _h : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(8, 8).__setNumber64__();
     public var _x : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(128, 128).__setNumber32__();

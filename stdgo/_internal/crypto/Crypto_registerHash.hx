@@ -1,4 +1,5 @@
 package stdgo._internal.crypto;
+import stdgo._internal.strconv.Strconv;
 function registerHash(_h:stdgo._internal.crypto.Crypto_Hash.Hash, _f:() -> stdgo._internal.hash.Hash_Hash.Hash):Void {
         if ((_h >= (20u32 : stdgo._internal.crypto.Crypto_Hash.Hash) : Bool)) {
             throw stdgo.Go.toInterface(("crypto: RegisterHash of unknown hash function" : stdgo.GoString));

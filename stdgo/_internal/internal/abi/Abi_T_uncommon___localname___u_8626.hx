@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8626 {
     @:embedded
     public var arrayType : stdgo._internal.internal.abi.Abi_ArrayType.ArrayType = ({} : stdgo._internal.internal.abi.Abi_ArrayType.ArrayType);

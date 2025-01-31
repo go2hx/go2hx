@@ -1,5 +1,5 @@
 package stdgo._internal.os.signal;
-@:structInit class T_stopping {
+@:structInit @:using(stdgo._internal.os.signal.Signal_T_stopping_static_extension.T_stopping_static_extension) class T_stopping {
     public var _c : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal> = (null : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
     public var _h : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler> = (null : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
     public function new(?_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, ?_h:stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>) {

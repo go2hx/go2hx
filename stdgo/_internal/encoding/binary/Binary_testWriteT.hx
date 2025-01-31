@@ -1,14 +1,22 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function testWriteT(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _ts = (new stdgo._internal.encoding.binary.Binary_T_.T_() : stdgo._internal.encoding.binary.Binary_T_.T_);
         {
-            var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_ts)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_ts))) : stdgo.Error);
             if (_err == null) {
                 @:check2r _t.errorf(("WriteT: have err == nil, want non-nil" : stdgo.GoString));
             };
         };
-        var _tv = (stdgo._internal.reflect.Reflect_indirect.indirect(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_ts))?.__copy__())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+        var _tv = (stdgo._internal.reflect.Reflect_indirect.indirect(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_ts)))?.__copy__())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         {
             var __0 = (0 : stdgo.GoInt), __1 = (_tv.numField() : stdgo.GoInt);
 var _n = __1, _i = __0;

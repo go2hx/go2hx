@@ -2,9 +2,6 @@ package stdgo._internal.net.http;
 class T_http2MetaHeadersFrame_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _checkPseudos():stdgo.Error return @:_0 __self__.value._checkPseudos();
-    @:keep
-    @:tdfield
     public dynamic function pseudoFields():stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField> return @:_0 __self__.value.pseudoFields();
     @:keep
     @:tdfield

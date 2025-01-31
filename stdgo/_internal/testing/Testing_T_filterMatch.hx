@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-typedef T_filterMatch = stdgo.StructType & {
+@:interface typedef T_filterMatch = stdgo.StructType & {
     /**
         matches checks the name against the receiver's pattern strings using the
         given match function.

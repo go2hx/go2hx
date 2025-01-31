@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.dsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.crypto.internal.randutil.Randutil;
 function verify(_pub:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey>, _hash:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _s:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):Bool {
         if (@:check2r (@:checkr _pub ?? throw "null pointer dereference").parameters.p.sign() == ((0 : stdgo.GoInt))) {
             return false;

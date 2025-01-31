@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class AuxFile64 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_AuxFile64_static_extension.AuxFile64_static_extension) class AuxFile64 {
     public var xfname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public var xftype : stdgo.GoUInt8 = 0;
     public var xauxtype : stdgo.GoUInt8 = 0;

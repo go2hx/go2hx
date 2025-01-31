@@ -1,4 +1,10 @@
 package stdgo._internal.crypto.rand;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.compress.flate.Flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.crypto.internal.randutil.Randutil;
 function read(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {

@@ -1,4 +1,11 @@
 package stdgo._internal.compress.flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.compress.flate.Flate_T_huffmanEncoder_static_extension.T_huffmanEncoder_static_extension) class T_huffmanEncoder {
     public var _codes : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode> = (null : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>);
     public var _freqcache : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode> = (null : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);

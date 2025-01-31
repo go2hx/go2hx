@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.dsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.big.Big;
+import stdgo._internal.crypto.internal.randutil.Randutil;
 function generateKey(_priv:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey>, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
         if (((((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.p == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.p : Dynamic).__nil__) || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.q == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.q : Dynamic).__nil__) : Bool) || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.g == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.g : Dynamic).__nil__) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/dsa: parameters not set up before generating key" : stdgo.GoString));

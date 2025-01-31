@@ -1,5 +1,5 @@
 package stdgo._internal.os.signal;
-typedef T_stringer = stdgo.StructType & {
+@:interface typedef T_stringer = stdgo.StructType & {
     /**
         
         

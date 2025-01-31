@@ -1,8 +1,5 @@
 package stdgo._internal.net.http;
 class T_exactSig_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _match(_data:stdgo.Slice<stdgo.GoUInt8>, _firstNonWS:stdgo.GoInt):stdgo.GoString return @:_0 __self__.value._match(_data, _firstNonWS);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

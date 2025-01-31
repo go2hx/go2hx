@@ -1,5 +1,13 @@
 package stdgo._internal.encoding.csv;
-@:structInit class T_position {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+@:structInit @:using(stdgo._internal.encoding.csv.Csv_T_position_static_extension.T_position_static_extension) class T_position {
     public var _line : stdgo.GoInt = 0;
     public var _col : stdgo.GoInt = 0;
     public function new(?_line:stdgo.GoInt, ?_col:stdgo.GoInt) {

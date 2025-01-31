@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _feistel(_l:stdgo.GoUInt32, _r:stdgo.GoUInt32, _k0:stdgo.GoUInt64, _k1:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _lout = (0 : stdgo.GoUInt32), _rout = (0 : stdgo.GoUInt32);
         var _t:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);

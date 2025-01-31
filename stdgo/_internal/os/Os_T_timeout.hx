@@ -1,5 +1,5 @@
 package stdgo._internal.os;
-typedef T_timeout = stdgo.StructType & {
+@:interface typedef T_timeout = stdgo.StructType & {
     /**
         
         

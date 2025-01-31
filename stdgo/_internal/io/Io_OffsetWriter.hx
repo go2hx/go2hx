@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_OffsetWriter_static_extension.OffsetWriter_static_extension) class OffsetWriter {
     public var _w : stdgo._internal.io.Io_WriterAt.WriterAt = (null : stdgo._internal.io.Io_WriterAt.WriterAt);
     public var _base : stdgo.GoInt64 = 0;

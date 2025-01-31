@@ -1,4 +1,10 @@
 package stdgo._internal.net.url;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.sort.Sort;
 function _escape(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encoding.T_encoding):stdgo.GoString {
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _hexCount = __1, _spaceCount = __0;

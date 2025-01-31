@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_rwUnwrapper = stdgo.StructType & {
+@:interface typedef T_rwUnwrapper = stdgo.StructType & {
     /**
         
         

@@ -2,9 +2,6 @@ package stdgo._internal.net.http;
 class T_bodyEOFSignal_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _condfn(_err:stdgo.Error):stdgo.Error return @:_0 __self__.value._condfn(_err);
-    @:keep
-    @:tdfield
     public dynamic function close():stdgo.Error return @:_0 __self__.value.close();
     @:keep
     @:tdfield

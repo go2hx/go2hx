@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-typedef Listener = stdgo.StructType & {
+@:interface typedef Listener = stdgo.StructType & {
     /**
         Accept waits for and returns the next connection to the listener.
         

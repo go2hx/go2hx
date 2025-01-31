@@ -1,4 +1,11 @@
 package stdgo._internal.compress.bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.os.Os;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
 function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree; var _1 : stdgo.Error; } {
         if (((_lengths.length) < (2 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("newHuffmanTree: too few symbols" : stdgo.GoString));

@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class Iovec {
+@:structInit @:using(stdgo._internal.syscall.Syscall_Iovec_static_extension.Iovec_static_extension) class Iovec {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {

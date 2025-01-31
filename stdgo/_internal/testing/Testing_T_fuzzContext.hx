@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-@:structInit class T_fuzzContext {
+@:structInit @:using(stdgo._internal.testing.Testing_T_fuzzContext_static_extension.T_fuzzContext_static_extension) class T_fuzzContext {
     public var _deps : stdgo._internal.testing.Testing_T_testDeps.T_testDeps = (null : stdgo._internal.testing.Testing_T_testDeps.T_testDeps);
     public var _mode : stdgo._internal.testing.Testing_T_fuzzMode.T_fuzzMode = ((0 : stdgo.GoUInt8) : stdgo._internal.testing.Testing_T_fuzzMode.T_fuzzMode);
     public function new(?_deps:stdgo._internal.testing.Testing_T_testDeps.T_testDeps, ?_mode:stdgo._internal.testing.Testing_T_fuzzMode.T_fuzzMode) {

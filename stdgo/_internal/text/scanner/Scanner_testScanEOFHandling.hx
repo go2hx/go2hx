@@ -1,4 +1,10 @@
 package stdgo._internal.text.scanner;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
 function testScanEOFHandling(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _r:stdgo._internal.text.scanner.Scanner_T_countReader.T_countReader = ((0 : stdgo.GoInt) : stdgo._internal.text.scanner.Scanner_T_countReader.T_countReader);
         var _r__pointer__ = stdgo.Go.pointer(_r);

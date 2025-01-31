@@ -1,4 +1,15 @@
 package stdgo._internal.mime;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.base64.Base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.os.Os;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
 function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):stdgo.Error {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -54,7 +65,11 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -89,7 +104,11 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };

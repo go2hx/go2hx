@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef SessionResetter = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef SessionResetter = stdgo.StructType & {
     /**
         ResetSession is called prior to executing a query on the connection
         if the connection has been used before. If the driver returns ErrBadConn

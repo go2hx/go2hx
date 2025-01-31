@@ -1,5 +1,18 @@
 package stdgo._internal.net.rpc;
-@:structInit class Response {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.html.template.Template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.encoding.gob.Gob;
+import stdgo._internal.net.Net;
+import stdgo._internal.io.Io;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.go.token.Token;
+import stdgo._internal.log.Log;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+@:structInit @:using(stdgo._internal.net.rpc.Rpc_Response_static_extension.Response_static_extension) class Response {
     public var serviceMethod : stdgo.GoString = "";
     public var seq : stdgo.GoUInt64 = 0;
     public var error : stdgo.GoString = "";

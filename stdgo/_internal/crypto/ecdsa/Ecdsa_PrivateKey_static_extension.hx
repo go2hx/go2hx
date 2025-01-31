@@ -1,4 +1,19 @@
 package stdgo._internal.crypto.ecdsa;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.crypto.internal.randutil.Randutil;
+import stdgo._internal.crypto.internal.boring.Boring;
+import _internal.crypto.internal.boring.bbig.Bbig;
+import stdgo._internal.crypto.internal.bigmod.Bigmod;
+import stdgo._internal.io.Io;
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.sha512.Sha512;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.math.big.Big;
 @:keep @:allow(stdgo._internal.crypto.ecdsa.Ecdsa.PrivateKey_asInterface) class PrivateKey_static_extension {
     @:keep
     @:tdfield
@@ -28,9 +43,9 @@ package stdgo._internal.crypto.ecdsa;
     }
     @:keep
     @:tdfield
-    static public function eCDH( _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>):{ var _0 : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } {
+    static public function eCDH( _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey> = _k;
-        var _c = (stdgo._internal.crypto.ecdsa.Ecdsa__curveToECDH._curveToECDH((@:checkr _k ?? throw "null pointer dereference").publicKey.curve) : _internal.crypto.ecdh.Ecdh_Curve.Curve);
+        var _c = (stdgo._internal.crypto.ecdsa.Ecdsa__curveToECDH._curveToECDH((@:checkr _k ?? throw "null pointer dereference").publicKey.curve) : stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve);
         if (_c == null) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("ecdsa: unsupported curve by crypto/ecdh" : stdgo.GoString)) };
         };

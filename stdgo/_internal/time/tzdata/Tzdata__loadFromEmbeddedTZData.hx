@@ -1,4 +1,5 @@
 package stdgo._internal.time.tzdata;
+import stdgo._internal.errors.Errors;
 function _loadFromEmbeddedTZData(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         {};
         var _z = (stdgo.Go.str("PK",

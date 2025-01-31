@@ -4,6 +4,7 @@ class Interface_static_extension {
         return stdgo._internal.container.heap.Heap_Interface_static_extension.Interface_static_extension.pop(t);
     }
     static public function push(t:stdgo._internal.container.heap.Heap_Interface.Interface, _x:stdgo.AnyInterface):Void {
+        final _x = (_x : stdgo.AnyInterface);
         stdgo._internal.container.heap.Heap_Interface_static_extension.Interface_static_extension.push(t, _x);
     }
 }
@@ -28,14 +29,15 @@ class Heap {
         and may be called whenever the heap invariants may have been invalidated.
         The complexity is O(n) where n = h.Len().
     **/
-    static public function init(_h:Interface):Void {
+    static public inline function init(_h:Interface):Void {
         stdgo._internal.container.heap.Heap_init.init(_h);
     }
     /**
         Push pushes the element x onto the heap.
         The complexity is O(log n) where n = h.Len().
     **/
-    static public function push(_h:Interface, _x:stdgo.AnyInterface):Void {
+    static public inline function push(_h:Interface, _x:stdgo.AnyInterface):Void {
+        final _x = (_x : stdgo.AnyInterface);
         stdgo._internal.container.heap.Heap_push.push(_h, _x);
     }
     /**
@@ -43,14 +45,15 @@ class Heap {
         The complexity is O(log n) where n = h.Len().
         Pop is equivalent to Remove(h, 0).
     **/
-    static public function pop(_h:Interface):stdgo.AnyInterface {
+    static public inline function pop(_h:Interface):stdgo.AnyInterface {
         return stdgo._internal.container.heap.Heap_pop.pop(_h);
     }
     /**
         Remove removes and returns the element at index i from the heap.
         The complexity is O(log n) where n = h.Len().
     **/
-    static public function remove(_h:Interface, _i:StdTypes.Int):stdgo.AnyInterface {
+    static public inline function remove(_h:Interface, _i:StdTypes.Int):stdgo.AnyInterface {
+        final _i = (_i : stdgo.GoInt);
         return stdgo._internal.container.heap.Heap_remove.remove(_h, _i);
     }
     /**
@@ -59,7 +62,8 @@ class Heap {
         but less expensive than, calling Remove(h, i) followed by a Push of the new value.
         The complexity is O(log n) where n = h.Len().
     **/
-    static public function fix(_h:Interface, _i:StdTypes.Int):Void {
+    static public inline function fix(_h:Interface, _i:StdTypes.Int):Void {
+        final _i = (_i : stdgo.GoInt);
         stdgo._internal.container.heap.Heap_fix.fix(_h, _i);
     }
 }

@@ -7,7 +7,7 @@ package stdgo._internal.net.http;
         _w.header().set(("Content-Length" : stdgo.GoString), ("0" : stdgo.GoString));
         if ((@:checkr _r ?? throw "null pointer dereference").contentLength != ((0i64 : stdgo.GoInt64))) {
             var _mb = (stdgo._internal.net.http.Http_maxBytesReader.maxBytesReader(_w, (@:checkr _r ?? throw "null pointer dereference").body, (4096i64 : stdgo.GoInt64)) : stdgo._internal.io.Io_ReadCloser.ReadCloser);
-            stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, _mb);
+            stdgo._internal.net.http.Http__io._io.copy(stdgo._internal.net.http.Http__io._io.discard, _mb);
         };
     }
 }

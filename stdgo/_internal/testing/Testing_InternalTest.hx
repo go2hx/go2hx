@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-@:structInit class InternalTest {
+@:structInit @:using(stdgo._internal.testing.Testing_InternalTest_static_extension.InternalTest_static_extension) class InternalTest {
     public var name : stdgo.GoString = "";
     public var f : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_> -> Void = null;
     public function new(?name:stdgo.GoString, ?f:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_> -> Void) {

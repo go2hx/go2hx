@@ -1,4 +1,11 @@
 package stdgo._internal.compress.flate;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.sort.Sort;
 var _codegenOrder : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(19, 19, ...[
 (16u32 : stdgo.GoUInt32),
 (17u32 : stdgo.GoUInt32),

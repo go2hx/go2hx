@@ -20,7 +20,7 @@ final bLAKE2b_384 = stdgo._internal.crypto.Crypto_bLAKE2b_384.bLAKE2b_384;
 final bLAKE2b_512 = stdgo._internal.crypto.Crypto_bLAKE2b_512.bLAKE2b_512;
 class Signer_static_extension {
     static public function sign(t:stdgo._internal.crypto.Crypto_Signer.Signer, _rand:stdgo._internal.io.Io_Reader.Reader, _digest:Array<std.UInt>, _opts:SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _digest = ([for (i in _digest) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _digest = ([for (i in _digest) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.Crypto_Signer_static_extension.Signer_static_extension.sign(t, _rand, _digest, _opts);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -39,7 +39,7 @@ class SignerOpts_static_extension {
 typedef SignerOpts = stdgo._internal.crypto.Crypto_SignerOpts.SignerOpts;
 class Decrypter_static_extension {
     static public function decrypt(t:stdgo._internal.crypto.Crypto_Decrypter.Decrypter, _rand:stdgo._internal.io.Io_Reader.Reader, _msg:Array<std.UInt>, _opts:DecrypterOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _msg = ([for (i in _msg) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _msg = ([for (i in _msg) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.Crypto_Decrypter_static_extension.Decrypter_static_extension.decrypt(t, _rand, _msg, _opts);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -72,6 +72,18 @@ class Hash_static_extension {
         return stdgo._internal.crypto.Crypto_Hash_static_extension.Hash_static_extension.hashFunc(_h);
     }
 }
+typedef PublicKeyPointer = stdgo._internal.crypto.Crypto_PublicKeyPointer.PublicKeyPointer;
+class PublicKey_static_extension {
+
+}
+typedef PrivateKeyPointer = stdgo._internal.crypto.Crypto_PrivateKeyPointer.PrivateKeyPointer;
+class PrivateKey_static_extension {
+
+}
+typedef DecrypterOptsPointer = stdgo._internal.crypto.Crypto_DecrypterOptsPointer.DecrypterOptsPointer;
+class DecrypterOpts_static_extension {
+
+}
 /**
     Package crypto collects common cryptographic constants.
 **/
@@ -81,7 +93,7 @@ class Crypto {
         hash function. This is intended to be called from the init function in
         packages that implement hash functions.
     **/
-    static public function registerHash(_h:Hash, _f:() -> stdgo._internal.hash.Hash_Hash.Hash):Void {
+    static public inline function registerHash(_h:Hash, _f:() -> stdgo._internal.hash.Hash_Hash.Hash):Void {
         final _f = _f;
         stdgo._internal.crypto.Crypto_registerHash.registerHash(_h, _f);
     }

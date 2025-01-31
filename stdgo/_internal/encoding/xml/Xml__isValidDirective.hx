@@ -1,4 +1,14 @@
 package stdgo._internal.encoding.xml;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.io.Io;
 function _isValidDirective(_dir:stdgo._internal.encoding.xml.Xml_Directive.Directive):Bool {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __2:Bool = false;
 var _incomment = __2, _inquote = __1, _depth = __0;

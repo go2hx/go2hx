@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_RegArgs_static_extension.RegArgs_static_extension) class RegArgs {
     public var ints : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(0, 0);
     public var floats : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(0, 0).__setNumber64__();

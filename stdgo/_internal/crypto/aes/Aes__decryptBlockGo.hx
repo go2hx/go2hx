@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.aes;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _decryptBlockGo(_xk:stdgo.Slice<stdgo.GoUInt32>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
         var __blank__ = _src[(15 : stdgo.GoInt)];
         var _s0 = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_src.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);

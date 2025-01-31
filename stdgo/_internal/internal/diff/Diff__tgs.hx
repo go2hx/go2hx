@@ -1,4 +1,8 @@
 package stdgo._internal.internal.diff;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
 function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo._internal.internal.diff.Diff_T_pair.T_pair> {
         var _m = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();

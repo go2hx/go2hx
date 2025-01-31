@@ -1,5 +1,5 @@
 package stdgo._internal.reflect;
-@:structInit class SelectCase {
+@:structInit @:using(stdgo._internal.reflect.Reflect_SelectCase_static_extension.SelectCase_static_extension) class SelectCase {
     public var dir : stdgo._internal.reflect.Reflect_SelectDir.SelectDir = ((0 : stdgo.GoInt) : stdgo._internal.reflect.Reflect_SelectDir.SelectDir);
     public var chan : stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value);
     public var send : stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value);

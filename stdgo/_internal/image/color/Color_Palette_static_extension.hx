@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.image.color.Color.Palette_asInterface) class Palette_static_extension {
     @:keep
     @:tdfield

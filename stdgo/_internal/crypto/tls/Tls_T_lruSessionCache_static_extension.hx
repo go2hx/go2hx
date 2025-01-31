@@ -1,4 +1,41 @@
 package stdgo._internal.crypto.tls;
+import stdgo._internal.internal.cpu.Cpu;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.rc4.Rc4;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.crypto.hmac.Hmac;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.internal.boring.Boring;
+import _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305;
+import stdgo._internal.container.list.List;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.crypto.sha512.Sha512;
+import stdgo._internal.context.Context;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.x509.X509;
+import stdgo._internal.runtime.Runtime;
+import _internal.golang_dot_org.x.crypto.hkdf.Hkdf;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.time.Time;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.encoding.binary.Binary;
+import _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_lruSessionCache_asInterface) class T_lruSessionCache_static_extension {
     @:keep
     @:tdfield
@@ -41,7 +78,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>), _1 : false };
             };
         } catch(__exception__) {
@@ -76,7 +117,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>), _1 : false };
             };
         };
@@ -115,7 +160,7 @@ package stdgo._internal.crypto.tls;
             };
             if ((@:check2r (@:checkr _c ?? throw "null pointer dereference")._q.len() < (@:checkr _c ?? throw "null pointer dereference")._capacity : Bool)) {
                 var _entry = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry(_sessionKey?.__copy__(), _cs) : stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry>);
-                (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey] = @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.pushFront(stdgo.Go.toInterface(_entry));
+                (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey] = @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.pushFront(stdgo.Go.toInterface(stdgo.Go.asInterface(_entry)));
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -138,7 +183,11 @@ package stdgo._internal.crypto.tls;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -173,7 +222,11 @@ package stdgo._internal.crypto.tls;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

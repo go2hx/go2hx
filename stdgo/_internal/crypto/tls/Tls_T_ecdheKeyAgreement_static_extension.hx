@@ -1,4 +1,41 @@
 package stdgo._internal.crypto.tls;
+import stdgo._internal.internal.cpu.Cpu;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.crypto.ecdsa.Ecdsa;
+import stdgo._internal.crypto.ed25519.Ed25519;
+import stdgo._internal.crypto.rsa.Rsa;
+import stdgo._internal.io.Io;
+import stdgo._internal.crypto.elliptic.Elliptic;
+import stdgo._internal.crypto.rc4.Rc4;
+import stdgo._internal.crypto.des.Des;
+import stdgo._internal.crypto.cipher.Cipher;
+import stdgo._internal.crypto.aes.Aes;
+import stdgo._internal.crypto.sha1.Sha1;
+import stdgo._internal.crypto.hmac.Hmac;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.crypto.internal.boring.Boring;
+import _internal.golang_dot_org.x.crypto.chacha20poly1305.Chacha20poly1305;
+import stdgo._internal.container.list.List;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.crypto.ecdh.Ecdh;
+import stdgo._internal.crypto.sha512.Sha512;
+import stdgo._internal.context.Context;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.pem.Pem;
+import stdgo._internal.crypto.x509.X509;
+import stdgo._internal.runtime.Runtime;
+import _internal.golang_dot_org.x.crypto.hkdf.Hkdf;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.time.Time;
+import stdgo._internal.crypto.subtle.Subtle;
+import stdgo._internal.encoding.binary.Binary;
+import _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_ecdheKeyAgreement_asInterface) class T_ecdheKeyAgreement_static_extension {
     @:keep
     @:tdfield
@@ -31,17 +68,17 @@ package stdgo._internal.crypto.tls;
             return stdgo._internal.crypto.tls.Tls__errServerKeyExchange._errServerKeyExchange;
         };
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __65:_internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __65:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server selected unsupported curve" : stdgo.GoString));
             };
         };
-        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(@:check2r _config._rand(), _curveID), _key:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(@:check2r _config._rand(), _curveID), _key:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
         (@:checkr _ka ?? throw "null pointer dereference")._key = _key;
-        var __tmp__ = @:check2r _key.curve().newPublicKey(_publicKey), _peerKey:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _key.curve().newPublicKey(_publicKey), _peerKey:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return stdgo._internal.crypto.tls.Tls__errServerKeyExchange._errServerKeyExchange;
         };
@@ -113,7 +150,7 @@ package stdgo._internal.crypto.tls;
         if ((((@:checkr _ckx ?? throw "null pointer dereference")._ciphertext.length == (0 : stdgo.GoInt)) || (((@:checkr _ckx ?? throw "null pointer dereference")._ciphertext[(0 : stdgo.GoInt)] : stdgo.GoInt) != (((@:checkr _ckx ?? throw "null pointer dereference")._ciphertext.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.tls.Tls__errClientKeyExchange._errClientKeyExchange };
         };
-        var __tmp__ = @:check2r (@:checkr _ka ?? throw "null pointer dereference")._key.curve().newPublicKey(((@:checkr _ckx ?? throw "null pointer dereference")._ciphertext.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _peerKey:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r (@:checkr _ka ?? throw "null pointer dereference")._key.curve().newPublicKey(((@:checkr _ckx ?? throw "null pointer dereference")._ciphertext.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _peerKey:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.tls.Tls__errClientKeyExchange._errClientKeyExchange };
         };
@@ -138,12 +175,12 @@ package stdgo._internal.crypto.tls;
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: no supported elliptic curves offered" : stdgo.GoString)) };
         };
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __66:_internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_curveID), __66:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString)) };
             };
         };
-        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(@:check2r _config._rand(), _curveID), _key:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(@:check2r _config._rand(), _curveID), _key:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };

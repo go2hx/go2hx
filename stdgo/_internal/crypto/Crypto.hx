@@ -1,4 +1,5 @@
 package stdgo._internal.crypto;
+import stdgo._internal.strconv.Strconv;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.crypto.Crypto__digestSizes._digestSizes, __tmp__1 = stdgo._internal.crypto.Crypto__hashes._hashes;

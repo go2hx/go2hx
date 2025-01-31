@@ -1,4 +1,7 @@
 package stdgo._internal.io.ioutil;
+import stdgo._internal.io.Io;
+import stdgo._internal.os.Os;
+import stdgo._internal.sort.Sort;
 function readDir(_dirname:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.os.Os_open.open(_dirname?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

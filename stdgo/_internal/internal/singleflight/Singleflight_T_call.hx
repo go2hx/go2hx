@@ -1,5 +1,5 @@
 package stdgo._internal.internal.singleflight;
-@:structInit class T_call {
+@:structInit @:using(stdgo._internal.internal.singleflight.Singleflight_T_call_static_extension.T_call_static_extension) class T_call {
     public var _wg : stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
     public var _val : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var _err : stdgo.Error = (null : stdgo.Error);

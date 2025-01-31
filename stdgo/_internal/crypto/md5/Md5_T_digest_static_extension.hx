@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.md5;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.crypto.md5.Md5.T_digest_asInterface) class T_digest_static_extension {
     @:keep
     @:tdfield

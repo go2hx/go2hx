@@ -1,4 +1,9 @@
 package stdgo._internal.net.http.internal;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
 function newChunkedReader(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>)) : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>), _1 : true };

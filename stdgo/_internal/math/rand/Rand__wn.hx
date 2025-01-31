@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 var _wn : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(128, 128, ...[
 (1.7290404663583558e-09 : stdgo.GoFloat64),
 (1.2680928529462676e-10 : stdgo.GoFloat64),

@@ -1,2 +1,18 @@
 package stdgo._internal.text.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.internal.fmtsort.Fmtsort;
 var _bigInt : stdgo.GoString = stdgo._internal.fmt.Fmt_sprintf.sprintf(("0x%x" : stdgo.GoString), stdgo.Go.toInterface((((1 : stdgo.GoInt) << ((stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt))).bits() - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)));

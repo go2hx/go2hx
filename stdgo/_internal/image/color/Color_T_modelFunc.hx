@@ -1,4 +1,6 @@
 package stdgo._internal.image.color;
+import stdgo._internal.testing.quick.Quick;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_T_modelFunc_static_extension.T_modelFunc_static_extension) class T_modelFunc {
     public var _f : stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color = null;
     public function new(?_f:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color) {

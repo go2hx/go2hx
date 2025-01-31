@@ -1,5 +1,7 @@
 package stdgo._internal.math.rand;
-typedef Source = stdgo.StructType & {
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
+@:interface typedef Source = stdgo.StructType & {
     /**
         
         

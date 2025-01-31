@@ -1,5 +1,5 @@
 package stdgo._internal.context;
-typedef T_stringer = stdgo.StructType & {
+@:interface typedef T_stringer = stdgo.StructType & {
     /**
         
         

@@ -1,4 +1,9 @@
 package stdgo._internal.encoding.hex;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
 function benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(256 : stdgo.GoInt), (1024 : stdgo.GoInt), (4096 : stdgo.GoInt), (16384 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             var _src = stdgo._internal.bytes.Bytes_repeat.repeat((new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(50 : stdgo.GoUInt8), (98 : stdgo.GoUInt8), (55 : stdgo.GoUInt8), (52 : stdgo.GoUInt8), (52 : stdgo.GoUInt8), (102 : stdgo.GoUInt8), (97 : stdgo.GoUInt8), (97 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (_size / (8 : stdgo.GoInt) : stdgo.GoInt));

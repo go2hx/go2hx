@@ -6,7 +6,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo._internal.net.http.Http_T_persistConnWriter.T_persistConnWriter = _w?.__copy__();
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {
-            var __tmp__ = stdgo._internal.io.Io_copy.copy((@:checkr _w._pc ?? throw "null pointer dereference")._conn, _r);
+            var __tmp__ = stdgo._internal.net.http.Http__io._io.copy((@:checkr _w._pc ?? throw "null pointer dereference")._conn, _r);
             _n = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };

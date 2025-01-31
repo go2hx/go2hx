@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef DriverContext = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef DriverContext = stdgo.StructType & {
     /**
         OpenConnector must parse the name in the same format that Driver.Open
         parses the name parameter.

@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function makeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table> {
         {
             final __value__ = _poly;

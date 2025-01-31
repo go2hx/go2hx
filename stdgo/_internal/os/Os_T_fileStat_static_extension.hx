@@ -8,7 +8,10 @@ package stdgo._internal.os;
     static public function modTime( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo._internal.time.Time_Time.Time throw "T_fileStat:os.modTime is not yet implemented";
     @:keep
     @:tdfield
-    static public function mode( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo._internal.io.fs.Fs_FileMode.FileMode throw "T_fileStat:os.mode is not yet implemented";
+    static public function mode( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo._internal.io.fs.Fs_FileMode.FileMode {
+        @:recv var _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat> = _fs;
+        return 0;
+    }
     @:keep
     @:tdfield
     static public function size( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.GoInt64 throw "T_fileStat:os.size is not yet implemented";
@@ -23,5 +26,8 @@ package stdgo._internal.os;
     }
     @:keep
     @:tdfield
-    static public function name( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.GoString throw "T_fileStat:os.name is not yet implemented";
+    static public function name( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.GoString {
+        @:recv var _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat> = _fs;
+        return _fs._name;
+    }
 }

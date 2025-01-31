@@ -1,5 +1,7 @@
 package stdgo._internal.net.http.httptrace;
-@:structInit class DNSStartInfo {
+import stdgo._internal.context.Context;
+import stdgo._internal.reflect.Reflect;
+@:structInit @:using(stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo_static_extension.DNSStartInfo_static_extension) class DNSStartInfo {
     public var host : stdgo.GoString = "";
     public function new(?host:stdgo.GoString) {
         if (host != null) this.host = host;

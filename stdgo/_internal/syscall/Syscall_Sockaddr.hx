@@ -1,2 +1,2 @@
 package stdgo._internal.syscall;
-@:follow typedef Sockaddr = stdgo.AnyInterface;
+@:follow @:using(stdgo._internal.syscall.Syscall_Sockaddr_static_extension.Sockaddr_static_extension) typedef Sockaddr = stdgo.AnyInterface;

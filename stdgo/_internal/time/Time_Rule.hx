@@ -1,5 +1,10 @@
 package stdgo._internal.time;
-@:structInit class Rule {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
+@:structInit @:using(stdgo._internal.time.Time_Rule_static_extension.Rule_static_extension) class Rule {
     public var kind : stdgo._internal.time.Time_RuleKind.RuleKind = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_RuleKind.RuleKind);
     public var day : stdgo.GoInt = 0;
     public var week : stdgo.GoInt = 0;

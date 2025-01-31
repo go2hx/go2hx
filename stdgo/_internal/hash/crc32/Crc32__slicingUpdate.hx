@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function _slicingUpdate(_crc:stdgo.GoUInt32, _tab:stdgo.Ref<stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table>, _p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32 {
         if (((_p.length) >= (16 : stdgo.GoInt) : Bool)) {
             _crc = (-1 ^ _crc);

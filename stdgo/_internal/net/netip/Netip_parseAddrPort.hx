@@ -1,4 +1,10 @@
 package stdgo._internal.net.netip;
+import stdgo._internal.internal.bytealg.Bytealg;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.internal.intern.Intern;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.math.bits.Bits;
 function parseAddrPort(_s:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Netip_AddrPort.AddrPort; var _1 : stdgo.Error; } {
         var _ipp:stdgo._internal.net.netip.Netip_AddrPort.AddrPort = ({} : stdgo._internal.net.netip.Netip_AddrPort.AddrPort);
         var __tmp__ = stdgo._internal.net.netip.Netip__splitAddrPort._splitAddrPort(_s?.__copy__()), _ip:stdgo.GoString = __tmp__._0, _port:stdgo.GoString = __tmp__._1, _v6:Bool = __tmp__._2, _err:stdgo.Error = __tmp__._3;

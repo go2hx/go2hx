@@ -1,2 +1,8 @@
 package stdgo._internal.image.jpeg;
-@:named typedef T_block = stdgo.GoArray<stdgo.GoInt32>;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+@:named @:using(stdgo._internal.image.jpeg.Jpeg_T_block_static_extension.T_block_static_extension) typedef T_block = stdgo.GoArray<stdgo.GoInt32>;

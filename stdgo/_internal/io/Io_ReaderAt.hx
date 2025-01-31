@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef ReaderAt = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef ReaderAt = stdgo.StructType & {
     /**
         
         

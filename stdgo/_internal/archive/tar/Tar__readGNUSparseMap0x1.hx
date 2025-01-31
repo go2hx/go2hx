@@ -1,4 +1,17 @@
 package stdgo._internal.archive.tar;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.time.Time;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.path.Path;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.sort.Sort;
 function _readGNUSparseMap0x1(_paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ var _0 : stdgo._internal.archive.tar.Tar_T_sparseDatas.T_sparseDatas; var _1 : stdgo.Error; } {
         var _numEntriesStr = ((_paxHdrs[("GNU.sparse.numblocks" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_numEntriesStr?.__copy__(), (10 : stdgo.GoInt), (0 : stdgo.GoInt)), _numEntries:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;

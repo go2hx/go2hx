@@ -1,5 +1,5 @@
 package stdgo._internal.internal.godebugs;
-@:structInit class Info {
+@:structInit @:using(stdgo._internal.internal.godebugs.Godebugs_Info_static_extension.Info_static_extension) class Info {
     public var name : stdgo.GoString = "";
     public var package_ : stdgo.GoString = "";
     public var changed : stdgo.GoInt = 0;

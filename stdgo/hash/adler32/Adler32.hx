@@ -6,24 +6,28 @@ class T__struct_0_static_extension {
 }
 typedef T__struct_0 = stdgo._internal.hash.adler32.Adler32_T__struct_0.T__struct_0;
 typedef T_digest = stdgo._internal.hash.adler32.Adler32_T_digest.T_digest;
+typedef T__struct_0PointerPointer = stdgo._internal.hash.adler32.Adler32_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
 typedef T_digestPointer = stdgo._internal.hash.adler32.Adler32_T_digestPointer.T_digestPointer;
 class T_digest_static_extension {
     static public function sum(_d:stdgo.Pointer<T_digest>, _in:Array<std.UInt>):Array<std.UInt> {
-        final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.hash.adler32.Adler32_T_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];
     }
     static public function sum32(_d:stdgo.Pointer<T_digest>):std.UInt {
         return stdgo._internal.hash.adler32.Adler32_T_digest_static_extension.T_digest_static_extension.sum32(_d);
     }
     static public function write(_d:stdgo.Pointer<T_digest>, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.hash.adler32.Adler32_T_digest_static_extension.T_digest_static_extension.write(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function unmarshalBinary(_d:stdgo.Pointer<T_digest>, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.adler32.Adler32_T_digest_static_extension.T_digest_static_extension.unmarshalBinary(_d, _b);
     }
     static public function marshalBinary(_d:stdgo.Pointer<T_digest>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -61,23 +65,26 @@ class Adler32 {
         encoding.BinaryUnmarshaler to marshal and unmarshal the internal
         state of the hash.
     **/
-    static public function new_():stdgo._internal.hash.Hash_Hash32.Hash32 {
+    static public inline function new_():stdgo._internal.hash.Hash_Hash32.Hash32 {
         return stdgo._internal.hash.adler32.Adler32_new_.new_();
     }
     /**
         Checksum returns the Adler-32 checksum of data.
     **/
-    static public function checksum(_data:Array<std.UInt>):std.UInt {
-        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function checksum(_data:Array<std.UInt>):std.UInt {
+        final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.adler32.Adler32_checksum.checksum(_data);
     }
-    static public function testGolden(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.hash.adler32.Adler32_testGolden.testGolden(_t);
     }
-    static public function testGoldenMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
         stdgo._internal.hash.adler32.Adler32_testGoldenMarshal.testGoldenMarshal(_t);
     }
-    static public function benchmarkAdler32KB(_b:stdgo._internal.testing.Testing_B.B):Void {
+    static public inline function benchmarkAdler32KB(_b:stdgo._internal.testing.Testing_B.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
         stdgo._internal.hash.adler32.Adler32_benchmarkAdler32KB.benchmarkAdler32KB(_b);
     }
 }

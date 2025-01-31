@@ -3,51 +3,51 @@ package stdgo.os.user;
     public var uid(get, set) : String;
     function get_uid():String return this.uid;
     function set_uid(v:String):String {
-        this.uid = v;
+        this.uid = (v : stdgo.GoString);
         return v;
     }
     public var gid(get, set) : String;
     function get_gid():String return this.gid;
     function set_gid(v:String):String {
-        this.gid = v;
+        this.gid = (v : stdgo.GoString);
         return v;
     }
     public var username(get, set) : String;
     function get_username():String return this.username;
     function set_username(v:String):String {
-        this.username = v;
+        this.username = (v : stdgo.GoString);
         return v;
     }
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
     public var homeDir(get, set) : String;
     function get_homeDir():String return this.homeDir;
     function set_homeDir(v:String):String {
-        this.homeDir = v;
+        this.homeDir = (v : stdgo.GoString);
         return v;
     }
-    public function new(?uid:String, ?gid:String, ?username:String, ?name:String, ?homeDir:String) this = new stdgo._internal.os.user.User_User.User(uid, gid, username, name, homeDir);
+    public function new(?uid:String, ?gid:String, ?username:String, ?name:String, ?homeDir:String) this = new stdgo._internal.os.user.User_User.User((uid : stdgo.GoString), (gid : stdgo.GoString), (username : stdgo.GoString), (name : stdgo.GoString), (homeDir : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Group(stdgo._internal.os.user.User_Group.Group) from stdgo._internal.os.user.User_Group.Group to stdgo._internal.os.user.User_Group.Group {
+@:structInit @:using(stdgo.os.user.User.Group_static_extension) abstract Group(stdgo._internal.os.user.User_Group.Group) from stdgo._internal.os.user.User_Group.Group to stdgo._internal.os.user.User_Group.Group {
     public var gid(get, set) : String;
     function get_gid():String return this.gid;
     function set_gid(v:String):String {
-        this.gid = v;
+        this.gid = (v : stdgo.GoString);
         return v;
     }
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
-        this.name = v;
+        this.name = (v : stdgo.GoString);
         return v;
     }
-    public function new(?gid:String, ?name:String) this = new stdgo._internal.os.user.User_Group.Group(gid, name);
+    public function new(?gid:String, ?name:String) this = new stdgo._internal.os.user.User_Group.Group((gid : stdgo.GoString), (name : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -71,11 +71,24 @@ typedef UnknownGroupError = stdgo._internal.os.user.User_UnknownGroupError.Unkno
 typedef UserPointer = stdgo._internal.os.user.User_UserPointer.UserPointer;
 class User_static_extension {
     static public function groupIds(_u:User_):stdgo.Tuple<Array<String>, stdgo.Error> {
+        final _u = (_u : stdgo.Ref<stdgo._internal.os.user.User_User.User>);
         return {
             final obj = stdgo._internal.os.user.User_User_static_extension.User_static_extension.groupIds(_u);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
+}
+typedef GroupPointer = stdgo._internal.os.user.User_GroupPointer.GroupPointer;
+class Group_static_extension {
+
+}
+typedef T__struct_0PointerPointer = stdgo._internal.os.user.User_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef T_lineFuncPointer = stdgo._internal.os.user.User_T_lineFuncPointer.T_lineFuncPointer;
+class T_lineFunc_static_extension {
+
 }
 typedef UnknownUserIdErrorPointer = stdgo._internal.os.user.User_UnknownUserIdErrorPointer.UnknownUserIdErrorPointer;
 class UnknownUserIdError_static_extension {
@@ -125,7 +138,7 @@ class User {
         Subsequent calls will return the cached value and will not reflect
         changes to the current user.
     **/
-    static public function current():stdgo.Tuple<User_, stdgo.Error> {
+    static public inline function current():stdgo.Tuple<User_, stdgo.Error> {
         return {
             final obj = stdgo._internal.os.user.User_current.current();
             { _0 : obj._0, _1 : obj._1 };
@@ -135,7 +148,8 @@ class User {
         Lookup looks up a user by username. If the user cannot be found, the
         returned error is of type UnknownUserError.
     **/
-    static public function lookup(_username:String):stdgo.Tuple<User_, stdgo.Error> {
+    static public inline function lookup(_username:String):stdgo.Tuple<User_, stdgo.Error> {
+        final _username = (_username : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.user.User_lookup.lookup(_username);
             { _0 : obj._0, _1 : obj._1 };
@@ -145,7 +159,8 @@ class User {
         LookupId looks up a user by userid. If the user cannot be found, the
         returned error is of type UnknownUserIdError.
     **/
-    static public function lookupId(_uid:String):stdgo.Tuple<User_, stdgo.Error> {
+    static public inline function lookupId(_uid:String):stdgo.Tuple<User_, stdgo.Error> {
+        final _uid = (_uid : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.user.User_lookupId.lookupId(_uid);
             { _0 : obj._0, _1 : obj._1 };
@@ -155,7 +170,8 @@ class User {
         LookupGroup looks up a group by name. If the group cannot be found, the
         returned error is of type UnknownGroupError.
     **/
-    static public function lookupGroup(_name:String):stdgo.Tuple<Group, stdgo.Error> {
+    static public inline function lookupGroup(_name:String):stdgo.Tuple<Group, stdgo.Error> {
+        final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.user.User_lookupGroup.lookupGroup(_name);
             { _0 : obj._0, _1 : obj._1 };
@@ -165,7 +181,8 @@ class User {
         LookupGroupId looks up a group by groupid. If the group cannot be found, the
         returned error is of type UnknownGroupIdError.
     **/
-    static public function lookupGroupId(_gid:String):stdgo.Tuple<Group, stdgo.Error> {
+    static public inline function lookupGroupId(_gid:String):stdgo.Tuple<Group, stdgo.Error> {
+        final _gid = (_gid : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.user.User_lookupGroupId.lookupGroupId(_gid);
             { _0 : obj._0, _1 : obj._1 };

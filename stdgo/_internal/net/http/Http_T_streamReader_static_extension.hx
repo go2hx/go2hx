@@ -28,14 +28,14 @@ package stdgo._internal.net.http;
             if (((@:checkr _r ?? throw "null pointer dereference")._pending.length) == ((0 : stdgo.GoInt))) {
                 var __0 = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), __1 = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
 var _errCh = __1, _bCh = __0;
-                var _success = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
+                var _success = (stdgo._internal.net.http.Http__js._js.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
                     var _result = (_args[(0 : stdgo.GoInt)] : stdgo._internal.syscall.js.Js_Value.Value);
                     if (_result.get(("done" : stdgo.GoString)).bool_()) {
-                        _errCh.__send__(stdgo._internal.io.Io_eOF.eOF);
+                        _errCh.__send__(stdgo._internal.net.http.Http__io._io.eOF);
                         return (null : stdgo.AnyInterface);
                     };
                     var _value = (new stdgo.Slice<stdgo.GoUInt8>((_result.get(("value" : stdgo.GoString)).get(("byteLength" : stdgo.GoString)).int_() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                    stdgo._internal.syscall.js.Js_copyBytesToGo.copyBytesToGo(_value, _result.get(("value" : stdgo.GoString))?.__copy__());
+                    stdgo._internal.net.http.Http__js._js.copyBytesToGo(_value, _result.get(("value" : stdgo.GoString))?.__copy__());
                     _bCh.__send__(_value);
                     return (null : stdgo.AnyInterface);
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
@@ -43,8 +43,8 @@ var _errCh = __1, _bCh = __0;
                     final __f__ = _success.release;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });
                 };
-                var _failure = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
-                    _errCh.__send__(stdgo._internal.errors.Errors_new_.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
+                var _failure = (stdgo._internal.net.http.Http__js._js.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
+                    _errCh.__send__(stdgo._internal.net.http.Http__errors._errors.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
                     return (null : stdgo.AnyInterface);
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
                 {
@@ -113,7 +113,11 @@ var _errCh = __1, _bCh = __0;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
@@ -148,7 +152,11 @@ var _errCh = __1, _bCh = __0;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _n, _1 : _err };
             };
         };

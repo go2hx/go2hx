@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 class T_structTypeUncommon_asInterface {
     @:embedded
     @:embeddededffieldsffun

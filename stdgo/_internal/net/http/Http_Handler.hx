@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef Handler = stdgo.StructType & {
+@:interface typedef Handler = stdgo.StructType & {
     /**
         
         

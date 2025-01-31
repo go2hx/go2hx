@@ -1,4 +1,5 @@
 package stdgo._internal.errors;
+import stdgo._internal.internal.reflectlite.Reflectlite;
 class T_joinError_asInterface {
     @:keep
     @:tdfield

@@ -1,4 +1,6 @@
 package stdgo._internal.crypto.hmac;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.subtle.Subtle;
 @:structInit @:using(stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension) class T_hmac {
     public var _opad : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _ipad : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

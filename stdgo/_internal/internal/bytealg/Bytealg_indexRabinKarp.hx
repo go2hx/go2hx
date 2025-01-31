@@ -1,4 +1,6 @@
 package stdgo._internal.internal.bytealg;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.internal.cpu.Cpu;
 function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var __tmp__ = stdgo._internal.internal.bytealg.Bytealg_hashStr.hashStr(_substr?.__copy__()), _hashss:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
         var _n = (_substr.length : stdgo.GoInt);

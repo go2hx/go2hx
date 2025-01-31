@@ -11,7 +11,7 @@ package stdgo._internal.net.http;
             } else if (__value__ == ((2 : stdgo._internal.net.http.Http_T_socksCommand.T_socksCommand))) {
                 return ("socks bind" : stdgo.GoString);
             } else {
-                return (("socks " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_cmd : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
+                return (("socks " : stdgo.GoString) + stdgo._internal.net.http.Http__strconv._strconv.itoa((_cmd : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
             };
         };
     }

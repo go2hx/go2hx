@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_closeIdleConnections___localname___closeIdler_31464 = stdgo.StructType & {
+@:interface typedef T_closeIdleConnections___localname___closeIdler_31464 = stdgo.StructType & {
     /**
         
         

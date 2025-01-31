@@ -1,4 +1,6 @@
 package stdgo._internal.encoding.base32;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
 final _decodeMapInitialize : stdgo.GoString = stdgo.Go.str(255,
 255,
 255,

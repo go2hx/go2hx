@@ -25,7 +25,7 @@ package stdgo._internal.net.http;
             } else if (__value__ == ((8 : stdgo._internal.net.http.Http_T_socksReply.T_socksReply))) {
                 return ("address type not supported" : stdgo.GoString);
             } else {
-                return (("unknown code: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_code : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
+                return (("unknown code: " : stdgo.GoString) + stdgo._internal.net.http.Http__strconv._strconv.itoa((_code : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
             };
         };
     }

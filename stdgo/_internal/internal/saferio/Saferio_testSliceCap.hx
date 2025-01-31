@@ -1,4 +1,7 @@
 package stdgo._internal.internal.saferio;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
 function testSliceCap(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         @:check2r _t.run(("small" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _c = (stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)), (10i64 : stdgo.GoUInt64)) : stdgo.GoInt);

@@ -1,4 +1,6 @@
 package stdgo._internal.text.tabwriter;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
 @:structInit @:using(stdgo._internal.text.tabwriter.Tabwriter_Writer_static_extension.Writer_static_extension) class Writer {
     public var _output : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _minwidth : stdgo.GoInt = 0;

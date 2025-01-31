@@ -1,2 +1,14 @@
 package stdgo._internal.debug.elf;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.debug.dwarf.Dwarf;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.internal.zstd.Zstd;
 var _compressionStrings : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_intName.T_intName> = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_T_intName.T_intName>(6, 6, ...[(new stdgo._internal.debug.elf.Elf_T_intName.T_intName((1u32 : stdgo.GoUInt32), ("COMPRESS_ZLIB" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName), (new stdgo._internal.debug.elf.Elf_T_intName.T_intName((2u32 : stdgo.GoUInt32), ("COMPRESS_ZSTD" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName), (new stdgo._internal.debug.elf.Elf_T_intName.T_intName((1610612736u32 : stdgo.GoUInt32), ("COMPRESS_LOOS" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName), (new stdgo._internal.debug.elf.Elf_T_intName.T_intName((1879048191u32 : stdgo.GoUInt32), ("COMPRESS_HIOS" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName), (new stdgo._internal.debug.elf.Elf_T_intName.T_intName((1879048192u32 : stdgo.GoUInt32), ("COMPRESS_LOPROC" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName), (new stdgo._internal.debug.elf.Elf_T_intName.T_intName((2147483647u32 : stdgo.GoUInt32), ("COMPRESS_HIPROC" : stdgo.GoString)) : stdgo._internal.debug.elf.Elf_T_intName.T_intName)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_T_intName.T_intName)])) : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_intName.T_intName>);

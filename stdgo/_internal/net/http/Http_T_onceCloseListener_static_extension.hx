@@ -2,12 +2,6 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_onceCloseListener_asInterface) class T_onceCloseListener_static_extension {
     @:keep
     @:tdfield
-    static public function _close( _oc:stdgo.Ref<stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener>):Void {
-        @:recv var _oc:stdgo.Ref<stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener> = _oc;
-        (@:checkr _oc ?? throw "null pointer dereference")._closeErr = (@:checkr _oc ?? throw "null pointer dereference").listener.close();
-    }
-    @:keep
-    @:tdfield
     static public function close( _oc:stdgo.Ref<stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener>):stdgo.Error {
         @:recv var _oc:stdgo.Ref<stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener> = _oc;
         @:check2 (@:checkr _oc ?? throw "null pointer dereference")._once.do_(@:check2r _oc._close);

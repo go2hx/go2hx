@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _ksRotate(_in:stdgo.GoUInt32):stdgo.Slice<stdgo.GoUInt32> {
         var _out = (null : stdgo.Slice<stdgo.GoUInt32>);
         _out = (new stdgo.Slice<stdgo.GoUInt32>((16 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);

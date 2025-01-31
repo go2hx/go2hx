@@ -8,10 +8,27 @@ package stdgo._internal.testing;
     static public function setenv( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _key:stdgo.GoString, _value:stdgo.GoString):Void throw "T_common:testing.setenv is not yet implemented";
     @:keep
     @:tdfield
-    static public function tempDir( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):stdgo.GoString return "temp";
+    static public function tempDir( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):stdgo.GoString {
+        @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
+        final pattern = "";
+        final obj = stdgo._internal.os.Os_mkdirTemp.mkdirTemp("", pattern);
+        _c._tempDir = obj._0;
+        _c._tempDirErr = obj._1;
+        if (_c._tempDirErr != null) {
+            _c.fatalf("TempDir: %v", stdgo.Go.toInterface(_c._tempDirErr));
+        } else {
+            _c.cleanup(() -> {
+                stdgo._internal.os.Os_removeAll.removeAll(_c._tempDir);
+            });
+        };
+        return _c._tempDir;
+    }
     @:keep
     @:tdfield
-    static public function cleanup( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _f:() -> Void):Void throw "T_common:testing.cleanup is not yet implemented";
+    static public function cleanup( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _f:() -> Void):Void {
+        @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
+        _c._cleanups = _c._cleanups.__append__(_f);
+    }
     @:keep
     @:tdfield
     static public function helper( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void {
@@ -60,7 +77,7 @@ package stdgo._internal.testing;
     static public function errorf( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
-        stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+        stdgo._internal.fmt.Fmt_printf.printf(_format + "\n", ...[for (arg in _args) arg]);
         _c.fail();
     }
     @:keep
@@ -104,6 +121,10 @@ package stdgo._internal.testing;
     static public function fail( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
         _c._failed = true;
+        if (@:privateAccess ++_c.failCount > 200) {
+            trace("fail count exceeded max");
+            #if (sys || hxnodejs) Sys.exit(1) #else null #end;
+        };
     }
     @:keep
     @:tdfield

@@ -1,4 +1,20 @@
 package stdgo._internal.html.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.text.template.parse.Parse;
+import stdgo._internal.html.Html;
+import stdgo._internal.text.template.Template;
+import stdgo._internal.encoding.json.Json;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
 @:keep @:allow(stdgo._internal.html.template.Template.Template_asInterface) class Template_static_extension {
     @:keep
     @:tdfield
@@ -46,7 +62,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         } catch(__exception__) {
@@ -81,7 +101,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         };
@@ -154,7 +178,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         } catch(__exception__) {
@@ -189,7 +217,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         };
@@ -269,7 +301,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -304,7 +340,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         };
@@ -355,7 +395,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -390,7 +434,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         };
@@ -440,7 +488,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
@@ -475,7 +527,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         };
@@ -574,7 +630,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _tmpl, _1 : _err };
             };
         } catch(__exception__) {
@@ -609,7 +669,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _tmpl, _1 : _err };
             };
         };
@@ -699,7 +763,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -734,7 +802,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -779,7 +851,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -814,7 +890,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -857,7 +937,11 @@ package stdgo._internal.html.template;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
             };
         } catch(__exception__) {
@@ -892,7 +976,11 @@ package stdgo._internal.html.template;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
             };
         };

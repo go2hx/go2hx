@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef RuneScanner = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef RuneScanner = stdgo.StructType & {
     > stdgo._internal.io.Io_RuneReader.RuneReader,
     /**
         

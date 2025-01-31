@@ -1,7 +1,7 @@
 package stdgo._internal.internal.cpu;
-@:local @:using(stdgo._internal.internal.cpu.Cpu_T__struct_0_static_extension.T__struct_0_static_extension) typedef T__struct_0 = {
+@:local @:using(stdgo._internal.internal.cpu.Cpu_T__struct_0_static_extension.T__struct_0_static_extension) @:using(stdgo._internal.internal.cpu.Cpu_T__struct_0_static_extension.T__struct_0_static_extension) typedef T__struct_0 = {
     @:optional
-    public var __7 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
+    public var __99 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
     public var hasAES : Bool;
     public var hasADX : Bool;
     public var hasAVX : Bool;
@@ -20,5 +20,5 @@ package stdgo._internal.internal.cpu;
     public var hasSSE41 : Bool;
     public var hasSSE42 : Bool;
     @:optional
-    public var __9 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
+    public var __101 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
 };

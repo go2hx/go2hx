@@ -1,4 +1,5 @@
 package stdgo._internal.internal.safefilepath;
+import stdgo._internal.errors.Errors;
 function _fromFS(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (false) {
             if ((((_path.length) > (0 : stdgo.GoInt) : Bool) && (_path[(0 : stdgo.GoInt)] == (35 : stdgo.GoUInt8)) : Bool)) {

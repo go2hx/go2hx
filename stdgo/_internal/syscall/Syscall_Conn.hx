@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-typedef Conn = stdgo.StructType & {
+@:interface typedef Conn = stdgo.StructType & {
     /**
         SyscallConn returns a raw network connection.
         

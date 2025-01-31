@@ -1,4 +1,20 @@
 package stdgo._internal.regexp;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.regexp.syntax.Syntax;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.os.Os;
+import stdgo._internal.compress.bzip2.Bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
 function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:stdgo.GoString):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -168,7 +184,11 @@ if (_line == (stdgo.Go.str())) {
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -203,7 +223,11 @@ if (_line == (stdgo.Go.str())) {
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

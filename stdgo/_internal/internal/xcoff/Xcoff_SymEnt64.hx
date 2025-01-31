@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class SymEnt64 {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_SymEnt64_static_extension.SymEnt64_static_extension) class SymEnt64 {
     public var nvalue : stdgo.GoUInt64 = 0;
     public var noffset : stdgo.GoUInt32 = 0;
     public var nscnum : stdgo.GoUInt16 = 0;

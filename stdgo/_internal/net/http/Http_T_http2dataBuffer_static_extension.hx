@@ -2,21 +2,6 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2dataBuffer_asInterface) class T_http2dataBuffer_static_extension {
     @:keep
     @:tdfield
-    static public function _lastChunkOrAlloc( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer>, _want:stdgo.GoInt64):stdgo.Slice<stdgo.GoUInt8> {
-        @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer> = _b;
-        if (((@:checkr _b ?? throw "null pointer dereference")._chunks.length) != ((0 : stdgo.GoInt))) {
-            var _last = (@:checkr _b ?? throw "null pointer dereference")._chunks[(((@:checkr _b ?? throw "null pointer dereference")._chunks.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
-            if (((@:checkr _b ?? throw "null pointer dereference")._w < (_last.length) : Bool)) {
-                return _last;
-            };
-        };
-        var _chunk = stdgo._internal.net.http.Http__http2getDataBufferChunk._http2getDataBufferChunk(_want);
-        (@:checkr _b ?? throw "null pointer dereference")._chunks = ((@:checkr _b ?? throw "null pointer dereference")._chunks.__append__(_chunk));
-        (@:checkr _b ?? throw "null pointer dereference")._w = (0 : stdgo.GoInt);
-        return _chunk;
-    }
-    @:keep
-    @:tdfield
     static public function write( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer> = _b;
         var _ntotal = (_p.length : stdgo.GoInt);
@@ -39,15 +24,6 @@ package stdgo._internal.net.http;
     static public function len( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer>):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer> = _b;
         return (@:checkr _b ?? throw "null pointer dereference")._size;
-    }
-    @:keep
-    @:tdfield
-    static public function _bytesFromFirstChunk( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer>):stdgo.Slice<stdgo.GoUInt8> {
-        @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_http2dataBuffer.T_http2dataBuffer> = _b;
-        if (((@:checkr _b ?? throw "null pointer dereference")._chunks.length) == ((1 : stdgo.GoInt))) {
-            return ((@:checkr _b ?? throw "null pointer dereference")._chunks[(0 : stdgo.GoInt)].__slice__((@:checkr _b ?? throw "null pointer dereference")._r, (@:checkr _b ?? throw "null pointer dereference")._w) : stdgo.Slice<stdgo.GoUInt8>);
-        };
-        return ((@:checkr _b ?? throw "null pointer dereference")._chunks[(0 : stdgo.GoInt)].__slice__((@:checkr _b ?? throw "null pointer dereference")._r) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield

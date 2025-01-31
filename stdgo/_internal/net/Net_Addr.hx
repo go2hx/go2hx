@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-typedef Addr = stdgo.StructType & {
+@:interface typedef Addr = stdgo.StructType & {
     /**
         
         

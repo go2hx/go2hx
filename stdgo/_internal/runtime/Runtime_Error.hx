@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-typedef Error = stdgo.StructType & {
+@:interface typedef Error = stdgo.StructType & {
     > stdgo.Error,
     /**
         RuntimeError is a no-op function but

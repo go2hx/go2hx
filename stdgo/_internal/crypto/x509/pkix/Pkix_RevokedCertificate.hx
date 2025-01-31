@@ -1,5 +1,8 @@
 package stdgo._internal.crypto.x509.pkix;
-@:structInit class RevokedCertificate {
+import stdgo._internal.encoding.asn1.Asn1;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.fmt.Fmt;
+@:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate_static_extension.RevokedCertificate_static_extension) class RevokedCertificate {
     public var serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
     public var revocationTime : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
     @:tag("`asn1:\"optional\"`")

@@ -1,16 +1,22 @@
 package stdgo._internal.debug.gosym;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.debug.gosym.Gosym.Obj_asInterface) class Obj_static_extension {
     @:keep
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
-        var _i_3648125:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _val_3648351:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3648323:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3648328_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_3648267:stdgo.GoInt = (0 : stdgo.GoInt);
         var _depth_3648250:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3648128:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
+        var _i_3648125:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _val_3648351:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3648323:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef T_decimalDecompose = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef T_decimalDecompose = stdgo.StructType & {
     /**
         Decompose returns the internal decimal state into parts.
         If the provided buf has sufficient capacity, buf may be returned as the coefficient with

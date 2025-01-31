@@ -1,5 +1,5 @@
 package stdgo._internal.internal.cpu;
-@:structInit class T_option {
+@:structInit @:using(stdgo._internal.internal.cpu.Cpu_T_option_static_extension.T_option_static_extension) class T_option {
     public var name : stdgo.GoString = "";
     public var feature : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
     public var specified : Bool = false;

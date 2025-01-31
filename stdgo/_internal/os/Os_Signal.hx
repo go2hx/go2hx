@@ -1,5 +1,5 @@
 package stdgo._internal.os;
-typedef Signal = stdgo.StructType & {
+@:interface typedef Signal = stdgo.StructType & {
     /**
         
         

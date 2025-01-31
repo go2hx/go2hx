@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-@:structInit class PushOptions {
+@:structInit @:using(stdgo._internal.net.http.Http_PushOptions_static_extension.PushOptions_static_extension) class PushOptions {
     public var method : stdgo.GoString = "";
     public var header : stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
     public function new(?method:stdgo.GoString, ?header:stdgo._internal.net.http.Http_Header.Header) {

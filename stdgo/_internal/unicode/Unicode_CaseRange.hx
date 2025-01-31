@@ -1,5 +1,5 @@
 package stdgo._internal.unicode;
-@:structInit class CaseRange {
+@:structInit @:using(stdgo._internal.unicode.Unicode_CaseRange_static_extension.CaseRange_static_extension) class CaseRange {
     public var lo : stdgo.GoUInt32 = 0;
     public var hi : stdgo.GoUInt32 = 0;
     public var delta : stdgo._internal.unicode.Unicode_T_d.T_d = new stdgo._internal.unicode.Unicode_T_d.T_d(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt32)]);

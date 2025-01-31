@@ -32,6 +32,10 @@ class T_serverConn_static_extension {
         return stdgo._internal.log.syslog.Syslog_T_serverConn_static_extension.T_serverConn_static_extension._close(t);
     }
     static public function _writeString(t:stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn, _p:Priority, _hostname:String, _tag:String, _s:String, _nl:String):stdgo.Error {
+        final _hostname = (_hostname : stdgo.GoString);
+        final _tag = (_tag : stdgo.GoString);
+        final _s = (_s : stdgo.GoString);
+        final _nl = (_nl : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_T_serverConn_static_extension.T_serverConn_static_extension._writeString(t, _p, _hostname, _tag, _s, _nl);
     }
 }
@@ -46,25 +50,25 @@ typedef T_serverConn = stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverCo
     public var _tag(get, set) : String;
     function get__tag():String return this._tag;
     function set__tag(v:String):String {
-        this._tag = v;
+        this._tag = (v : stdgo.GoString);
         return v;
     }
     public var _hostname(get, set) : String;
     function get__hostname():String return this._hostname;
     function set__hostname(v:String):String {
-        this._hostname = v;
+        this._hostname = (v : stdgo.GoString);
         return v;
     }
     public var _network(get, set) : String;
     function get__network():String return this._network;
     function set__network(v:String):String {
-        this._network = v;
+        this._network = (v : stdgo.GoString);
         return v;
     }
     public var _raddr(get, set) : String;
     function get__raddr():String return this._raddr;
     function set__raddr(v:String):String {
-        this._raddr = v;
+        this._raddr = (v : stdgo.GoString);
         return v;
     }
     public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
@@ -79,7 +83,7 @@ typedef T_serverConn = stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverCo
         this._conn = v;
         return v;
     }
-    public function new(?_priority:Priority, ?_tag:String, ?_hostname:String, ?_network:String, ?_raddr:String, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_conn:T_serverConn) this = new stdgo._internal.log.syslog.Syslog_Writer.Writer(_priority, _tag, _hostname, _network, _raddr, _mu, _conn);
+    public function new(?_priority:Priority, ?_tag:String, ?_hostname:String, ?_network:String, ?_raddr:String, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_conn:T_serverConn) this = new stdgo._internal.log.syslog.Syslog_Writer.Writer(_priority, (_tag : stdgo.GoString), (_hostname : stdgo.GoString), (_network : stdgo.GoString), (_raddr : stdgo.GoString), _mu, _conn);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -104,63 +108,96 @@ typedef Priority = stdgo._internal.log.syslog.Syslog_Priority.Priority;
 typedef WriterPointer = stdgo._internal.log.syslog.Syslog_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function _write(_w:Writer, _p:Priority, _msg:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _msg = (_msg : stdgo.GoString);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension._write(_w, _p, _msg);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _writeAndRetry(_w:Writer, _p:Priority, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension._writeAndRetry(_w, _p, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function debug(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.debug(_w, _m);
     }
     static public function info(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.info(_w, _m);
     }
     static public function notice(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.notice(_w, _m);
     }
     static public function warning(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.warning(_w, _m);
     }
     static public function err(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.err(_w, _m);
     }
     static public function crit(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.crit(_w, _m);
     }
     static public function alert(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.alert(_w, _m);
     }
     static public function emerg(_w:Writer, _m:String):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _m = (_m : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.emerg(_w, _m);
     }
     static public function close(_w:Writer):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.close(_w);
     }
     static public function write(_w:Writer, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension.write(_w, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _connect(_w:Writer):stdgo.Error {
+        final _w = (_w : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
         return stdgo._internal.log.syslog.Syslog_Writer_static_extension.Writer_static_extension._connect(_w);
     }
 }
 typedef T_netConnPointer = stdgo._internal.log.syslog.Syslog_T_netConnPointer.T_netConnPointer;
 class T_netConn_static_extension {
     static public function _close(_n:T_netConn):stdgo.Error {
+        final _n = (_n : stdgo.Ref<stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn>);
         return stdgo._internal.log.syslog.Syslog_T_netConn_static_extension.T_netConn_static_extension._close(_n);
     }
     static public function _writeString(_n:T_netConn, _p:Priority, _hostname:String, _tag:String, _msg:String, _nl:String):stdgo.Error {
+        final _n = (_n : stdgo.Ref<stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn>);
+        final _hostname = (_hostname : stdgo.GoString);
+        final _tag = (_tag : stdgo.GoString);
+        final _msg = (_msg : stdgo.GoString);
+        final _nl = (_nl : stdgo.GoString);
         return stdgo._internal.log.syslog.Syslog_T_netConn_static_extension.T_netConn_static_extension._writeString(_n, _p, _hostname, _tag, _msg, _nl);
     }
+}
+typedef PriorityPointer = stdgo._internal.log.syslog.Syslog_PriorityPointer.PriorityPointer;
+class Priority_static_extension {
+
 }
 /**
     Package syslog provides a simple interface to the system log
@@ -183,7 +220,8 @@ class Syslog {
         priority (a combination of the syslog facility and severity) and
         prefix tag. If tag is empty, the os.Args[0] is used.
     **/
-    static public function new_(_priority:Priority, _tag:String):stdgo.Tuple<Writer, stdgo.Error> {
+    static public inline function new_(_priority:Priority, _tag:String):stdgo.Tuple<Writer, stdgo.Error> {
+        final _tag = (_tag : stdgo.GoString);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_new_.new_(_priority, _tag);
             { _0 : obj._0, _1 : obj._1 };
@@ -198,7 +236,10 @@ class Syslog {
         Otherwise, see the documentation for net.Dial for valid values
         of network and raddr.
     **/
-    static public function dial(_network:String, _raddr:String, _priority:Priority, _tag:String):stdgo.Tuple<Writer, stdgo.Error> {
+    static public inline function dial(_network:String, _raddr:String, _priority:Priority, _tag:String):stdgo.Tuple<Writer, stdgo.Error> {
+        final _network = (_network : stdgo.GoString);
+        final _raddr = (_raddr : stdgo.GoString);
+        final _tag = (_tag : stdgo.GoString);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_dial.dial(_network, _raddr, _priority, _tag);
             { _0 : obj._0, _1 : obj._1 };
@@ -210,7 +251,8 @@ class Syslog {
         the syslog facility and severity. The logFlag argument is the flag
         set passed through to log.New to create the Logger.
     **/
-    static public function newLogger(_p:Priority, _logFlag:StdTypes.Int):stdgo.Tuple<stdgo._internal.log.Log_Logger.Logger, stdgo.Error> {
+    static public inline function newLogger(_p:Priority, _logFlag:StdTypes.Int):stdgo.Tuple<stdgo._internal.log.Log_Logger.Logger, stdgo.Error> {
+        final _logFlag = (_logFlag : stdgo.GoInt);
         return {
             final obj = stdgo._internal.log.syslog.Syslog_newLogger.newLogger(_p, _logFlag);
             { _0 : obj._0, _1 : obj._1 };

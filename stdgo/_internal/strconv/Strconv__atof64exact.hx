@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _atof64exact(_mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool):{ var _0 : stdgo.GoFloat64; var _1 : Bool; } {
         var _f = (0 : stdgo.GoFloat64), _ok = false;
         if ((_mantissa >> stdgo._internal.strconv.Strconv__float64info._float64info._mantbits : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {

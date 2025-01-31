@@ -1,4 +1,12 @@
 package stdgo._internal.image;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.image.color.palette.Palette;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.strconv.Strconv;
 function newYCbCr(_r:stdgo._internal.image.Image_Rectangle.Rectangle, _subsampleRatio:stdgo._internal.image.Image_YCbCrSubsampleRatio.YCbCrSubsampleRatio):stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr> {
         var __tmp__ = stdgo._internal.image.Image__yCbCrSize._yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
         var _totalLength = (stdgo._internal.image.Image__add2NonNeg._add2NonNeg(stdgo._internal.image.Image__mul3NonNeg._mul3NonNeg((1 : stdgo.GoInt), _w, _h), stdgo._internal.image.Image__mul3NonNeg._mul3NonNeg((2 : stdgo.GoInt), _cw, _ch)) : stdgo.GoInt);

@@ -1,4 +1,13 @@
 package stdgo._internal.crypto.sha1;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 var _golden : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_sha1Test.T_sha1Test> = (new stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_sha1Test.T_sha1Test>(32, 32, ...[
 (new stdgo._internal.crypto.sha1.Sha1_T_sha1Test.T_sha1Test(("76245dbf96f661bd221046197ab8b9f063f11bad" : stdgo.GoString), ("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n" : stdgo.GoString), stdgo.Go.str("sha",
 1,

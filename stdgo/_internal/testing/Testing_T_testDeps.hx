@@ -1,5 +1,5 @@
 package stdgo._internal.testing;
-typedef T_testDeps = stdgo.StructType & {
+@:interface typedef T_testDeps = stdgo.StructType & {
     /**
         
         

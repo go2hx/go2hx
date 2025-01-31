@@ -1,5 +1,11 @@
 package stdgo._internal.regexp.syntax;
-@:structInit class T_frag {
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+@:structInit @:using(stdgo._internal.regexp.syntax.Syntax_T_frag_static_extension.T_frag_static_extension) class T_frag {
     public var _i : stdgo.GoUInt32 = 0;
     public var _out : stdgo._internal.regexp.syntax.Syntax_T_patchList.T_patchList = ({} : stdgo._internal.regexp.syntax.Syntax_T_patchList.T_patchList);
     public var _nullable : Bool = false;

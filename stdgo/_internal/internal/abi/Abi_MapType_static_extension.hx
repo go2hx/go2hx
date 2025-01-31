@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.abi.Abi.MapType_asInterface) class MapType_static_extension {
     @:keep
     @:tdfield

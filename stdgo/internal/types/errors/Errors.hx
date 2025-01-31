@@ -152,6 +152,10 @@ class T__struct_0_static_extension {
 }
 typedef T__struct_0 = stdgo._internal.internal.types.errors.Errors_T__struct_0.T__struct_0;
 typedef Code = stdgo._internal.internal.types.errors.Errors_Code.Code;
+typedef T__struct_0PointerPointer = stdgo._internal.internal.types.errors.Errors_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
 typedef CodePointer = stdgo._internal.internal.types.errors.Errors_CodePointer.CodePointer;
 class Code_static_extension {
     static public function string(_i:Code):String {

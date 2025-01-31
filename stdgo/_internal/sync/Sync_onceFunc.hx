@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 function onceFunc(_f:() -> Void):() -> Void {
         var __0:stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface);
 var _p = __2, _valid = __1, _once = __0;
@@ -28,7 +32,11 @@ var _p = __2, _valid = __1, _once = __0;
                         defer.ran = true;
                         defer.f();
                     };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    if (stdgo.Go.recover_exception != null) {
+                        final e = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        throw e;
+                    };
                     return;
                 };
             } catch(__exception__) {
@@ -63,7 +71,11 @@ var _p = __2, _valid = __1, _once = __0;
                         };
                         f();
                     };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    if (stdgo.Go.recover_exception != null) {
+                        final e = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        throw e;
+                    };
                     return;
                 };
             };

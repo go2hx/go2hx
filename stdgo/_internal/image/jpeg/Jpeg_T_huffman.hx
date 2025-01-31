@@ -1,5 +1,11 @@
 package stdgo._internal.image.jpeg;
-@:structInit class T_huffman {
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.internal.imageutil.Imageutil;
+@:structInit @:using(stdgo._internal.image.jpeg.Jpeg_T_huffman_static_extension.T_huffman_static_extension) class T_huffman {
     public var _nCodes : stdgo.GoInt32 = 0;
     public var _lut : stdgo.GoArray<stdgo.GoUInt16> = new stdgo.GoArray<stdgo.GoUInt16>(256, 256).__setNumber32__();
     public var _vals : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256).__setNumber32__();

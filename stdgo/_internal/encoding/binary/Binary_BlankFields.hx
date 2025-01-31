@@ -1,5 +1,13 @@
 package stdgo._internal.encoding.binary;
-@:structInit class BlankFields {
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
+@:structInit @:using(stdgo._internal.encoding.binary.Binary_BlankFields_static_extension.BlankFields_static_extension) class BlankFields {
     public var a : stdgo.GoUInt32 = 0;
     @:optional
     public var __4 : stdgo.GoInt32 = 0;

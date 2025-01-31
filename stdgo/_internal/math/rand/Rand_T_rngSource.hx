@@ -1,4 +1,6 @@
 package stdgo._internal.math.rand;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.math.rand.Rand_T_rngSource_static_extension.T_rngSource_static_extension) class T_rngSource {
     public var _tap : stdgo.GoInt = 0;
     public var _feed : stdgo.GoInt = 0;

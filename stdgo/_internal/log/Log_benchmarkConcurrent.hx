@@ -1,4 +1,13 @@
 package stdgo._internal.log;
+import stdgo._internal.os.Os;
+import stdgo._internal.log.internal.Internal;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.regexp.Regexp;
+import stdgo._internal.time.Time;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.runtime.Runtime;
 function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((new stdgo._internal.log.Log_T_discard.T_discard() : stdgo._internal.log.Log_T_discard.T_discard)), ("prefix: " : stdgo.GoString), (79 : stdgo.GoInt));
         var _group:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
@@ -27,7 +36,11 @@ stdgo.Go.routine(() -> ({
                                     defer.ran = true;
                                     defer.f();
                                 };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                if (stdgo.Go.recover_exception != null) {
+                                    final e = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    throw e;
+                                };
                                 return;
                             };
                         } catch(__exception__) {
@@ -62,7 +75,11 @@ stdgo.Go.routine(() -> ({
                                     };
                                     f();
                                 };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                                if (stdgo.Go.recover_exception != null) {
+                                    final e = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    throw e;
+                                };
                                 return;
                             };
                         };

@@ -1,4 +1,8 @@
 package stdgo._internal.crypto.aes;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _expandKeyGo(_key:stdgo.Slice<stdgo.GoUInt8>, _enc:stdgo.Slice<stdgo.GoUInt32>, _dec:stdgo.Slice<stdgo.GoUInt32>):Void {
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
         var _nk = ((_key.length) / (4 : stdgo.GoInt) : stdgo.GoInt);

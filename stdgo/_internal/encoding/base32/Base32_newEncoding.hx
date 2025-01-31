@@ -1,4 +1,6 @@
 package stdgo._internal.encoding.base32;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
 function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding> {
         if ((_encoder.length) != ((32 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("encoding alphabet is not 32-bytes long" : stdgo.GoString));

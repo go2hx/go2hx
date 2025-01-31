@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef ColumnConverter = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef ColumnConverter = stdgo.StructType & {
     /**
         ColumnConverter returns a ValueConverter for the provided
         column index. If the type of a specific column isn't known

@@ -1,4 +1,8 @@
 package stdgo._internal.compress.lzw;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bufio.Bufio;
 @:structInit @:using(stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension) class Writer {
     public var _w : stdgo._internal.compress.lzw.Lzw_T_writer.T_writer = (null : stdgo._internal.compress.lzw.Lzw_T_writer.T_writer);
     public var _order : stdgo._internal.compress.lzw.Lzw_Order.Order = ((0 : stdgo.GoInt) : stdgo._internal.compress.lzw.Lzw_Order.Order);

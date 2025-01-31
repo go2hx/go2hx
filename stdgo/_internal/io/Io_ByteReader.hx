@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef ByteReader = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef ByteReader = stdgo.StructType & {
     /**
         
         

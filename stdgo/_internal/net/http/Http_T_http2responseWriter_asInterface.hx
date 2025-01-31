@@ -5,12 +5,6 @@ class T_http2responseWriter_asInterface {
     public dynamic function push(_target:stdgo.GoString, _opts:stdgo.Ref<stdgo._internal.net.http.Http_PushOptions.PushOptions>):stdgo.Error return @:_0 __self__.value.push(_target, _opts);
     @:keep
     @:tdfield
-    public dynamic function _handlerDone():Void @:_0 __self__.value._handlerDone();
-    @:keep
-    @:tdfield
-    public dynamic function _write(_lenData:stdgo.GoInt, _dataB:stdgo.Slice<stdgo.GoUInt8>, _dataS:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value._write(_lenData, _dataB, _dataS);
-    @:keep
-    @:tdfield
     public dynamic function writeString(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.writeString(_s);
     @:keep
     @:tdfield

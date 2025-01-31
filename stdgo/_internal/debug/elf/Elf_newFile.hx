@@ -1,4 +1,16 @@
 package stdgo._internal.debug.elf;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.debug.dwarf.Dwarf;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.internal.zstd.Zstd;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>; var _1 : stdgo.Error; } {
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
         var _ident:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
@@ -48,7 +60,7 @@ var _shstrndx = __2, _shnum = __1, _shentsize = __0;
                 var _hdr = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Header32.Header32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Header32.Header32>);
                 @:check2r _sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_hdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_hdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : null, _1 : _err };
                     };
@@ -73,7 +85,7 @@ var _shstrndx = __2, _shnum = __1, _shentsize = __0;
                 var _hdr = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Header64.Header64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Header64.Header64>);
                 @:check2r _sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_hdr)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_hdr))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : null, _1 : _err };
                     };
@@ -135,7 +147,7 @@ var _p = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog.Prog)) : stdg
                     if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _ph = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog32.Prog32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog32.Prog32>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_ph)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_ph))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -144,7 +156,7 @@ var _p = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog.Prog)) : stdg
                     } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _ph = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog64.Prog64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog64.Prog64>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_ph)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_ph))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -173,7 +185,7 @@ var _link = __1, _typ = __0;
                 if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                     var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section32.Section32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section32.Section32>);
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_sh)) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
@@ -184,7 +196,7 @@ var _link = __1, _typ = __0;
                 } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                     var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section64.Section64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section64.Section64>);
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_sh)) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
@@ -227,7 +239,7 @@ var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section.Section)) 
                     if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section32.Section32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section32.Section32>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_sh)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -237,7 +249,7 @@ var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section.Section)) 
                     } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section64.Section64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section64.Section64>);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_sh)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -262,7 +274,7 @@ if (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.flags & (20
                         if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                             var _ch = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Chdr32.Chdr32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Chdr32.Chdr32>);
                             {
-                                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_ch)) : stdgo.Error);
+                                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_ch))) : stdgo.Error);
                                 if (_err != null) {
                                     return { _0 : null, _1 : _err };
                                 };
@@ -270,11 +282,11 @@ if (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.flags & (20
                             (@:checkr _s ?? throw "null pointer dereference")._compressionType = ((@:checkr _ch ?? throw "null pointer dereference").type : stdgo._internal.debug.elf.Elf_CompressionType.CompressionType);
                             (@:checkr _s ?? throw "null pointer dereference").sectionHeader.size = ((@:checkr _ch ?? throw "null pointer dereference").size : stdgo.GoUInt64);
                             (@:checkr _s ?? throw "null pointer dereference").sectionHeader.addralign = ((@:checkr _ch ?? throw "null pointer dereference").addralign : stdgo.GoUInt64);
-                            (@:checkr _s ?? throw "null pointer dereference")._compressionOffset = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_ch)) : stdgo.GoInt64);
+                            (@:checkr _s ?? throw "null pointer dereference")._compressionOffset = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(_ch))) : stdgo.GoInt64);
                         } else if (__value__ == ((2 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                             var _ch = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Chdr64.Chdr64)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Chdr64.Chdr64>);
                             {
-                                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(_ch)) : stdgo.Error);
+                                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), (@:checkr _f ?? throw "null pointer dereference").fileHeader.byteOrder, stdgo.Go.toInterface(stdgo.Go.asInterface(_ch))) : stdgo.Error);
                                 if (_err != null) {
                                     return { _0 : null, _1 : _err };
                                 };
@@ -282,7 +294,7 @@ if (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.flags & (20
                             (@:checkr _s ?? throw "null pointer dereference")._compressionType = ((@:checkr _ch ?? throw "null pointer dereference").type : stdgo._internal.debug.elf.Elf_CompressionType.CompressionType);
                             (@:checkr _s ?? throw "null pointer dereference").sectionHeader.size = (@:checkr _ch ?? throw "null pointer dereference").size;
                             (@:checkr _s ?? throw "null pointer dereference").sectionHeader.addralign = (@:checkr _ch ?? throw "null pointer dereference").addralign;
-                            (@:checkr _s ?? throw "null pointer dereference")._compressionOffset = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_ch)) : stdgo.GoInt64);
+                            (@:checkr _s ?? throw "null pointer dereference")._compressionOffset = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(_ch))) : stdgo.GoInt64);
                         };
                     };
                 };

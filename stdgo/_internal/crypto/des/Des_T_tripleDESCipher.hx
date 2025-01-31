@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.crypto.des.Des_T_tripleDESCipher_static_extension.T_tripleDESCipher_static_extension) class T_tripleDESCipher {
     public var _cipher1 : stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher = ({} : stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher);
     public var _cipher2 : stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher = ({} : stdgo._internal.crypto.des.Des_T_desCipher.T_desCipher);

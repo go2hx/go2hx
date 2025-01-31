@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc32;
+import stdgo._internal.errors.Errors;
 function _ieeeInit():Void {
         if (stdgo._internal.hash.crc32.Crc32__archAvailableIEEE._archAvailableIEEE()) {
             stdgo._internal.hash.crc32.Crc32__archInitIEEE._archInitIEEE();

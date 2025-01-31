@@ -1,5 +1,6 @@
 package stdgo._internal.crypto;
-typedef SignerOpts = stdgo.StructType & {
+import stdgo._internal.strconv.Strconv;
+@:interface typedef SignerOpts = stdgo.StructType & {
     /**
         HashFunc returns an identifier for the hash function used to produce
         the message passed to Signer.Sign, or else zero to indicate that no

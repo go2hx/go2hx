@@ -1,4 +1,5 @@
 package stdgo._internal.io;
+import stdgo._internal.errors.Errors;
 class T_multiWriter_asInterface {
     @:keep
     @:tdfield

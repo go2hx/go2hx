@@ -1,4 +1,10 @@
 package stdgo._internal.text.scanner;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.unicode.Unicode;
 var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner_T_token.T_token> = (new stdgo.Slice<stdgo._internal.text.scanner.Scanner_T_token.T_token>(141, 141, ...[
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((-8 : stdgo.GoInt32), ("// line comments" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((-8 : stdgo.GoInt32), ("//" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),

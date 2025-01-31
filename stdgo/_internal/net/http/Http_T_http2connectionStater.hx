@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef T_http2connectionStater = stdgo.StructType & {
+@:interface typedef T_http2connectionStater = stdgo.StructType & {
     /**
         
         

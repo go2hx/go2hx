@@ -1,4 +1,8 @@
 package stdgo._internal.strconv;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.unicode.utf8.Utf8;
 function _small(_i:stdgo.GoInt):stdgo.GoString {
         if ((_i < (10 : stdgo.GoInt) : Bool)) {
             return (("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString).__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();

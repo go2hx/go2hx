@@ -11,19 +11,7 @@ class ServeMux_asInterface {
     public dynamic function serveHTTP(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void @:_0 __self__.value.serveHTTP(_w, _r);
     @:keep
     @:tdfield
-    public dynamic function _handler(_host:stdgo.GoString, _path:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } return @:_0 __self__.value._handler(_host, _path);
-    @:keep
-    @:tdfield
     public dynamic function handler(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } return @:_0 __self__.value.handler(_r);
-    @:keep
-    @:tdfield
-    public dynamic function _shouldRedirectRLocked(_host:stdgo.GoString, _path:stdgo.GoString):Bool return @:_0 __self__.value._shouldRedirectRLocked(_host, _path);
-    @:keep
-    @:tdfield
-    public dynamic function _redirectToPathSlash(_host:stdgo.GoString, _path:stdgo.GoString, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : Bool; } return @:_0 __self__.value._redirectToPathSlash(_host, _path, _u);
-    @:keep
-    @:tdfield
-    public dynamic function _match(_path:stdgo.GoString):{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } return @:_0 __self__.value._match(_path);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef CloseNotifier = stdgo.StructType & {
+@:interface typedef CloseNotifier = stdgo.StructType & {
     /**
         CloseNotify returns a channel that receives at most a
         single value (true) when the client connection has gone

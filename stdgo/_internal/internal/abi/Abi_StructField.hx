@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_StructField_static_extension.StructField_static_extension) class StructField {
     public var name : stdgo._internal.internal.abi.Abi_Name.Name = ({} : stdgo._internal.internal.abi.Abi_Name.Name);
     public var typ : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_> = (null : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);

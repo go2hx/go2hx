@@ -1,4 +1,5 @@
 package stdgo._internal.hash.crc64;
+import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.hash.crc64.Crc64.T_digest_asInterface) class T_digest_static_extension {
     @:keep
     @:tdfield

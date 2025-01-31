@@ -1,4 +1,10 @@
 package stdgo._internal.debug.plan9obj;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
 function open(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.os.Os_open.open(_name?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

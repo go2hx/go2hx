@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef Pusher = stdgo.StructType & {
+@:interface typedef Pusher = stdgo.StructType & {
     /**
         Push initiates an HTTP/2 server push. This constructs a synthetic
         request using the given target and options, serializes that request

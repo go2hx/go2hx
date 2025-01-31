@@ -9,10 +9,10 @@ package stdgo.net.netip;
     public var _z(get, set) : stdgo._internal.internal.intern.Intern_Value.Value;
     function get__z():stdgo._internal.internal.intern.Intern_Value.Value return this._z;
     function set__z(v:stdgo._internal.internal.intern.Intern_Value.Value):stdgo._internal.internal.intern.Intern_Value.Value {
-        this._z = v;
+        this._z = (v : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
         return v;
     }
-    public function new(?_addr:T_uint128, ?_z:stdgo._internal.internal.intern.Intern_Value.Value) this = new stdgo._internal.net.netip.Netip_Addr.Addr(_addr, _z);
+    public function new(?_addr:T_uint128, ?_z:stdgo._internal.internal.intern.Intern_Value.Value) this = new stdgo._internal.net.netip.Netip_Addr.Addr(_addr, (_z : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -20,22 +20,22 @@ package stdgo.net.netip;
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
-        this._in = v;
+        this._in = (v : stdgo.GoString);
         return v;
     }
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
-        this._msg = v;
+        this._msg = (v : stdgo.GoString);
         return v;
     }
     public var _at(get, set) : String;
     function get__at():String return this._at;
     function set__at(v:String):String {
-        this._at = v;
+        this._at = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_in:String, ?_msg:String, ?_at:String) this = new stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError(_in, _msg, _at);
+    public function new(?_in:String, ?_msg:String, ?_at:String) this = new stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError((_in : stdgo.GoString), (_msg : stdgo.GoString), (_at : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -49,10 +49,10 @@ package stdgo.net.netip;
     public var _port(get, set) : std.UInt;
     function get__port():std.UInt return this._port;
     function set__port(v:std.UInt):std.UInt {
-        this._port = v;
+        this._port = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?_ip:Addr, ?_port:std.UInt) this = new stdgo._internal.net.netip.Netip_AddrPort.AddrPort(_ip, _port);
+    public function new(?_ip:Addr, ?_port:std.UInt) this = new stdgo._internal.net.netip.Netip_AddrPort.AddrPort(_ip, (_port : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -66,10 +66,10 @@ package stdgo.net.netip;
     public var _bitsPlusOne(get, set) : std.UInt;
     function get__bitsPlusOne():std.UInt return this._bitsPlusOne;
     function set__bitsPlusOne(v:std.UInt):std.UInt {
-        this._bitsPlusOne = v;
+        this._bitsPlusOne = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?_ip:Addr, ?_bitsPlusOne:std.UInt) this = new stdgo._internal.net.netip.Netip_Prefix.Prefix(_ip, _bitsPlusOne);
+    public function new(?_ip:Addr, ?_bitsPlusOne:std.UInt) this = new stdgo._internal.net.netip.Netip_Prefix.Prefix(_ip, (_bitsPlusOne : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -77,23 +77,24 @@ package stdgo.net.netip;
     public var _hi(get, set) : haxe.UInt64;
     function get__hi():haxe.UInt64 return this._hi;
     function set__hi(v:haxe.UInt64):haxe.UInt64 {
-        this._hi = v;
+        this._hi = (v : stdgo.GoUInt64);
         return v;
     }
     public var _lo(get, set) : haxe.UInt64;
     function get__lo():haxe.UInt64 return this._lo;
     function set__lo(v:haxe.UInt64):haxe.UInt64 {
-        this._lo = v;
+        this._lo = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?_hi:haxe.UInt64, ?_lo:haxe.UInt64) this = new stdgo._internal.net.netip.Netip_T_uint128.T_uint128(_hi, _lo);
+    public function new(?_hi:haxe.UInt64, ?_lo:haxe.UInt64) this = new stdgo._internal.net.netip.Netip_T_uint128.T_uint128((_hi : stdgo.GoUInt64), (_lo : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef AddrPointer = stdgo._internal.net.netip.Netip_AddrPointer.AddrPointer;
 class Addr_static_extension {
     static public function unmarshalBinary(_ip:Addr, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.unmarshalBinary(_ip, _b);
     }
     static public function marshalBinary(_ip:Addr):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -103,10 +104,12 @@ class Addr_static_extension {
         };
     }
     static public function _marshalBinaryWithTrailingBytes(_ip:Addr, _trailingBytes:StdTypes.Int):Array<std.UInt> {
+        final _trailingBytes = (_trailingBytes : stdgo.GoInt);
         return [for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._marshalBinaryWithTrailingBytes(_ip, _trailingBytes)) i];
     }
     static public function unmarshalText(_ip:Addr, _text:Array<std.UInt>):stdgo.Error {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.unmarshalText(_ip, _text);
     }
     static public function marshalText(_ip:Addr):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -119,21 +122,21 @@ class Addr_static_extension {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.stringExpanded(_ip);
     }
     static public function _appendTo6(_ip:Addr, _ret:Array<std.UInt>):Array<std.UInt> {
-        final _ret = ([for (i in _ret) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _ret = ([for (i in _ret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._appendTo6(_ip, _ret)) i];
     }
     static public function _string6(_ip:Addr):String {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._string6(_ip);
     }
     static public function _appendTo4(_ip:Addr, _ret:Array<std.UInt>):Array<std.UInt> {
-        final _ret = ([for (i in _ret) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _ret = ([for (i in _ret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._appendTo4(_ip, _ret)) i];
     }
     static public function _string4(_ip:Addr):String {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._string4(_ip);
     }
     static public function appendTo(_ip:Addr, _b:Array<std.UInt>):Array<std.UInt> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.appendTo(_ip, _b)) i];
     }
     static public function string(_ip:Addr):String {
@@ -155,6 +158,7 @@ class Addr_static_extension {
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.as16(_ip)) i]);
     }
     static public function prefix(_ip:Addr, _b:StdTypes.Int):stdgo.Tuple<Prefix, stdgo.Error> {
+        final _b = (_b : stdgo.GoInt);
         return {
             final obj = stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.prefix(_ip, _b);
             { _0 : obj._0, _1 : obj._1 };
@@ -191,6 +195,7 @@ class Addr_static_extension {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._withoutZone(_ip);
     }
     static public function withZone(_ip:Addr, _zone:String):Addr {
+        final _zone = (_zone : stdgo.GoString);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.withZone(_ip, _zone);
     }
     static public function unmap(_ip:Addr):Addr {
@@ -224,12 +229,15 @@ class Addr_static_extension {
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._isZero(_ip);
     }
     static public function _v6u16(_ip:Addr, _i:std.UInt):std.UInt {
+        final _i = (_i : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._v6u16(_ip, _i);
     }
     static public function _v6(_ip:Addr, _i:std.UInt):std.UInt {
+        final _i = (_i : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._v6(_ip, _i);
     }
     static public function _v4(_ip:Addr, _i:std.UInt):std.UInt {
+        final _i = (_i : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._v4(_ip, _i);
     }
 }
@@ -242,7 +250,8 @@ class T_parseAddrError_static_extension {
 typedef AddrPortPointer = stdgo._internal.net.netip.Netip_AddrPortPointer.AddrPortPointer;
 class AddrPort_static_extension {
     static public function unmarshalBinary(_p:AddrPort, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.unmarshalBinary(_p, _b);
     }
     static public function marshalBinary(_p:AddrPort):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -252,7 +261,8 @@ class AddrPort_static_extension {
         };
     }
     static public function unmarshalText(_p:AddrPort, _text:Array<std.UInt>):stdgo.Error {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.unmarshalText(_p, _text);
     }
     static public function marshalText(_p:AddrPort):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -262,7 +272,7 @@ class AddrPort_static_extension {
         };
     }
     static public function appendTo(_p:AddrPort, _b:Array<std.UInt>):Array<std.UInt> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.appendTo(_p, _b)) i];
     }
     static public function string(_p:AddrPort):String {
@@ -284,7 +294,8 @@ class Prefix_static_extension {
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.string(_p);
     }
     static public function unmarshalBinary(_p:Prefix, _b:Array<std.UInt>):stdgo.Error {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.unmarshalBinary(_p, _b);
     }
     static public function marshalBinary(_p:Prefix):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -294,7 +305,8 @@ class Prefix_static_extension {
         };
     }
     static public function unmarshalText(_p:Prefix, _text:Array<std.UInt>):stdgo.Error {
-        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>);
+        final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.unmarshalText(_p, _text);
     }
     static public function marshalText(_p:Prefix):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -304,7 +316,7 @@ class Prefix_static_extension {
         };
     }
     static public function appendTo(_p:Prefix, _b:Array<std.UInt>):Array<std.UInt> {
-        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.appendTo(_p, _b)) i];
     }
     static public function overlaps(_p:Prefix, _o:Prefix):Bool {
@@ -335,12 +347,15 @@ class Prefix_static_extension {
 typedef T_uint128Pointer = stdgo._internal.net.netip.Netip_T_uint128Pointer.T_uint128Pointer;
 class T_uint128_static_extension {
     static public function _bitsClearedFrom(_u:T_uint128, _bit:std.UInt):T_uint128 {
+        final _bit = (_bit : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._bitsClearedFrom(_u, _bit);
     }
     static public function _bitsSetFrom(_u:T_uint128, _bit:std.UInt):T_uint128 {
+        final _bit = (_bit : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._bitsSetFrom(_u, _bit);
     }
     static public function _halves(_u:T_uint128):haxe.ds.Vector<stdgo.Pointer<haxe.UInt64>> {
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.netip.Netip_T_uint128.T_uint128>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._halves(_u)) i]);
     }
     static public function _addOne(_u:T_uint128):T_uint128 {
@@ -379,39 +394,39 @@ class Netip {
         IPv6LinkLocalAllNodes returns the IPv6 link-local all nodes multicast
         address ff02::1.
     **/
-    static public function iPv6LinkLocalAllNodes():Addr {
+    static public inline function iPv6LinkLocalAllNodes():Addr {
         return stdgo._internal.net.netip.Netip_iPv6LinkLocalAllNodes.iPv6LinkLocalAllNodes();
     }
     /**
         IPv6LinkLocalAllRouters returns the IPv6 link-local all routers multicast
         address ff02::2.
     **/
-    static public function iPv6LinkLocalAllRouters():Addr {
+    static public inline function iPv6LinkLocalAllRouters():Addr {
         return stdgo._internal.net.netip.Netip_iPv6LinkLocalAllRouters.iPv6LinkLocalAllRouters();
     }
     /**
         IPv6Loopback returns the IPv6 loopback address ::1.
     **/
-    static public function iPv6Loopback():Addr {
+    static public inline function iPv6Loopback():Addr {
         return stdgo._internal.net.netip.Netip_iPv6Loopback.iPv6Loopback();
     }
     /**
         IPv6Unspecified returns the IPv6 unspecified address "::".
     **/
-    static public function iPv6Unspecified():Addr {
+    static public inline function iPv6Unspecified():Addr {
         return stdgo._internal.net.netip.Netip_iPv6Unspecified.iPv6Unspecified();
     }
     /**
         IPv4Unspecified returns the IPv4 unspecified address "0.0.0.0".
     **/
-    static public function iPv4Unspecified():Addr {
+    static public inline function iPv4Unspecified():Addr {
         return stdgo._internal.net.netip.Netip_iPv4Unspecified.iPv4Unspecified();
     }
     /**
         AddrFrom4 returns the address of the IPv4 address given by the bytes in addr.
     **/
-    static public function addrFrom4(_addr:haxe.ds.Vector<std.UInt>):Addr {
-        final _addr = ([for (i in _addr) i] : stdgo.GoArray<stdgo.GoUInt8>);
+    static public inline function addrFrom4(_addr:haxe.ds.Vector<std.UInt>):Addr {
+        final _addr = ([for (i in _addr) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_addrFrom4.addrFrom4(_addr);
     }
     /**
@@ -419,8 +434,8 @@ class Netip {
         An IPv4-mapped IPv6 address is left as an IPv6 address.
         (Use Unmap to convert them if needed.)
     **/
-    static public function addrFrom16(_addr:haxe.ds.Vector<std.UInt>):Addr {
-        final _addr = ([for (i in _addr) i] : stdgo.GoArray<stdgo.GoUInt8>);
+    static public inline function addrFrom16(_addr:haxe.ds.Vector<std.UInt>):Addr {
+        final _addr = ([for (i in _addr) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_addrFrom16.addrFrom16(_addr);
     }
     /**
@@ -428,7 +443,8 @@ class Netip {
         s can be in dotted decimal ("192.0.2.1"), IPv6 ("2001:db8::68"),
         or IPv6 with a scoped addressing zone ("fe80::1cc0:3e8c:119f:c2e1%ens18").
     **/
-    static public function parseAddr(_s:String):stdgo.Tuple<Addr, stdgo.Error> {
+    static public inline function parseAddr(_s:String):stdgo.Tuple<Addr, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.netip.Netip_parseAddr.parseAddr(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -438,7 +454,8 @@ class Netip {
         MustParseAddr calls ParseAddr(s) and panics on error.
         It is intended for use in tests with hard-coded strings.
     **/
-    static public function mustParseAddr(_s:String):Addr {
+    static public inline function mustParseAddr(_s:String):Addr {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.net.netip.Netip_mustParseAddr.mustParseAddr(_s);
     }
     /**
@@ -446,8 +463,8 @@ class Netip {
         Note that a net.IP can be passed directly as the []byte argument.
         If slice's length is not 4 or 16, AddrFromSlice returns Addr{}, false.
     **/
-    static public function addrFromSlice(_slice:Array<std.UInt>):stdgo.Tuple<Addr, Bool> {
-        final _slice = ([for (i in _slice) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function addrFromSlice(_slice:Array<std.UInt>):stdgo.Tuple<Addr, Bool> {
+        final _slice = ([for (i in _slice) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.netip.Netip_addrFromSlice.addrFromSlice(_slice);
             { _0 : obj._0, _1 : obj._1 };
@@ -457,7 +474,8 @@ class Netip {
         AddrPortFrom returns an AddrPort with the provided IP and port.
         It does not allocate.
     **/
-    static public function addrPortFrom(_ip:Addr, _port:std.UInt):AddrPort {
+    static public inline function addrPortFrom(_ip:Addr, _port:std.UInt):AddrPort {
+        final _port = (_port : stdgo.GoUInt16);
         return stdgo._internal.net.netip.Netip_addrPortFrom.addrPortFrom(_ip, _port);
     }
     /**
@@ -466,7 +484,8 @@ class Netip {
         It doesn't do any name resolution: both the address and the port
         must be numeric.
     **/
-    static public function parseAddrPort(_s:String):stdgo.Tuple<AddrPort, stdgo.Error> {
+    static public inline function parseAddrPort(_s:String):stdgo.Tuple<AddrPort, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.netip.Netip_parseAddrPort.parseAddrPort(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -476,7 +495,8 @@ class Netip {
         MustParseAddrPort calls ParseAddrPort(s) and panics on error.
         It is intended for use in tests with hard-coded strings.
     **/
-    static public function mustParseAddrPort(_s:String):AddrPort {
+    static public inline function mustParseAddrPort(_s:String):AddrPort {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.net.netip.Netip_mustParseAddrPort.mustParseAddrPort(_s);
     }
     /**
@@ -489,7 +509,8 @@ class Netip {
         If bits is less than zero or greater than ip.BitLen, Prefix.Bits
         will return an invalid value -1.
     **/
-    static public function prefixFrom(_ip:Addr, _bits:StdTypes.Int):Prefix {
+    static public inline function prefixFrom(_ip:Addr, _bits:StdTypes.Int):Prefix {
+        final _bits = (_bits : stdgo.GoInt);
         return stdgo._internal.net.netip.Netip_prefixFrom.prefixFrom(_ip, _bits);
     }
     /**
@@ -501,7 +522,8 @@ class Netip {
         
         Note that masked address bits are not zeroed. Use Masked for that.
     **/
-    static public function parsePrefix(_s:String):stdgo.Tuple<Prefix, stdgo.Error> {
+    static public inline function parsePrefix(_s:String):stdgo.Tuple<Prefix, stdgo.Error> {
+        final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.netip.Netip_parsePrefix.parsePrefix(_s);
             { _0 : obj._0, _1 : obj._1 };
@@ -511,7 +533,8 @@ class Netip {
         MustParsePrefix calls ParsePrefix(s) and panics on error.
         It is intended for use in tests with hard-coded strings.
     **/
-    static public function mustParsePrefix(_s:String):Prefix {
+    static public inline function mustParsePrefix(_s:String):Prefix {
+        final _s = (_s : stdgo.GoString);
         return stdgo._internal.net.netip.Netip_mustParsePrefix.mustParsePrefix(_s);
     }
 }

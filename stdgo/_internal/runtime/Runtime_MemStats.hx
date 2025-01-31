@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-@:structInit class MemStats {
+@:structInit @:using(stdgo._internal.runtime.Runtime_MemStats_static_extension.MemStats_static_extension) class MemStats {
     public var alloc : stdgo.GoUInt64 = 0;
     public var totalAlloc : stdgo.GoUInt64 = 0;
     public var sys : stdgo.GoUInt64 = 0;

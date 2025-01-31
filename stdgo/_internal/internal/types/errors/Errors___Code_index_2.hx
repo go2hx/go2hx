@@ -1,4 +1,5 @@
 package stdgo._internal.internal.types.errors;
+import stdgo._internal.strconv.Strconv;
 var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(51, 51, ...[
 (0 : stdgo.GoUInt16),
 (15 : stdgo.GoUInt16),

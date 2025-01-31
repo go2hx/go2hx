@@ -1,4 +1,13 @@
 package stdgo._internal.image.png;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.io.Io;
+import stdgo._internal.image.color.Color;
+import stdgo._internal.image.Image;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
 function _filterPaeth(_cdat:stdgo.Slice<stdgo.GoUInt8>, _pdat:stdgo.Slice<stdgo.GoUInt8>, _bytesPerPixel:stdgo.GoInt):Void {
         var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.GoInt = (0 : stdgo.GoInt);
 var _pc = __5, _pb = __4, _pa = __3, _c = __2, _b = __1, _a = __0;

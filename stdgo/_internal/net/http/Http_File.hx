@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef File = stdgo.StructType & {
+@:interface typedef File = stdgo.StructType & {
     > stdgo._internal.io.Io_Closer.Closer,
     > stdgo._internal.io.Io_Reader.Reader,
     > stdgo._internal.io.Io_Seeker.Seeker,

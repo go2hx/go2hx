@@ -1,4 +1,13 @@
 package stdgo._internal.crypto.sha1;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 function testLargeHashes(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (_i => _test in stdgo._internal.crypto.sha1.Sha1__largeUnmarshalTests._largeUnmarshalTests) {
             var _h = (stdgo._internal.crypto.sha1.Sha1_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);

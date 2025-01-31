@@ -1,4 +1,7 @@
 package stdgo._internal.embed;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.embed.Embed_T_openDir_static_extension.T_openDir_static_extension) class T_openDir {
     public var _f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file> = (null : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
     public var _files : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file> = (null : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);

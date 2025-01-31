@@ -1,4 +1,6 @@
 package stdgo._internal.crypto.hmac;
+import stdgo._internal.crypto.internal.boring.Boring;
+import stdgo._internal.crypto.subtle.Subtle;
 @:keep @:allow(stdgo._internal.crypto.hmac.Hmac.T_hmac_asInterface) class T_hmac_static_extension {
     @:keep
     @:tdfield

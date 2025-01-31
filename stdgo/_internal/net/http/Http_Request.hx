@@ -21,8 +21,7 @@ package stdgo._internal.net.http;
     public var tLS : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
     public var cancel : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
     public var response : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
-    public var _ctx : stdgo._internal.context.Context_Context.Context = (null : stdgo._internal.context.Context_Context.Context);
-    public function new(?method:stdgo.GoString, ?uRL:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, ?proto:stdgo.GoString, ?protoMajor:stdgo.GoInt, ?protoMinor:stdgo.GoInt, ?header:stdgo._internal.net.http.Http_Header.Header, ?body:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?getBody:() -> { var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; }, ?contentLength:stdgo.GoInt64, ?transferEncoding:stdgo.Slice<stdgo.GoString>, ?close:Bool, ?host:stdgo.GoString, ?form:stdgo._internal.net.url.Url_Values.Values, ?postForm:stdgo._internal.net.url.Url_Values.Values, ?multipartForm:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>, ?trailer:stdgo._internal.net.http.Http_Header.Header, ?remoteAddr:stdgo.GoString, ?requestURI:stdgo.GoString, ?tLS:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>, ?cancel:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?response:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>, ?_ctx:stdgo._internal.context.Context_Context.Context) {
+    public function new(?method:stdgo.GoString, ?uRL:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, ?proto:stdgo.GoString, ?protoMajor:stdgo.GoInt, ?protoMinor:stdgo.GoInt, ?header:stdgo._internal.net.http.Http_Header.Header, ?body:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?getBody:() -> { var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; }, ?contentLength:stdgo.GoInt64, ?transferEncoding:stdgo.Slice<stdgo.GoString>, ?close:Bool, ?host:stdgo.GoString, ?form:stdgo._internal.net.url.Url_Values.Values, ?postForm:stdgo._internal.net.url.Url_Values.Values, ?multipartForm:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>, ?trailer:stdgo._internal.net.http.Http_Header.Header, ?remoteAddr:stdgo.GoString, ?requestURI:stdgo.GoString, ?tLS:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>, ?cancel:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>, ?response:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) {
         if (method != null) this.method = method;
         if (uRL != null) this.uRL = uRL;
         if (proto != null) this.proto = proto;
@@ -44,7 +43,6 @@ package stdgo._internal.net.http;
         if (tLS != null) this.tLS = tLS;
         if (cancel != null) this.cancel = cancel;
         if (response != null) this.response = response;
-        if (_ctx != null) this._ctx = _ctx;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
@@ -69,7 +67,6 @@ remoteAddr,
 requestURI,
 tLS,
 cancel,
-response,
-_ctx);
+response);
     }
 }

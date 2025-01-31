@@ -1,4 +1,7 @@
 package stdgo._internal.hash.adler32;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 function _update(_d:stdgo._internal.hash.adler32.Adler32_T_digest.T_digest, _p:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.hash.adler32.Adler32_T_digest.T_digest {
         var __0 = ((_d & (65535u32 : stdgo._internal.hash.adler32.Adler32_T_digest.T_digest) : stdgo._internal.hash.adler32.Adler32_T_digest.T_digest) : stdgo.GoUInt32), __1 = ((_d >> (16i64 : stdgo.GoUInt64) : stdgo._internal.hash.adler32.Adler32_T_digest.T_digest) : stdgo.GoUInt32);
 var _s2 = __1, _s1 = __0;

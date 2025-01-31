@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _initLocal():Void {
         stdgo._internal.time.Time__localLoc._localLoc._name = ("Local" : stdgo.GoString);
         final d = new std.Date(0, 0, 0, 0, 0, 0);

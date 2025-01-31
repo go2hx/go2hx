@@ -1,4 +1,14 @@
 package stdgo._internal.encoding.base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.debug.Debug;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.strconv.Strconv;
 function testDecoderIssue7733(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString(("YWJjZA=====" : stdgo.GoString)), _s:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         var _want = ((8i64 : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError);

@@ -1,4 +1,15 @@
 package stdgo._internal.debug.pe;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
+import stdgo._internal.strconv.Strconv;
 function _readCOFFSymbols(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.FileHeader>, _r:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):{ var _0 : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>; var _1 : stdgo.Error; } {
         if ((@:checkr _fh ?? throw "null pointer dereference").pointerToSymbolTable == ((0u32 : stdgo.GoUInt32))) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : (null : stdgo.Error) };
@@ -29,7 +40,7 @@ if (_naux == ((0 : stdgo.GoInt))) {
                 } else {
                     _naux--;
                     var _aux = ((stdgo.Go.toInterface((stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.debug.pe.Pe_COFFSymbolAuxFormat5.COFFSymbolAuxFormat5", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "size", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "numRelocs", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "numLineNumbers", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "checksum", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }, { name : "secNum", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint16_kind) }, optional : false }, { name : "selection", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) }, optional : false }, { name : "__5", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) }, 3) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbolAuxFormat5.COFFSymbolAuxFormat5>);
-                    _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(_aux));
+                    _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_aux)));
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read symbol table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                     };

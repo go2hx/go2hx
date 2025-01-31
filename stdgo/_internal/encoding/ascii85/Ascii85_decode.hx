@@ -1,4 +1,5 @@
 package stdgo._internal.encoding.ascii85;
+import stdgo._internal.strconv.Strconv;
 function decode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>, _flush:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } {
         var _ndst = (0 : stdgo.GoInt), _nsrc = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _v:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);

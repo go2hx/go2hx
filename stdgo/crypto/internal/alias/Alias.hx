@@ -8,9 +8,9 @@ class Alias {
         AnyOverlap reports whether x and y share memory at any (not necessarily
         corresponding) index. The memory beyond the slice length is ignored.
     **/
-    static public function anyOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _y = ([for (i in _y) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function anyOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
+        final _x = ([for (i in _x) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _y = ([for (i in _y) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.internal.alias.Alias_anyOverlap.anyOverlap(_x, _y);
     }
     /**
@@ -21,9 +21,9 @@ class Alias {
         InexactOverlap can be used to implement the requirements of the crypto/cipher
         AEAD, Block, BlockMode and Stream interfaces.
     **/
-    static public function inexactOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
-        final _x = ([for (i in _x) i] : stdgo.Slice<stdgo.GoUInt8>);
-        final _y = ([for (i in _y) i] : stdgo.Slice<stdgo.GoUInt8>);
+    static public inline function inexactOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
+        final _x = ([for (i in _x) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _y = ([for (i in _y) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.internal.alias.Alias_inexactOverlap.inexactOverlap(_x, _y);
     }
 }

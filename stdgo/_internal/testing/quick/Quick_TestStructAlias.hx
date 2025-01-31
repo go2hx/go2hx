@@ -1,2 +1,8 @@
 package stdgo._internal.testing.quick;
-@:named typedef TestStructAlias = stdgo._internal.testing.quick.Quick_TestStruct.TestStruct;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.time.Time;
+@:named @:using(stdgo._internal.testing.quick.Quick_TestStructAlias_static_extension.TestStructAlias_static_extension) typedef TestStructAlias = stdgo._internal.testing.quick.Quick_TestStruct.TestStruct;

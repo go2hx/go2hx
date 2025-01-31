@@ -1,5 +1,7 @@
 package stdgo._internal.image.draw;
-typedef RGBA64Image = stdgo.StructType & {
+import stdgo._internal.image.internal.imageutil.Imageutil;
+import stdgo._internal.image.color.Color;
+@:interface typedef RGBA64Image = stdgo.StructType & {
     > stdgo._internal.image.Image_RGBA64Image.RGBA64Image,
     /**
         

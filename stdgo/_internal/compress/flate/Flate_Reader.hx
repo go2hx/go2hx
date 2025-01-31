@@ -1,5 +1,12 @@
 package stdgo._internal.compress.flate;
-typedef Reader = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.sort.Sort;
+@:interface typedef Reader = stdgo.StructType & {
     > stdgo._internal.io.Io_Reader.Reader,
     > stdgo._internal.io.Io_ByteReader.ByteReader,
 };

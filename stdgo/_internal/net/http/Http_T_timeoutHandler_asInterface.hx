@@ -3,9 +3,6 @@ class T_timeoutHandler_asInterface {
     @:keep
     @:tdfield
     public dynamic function serveHTTP(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void @:_0 __self__.value.serveHTTP(_w, _r);
-    @:keep
-    @:tdfield
-    public dynamic function _errorBody():stdgo.GoString return @:_0 __self__.value._errorBody();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

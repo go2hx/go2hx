@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _trigReduce(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } {
         var _j = (0 : stdgo.GoUInt64), _z = (0 : stdgo.GoFloat64);
         {};

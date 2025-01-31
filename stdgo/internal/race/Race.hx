@@ -9,34 +9,36 @@ final enabled : Bool = stdgo._internal.internal.race.Race_enabled.enabled;
     *|/
 **/
 class Race {
-    static public function acquire(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+    static public inline function acquire(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         stdgo._internal.internal.race.Race_acquire.acquire(_addr);
     }
-    static public function release(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+    static public inline function release(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         stdgo._internal.internal.race.Race_release.release(_addr);
     }
-    static public function releaseMerge(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+    static public inline function releaseMerge(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         stdgo._internal.internal.race.Race_releaseMerge.releaseMerge(_addr);
     }
-    static public function disable():Void {
+    static public inline function disable():Void {
         stdgo._internal.internal.race.Race_disable.disable();
     }
-    static public function enable():Void {
+    static public inline function enable():Void {
         stdgo._internal.internal.race.Race_enable.enable();
     }
-    static public function read(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+    static public inline function read(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         stdgo._internal.internal.race.Race_read.read(_addr);
     }
-    static public function write(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+    static public inline function write(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         stdgo._internal.internal.race.Race_write.write(_addr);
     }
-    static public function readRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
+    static public inline function readRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
+        final _len = (_len : stdgo.GoInt);
         stdgo._internal.internal.race.Race_readRange.readRange(_addr, _len);
     }
-    static public function writeRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
+    static public inline function writeRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
+        final _len = (_len : stdgo.GoInt);
         stdgo._internal.internal.race.Race_writeRange.writeRange(_addr, _len);
     }
-    static public function errors():StdTypes.Int {
+    static public inline function errors():StdTypes.Int {
         return stdgo._internal.internal.race.Race_errors.errors();
     }
 }

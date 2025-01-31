@@ -2,7 +2,7 @@ package stdgo.errors;
 var errUnsupported(get, set) : stdgo.Error;
 private function get_errUnsupported():stdgo.Error return stdgo._internal.errors.Errors_errUnsupported.errUnsupported;
 private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.errors.Errors_errUnsupported.errUnsupported = v;
+        stdgo._internal.errors.Errors_errUnsupported.errUnsupported = (v : stdgo.Error);
         return v;
     }
 class T__interface_0_static_extension {
@@ -13,6 +13,7 @@ class T__interface_0_static_extension {
 typedef T__interface_0 = stdgo._internal.errors.Errors_T__interface_0.T__interface_0;
 class T__interface_1_static_extension {
     static public function is_(t:stdgo._internal.errors.Errors_T__interface_1.T__interface_1, _0:stdgo.Error):Bool {
+        final _0 = (_0 : stdgo.Error);
         return stdgo._internal.errors.Errors_T__interface_1_static_extension.T__interface_1_static_extension.is_(t, _0);
     }
 }
@@ -25,6 +26,7 @@ class T__interface_2_static_extension {
 typedef T__interface_2 = stdgo._internal.errors.Errors_T__interface_2.T__interface_2;
 class T__interface_3_static_extension {
     static public function as(t:stdgo._internal.errors.Errors_T__interface_3.T__interface_3, _0:stdgo.AnyInterface):Bool {
+        final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.errors.Errors_T__interface_3_static_extension.T__interface_3_static_extension.as(t, _0);
     }
 }
@@ -33,10 +35,10 @@ typedef T__interface_3 = stdgo._internal.errors.Errors_T__interface_3.T__interfa
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
-        this._s = v;
+        this._s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_s:String) this = new stdgo._internal.errors.Errors_T_errorString.T_errorString(_s);
+    public function new(?_s:String) this = new stdgo._internal.errors.Errors_T_errorString.T_errorString((_s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -44,25 +46,28 @@ typedef T__interface_3 = stdgo._internal.errors.Errors_T__interface_3.T__interfa
     public var _errs(get, set) : Array<stdgo.Error>;
     function get__errs():Array<stdgo.Error> return [for (i in this._errs) i];
     function set__errs(v:Array<stdgo.Error>):Array<stdgo.Error> {
-        this._errs = ([for (i in v) i] : stdgo.Slice<stdgo.Error>);
+        this._errs = ([for (i in v) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>);
         return v;
     }
-    public function new(?_errs:Array<stdgo.Error>) this = new stdgo._internal.errors.Errors_T_joinError.T_joinError(([for (i in _errs) i] : stdgo.Slice<stdgo.Error>));
+    public function new(?_errs:Array<stdgo.Error>) this = new stdgo._internal.errors.Errors_T_joinError.T_joinError(([for (i in _errs) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_errorStringPointer = stdgo._internal.errors.Errors_T_errorStringPointer.T_errorStringPointer;
 class T_errorString_static_extension {
     static public function error(_e:T_errorString):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_T_errorString.T_errorString>);
         return stdgo._internal.errors.Errors_T_errorString_static_extension.T_errorString_static_extension.error(_e);
     }
 }
 typedef T_joinErrorPointer = stdgo._internal.errors.Errors_T_joinErrorPointer.T_joinErrorPointer;
 class T_joinError_static_extension {
     static public function unwrap(_e:T_joinError):Array<stdgo.Error> {
+        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_T_joinError.T_joinError>);
         return [for (i in stdgo._internal.errors.Errors_T_joinError_static_extension.T_joinError_static_extension.unwrap(_e)) i];
     }
     static public function error(_e:T_joinError):String {
+        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_T_joinError.T_joinError>);
         return stdgo._internal.errors.Errors_T_joinError_static_extension.T_joinError_static_extension.error(_e);
     }
 }
@@ -125,7 +130,8 @@ class Errors {
         New returns an error that formats as the given text.
         Each call to New returns a distinct error value even if the text is identical.
     **/
-    static public function new_(_text:String):stdgo.Error {
+    static public inline function new_(_text:String):stdgo.Error {
+        final _text = (_text : stdgo.GoString);
         return stdgo._internal.errors.Errors_new_.new_(_text);
     }
     /**
@@ -138,7 +144,7 @@ class Errors {
         
         A non-nil error returned by Join implements the Unwrap() []error method.
     **/
-    static public function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
+    static public inline function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
         return stdgo._internal.errors.Errors_join.join(...[for (i in _errs) i]);
     }
     /**
@@ -149,7 +155,8 @@ class Errors {
         Unwrap only calls a method of the form "Unwrap() error".
         In particular Unwrap does not unwrap errors returned by [Join].
     **/
-    static public function unwrap(_err:stdgo.Error):stdgo.Error {
+    static public inline function unwrap(_err:stdgo.Error):stdgo.Error {
+        final _err = (_err : stdgo.Error);
         return stdgo._internal.errors.Errors_unwrap.unwrap(_err);
     }
     /**
@@ -171,7 +178,9 @@ class Errors {
         an example in the standard library. An Is method should only shallowly
         compare err and the target and not call Unwrap on either.
     **/
-    static public function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
+    static public inline function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
+        final _err = (_err : stdgo.Error);
+        final _target = (_target : stdgo.Error);
         return stdgo._internal.errors.Errors_is_.is_(_err, _target);
     }
     /**
@@ -193,7 +202,9 @@ class Errors {
         As panics if target is not a non-nil pointer to either a type that implements
         error, or to any interface type.
     **/
-    static public function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
+    static public inline function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
+        final _err = (_err : stdgo.Error);
+        final _target = (_target : stdgo.AnyInterface);
         return stdgo._internal.errors.Errors_as.as(_err, _target);
     }
 }

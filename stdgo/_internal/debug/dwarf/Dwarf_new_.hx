@@ -1,4 +1,13 @@
 package stdgo._internal.debug.dwarf;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.path.Path;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
 function new_(_abbrev:stdgo.Slice<stdgo.GoUInt8>, _aranges:stdgo.Slice<stdgo.GoUInt8>, _frame:stdgo.Slice<stdgo.GoUInt8>, _info:stdgo.Slice<stdgo.GoUInt8>, _line:stdgo.Slice<stdgo.GoUInt8>, _pubnames:stdgo.Slice<stdgo.GoUInt8>, _ranges:stdgo.Slice<stdgo.GoUInt8>, _str:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Data.Data>; var _1 : stdgo.Error; } {
         var _d = (stdgo.Go.setRef(({ _abbrev : _abbrev, _aranges : _aranges, _frame : _frame, _info : _info, _line : _line, _pubnames : _pubnames, _ranges : _ranges, _str : _str, _abbrevCache : (({
             final x = new stdgo.GoMap.GoUInt64Map<stdgo._internal.debug.dwarf.Dwarf_T_abbrevTable.T_abbrevTable>();

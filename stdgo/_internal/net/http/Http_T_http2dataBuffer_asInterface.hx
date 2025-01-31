@@ -2,16 +2,10 @@ package stdgo._internal.net.http;
 class T_http2dataBuffer_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _lastChunkOrAlloc(_want:stdgo.GoInt64):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._lastChunkOrAlloc(_want);
-    @:keep
-    @:tdfield
     public dynamic function write(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.write(_p);
     @:keep
     @:tdfield
     public dynamic function len():stdgo.GoInt return @:_0 __self__.value.len();
-    @:keep
-    @:tdfield
-    public dynamic function _bytesFromFirstChunk():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._bytesFromFirstChunk();
     @:keep
     @:tdfield
     public dynamic function read(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:_0 __self__.value.read(_p);

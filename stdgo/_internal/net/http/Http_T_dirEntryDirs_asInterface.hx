@@ -1,14 +1,5 @@
 package stdgo._internal.net.http;
 class T_dirEntryDirs_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _name(_i:stdgo.GoInt):stdgo.GoString return @:_0 __self__.value._name(_i);
-    @:keep
-    @:tdfield
-    public dynamic function _isDir(_i:stdgo.GoInt):Bool return @:_0 __self__.value._isDir(_i);
-    @:keep
-    @:tdfield
-    public dynamic function _len():stdgo.GoInt return @:_0 __self__.value._len();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

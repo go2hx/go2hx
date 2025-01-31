@@ -1,5 +1,13 @@
 package stdgo._internal.internal.xcoff;
-@:structInit class Symbol {
+import stdgo._internal.os.Os;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.debug.dwarf.Dwarf;
+@:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_Symbol_static_extension.Symbol_static_extension) class Symbol {
     public var name : stdgo.GoString = "";
     public var value : stdgo.GoUInt64 = 0;
     public var sectionNumber : stdgo.GoInt = 0;

@@ -1,4 +1,9 @@
 package stdgo._internal.time;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.syscall.Syscall;
+import stdgo._internal.syscall.js.Js;
+import stdgo._internal.internal.itoa.Itoa;
+import stdgo._internal.runtime.Runtime;
 function _appendNano(_b:stdgo.Slice<stdgo.GoUInt8>, _nanosec:stdgo.GoInt, _std:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         var _trim = ((_std & (65535 : stdgo.GoInt) : stdgo.GoInt) == ((35 : stdgo.GoInt)) : Bool);
         var _n = (stdgo._internal.time.Time__digitsLen._digitsLen(_std) : stdgo.GoInt);

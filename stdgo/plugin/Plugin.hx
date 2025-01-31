@@ -3,28 +3,28 @@ package stdgo.plugin;
     public var _pluginpath(get, set) : String;
     function get__pluginpath():String return this._pluginpath;
     function set__pluginpath(v:String):String {
-        this._pluginpath = v;
+        this._pluginpath = (v : stdgo.GoString);
         return v;
     }
     public var _err(get, set) : String;
     function get__err():String return this._err;
     function set__err(v:String):String {
-        this._err = v;
+        this._err = (v : stdgo.GoString);
         return v;
     }
     public var _loaded(get, set) : stdgo.Chan<{ }>;
     function get__loaded():stdgo.Chan<{ }> return this._loaded;
     function set__loaded(v:stdgo.Chan<{ }>):stdgo.Chan<{ }> {
-        this._loaded = v;
+        this._loaded = (v : stdgo.Chan<{ }>);
         return v;
     }
     public var _syms(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
     function get__syms():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._syms;
     function set__syms(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._syms = v;
+        this._syms = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
-    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_Plugin.Plugin(_pluginpath, _err, _loaded, _syms);
+    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_Plugin.Plugin((_pluginpath : stdgo.GoString), (_err : stdgo.GoString), (_loaded : stdgo.Chan<{ }>), (_syms : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -37,11 +37,21 @@ typedef Symbol = stdgo._internal.plugin.Plugin_Symbol.Symbol;
 typedef PluginPointer = stdgo._internal.plugin.Plugin_PluginPointer.PluginPointer;
 class Plugin_static_extension {
     static public function lookup(_p:Plugin_, _symName:String):stdgo.Tuple<Symbol, stdgo.Error> {
+        final _p = (_p : stdgo.Ref<stdgo._internal.plugin.Plugin_Plugin.Plugin>);
+        final _symName = (_symName : stdgo.GoString);
         return {
             final obj = stdgo._internal.plugin.Plugin_Plugin_static_extension.Plugin_static_extension.lookup(_p, _symName);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
+}
+typedef T__struct_0PointerPointer = stdgo._internal.plugin.Plugin_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef SymbolPointer = stdgo._internal.plugin.Plugin_SymbolPointer.SymbolPointer;
+class Symbol_static_extension {
+
 }
 /**
     Package plugin implements loading and symbol resolution of Go plugins.
@@ -112,7 +122,8 @@ class Plugin {
         If a path has already been opened, then the existing *Plugin is returned.
         It is safe for concurrent use by multiple goroutines.
     **/
-    static public function open(_path:String):stdgo.Tuple<Plugin_, stdgo.Error> {
+    static public inline function open(_path:String):stdgo.Tuple<Plugin_, stdgo.Error> {
+        final _path = (_path : stdgo.GoString);
         return {
             final obj = stdgo._internal.plugin.Plugin_open.open(_path);
             { _0 : obj._0, _1 : obj._1 };

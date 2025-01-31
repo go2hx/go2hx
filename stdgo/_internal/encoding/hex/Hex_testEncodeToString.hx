@@ -1,4 +1,9 @@
 package stdgo._internal.encoding.hex;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.fmt.Fmt;
 function testEncodeToString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (_i => _test in stdgo._internal.encoding.hex.Hex__encDecTests._encDecTests) {
             var _s = (stdgo._internal.encoding.hex.Hex_encodeToString.encodeToString(_test._dec)?.__copy__() : stdgo.GoString);

@@ -1,2 +1,12 @@
 package stdgo._internal.debug.macho;
+import stdgo._internal.io.Io;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.compress.zlib.Zlib;
+import stdgo._internal.debug.dwarf.Dwarf;
 var _typeStrings : stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName> = (new stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName>(4, 4, ...[(new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((1u32 : stdgo._internal.debug.macho.Macho_Type_.Type_) : stdgo.GoUInt32), ("Obj" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((2u32 : stdgo._internal.debug.macho.Macho_Type_.Type_) : stdgo.GoUInt32), ("Exec" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((6u32 : stdgo._internal.debug.macho.Macho_Type_.Type_) : stdgo.GoUInt32), ("Dylib" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName), (new stdgo._internal.debug.macho.Macho_T_intName.T_intName(((8u32 : stdgo._internal.debug.macho.Macho_Type_.Type_) : stdgo.GoUInt32), ("Bundle" : stdgo.GoString)) : stdgo._internal.debug.macho.Macho_T_intName.T_intName)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.macho.Macho_T_intName.T_intName)])) : stdgo.Slice<stdgo._internal.debug.macho.Macho_T_intName.T_intName>);

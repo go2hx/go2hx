@@ -1,4 +1,6 @@
 package stdgo._internal.sort;
+import stdgo._internal.internal.reflectlite.Reflectlite;
+import stdgo._internal.math.bits.Bits;
 @:keep class Interface_static_extension {
     @:interfacetypeffun
     static public function swap(t:stdgo._internal.sort.Sort_Interface.Interface, _i:stdgo.GoInt, _j:stdgo.GoInt):Void t.swap(_i, _j);

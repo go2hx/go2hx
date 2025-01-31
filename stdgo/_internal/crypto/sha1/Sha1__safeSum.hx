@@ -1,4 +1,13 @@
 package stdgo._internal.crypto.sha1;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _sum = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
@@ -40,7 +49,11 @@ function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _sum, _1 : _err };
             };
         } catch(__exception__) {
@@ -75,7 +88,11 @@ function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _sum, _1 : _err };
             };
         };

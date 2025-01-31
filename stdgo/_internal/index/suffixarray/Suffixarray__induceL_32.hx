@@ -1,4 +1,10 @@
 package stdgo._internal.index.suffixarray;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.io.Io;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.regexp.Regexp;
 function _induceL_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.GoInt32>, _freq:stdgo.Slice<stdgo.GoInt32>, _bucket:stdgo.Slice<stdgo.GoInt32>):Void {
         stdgo._internal.index.suffixarray.Suffixarray__bucketMin_32._bucketMin_32(_text, _freq, _bucket);
         var _k = ((_text.length) - (1 : stdgo.GoInt) : stdgo.GoInt);

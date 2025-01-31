@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-@:structInit class T_http2PriorityWriteSchedulerConfig {
+@:structInit @:using(stdgo._internal.net.http.Http_T_http2PriorityWriteSchedulerConfig_static_extension.T_http2PriorityWriteSchedulerConfig_static_extension) class T_http2PriorityWriteSchedulerConfig {
     public var maxClosedNodesInTree : stdgo.GoInt = 0;
     public var maxIdleNodesInTree : stdgo.GoInt = 0;
     public var throttleOutOfOrderWrites : Bool = false;

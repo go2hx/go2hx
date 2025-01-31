@@ -1,4 +1,5 @@
 package stdgo._internal.internal.abi;
+import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_Type__static_extension.Type__static_extension) class Type_ {
     public var size_ : stdgo.GoUIntptr = 0;
     public var ptrBytes : stdgo.GoUIntptr = 0;

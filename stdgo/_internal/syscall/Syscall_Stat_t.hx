@@ -1,5 +1,5 @@
 package stdgo._internal.syscall;
-@:structInit class Stat_t {
+@:structInit @:using(stdgo._internal.syscall.Syscall_Stat_t_static_extension.Stat_t_static_extension) class Stat_t {
     public var dev : stdgo.GoInt64 = 0;
     public var ino : stdgo.GoUInt64 = 0;
     public var mode : stdgo.GoUInt32 = 0;

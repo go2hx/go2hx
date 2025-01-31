@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function is_( _pe:stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError>, _err:stdgo.Error):Bool {
         @:recv var _pe:stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError> = _pe;
-        return ((_pe == stdgo._internal.net.http.Http_errNotSupported.errNotSupported) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.errors.Errors_errUnsupported.errUnsupported)) : Bool);
+        return ((_pe == stdgo._internal.net.http.Http_errNotSupported.errNotSupported) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.net.http.Http__errors._errors.errUnsupported)) : Bool);
     }
     @:keep
     @:tdfield

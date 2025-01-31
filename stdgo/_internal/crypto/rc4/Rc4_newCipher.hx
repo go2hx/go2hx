@@ -1,4 +1,6 @@
 package stdgo._internal.crypto.rc4;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_Cipher.Cipher>; var _1 : stdgo.Error; } {
         var _k = (_key.length : stdgo.GoInt);
         if (((_k < (1 : stdgo.GoInt) : Bool) || (_k > (256 : stdgo.GoInt) : Bool) : Bool)) {

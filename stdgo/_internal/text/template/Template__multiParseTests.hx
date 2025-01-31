@@ -1,2 +1,18 @@
 package stdgo._internal.text.template;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.net.url.Url;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.os.Os;
+import stdgo._internal.path.Path;
+import stdgo._internal.internal.fmtsort.Fmtsort;
 var _multiParseTests : stdgo.Slice<stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest> = (new stdgo.Slice<stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest>(5, 5, ...[(new stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest(("empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), true, (null : stdgo.Slice<stdgo.GoString>), (null : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest), (new stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest(("one" : stdgo.GoString), ("{{define \"foo\"}} FOO {{end}}" : stdgo.GoString), true, (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("foo" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[(" FOO " : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest), (new stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest(("two" : stdgo.GoString), ("{{define \"foo\"}} FOO {{end}}{{define \"bar\"}} BAR {{end}}" : stdgo.GoString), true, (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("foo" : stdgo.GoString), ("bar" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), (new stdgo.Slice<stdgo.GoString>(2, 2, ...[(" FOO " : stdgo.GoString), (" BAR " : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest), (new stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest(("missing end" : stdgo.GoString), ("{{define \"foo\"}} FOO " : stdgo.GoString), false, (null : stdgo.Slice<stdgo.GoString>), (null : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest), (new stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest(("malformed name" : stdgo.GoString), ("{{define \"foo}} FOO " : stdgo.GoString), false, (null : stdgo.Slice<stdgo.GoString>), (null : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest)])) : stdgo.Slice<stdgo._internal.text.template.Template_T_multiParseTest.T_multiParseTest>);

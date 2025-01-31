@@ -2,10 +2,8 @@ package stdgo._internal.net.http;
 @:structInit @:using(stdgo._internal.net.http.Http_T_socksConn_static_extension.T_socksConn_static_extension) class T_socksConn {
     @:embedded
     public var conn : stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
-    public var _boundAddr : stdgo._internal.net.Net_Addr.Addr = (null : stdgo._internal.net.Net_Addr.Addr);
-    public function new(?conn:stdgo._internal.net.Net_Conn.Conn, ?_boundAddr:stdgo._internal.net.Net_Addr.Addr) {
+    public function new(?conn:stdgo._internal.net.Net_Conn.Conn) {
         if (conn != null) this.conn = conn;
-        if (_boundAddr != null) this._boundAddr = _boundAddr;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public var close(get, never) : () -> stdgo.Error;
@@ -41,6 +39,6 @@ package stdgo._internal.net.http;
     @:embeddededffieldsffun
     public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check31 (this.conn ?? throw "null pointer dereference").write;
     public function __copy__() {
-        return new T_socksConn(conn, _boundAddr);
+        return new T_socksConn(conn);
     }
 }

@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _expmulti(_hi:stdgo.GoFloat64, _lo:stdgo.GoFloat64, _k:stdgo.GoInt):stdgo.GoFloat64 {
         {};
         var _r = (_hi - _lo : stdgo.GoFloat64);

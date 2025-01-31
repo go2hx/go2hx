@@ -5,20 +5,20 @@ class T_stringer_static_extension {
     }
 }
 typedef T_stringer = stdgo._internal.os.signal.Signal_T_stringer.T_stringer;
-@:structInit abstract T_stopping(stdgo._internal.os.signal.Signal_T_stopping.T_stopping) from stdgo._internal.os.signal.Signal_T_stopping.T_stopping to stdgo._internal.os.signal.Signal_T_stopping.T_stopping {
+@:structInit @:using(stdgo.os.signal.Signal.T_stopping_static_extension) abstract T_stopping(stdgo._internal.os.signal.Signal_T_stopping.T_stopping) from stdgo._internal.os.signal.Signal_T_stopping.T_stopping to stdgo._internal.os.signal.Signal_T_stopping.T_stopping {
     public var _c(get, set) : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>;
     function get__c():stdgo.Chan<stdgo._internal.os.Os_Signal.Signal> return this._c;
     function set__c(v:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):stdgo.Chan<stdgo._internal.os.Os_Signal.Signal> {
-        this._c = v;
+        this._c = (v : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
         return v;
     }
     public var _h(get, set) : T_handler;
     function get__h():T_handler return this._h;
     function set__h(v:T_handler):T_handler {
-        this._h = v;
+        this._h = (v : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
         return v;
     }
-    public function new(?_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, ?_h:T_handler) this = new stdgo._internal.os.signal.Signal_T_stopping.T_stopping(_c, _h);
+    public function new(?_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, ?_h:T_handler) this = new stdgo._internal.os.signal.Signal_T_stopping.T_stopping((_c : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>), (_h : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -26,10 +26,10 @@ typedef T_stringer = stdgo._internal.os.signal.Signal_T_stringer.T_stringer;
     public var _mask(get, set) : haxe.ds.Vector<std.UInt>;
     function get__mask():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._mask) i]);
     function set__mask(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._mask = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt32>);
+        this._mask = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?_mask:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.os.signal.Signal_T_handler.T_handler(([for (i in _mask) i] : stdgo.GoArray<stdgo.GoUInt32>));
+    public function new(?_mask:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.os.signal.Signal_T_handler.T_handler(([for (i in _mask) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -55,16 +55,17 @@ typedef T_stringer = stdgo._internal.os.signal.Signal_T_stringer.T_stringer;
     public var _ch(get, set) : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>;
     function get__ch():stdgo.Chan<stdgo._internal.os.Os_Signal.Signal> return this._ch;
     function set__ch(v:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):stdgo.Chan<stdgo._internal.os.Os_Signal.Signal> {
-        this._ch = v;
+        this._ch = (v : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
         return v;
     }
-    public function new(?context:stdgo._internal.context.Context_Context.Context, ?_cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc, ?_signals:Array<stdgo._internal.os.Os_Signal.Signal>, ?_ch:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>) this = new stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx(context, _cancel, ([for (i in _signals) i] : stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>), _ch);
+    public function new(?context:stdgo._internal.context.Context_Context.Context, ?_cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc, ?_signals:Array<stdgo._internal.os.Os_Signal.Signal>, ?_ch:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>) this = new stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx(context, _cancel, ([for (i in _signals) i] : stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>), (_ch : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T__struct_0Pointer = stdgo._internal.os.signal.Signal_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
     public static function _unlockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0, _0:StdTypes.Int):Void {
+        final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.os.signal.Signal_T__struct_0_static_extension.T__struct_0_static_extension._unlockSlow(__self__, _0);
     }
     public static function _lockSlow(__self__:stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0):Void {
@@ -81,27 +82,40 @@ class T__struct_0_static_extension {
     }
 }
 typedef T__struct_0 = stdgo._internal.os.signal.Signal_T__struct_0.T__struct_0;
+typedef T_stoppingPointer = stdgo._internal.os.signal.Signal_T_stoppingPointer.T_stoppingPointer;
+class T_stopping_static_extension {
+
+}
 typedef T_handlerPointer = stdgo._internal.os.signal.Signal_T_handlerPointer.T_handlerPointer;
 class T_handler_static_extension {
     static public function _clear(_h:T_handler, _sig:StdTypes.Int):Void {
+        final _h = (_h : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
+        final _sig = (_sig : stdgo.GoInt);
         stdgo._internal.os.signal.Signal_T_handler_static_extension.T_handler_static_extension._clear(_h, _sig);
     }
     static public function _set(_h:T_handler, _sig:StdTypes.Int):Void {
+        final _h = (_h : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
+        final _sig = (_sig : stdgo.GoInt);
         stdgo._internal.os.signal.Signal_T_handler_static_extension.T_handler_static_extension._set(_h, _sig);
     }
     static public function _want(_h:T_handler, _sig:StdTypes.Int):Bool {
+        final _h = (_h : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
+        final _sig = (_sig : stdgo.GoInt);
         return stdgo._internal.os.signal.Signal_T_handler_static_extension.T_handler_static_extension._want(_h, _sig);
     }
 }
 typedef T_signalCtxPointer = stdgo._internal.os.signal.Signal_T_signalCtxPointer.T_signalCtxPointer;
 class T_signalCtx_static_extension {
     static public function string(_c:T_signalCtx):String {
+        final _c = (_c : stdgo.Ref<stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx>);
         return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.string(_c);
     }
     static public function _stop(_c:T_signalCtx):Void {
+        final _c = (_c : stdgo.Ref<stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx>);
         stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension._stop(_c);
     }
     public static function value(__self__:stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx, _0:stdgo.AnyInterface):stdgo.AnyInterface {
+        final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.os.signal.Signal_T_signalCtx_static_extension.T_signalCtx_static_extension.value(__self__, _0);
     }
     public static function err(__self__:stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx):stdgo.Error {
@@ -116,6 +130,10 @@ class T_signalCtx_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
+}
+typedef T__struct_0PointerPointer = stdgo._internal.os.signal.Signal_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
 }
 /**
     /|*
@@ -353,13 +371,13 @@ class Signal {
         calls to Notify for the provided signals.
         If no signals are provided, all incoming signals will be ignored.
     **/
-    static public function ignore(_sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
+    static public inline function ignore(_sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
         stdgo._internal.os.signal.Signal_ignore.ignore(...[for (i in _sig) i]);
     }
     /**
         Ignored reports whether sig is currently ignored.
     **/
-    static public function ignored(_sig:stdgo._internal.os.Os_Signal.Signal):Bool {
+    static public inline function ignored(_sig:stdgo._internal.os.Os_Signal.Signal):Bool {
         return stdgo._internal.os.signal.Signal_ignored.ignored(_sig);
     }
     /**
@@ -380,7 +398,8 @@ class Signal {
         and the same signals: each channel receives copies of incoming
         signals independently.
     **/
-    static public function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
+    static public inline function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
+        final _c = (_c : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
         stdgo._internal.os.signal.Signal_notify.notify(_c, ...[for (i in _sig) i]);
     }
     /**
@@ -388,7 +407,7 @@ class Signal {
         signals.
         If no signals are provided, all signal handlers will be reset.
     **/
-    static public function reset(_sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
+    static public inline function reset(_sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
         stdgo._internal.os.signal.Signal_reset.reset(...[for (i in _sig) i]);
     }
     /**
@@ -396,7 +415,8 @@ class Signal {
         It undoes the effect of all prior calls to Notify using c.
         When Stop returns, it is guaranteed that c will receive no more signals.
     **/
-    static public function stop(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):Void {
+    static public inline function stop(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):Void {
+        final _c = (_c : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
         stdgo._internal.os.signal.Signal_stop.stop(_c);
     }
     /**
@@ -416,7 +436,7 @@ class Signal {
         call stop as soon as the operations running in this Context complete and
         signals no longer need to be diverted to the context.
     **/
-    static public function notifyContext(_parent:stdgo._internal.context.Context_Context.Context, _signals:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):stdgo.Tuple<stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_CancelFunc.CancelFunc> {
+    static public inline function notifyContext(_parent:stdgo._internal.context.Context_Context.Context, _signals:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):stdgo.Tuple<stdgo._internal.context.Context_Context.Context, stdgo._internal.context.Context_CancelFunc.CancelFunc> {
         return {
             final obj = stdgo._internal.os.signal.Signal_notifyContext.notifyContext(_parent, ...[for (i in _signals) i]);
             { _0 : obj._0, _1 : obj._1 };

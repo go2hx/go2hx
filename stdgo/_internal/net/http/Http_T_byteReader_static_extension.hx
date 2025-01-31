@@ -7,7 +7,7 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _br ?? throw "null pointer dereference")._done) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__io._io.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -24,7 +24,7 @@ package stdgo._internal.net.http;
         (@:checkr _br ?? throw "null pointer dereference")._done = true;
         _p[(0 : stdgo.GoInt)] = (@:checkr _br ?? throw "null pointer dereference")._b;
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eOF.eOF };
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__io._io.eOF };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

@@ -1,4 +1,14 @@
 package stdgo._internal.flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
 function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _value:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _ok = false, _err = (null : stdgo.Error);
@@ -50,7 +60,11 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _ok, _1 : _err };
             };
         } catch(__exception__) {
@@ -85,7 +99,11 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _ok, _1 : _err };
             };
         };

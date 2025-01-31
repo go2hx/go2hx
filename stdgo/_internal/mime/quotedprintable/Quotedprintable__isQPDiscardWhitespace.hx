@@ -1,4 +1,8 @@
 package stdgo._internal.mime.quotedprintable;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
 function _isQPDiscardWhitespace(_r:stdgo.GoInt32):Bool {
         {
             final __value__ = _r;

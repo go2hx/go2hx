@@ -1,4 +1,20 @@
 package stdgo._internal.regexp;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.regexp.syntax.Syntax;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.os.Os;
+import stdgo._internal.compress.bzip2.Bzip2;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.bytes.Bytes;
 function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _re = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>), _err = (null : stdgo.Error);
@@ -40,7 +56,11 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _re, _1 : _err };
             };
         } catch(__exception__) {
@@ -75,7 +95,11 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _re, _1 : _err };
             };
         };

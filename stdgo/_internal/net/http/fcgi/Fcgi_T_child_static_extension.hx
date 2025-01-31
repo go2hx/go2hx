@@ -1,4 +1,16 @@
 package stdgo._internal.net.http.fcgi;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.net.Net;
+import stdgo._internal.os.Os;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.net.http.cgi.Cgi;
+import stdgo._internal.context.Context;
 @:keep @:allow(stdgo._internal.net.http.fcgi.Fcgi.T_child_asInterface) class T_child_static_extension {
     @:keep
     @:tdfield
@@ -22,7 +34,7 @@ package stdgo._internal.net.http.fcgi;
         } else {
             (@:checkr _httpReq ?? throw "null pointer dereference").body = _body;
             var _withoutUsedEnvVars = stdgo._internal.net.http.fcgi.Fcgi__filterOutUsedEnvVars._filterOutUsedEnvVars((@:checkr _req ?? throw "null pointer dereference")._params);
-            var _envVarCtx = (stdgo._internal.context.Context_withValue.withValue(@:check2r _httpReq.context(), stdgo.Go.toInterface((new stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey() : stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey)), stdgo.Go.toInterface(_withoutUsedEnvVars)) : stdgo._internal.context.Context_Context.Context);
+            var _envVarCtx = (stdgo._internal.context.Context_withValue.withValue(@:check2r _httpReq.context(), stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey() : stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey))), stdgo.Go.toInterface(_withoutUsedEnvVars)) : stdgo._internal.context.Context_Context.Context);
             _httpReq = @:check2r _httpReq.withContext(_envVarCtx);
             (@:checkr _c ?? throw "null pointer dereference")._handler.serveHTTP(stdgo.Go.asInterface(_r), _httpReq);
         };
@@ -172,7 +184,11 @@ package stdgo._internal.net.http.fcgi;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -207,7 +223,11 @@ package stdgo._internal.net.http.fcgi;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

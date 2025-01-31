@@ -1,4 +1,10 @@
 package stdgo._internal.debug.gosym;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.debug.gosym.Gosym_LineTable_static_extension.LineTable_static_extension) class LineTable {
     public var data : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var pC : stdgo.GoUInt64 = 0;

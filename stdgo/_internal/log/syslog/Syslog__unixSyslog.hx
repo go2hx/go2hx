@@ -1,4 +1,11 @@
 package stdgo._internal.log.syslog;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.log.Log;
+import stdgo._internal.net.Net;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.fmt.Fmt;
 function _unixSyslog():{ var _0 : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn; var _1 : stdgo.Error; } {
         var _conn = (null : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn), _err = (null : stdgo.Error);
         var _logTypes = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("unixgram" : stdgo.GoString), ("unix" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

@@ -1,4 +1,25 @@
 package stdgo._internal.encoding.gob;
+import stdgo._internal.flag.Flag;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.time.Time;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.io.Io;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.Math;
+import stdgo._internal.internal.saferio.Saferio;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.hex.Hex;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.os.Os;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.encoding.binary.Binary;
 function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
         var _it:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
@@ -10,15 +31,15 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxi : (128i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o1:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxi\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for int8:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         _it = ({ mini : (-129i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         @:check2r _b.reset();
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi8_16178.T_testOverflow___localname___outi8_16178>))));
         if (((_err == null) || (_err.error() != ("value for \"Mini\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong underflow error for int8:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -26,15 +47,15 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxi : (32768i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o2:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxi\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for int16:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         _it = ({ mini : (-32769i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         @:check2r _b.reset();
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi16_16677.T_testOverflow___localname___outi16_16677>))));
         if (((_err == null) || (_err.error() != ("value for \"Mini\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong underflow error for int16:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -42,15 +63,15 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxi : (2147483648i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o3:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o3) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o3) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxi\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for int32:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         _it = ({ mini : (-2147483649i64 : stdgo.GoInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         @:check2r _b.reset();
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o3) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o3) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183.T_testOverflow___localname___outi32_17183>))));
         if (((_err == null) || (_err.error() != ("value for \"Mini\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong underflow error for int32:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -58,8 +79,8 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxu : (256i64 : stdgo.GoUInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o4:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu8_17689.T_testOverflow___localname___outu8_17689 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu8_17689.T_testOverflow___localname___outu8_17689);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o4) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu8_17689.T_testOverflow___localname___outu8_17689>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o4) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu8_17689.T_testOverflow___localname___outu8_17689>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxu\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for uint8:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -67,8 +88,8 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxu : (65536i64 : stdgo.GoUInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o5:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu16_17967.T_testOverflow___localname___outu16_17967 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu16_17967.T_testOverflow___localname___outu16_17967);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o5) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu16_17967.T_testOverflow___localname___outu16_17967>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o5) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu16_17967.T_testOverflow___localname___outu16_17967>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxu\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for uint16:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -76,8 +97,8 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxu : (4294967296i64 : stdgo.GoUInt64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o6:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu32_18249.T_testOverflow___localname___outu32_18249 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu32_18249.T_testOverflow___localname___outu32_18249);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o6) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu32_18249.T_testOverflow___localname___outu32_18249>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o6) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outu32_18249.T_testOverflow___localname___outu32_18249>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxu\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for uint32:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -85,8 +106,8 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxf : (6.805646932770577e+38 : stdgo.GoFloat64) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o7:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outf32_18533.T_testOverflow___localname___outf32_18533 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outf32_18533.T_testOverflow___localname___outf32_18533);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o7) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outf32_18533.T_testOverflow___localname___outf32_18533>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o7) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outf32_18533.T_testOverflow___localname___outf32_18533>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxf\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for float32:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -94,8 +115,8 @@ function testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _it = ({ maxc : new stdgo.GoComplex128((6.805646932770577e+38 : stdgo.GoFloat64), (6.805646932770577e+38 : stdgo.GoFloat64)) } : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___inputT_15885.T_testOverflow___localname___inputT_15885);
         {};
         var _o8:stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outc64_18862.T_testOverflow___localname___outc64_18862 = ({} : stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outc64_18862.T_testOverflow___localname___outc64_18862);
-        @:check2r _enc.encode(stdgo.Go.toInterface(_it));
-        _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_o8) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outc64_18862.T_testOverflow___localname___outc64_18862>)));
+        @:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_it)));
+        _err = @:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o8) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outc64_18862.T_testOverflow___localname___outc64_18862>))));
         if (((_err == null) || (_err.error() != ("value for \"Maxc\" out of range" : stdgo.GoString)) : Bool)) {
             @:check2r _t.error(stdgo.Go.toInterface(("wrong overflow error for complex64:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

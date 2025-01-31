@@ -1,5 +1,6 @@
 package stdgo._internal.io;
-typedef WriterAt = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+@:interface typedef WriterAt = stdgo.StructType & {
     /**
         
         

@@ -1,4 +1,10 @@
 package stdgo._internal.net.url;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.path.Path;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.sort.Sort;
 function joinPath(_base:stdgo.GoString, _elem:haxe.Rest<stdgo.GoString>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
         var _result = ("" : stdgo.GoString), _err = (null : stdgo.Error);

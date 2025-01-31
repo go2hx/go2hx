@@ -1,4 +1,13 @@
 package stdgo._internal.crypto.sha1;
+import stdgo._internal.crypto.Crypto;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.crypto.rand.Rand;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.errors.Errors;
 function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _h = (stdgo._internal.crypto.sha1.Sha1_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
         var _h2 = (stdgo._internal.crypto.sha1.Sha1_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);

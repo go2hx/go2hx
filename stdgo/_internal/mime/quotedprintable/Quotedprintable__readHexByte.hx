@@ -1,4 +1,8 @@
 package stdgo._internal.mime.quotedprintable;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.io.Io;
+import stdgo._internal.bytes.Bytes;
 function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         var _b = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
         if (((_v.length) < (2 : stdgo.GoInt) : Bool)) {

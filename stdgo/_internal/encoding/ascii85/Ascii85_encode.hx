@@ -1,4 +1,5 @@
 package stdgo._internal.encoding.ascii85;
+import stdgo._internal.strconv.Strconv;
 function encode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return (0 : stdgo.GoInt);

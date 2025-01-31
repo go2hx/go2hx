@@ -1,4 +1,19 @@
 package stdgo._internal.archive.zip;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.os.Os;
+import stdgo._internal.io.Io;
+import stdgo._internal.time.Time;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.path.Path;
+import stdgo._internal.compress.flate.Flate;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.hash.crc32.Crc32;
+import stdgo._internal.encoding.binary.Binary;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.archive.zip.Zip__zipinsecurepath._zipinsecurepath, __tmp__1 = stdgo._internal.archive.zip.Zip_errFormat.errFormat, __tmp__2 = stdgo._internal.archive.zip.Zip_errAlgorithm.errAlgorithm, __tmp__3 = stdgo._internal.archive.zip.Zip_errChecksum.errChecksum, __tmp__4 = stdgo._internal.archive.zip.Zip_errInsecurePath.errInsecurePath, __tmp__5 = stdgo._internal.archive.zip.Zip__dotFile._dotFile, __tmp__6 = stdgo._internal.archive.zip.Zip__errLongName._errLongName, __tmp__7 = stdgo._internal.archive.zip.Zip__errLongExtra._errLongExtra;

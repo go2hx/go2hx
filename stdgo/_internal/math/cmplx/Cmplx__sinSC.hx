@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 var _sinSC : stdgo.Slice<stdgo._internal.math.cmplx.Cmplx_T__struct_0.T__struct_0> = (new stdgo.Slice<stdgo._internal.math.cmplx.Cmplx_T__struct_0.T__struct_0>(13, 13, ...[
 ({ _in : new stdgo.GoComplex128(stdgo._internal.math.cmplx.Cmplx__zero._zero, stdgo._internal.math.cmplx.Cmplx__zero._zero), _want : new stdgo.GoComplex128(stdgo._internal.math.cmplx.Cmplx__zero._zero, stdgo._internal.math.cmplx.Cmplx__zero._zero) } : stdgo._internal.math.cmplx.Cmplx_T__struct_0.T__struct_0),
 ({ _in : new stdgo.GoComplex128(stdgo._internal.math.cmplx.Cmplx__zero._zero, stdgo._internal.math.cmplx.Cmplx__inf._inf), _want : new stdgo.GoComplex128(stdgo._internal.math.cmplx.Cmplx__zero._zero, stdgo._internal.math.cmplx.Cmplx__inf._inf) } : stdgo._internal.math.cmplx.Cmplx_T__struct_0.T__struct_0),

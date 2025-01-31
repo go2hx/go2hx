@@ -1,5 +1,5 @@
 package stdgo._internal.net.http;
-typedef RoundTripper = stdgo.StructType & {
+@:interface typedef RoundTripper = stdgo.StructType & {
     /**
         RoundTrip executes a single HTTP transaction, returning
         a Response for the provided Request.

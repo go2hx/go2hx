@@ -1,4 +1,13 @@
 package stdgo._internal.fmt;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.os.Os;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.fmtsort.Fmtsort;
+import stdgo._internal.math.Math;
 function _hexDigit(_d:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         var _digit = (_d : stdgo.GoInt);
         {

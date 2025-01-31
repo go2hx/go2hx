@@ -1,4 +1,10 @@
 package stdgo._internal.regexp.syntax;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strconv.Strconv;
 function _simplify1(_op:stdgo._internal.regexp.syntax.Syntax_Op.Op, _flags:stdgo._internal.regexp.syntax.Syntax_Flags.Flags, _sub:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>, _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> {
         if ((@:checkr _sub ?? throw "null pointer dereference").op == ((2 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
             return _sub;

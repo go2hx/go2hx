@@ -2,35 +2,6 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2priorityWriteScheduler_asInterface) class T_http2priorityWriteScheduler_static_extension {
     @:keep
     @:tdfield
-    static public function _removeNode( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler>, _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void {
-        @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
-        {
-            var _k = (@:checkr _n ?? throw "null pointer dereference")._kids;
-            while ((_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__))) {
-                @:check2r _k._setParent((@:checkr _n ?? throw "null pointer dereference")._parent);
-                _k = (@:checkr _k ?? throw "null pointer dereference")._next;
-            };
-        };
-        @:check2r _n._setParent(null);
-        if ((@:checkr _ws ?? throw "null pointer dereference")._nodes != null) (@:checkr _ws ?? throw "null pointer dereference")._nodes.remove((@:checkr _n ?? throw "null pointer dereference")._id);
-    }
-    @:keep
-    @:tdfield
-    static public function _addClosedOrIdleNode( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler>, _list:stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>>, _maxSize:stdgo.GoInt, _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void {
-        @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
-        if (_maxSize == ((0 : stdgo.GoInt))) {
-            return;
-        };
-        if (((_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).length) == (_maxSize)) {
-            @:check2r _ws._removeNode(((_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>))[(0 : stdgo.GoInt)]);
-            var _x = (((_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>)).__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>);
-            (_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).__copyTo__(_x);
-            (_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).__setData__((((_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>)).__slice__(0, (_x.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>));
-        };
-        (_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).__setData__(((_list : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).__append__(_n)));
-    }
-    @:keep
-    @:tdfield
     static public function pop( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler>):{ var _0 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _1 : Bool; } {
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
         var _wr = ({} : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest), _ok = false;
@@ -82,7 +53,7 @@ package stdgo._internal.net.http;
                 _n = (stdgo.Go.setRef((@:checkr _ws ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>);
             };
         };
-        @:check2 (@:checkr _n ?? throw "null pointer dereference")._q._push(_wr?.__copy__());
+        @:check2 (@:checkr _n ?? throw "null pointer dereference")._q._push(_wr);
     }
     @:keep
     @:tdfield
@@ -142,10 +113,10 @@ package stdgo._internal.net.http;
             throw stdgo.Go.toInterface(("violation of WriteScheduler interface: cannot close stream 0" : stdgo.GoString));
         };
         if ((((@:checkr _ws ?? throw "null pointer dereference")._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>)) == null || ((@:checkr _ws ?? throw "null pointer dereference")._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>) : Dynamic).__nil__)) {
-            throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("violation of WriteScheduler interface: unknown stream %d" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
+            throw stdgo.Go.toInterface(stdgo._internal.net.http.Http__fmt._fmt.sprintf(("violation of WriteScheduler interface: unknown stream %d" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
         };
         if ((@:checkr ((@:checkr _ws ?? throw "null pointer dereference")._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>)) ?? throw "null pointer dereference")._state != ((0 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState))) {
-            throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("violation of WriteScheduler interface: stream %d already closed" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
+            throw stdgo.Go.toInterface(stdgo._internal.net.http.Http__fmt._fmt.sprintf(("violation of WriteScheduler interface: stream %d already closed" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
         };
         var _n = ((@:checkr _ws ?? throw "null pointer dereference")._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
         (@:checkr _n ?? throw "null pointer dereference")._state = (1 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState);
@@ -167,7 +138,7 @@ package stdgo._internal.net.http;
             var _curr = ((@:checkr _ws ?? throw "null pointer dereference")._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
             if ((_curr != null && ((_curr : Dynamic).__nil__ == null || !(_curr : Dynamic).__nil__))) {
                 if ((@:checkr _curr ?? throw "null pointer dereference")._state != ((2 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState))) {
-                    throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("stream %d already opened" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
+                    throw stdgo.Go.toInterface(stdgo._internal.net.http.Http__fmt._fmt.sprintf(("stream %d already opened" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
                 };
                 (@:checkr _curr ?? throw "null pointer dereference")._state = (0 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState);
                 return;

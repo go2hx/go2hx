@@ -1,5 +1,5 @@
 package stdgo._internal.net;
-@:structInit class SRV {
+@:structInit @:using(stdgo._internal.net.Net_SRV_static_extension.SRV_static_extension) class SRV {
     public var target : stdgo.GoString = "";
     public var port : stdgo.GoUInt16 = 0;
     public var priority : stdgo.GoUInt16 = 0;

@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-@:structInit class LFNode {
+@:structInit @:using(stdgo._internal.runtime.Runtime_LFNode_static_extension.LFNode_static_extension) class LFNode {
     public var next : stdgo.GoUInt64 = 0;
     public var pushcnt : stdgo.GoUIntptr = 0;
     public function new(?next:stdgo.GoUInt64, ?pushcnt:stdgo.GoUIntptr) {

@@ -1,2 +1,13 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 var _equalIntTests : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_0.T__struct_0> = (new stdgo.Slice<stdgo._internal.slices.Slices_T__struct_0.T__struct_0>(4, 4, ...[({ _s1 : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _s2 : (null : stdgo.Slice<stdgo.GoInt>), _want : false } : stdgo._internal.slices.Slices_T__struct_0.T__struct_0), ({ _s1 : (new stdgo.Slice<stdgo.GoInt>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _s2 : (null : stdgo.Slice<stdgo.GoInt>), _want : true } : stdgo._internal.slices.Slices_T__struct_0.T__struct_0), ({ _s1 : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _s2 : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _want : true } : stdgo._internal.slices.Slices_T__struct_0.T__struct_0), ({ _s1 : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _s2 : (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), _want : false } : stdgo._internal.slices.Slices_T__struct_0.T__struct_0)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _s1 : (null : stdgo.Slice<stdgo.GoInt>), _s2 : (null : stdgo.Slice<stdgo.GoInt>), _want : false } : stdgo._internal.slices.Slices_T__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_0.T__struct_0>);

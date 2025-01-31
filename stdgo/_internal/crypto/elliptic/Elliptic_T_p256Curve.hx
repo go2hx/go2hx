@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.elliptic;
+import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.io.Io;
+import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension) class T_p256Curve {
     @:embedded
     public var _nistCurve : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>> = ({} : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>>);

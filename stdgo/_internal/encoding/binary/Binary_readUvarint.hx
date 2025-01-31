@@ -1,4 +1,12 @@
 package stdgo._internal.encoding.binary;
+import stdgo._internal.math.Math;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.io.Io;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.unsafe.Unsafe;
 function readUvarint(_r:stdgo._internal.io.Io_ByteReader.ByteReader):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } {
         var _x:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _s:stdgo.GoUInt = (0 : stdgo.GoUInt);

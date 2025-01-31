@@ -1,5 +1,9 @@
 package stdgo._internal.database.sql.driver;
-typedef Driver = stdgo.StructType & {
+import stdgo._internal.errors.Errors;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
+@:interface typedef Driver = stdgo.StructType & {
     /**
         Open returns a new connection to the database.
         The name is a string in a driver-specific format.

@@ -1,5 +1,5 @@
 package stdgo._internal.container.heap;
-typedef Interface = stdgo.StructType & {
+@:interface typedef Interface = stdgo.StructType & {
     > stdgo._internal.sort.Sort_Interface.Interface,
     /**
         

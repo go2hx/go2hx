@@ -1,4 +1,14 @@
 package stdgo._internal.encoding.base64;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.debug.Debug;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.time.Time;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.strconv.Strconv;
 function testDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _p in stdgo._internal.encoding.base64.Base64__pairs._pairs) {
             var _decoder = (stdgo._internal.encoding.base64.Base64_newDecoder.newDecoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_p._encoded?.__copy__()))) : stdgo._internal.io.Io_Reader.Reader);

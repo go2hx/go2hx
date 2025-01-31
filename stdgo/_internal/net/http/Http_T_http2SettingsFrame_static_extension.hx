@@ -77,7 +77,7 @@ _seen[_id] = true;
     static public function setting( _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>, _i:stdgo.GoInt):stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting {
         @:recv var _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame> = _f;
         var _buf = (@:checkr _f ?? throw "null pointer dereference")._p;
-        return ({ iD : (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint16((_buf.__slice__((_i * (6 : stdgo.GoInt) : stdgo.GoInt), ((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID), val : stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_buf.__slice__(((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt), ((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (6 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) } : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting);
+        return ({ iD : (stdgo._internal.net.http.Http__binary._binary.bigEndian.uint16((_buf.__slice__((_i * (6 : stdgo.GoInt) : stdgo.GoInt), ((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID), val : stdgo._internal.net.http.Http__binary._binary.bigEndian.uint32((_buf.__slice__(((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt), ((_i * (6 : stdgo.GoInt) : stdgo.GoInt) + (6 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) } : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting);
     }
     @:keep
     @:tdfield

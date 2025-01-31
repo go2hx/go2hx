@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function float64frombits(_b:stdgo.GoUInt64):stdgo.GoFloat64 {
         final bits = haxe.io.Bytes.alloc(8);
         final low = _b.toBasic().low;

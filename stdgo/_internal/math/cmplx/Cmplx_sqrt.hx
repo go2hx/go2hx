@@ -1,4 +1,6 @@
 package stdgo._internal.math.cmplx;
+import stdgo._internal.math.Math;
+import stdgo._internal.math.bits.Bits;
 function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         if ((_x : stdgo.GoComplex128).imag == (0 : stdgo.GoFloat64)) {
             if ((_x : stdgo.GoComplex128).real == (0 : stdgo.GoFloat64)) {

@@ -10,96 +10,96 @@ class T_writer_static_extension {
     }
 }
 typedef T_writer = stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer;
-@:structInit abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffman_static_extension) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman {
     public var _nCodes(get, set) : StdTypes.Int;
     function get__nCodes():StdTypes.Int return this._nCodes;
     function set__nCodes(v:StdTypes.Int):StdTypes.Int {
-        this._nCodes = v;
+        this._nCodes = (v : stdgo.GoInt32);
         return v;
     }
     public var _lut(get, set) : haxe.ds.Vector<std.UInt>;
     function get__lut():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._lut) i]);
     function set__lut(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._lut = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt16>);
+        this._lut = ([for (i in v) (i : stdgo.GoUInt16)] : stdgo.GoArray<stdgo.GoUInt16>);
         return v;
     }
     public var _vals(get, set) : haxe.ds.Vector<std.UInt>;
     function get__vals():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._vals) i]);
     function set__vals(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._vals = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._vals = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
     public var _minCodes(get, set) : haxe.ds.Vector<StdTypes.Int>;
     function get__minCodes():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this._minCodes) i]);
     function set__minCodes(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
-        this._minCodes = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt32>);
+        this._minCodes = ([for (i in v) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>);
         return v;
     }
     public var _maxCodes(get, set) : haxe.ds.Vector<StdTypes.Int>;
     function get__maxCodes():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this._maxCodes) i]);
     function set__maxCodes(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
-        this._maxCodes = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt32>);
+        this._maxCodes = ([for (i in v) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>);
         return v;
     }
     public var _valsIndices(get, set) : haxe.ds.Vector<StdTypes.Int>;
     function get__valsIndices():haxe.ds.Vector<StdTypes.Int> return haxe.ds.Vector.fromArrayCopy([for (i in this._valsIndices) i]);
     function set__valsIndices(v:haxe.ds.Vector<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
-        this._valsIndices = ([for (i in v) i] : stdgo.GoArray<stdgo.GoInt32>);
+        this._valsIndices = ([for (i in v) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>);
         return v;
     }
-    public function new(?_nCodes:StdTypes.Int, ?_lut:haxe.ds.Vector<std.UInt>, ?_vals:haxe.ds.Vector<std.UInt>, ?_minCodes:haxe.ds.Vector<StdTypes.Int>, ?_maxCodes:haxe.ds.Vector<StdTypes.Int>, ?_valsIndices:haxe.ds.Vector<StdTypes.Int>) this = new stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman(_nCodes, ([for (i in _lut) i] : stdgo.GoArray<stdgo.GoUInt16>), ([for (i in _vals) i] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _minCodes) i] : stdgo.GoArray<stdgo.GoInt32>), ([for (i in _maxCodes) i] : stdgo.GoArray<stdgo.GoInt32>), ([for (i in _valsIndices) i] : stdgo.GoArray<stdgo.GoInt32>));
+    public function new(?_nCodes:StdTypes.Int, ?_lut:haxe.ds.Vector<std.UInt>, ?_vals:haxe.ds.Vector<std.UInt>, ?_minCodes:haxe.ds.Vector<StdTypes.Int>, ?_maxCodes:haxe.ds.Vector<StdTypes.Int>, ?_valsIndices:haxe.ds.Vector<StdTypes.Int>) this = new stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman((_nCodes : stdgo.GoInt32), ([for (i in _lut) (i : stdgo.GoUInt16)] : stdgo.GoArray<stdgo.GoUInt16>), ([for (i in _vals) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _minCodes) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>), ([for (i in _maxCodes) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>), ([for (i in _valsIndices) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_component(stdgo._internal.image.jpeg.Jpeg_T_component.T_component) from stdgo._internal.image.jpeg.Jpeg_T_component.T_component to stdgo._internal.image.jpeg.Jpeg_T_component.T_component {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_component_static_extension) abstract T_component(stdgo._internal.image.jpeg.Jpeg_T_component.T_component) from stdgo._internal.image.jpeg.Jpeg_T_component.T_component to stdgo._internal.image.jpeg.Jpeg_T_component.T_component {
     public var _h(get, set) : StdTypes.Int;
     function get__h():StdTypes.Int return this._h;
     function set__h(v:StdTypes.Int):StdTypes.Int {
-        this._h = v;
+        this._h = (v : stdgo.GoInt);
         return v;
     }
     public var _v(get, set) : StdTypes.Int;
     function get__v():StdTypes.Int return this._v;
     function set__v(v:StdTypes.Int):StdTypes.Int {
-        this._v = v;
+        this._v = (v : stdgo.GoInt);
         return v;
     }
     public var _c(get, set) : std.UInt;
     function get__c():std.UInt return this._c;
     function set__c(v:std.UInt):std.UInt {
-        this._c = v;
+        this._c = (v : stdgo.GoUInt8);
         return v;
     }
     public var _tq(get, set) : std.UInt;
     function get__tq():std.UInt return this._tq;
     function set__tq(v:std.UInt):std.UInt {
-        this._tq = v;
+        this._tq = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?_h:StdTypes.Int, ?_v:StdTypes.Int, ?_c:std.UInt, ?_tq:std.UInt) this = new stdgo._internal.image.jpeg.Jpeg_T_component.T_component(_h, _v, _c, _tq);
+    public function new(?_h:StdTypes.Int, ?_v:StdTypes.Int, ?_c:std.UInt, ?_tq:std.UInt) this = new stdgo._internal.image.jpeg.Jpeg_T_component.T_component((_h : stdgo.GoInt), (_v : stdgo.GoInt), (_c : stdgo.GoUInt8), (_tq : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_bits(stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_bits_static_extension) abstract T_bits(stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits {
     public var _a(get, set) : std.UInt;
     function get__a():std.UInt return this._a;
     function set__a(v:std.UInt):std.UInt {
-        this._a = v;
+        this._a = (v : stdgo.GoUInt32);
         return v;
     }
     public var _m(get, set) : std.UInt;
     function get__m():std.UInt return this._m;
     function set__m(v:std.UInt):std.UInt {
-        this._m = v;
+        this._m = (v : stdgo.GoUInt32);
         return v;
     }
     public var _n(get, set) : StdTypes.Int;
     function get__n():StdTypes.Int return this._n;
     function set__n(v:StdTypes.Int):StdTypes.Int {
-        this._n = v;
+        this._n = (v : stdgo.GoInt32);
         return v;
     }
-    public function new(?_a:std.UInt, ?_m:std.UInt, ?_n:StdTypes.Int) this = new stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits(_a, _m, _n);
+    public function new(?_a:std.UInt, ?_m:std.UInt, ?_n:StdTypes.Int) this = new stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits((_a : stdgo.GoUInt32), (_m : stdgo.GoUInt32), (_n : stdgo.GoInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -124,56 +124,56 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer;
     function set__bytes(v:stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int>):stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int> {
         this._bytes = {
             final obj = v;
-            { _buf : ([for (i in obj._buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _i : obj._i, _j : obj._j, _nUnreadable : obj._nUnreadable };
+            { _buf : ([for (i in obj._buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _i : (obj._i : stdgo.GoInt), _j : (obj._j : stdgo.GoInt), _nUnreadable : (obj._nUnreadable : stdgo.GoInt) };
         };
         return v;
     }
     public var _width(get, set) : StdTypes.Int;
     function get__width():StdTypes.Int return this._width;
     function set__width(v:StdTypes.Int):StdTypes.Int {
-        this._width = v;
+        this._width = (v : stdgo.GoInt);
         return v;
     }
     public var _height(get, set) : StdTypes.Int;
     function get__height():StdTypes.Int return this._height;
     function set__height(v:StdTypes.Int):StdTypes.Int {
-        this._height = v;
+        this._height = (v : stdgo.GoInt);
         return v;
     }
     public var _img1(get, set) : stdgo._internal.image.Image_Gray.Gray;
     function get__img1():stdgo._internal.image.Image_Gray.Gray return this._img1;
     function set__img1(v:stdgo._internal.image.Image_Gray.Gray):stdgo._internal.image.Image_Gray.Gray {
-        this._img1 = v;
+        this._img1 = (v : stdgo.Ref<stdgo._internal.image.Image_Gray.Gray>);
         return v;
     }
     public var _img3(get, set) : stdgo._internal.image.Image_YCbCr.YCbCr;
     function get__img3():stdgo._internal.image.Image_YCbCr.YCbCr return this._img3;
     function set__img3(v:stdgo._internal.image.Image_YCbCr.YCbCr):stdgo._internal.image.Image_YCbCr.YCbCr {
-        this._img3 = v;
+        this._img3 = (v : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>);
         return v;
     }
     public var _blackPix(get, set) : Array<std.UInt>;
     function get__blackPix():Array<std.UInt> return [for (i in this._blackPix) i];
     function set__blackPix(v:Array<std.UInt>):Array<std.UInt> {
-        this._blackPix = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._blackPix = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
     public var _blackStride(get, set) : StdTypes.Int;
     function get__blackStride():StdTypes.Int return this._blackStride;
     function set__blackStride(v:StdTypes.Int):StdTypes.Int {
-        this._blackStride = v;
+        this._blackStride = (v : stdgo.GoInt);
         return v;
     }
     public var _ri(get, set) : StdTypes.Int;
     function get__ri():StdTypes.Int return this._ri;
     function set__ri(v:StdTypes.Int):StdTypes.Int {
-        this._ri = v;
+        this._ri = (v : stdgo.GoInt);
         return v;
     }
     public var _nComp(get, set) : StdTypes.Int;
     function get__nComp():StdTypes.Int return this._nComp;
     function set__nComp(v:StdTypes.Int):StdTypes.Int {
-        this._nComp = v;
+        this._nComp = (v : stdgo.GoInt);
         return v;
     }
     public var _baseline(get, set) : Bool;
@@ -203,13 +203,13 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer;
     public var _adobeTransform(get, set) : std.UInt;
     function get__adobeTransform():std.UInt return this._adobeTransform;
     function set__adobeTransform(v:std.UInt):std.UInt {
-        this._adobeTransform = v;
+        this._adobeTransform = (v : stdgo.GoUInt8);
         return v;
     }
     public var _eobRun(get, set) : std.UInt;
     function get__eobRun():std.UInt return this._eobRun;
     function set__eobRun(v:std.UInt):std.UInt {
-        this._eobRun = v;
+        this._eobRun = (v : stdgo.GoUInt16);
         return v;
     }
     public var _comp(get, set) : haxe.ds.Vector<T_component>;
@@ -239,7 +239,7 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer;
     public var _tmp(get, set) : haxe.ds.Vector<std.UInt>;
     function get__tmp():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._tmp) i]);
     function set__tmp(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._tmp = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
     public function new(?_r:stdgo._internal.io.Io_Reader.Reader, ?_bits:T_bits, ?_bytes:stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int>, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_img1:stdgo._internal.image.Image_Gray.Gray, ?_img3:stdgo._internal.image.Image_YCbCr.YCbCr, ?_blackPix:Array<std.UInt>, ?_blackStride:StdTypes.Int, ?_ri:StdTypes.Int, ?_nComp:StdTypes.Int, ?_baseline:Bool, ?_progressive:Bool, ?_jfif:Bool, ?_adobeTransformValid:Bool, ?_adobeTransform:std.UInt, ?_eobRun:std.UInt, ?_comp:haxe.ds.Vector<T_component>, ?_progCoeffs:haxe.ds.Vector<Array<T_block>>, ?_huff:haxe.ds.Vector<haxe.ds.Vector<T_huffman>>, ?_quant:haxe.ds.Vector<T_block>, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder(
@@ -247,44 +247,44 @@ _r,
 _bits,
 {
         final obj = _bytes;
-        { _buf : ([for (i in obj._buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _i : obj._i, _j : obj._j, _nUnreadable : obj._nUnreadable };
+        { _buf : ([for (i in obj._buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _i : (obj._i : stdgo.GoInt), _j : (obj._j : stdgo.GoInt), _nUnreadable : (obj._nUnreadable : stdgo.GoInt) };
     },
-_width,
-_height,
-_img1,
-_img3,
-([for (i in _blackPix) i] : stdgo.Slice<stdgo.GoUInt8>),
-_blackStride,
-_ri,
-_nComp,
+(_width : stdgo.GoInt),
+(_height : stdgo.GoInt),
+(_img1 : stdgo.Ref<stdgo._internal.image.Image_Gray.Gray>),
+(_img3 : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>),
+([for (i in _blackPix) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
+(_blackStride : stdgo.GoInt),
+(_ri : stdgo.GoInt),
+(_nComp : stdgo.GoInt),
 _baseline,
 _progressive,
 _jfif,
 _adobeTransformValid,
-_adobeTransform,
-_eobRun,
+(_adobeTransform : stdgo.GoUInt8),
+(_eobRun : stdgo.GoUInt16),
 ([for (i in _comp) i] : stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_component.T_component>),
 ([for (i in _progCoeffs) ([for (i in i) i] : stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>)] : stdgo.GoArray<stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>),
 ([for (i in _huff) ([for (i in i) i] : stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>)] : stdgo.GoArray<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>>),
 ([for (i in _quant) i] : stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>),
-([for (i in _tmp) i] : stdgo.GoArray<stdgo.GoUInt8>));
+([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffmanSpec_static_extension) abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec {
     public var _count(get, set) : haxe.ds.Vector<std.UInt>;
     function get__count():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._count) i]);
     function set__count(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._count = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._count = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
     public var _value(get, set) : Array<std.UInt>;
     function get__value():Array<std.UInt> return [for (i in this._value) i];
     function set__value(v:Array<std.UInt>):Array<std.UInt> {
-        this._value = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
+        this._value = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_count:haxe.ds.Vector<std.UInt>, ?_value:Array<std.UInt>) this = new stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec(([for (i in _count) i] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _value) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_count:haxe.ds.Vector<std.UInt>, ?_value:Array<std.UInt>) this = new stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec(([for (i in _count) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _value) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -298,45 +298,45 @@ _eobRun,
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
-        this._err = v;
+        this._err = (v : stdgo.Error);
         return v;
     }
     public var _buf(get, set) : haxe.ds.Vector<std.UInt>;
     function get__buf():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._buf) i]);
     function set__buf(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
-        this._buf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
+        this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
     public var _bits(get, set) : std.UInt;
     function get__bits():std.UInt return this._bits;
     function set__bits(v:std.UInt):std.UInt {
-        this._bits = v;
+        this._bits = (v : stdgo.GoUInt32);
         return v;
     }
     public var _nBits(get, set) : std.UInt;
     function get__nBits():std.UInt return this._nBits;
     function set__nBits(v:std.UInt):std.UInt {
-        this._nBits = v;
+        this._nBits = (v : stdgo.GoUInt32);
         return v;
     }
     public var _quant(get, set) : haxe.ds.Vector<haxe.ds.Vector<std.UInt>>;
     function get__quant():haxe.ds.Vector<haxe.ds.Vector<std.UInt>> return haxe.ds.Vector.fromArrayCopy([for (i in this._quant) haxe.ds.Vector.fromArrayCopy([for (i in i) i])]);
     function set__quant(v:haxe.ds.Vector<haxe.ds.Vector<std.UInt>>):haxe.ds.Vector<haxe.ds.Vector<std.UInt>> {
-        this._quant = ([for (i in v) ([for (i in i) i] : stdgo.GoArray<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>);
+        this._quant = ([for (i in v) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>);
         return v;
     }
-    public function new(?_w:T_writer, ?_err:stdgo.Error, ?_buf:haxe.ds.Vector<std.UInt>, ?_bits:std.UInt, ?_nBits:std.UInt, ?_quant:haxe.ds.Vector<haxe.ds.Vector<std.UInt>>) this = new stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder(_w, _err, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _bits, _nBits, ([for (i in _quant) ([for (i in i) i] : stdgo.GoArray<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>));
+    public function new(?_w:T_writer, ?_err:stdgo.Error, ?_buf:haxe.ds.Vector<std.UInt>, ?_bits:std.UInt, ?_nBits:std.UInt, ?_quant:haxe.ds.Vector<haxe.ds.Vector<std.UInt>>) this = new stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder(_w, (_err : stdgo.Error), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_bits : stdgo.GoUInt32), (_nBits : stdgo.GoUInt32), ([for (i in _quant) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit abstract Options(stdgo._internal.image.jpeg.Jpeg_Options.Options) from stdgo._internal.image.jpeg.Jpeg_Options.Options to stdgo._internal.image.jpeg.Jpeg_Options.Options {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.Options_static_extension) abstract Options(stdgo._internal.image.jpeg.Jpeg_Options.Options) from stdgo._internal.image.jpeg.Jpeg_Options.Options to stdgo._internal.image.jpeg.Jpeg_Options.Options {
     public var quality(get, set) : StdTypes.Int;
     function get_quality():StdTypes.Int return this.quality;
     function set_quality(v:StdTypes.Int):StdTypes.Int {
-        this.quality = v;
+        this.quality = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?quality:StdTypes.Int) this = new stdgo._internal.image.jpeg.Jpeg_Options.Options(quality);
+    public function new(?quality:StdTypes.Int) this = new stdgo._internal.image.jpeg.Jpeg_Options.Options((quality : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -361,160 +361,275 @@ typedef UnsupportedError = stdgo._internal.image.jpeg.Jpeg_UnsupportedError.Unsu
 typedef T_quantIndex = stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex;
 typedef T_huffIndex = stdgo._internal.image.jpeg.Jpeg_T_huffIndex.T_huffIndex;
 typedef T_huffmanLUT = stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT;
+typedef T_huffmanPointer = stdgo._internal.image.jpeg.Jpeg_T_huffmanPointer.T_huffmanPointer;
+class T_huffman_static_extension {
+
+}
+typedef T_componentPointer = stdgo._internal.image.jpeg.Jpeg_T_componentPointer.T_componentPointer;
+class T_component_static_extension {
+
+}
+typedef T_bitsPointer = stdgo._internal.image.jpeg.Jpeg_T_bitsPointer.T_bitsPointer;
+class T_bits_static_extension {
+
+}
 typedef T_decoderPointer = stdgo._internal.image.jpeg.Jpeg_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _reconstructBlock(_d:T_decoder, _b:T_block, _bx:StdTypes.Int, _by:StdTypes.Int, _compIndex:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
+        final _bx = (_bx : stdgo.GoInt);
+        final _by = (_by : stdgo.GoInt);
+        final _compIndex = (_compIndex : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._reconstructBlock(_d, _b, _bx, _by, _compIndex);
     }
     static public function _reconstructProgressiveImage(_d:T_decoder):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._reconstructProgressiveImage(_d);
     }
     static public function _refineNonZeroes(_d:T_decoder, _b:T_block, _zig:StdTypes.Int, _zigEnd:StdTypes.Int, _nz:StdTypes.Int, _delta:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
+        final _zig = (_zig : stdgo.GoInt32);
+        final _zigEnd = (_zigEnd : stdgo.GoInt32);
+        final _nz = (_nz : stdgo.GoInt32);
+        final _delta = (_delta : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._refineNonZeroes(_d, _b, _zig, _zigEnd, _nz, _delta);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _refine(_d:T_decoder, _b:T_block, _h:T_huffman, _zigStart:StdTypes.Int, _zigEnd:StdTypes.Int, _delta:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>);
+        final _zigStart = (_zigStart : stdgo.GoInt32);
+        final _zigEnd = (_zigEnd : stdgo.GoInt32);
+        final _delta = (_delta : stdgo.GoInt32);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._refine(_d, _b, _h, _zigStart, _zigEnd, _delta);
     }
     static public function _processSOS(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processSOS(_d, _n);
     }
     static public function _makeImg(_d:T_decoder, _mxx:StdTypes.Int, _myy:StdTypes.Int):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _mxx = (_mxx : stdgo.GoInt);
+        final _myy = (_myy : stdgo.GoInt);
         stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._makeImg(_d, _mxx, _myy);
     }
     static public function _convertToRGB(_d:T_decoder):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._convertToRGB(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _isRGB(_d:T_decoder):Bool {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._isRGB(_d);
     }
     static public function _applyBlack(_d:T_decoder):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._applyBlack(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _decode(_d:T_decoder, _r:stdgo._internal.io.Io_Reader.Reader, _configOnly:Bool):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._decode(_d, _r, _configOnly);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _processApp14Marker(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processApp14Marker(_d, _n);
     }
     static public function _processApp0Marker(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processApp0Marker(_d, _n);
     }
     static public function _processDRI(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processDRI(_d, _n);
     }
     static public function _processDQT(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processDQT(_d, _n);
     }
     static public function _processSOF(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processSOF(_d, _n);
     }
     static public function _ignore(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._ignore(_d, _n);
     }
     static public function _readFull(_d:T_decoder, _p:Array<std.UInt>):stdgo.Error {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._readFull(_d, _p);
     }
     static public function _readByteStuffedByte(_d:T_decoder):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._readByteStuffedByte(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readByte(_d:T_decoder):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._readByte(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _unreadByteStuffedByte(_d:T_decoder):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._unreadByteStuffedByte(_d);
     }
     static public function _fill(_d:T_decoder):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._fill(_d);
     }
     static public function _decodeBits(_d:T_decoder, _n:StdTypes.Int):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._decodeBits(_d, _n);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _decodeBit(_d:T_decoder):stdgo.Tuple<Bool, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._decodeBit(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _decodeHuffman(_d:T_decoder, _h:T_huffman):stdgo.Tuple<std.UInt, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._decodeHuffman(_d, _h);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _processDHT(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._processDHT(_d, _n);
     }
     static public function _receiveExtend(_d:T_decoder, _t:std.UInt):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _t = (_t : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._receiveExtend(_d, _t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _ensureNBits(_d:T_decoder, _n:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>);
+        final _n = (_n : stdgo.GoInt32);
         return stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension._ensureNBits(_d, _n);
     }
+}
+typedef T_huffmanSpecPointer = stdgo._internal.image.jpeg.Jpeg_T_huffmanSpecPointer.T_huffmanSpecPointer;
+class T_huffmanSpec_static_extension {
+
 }
 typedef T_encoderPointer = stdgo._internal.image.jpeg.Jpeg_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _writeSOS(_e:T_encoder, _m:stdgo._internal.image.Image_Image.Image):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeSOS(_e, _m);
     }
     static public function _writeBlock(_e:T_encoder, _b:T_block, _q:T_quantIndex, _prevDC:StdTypes.Int):StdTypes.Int {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
+        final _prevDC = (_prevDC : stdgo.GoInt32);
         return stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeBlock(_e, _b, _q, _prevDC);
     }
     static public function _writeDHT(_e:T_encoder, _nComponent:StdTypes.Int):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _nComponent = (_nComponent : stdgo.GoInt);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeDHT(_e, _nComponent);
     }
     static public function _writeSOF0(_e:T_encoder, _size:stdgo._internal.image.Image_Point.Point, _nComponent:StdTypes.Int):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _nComponent = (_nComponent : stdgo.GoInt);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeSOF0(_e, _size, _nComponent);
     }
     static public function _writeDQT(_e:T_encoder):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeDQT(_e);
     }
     static public function _writeMarkerHeader(_e:T_encoder, _marker:std.UInt, _markerlen:StdTypes.Int):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _marker = (_marker : stdgo.GoUInt8);
+        final _markerlen = (_markerlen : stdgo.GoInt);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeMarkerHeader(_e, _marker, _markerlen);
     }
     static public function _emitHuffRLE(_e:T_encoder, _h:T_huffIndex, _runLength:StdTypes.Int, _value:StdTypes.Int):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _runLength = (_runLength : stdgo.GoInt32);
+        final _value = (_value : stdgo.GoInt32);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._emitHuffRLE(_e, _h, _runLength, _value);
     }
     static public function _emitHuff(_e:T_encoder, _h:T_huffIndex, _value:StdTypes.Int):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _value = (_value : stdgo.GoInt32);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._emitHuff(_e, _h, _value);
     }
     static public function _emit(_e:T_encoder, _bits:std.UInt, _nBits:std.UInt):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _bits = (_bits : stdgo.GoUInt32);
+        final _nBits = (_nBits : stdgo.GoUInt32);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._emit(_e, _bits, _nBits);
     }
     static public function _writeByte(_e:T_encoder, _b:std.UInt):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _b = (_b : stdgo.GoUInt8);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._writeByte(_e, _b);
     }
     static public function _write(_e:T_encoder, _p:Array<std.UInt>):Void {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._write(_e, _p);
     }
     static public function _flush(_e:T_encoder):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder>);
         stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension._flush(_e);
     }
+}
+typedef OptionsPointer = stdgo._internal.image.jpeg.Jpeg_OptionsPointer.OptionsPointer;
+class Options_static_extension {
+
+}
+typedef T__struct_0PointerPointer = stdgo._internal.image.jpeg.Jpeg_T__struct_0PointerPointer.T__struct_0PointerPointer;
+class T__struct_0Pointer_static_extension {
+
+}
+typedef T__struct_1PointerPointer = stdgo._internal.image.jpeg.Jpeg_T__struct_1PointerPointer.T__struct_1PointerPointer;
+class T__struct_1Pointer_static_extension {
+
+}
+typedef T__struct_2PointerPointer = stdgo._internal.image.jpeg.Jpeg_T__struct_2PointerPointer.T__struct_2PointerPointer;
+class T__struct_2Pointer_static_extension {
+
+}
+typedef T_blockPointer = stdgo._internal.image.jpeg.Jpeg_T_blockPointer.T_blockPointer;
+class T_block_static_extension {
+
 }
 typedef FormatErrorPointer = stdgo._internal.image.jpeg.Jpeg_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
@@ -528,207 +643,31 @@ class UnsupportedError_static_extension {
         return stdgo._internal.image.jpeg.Jpeg_UnsupportedError_static_extension.UnsupportedError_static_extension.error(_e);
     }
 }
+typedef T_quantIndexPointer = stdgo._internal.image.jpeg.Jpeg_T_quantIndexPointer.T_quantIndexPointer;
+class T_quantIndex_static_extension {
+
+}
+typedef T_huffIndexPointer = stdgo._internal.image.jpeg.Jpeg_T_huffIndexPointer.T_huffIndexPointer;
+class T_huffIndex_static_extension {
+
+}
 typedef T_huffmanLUTPointer = stdgo._internal.image.jpeg.Jpeg_T_huffmanLUTPointer.T_huffmanLUTPointer;
 class T_huffmanLUT_static_extension {
     static public function _init(_h:T_huffmanLUT, _s:T_huffmanSpec):Void {
+        final _h = (_h : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT>);
         stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT_static_extension.T_huffmanLUT_static_extension._init(_h, _s);
     }
 }
 /**
-    /|*{
-    	if zigStart == 0 {
-    		gotoNext = 3002487
-    		_ = gotoNext == 3002487
-    		if zigEnd != 0 {
-    			gotoNext = 3002506
-    			_ = gotoNext == 3002506
-    			panic("unreachable")
-    			gotoNext = 3002538
-    		} else {
-    			gotoNext = 3002538
-    		}
-    		_ = gotoNext == 3002538
-    		bit_3002538, err_3002543 = d.decodeBit()
-    		if err_3002543 != nil {
-    			gotoNext = 3002580
-    			_ = gotoNext == 3002580
-    			return err_3002543
-    			gotoNext = 3002602
-    		} else {
-    			gotoNext = 3002602
-    		}
-    		_ = gotoNext == 3002602
-    		if bit_3002538 {
-    			gotoNext = 3002609
-    			_ = gotoNext == 3002609
-    			b[0] |= delta
-    			gotoNext = 3002634
-    		} else {
-    			gotoNext = 3002634
-    		}
-    		_ = gotoNext == 3002634
-    		return nil
-    		gotoNext = 3002732
-    	} else {
-    		gotoNext = 3002732
-    	}
-    	_ = gotoNext == 3002732
-    	zig_3002732 = zigStart
-    	if d.eobRun == 0 {
-    		gotoNext = 3002766
-    		_ = gotoNext == 3002766
-    		gotoNext = 3002769
-    		_ = gotoNext == 3002769
-    		_ = 0
-    		loopBreak = false
-    		gotoNext = 3002777
-    		_ = gotoNext == 3002777
-    		if !loopBreak && (zig_3002732 <= zigEnd) {
-    			gotoNext = 3002804
-    			_ = gotoNext == 3002804
-    			z_3002809 = int32(0)
-    			value_3002826, err_3002833 = d.decodeHuffman(h)
-    			if err_3002833 != nil {
-    				gotoNext = 3002876
-    				_ = gotoNext == 3002876
-    				return err_3002833
-    				gotoNext = 3002901
-    			} else {
-    				gotoNext = 3002901
-    			}
-    			_ = gotoNext == 3002901
-    			val0_3002901 = value_3002826 >> 4
-    			val1_3002923 = value_3002826 & 15
-    			gotoNext = 3002948
-    			_ = gotoNext == 3002948
-    			switch val1_3002923 {
-    			case 0:
-    				gotoNext = 3002965
-    				_ = gotoNext == 3002965
-    				if val0_3002901 != 15 {
-    					gotoNext = 3002993
-    					_ = gotoNext == 3002993
-    					d.eobRun = uint16(1 << val0_3002901)
-    					if val0_3002901 != 0 {
-    						gotoNext = 3003047
-    						_ = gotoNext == 3003047
-    						bits_3003055, err_3003061 = d.decodeBits(int32(val0_3002901))
-    						if err_3003061 != nil {
-    							gotoNext = 3003114
-    							_ = gotoNext == 3003114
-    							return err_3003061
-    							gotoNext = 3003148
-    						} else {
-    							gotoNext = 3003148
-    						}
-    						_ = gotoNext == 3003148
-    						d.eobRun |= uint16(bits_3003055)
-    						gotoNext = 3003185
-    					} else {
-    						gotoNext = 3003185
-    					}
-    					_ = gotoNext == 3003185
-    					loopBreak = true
-    					gotoNext = 3002777
-    					gotoNext = 3003402
-    				} else {
-    					gotoNext = 3003402
-    				}
-    				gotoNext = 3003402
-    			case 1:
-    				gotoNext = 3003205
-    				_ = gotoNext == 3003205
-    				z_3002809 = delta
-    				bit_3003231, err_3003236 = d.decodeBit()
-    				if err_3003236 != nil {
-    					gotoNext = 3003275
-    					_ = gotoNext == 3003275
-    					return err_3003236
-    					gotoNext = 3003303
-    				} else {
-    					gotoNext = 3003303
-    				}
-    				_ = gotoNext == 3003303
-    				if !bit_3003231 {
-    					gotoNext = 3003311
-    					_ = gotoNext == 3003311
-    					z_3002809 = -z_3002809
-    					gotoNext = 3003402
-    				} else {
-    					gotoNext = 3003402
-    				}
-    				gotoNext = 3003402
-    			default:
-    				gotoNext = 3003334
-    				_ = gotoNext == 3003334
-    				return FormatError("unexpected Huffman code")
-    				gotoNext = 3003402
-    			}
-    			_ = gotoNext == 3003402
-    			zig_3002732, err_3002833 = d.refineNonZeroes(b, zig_3002732, zigEnd, int32(val0_3002901), delta)
-    			if err_3002833 != nil {
-    				gotoNext = 3003484
-    				_ = gotoNext == 3003484
-    				return err_3002833
-    				gotoNext = 3003509
-    			} else {
-    				gotoNext = 3003509
-    			}
-    			_ = gotoNext == 3003509
-    			if zig_3002732 > zigEnd {
-    				gotoNext = 3003525
-    				_ = gotoNext == 3003525
-    				return FormatError("too many coefficients")
-    				gotoNext = 3003583
-    			} else {
-    				gotoNext = 3003583
-    			}
-    			_ = gotoNext == 3003583
-    			if z_3002809 != 0 {
-    				gotoNext = 3003593
-    				_ = gotoNext == 3003593
-    				b[unzig[zig_3002732]] = z_3002809
-    				gotoNext = 3002798
-    			} else {
-    				gotoNext = 3002798
-    			}
-    			_ = gotoNext == 3002798
-    			zig_3002732++
-    			gotoNext = 3002777
-    		} else {
-    			gotoNext = 3003630
-    		}
-    		gotoNext = 3003630
-    	} else {
-    		gotoNext = 3003630
-    	}
-    	_ = gotoNext == 3003630
-    	if d.eobRun > 0 {
-    		gotoNext = 3003646
-    		_ = gotoNext == 3003646
-    		d.eobRun--
-    		if _, err_3003669 = d.refineNonZeroes(b, zig_3002732, zigEnd, -1, delta); err_3003669 != nil {
-    			gotoNext = 3003733
-    			_ = gotoNext == 3003733
-    			return err_3003669
-    			gotoNext = 3003757
-    		} else {
-    			gotoNext = 3003757
-    		}
-    		gotoNext = 3003757
-    	} else {
-    		gotoNext = 3003757
-    	}
-    	_ = gotoNext == 3003757
-    	return nil
-    	gotoNext = -1
-    }*|/
+    Package jpeg implements a JPEG image decoder and encoder.
+    
+    JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
 **/
 class Jpeg {
     /**
         Decode reads a JPEG image from r and returns it as an image.Image.
     **/
-    static public function decode(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
+    static public inline function decode(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_decode.decode(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -738,7 +677,7 @@ class Jpeg {
         DecodeConfig returns the color model and dimensions of a JPEG image without
         decoding the entire image.
     **/
-    static public function decodeConfig(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Config.Config, stdgo.Error> {
+    static public inline function decodeConfig(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Config.Config, stdgo.Error> {
         return {
             final obj = stdgo._internal.image.jpeg.Jpeg_decodeConfig.decodeConfig(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -748,7 +687,8 @@ class Jpeg {
         Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given
         options. Default parameters are used if a nil *Options is passed.
     **/
-    static public function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _o:Options):stdgo.Error {
+    static public inline function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _o:Options):stdgo.Error {
+        final _o = (_o : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_Options.Options>);
         return stdgo._internal.image.jpeg.Jpeg_encode.encode(_w, _m, _o);
     }
 }

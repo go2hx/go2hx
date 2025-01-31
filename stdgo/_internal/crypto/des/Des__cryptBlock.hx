@@ -1,4 +1,7 @@
 package stdgo._internal.crypto.des;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.crypto.internal.alias.Alias;
+import stdgo._internal.strconv.Strconv;
 function _cryptBlock(_subkeys:stdgo.Slice<stdgo.GoUInt64>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>, _decrypt:Bool):Void {
         var _b = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint64(_src) : stdgo.GoUInt64);
         _b = stdgo._internal.crypto.des.Des__permuteInitialBlock._permuteInitialBlock(_b);

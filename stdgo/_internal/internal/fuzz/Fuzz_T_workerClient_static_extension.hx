@@ -1,4 +1,28 @@
 package stdgo._internal.internal.fuzz;
+import stdgo._internal.internal.godebug.Godebug;
+import stdgo._internal.errors.Errors;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.bytes.Bytes;
+import stdgo._internal.math.Math;
+import stdgo._internal.unicode.utf8.Utf8;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.go.token.Token;
+import stdgo._internal.go.parser.Parser;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.io.Io;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.context.Context;
+import stdgo._internal.os.Os;
+import stdgo._internal.time.Time;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.crypto.sha256.Sha256;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.encoding.binary.Binary;
+import stdgo._internal.os.exec.Exec;
+import stdgo._internal.encoding.json.Json;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_workerClient_asInterface) class T_workerClient_static_extension {
     @:keep
     @:tdfield
@@ -8,7 +32,7 @@ package stdgo._internal.internal.fuzz;
         var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzIn));
         var _dec = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(({ _ctx : _ctx, _r : stdgo.Go.asInterface((@:checkr _wc ?? throw "null pointer dereference")._workerComm._fuzzOut) } : stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader>)));
         {
-            var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_c)) : stdgo.Error);
+            var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_c))) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };
@@ -29,7 +53,7 @@ package stdgo._internal.internal.fuzz;
             var _c = ({ ping : (stdgo.Go.setRef((new stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs() : stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
             var _resp:stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse = ({} : stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse);
             {
-                final __ret__:stdgo.Error = @:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse>)));
+                final __ret__:stdgo.Error = @:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse>))));
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -43,7 +67,11 @@ package stdgo._internal.internal.fuzz;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -78,7 +106,11 @@ package stdgo._internal.internal.fuzz;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };
@@ -138,7 +170,7 @@ package stdgo._internal.internal.fuzz;
             @:check2r _mem._setValue(_inp);
             (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
             var _c = ({ fuzz : (stdgo.Go.setRef(_args) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzArgs.T_fuzzArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
-            var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse>))) : stdgo.Error);
+            var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse>)))) : stdgo.Error);
             if (_resp.internalErr != (stdgo.Go.str())) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
@@ -269,7 +301,11 @@ package stdgo._internal.internal.fuzz;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _entryOut, _1 : _resp, _2 : _isInternalError, _3 : _err };
             };
         } catch(__exception__) {
@@ -304,7 +340,11 @@ package stdgo._internal.internal.fuzz;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _entryOut, _1 : _resp, _2 : _isInternalError, _3 : _err };
             };
         };
@@ -397,7 +437,7 @@ package stdgo._internal.internal.fuzz;
                 (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
                 _args.index = _i;
                 var _c = ({ minimize : (stdgo.Go.setRef(_args) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
-                var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse>))) : stdgo.Error);
+                var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse>)))) : stdgo.Error);
                 {
                     var __tmp__ = (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__smartGet__();
                     _mem = @:tmpset0 __tmp__._0;
@@ -514,7 +554,11 @@ package stdgo._internal.internal.fuzz;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _entryOut, _1 : _resp, _2 : _retErr };
             };
         } catch(__exception__) {
@@ -549,7 +593,11 @@ package stdgo._internal.internal.fuzz;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return { _0 : _entryOut, _1 : _resp, _2 : _retErr };
             };
         };
@@ -608,7 +656,11 @@ package stdgo._internal.internal.fuzz;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         } catch(__exception__) {
@@ -643,7 +695,11 @@ package stdgo._internal.internal.fuzz;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return (null : stdgo.Error);
             };
         };

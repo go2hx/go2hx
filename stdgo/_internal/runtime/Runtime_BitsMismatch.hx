@@ -1,5 +1,5 @@
 package stdgo._internal.runtime;
-@:structInit class BitsMismatch {
+@:structInit @:using(stdgo._internal.runtime.Runtime_BitsMismatch_static_extension.BitsMismatch_static_extension) class BitsMismatch {
     public var base : stdgo.GoUIntptr = 0;
     public var got : stdgo.GoUInt64 = 0;
     public var want : stdgo.GoUInt64 = 0;

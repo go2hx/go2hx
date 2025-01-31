@@ -5,19 +5,19 @@ package stdgo._internal.net.http;
     static public function valid( _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie> = _c;
         if ((_c == null || (_c : Dynamic).__nil__)) {
-            return stdgo._internal.errors.Errors_new_.new_(("http: nil Cookie" : stdgo.GoString));
+            return stdgo._internal.net.http.Http__errors._errors.new_(("http: nil Cookie" : stdgo.GoString));
         };
         if (!stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid((@:checkr _c ?? throw "null pointer dereference").name?.__copy__())) {
-            return stdgo._internal.errors.Errors_new_.new_(("http: invalid Cookie.Name" : stdgo.GoString));
+            return stdgo._internal.net.http.Http__errors._errors.new_(("http: invalid Cookie.Name" : stdgo.GoString));
         };
         if ((!(@:checkr _c ?? throw "null pointer dereference").expires.isZero() && !stdgo._internal.net.http.Http__validCookieExpires._validCookieExpires((@:checkr _c ?? throw "null pointer dereference").expires?.__copy__()) : Bool)) {
-            return stdgo._internal.errors.Errors_new_.new_(("http: invalid Cookie.Expires" : stdgo.GoString));
+            return stdgo._internal.net.http.Http__errors._errors.new_(("http: invalid Cookie.Expires" : stdgo.GoString));
         };
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < ((@:checkr _c ?? throw "null pointer dereference").value.length) : Bool)) {
                 if (!stdgo._internal.net.http.Http__validCookieValueByte._validCookieValueByte((@:checkr _c ?? throw "null pointer dereference").value[(_i : stdgo.GoInt)])) {
-                    return stdgo._internal.fmt.Fmt_errorf.errorf(("http: invalid byte %q in Cookie.Value" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").value[(_i : stdgo.GoInt)]));
+                    return stdgo._internal.net.http.Http__fmt._fmt.errorf(("http: invalid byte %q in Cookie.Value" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").value[(_i : stdgo.GoInt)]));
                 };
                 _i++;
             };
@@ -27,7 +27,7 @@ package stdgo._internal.net.http;
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < ((@:checkr _c ?? throw "null pointer dereference").path.length) : Bool)) {
                     if (!stdgo._internal.net.http.Http__validCookiePathByte._validCookiePathByte((@:checkr _c ?? throw "null pointer dereference").path[(_i : stdgo.GoInt)])) {
-                        return stdgo._internal.fmt.Fmt_errorf.errorf(("http: invalid byte %q in Cookie.Path" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").path[(_i : stdgo.GoInt)]));
+                        return stdgo._internal.net.http.Http__fmt._fmt.errorf(("http: invalid byte %q in Cookie.Path" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").path[(_i : stdgo.GoInt)]));
                     };
                     _i++;
                 };
@@ -35,7 +35,7 @@ package stdgo._internal.net.http;
         };
         if ((((@:checkr _c ?? throw "null pointer dereference").domain.length) > (0 : stdgo.GoInt) : Bool)) {
             if (!stdgo._internal.net.http.Http__validCookieDomain._validCookieDomain((@:checkr _c ?? throw "null pointer dereference").domain?.__copy__())) {
-                return stdgo._internal.errors.Errors_new_.new_(("http: invalid Cookie.Domain" : stdgo.GoString));
+                return stdgo._internal.net.http.Http__errors._errors.new_(("http: invalid Cookie.Domain" : stdgo.GoString));
             };
         };
         return (null : stdgo.Error);
@@ -66,7 +66,7 @@ package stdgo._internal.net.http;
                 @:check2 _b.writeString(("; Domain=" : stdgo.GoString));
                 @:check2 _b.writeString(_d?.__copy__());
             } else {
-                stdgo._internal.log.Log_printf.printf(("net/http: invalid Cookie.Domain %q; dropping domain attribute" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").domain));
+                stdgo._internal.net.http.Http__log._log.printf(("net/http: invalid Cookie.Domain %q; dropping domain attribute" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").domain));
             };
         };
         var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29).__setNumber32__();
@@ -76,7 +76,7 @@ package stdgo._internal.net.http;
         };
         if (((@:checkr _c ?? throw "null pointer dereference").maxAge > (0 : stdgo.GoInt) : Bool)) {
             @:check2 _b.writeString(("; Max-Age=" : stdgo.GoString));
-            @:check2 _b.write(stdgo._internal.strconv.Strconv_appendInt.appendInt((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _c ?? throw "null pointer dereference").maxAge : stdgo.GoInt64), (10 : stdgo.GoInt)));
+            @:check2 _b.write(stdgo._internal.net.http.Http__strconv._strconv.appendInt((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _c ?? throw "null pointer dereference").maxAge : stdgo.GoInt64), (10 : stdgo.GoInt)));
         } else if (((@:checkr _c ?? throw "null pointer dereference").maxAge < (0 : stdgo.GoInt) : Bool)) {
             @:check2 _b.writeString(("; Max-Age=0" : stdgo.GoString));
         };

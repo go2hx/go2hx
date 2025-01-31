@@ -1,4 +1,8 @@
 package stdgo._internal.sync;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.internal.race.Race;
+import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_Pool_static_extension.Pool_static_extension) class Pool {
     public var _noCopy : stdgo._internal.sync.Sync_T_noCopy.T_noCopy = ({} : stdgo._internal.sync.Sync_T_noCopy.T_noCopy);
     public var _local : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;

@@ -1,4 +1,15 @@
 package stdgo._internal.slices;
+import stdgo._internal.math.Math;
+import stdgo._internal.cmp.Cmp;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.internal.testenv.Testenv;
+import stdgo._internal.testing.Testing;
+import stdgo._internal.math.bits.Bits;
+import stdgo._internal.math.rand.Rand;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.fmt.Fmt;
 function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _intWant = (function(_want:Bool):stdgo.GoString {
             if (_want) {
@@ -8,7 +19,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         } : Bool -> stdgo.GoString);
         for (__0 => _test in stdgo._internal.slices.Slices__equalIntTests._equalIntTests) {
             {
-                var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoInt), _0, _1))) : stdgo.GoInt);
+                var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoInt, _1:stdgo.GoInt):Bool return stdgo._internal.slices.Slices__equal._equal(_0, _1))) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._want)) {
                     @:check2r _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[int])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._want)));
                 };
@@ -16,7 +27,7 @@ function testCompareFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         };
         for (__1 => _test in stdgo._internal.slices.Slices__equalFloatTests._equalFloatTests) {
             {
-                var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equal._equal((0 : stdgo.GoFloat64), _0, _1))) : stdgo.GoInt);
+                var _got = (stdgo._internal.slices.Slices_compareFunc.compareFunc(_test._s1, _test._s2, stdgo._internal.slices.Slices__equalToCmp._equalToCmp(function(_0:stdgo.GoFloat64, _1:stdgo.GoFloat64):Bool return stdgo._internal.slices.Slices__equal._equal(_0, _1))) : stdgo.GoInt);
                 if ((_got == (0 : stdgo.GoInt)) != (_test._wantEqual)) {
                     @:check2r _t.errorf(("CompareFunc(%v, %v, equalToCmp(equal[float64])) = %d, want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._s1), stdgo.Go.toInterface(_test._s2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_intWant(_test._wantEqual)));
                 };

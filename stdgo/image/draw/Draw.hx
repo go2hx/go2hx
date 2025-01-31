@@ -9,15 +9,21 @@ private function set_floydSteinberg(v:Drawer):Drawer {
     }
 class Image_static_extension {
     static public function set(t:stdgo._internal.image.draw.Draw_Image.Image, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_Color.Color):Void {
+        final _x = (_x : stdgo.GoInt);
+        final _y = (_y : stdgo.GoInt);
         stdgo._internal.image.draw.Draw_Image_static_extension.Image_static_extension.set(t, _x, _y, _c);
     }
 }
 typedef Image = stdgo._internal.image.draw.Draw_Image.Image;
 class RGBA64Image_static_extension {
     static public function setRGBA64(t:stdgo._internal.image.draw.Draw_RGBA64Image.RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_RGBA64.RGBA64):Void {
+        final _x = (_x : stdgo.GoInt);
+        final _y = (_y : stdgo.GoInt);
         stdgo._internal.image.draw.Draw_RGBA64Image_static_extension.RGBA64Image_static_extension.setRGBA64(t, _x, _y, _c);
     }
     static public function set(t:stdgo._internal.image.draw.Draw_RGBA64Image.RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_Color.Color):Void {
+        final _x = (_x : stdgo.GoInt);
+        final _y = (_y : stdgo.GoInt);
         stdgo._internal.image.draw.Draw_RGBA64Image_static_extension.RGBA64Image_static_extension.set(t, _x, _y, _c);
     }
 }
@@ -62,14 +68,14 @@ class Draw {
     /**
         Draw calls DrawMask with a nil mask.
     **/
-    static public function draw(_dst:Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _op:Op):Void {
+    static public inline function draw(_dst:Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _op:Op):Void {
         stdgo._internal.image.draw.Draw_draw.draw(_dst, _r, _src, _sp, _op);
     }
     /**
         DrawMask aligns r.Min in dst with sp in src and mp in mask and then replaces the rectangle r
         in dst with the result of a Porter-Duff composition. A nil mask is treated as opaque.
     **/
-    static public function drawMask(_dst:Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _mask:stdgo._internal.image.Image_Image.Image, _mp:stdgo._internal.image.Image_Point.Point, _op:Op):Void {
+    static public inline function drawMask(_dst:Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _mask:stdgo._internal.image.Image_Image.Image, _mp:stdgo._internal.image.Image_Point.Point, _op:Op):Void {
         stdgo._internal.image.draw.Draw_drawMask.drawMask(_dst, _r, _src, _sp, _mask, _mp, _op);
     }
 }

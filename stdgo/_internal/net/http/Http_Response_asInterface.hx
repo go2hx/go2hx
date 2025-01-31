@@ -2,15 +2,6 @@ package stdgo._internal.net.http;
 class Response_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _isProtocolSwitch():Bool return @:_0 __self__.value._isProtocolSwitch();
-    @:keep
-    @:tdfield
-    public dynamic function _bodyIsWritable():Bool return @:_0 __self__.value._bodyIsWritable();
-    @:keep
-    @:tdfield
-    public dynamic function _closeBody():Void @:_0 __self__.value._closeBody();
-    @:keep
-    @:tdfield
     public dynamic function write(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error return @:_0 __self__.value.write(_w);
     @:keep
     @:tdfield

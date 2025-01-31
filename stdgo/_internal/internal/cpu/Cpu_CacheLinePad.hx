@@ -1,5 +1,5 @@
 package stdgo._internal.internal.cpu;
-@:structInit class CacheLinePad {
+@:structInit @:using(stdgo._internal.internal.cpu.Cpu_CacheLinePad_static_extension.CacheLinePad_static_extension) class CacheLinePad {
     @:optional
     public var __1 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
     public function new(?__1:stdgo.GoArray<stdgo.GoUInt8>) {

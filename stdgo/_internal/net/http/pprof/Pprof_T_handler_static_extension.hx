@@ -1,4 +1,20 @@
 package stdgo._internal.net.http.pprof;
+import stdgo._internal.net.http.Http;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.os.Os;
+import stdgo._internal.time.Time;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.runtime.pprof.Pprof;
+import stdgo._internal.runtime.trace_.Trace_;
+import stdgo._internal.bufio.Bufio;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.io.Io;
+import stdgo._internal.internal.profile.Profile;
+import stdgo._internal.sort.Sort;
+import stdgo._internal.log.Log;
+import stdgo._internal.html.Html;
+import stdgo._internal.context.Context;
 @:keep @:allow(stdgo._internal.net.http.pprof.Pprof.T_handler_asInterface) class T_handler_static_extension {
     @:keep
     @:tdfield
@@ -24,7 +40,7 @@ package stdgo._internal.net.http.pprof;
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (400 : stdgo.GoInt), ("seconds and debug params are incompatible" : stdgo.GoString));
                 return;
             };
-            var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectProfile._collectProfile(_p), _p0:stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectProfile._collectProfile(_p), _p0:stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to collect profile" : stdgo.GoString));
                 return;
@@ -69,7 +85,7 @@ package stdgo._internal.net.http.pprof;
                     stdgo._internal.internal.Async.tick();
                 };
             };
-            var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectProfile._collectProfile(_p), _p1:stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectProfile._collectProfile(_p), _p1:stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), ("failed to collect profile" : stdgo.GoString));
                 {
@@ -85,7 +101,7 @@ package stdgo._internal.net.http.pprof;
             var _dur = ((@:checkr _p1 ?? throw "null pointer dereference").timeNanos - (@:checkr _p0 ?? throw "null pointer dereference").timeNanos : stdgo.GoInt64);
             @:check2r _p0.scale((-1 : stdgo.GoFloat64));
             {
-                var __tmp__ = _internal.internal.profile.Profile_merge.merge((new stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>(2, 2, ...[_p0, _p1]) : stdgo.Slice<stdgo.Ref<_internal.internal.profile.Profile_Profile.Profile>>));
+                var __tmp__ = stdgo._internal.internal.profile.Profile_merge.merge((new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>>(2, 2, ...[_p0, _p1]) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>>));
                 _p1 = @:tmpset0 __tmp__._0;
                 _err = @:tmpset0 __tmp__._1;
             };
@@ -111,7 +127,11 @@ package stdgo._internal.net.http.pprof;
                     defer.ran = true;
                     defer.f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         } catch(__exception__) {
@@ -146,7 +166,11 @@ package stdgo._internal.net.http.pprof;
                     };
                     f();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (stdgo.Go.recover_exception != null) {
+                    final e = stdgo.Go.recover_exception;
+                    stdgo.Go.recover_exception = null;
+                    throw e;
+                };
                 return;
             };
         };

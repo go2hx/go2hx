@@ -1,5 +1,5 @@
 package stdgo._internal.unicode;
-@:structInit class RangeTable {
+@:structInit @:using(stdgo._internal.unicode.Unicode_RangeTable_static_extension.RangeTable_static_extension) class RangeTable {
     public var r16 : stdgo.Slice<stdgo._internal.unicode.Unicode_Range16.Range16> = (null : stdgo.Slice<stdgo._internal.unicode.Unicode_Range16.Range16>);
     public var r32 : stdgo.Slice<stdgo._internal.unicode.Unicode_Range32.Range32> = (null : stdgo.Slice<stdgo._internal.unicode.Unicode_Range32.Range32>);
     public var latinOffset : stdgo.GoInt = 0;

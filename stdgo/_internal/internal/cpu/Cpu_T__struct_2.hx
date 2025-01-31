@@ -1,7 +1,7 @@
 package stdgo._internal.internal.cpu;
-@:local @:using(stdgo._internal.internal.cpu.Cpu_T__struct_2_static_extension.T__struct_2_static_extension) typedef T__struct_2 = {
+@:local @:using(stdgo._internal.internal.cpu.Cpu_T__struct_2_static_extension.T__struct_2_static_extension) @:using(stdgo._internal.internal.cpu.Cpu_T__struct_2_static_extension.T__struct_2_static_extension) typedef T__struct_2 = {
     @:optional
-    public var __23 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
+    public var __107 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
     public var hasAES : Bool;
     public var hasPMULL : Bool;
     public var hasSHA1 : Bool;
@@ -12,5 +12,5 @@ package stdgo._internal.internal.cpu;
     public var hasCPUID : Bool;
     public var isNeoverse : Bool;
     @:optional
-    public var __25 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
+    public var __109 : stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad;
 };

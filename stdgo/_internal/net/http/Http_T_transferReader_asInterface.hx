@@ -1,11 +1,5 @@
 package stdgo._internal.net.http;
 class T_transferReader_asInterface {
-    @:keep
-    @:tdfield
-    public dynamic function _parseTransferEncoding():stdgo.Error return @:_0 __self__.value._parseTransferEncoding();
-    @:keep
-    @:tdfield
-    public dynamic function _protoAtLeast(_m:stdgo.GoInt, _n:stdgo.GoInt):Bool return @:_0 __self__.value._protoAtLeast(_m, _n);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

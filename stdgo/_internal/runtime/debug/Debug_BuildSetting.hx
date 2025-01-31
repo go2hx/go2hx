@@ -1,5 +1,5 @@
 package stdgo._internal.runtime.debug;
-@:structInit class BuildSetting {
+@:structInit @:using(stdgo._internal.runtime.debug.Debug_BuildSetting_static_extension.BuildSetting_static_extension) class BuildSetting {
     public var key : stdgo.GoString = "";
     public var value : stdgo.GoString = "";
     public function new(?key:stdgo.GoString, ?value:stdgo.GoString) {

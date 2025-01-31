@@ -1,5 +1,6 @@
 package stdgo._internal.crypto;
-typedef Decrypter = stdgo.StructType & {
+import stdgo._internal.strconv.Strconv;
+@:interface typedef Decrypter = stdgo.StructType & {
     /**
         Public returns the public key corresponding to the opaque,
         private key.

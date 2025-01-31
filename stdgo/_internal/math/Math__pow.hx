@@ -1,4 +1,5 @@
 package stdgo._internal.math;
+import stdgo._internal.math.bits.Bits;
 function _pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (((_y == (0 : stdgo.GoFloat64)) || (_x == (1 : stdgo.GoFloat64)) : Bool)) {
             return (1 : stdgo.GoFloat64);

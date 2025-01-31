@@ -1660,7 +1660,7 @@ final list = [
 		_c.fail();
 	},
 	"testing.T_common:errorf" => macro {
-		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+		stdgo._internal.fmt.Fmt_printf.printf(_format + "\n", ...[for (arg in _args) arg]);
 		_c.fail();
 	},
 	"testing.M:run" => macro {

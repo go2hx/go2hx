@@ -1,11 +1,6 @@
 {
     "passes": [
-        "TestWriteLogger"
-    ],
-    "fails": [
-        "TestWriteLogger_errorOnWrite",
-        "TestReadLogger",
-        "TestReadLogger_errorOnRead",
+        "TestWriteLogger",
         "TestOneByteReader_nonEmptyReader",
         "TestOneByteReader_emptyReader",
         "TestHalfReader_nonEmptyReader",
@@ -17,6 +12,11 @@
         "TestErrReader",
         "TestStringsReader",
         "TestTruncateWriter"
+    ],
+    "fails": [
+        "TestWriteLogger_errorOnWrite",
+        "TestReadLogger",
+        "TestReadLogger_errorOnRead"
     ],
     "runs": [
         "TestWriteLogger",

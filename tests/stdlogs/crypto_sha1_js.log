@@ -12,14 +12,14 @@
 
 === RUN  TestBlockGeneric
 Exception: Value:syscall.js.new_ is not yet implemented
-Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44748 column 23)
-Called from .stdgo__$internal_crypto_rand_Rand_$_$getRandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44874 column 65)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:44864:15
-Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44985 column 13)
-Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44850 column 68)
-Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38391 column 21)
-Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38374 column 16)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38366 column 16)
+Called from stdgo__$internal_syscall_js_Value_$static_$extension.new_ (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44769 column 23)
+Called from .stdgo__$internal_crypto_rand_Rand_$_$getRandom__getRandom (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44895 column 65)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:44885:15
+Called from stdgo__$internal_crypto_rand_T_$reader_$static_$extension.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 45006 column 13)
+Called from stdgo__$internal_crypto_rand_T_$reader_$asInterface.read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 44871 column 68)
+Called from .stdgo__$internal_io_Io_$readAtLeast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38410 column 21)
+Called from .stdgo__$internal_io_Io_$readFull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38393 column 16)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 38385 column 16)
 
 -- FAIL: TestBlockGeneric
 

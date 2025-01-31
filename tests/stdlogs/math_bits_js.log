@@ -41,11 +41,15 @@
 -- PASS: TestMulDiv
 
 === RUN  TestMulDiv32
-<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+
 -- FAIL: TestMulDiv32
 
 === RUN  TestMulDiv64
-<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+
 -- FAIL: TestMulDiv64
 
 === RUN  TestDivPanicOverflow
@@ -77,5 +81,6 @@
 
 === RUN  TestRem64Overflow
 Rem64(<invalid reflect.Value>, %!v(MISSING), %!v(MISSING)) returned %!v(MISSING), wanted %!v(MISSING)
+
 -- FAIL: TestRem64Overflow
 

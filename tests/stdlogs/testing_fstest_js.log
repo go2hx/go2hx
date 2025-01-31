@@ -2,54 +2,34 @@
 -- PASS: TestMapFS
 
 === RUN  TestMapFSChmodDot
-Exception: :testing.fstest.testMapFSChmodDot is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testMapFSChmodDot_testMapFSChmodDot [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:11246:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 39430 column 9)
-Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 11637 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49608:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49609:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestMapFSChmodDot
+-- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-Exception: :testing.fstest.testSymlink is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testSymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:11249:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 39430 column 9)
-Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 11637 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49608:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49609:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
+Exception: :os.symlink is not yet implemented
+Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 41205 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testSymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:40112:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 91596 column 9)
+Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 46596 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:110381:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:110382:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
 -- FAIL: TestSymlink
 
 === RUN  TestDash
-Exception: :testing.fstest.testDash is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testDash_testDash [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:11252:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 39430 column 9)
-Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 11637 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49608:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49609:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestDash
+-- PASS: TestDash
 
 === RUN  TestShuffledFS
-Exception: :testing.fstest.testShuffledFS is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testShuffledFS_testShuffledFS [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:11255:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 39430 column 9)
-Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 11637 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49608:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49609:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
+Exception: Cannot read properties of null (reading 'name')
+Called from stdgo__$internal_testing_fstest_T_$fsTester_$static_$extension._checkDir (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 43324 column 25)
+Called from .stdgo__$internal_testing_fstest_Fstest_$_$testFS__testFS (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 41641 column 65)
+Called from .stdgo__$internal_testing_fstest_Fstest_$testFS_testFS (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 41586 column 70)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testShuffledFS_testShuffledFS [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:46469:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 91596 column 9)
+Called from ._$internal_testing_fstest_$dot_$test_Fstest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 46596 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:110381:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:110382:3)
 
 -- FAIL: TestShuffledFS
 

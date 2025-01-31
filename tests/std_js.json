@@ -13,5 +13,6 @@
  "js|unicode/utf8",
  "js|bytes",
  "js|hash/adler32",
- "js|strings"
+ "js|strings",
+ "js|image/color"
 ]

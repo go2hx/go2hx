@@ -1,6 +1,6 @@
 === RUN  TestErrorf
 Exception: {
-	__self__ : 0x45790, 
+	__self__ : 0x45796, 
 	__type__ : {
 		gt : named(stdgo._internal.math.bits.Bits_T_errorString.T_errorString,[error: {
 	get : <function>
@@ -20,16 +20,16 @@ Called from module get : <function>
 Called from module })
 Called from module }
 Called from module }
-Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 32071 column 17)
-Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 32001 column 11)
-Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 31194 column 24)
-Called from .stdgo__$internal_reflect_Reflect_$deepEqual_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 45128 column 29)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testErrorf_testErrorf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:44069:7)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 32370 column 17)
+Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 32300 column 11)
+Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 31493 column 24)
+Called from .stdgo__$internal_reflect_Reflect_$deepEqual_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 45519 column 29)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testErrorf_testErrorf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:44460:7)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 98603 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 80022 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123833:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123834:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestErrorf
 
@@ -39,16 +39,16 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 1
 === RUN  TestSprintf
 Exception: _v.__copy__ is not a function
 Called from module TypeError: _v.__copy__ is not a function
-Called from stdgo__$internal_reflect_Value_$static_$extension.isValid (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 30413 column 28)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 27694 column 74)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 25805 column 50)
-Called from .stdgo__$internal_fmt_Fmt_$sprintf_sprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 20825 column 48)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testSprintf_testSprintf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:45188:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from stdgo__$internal_reflect_Value_$static_$extension.isValid (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 30699 column 28)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 27978 column 74)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 26089 column 50)
+Called from .stdgo__$internal_fmt_Fmt_$sprintf_sprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 21109 column 48)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testSprintf_testSprintf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:45579:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 98603 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 80022 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123833:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123834:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestSprintf
 
@@ -61,21 +61,23 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 1
 === RUN  TestCountMallocs
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97601 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97631 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:97236:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:45621:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 99156 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 99186 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:98787:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:46012:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 98603 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 80022 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123833:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123834:3)
 -- SKIP: TestCountMallocs
 
 === RUN  TestFlagParser
 -- PASS: TestFlagParser
 
 === RUN  TestStructPrinter
-Sprintf(<invalid reflect.Value>, s) = %!q(MISSING), want %!q(MISSING)Sprintf(<invalid reflect.Value>, &s) = %!q(MISSING), want %!q(MISSING)
+Sprintf(<invalid reflect.Value>, s) = %!q(MISSING), want %!q(MISSING)
+Sprintf(<invalid reflect.Value>, &s) = %!q(MISSING), want %!q(MISSING)
+
 -- FAIL: TestStructPrinter
 
 === RUN  TestSlicePrinter
@@ -114,10 +116,12 @@ expected:
 	<invalid reflect.Value>
 got:
 	%!q(MISSING)
+
 -- FAIL: TestNilDoesNotBecomeTyped
 
 === RUN  TestFormatterFlags
 Sprintf(<invalid reflect.Value>, %!T(MISSING)) = %!q(MISSING), want %!q(MISSING)
+
 -- FAIL: TestFormatterFlags
 
 === RUN  TestParsenum
@@ -140,69 +144,43 @@ Sprintf(<invalid reflect.Value>, %!T(MISSING)) = %!q(MISSING), want %!q(MISSING)
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48102 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscanf_fscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53594 column 62)
-Called from .stdgo__$internal_fmt_Fmt_$sscanf_sscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53527 column 56)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanf_testScanf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:53490:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
+Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48495 column 25)
+Called from .stdgo__$internal_fmt_Fmt_$fscanf_fscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53991 column 62)
+Called from .stdgo__$internal_fmt_Fmt_$sscanf_sscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53924 column 56)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanf_testScanf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:53887:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 98603 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 80022 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123833:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123834:3)
 
 -- FAIL: TestScanf
 
 === RUN  TestScanOverflow
-Exception: array out of bounds, index: 0 length: 0
-Called from .stdgo__$internal_regexp_syntax_Syntax_$_$parse__parse (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 54835 column 25)
-Called from .stdgo__$internal_regexp_syntax_Syntax_$parse_parse (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53821 column 9)
-Called from .stdgo__$internal_regexp_Regexp_$_$compile__compile (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53655 column 16)
-Called from .stdgo__$internal_regexp_Regexp_$compile_compile (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53652 column 9)
-Called from .stdgo__$internal_regexp_Regexp_$mustCompile_mustCompile (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 53637 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanOverflow_testScanOverflow [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:53616:12)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
+expected overflow scanning <invalid reflect.Value>
 
 -- FAIL: TestScanOverflow
 
 === RUN  TestNaN
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48273 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 47438 column 62)
-Called from ._$internal_fmt_$test_Fmt_$test_$_$verifyNaN__verifyNaN (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 71915 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testNaN_testNaN [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:71779:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
-
--- FAIL: TestNaN
+-- PASS: TestNaN
 
 === RUN  TestInf
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48273 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 47438 column 62)
-Called from ._$internal_fmt_$test_Fmt_$test_$_$verifyInf__verifyInf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 72083 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testInf_testInf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:71947:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
-
--- FAIL: TestInf
+-- PASS: TestInf
 
 === RUN  TestScanfMulti
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48273 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 47438 column 62)
-Called from .stdgo__$internal_fmt_Fmt_$sscan_sscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 66268 column 54)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanMultiple_testScanMultiple [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:72272:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
+Sscan expected error; got none: <invalid reflect.Value>
 
 -- FAIL: TestScanMultiple
 
@@ -214,14 +192,14 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestScanNotPointer
 Exception: _v.set is not a function
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48273 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 47438 column 62)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanNotPointer_testScanNotPointer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:72438:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 97052 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 79621 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122085:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:122086:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 48668 column 25)
+Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 47829 column 62)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testScanNotPointer_testScanNotPointer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:72839:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 98603 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 80022 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123833:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:123834:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestScanNotPointer
 
@@ -241,11 +219,48 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 1
 -- FAIL: TestEOF
 
 === RUN  TestEOFAtEndOfInput
-Sscanf expected EOF; got <invalid reflect.Value>Sscan expected EOF; got <invalid reflect.Value>Sscan expected EOF; got <invalid reflect.Value>
+Sscanf expected EOF; got <invalid reflect.Value>
+Sscan expected EOF; got <invalid reflect.Value>
+Sscan expected EOF; got <invalid reflect.Value>
+
 -- FAIL: TestEOFAtEndOfInput
 
 === RUN  TestEOFAllTypes
-#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on empty string: %!s(MISSING)
+#<invalid reflect.Value>: %!s(MISSING) %!T(MISSING) not eof on trailing blanks: %!s(MISSING)
+
 -- FAIL: TestEOFAllTypes
 
 === RUN  TestUnreadRuneWithBufio
@@ -266,18 +281,36 @@ Sscanf expected EOF; got <invalid reflect.Value>Sscan expected EOF; got <invalid
 -- PASS: TestScanInts
 
 === RUN  TestHexBytes
-<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)<invalid reflect.Value>: bad length %!d(MISSING)odd count: got count, err = <invalid reflect.Value>, %!v(MISSING); expected 0, error
+<invalid reflect.Value>: bad length %!d(MISSING)
+<invalid reflect.Value>: bad length %!d(MISSING)
+<invalid reflect.Value>: bad length %!d(MISSING)
+<invalid reflect.Value>: bad length %!d(MISSING)
+<invalid reflect.Value>: bad length %!d(MISSING)
+<invalid reflect.Value>: bad length %!d(MISSING)
+odd count: got count, err = <invalid reflect.Value>, %!v(MISSING); expected 0, error
+
 -- FAIL: TestHexBytes
 
 === RUN  TestScanNewlinesAreSpaces
 -- PASS: TestScanNewlinesAreSpaces
 
 === RUN  TestScanlnNewlinesTerminate
-<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+
 -- FAIL: TestScanlnNewlinesTerminate
 
 === RUN  TestScanfNewlineMatchFormat
-<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+<invalid reflect.Value>: expected error; got none
+
 -- FAIL: TestScanfNewlineMatchFormat
 
 === RUN  TestHexByte

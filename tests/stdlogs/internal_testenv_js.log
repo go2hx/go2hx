@@ -1,13 +1,13 @@
 === RUN  TestGoToolLocation
 Exception: :os.getenv is not yet implemented
-Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 15750 column 23)
-Called from .stdgo__$internal_internal_testenv_Testenv_$mustHaveGoBuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 15736 column 12)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testGoToolLocation_testGoToolLocation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:15694:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 60879 column 9)
-Called from ._$internal_internal_testenv_$dot_$test_Testenv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 42853 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:77247:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:77248:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
+Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 15754 column 23)
+Called from .stdgo__$internal_internal_testenv_Testenv_$mustHaveGoBuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 15740 column 12)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testGoToolLocation_testGoToolLocation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:15698:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 60912 column 9)
+Called from ._$internal_internal_testenv_$dot_$test_Testenv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 42878 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:77293:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:77294:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestGoToolLocation
 

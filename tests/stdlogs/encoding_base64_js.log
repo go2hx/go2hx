@@ -36,6 +36,7 @@
 
 === RUN  TestDecoderIssue3577
 got error <invalid reflect.Value>; want %!v(MISSING)
+
 -- FAIL: TestDecoderIssue3577
 
 === RUN  TestDecoderIssue4779

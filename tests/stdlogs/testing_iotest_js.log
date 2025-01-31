@@ -2,184 +2,56 @@
 -- PASS: TestWriteLogger
 
 === RUN  TestWriteLogger_errorOnWrite
-Exception: :testing.iotest.testWriteLogger_errorOnWrite is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testWriteLogger_$errorOnWrite_testWriteLogger_errorOnWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11860:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
+WriteLogger mismatch
+	got:  <invalid reflect.Value>
+	want: %!q(MISSING)
 
 -- FAIL: TestWriteLogger_errorOnWrite
 
 === RUN  TestReadLogger
-Exception: :testing.iotest.testReadLogger is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testReadLogger_testReadLogger [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11863:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
+ReadLogger mismatch
+	got:  <invalid reflect.Value>
+	want: %!q(MISSING)
 
 -- FAIL: TestReadLogger
 
 === RUN  TestReadLogger_errorOnRead
-Exception: :testing.iotest.testReadLogger_errorOnRead is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testReadLogger_$errorOnRead_testReadLogger_errorOnRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11866:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
+ReadLogger mismatch
+	got:  <invalid reflect.Value>
+	want: %!q(MISSING)
 
 -- FAIL: TestReadLogger_errorOnRead
 
 === RUN  TestOneByteReader_nonEmptyReader
-Exception: :testing.iotest.testOneByteReader_nonEmptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testOneByteReader_$nonEmptyReader_testOneByteReader_nonEmptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11869:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestOneByteReader_nonEmptyReader
+-- PASS: TestOneByteReader_nonEmptyReader
 
 === RUN  TestOneByteReader_emptyReader
-Exception: :testing.iotest.testOneByteReader_emptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testOneByteReader_$emptyReader_testOneByteReader_emptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11872:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestOneByteReader_emptyReader
+-- PASS: TestOneByteReader_emptyReader
 
 === RUN  TestHalfReader_nonEmptyReader
-Exception: :testing.iotest.testHalfReader_nonEmptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testHalfReader_$nonEmptyReader_testHalfReader_nonEmptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11875:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestHalfReader_nonEmptyReader
+-- PASS: TestHalfReader_nonEmptyReader
 
 === RUN  TestHalfReader_emptyReader
-Exception: :testing.iotest.testHalfReader_emptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testHalfReader_$emptyReader_testHalfReader_emptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11878:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestHalfReader_emptyReader
+-- PASS: TestHalfReader_emptyReader
 
 === RUN  TestTimeOutReader_nonEmptyReader
-Exception: :testing.iotest.testTimeOutReader_nonEmptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testTimeOutReader_$nonEmptyReader_testTimeOutReader_nonEmptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11881:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestTimeOutReader_nonEmptyReader
+-- PASS: TestTimeOutReader_nonEmptyReader
 
 === RUN  TestTimeOutReader_emptyReader
-Exception: :testing.iotest.testTimeOutReader_emptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testTimeOutReader_$emptyReader_testTimeOutReader_emptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11884:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestTimeOutReader_emptyReader
+-- PASS: TestTimeOutReader_emptyReader
 
 === RUN  TestDataErrReader_nonEmptyReader
-Exception: :testing.iotest.testDataErrReader_nonEmptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testDataErrReader_$nonEmptyReader_testDataErrReader_nonEmptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11887:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestDataErrReader_nonEmptyReader
+-- PASS: TestDataErrReader_nonEmptyReader
 
 === RUN  TestDataErrReader_emptyReader
-Exception: :testing.iotest.testDataErrReader_emptyReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testDataErrReader_$emptyReader_testDataErrReader_emptyReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11890:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestDataErrReader_emptyReader
+-- PASS: TestDataErrReader_emptyReader
 
 === RUN  TestErrReader
-Exception: :testing.iotest.testErrReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testErrReader_testErrReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11893:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestErrReader
+-- PASS: TestErrReader
 
 === RUN  TestStringsReader
-Exception: :testing.iotest.testStringsReader is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testStringsReader_testStringsReader [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11896:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestStringsReader
+-- PASS: TestStringsReader
 
 === RUN  TestTruncateWriter
-Exception: :testing.iotest.testTruncateWriter is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_iotest_Iotest_$testTruncateWriter_testTruncateWriter [as f] (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:11899:23)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 46009 column 9)
-Called from ._$internal_testing_iotest_$dot_$test_Iotest_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js line 30817 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55921:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_iotest.js:55922:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1469 column 14)
-Called from Module._extensions..js (node:internal/modules/cjs/loader line 1548 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1288 column 32)
-
--- FAIL: TestTruncateWriter
+-- PASS: TestTruncateWriter
 

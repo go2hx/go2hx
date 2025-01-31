@@ -1,17 +1,31 @@
 === RUN  TestReader
-test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
-got  %!s(MISSING)
-want %!s(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
-got  %!s(MISSING)
-want %!s(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
-got  %!s(MISSING)
-want %!s(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
-got  %!s(MISSING)
-want %!s(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
-got  %!s(MISSING)
-want %!s(MISSING)test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
 got  %!s(MISSING)
 want %!s(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+got  %!s(MISSING)
+want %!s(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+got  %!s(MISSING)
+want %!s(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+got  %!s(MISSING)
+want %!s(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+got  %!s(MISSING)
+want %!s(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), unexpected failure: %!v(MISSING)
+test <invalid reflect.Value> (%!s(MISSING)), output mismatch:
+got  %!s(MISSING)
+want %!s(MISSING)
+
 -- FAIL: TestReader
 
 === RUN  TestBitReader

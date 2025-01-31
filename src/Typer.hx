@@ -1159,15 +1159,25 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 					}
 					f();
 				});
-				exprs.push(macro if (stdgo.Go.recover_exception != null)
-					throw stdgo.Go.recover_exception);
+				exprs.push(macro if (stdgo.Go.recover_exception != null) {
+					final e = stdgo.Go.recover_exception;
+					stdgo.Go.recover_exception = null;
+					throw e;
+				});
 				exprs.push(last);
-				catchBlock.push(macro if (stdgo.Go.recover_exception != null)
-				throw stdgo.Go.recover_exception);
+				catchBlock.push(macro if (stdgo.Go.recover_exception != null) {
+					final e = stdgo.Go.recover_exception;
+					stdgo.Go.recover_exception = null;
+					throw e;
+				});
 				catchBlock.push(last);
 				//catchBlock = catchBlock.concat(exprs);
 			default:
-				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ? throw stdgo.Go.recover_exception: $e]);
+				catchBlock = catchBlock.concat([macro stdgo.Go.recover_exception != null ? {
+					final e = stdgo.Go.recover_exception;
+					stdgo.Go.recover_exception = null;
+					throw e;
+				}: $e]);
 		}
 		exprs.unshift(macro var __deferstack__:Array<{ran:Bool, f:Void->Void}> = []);
 		//exprs.push(typeDeferReturn(info, true));

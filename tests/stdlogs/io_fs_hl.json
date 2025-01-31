@@ -11,11 +11,11 @@
         "TestFileInfoToDirEntry",
         "TestReadFile",
         "TestStat",
-        "TestSub"
+        "TestSub",
+        "TestWalkDir"
     ],
     "fails": [
-        "TestGlob",
-        "TestWalkDir"
+        "TestGlob"
     ],
     "runs": [
         "TestFormatFileInfo",

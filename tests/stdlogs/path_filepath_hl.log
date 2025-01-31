@@ -2,7 +2,11 @@
 -- PASS: TestMatch
 
 === RUN  TestGlob
-Glob(`match.go`) = []string(nil) want match.goGlob(`mat?h.go`) = []string(nil) want match.goGlob(`*`) = []string(nil) want match.goGlob(`../*/match.go`) = []string(nil) want ../filepath/match.go
+Glob(`match.go`) = []string(nil) want match.go
+Glob(`mat?h.go`) = []string(nil) want match.go
+Glob(`*`) = []string(nil) want match.go
+Glob(`../*/match.go`) = []string(nil) want ../filepath/match.go
+
 -- FAIL: TestGlob
 
 === RUN  TestCVE202230632
@@ -26,7 +30,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestWindowsGlob
 skipping windows specific testException: __skip__
-Called from _internal.path.filepath_test._Filepath_test_testWindowsGlob.$Filepath_test_testWindowsGlob_Fields_.testWindowsGlob (_internal/path/filepath_test/Filepath_test_testWindowsGlob.hx line 143)
+Called from _internal.path.filepath_test._Filepath_test_testWindowsGlob.$Filepath_test_testWindowsGlob_Fields_.testWindowsGlob (_internal/path/filepath_test/Filepath_test_testWindowsGlob.hx line 150)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 -- SKIP: TestWindowsGlob
@@ -71,20 +75,29 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 -- PASS: TestExt
 
 === RUN  TestWalk
-node testdata/a mark = 0; expected 1node testdata/b mark = 0; expected 1node testdata/c mark = 0; expected 1node testdata/d mark = 0; expected 1node testdata/d/x mark = 0; expected 1node testdata/d/y mark = 0; expected 1node testdata/d/z mark = 0; expected 1node testdata/d/z/u mark = 0; expected 1node testdata/d/z/v mark = 0; expected 1Exception: __skip__
-Called from _internal.path.filepath_test._Filepath_test__testWalk.$Filepath_test__testWalk_Fields_._testWalk (_internal/path/filepath_test/Filepath_test__testWalk.hx line 138)
-Called from _internal.path.filepath_test._Filepath_test_testWalk.$Filepath_test_testWalk_Fields_.testWalk (_internal/path/filepath_test/Filepath_test_testWalk.hx line 20)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
+node testdata/a mark = 0; expected 1
+node testdata/b mark = 0; expected 1
+node testdata/c mark = 0; expected 1
+node testdata/d mark = 0; expected 1
+node testdata/d/x mark = 0; expected 1
+node testdata/d/y mark = 0; expected 1
+node testdata/d/z mark = 0; expected 1
+node testdata/d/z/u mark = 0; expected 1
+node testdata/d/z/v mark = 0; expected 1
 
 -- FAIL: TestWalk
 
 === RUN  TestWalkDir
-node testdata mark = 2; expected 1node testdata/a mark = 0; expected 1node testdata/b mark = 0; expected 1node testdata/c mark = 0; expected 1node testdata/d mark = 0; expected 1node testdata/d/x mark = 0; expected 1node testdata/d/y mark = 0; expected 1node testdata/d/z mark = 0; expected 1node testdata/d/z/u mark = 0; expected 1node testdata/d/z/v mark = 0; expected 1Exception: __skip__
-Called from _internal.path.filepath_test._Filepath_test__testWalk.$Filepath_test__testWalk_Fields_._testWalk (_internal/path/filepath_test/Filepath_test__testWalk.hx line 138)
-Called from _internal.path.filepath_test._Filepath_test_testWalkDir.$Filepath_test_testWalkDir_Fields_.testWalkDir (_internal/path/filepath_test/Filepath_test_testWalkDir.hx line 15)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
+node testdata mark = 2; expected 1
+node testdata/a mark = 0; expected 1
+node testdata/b mark = 0; expected 1
+node testdata/c mark = 0; expected 1
+node testdata/d mark = 0; expected 1
+node testdata/d/x mark = 0; expected 1
+node testdata/d/y mark = 0; expected 1
+node testdata/d/z mark = 0; expected 1
+node testdata/d/z/u mark = 0; expected 1
+node testdata/d/z/v mark = 0; expected 1
 
 -- FAIL: TestWalkDir
 
@@ -108,7 +121,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestWalkFileError
 Exception: :os.mkdirAll is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testWalkFileError.$Filepath_test_testWalkFileError_Fields_.testWalkFileError (_internal/path/filepath_test/Filepath_test_testWalkFileError.hx line 113)
+Called from _internal.path.filepath_test._Filepath_test_testWalkFileError.$Filepath_test_testWalkFileError_Fields_.testWalkFileError (_internal/path/filepath_test/Filepath_test_testWalkFileError.hx line 120)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -118,6 +131,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 Exception: :os.mkdirAll is not yet implemented
 Called from stdgo._internal.os._Os_mkdirAll.$Os_mkdirAll_Fields_.mkdirAll (stdgo/_internal/os/Os_mkdirAll.hx line 2)
 Called from _internal.path.filepath_test._Filepath_test_testWalkSymlinkRoot.$Filepath_test_testWalkSymlinkRoot_Fields_.testWalkSymlinkRoot (_internal/path/filepath_test/Filepath_test_testWalkSymlinkRoot.hx line 19)
+Called from _internal.path.filepath_test._Filepath_test_testWalkFileError.$Filepath_test_testWalkFileError_Fields_.testWalkFileError (_internal/path/filepath_test/Filepath_test_testWalkFileError.hx line 120)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -143,7 +157,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestEvalSymlinksIsNotExist
 Exception: :os.isNotExist is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testEvalSymlinksIsNotExist.$Filepath_test_testEvalSymlinksIsNotExist_Fields_.testEvalSymlinksIsNotExist (_internal/path/filepath_test/Filepath_test_testEvalSymlinksIsNotExist.hx line 83)
+Called from _internal.path.filepath_test._Filepath_test_testEvalSymlinksIsNotExist.$Filepath_test_testEvalSymlinksIsNotExist_Fields_.testEvalSymlinksIsNotExist (_internal/path/filepath_test/Filepath_test_testEvalSymlinksIsNotExist.hx line 90)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -169,7 +183,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestAbs
 Exception: :os.sameFile is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testAbs.$Filepath_test_testAbs_Fields_.testAbs (_internal/path/filepath_test/Filepath_test_testAbs.hx line 117)
+Called from _internal.path.filepath_test._Filepath_test_testAbs.$Filepath_test_testAbs_Fields_.testAbs (_internal/path/filepath_test/Filepath_test_testAbs.hx line 124)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -177,7 +191,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestAbsEmptyString
 Exception: :os.sameFile is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testAbsEmptyString.$Filepath_test_testAbsEmptyString_Fields_.testAbsEmptyString (_internal/path/filepath_test/Filepath_test_testAbsEmptyString.hx line 90)
+Called from _internal.path.filepath_test._Filepath_test_testAbsEmptyString.$Filepath_test_testAbsEmptyString_Fields_.testAbsEmptyString (_internal/path/filepath_test/Filepath_test_testAbsEmptyString.hx line 97)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -196,7 +210,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 Exception: :runtime.gOROOT is not yet implemented
 Called from stdgo._internal.runtime._Runtime_gOROOT.$Runtime_gOROOT_Fields_.gOROOT (stdgo/_internal/runtime/Runtime_gOROOT.hx line 2)
 Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_.~_findGOROOT.0 (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 19)
-Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 79)
+Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 87)
 Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_._findGOROOT (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 18)
 Called from stdgo._internal.internal.testenv._Testenv_gOROOT.$Testenv_gOROOT_Fields_.gOROOT (stdgo/_internal/internal/testenv/Testenv_gOROOT.hx line 18)
 Called from _internal.path.filepath_test._Filepath_test_testBug3486.$Filepath_test_testBug3486_Fields_.testBug3486 (_internal/path/filepath_test/Filepath_test_testBug3486.hx line 18)
@@ -207,7 +221,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestWalkSymlink
 Exception: :os.symlink is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test__testWalkSymlink.$Filepath_test__testWalkSymlink_Fields_._testWalkSymlink (_internal/path/filepath_test/Filepath_test__testWalkSymlink.hx line 96)
+Called from _internal.path.filepath_test._Filepath_test__testWalkSymlink.$Filepath_test__testWalkSymlink_Fields_._testWalkSymlink (_internal/path/filepath_test/Filepath_test__testWalkSymlink.hx line 103)
 Called from _internal.path.filepath_test._Filepath_test_testWalkSymlink.$Filepath_test_testWalkSymlink_Fields_.testWalkSymlink (_internal/path/filepath_test/Filepath_test_testWalkSymlink.hx line 16)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
@@ -228,7 +242,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestEvalSymlinksAboveRootChdir
 Exception: :os.mkdirAll is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testEvalSymlinksAboveRootChdir.$Filepath_test_testEvalSymlinksAboveRootChdir_Fields_.testEvalSymlinksAboveRootChdir (_internal/path/filepath_test/Filepath_test_testEvalSymlinksAboveRootChdir.hx line 113)
+Called from _internal.path.filepath_test._Filepath_test_testEvalSymlinksAboveRootChdir.$Filepath_test_testEvalSymlinksAboveRootChdir_Fields_.testEvalSymlinksAboveRootChdir (_internal/path/filepath_test/Filepath_test_testEvalSymlinksAboveRootChdir.hx line 120)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
 
@@ -237,11 +251,8 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 === RUN  TestIssue51617
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
-got directories [.], want [. a a/bad a/next]Exception: :os.mkdirAll is not yet implemented
-Called from _internal.path.filepath_test._Filepath_test_testIssue51617.$Filepath_test_testIssue51617_Fields_.testIssue51617 (_internal/path/filepath_test/Filepath_test_testIssue51617.hx line 101)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
-Uncaught exception: SysError(Failed to read directory 0d9okheuwr/a/bad)
+got directories [.], want [. a a/bad a/next]
+Uncaught exception: SysError(Failed to read directory seo8gi3moo/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)

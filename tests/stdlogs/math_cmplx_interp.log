@@ -2,33 +2,45 @@
 -- PASS: TestAbs
 
 === RUN  TestAcos
-Acos((2-0i)) not continuous, got (0-1.3169578969248164i) want (0+1.3169578969248166i)Acos((-2+0i)) not continuous, got (3.141592653589793+1.3169578969248166i) want (3.141592653589793-1.3169578969248164i)
+Acos((2-0i)) not continuous, got (0-1.3169578969248164i) want (0+1.3169578969248166i)
+Acos((-2+0i)) not continuous, got (3.141592653589793+1.3169578969248166i) want (3.141592653589793-1.3169578969248164i)
+
 -- FAIL: TestAcos
 
 === RUN  TestAcosh
 Acosh((-2+0i)) not continuous, got (1.3169578969248166-3.141592653589793i) want (1.3169578969248164+3.141592653589793i)
+
 -- FAIL: TestAcosh
 
 === RUN  TestAsin
-Asin((2-0i)) not continuous, got (1.5707963267948966+1.3169578969248164i) want (1.5707963267948966-1.3169578969248166i)Asin((-2+0i)) not continuous, got (-1.5707963267948966-1.3169578969248166i) want (-1.5707963267948966+1.3169578969248164i)
+Asin((2-0i)) not continuous, got (1.5707963267948966+1.3169578969248164i) want (1.5707963267948966-1.3169578969248166i)
+Asin((-2+0i)) not continuous, got (-1.5707963267948966-1.3169578969248166i) want (-1.5707963267948966+1.3169578969248164i)
+
 -- FAIL: TestAsin
 
 === RUN  TestAsinh
 Asinh((0-2i)) not continuous, got (-1.3169578969248164-1.5707963267948966i) want (1.3169578969248166-1.5707963267948966i)
+
 -- FAIL: TestAsinh
 
 === RUN  TestAtan
 -- PASS: TestAtan
 
 === RUN  TestAtanh
-Atanh((0+0i)) = (0-0i), want (0+0i)Atanh((1+0i)) = (+Inf-0i), want (+Inf+0i)
+Atanh((0+0i)) = (0-0i), want (0+0i)
+Atanh((1+0i)) = (+Inf-0i), want (+Inf+0i)
+
 -- FAIL: TestAtanh
 
 === RUN  TestConj
 -- PASS: TestConj
 
 === RUN  TestCos
-Cos((0-0i)) = (1+0i), want (1-0i)Cos((-0-0i)) = (1+0i), want (1-0i)Cos((0-Infi)) = (+Inf+0i), want (+Inf-0i)Cos((-0-Infi)) = (+Inf+0i), want (+Inf-0i)
+Cos((0-0i)) = (1+0i), want (1-0i)
+Cos((-0-0i)) = (1+0i), want (1-0i)
+Cos((0-Infi)) = (+Inf+0i), want (+Inf-0i)
+Cos((-0-Infi)) = (+Inf+0i), want (+Inf-0i)
+
 -- FAIL: TestCos
 
 === RUN  TestCosh
@@ -66,6 +78,7 @@ Cos((0-0i)) = (1+0i), want (1-0i)Cos((-0-0i)) = (1+0i), want (1-0i)Cos((0-Infi))
 
 === RUN  TestTan
 Tan((7.738872474578105-0.2768800571920016i)) = (1.2424126853628314-3.171496938827881i), want (1.2424126853641837-3.171496938831334i)
+
 -- FAIL: TestTan
 
 === RUN  TestTanh
@@ -73,9 +86,12 @@ Tan((7.738872474578105-0.2768800571920016i)) = (1.2424126853628314-3.17149693882
 
 === RUN  TestInfiniteLoopIntanSeries
 Cot(0): got (0-0i), want (+Inf+Infi)
+
 -- FAIL: TestInfiniteLoopIntanSeries
 
 === RUN  TestTanHuge
-Tan((2.037035976334486e+90+0i)) = (4.609012876777886+0i), want (4.60901287677811+0i)Tan((-3.1217485503159922e+144+0i)) = (3.3913596505435195+0i), want (3.391359650547799+0i)
+Tan((2.037035976334486e+90+0i)) = (4.609012876777886+0i), want (4.60901287677811+0i)
+Tan((-3.1217485503159922e+144+0i)) = (3.3913596505435195+0i), want (3.391359650547799+0i)
+
 -- FAIL: TestTanHuge
 

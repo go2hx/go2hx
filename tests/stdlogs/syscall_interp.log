@@ -15,7 +15,7 @@ Exception: :testing.testing is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.syscall_test._Syscall_test_testExecErrPermutedFds.Syscall_test_testExecErrPermutedFds_Fields_.testExecErrPermutedFds (./_internal/syscall_test/Syscall_test_testExecErrPermutedFds.hx line 6 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.Testenv_mustHaveExec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 18 column 18)
-Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 79 column 9)
+Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 87 column 9)
 Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 19 column 80)
 Called from stdgo._internal.internal.testenv._Testenv__tryExec.Testenv__tryExec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryExec.hx line 24 column 14)
 Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.testing (./stdgo/_internal/testing/Testing_testing.hx line 2 column 25)

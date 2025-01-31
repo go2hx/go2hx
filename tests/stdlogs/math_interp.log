@@ -135,7 +135,9 @@
 -- PASS: TestNextafter64
 
 === RUN  TestPow
-Pow(NaN, -0) = NaN, want 1Pow(NaN, 0) = NaN, want 1
+Pow(NaN, -0) = NaN, want 1
+Pow(NaN, 0) = NaN, want 1
+
 -- FAIL: TestPow
 
 === RUN  TestPow10

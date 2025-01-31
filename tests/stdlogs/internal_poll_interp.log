@@ -28,7 +28,7 @@ Called from stdgo._internal.internal.poll.XFDMutex_static_extension.rWLock (./st
 === RUN  TestMutexPanic
 Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.internal.poll_test._Poll_test_testMutexPanic.Poll_test_testMutexPanic_Fields_.testMutexPanic (./_internal/internal/poll_test/Poll_test_testMutexPanic.hx line 102 column 18)
+Called from _internal.internal.poll_test._Poll_test_testMutexPanic.Poll_test_testMutexPanic_Fields_.testMutexPanic (./_internal/internal/poll_test/Poll_test_testMutexPanic.hx line 110 column 18)
 Called from stdgo._internal.internal.poll.XFDMutex_static_extension.incref (./stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 17 column 110)
 
 -- FAIL: TestMutexPanic
@@ -51,7 +51,7 @@ Called from stdgo._internal.internal.poll.XFDMutex_static_extension.incref (./st
 /home/runner/haxe/versions/c4868e5/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.internal.poll_test._Poll_test_testMutexStress.Poll_test_testMutexStress_Fields_.testMutexStress (./_internal/internal/poll_test/Poll_test_testMutexStress.hx line 258 column 57)
+Called from _internal.internal.poll_test._Poll_test_testMutexStress.Poll_test_testMutexStress_Fields_.testMutexStress (./_internal/internal/poll_test/Poll_test_testMutexStress.hx line 273 column 21)
 
 -- FAIL: TestMutexStress
 

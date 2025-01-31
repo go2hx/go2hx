@@ -41,7 +41,9 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 -- PASS: TestFlagParser
 
 === RUN  TestStructPrinter
-Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `&fmt_test.T{a:"abc", b:"def", c:123}`
+Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
+Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `&fmt_test.T{a:"abc", b:"def", c:123}`
+
 -- FAIL: TestStructPrinter
 
 === RUN  TestSlicePrinter
@@ -80,10 +82,12 @@ expected:
 	"%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)"
 got:
 	"%!s(<nil>) &{} %!s(<nil>) {} %!s(<nil>)"
+
 -- FAIL: TestNilDoesNotBecomeTyped
 
 === RUN  TestFormatterFlags
 Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagPrinter{[%#v]}", want "[1]fmt_test.flagPrinter{[%#v]}"
+
 -- FAIL: TestFormatterFlags
 
 === RUN  TestParsenum
@@ -110,52 +114,36 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from _internal.fmt_test._Fmt_test_testScanf.Fmt_test_testScanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testScanf.hx line 19 column 27)
 Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 15 column 77)
 Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 128 column 57)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 135 column 21)
 
 -- FAIL: TestScanf
 
 === RUN  TestScanOverflow
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testScanOverflow.Fmt_test_testScanOverflow_Fields_.testScanOverflow (./_internal/fmt_test/Fmt_test_testScanOverflow.hx line 18 column 19)
-Called from stdgo._internal.regexp._Regexp_mustCompile.Regexp_mustCompile_Fields_.mustCompile (./stdgo/_internal/regexp/Regexp_mustCompile.hx line 19 column 23)
-Called from stdgo._internal.regexp._Regexp_compile.Regexp_compile_Fields_.compile (./stdgo/_internal/regexp/Regexp_compile.hx line 19 column 16)
-Called from stdgo._internal.regexp._Regexp__compile.Regexp__compile_Fields_._compile (./stdgo/_internal/regexp/Regexp__compile.hx line 19 column 23)
-Called from stdgo._internal.regexp.syntax._Syntax_parse.Syntax_parse_Fields_.parse (./stdgo/_internal/regexp/syntax/Syntax_parse.hx line 9 column 16)
-Called from stdgo._internal.regexp.syntax._Syntax__parse.Syntax__parse_Fields_._parse (./stdgo/_internal/regexp/syntax/Syntax__parse.hx line 821 column 57)
+expected overflow scanning "128"
+expected overflow scanning "32768"
+expected overflow scanning "-129"
+expected overflow scanning "-32769"
+expected overflow scanning "256"
+expected overflow scanning "65536"
+expected overflow scanning "1e100"
+expected overflow scanning "1e500"
+expected overflow scanning "(1e100+0i)"
+expected overflow scanning "(1+1e100i)"
+expected overflow scanning "(1-1e500i)"
 
 -- FAIL: TestScanOverflow
 
 === RUN  TestNaN
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testNaN.Fmt_test_testNaN_Fields_.testNaN (./_internal/fmt_test/Fmt_test_testNaN.hx line 19 column 13)
-Called from _internal.fmt_test._Fmt_test__verifyNaN.Fmt_test__verifyNaN_Fields_._verifyNaN (./_internal/fmt_test/Fmt_test__verifyNaN.hx line 28 column 23)
-Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 285 column 57)
-
--- FAIL: TestNaN
+-- PASS: TestNaN
 
 === RUN  TestInf
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testInf.Fmt_test_testInf_Fields_.testInf (./_internal/fmt_test/Fmt_test_testInf.hx line 19 column 13)
-Called from _internal.fmt_test._Fmt_test__verifyInf.Fmt_test__verifyInf_Fields_._verifyInf (./_internal/fmt_test/Fmt_test__verifyInf.hx line 28 column 23)
-Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 285 column 57)
-
--- FAIL: TestInf
+-- PASS: TestInf
 
 === RUN  TestScanfMulti
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
-Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testScanMultiple.Fmt_test_testScanMultiple_Fields_.testScanMultiple (./_internal/fmt_test/Fmt_test_testScanMultiple.hx line 24 column 23)
-Called from stdgo._internal.fmt._Fmt_sscan.Fmt_sscan_Fields_.sscan (./stdgo/_internal/fmt/Fmt_sscan.hx line 15 column 77)
-Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 285 column 57)
+Sscan expected error; got none: %!s(nil=<nil>)
 
 -- FAIL: TestScanMultiple
 
@@ -170,7 +158,7 @@ Exception: Unexpected value 0, expected instance
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testScanNotPointer.Fmt_test_testScanNotPointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testScanNotPointer.hx line 20 column 23)
 Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 285 column 57)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 300 column 21)
 
 -- FAIL: TestScanNotPointer
 
@@ -190,11 +178,48 @@ expected error scanning empty string
 -- FAIL: TestEOF
 
 === RUN  TestEOFAtEndOfInput
-Sscanf expected EOF; got %!q(nil=<nil>)Sscan expected EOF; got %!q(nil=<nil>)Sscan expected EOF; got %!q(nil=<nil>)
+Sscanf expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
+
 -- FAIL: TestEOFAtEndOfInput
 
 === RUN  TestEOFAllTypes
-#0: %s *string not eof on empty string: %!s(nil=<nil>)#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)#1: %q *string not eof on empty string: %!s(nil=<nil>)#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)#2: %x *string not eof on empty string: %!s(nil=<nil>)#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)#3: %v *string not eof on empty string: %!s(nil=<nil>)#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)#5: %v *int not eof on empty string: %!s(nil=<nil>)#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)#6: %v *uint not eof on empty string: %!s(nil=<nil>)#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)#7: %v *bool not eof on empty string: %!s(nil=<nil>)#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)#8: %v *float32 not eof on empty string: %!s(nil=<nil>)#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
+#0: %s *string not eof on empty string: %!s(nil=<nil>)
+#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)
+#1: %q *string not eof on empty string: %!s(nil=<nil>)
+#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)
+#2: %x *string not eof on empty string: %!s(nil=<nil>)
+#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)
+#3: %v *string not eof on empty string: %!s(nil=<nil>)
+#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)
+#5: %v *int not eof on empty string: %!s(nil=<nil>)
+#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)
+#6: %v *uint not eof on empty string: %!s(nil=<nil>)
+#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)
+#7: %v *bool not eof on empty string: %!s(nil=<nil>)
+#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)
+#8: %v *float32 not eof on empty string: %!s(nil=<nil>)
+#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)
+#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)
+#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
+
 -- FAIL: TestEOFAllTypes
 
 === RUN  TestUnreadRuneWithBufio
@@ -215,18 +240,36 @@ Sscanln: expected error; got none
 -- PASS: TestScanInts
 
 === RUN  TestHexBytes
-simple: bad length 0simple pair a: bad length 0simple pair b: bad length 0colon: bad length 0colon pair a: bad length 0colon pair b: bad length 0odd count: got count, err = 0, <nil>; expected 0, error
+simple: bad length 0
+simple pair a: bad length 0
+simple pair b: bad length 0
+colon: bad length 0
+colon pair a: bad length 0
+colon pair b: bad length 0
+odd count: got count, err = 0, <nil>; expected 0, error
+
 -- FAIL: TestHexBytes
 
 === RUN  TestScanNewlinesAreSpaces
 -- PASS: TestScanNewlinesAreSpaces
 
 === RUN  TestScanlnNewlinesTerminate
-one line one item: expected error; got nonetwo lines two items: expected error; got none
+one line one item: expected error; got none
+two lines two items: expected error; got none
+
 -- FAIL: TestScanlnNewlinesTerminate
 
 === RUN  TestScanfNewlineMatchFormat
-newline in input: expected error; got nonespace-newline in input: expected error; got nonenewline in format: expected error; got nonespace-newline in format: expected error; got nonespace vs newline no-percent 0100: expected error; got nonespace vs newline no-percent 0101: expected error; got nonespace vs newline no-percent 0110: expected error; got nonespace vs newline no-percent 1100: expected error; got nonespace vs newline no-percent 1110: expected error; got none
+newline in input: expected error; got none
+space-newline in input: expected error; got none
+newline in format: expected error; got none
+space-newline in format: expected error; got none
+space vs newline no-percent 0100: expected error; got none
+space vs newline no-percent 0101: expected error; got none
+space vs newline no-percent 0110: expected error; got none
+space vs newline no-percent 1100: expected error; got none
+space vs newline no-percent 1110: expected error; got none
+
 -- FAIL: TestScanfNewlineMatchFormat
 
 === RUN  TestHexByte

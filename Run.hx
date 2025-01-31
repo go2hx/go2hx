@@ -105,12 +105,12 @@ function clean() {
 					if (FileSystem.isDirectory('stdgo/$path/$path2')) {
 						switch path2 {
 							case "unsafe":
-								break;
-							case "internal", "testing":
+								continue;
+							case "internal":
 								for (path3 in FileSystem.readDirectory('stdgo/$path/$path2')) {
 									if (FileSystem.isDirectory('stdgo/$path/$path2/$path3')) {
 										switch path3 {
-											case "reflectlite", "reflect":
+											case "reflect":
 											default:
 												deleteDirectoryRecursively('stdgo/$path/$path2/$path3');
 										}
@@ -131,7 +131,7 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
-	// return 0;
+	return Sys.command('find $dir -type f -delete');
 	//return Sys.command('git rm --cache -r $dir');
 	return 0;
 	#else

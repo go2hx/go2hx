@@ -239,6 +239,7 @@ strconv
 strings
 sync
 sync/atomic
+sync/atomic_
 syscall
 syscall/js
 testing

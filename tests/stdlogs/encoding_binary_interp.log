@@ -7,7 +7,7 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestLittleEndianRead
@@ -21,7 +21,7 @@ Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.w
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestLittleEndianWrite
@@ -40,7 +40,7 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestBigEndianRead
@@ -54,7 +54,7 @@ Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.w
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestBigEndianWrite
@@ -87,7 +87,7 @@ Called from stdgo._internal.encoding.binary._Binary_write.Binary_write_Fields_.w
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestWriteT
@@ -101,7 +101,7 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestBlankFields
@@ -114,7 +114,7 @@ Called from local function #2 (./stdgo/_internal/encoding/binary/Binary_testSize
 Called from local function #1 (./stdgo/_internal/encoding/binary/Binary_testSizeStructCache.hx line 14 column 22)
 Called from stdgo._internal.sync.Map__static_extension.range (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 28 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestSizeStructCache
@@ -138,7 +138,7 @@ Called from stdgo._internal.encoding.binary._Binary_read.Binary_read_Fields_.rea
 Called from stdgo._internal.encoding.binary._Binary__dataSize.Binary__dataSize_Fields_._dataSize (./stdgo/_internal/encoding/binary/Binary__dataSize.hx line 23 column 44)
 Called from stdgo._internal.sync.Map__static_extension.load (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 377 column 32)
 Called from stdgo._internal.sync.Map__static_extension._loadReadOnly (./stdgo/_internal/sync/Sync_Map__static_extension.hx line 417 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
+Called from _internal.sync.atomic_.Pointer__static_extension.load (./_internal/sync/atomic_/Atomic__Pointer__static_extension.hx line 29 column 32)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestReadTruncated

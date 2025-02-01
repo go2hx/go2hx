@@ -23,10 +23,10 @@ Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 24007 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testGlobSymlink_testGlobSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:23714:10)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -35,10 +35,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 === RUN  TestWindowsGlob
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWindowsGlob_testWindowsGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:37709:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -72,10 +72,10 @@ Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_file
 Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 18101 column 24)
 Called from .stdgo__$internal_reflect_Reflect_$deepEqual_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 38538 column 29)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testNonWindowsGlobEscape_testNonWindowsGlobEscape [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:38524:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestNonWindowsGlobEscape
@@ -83,14 +83,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 1
 === RUN  TestClean
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62817 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62847 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62448:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62824 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62854 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62455:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testClean_testClean [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:38598:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 -- SKIP: TestClean
 
 === RUN  TestIsLocal
@@ -142,10 +142,10 @@ node <invalid reflect.Value> mark = %!d(MISSING); expected 1
 Exception: :os.mkdirAll is not yet implemented
 Called from .stdgo__$internal_os_Os_$mkdirAll_mkdirAll (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 37985 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWalkSkipDirOnFile_testWalkSkipDirOnFile [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:40609:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -155,10 +155,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Exception: :os.mkdirAll is not yet implemented
 Called from .stdgo__$internal_os_Os_$mkdirAll_mkdirAll (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 37985 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWalkSkipAllOnFile_testWalkSkipAllOnFile [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:40686:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -167,10 +167,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 === RUN  TestWalkFileError
 Exception: :os.mkdirAll is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWalkFileError_testWalkFileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:40906:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -181,10 +181,10 @@ Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
 Exception: :os.mkdirAll is not yet implemented
 Called from .stdgo__$internal_os_Os_$mkdirAll_mkdirAll (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 37985 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWalkSymlinkRoot_testWalkSymlinkRoot [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:41246:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -203,10 +203,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 24007 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testEvalSymlinks_testEvalSymlinks [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:41555:11)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -215,10 +215,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 === RUN  TestEvalSymlinksIsNotExist
 Exception: :os.isNotExist is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testEvalSymlinksIsNotExist_testEvalSymlinksIsNotExist [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:41832:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -229,10 +229,10 @@ Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 24007 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testIssue13582_testIssue13582 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:41859:9)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -242,10 +242,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 24007 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testRelativeSymlinkToAbsolute_testRelativeSymlinkToAbsolute [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:41939:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -254,10 +254,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 === RUN  TestAbs
 Exception: :os.sameFile is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testAbs_testAbs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:42111:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -267,10 +267,10 @@ Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
 === RUN  TestAbsEmptyString
 Exception: :os.sameFile is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testAbsEmptyString_testAbsEmptyString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:42249:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -294,7 +294,7 @@ Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work
 Called from .stdgo__$internal_internal_testenv_Testenv_$_$findGOROOT__findGOROOT (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 42635 column 48)
 Called from .stdgo__$internal_internal_testenv_Testenv_$gOROOT_gOROOT (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 42617 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testBug3486_testBug3486 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:42577:12)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
 
 -- FAIL: TestBug3486
@@ -303,10 +303,10 @@ Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home
 Exception: :os.symlink is not yet implemented
 Called from ._$internal_path_filepath_$test_Filepath_$test_$_$testWalkSymlink__testWalkSymlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 43444 column 25)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testWalkSymlink_testWalkSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:43320:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -319,10 +319,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Exception: T_:testing.parallel is not yet implemented
 Called from stdgo__$internal_testing_T_$_$static_$extension.parallel (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 39781 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testEvalSymlinksAboveRoot_testEvalSymlinksAboveRoot [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:43542:50)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -331,10 +331,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 === RUN  TestEvalSymlinksAboveRootChdir
 Exception: :os.mkdirAll is not yet implemented
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testEvalSymlinksAboveRootChdir_testEvalSymlinksAboveRootChdir [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:46248:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62258 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 62265 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 46767 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
@@ -349,21 +349,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'of7q4jn4zj/a/bad'
+Error: EACCES: permission denied, scandir 'f7douwrmd8/a/bad'
     at Object.readdirSync (node:fs:1581:26)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:23942:30)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:23948:7)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:23948:7)
     at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:23988:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62790:4
-    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62272:4)
+    at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62797:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:62279:4)
     at _$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:46767:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81279:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81280:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81291:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:81292:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'of7q4jn4zj/a/bad'
+  path: 'f7douwrmd8/a/bad'
 }
 
 Node.js v23.7.0

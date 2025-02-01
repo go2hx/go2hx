@@ -32,7 +32,7 @@ jobs:
       - name: Set source
         run: npx haxelib dev go2hx .
       # clean stdgo
-      - name: Clean go2hx
+      - name: Clean stdgo
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
@@ -96,6 +96,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
       - uses: actions/cache/restore@v4
         id: setup-cache
         with:

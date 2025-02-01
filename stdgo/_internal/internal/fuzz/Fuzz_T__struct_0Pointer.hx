@@ -19,7 +19,7 @@ import stdgo._internal.path.filepath.Filepath;
 import stdgo._internal.crypto.sha256.Sha256;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.unsafe.Unsafe;
-import _internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
 import stdgo._internal.encoding.binary.Binary;
 import stdgo._internal.os.exec.Exec;
 import stdgo._internal.encoding.json.Json;

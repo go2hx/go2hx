@@ -1,2 +1,0 @@
-package stdgo._internal.crypto;
-final blake2b_384 = (20u32 : stdgo._internal.crypto.Crypto_Hash.Hash);

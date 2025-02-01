@@ -1,6 +1,6 @@
 package stdgo._internal.sync;
 import stdgo._internal.unsafe.Unsafe;
-import _internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
 import stdgo._internal.internal.race.Race;
 import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.sync.Sync.Once_asInterface) class Once_static_extension {
@@ -19,7 +19,7 @@ import stdgo._internal.runtime.Runtime;
                 {
                     var _a0 = stdgo.Go.pointer((@:checkr _o ?? throw "null pointer dereference")._done);
                     var _a1 = (1u32 : stdgo.GoUInt32);
-                    final __f__ = _internal.sync.atomic_.Atomic__storeUint32.storeUint32;
+                    final __f__ = stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32;
                     __deferstack__.unshift({ ran : false, f : () -> __f__(_a0, _a1) });
                 };
                 _f();

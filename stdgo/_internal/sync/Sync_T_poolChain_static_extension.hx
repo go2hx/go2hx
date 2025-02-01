@@ -1,6 +1,6 @@
 package stdgo._internal.sync;
 import stdgo._internal.unsafe.Unsafe;
-import _internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
 import stdgo._internal.internal.race.Race;
 import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.sync.Sync.T_poolChain_asInterface) class T_poolChain_static_extension {
@@ -23,7 +23,7 @@ import stdgo._internal.runtime.Runtime;
             if ((_d2 == null || (_d2 : Dynamic).__nil__)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : false };
             };
-            if (_internal.sync.atomic_.Atomic__compareAndSwapPointer.compareAndSwapPointer(((stdgo.Go.toInterface((stdgo.Go.setRef((@:checkr _c ?? throw "null pointer dereference")._tail) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>), (stdgo.Go.toInterface(_d) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (stdgo.Go.toInterface(_d2) : stdgo._internal.unsafe.Unsafe.UnsafePointer))) {
+            if (stdgo._internal.sync.atomic_.Atomic__compareAndSwapPointer.compareAndSwapPointer(((stdgo.Go.toInterface((stdgo.Go.setRef((@:checkr _c ?? throw "null pointer dereference")._tail) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>), (stdgo.Go.toInterface(_d) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (stdgo.Go.toInterface(_d2) : stdgo._internal.unsafe.Unsafe.UnsafePointer))) {
                 stdgo._internal.sync.Sync__storePoolChainElt._storePoolChainElt((stdgo.Go.setRef((@:checkr _d2 ?? throw "null pointer dereference")._prev) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>>), null);
             };
             _d = _d2;

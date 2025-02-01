@@ -7,4 +7,4 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.image.color.palette.Palette;
 import stdgo._internal.testing.Testing;
 import stdgo._internal.strconv.Strconv;
-var _atomicFormats : _internal.sync.atomic_.Atomic__Value.Value = ({} : _internal.sync.atomic_.Atomic__Value.Value);
+var _atomicFormats : stdgo._internal.sync.atomic_.Atomic__Value.Value = ({} : stdgo._internal.sync.atomic_.Atomic__Value.Value);

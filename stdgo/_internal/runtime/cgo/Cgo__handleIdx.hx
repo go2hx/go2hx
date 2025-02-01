@@ -1,2 +1,2 @@
 package stdgo._internal.runtime.cgo;
-var _handleIdx : _internal.sync.atomic_.Atomic__Uintptr.Uintptr = ({} : _internal.sync.atomic_.Atomic__Uintptr.Uintptr);
+var _handleIdx : stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr = ({} : stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr);

@@ -26,25 +26,25 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
         this._out = v;
         return v;
     }
-    public var _prefix(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<String>;
-    function get__prefix():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<String> return this._prefix;
-    function set__prefix(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<String>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<String> {
+    public var _prefix(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>;
+    function get__prefix():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> return this._prefix;
+    function set__prefix(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> {
         this._prefix = v;
         return v;
     }
-    public var _flag(get, set) : _internal.sync.atomic_.Atomic__Int32.Int32;
-    function get__flag():_internal.sync.atomic_.Atomic__Int32.Int32 return this._flag;
-    function set__flag(v:_internal.sync.atomic_.Atomic__Int32.Int32):_internal.sync.atomic_.Atomic__Int32.Int32 {
+    public var _flag(get, set) : stdgo._internal.sync.atomic_.Atomic__Int32.Int32;
+    function get__flag():stdgo._internal.sync.atomic_.Atomic__Int32.Int32 return this._flag;
+    function set__flag(v:stdgo._internal.sync.atomic_.Atomic__Int32.Int32):stdgo._internal.sync.atomic_.Atomic__Int32.Int32 {
         this._flag = v;
         return v;
     }
-    public var _isDiscard(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__isDiscard():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isDiscard;
-    function set__isDiscard(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _isDiscard(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__isDiscard():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isDiscard;
+    function set__isDiscard(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._isDiscard = v;
         return v;
     }
-    public function new(?_outMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_out:stdgo._internal.io.Io_Writer.Writer, ?_prefix:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<String>, ?_flag:_internal.sync.atomic_.Atomic__Int32.Int32, ?_isDiscard:_internal.sync.atomic_.Atomic__Bool_.Bool_) this = new stdgo._internal.log.Log_Logger.Logger(_outMu, _out, _prefix, _flag, _isDiscard);
+    public function new(?_outMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_out:stdgo._internal.io.Io_Writer.Writer, ?_prefix:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>, ?_flag:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?_isDiscard:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_) this = new stdgo._internal.log.Log_Logger.Logger(_outMu, _out, _prefix, _flag, _isDiscard);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

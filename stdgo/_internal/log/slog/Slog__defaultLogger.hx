@@ -17,4 +17,4 @@ import stdgo._internal.slices.Slices;
 import stdgo._internal.log.slog.internal.Internal;
 import stdgo._internal.time.Time;
 import stdgo._internal.strings.Strings;
-var _defaultLogger : _internal.sync.atomic_.Atomic__Value.Value = ({} : _internal.sync.atomic_.Atomic__Value.Value);
+var _defaultLogger : stdgo._internal.sync.atomic_.Atomic__Value.Value = ({} : stdgo._internal.sync.atomic_.Atomic__Value.Value);

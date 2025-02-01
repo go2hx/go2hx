@@ -323,9 +323,9 @@ typedef Result = stdgo._internal.database.sql.Sql_Result.Result;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.database.sql.Sql.DB_static_extension) abstract DB(stdgo._internal.database.sql.Sql_DB.DB) from stdgo._internal.database.sql.Sql_DB.DB to stdgo._internal.database.sql.Sql_DB.DB {
-    public var _waitDuration(get, set) : _internal.sync.atomic_.Atomic__Int64_.Int64_;
-    function get__waitDuration():_internal.sync.atomic_.Atomic__Int64_.Int64_ return this._waitDuration;
-    function set__waitDuration(v:_internal.sync.atomic_.Atomic__Int64_.Int64_):_internal.sync.atomic_.Atomic__Int64_.Int64_ {
+    public var _waitDuration(get, set) : stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_;
+    function get__waitDuration():stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_ return this._waitDuration;
+    function set__waitDuration(v:stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_):stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_ {
         this._waitDuration = v;
         return v;
     }
@@ -335,9 +335,9 @@ typedef Result = stdgo._internal.database.sql.Sql_Result.Result;
         this._connector = v;
         return v;
     }
-    public var _numClosed(get, set) : _internal.sync.atomic_.Atomic__Uint64.Uint64;
-    function get__numClosed():_internal.sync.atomic_.Atomic__Uint64.Uint64 return this._numClosed;
-    function set__numClosed(v:_internal.sync.atomic_.Atomic__Uint64.Uint64):_internal.sync.atomic_.Atomic__Uint64.Uint64 {
+    public var _numClosed(get, set) : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64;
+    function get__numClosed():stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 return this._numClosed;
+    function set__numClosed(v:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 {
         this._numClosed = v;
         return v;
     }
@@ -455,7 +455,7 @@ typedef Result = stdgo._internal.database.sql.Sql_Result.Result;
         this._stop = v;
         return v;
     }
-    public function new(?_waitDuration:_internal.sync.atomic_.Atomic__Int64_.Int64_, ?_connector:Connector, ?_numClosed:_internal.sync.atomic_.Atomic__Uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:stdgo.GoMap<stdgo._internal.database.sql.Sql_T_finalCloser.T_finalCloser, stdgo._internal.database.sql.Sql_T_depSet.T_depSet>, ?_lastPut:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, stdgo.GoString>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_Duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_Duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_DB.DB(
+    public function new(?_waitDuration:stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_, ?_connector:Connector, ?_numClosed:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_T_connRequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:stdgo.GoMap<stdgo._internal.database.sql.Sql_T_finalCloser.T_finalCloser, stdgo._internal.database.sql.Sql_T_depSet.T_depSet>, ?_lastPut:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, stdgo.GoString>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_Duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_Duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_DB.DB(
 _waitDuration,
 _connector,
 _numClosed,
@@ -711,9 +711,9 @@ _dbmuClosed);
         this._dc = (v : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>);
         return v;
     }
-    public var _done(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__done():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._done;
-    function set__done(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _done(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__done():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._done;
+    function set__done(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._done = v;
         return v;
     }
@@ -729,7 +729,7 @@ _dbmuClosed);
         this._releaseConnCache = v;
         return v;
     }
-    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_dc:T_driverConn, ?_done:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_releaseConnOnce:stdgo._internal.sync.Sync_Once.Once, ?_releaseConnCache:T_releaseConn) this = new stdgo._internal.database.sql.Sql_Conn.Conn((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>), _done, _releaseConnOnce, _releaseConnCache);
+    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_dc:T_driverConn, ?_done:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_releaseConnOnce:stdgo._internal.sync.Sync_Once.Once, ?_releaseConnCache:T_releaseConn) this = new stdgo._internal.database.sql.Sql_Conn.Conn((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>), _done, _releaseConnOnce, _releaseConnCache);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -764,9 +764,9 @@ _dbmuClosed);
         this._releaseConn = v;
         return v;
     }
-    public var _done(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__done():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._done;
-    function set__done(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _done(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__done():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._done;
+    function set__done(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._done = v;
         return v;
     }
@@ -800,7 +800,7 @@ _dbmuClosed);
         this._ctx = v;
         return v;
     }
-    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_dc:T_driverConn, ?_txi:Tx, ?_releaseConn:stdgo.Error -> Void, ?_done:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_keepConnOnRollback:Bool, ?_stmts:stdgo.Tuple<stdgo._internal.sync.Sync_Mutex.Mutex, Array<Stmt>>, ?_cancel:() -> Void, ?_ctx:stdgo._internal.context.Context_Context.Context) this = new stdgo._internal.database.sql.Sql_Tx.Tx((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>), _txi, _releaseConn, _done, _keepConnOnRollback, {
+    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_dc:T_driverConn, ?_txi:Tx, ?_releaseConn:stdgo.Error -> Void, ?_done:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_keepConnOnRollback:Bool, ?_stmts:stdgo.Tuple<stdgo._internal.sync.Sync_Mutex.Mutex, Array<Stmt>>, ?_cancel:() -> Void, ?_ctx:stdgo._internal.context.Context_Context.Context) this = new stdgo._internal.database.sql.Sql_Tx.Tx((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>), _txi, _releaseConn, _done, _keepConnOnRollback, {
         final obj = _stmts;
         { mutex : obj.mutex, _v : ([for (i in obj._v) (i : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>>) };
     }, _cancel, _ctx);
@@ -937,9 +937,9 @@ _closed,
         this._closeStmt = (v : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
         return v;
     }
-    public var _contextDone(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>;
-    function get__contextDone():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> return this._contextDone;
-    function set__contextDone(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> {
+    public var _contextDone(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>;
+    function get__contextDone():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> return this._contextDone;
+    function set__contextDone(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> {
         this._contextDone = v;
         return v;
     }
@@ -979,7 +979,7 @@ _closed,
         this._hitEOF = v;
         return v;
     }
-    public function new(?_dc:T_driverConn, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:Rows, ?_cancel:() -> Void, ?_closeStmt:T_driverStmt, ?_contextDone:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:Array<Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) this = new stdgo._internal.database.sql.Sql_Rows.Rows(
+    public function new(?_dc:T_driverConn, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:Rows, ?_cancel:() -> Void, ?_closeStmt:T_driverStmt, ?_contextDone:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:Array<Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) this = new stdgo._internal.database.sql.Sql_Rows.Rows(
 (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>),
 _releaseConn,
 _rowsi,

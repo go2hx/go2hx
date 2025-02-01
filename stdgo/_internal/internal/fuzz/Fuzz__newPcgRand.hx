@@ -19,7 +19,7 @@ import stdgo._internal.path.filepath.Filepath;
 import stdgo._internal.crypto.sha256.Sha256;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.unsafe.Unsafe;
-import _internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
 import stdgo._internal.encoding.binary.Binary;
 import stdgo._internal.os.exec.Exec;
 import stdgo._internal.encoding.json.Json;
@@ -32,7 +32,7 @@ function _newPcgRand():stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pcgRand.T_
                 _now = (_seed.value : stdgo.GoUInt64);
             };
         };
-        var _inc = (_internal.sync.atomic_.Atomic__addUint64.addUint64(stdgo.Go.pointer(stdgo._internal.internal.fuzz.Fuzz__globalInc._globalInc), (1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        var _inc = (stdgo._internal.sync.atomic_.Atomic__addUint64.addUint64(stdgo.Go.pointer(stdgo._internal.internal.fuzz.Fuzz__globalInc._globalInc), (1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         (@:checkr _r ?? throw "null pointer dereference")._state = _now;
         (@:checkr _r ?? throw "null pointer dereference")._inc = (((_inc << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) | (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         @:check2r _r._step();

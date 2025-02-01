@@ -4,10 +4,10 @@ Called from module TypeError: Cannot read properties of undefined (reading '_com
 Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17105 column 13)
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17468 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 21536 column 79)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39913 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45976 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56484 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55921:58
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39652 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45715 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56477 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55914:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$mustHaveDebugOptionsSupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14994 column 19)
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$_$runDebugOptionsTest__runDebugOptionsTest (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14946 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testDisableAllCapabilities_testDisableAllCapabilities [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:14941:2)
@@ -20,13 +20,13 @@ Called from module TypeError: Cannot read properties of undefined (reading '_com
 Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17105 column 13)
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 17468 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 21536 column 79)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39913 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45976 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56484 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55921:58
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 39652 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 45715 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 56477 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:55914:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$mustHaveDebugOptionsSupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14994 column 19)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testAllCapabilitiesDisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:34960:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 55716 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 55709 column 9)
 
 -- FAIL: TestAllCapabilitiesDisabled
 

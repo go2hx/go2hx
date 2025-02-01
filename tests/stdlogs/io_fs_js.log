@@ -14,9 +14,9 @@ Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go
 Called from .stdgo__$internal_io_fs_Fs_$_$globWithLimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 26293 column 17)
 Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 26178 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testGlob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:26142:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90308 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 90301 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 48017 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:108252:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:108245:1
 
 -- FAIL: TestGlob
 
@@ -56,21 +56,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'ozxa8vkfy3/a/bad'
+Error: EACCES: permission denied, scandir 'ni4co5epi2/a/bad'
     at Object.readdirSync (node:fs:1581:26)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63393:30)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63399:7)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63399:7)
-    at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63439:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:90840:4
-    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:90322:4)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63173:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63179:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63179:7)
+    at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:63219:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:90833:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:90315:4)
     at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:48017:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:108252:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:108253:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:108245:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:108246:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'ozxa8vkfy3/a/bad'
+  path: 'ni4co5epi2/a/bad'
 }
 
 Node.js v23.7.0

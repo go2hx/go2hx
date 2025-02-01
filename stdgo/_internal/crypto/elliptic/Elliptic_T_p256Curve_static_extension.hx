@@ -1,14 +1,14 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.crypto.elliptic.Elliptic.T_p256Curve_asInterface) class T_p256Curve_static_extension {
     @:embedded
     @:embeddededffieldsffun
-    public static function _pointToAffine( __self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__._pointToAffine(_0);
+    public static function _pointToAffine( __self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_5 __self__._pointToAffine(_0);
     @:embedded
     @:embeddededffieldsffun
-    public static function _pointFromAffine( __self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:_5 __self__._pointFromAffine(_0, _1);
+    public static function _pointFromAffine( __self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:_5 __self__._pointFromAffine(_0, _1);
     @:embedded
     @:embeddededffieldsffun
     public static function _normalizeScalar( __self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return @:_5 __self__._normalizeScalar(_0);

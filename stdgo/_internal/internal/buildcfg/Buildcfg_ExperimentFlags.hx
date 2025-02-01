@@ -8,9 +8,9 @@ import stdgo._internal.strconv.Strconv;
 import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension) class ExperimentFlags {
     @:embedded
-    public var flags : _internal.internal.goexperiment.Goexperiment_Flags.Flags = ({} : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
-    public var _baseline : _internal.internal.goexperiment.Goexperiment_Flags.Flags = ({} : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
-    public function new(?flags:_internal.internal.goexperiment.Goexperiment_Flags.Flags, ?_baseline:_internal.internal.goexperiment.Goexperiment_Flags.Flags) {
+    public var flags : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags = ({} : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags);
+    public var _baseline : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags = ({} : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags);
+    public function new(?flags:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags, ?_baseline:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags) {
         if (flags != null) this.flags = flags;
         if (_baseline != null) this._baseline = _baseline;
     }

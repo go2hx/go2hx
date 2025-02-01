@@ -11,10 +11,10 @@ import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension) class Logger {
     public var _outMu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _out : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
-    public var _prefix : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> = ({} : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>);
-    public var _flag : stdgo._internal.sync.atomic_.Atomic__Int32.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic__Int32.Int32);
-    public var _isDiscard : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_);
-    public function new(?_outMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_out:stdgo._internal.io.Io_Writer.Writer, ?_prefix:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>, ?_flag:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?_isDiscard:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_) {
+    public var _prefix : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> = ({} : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>);
+    public var _flag : _internal.sync.atomic_.Atomic__Int32.Int32 = ({} : _internal.sync.atomic_.Atomic__Int32.Int32);
+    public var _isDiscard : _internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : _internal.sync.atomic_.Atomic__Bool_.Bool_);
+    public function new(?_outMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_out:stdgo._internal.io.Io_Writer.Writer, ?_prefix:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>, ?_flag:_internal.sync.atomic_.Atomic__Int32.Int32, ?_isDiscard:_internal.sync.atomic_.Atomic__Bool_.Bool_) {
         if (_outMu != null) this._outMu = _outMu;
         if (_out != null) this._out = _out;
         if (_prefix != null) this._prefix = _prefix;

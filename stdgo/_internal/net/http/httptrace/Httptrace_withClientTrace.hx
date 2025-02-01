@@ -9,7 +9,7 @@ function withClientTrace(_ctx:stdgo._internal.context.Context_Context.Context, _
         @:check2r _trace._compose(_old);
         _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.net.http.httptrace.Httptrace_T_clientEventContextKey.T_clientEventContextKey() : stdgo._internal.net.http.httptrace.Httptrace_T_clientEventContextKey.T_clientEventContextKey))), stdgo.Go.toInterface(stdgo.Go.asInterface(_trace)));
         if (@:check2r _trace._hasNetHooks()) {
-            var _nt = (stdgo.Go.setRef(({ connectStart : (@:checkr _trace ?? throw "null pointer dereference").connectStart, connectDone : (@:checkr _trace ?? throw "null pointer dereference").connectDone } : _internal.internal.nettrace.Nettrace_Trace.Trace)) : stdgo.Ref<_internal.internal.nettrace.Nettrace_Trace.Trace>);
+            var _nt = (stdgo.Go.setRef(({ connectStart : (@:checkr _trace ?? throw "null pointer dereference").connectStart, connectDone : (@:checkr _trace ?? throw "null pointer dereference").connectDone } : stdgo._internal.internal.nettrace.Nettrace_Trace.Trace)) : stdgo.Ref<stdgo._internal.internal.nettrace.Nettrace_Trace.Trace>);
             if ((@:checkr _trace ?? throw "null pointer dereference").dNSStart != null) {
                 (@:checkr _nt ?? throw "null pointer dereference").dNSStart = function(_name:stdgo.GoString):Void {
                     (@:checkr _trace ?? throw "null pointer dereference").dNSStart(({ host : _name?.__copy__() } : stdgo._internal.net.http.httptrace.Httptrace_DNSStartInfo.DNSStartInfo));
@@ -24,7 +24,7 @@ function withClientTrace(_ctx:stdgo._internal.context.Context_Context.Context, _
                     (@:checkr _trace ?? throw "null pointer dereference").dNSDone(({ addrs : _addrs, coalesced : _coalesced, err : _err } : stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo.DNSDoneInfo));
                 };
             };
-            _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface((new _internal.internal.nettrace.Nettrace_TraceKey.TraceKey() : _internal.internal.nettrace.Nettrace_TraceKey.TraceKey))), stdgo.Go.toInterface(stdgo.Go.asInterface(_nt)));
+            _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey() : stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey))), stdgo.Go.toInterface(stdgo.Go.asInterface(_nt)));
         };
         return _ctx;
     }

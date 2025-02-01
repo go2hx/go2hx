@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 function _bigFromHex(_s:stdgo.GoString):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> {

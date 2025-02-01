@@ -95,13 +95,13 @@ class T_nistPoint_static_extension {
 }
 typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nistPoint<T_>;
 @:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_p256Curve_static_extension) abstract T_p256Curve(stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve) from stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve to stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve {
-    public var _nistCurve(get, set) : T_nistCurve<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>;
-    function get__nistCurve():T_nistCurve<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point> return this._nistCurve;
-    function set__nistCurve(v:T_nistCurve<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):T_nistCurve<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point> {
+    public var _nistCurve(get, set) : T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>;
+    function get__nistCurve():T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point> return this._nistCurve;
+    function set__nistCurve(v:T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point> {
         this._nistCurve = v;
         return v;
     }
-    public function new(?_nistCurve:T_nistCurve<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>) this = new stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve(_nistCurve);
+    public function new(?_nistCurve:T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>) this = new stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve(_nistCurve);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -171,14 +171,14 @@ typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nis
 }
 typedef T_p256CurvePointer = stdgo._internal.crypto.elliptic.Elliptic_T_p256CurvePointer.T_p256CurvePointer;
 class T_p256Curve_static_extension {
-    public static function _pointToAffine(__self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:_internal.crypto.internal.nistec.Nistec_P256Point.P256Point):stdgo.Tuple<stdgo._internal.math.big.Big_Int_.Int_, stdgo._internal.math.big.Big_Int_.Int_> {
-        final _0 = (_0 : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>);
+    public static function _pointToAffine(__self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point):stdgo.Tuple<stdgo._internal.math.big.Big_Int_.Int_, stdgo._internal.math.big.Big_Int_.Int_> {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>);
         return {
             final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension._pointToAffine(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _pointFromAffine(__self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo._internal.math.big.Big_Int_.Int_, _1:stdgo._internal.math.big.Big_Int_.Int_):stdgo.Tuple<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point, stdgo.Error> {
+    public static function _pointFromAffine(__self__:stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve, _0:stdgo._internal.math.big.Big_Int_.Int_, _1:stdgo._internal.math.big.Big_Int_.Int_):stdgo.Tuple<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point, stdgo.Error> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         return {

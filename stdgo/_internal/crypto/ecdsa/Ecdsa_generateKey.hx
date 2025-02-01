@@ -5,10 +5,10 @@ import stdgo._internal.crypto.ecdh.Ecdh;
 import stdgo._internal.crypto.subtle.Subtle;
 import stdgo._internal.crypto.internal.randutil.Randutil;
 import stdgo._internal.crypto.internal.boring.Boring;
-import _internal.crypto.internal.boring.bbig.Bbig;
+import stdgo._internal.crypto.internal.boring.bbig.Bbig;
 import stdgo._internal.crypto.internal.bigmod.Bigmod;
 import stdgo._internal.io.Io;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.bytes.Bytes;
 import stdgo._internal.crypto.sha512.Sha512;
 import stdgo._internal.crypto.aes.Aes;
@@ -21,7 +21,7 @@ function generateKey(_c:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _r
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
-            return { _0 : (stdgo.Go.setRef(({ publicKey : ({ curve : _c, x : _internal.crypto.internal.boring.bbig.Bbig_dec.dec(_x), y : _internal.crypto.internal.boring.bbig.Bbig_dec.dec(_y) } : stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey), d : _internal.crypto.internal.boring.bbig.Bbig_dec.dec(_d) } : stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>), _1 : (null : stdgo.Error) };
+            return { _0 : (stdgo.Go.setRef(({ publicKey : ({ curve : _c, x : stdgo._internal.crypto.internal.boring.bbig.Bbig_dec.dec(_x), y : stdgo._internal.crypto.internal.boring.bbig.Bbig_dec.dec(_y) } : stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey), d : stdgo._internal.crypto.internal.boring.bbig.Bbig_dec.dec(_d) } : stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey)) : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>), _1 : (null : stdgo.Error) };
         };
         stdgo._internal.crypto.internal.boring.Boring_unreachableExceptTests.unreachableExceptTests();
         {

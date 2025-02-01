@@ -6,7 +6,7 @@ import stdgo._internal.path.filepath.Filepath;
 import stdgo._internal.strings.Strings;
 import stdgo._internal.strconv.Strconv;
 import stdgo._internal.reflect.Reflect;
-function _expList(_exp:stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Flags.Flags>, _base:stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Flags.Flags>, _all:Bool):stdgo.Slice<stdgo.GoString> {
+function _expList(_exp:stdgo.Ref<stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags>, _base:stdgo.Ref<stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags>, _all:Bool):stdgo.Slice<stdgo.GoString> {
         var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_exp))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         var _rBase:stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value);

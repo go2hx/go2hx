@@ -1,6 +1,6 @@
 package stdgo._internal.sync;
 import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.sync.atomic_.Atomic_;
+import _internal.sync.atomic_.Atomic_;
 import stdgo._internal.internal.race.Race;
 import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.sync.Sync.Pool_asInterface) class Pool_static_extension {
@@ -38,7 +38,7 @@ import stdgo._internal.runtime.Runtime;
                 _i++;
             };
         };
-        _size = stdgo._internal.sync.atomic_.Atomic__loadUintptr.loadUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize));
+        _size = _internal.sync.atomic_.Atomic__loadUintptr.loadUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize));
         if (((_pid : stdgo.GoUIntptr) >= _size : Bool)) {
             return (null : stdgo.AnyInterface);
         };
@@ -64,7 +64,7 @@ import stdgo._internal.runtime.Runtime;
                 _i++;
             };
         };
-        stdgo._internal.sync.atomic_.Atomic__storeUintptr.storeUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize), (0 : stdgo.GoUIntptr));
+        _internal.sync.atomic_.Atomic__storeUintptr.storeUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize), (0 : stdgo.GoUIntptr));
         return (null : stdgo.AnyInterface);
     }
     @:keep

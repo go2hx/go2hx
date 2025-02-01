@@ -1,11 +1,11 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension) class T_p256Curve {
     @:embedded
-    public var _nistCurve : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>> = ({} : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>>);
-    public function new(?_nistCurve:stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>>) {
+    public var _nistCurve : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>> = ({} : stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>>);
+    public function new(?_nistCurve:stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>>) {
         if (_nistCurve != null) this._nistCurve = _nistCurve;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -49,14 +49,14 @@ import stdgo._internal.errors.Errors;
     @:embedded
     @:embeddededffieldsffun
     public function get__normalizeScalar():stdgo.Slice<stdgo.GoUInt8> -> stdgo.Slice<stdgo.GoUInt8> return @:check32 this._nistCurve._normalizeScalar;
-    public var _pointFromAffine(get, never) : (stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) -> { var _0 : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; };
+    public var _pointFromAffine(get, never) : (stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__pointFromAffine():(stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) -> { var _0 : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:check32 this._nistCurve._pointFromAffine;
-    public var _pointToAffine(get, never) : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point> -> { var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
+    public function get__pointFromAffine():(stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:check32 this._nistCurve._pointFromAffine;
+    public var _pointToAffine(get, never) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point> -> { var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__pointToAffine():stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point> -> { var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:check32 this._nistCurve._pointToAffine;
+    public function get__pointToAffine():stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point> -> { var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:check32 this._nistCurve._pointToAffine;
     public function __copy__() {
         return new T_p256Curve(_nistCurve);
     }

@@ -13,7 +13,10 @@ package stdgo._internal.net.http;
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._nextProtoOnce.do_(@:check2r _t._onceSetNextProtoDefaults);
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.lock();
         var _m = (@:checkr _t ?? throw "null pointer dereference")._idleConn;
-        (@:checkr _t ?? throw "null pointer dereference")._idleConn = (null : stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>>);
+        (@:checkr _t ?? throw "null pointer dereference")._idleConn = (({
+            final x:stdgo.GoMap.GoObjectMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>> = null;
+            cast x;
+        } : stdgo.GoMap<stdgo._internal.net.http.Http_T_connectMethodKey.T_connectMethodKey, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>>));
         (@:checkr _t ?? throw "null pointer dereference")._closeIdle = true;
         (@:checkr _t ?? throw "null pointer dereference")._idleLRU = (new stdgo._internal.net.http.Http_T_connLRU.T_connLRU() : stdgo._internal.net.http.Http_T_connLRU.T_connLRU);
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.unlock();

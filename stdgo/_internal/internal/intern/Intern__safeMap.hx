@@ -11,5 +11,8 @@ function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.Intern_T_key.T_k
                 cast x;
             } : stdgo.GoMap<stdgo._internal.internal.intern.Intern_T_key.T_key, stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>>);
         };
-        return (null : stdgo.GoMap<stdgo._internal.internal.intern.Intern_T_key.T_key, stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>>);
+        return (({
+            final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.intern.Intern_T_key.T_key, stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>> = null;
+            cast x;
+        } : stdgo.GoMap<stdgo._internal.internal.intern.Intern_T_key.T_key, stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>>));
     }

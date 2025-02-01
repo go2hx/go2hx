@@ -200,9 +200,9 @@ typedef T_testingT = stdgo._internal.context.Context_T_testingT.T_testingT;
         this._mu = v;
         return v;
     }
-    public var _done(get, set) : stdgo._internal.sync.atomic_.Atomic__Value.Value;
-    function get__done():stdgo._internal.sync.atomic_.Atomic__Value.Value return this._done;
-    function set__done(v:stdgo._internal.sync.atomic_.Atomic__Value.Value):stdgo._internal.sync.atomic_.Atomic__Value.Value {
+    public var _done(get, set) : _internal.sync.atomic_.Atomic__Value.Value;
+    function get__done():_internal.sync.atomic_.Atomic__Value.Value return this._done;
+    function set__done(v:_internal.sync.atomic_.Atomic__Value.Value):_internal.sync.atomic_.Atomic__Value.Value {
         this._done = v;
         return v;
     }
@@ -224,7 +224,7 @@ typedef T_testingT = stdgo._internal.context.Context_T_testingT.T_testingT;
         this._cause = (v : stdgo.Error);
         return v;
     }
-    public function new(?context:Context_, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_done:stdgo._internal.sync.atomic_.Atomic__Value.Value, ?_children:stdgo.GoMap<stdgo._internal.context.Context_T_canceler.T_canceler, stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) this = new stdgo._internal.context.Context_T_cancelCtx.T_cancelCtx(context, _mu, _done, (_children : stdgo.GoMap<stdgo._internal.context.Context_T_canceler.T_canceler, stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>), (_err : stdgo.Error), (_cause : stdgo.Error));
+    public function new(?context:Context_, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_done:_internal.sync.atomic_.Atomic__Value.Value, ?_children:stdgo.GoMap<stdgo._internal.context.Context_T_canceler.T_canceler, stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) this = new stdgo._internal.context.Context_T_cancelCtx.T_cancelCtx(context, _mu, _done, (_children : stdgo.GoMap<stdgo._internal.context.Context_T_canceler.T_canceler, stdgo._internal.context.Context_T_deadlineExceededError.T_deadlineExceededError>), (_err : stdgo.Error), (_cause : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

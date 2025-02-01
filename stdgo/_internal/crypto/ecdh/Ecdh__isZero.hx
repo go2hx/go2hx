@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.ecdh;
 import stdgo._internal.errors.Errors;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.encoding.binary.Binary;
 import stdgo._internal.math.bits.Bits;
 import stdgo._internal.crypto.subtle.Subtle;

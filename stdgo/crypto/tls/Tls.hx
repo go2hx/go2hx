@@ -167,9 +167,9 @@ class T_keyAgreement_static_extension {
 }
 typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgreement;
 @:structInit @:using(stdgo.crypto.tls.Tls.T_cacheEntry_static_extension) abstract T_cacheEntry(stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry) from stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry to stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry {
-    public var _refs(get, set) : stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_;
-    function get__refs():stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_ return this._refs;
-    function set__refs(v:stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_):stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_ {
+    public var _refs(get, set) : _internal.sync.atomic_.Atomic__Int64_.Int64_;
+    function get__refs():_internal.sync.atomic_.Atomic__Int64_.Int64_ return this._refs;
+    function set__refs(v:_internal.sync.atomic_.Atomic__Int64_.Int64_):_internal.sync.atomic_.Atomic__Int64_.Int64_ {
         this._refs = v;
         return v;
     }
@@ -179,7 +179,7 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._cert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
         return v;
     }
-    public function new(?_refs:stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_, ?_cert:stdgo._internal.crypto.x509.X509_Certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry(_refs, (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>));
+    public function new(?_refs:_internal.sync.atomic_.Atomic__Int64_.Int64_, ?_cert:stdgo._internal.crypto.x509.X509_Certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry(_refs, (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -965,9 +965,9 @@ _mutex,
         this._quic = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState>);
         return v;
     }
-    public var _isHandshakeComplete(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__isHandshakeComplete():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isHandshakeComplete;
-    function set__isHandshakeComplete(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _isHandshakeComplete(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__isHandshakeComplete():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isHandshakeComplete;
+    function set__isHandshakeComplete(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._isHandshakeComplete = v;
         return v;
     }
@@ -1181,9 +1181,9 @@ _mutex,
         this._retryCount = (v : stdgo.GoInt);
         return v;
     }
-    public var _activeCall(get, set) : stdgo._internal.sync.atomic_.Atomic__Int32.Int32;
-    function get__activeCall():stdgo._internal.sync.atomic_.Atomic__Int32.Int32 return this._activeCall;
-    function set__activeCall(v:stdgo._internal.sync.atomic_.Atomic__Int32.Int32):stdgo._internal.sync.atomic_.Atomic__Int32.Int32 {
+    public var _activeCall(get, set) : _internal.sync.atomic_.Atomic__Int32.Int32;
+    function get__activeCall():_internal.sync.atomic_.Atomic__Int32.Int32 return this._activeCall;
+    function set__activeCall(v:_internal.sync.atomic_.Atomic__Int32.Int32):_internal.sync.atomic_.Atomic__Int32.Int32 {
         this._activeCall = v;
         return v;
     }
@@ -1193,7 +1193,7 @@ _mutex,
         this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_conn:stdgo._internal.net.Net_Conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_Context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_Reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_Conn.Conn(
+    public function new(?_conn:stdgo._internal.net.Net_Conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_Context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_Mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_Reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:_internal.sync.atomic_.Atomic__Int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_Conn.Conn(
 _conn,
 _isClient,
 _handshakeFn,

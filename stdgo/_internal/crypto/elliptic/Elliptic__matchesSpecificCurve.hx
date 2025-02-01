@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 function _matchesSpecificCurve(_params:stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams>):{ var _0 : stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve; var _1 : Bool; } {

@@ -1,17 +1,17 @@
 package stdgo._internal.sync;
 import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.sync.atomic_.Atomic_;
+import _internal.sync.atomic_.Atomic_;
 import stdgo._internal.internal.race.Race;
 import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_RWMutex_static_extension.RWMutex_static_extension) class RWMutex {
     public var _w : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _writerSem : stdgo.GoUInt32 = 0;
     public var _readerSem : stdgo.GoUInt32 = 0;
-    public var _readerCount : stdgo._internal.sync.atomic_.Atomic__Int32.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic__Int32.Int32);
-    public var _readerWait : stdgo._internal.sync.atomic_.Atomic__Int32.Int32 = ({} : stdgo._internal.sync.atomic_.Atomic__Int32.Int32);
+    public var _readerCount : _internal.sync.atomic_.Atomic__Int32.Int32 = ({} : _internal.sync.atomic_.Atomic__Int32.Int32);
+    public var _readerWait : _internal.sync.atomic_.Atomic__Int32.Int32 = ({} : _internal.sync.atomic_.Atomic__Int32.Int32);
     @:local
     var mutex = #if target.threaded new sys.thread.Mutex() #else null #end;
-    public function new(?_w:stdgo._internal.sync.Sync_Mutex.Mutex, ?_writerSem:stdgo.GoUInt32, ?_readerSem:stdgo.GoUInt32, ?_readerCount:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?_readerWait:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?mutex) {
+    public function new(?_w:stdgo._internal.sync.Sync_Mutex.Mutex, ?_writerSem:stdgo.GoUInt32, ?_readerSem:stdgo.GoUInt32, ?_readerCount:_internal.sync.atomic_.Atomic__Int32.Int32, ?_readerWait:_internal.sync.atomic_.Atomic__Int32.Int32, ?mutex) {
         if (_w != null) this._w = _w;
         if (_writerSem != null) this._writerSem = _writerSem;
         if (_readerSem != null) this._readerSem = _readerSem;

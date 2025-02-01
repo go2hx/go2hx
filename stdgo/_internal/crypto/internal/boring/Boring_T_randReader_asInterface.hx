@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.internal.boring;
-import _internal.crypto.internal.boring.sig.Sig;
+import stdgo._internal.crypto.internal.boring.sig.Sig;
 class T_randReader_asInterface {
     @:keep
     @:tdfield

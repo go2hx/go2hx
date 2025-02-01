@@ -11,7 +11,10 @@ import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.internal.pkgbits.Pkgbits_Encoder_static_extension.Encoder_static_extension) class Encoder {
     public var _p : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = (null : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>);
     public var relocs : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt> = (null : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt>);
-    public var relocMap : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt, stdgo.GoUInt32> = (null : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt, stdgo.GoUInt32>);
+    public var relocMap : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt, stdgo.GoUInt32> = (({
+        final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt, stdgo.GoUInt32> = null;
+        cast x;
+    } : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_RelocEnt.RelocEnt, stdgo.GoUInt32>));
     public var data : stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
     public var _encodingRelocHeader : Bool = false;
     public var _k : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind = ((0 : stdgo.GoInt32) : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind);

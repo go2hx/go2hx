@@ -16,7 +16,7 @@ var _regabiAlwaysOn = __1, _regabiSupported = __0;
                 _regabiSupported = true;
             };
         };
-        var _baseline = ({ regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
+        var _baseline = ({ regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags);
         var _flags = (stdgo.Go.setRef(({ flags : _baseline?.__copy__(), _baseline : _baseline?.__copy__() } : stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags)) : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
         if (_goexp != (stdgo.Go.str())) {
             var _names = (({
@@ -25,7 +25,7 @@ var _regabiAlwaysOn = __1, _regabiSupported = __0;
                 {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, Bool -> Void>) : stdgo.GoMap<stdgo.GoString, Bool -> Void>);
-            var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _flags ?? throw "null pointer dereference").flags) : stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Flags.Flags>)))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+            var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _flags ?? throw "null pointer dereference").flags) : stdgo.Ref<stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags>)))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _rt = (_rv.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
             {
                 var _i = (0 : stdgo.GoInt);
@@ -44,7 +44,7 @@ _names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy
                     continue;
                 };
                 if (_f == (("none" : stdgo.GoString))) {
-                    (@:checkr _flags ?? throw "null pointer dereference").flags = (new _internal.internal.goexperiment.Goexperiment_Flags.Flags() : _internal.internal.goexperiment.Goexperiment_Flags.Flags);
+                    (@:checkr _flags ?? throw "null pointer dereference").flags = (new stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags() : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags);
                     continue;
                 };
                 var _val = (true : Bool);

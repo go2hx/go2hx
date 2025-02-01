@@ -1,0 +1,30 @@
+package stdgo._internal.runtime.coverage;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.internal.coverage.encodemeta.Encodemeta;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.internal.coverage.Coverage;
+import stdgo._internal.internal.coverage.pods.Pods;
+import stdgo._internal.internal.coverage.cformat.Cformat;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.time.Time;
+import stdgo._internal.internal.coverage.encodecounter.Encodecounter;
+import stdgo._internal.internal.coverage.decodemeta.Decodemeta;
+import stdgo._internal.internal.coverage.decodecounter.Decodecounter;
+import stdgo._internal.encoding.json.Json;
+function _writeMetaData(_w:stdgo._internal.io.Io_Writer.Writer, _metalist:stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>, _cmode:stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode, _gran:stdgo._internal.internal.coverage.Coverage_CounterGranularity.CounterGranularity, _finalHash:stdgo.GoArray<stdgo.GoUInt8>):stdgo.Error {
+        var _mfw = stdgo._internal.internal.coverage.encodemeta.Encodemeta_newCoverageMetaFileWriter.newCoverageMetaFileWriter(("<io.Writer>" : stdgo.GoString), _w);
+        var _sd:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _bufHdr = ((stdgo.Go.toInterface((stdgo.Go.setRef(_sd) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }, { name : "len", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "cap", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader>);
+        var _blobs:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>> = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
+        for (__0 => _e in _metalist) {
+            (@:checkr _bufHdr ?? throw "null pointer dereference").data = ((stdgo.Go.toInterface(_e.p) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+            (@:checkr _bufHdr ?? throw "null pointer dereference").len = (_e.len : stdgo.GoInt);
+            (@:checkr _bufHdr ?? throw "null pointer dereference").cap = (_e.len : stdgo.GoInt);
+            _blobs = (_blobs.__append__(_sd));
+        };
+        return @:check2r _mfw.write(_finalHash?.__copy__(), _blobs, _cmode, _gran);
+    }

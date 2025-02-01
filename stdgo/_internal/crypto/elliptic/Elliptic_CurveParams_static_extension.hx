@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.crypto.elliptic.Elliptic.CurveParams_asInterface) class CurveParams_static_extension {

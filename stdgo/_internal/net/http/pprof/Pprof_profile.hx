@@ -6,7 +6,7 @@ import stdgo._internal.os.Os;
 import stdgo._internal.time.Time;
 import stdgo._internal.strconv.Strconv;
 import stdgo._internal.runtime.pprof.Pprof;
-import stdgo._internal.runtime.trace_.Trace_;
+import _internal.runtime.trace_.Trace_;
 import stdgo._internal.bufio.Bufio;
 import stdgo._internal.runtime.Runtime;
 import stdgo._internal.io.Io;

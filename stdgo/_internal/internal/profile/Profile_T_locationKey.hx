@@ -1,6 +1,6 @@
 package stdgo._internal.internal.profile;
 import stdgo._internal.errors.Errors;
-import _internal.internal.lazyregexp.Lazyregexp;
+import stdgo._internal.internal.lazyregexp.Lazyregexp;
 import stdgo._internal.strings.Strings;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.bytes.Bytes;

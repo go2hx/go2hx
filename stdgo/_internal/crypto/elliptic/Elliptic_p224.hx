@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 function p224():stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve {

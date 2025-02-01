@@ -1,10 +1,10 @@
 package stdgo._internal.crypto.ecdh;
 import stdgo._internal.errors.Errors;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.encoding.binary.Binary;
 import stdgo._internal.math.bits.Bits;
 import stdgo._internal.crypto.subtle.Subtle;
 import stdgo._internal.crypto.internal.boring.Boring;
 import stdgo._internal.crypto.internal.randutil.Randutil;
 import stdgo._internal.io.Io;
-var _p521 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>> = (stdgo.Go.setRef(({ _name : ("P-521" : stdgo.GoString), _newPoint : _internal.crypto.internal.nistec.Nistec_newP521Point.newP521Point, _scalarOrder : stdgo._internal.crypto.ecdh.Ecdh__p521Order._p521Order } : stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>>);
+var _p521 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>> = (stdgo.Go.setRef(({ _name : ("P-521" : stdgo.GoString), _newPoint : stdgo._internal.crypto.internal.nistec.Nistec_newP521Point.newP521Point, _scalarOrder : stdgo._internal.crypto.ecdh.Ecdh__p521Order._p521Order } : stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P521Point.P521Point>>>);

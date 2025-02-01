@@ -18,14 +18,14 @@ import stdgo._internal.io.Io;
     public var _rowsi : stdgo._internal.database.sql.driver.Driver_Rows.Rows = (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows);
     public var _cancel : () -> Void = null;
     public var _closeStmt : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
-    public var _contextDone : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> = ({} : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>);
+    public var _contextDone : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error> = ({} : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>);
     public var _closemu : stdgo._internal.sync.Sync_RWMutex.RWMutex = ({} : stdgo._internal.sync.Sync_RWMutex.RWMutex);
     public var _closed : Bool = false;
     public var _lasterr : stdgo.Error = (null : stdgo.Error);
     public var _lastcols : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
     public var _closemuScanHold : Bool = false;
     public var _hitEOF : Bool = false;
-    public function new(?_dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:stdgo._internal.database.sql.driver.Driver_Rows.Rows, ?_cancel:() -> Void, ?_closeStmt:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, ?_contextDone:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) {
+    public function new(?_dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:stdgo._internal.database.sql.driver.Driver_Rows.Rows, ?_cancel:() -> Void, ?_closeStmt:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, ?_contextDone:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) {
         if (_dc != null) this._dc = _dc;
         if (_releaseConn != null) this._releaseConn = _releaseConn;
         if (_rowsi != null) this._rowsi = _rowsi;

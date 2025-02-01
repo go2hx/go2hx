@@ -1,6 +1,6 @@
 package stdgo._internal.internal.profile;
 import stdgo._internal.errors.Errors;
-import _internal.internal.lazyregexp.Lazyregexp;
+import stdgo._internal.internal.lazyregexp.Lazyregexp;
 import stdgo._internal.strings.Strings;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.bytes.Bytes;
@@ -17,10 +17,22 @@ import stdgo._internal.regexp.Regexp;
     public var _locationsByID : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>> = (null : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>);
     public var _functionsByID : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>> = (null : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>>);
     public var _mappingsByID : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.internal.profile.Profile_T_mapInfo.T_mapInfo> = (null : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.internal.profile.Profile_T_mapInfo.T_mapInfo>);
-    public var _samples : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>> = (null : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>>);
-    public var _locations : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>> = (null : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>);
-    public var _functions : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>> = (null : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>>);
-    public var _mappings : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>> = (null : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>>);
+    public var _samples : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>> = (({
+        final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>> = null;
+        cast x;
+    } : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>>));
+    public var _locations : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>> = (({
+        final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>> = null;
+        cast x;
+    } : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>));
+    public var _functions : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>> = (({
+        final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>> = null;
+        cast x;
+    } : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>>));
+    public var _mappings : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>> = (({
+        final x:stdgo.GoMap.GoObjectMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>> = null;
+        cast x;
+    } : stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>>));
     public function new(?_p:stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>, ?_locationsByID:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>, ?_functionsByID:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>>, ?_mappingsByID:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.internal.profile.Profile_T_mapInfo.T_mapInfo>, ?_samples:stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>>, ?_locations:stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_locationKey.T_locationKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>, ?_functions:stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_functionKey.T_functionKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>>, ?_mappings:stdgo.GoMap<stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey, stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>>) {
         if (_p != null) this._p = _p;
         if (_locationsByID != null) this._locationsByID = _locationsByID;

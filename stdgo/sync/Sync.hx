@@ -92,9 +92,9 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
         this._mu = v;
         return v;
     }
-    public var _read(get, set) : Pointer_<T_readOnly>;
-    function get__read():Pointer_<T_readOnly> return this._read;
-    function set__read(v:Pointer_<T_readOnly>):Pointer_<T_readOnly> {
+    public var _read(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_readOnly>;
+    function get__read():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_readOnly> return this._read;
+    function set__read(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_readOnly>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_readOnly> {
         this._read = v;
         return v;
     }
@@ -110,7 +110,7 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
         this._misses = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_mu:Mutex, ?_read:Pointer_<T_readOnly>, ?_dirty:stdgo.GoMap<stdgo.AnyInterface, stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>>, ?_misses:StdTypes.Int) this = new stdgo._internal.sync.Sync_Map_.Map_(_mu, _read, (_dirty : stdgo.GoMap<stdgo.AnyInterface, stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>>), (_misses : stdgo.GoInt));
+    public function new(?_mu:Mutex, ?_read:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_readOnly>, ?_dirty:stdgo.GoMap<stdgo.AnyInterface, stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>>, ?_misses:StdTypes.Int) this = new stdgo._internal.sync.Sync_Map_.Map_(_mu, _read, (_dirty : stdgo.GoMap<stdgo.AnyInterface, stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>>), (_misses : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -132,13 +132,13 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.Sync.T_entry_static_extension) abstract T_entry(stdgo._internal.sync.Sync_T_entry.T_entry) from stdgo._internal.sync.Sync_T_entry.T_entry to stdgo._internal.sync.Sync_T_entry.T_entry {
-    public var _p(get, set) : Pointer_<stdgo.AnyInterface>;
-    function get__p():Pointer_<stdgo.AnyInterface> return this._p;
-    function set__p(v:Pointer_<stdgo.AnyInterface>):Pointer_<stdgo.AnyInterface> {
+    public var _p(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.AnyInterface>;
+    function get__p():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.AnyInterface> return this._p;
+    function set__p(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.AnyInterface>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.AnyInterface> {
         this._p = v;
         return v;
     }
-    public function new(?_p:Pointer_<stdgo.AnyInterface>) this = new stdgo._internal.sync.Sync_T_entry.T_entry(_p);
+    public function new(?_p:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.AnyInterface>) this = new stdgo._internal.sync.Sync_T_entry.T_entry(_p);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -379,19 +379,19 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
         this._readerSem = (v : stdgo.GoUInt32);
         return v;
     }
-    public var _readerCount(get, set) : Int32;
-    function get__readerCount():Int32 return this._readerCount;
-    function set__readerCount(v:Int32):Int32 {
+    public var _readerCount(get, set) : _internal.sync.atomic_.Atomic__Int32.Int32;
+    function get__readerCount():_internal.sync.atomic_.Atomic__Int32.Int32 return this._readerCount;
+    function set__readerCount(v:_internal.sync.atomic_.Atomic__Int32.Int32):_internal.sync.atomic_.Atomic__Int32.Int32 {
         this._readerCount = v;
         return v;
     }
-    public var _readerWait(get, set) : Int32;
-    function get__readerWait():Int32 return this._readerWait;
-    function set__readerWait(v:Int32):Int32 {
+    public var _readerWait(get, set) : _internal.sync.atomic_.Atomic__Int32.Int32;
+    function get__readerWait():_internal.sync.atomic_.Atomic__Int32.Int32 return this._readerWait;
+    function set__readerWait(v:_internal.sync.atomic_.Atomic__Int32.Int32):_internal.sync.atomic_.Atomic__Int32.Int32 {
         this._readerWait = v;
         return v;
     }
-    public function new(?_w:Mutex, ?_writerSem:std.UInt, ?_readerSem:std.UInt, ?_readerCount:Int32, ?_readerWait:Int32, ?mutex) this = new stdgo._internal.sync.Sync_RWMutex.RWMutex(_w, (_writerSem : stdgo.GoUInt32), (_readerSem : stdgo.GoUInt32), _readerCount, _readerWait, mutex);
+    public function new(?_w:Mutex, ?_writerSem:std.UInt, ?_readerSem:std.UInt, ?_readerCount:_internal.sync.atomic_.Atomic__Int32.Int32, ?_readerWait:_internal.sync.atomic_.Atomic__Int32.Int32, ?mutex) this = new stdgo._internal.sync.Sync_RWMutex.RWMutex(_w, (_writerSem : stdgo.GoUInt32), (_readerSem : stdgo.GoUInt32), _readerCount, _readerWait, mutex);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -402,9 +402,9 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
         this._noCopy = v;
         return v;
     }
-    public var _state(get, set) : Uint64;
-    function get__state():Uint64 return this._state;
-    function set__state(v:Uint64):Uint64 {
+    public var _state(get, set) : _internal.sync.atomic_.Atomic__Uint64.Uint64;
+    function get__state():_internal.sync.atomic_.Atomic__Uint64.Uint64 return this._state;
+    function set__state(v:_internal.sync.atomic_.Atomic__Uint64.Uint64):_internal.sync.atomic_.Atomic__Uint64.Uint64 {
         this._state = v;
         return v;
     }
@@ -414,7 +414,7 @@ typedef Locker = stdgo._internal.sync.Sync_Locker.Locker;
         this._sema = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?_noCopy:T_noCopy, ?_state:Uint64, ?_sema:std.UInt, ?lock, ?counter:std.UInt) this = new stdgo._internal.sync.Sync_WaitGroup.WaitGroup(_noCopy, _state, (_sema : stdgo.GoUInt32), lock, (counter : stdgo.GoUInt));
+    public function new(?_noCopy:T_noCopy, ?_state:_internal.sync.atomic_.Atomic__Uint64.Uint64, ?_sema:std.UInt, ?lock, ?counter:std.UInt) this = new stdgo._internal.sync.Sync_WaitGroup.WaitGroup(_noCopy, _state, (_sema : stdgo.GoUInt32), lock, (counter : stdgo.GoUInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

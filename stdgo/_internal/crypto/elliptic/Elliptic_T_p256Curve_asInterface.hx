@@ -1,14 +1,14 @@
 package stdgo._internal.crypto.elliptic;
-import _internal.crypto.internal.nistec.Nistec;
+import stdgo._internal.crypto.internal.nistec.Nistec;
 import stdgo._internal.io.Io;
 import stdgo._internal.errors.Errors;
 class T_p256Curve_asInterface {
     @:embedded
     @:embeddededffieldsffun
-    public dynamic function _pointToAffine(_0:stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_0 __self__.value._pointToAffine(_0);
+    public dynamic function _pointToAffine(_0:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return @:_0 __self__.value._pointToAffine(_0);
     @:embedded
     @:embeddededffieldsffun
-    public dynamic function _pointFromAffine(_0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:_0 __self__.value._pointFromAffine(_0, _1);
+    public dynamic function _pointFromAffine(_0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P256Point.P256Point>; var _1 : stdgo.Error; } return @:_0 __self__.value._pointFromAffine(_0, _1);
     @:embedded
     @:embeddededffieldsffun
     public dynamic function _normalizeScalar(_0:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._normalizeScalar(_0);

@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.internal.boring;
-import _internal.crypto.internal.boring.sig.Sig;
+import stdgo._internal.crypto.internal.boring.sig.Sig;
 @:structInit @:using(stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDSA_static_extension.PublicKeyECDSA_static_extension) class PublicKeyECDSA {
     @:optional
     public var __1 : stdgo.GoInt = 0;

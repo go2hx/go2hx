@@ -216,9 +216,9 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._handle = (v : stdgo.GoUIntptr);
         return v;
     }
-    public var _isdone(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__isdone():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isdone;
-    function set__isdone(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _isdone(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__isdone():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isdone;
+    function set__isdone(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._isdone = v;
         return v;
     }
@@ -228,7 +228,7 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._sigMu = v;
         return v;
     }
-    public function new(?pid:StdTypes.Int, ?_handle:stdgo.GoUIntptr, ?_isdone:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_sigMu:stdgo._internal.sync.Sync_RWMutex.RWMutex) this = new stdgo._internal.os.Os_Process.Process((pid : stdgo.GoInt), (_handle : stdgo.GoUIntptr), _isdone, _sigMu);
+    public function new(?pid:StdTypes.Int, ?_handle:stdgo.GoUIntptr, ?_isdone:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_sigMu:stdgo._internal.sync.Sync_RWMutex.RWMutex) this = new stdgo._internal.os.Os_Process.Process((pid : stdgo.GoInt), (_handle : stdgo.GoUIntptr), _isdone, _sigMu);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

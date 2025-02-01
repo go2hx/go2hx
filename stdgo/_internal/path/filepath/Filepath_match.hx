@@ -8,15 +8,15 @@ import stdgo._internal.sort.Sort;
 function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var _matched = false, _err = (null : stdgo.Error);
         var _err_3943359:stdgo.Error = (null : stdgo.Error);
-        var _chunk_3942655:stdgo.GoString = ("" : stdgo.GoString);
         var _star_3942639:Bool = false;
         var patternBreak = false;
         var _ok_3943355:Bool = false;
         var _t_3943352:stdgo.GoString = ("" : stdgo.GoString);
         var _i_3943295:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3942910:stdgo.Error = (null : stdgo.Error);
         var _ok_3942906:Bool = false;
         var _t_3942903:stdgo.GoString = ("" : stdgo.GoString);
+        var _chunk_3942655:stdgo.GoString = ("" : stdgo.GoString);
+        var _err_3942910:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

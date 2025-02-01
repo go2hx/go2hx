@@ -1,0 +1,56 @@
+package stdgo._internal.runtime.coverage;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.os.Os;
+import stdgo._internal.crypto.md5.Md5;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.internal.coverage.encodemeta.Encodemeta;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.internal.coverage.Coverage;
+import stdgo._internal.internal.coverage.pods.Pods;
+import stdgo._internal.internal.coverage.cformat.Cformat;
+import stdgo._internal.strings.Strings;
+import stdgo._internal.path.filepath.Filepath;
+import stdgo._internal.time.Time;
+import stdgo._internal.internal.coverage.encodecounter.Encodecounter;
+import stdgo._internal.internal.coverage.decodemeta.Decodemeta;
+import stdgo._internal.internal.coverage.decodecounter.Decodecounter;
+import stdgo._internal.encoding.json.Json;
+function _emitCounterDataToDirectory(_outdir:stdgo.GoString):stdgo.Error {
+        var _cl = stdgo._internal.runtime.coverage.Coverage__getCovCounterList._getCovCounterList();
+        if ((_cl.length) == ((0 : stdgo.GoInt))) {
+            return (null : stdgo.Error);
+        };
+        if (!stdgo._internal.runtime.coverage.Coverage__finalHashComputed._finalHashComputed) {
+            return stdgo._internal.fmt.Fmt_errorf.errorf(("error: meta-data not available (binary not built with -cover?)" : stdgo.GoString));
+        };
+        var _pm = stdgo._internal.runtime.coverage.Coverage__getCovPkgMap._getCovPkgMap();
+        var _s = (stdgo.Go.setRef(({ _counterlist : _cl, _pkgmap : _pm, _outdir : _outdir?.__copy__(), _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != (stdgo.Go.str()) } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        {
+            var _err = (@:check2r _s._openOutputFiles(stdgo._internal.runtime.coverage.Coverage__finalHash._finalHash?.__copy__(), stdgo._internal.runtime.coverage.Coverage__finalMetaLen._finalMetaLen, (4 : stdgo._internal.runtime.coverage.Coverage_T_fileType.T_fileType)) : stdgo.Error);
+            if (_err != null) {
+                return _err;
+            };
+        };
+        if (((@:checkr _s ?? throw "null pointer dereference")._cf == null || ((@:checkr _s ?? throw "null pointer dereference")._cf : Dynamic).__nil__)) {
+            return stdgo._internal.fmt.Fmt_errorf.errorf(("counter data output file open failed (no additional info" : stdgo.GoString));
+        };
+        {
+            var _err = (@:check2r _s._emitCounterDataFile(stdgo._internal.runtime.coverage.Coverage__finalHash._finalHash?.__copy__(), stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._cf)) : stdgo.Error);
+            if (_err != null) {
+                return _err;
+            };
+        };
+        {
+            var _err = (@:check2r (@:checkr _s ?? throw "null pointer dereference")._cf.close() : stdgo.Error);
+            if (_err != null) {
+                return stdgo._internal.fmt.Fmt_errorf.errorf(("closing counter data file: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
+            };
+        };
+        {
+            var _err = (stdgo._internal.os.Os_rename.rename((@:checkr _s ?? throw "null pointer dereference")._cftmp?.__copy__(), (@:checkr _s ?? throw "null pointer dereference")._cfname?.__copy__()) : stdgo.Error);
+            if (_err != null) {
+                return stdgo._internal.fmt.Fmt_errorf.errorf(("writing %s: rename from %s failed: %v\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference")._cfname), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference")._cftmp), stdgo.Go.toInterface(_err));
+            };
+        };
+        return (null : stdgo.Error);
+    }

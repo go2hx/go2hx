@@ -1,6 +1,12 @@
-[30;41m ERROR [0m ./_internal/os_dot_test/Os_dot_test.hx:44: characters 75-80
+[30;41m ERROR [0m ./_internal/os_test/Os_test_testProgWideChdir.hx:75: characters 68-77
 
- 44 | [2m        } catch(__exception__) if (__exception__.message != "__return__") [0m[1mthrow[0m[2m __exception__;[0m
-    |                                                                           [31m^^^^^[0m
-    | Uncaught exception :os.getenv is not yet implemented
+ 75 | [2m                                        if (_done != null && _done.[0m[1m__isGet__[0m[2m()) {[0m
+    |                                                                    [31m^^^^^^^^^[0m
+    | stdgo.Chan<_internal.os_test.T__struct_4> has no field __isGet__
+
+[30;41m ERROR [0m ./_internal/os_test/Os_test_testProgWideChdir.hx:90: characters 75-84
+
+ 90 | [2m                                        } else if (_hold != null && _hold.[0m[1m__isGet__[0m[2m()) {[0m
+    |                                                                           [31m^^^^^^^^^[0m
+    | stdgo.Chan<_internal.os_test.T__struct_4> has no field __isGet__
 

@@ -1,16 +1,58 @@
+[30;41m ERROR [0m ./stdgo/_internal/io/Io_T_pipe_static_extension.hx:53: characters 148-157
+
+  53 | [2m                    if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                    [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/io/Io_T_pipe_static_extension.hx:96: characters 163-172
+
+  96 | [2m                            } else if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                                   [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/io/Io_T_pipe_static_extension.hx:214: characters 144-153
+
+ 214 | [2m                if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/io/Io_T_pipe_static_extension.hx:239: characters 148-157
+
+ 239 | [2m                    if ((@:checkr _p ?? throw "null pointer dereference")._wrCh != null && (@:checkr _p ?? throw "null pointer dereference")._wrCh.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                    [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/io/Io_T_pipe_static_extension.hx:254: characters 155-164
+
+ 254 | [2m                    } else if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                           [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __isGet__
+
+[30;41m ERROR [0m ./_internal/io_test/Io_test_testMultiReaderFreesExhaustedReaders.hx:40: characters 48-57
+
+  40 | [2m                if (_closed != null && _closed.[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                [31m^^^^^^^^^[0m
+     | stdgo.Chan<_internal.io_test.T_wantedAndErrReader> has no field __isGet__
+
+[30;41m ERROR [0m ./_internal/io_test/Io_test_testMultiReaderFreesExhaustedReaders.hx:46: characters 241-250
+
+  46 | [2m                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)).[0m[1m__isGet__[0m[2m()) {[0m
+     |                                                                                                                                                                                                                                                 [31m^^^^^^^^^[0m
+     | stdgo.Chan<stdgo._internal.time.Time> has no field __isGet__
+
 [30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe2.hx:18: characters 32-64
 
- 18 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_reader[0m[2m.reader(_t, stdgo.Go.asInterface(_r), _c));[0m
-    |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.io_test.Io_test_reader
+  18 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_reader[0m[2m.reader(_t, stdgo.Go.asInterface(_r), _c));[0m
+     |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.io_test.Io_test_reader
 
-        | For function argument 'func'
+         | For function argument 'func'
 
 [30;41m ERROR [0m ./_internal/io_test/Io_test_testPipe3.hx:26: characters 32-64
 
- 26 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_writer[0m[2m.writer(stdgo.Go.asInterface(_w), _wdat, _c));[0m
-    |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.io_test.Io_test_writer
+  26 | [2m        stdgo.Go.routine(() -> [0m[1m_internal.io_test.Io_test_writer[0m[2m.writer(stdgo.Go.asInterface(_w), _wdat, _c));[0m
+     |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.io_test.Io_test_writer
 
-        | For function argument 'func'
+         | For function argument 'func'
 

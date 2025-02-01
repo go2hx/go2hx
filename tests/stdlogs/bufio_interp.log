@@ -1,3 +1,15 @@
+[30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testZeroReader.hx:30: characters 38-47
+
+ 30 | [2m                if (_c != null && _c.[0m[1m__isGet__[0m[2m()) {[0m
+    |                                      [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo.Error> has no field __isGet__
+
+[30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testZeroReader.hx:42: characters 241-250
+
+ 42 | [2m                } else if (stdgo._internal.time.Time_after.after((1000000000i64 : stdgo._internal.time.Time_Duration.Duration)) != null && stdgo._internal.time.Time_after.after((1000000000i64 : stdgo._internal.time.Time_Duration.Duration)).[0m[1m__isGet__[0m[2m()) {[0m
+    |                                                                                                                                                                                                                                                 [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo._internal.time.Time> has no field __isGet__
+
 [30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testUnreadByteOthers.hx:17: characters 188-267
 
  17 | [2m        var _readers = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[[0m[1m_internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension[0m[2m.readBytes, _internal.bufio_test.Bufio_test_Reader_static_extension.Reader_static_extension.readSlice, function(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {[0m

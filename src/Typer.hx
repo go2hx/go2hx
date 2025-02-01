@@ -6,7 +6,7 @@ import sys.io.File;
 import Types;
 import Ast.BasicKind;
 
-final stdgoList:Array<String> = haxe.Json.parse(File.getContent("data/stdgo.json"));
+final stdgoList:Array<String> = File.getContent("data/stdgo.list").split("\n");
 final excludesList:Array<String> = haxe.Json.parse(File.getContent("data/excludes.json"));
 final exports:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExports.json"));
 final externs:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExterns.json"));
@@ -6946,9 +6946,23 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		return macro @:unknown_default_value null;
 	return switch type {
 		case mapType(_.get() => key, _.get() => value):
-			final key = toComplexType(key, info);
-			final value = toComplexType(value, info);
-			macro(null : stdgo.GoMap<$key, $value>);
+			final keyComplexType = toComplexType(key, info);
+			final valueComplexType = toComplexType(value, info);
+			final keyUnderlying = getUnderlying(key);
+			switch keyUnderlying {
+				case structType(_):
+					return macro(({
+						final x:stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType> = null;
+						// x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
+						// x.__defaultValue__ = () -> $defaultValueExpr;
+						// @:mergeBlock $b{exprs};
+						cast x;
+					} : stdgo.GoMap<$keyComplexType, $valueComplexType>)
+					);
+				default:
+					//trace(keyUnderlying);
+			}
+			macro(null : stdgo.GoMap<$keyComplexType, $valueComplexType>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
 			macro(null : stdgo.Slice<$t>);

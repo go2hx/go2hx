@@ -1,0 +1,24 @@
+[30;41m ERROR [0m ./stdgo/_internal/encoding/base64/Base64_testDecoderIssue3577.hx:30: characters 44-53
+
+ 30 | [2m                if (_errc != null && _errc.[0m[1m__isGet__[0m[2m()) {[0m
+    |                                            [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo.Error> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/base64/Base64_testDecoderIssue3577.hx:40: characters 241-250
+
+ 40 | [2m                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)).[0m[1m__isGet__[0m[2m()) {[0m
+    |                                                                                                                                                                                                                                                 [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo._internal.time.Time> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/base64/Base64_testDecoderIssue3577.hx:30: characters 44-53
+
+ 30 | [2m                if (_errc != null && _errc.[0m[1m__isGet__[0m[2m()) {[0m
+    |                                            [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo.Error> has no field __isGet__
+
+[30;41m ERROR [0m ./stdgo/_internal/encoding/base64/Base64_testDecoderIssue3577.hx:40: characters 241-250
+
+ 40 | [2m                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_Duration.Duration)).[0m[1m__isGet__[0m[2m()) {[0m
+    |                                                                                                                                                                                                                                                 [31m^^^^^^^^^[0m
+    | stdgo.Chan<stdgo._internal.time.Time> has no field __isGet__
+

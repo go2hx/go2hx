@@ -1,26 +1,26 @@
 === RUN  TestFuncPC
 ./stdgo/_internal/internal/abi/Abi_funcPCABI0.hx:4: funclit
 Exception: not implemented: funcPCABI0
-Called from .stdgo__$internal_internal_abi_Abi_$funcPCABI0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15808 column 23)
-Called from .stdgo__$internal_internal_abi_Abi_$funcPCTest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15798 column 9)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testFuncPC_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:15782:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 61535 column 9)
-Called from ._$internal_internal_abi_$dot_$test_Abi_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42939 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:78111:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:78112:3)
+Called from .stdgo__$internal_internal_abi_Abi_$funcPCABI0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15804 column 23)
+Called from .stdgo__$internal_internal_abi_Abi_$funcPCTest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15794 column 9)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testFuncPC_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:15778:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 61529 column 9)
+Called from ._$internal_internal_abi_$dot_$test_Abi_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42935 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:78105:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:78106:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
 Exception: :os.getenv is not yet implemented
-Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15998 column 23)
-Called from .stdgo__$internal_internal_testenv_Testenv_$mustHaveGoBuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15984 column 12)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testFuncPCCompileError_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:15877:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 61535 column 9)
-Called from ._$internal_internal_abi_$dot_$test_Abi_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42939 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:78111:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:78112:3)
+Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15994 column 23)
+Called from .stdgo__$internal_internal_testenv_Testenv_$mustHaveGoBuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 15980 column 12)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testFuncPCCompileError_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:15873:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 61529 column 9)
+Called from ._$internal_internal_abi_$dot_$test_Abi_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 42935 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:78105:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:78106:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestFuncPCCompileError

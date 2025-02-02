@@ -14,9 +14,9 @@ Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.
 Exception: Unexpected value #fun, expected instance
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testSprintf.Fmt_test_testSprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testSprintf.hx line 19 column 23)
-Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 14 column 19)
-Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 188 column 31)
-Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 843 column 22)
+Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
+Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 179 column 31)
+Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 834 column 22)
 Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 456 column 29)
 
 -- FAIL: TestSprintf
@@ -112,9 +112,9 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 Exception: array out of bounds, index: 0 length: 0
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testScanf.Fmt_test_testScanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testScanf.hx line 19 column 27)
-Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 15 column 77)
-Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 135 column 21)
+Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 6 column 77)
+Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 126 column 21)
 
 -- FAIL: TestScanf
 
@@ -157,8 +157,8 @@ Sscan <empty> expected error; got none
 Exception: Unexpected value 0, expected instance
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.fmt_test._Fmt_test_testScanNotPointer.Fmt_test_testScanNotPointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testScanNotPointer.hx line 20 column 23)
-Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 16 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 300 column 21)
+Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 291 column 21)
 
 -- FAIL: TestScanNotPointer
 

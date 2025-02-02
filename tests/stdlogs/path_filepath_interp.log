@@ -195,10 +195,10 @@ Called from _internal.path.filepath_test._Filepath_test_testAbsEmptyString.Filep
 Exception: :runtime.gOROOT is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testBug3486.Filepath_test_testBug3486_Fields_.testBug3486 (./_internal/path/filepath_test/Filepath_test_testBug3486.hx line 18 column 71)
-Called from stdgo._internal.internal.testenv._Testenv_gOROOT.Testenv_gOROOT_Fields_.gOROOT (./stdgo/_internal/internal/testenv/Testenv_gOROOT.hx line 18 column 23)
-Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.Testenv__findGOROOT_Fields_._findGOROOT (./stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 18 column 18)
-Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 87 column 9)
-Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 19 column 80)
+Called from stdgo._internal.internal.testenv._Testenv_gOROOT.Testenv_gOROOT_Fields_.gOROOT (./stdgo/_internal/internal/testenv/Testenv_gOROOT.hx line 3 column 23)
+Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.Testenv__findGOROOT_Fields_._findGOROOT (./stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 3 column 18)
+Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_Once_static_extension.hx line 83 column 9)
+Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 4 column 80)
 Called from stdgo._internal.runtime._Runtime_gOROOT.Runtime_gOROOT_Fields_.gOROOT (./stdgo/_internal/runtime/Runtime_gOROOT.hx line 2 column 34)
 
 -- FAIL: TestBug3486
@@ -236,7 +236,7 @@ Try 'chmod --help' for more information.
 
  8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
    |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Uncaught exception zaaam68tlb/a/bad: Permission denied
+   | Uncaught exception 1xdu98g2wb/a/bad: Permission denied
 
     11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
        |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m

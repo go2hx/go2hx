@@ -10,21 +10,21 @@
         |                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
-    [30;41m -> [0m ./stdgo/_internal/sort/Sort__insertionSort_func.hx:10: characters 64-102
+    [30;41m -> [0m ./stdgo/_internal/sort/Sort__insertionSort_func.hx:8: characters 64-102
 
-     10 | [2m                    while (((_j > _a : Bool) && _data.less(_j, [0m[1m(_j - (1 : stdgo.GoInt) : stdgo.GoInt)[0m[2m) : Bool)) {[0m
+      8 | [2m                    while (((_j > _a : Bool) && _data.less(_j, [0m[1m(_j - (1 : stdgo.GoInt) : stdgo.GoInt)[0m[2m) : Bool)) {[0m
         |                                                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
-    [30;41m -> [0m ./stdgo/_internal/sort/Sort__pdqsort_func.hx:11: characters 17-109
+    [30;41m -> [0m ./stdgo/_internal/sort/Sort__pdqsort_func.hx:9: characters 17-109
 
-     11 | [2m                [0m[1mstdgo._internal.sort.Sort__insertionSort_func._insertionSort_func(_data?.__copy__(), _a, _b)[0m[2m;[0m
+      9 | [2m                [0m[1mstdgo._internal.sort.Sort__insertionSort_func._insertionSort_func(_data?.__copy__(), _a, _b)[0m[2m;[0m
         |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
-    [30;41m -> [0m ./stdgo/_internal/sort/Sort_slice.hx:9: characters 9-217
+    [30;41m -> [0m ./stdgo/_internal/sort/Sort_slice.hx:7: characters 9-217
 
-      9 | [2m        [0m[1mstdgo._internal.sort.Sort__pdqsort_func._pdqsort_func((new stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap(_less, _swap) : stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap), (0 : stdgo.GoInt), _length, _limit)[0m[2m;[0m
+      7 | [2m        [0m[1mstdgo._internal.sort.Sort__pdqsort_func._pdqsort_func((new stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap(_less, _swap) : stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap), (0 : stdgo.GoInt), _length, _limit)[0m[2m;[0m
         |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 

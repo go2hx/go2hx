@@ -1,6 +1,6 @@
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/ast/Ast__summary.hx:51: characters 21-58
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/go/ast/Ast__summary.hx:44: characters 21-58
 
- 51 | [2m                    [0m[1mstdgo._internal.go.ast.Ast__loopBreak[0m[2m._loopBreak = true;[0m
+ 44 | [2m                    [0m[1mstdgo._internal.go.ast.Ast__loopBreak[0m[2m._loopBreak = true;[0m
     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : stdgo._internal.go.ast.Ast__loopBreak
 

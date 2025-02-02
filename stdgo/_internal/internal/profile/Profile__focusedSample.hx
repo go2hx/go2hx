@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 function _focusedSample(_s:stdgo.Ref<stdgo._internal.internal.profile.Profile_Sample.Sample>, _focus:stdgo._internal.internal.profile.Profile_TagMatch.TagMatch, _ignore:stdgo._internal.internal.profile.Profile_TagMatch.TagMatch):{ var _0 : Bool; var _1 : Bool; } {
         var _fm = false, _im = false;
         _fm = _focus == null;

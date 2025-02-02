@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 function testDecoderErr(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _tt in stdgo._internal.encoding.hex.Hex__errTests._errTests) {
             var _dec = (stdgo._internal.encoding.hex.Hex_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_tt._in?.__copy__()))) : stdgo._internal.io.Io_Reader.Reader);

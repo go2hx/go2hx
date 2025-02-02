@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension) class Timer {
     public var c : stdgo.Chan<stdgo._internal.time.Time_Time.Time> = (null : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
     public var _r : stdgo._internal.time.Time_T_runtimeTimer.T_runtimeTimer = ({} : stdgo._internal.time.Time_T_runtimeTimer.T_runtimeTimer);

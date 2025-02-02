@@ -1,10 +1,4 @@
 package stdgo._internal.testing.iotest;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.log.Log;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
 function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _msg = ("Hello, World!" : stdgo.GoString);
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);

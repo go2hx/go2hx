@@ -1,15 +1,4 @@
 package stdgo._internal.slices;
-import stdgo._internal.math.Math;
-import stdgo._internal.cmp.Cmp;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 function testBinarySearchFloats(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _data = (new stdgo.Slice<stdgo.GoFloat64>(4, 4, ...[stdgo._internal.math.Math_naN.naN(), (-0.25 : stdgo.GoFloat64), (0 : stdgo.GoFloat64), (1.4 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
         var _tests = (new stdgo.Slice<stdgo._internal.slices.Slices_T__struct_16.T__struct_16>(6, 6, ...[({ _target : stdgo._internal.math.Math_naN.naN(), _wantPos : (0 : stdgo.GoInt), _wantFound : true } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16), ({ _target : stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt)), _wantPos : (1 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16), ({ _target : (-0.25 : stdgo.GoFloat64), _wantPos : (1 : stdgo.GoInt), _wantFound : true } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16), ({ _target : (0 : stdgo.GoFloat64), _wantPos : (2 : stdgo.GoInt), _wantFound : true } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16), ({ _target : (1.4 : stdgo.GoFloat64), _wantPos : (3 : stdgo.GoInt), _wantFound : true } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16), ({ _target : (1.5 : stdgo.GoFloat64), _wantPos : (4 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _target : (0 : stdgo.GoFloat64), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_16.T__struct_16)])) : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_16.T__struct_16>);

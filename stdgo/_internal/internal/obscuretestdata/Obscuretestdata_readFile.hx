@@ -1,7 +1,4 @@
 package stdgo._internal.internal.obscuretestdata;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.base64.Base64;
 function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {

@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 var _theHuffmanSpec : stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec> = (new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec>(4, 4, ...[(new stdgo._internal.image.jpeg.Jpeg_T_huffmanSpec.T_huffmanSpec((new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),

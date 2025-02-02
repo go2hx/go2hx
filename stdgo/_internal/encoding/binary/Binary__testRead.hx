@@ -1,12 +1,4 @@
 package stdgo._internal.encoding.binary;
-import stdgo._internal.math.Math;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unsafe.Unsafe;
 function _testRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _order:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, _b:stdgo.Slice<stdgo.GoUInt8>, _s1:stdgo.AnyInterface):Void {
         var _s2:stdgo._internal.encoding.binary.Binary_Struct.Struct = ({} : stdgo._internal.encoding.binary.Binary_Struct.Struct);
         var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b)), _order, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Struct.Struct>)))) : stdgo.Error);

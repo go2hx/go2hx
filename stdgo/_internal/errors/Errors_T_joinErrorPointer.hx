@@ -1,3 +1,2 @@
 package stdgo._internal.errors;
-import stdgo._internal.internal.reflectlite.Reflectlite;
 @:keep @:follow @:using(stdgo._internal.errors.Errors_T_joinError_static_extension.T_joinError_static_extension) typedef T_joinErrorPointer = stdgo.Pointer<stdgo._internal.errors.Errors_T_joinError.T_joinError>;

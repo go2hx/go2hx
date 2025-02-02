@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 @:keep @:allow(stdgo._internal.internal.dag.Dag.Graph_asInterface) class Graph_static_extension {
     @:keep
     @:tdfield

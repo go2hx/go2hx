@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 function newSectionReader(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _off:stdgo.GoInt64, _n:stdgo.GoInt64):stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> {
         var _remaining:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {};

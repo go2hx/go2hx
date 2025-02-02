@@ -1,14 +1,4 @@
 package stdgo._internal.internal.coverage.encodemeta;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.internal.coverage.Coverage;
 function newCoverageMetaDataBuilder(_pkgpath:stdgo.GoString, _pkgname:stdgo.GoString, _modulepath:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder.CoverageMetaDataBuilder>; var _1 : stdgo.Error; } {
         if (_pkgpath == (stdgo.Go.str())) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid empty package path" : stdgo.GoString)) };

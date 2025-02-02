@@ -1,8 +1,4 @@
 package stdgo._internal.database.sql.driver;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 @:keep class Result_static_extension {
     @:interfacetypeffun
     static public function rowsAffected(t:stdgo._internal.database.sql.driver.Driver_Result.Result):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } return t.rowsAffected();

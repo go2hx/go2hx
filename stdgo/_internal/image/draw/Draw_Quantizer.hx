@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 @:interface typedef Quantizer = stdgo.StructType & {
     /**
         Quantize appends up to cap(p) - len(p) colors to p and returns the

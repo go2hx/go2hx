@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _o:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_Options.Options>):stdgo.Error {
         var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
         if (((_b.dx() >= (65536 : stdgo.GoInt) : Bool) || (_b.dy() >= (65536 : stdgo.GoInt) : Bool) : Bool)) {

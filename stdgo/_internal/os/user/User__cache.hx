@@ -1,10 +1,2 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 var _cache : stdgo._internal.os.user.User_T__struct_0.T__struct_0 = ({ once : ({} : stdgo._internal.sync.Sync_Once.Once), _u : (null : stdgo.Ref<stdgo._internal.os.user.User_User.User>), _err : (null : stdgo.Error) } : stdgo._internal.os.user.User_T__struct_0.T__struct_0);

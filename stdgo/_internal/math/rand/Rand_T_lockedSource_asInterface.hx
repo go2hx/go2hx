@@ -1,6 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.math.Math;
 class T_lockedSource_asInterface {
     @:keep
     @:tdfield

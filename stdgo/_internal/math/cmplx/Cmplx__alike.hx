@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function _alike(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool {
         if (((_a != _a) && (_b != _b) : Bool)) {
             return true;

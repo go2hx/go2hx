@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _multiplier in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (128 : stdgo.GoInt), (192 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             for (__1 => _test in stdgo._internal.encoding.hex.Hex__encDecTests._encDecTests) {

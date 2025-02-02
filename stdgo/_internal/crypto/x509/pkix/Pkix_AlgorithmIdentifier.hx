@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509.pkix;
-import stdgo._internal.encoding.asn1.Asn1;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier_static_extension.AlgorithmIdentifier_static_extension) class AlgorithmIdentifier {
     public var algorithm : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier(0, 0);
     @:tag("`asn1:\"optional\"`")

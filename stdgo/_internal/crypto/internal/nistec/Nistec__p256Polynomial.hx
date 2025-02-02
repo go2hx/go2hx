@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 function _p256Polynomial(_y2:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>, _x:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>):stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element> {
         @:check2r _y2.square(_x);
         @:check2r _y2.mul(_y2, _x);

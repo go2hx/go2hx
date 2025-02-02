@@ -1,11 +1,4 @@
 package stdgo._internal.net.http.cookiejar;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.time.Time;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.net.http.internal.ascii.Ascii;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
 function new_(_o:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Options.Options>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>; var _1 : stdgo.Error; } {
         var _jar = (stdgo.Go.setRef(({ _entries : (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>();

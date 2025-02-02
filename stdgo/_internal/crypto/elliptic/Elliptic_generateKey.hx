@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _rand:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _3 : stdgo.Error; } {
         var _priv = (null : stdgo.Slice<stdgo.GoUInt8>), _x = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _err = (null : stdgo.Error);
         var n = _curve.params().n;

@@ -1,20 +1,4 @@
 package stdgo._internal.html.template;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.text.template.parse.Parse;
-import stdgo._internal.html.Html;
-import stdgo._internal.text.template.Template;
-import stdgo._internal.encoding.json.Json;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
 function _nextJSCtx(_s:stdgo.Slice<stdgo.GoUInt8>, _preceding:stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx):stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx {
         _s = stdgo._internal.bytes.Bytes_trimRight.trimRight(_s, ("\x0C\n\r\t\x0B \u00a0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000\ufeff" : stdgo.GoString));
         if ((_s.length) == ((0 : stdgo.GoInt))) {

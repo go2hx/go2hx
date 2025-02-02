@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.internal.nistec.fiat;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.errors.Errors;
 function _p224InvertEndianness(_v:stdgo.Slice<stdgo.GoUInt8>):Void {
         {
             var _i = (0 : stdgo.GoInt);

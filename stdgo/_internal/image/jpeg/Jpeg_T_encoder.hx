@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 @:structInit @:using(stdgo._internal.image.jpeg.Jpeg_T_encoder_static_extension.T_encoder_static_extension) class T_encoder {
     public var _w : stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer = (null : stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer);
     public var _err : stdgo.Error = (null : stdgo.Error);

@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.bigmod;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unsafe.Unsafe;
 class T_choice_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

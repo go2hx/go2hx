@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 var _isNotPrint16 : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(133, 133, ...[
 (173 : stdgo.GoUInt16),
 (907 : stdgo.GoUInt16),

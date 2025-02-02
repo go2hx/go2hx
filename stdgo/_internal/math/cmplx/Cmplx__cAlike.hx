@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function _cAlike(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool {
         var __0:Bool = false, __1:Bool = false;
 var _imagAlike = __1, _realAlike = __0;

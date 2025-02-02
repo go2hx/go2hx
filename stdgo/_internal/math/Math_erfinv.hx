@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function erfinv(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (((stdgo._internal.math.Math_isNaN.isNaN(_x) || (_x <= (-1 : stdgo.GoFloat64) : Bool) : Bool) || (_x >= (1 : stdgo.GoFloat64) : Bool) : Bool)) {
             if (((_x == (-1 : stdgo.GoFloat64)) || (_x == (1 : stdgo.GoFloat64)) : Bool)) {

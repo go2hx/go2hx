@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.md5;
-import stdgo._internal.crypto.Crypto;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
         var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._s[(3 : stdgo.GoInt)] : stdgo.GoUInt32);
 var _d = __3, _c = __2, _b = __1, _a = __0;

@@ -1,12 +1,4 @@
 package stdgo._internal.internal.xcoff;
-import stdgo._internal.os.Os;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.debug.dwarf.Dwarf;
 function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Archive.Archive>; var _1 : stdgo.Error; } {
         var _parseDecimalBytes = function(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
             return stdgo._internal.strconv.Strconv_parseInt.parseInt(stdgo._internal.strings.Strings_trimSpace.trimSpace((_b : stdgo.GoString)?.__copy__())?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));

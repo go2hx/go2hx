@@ -1,7 +1,4 @@
 package stdgo._internal.embed;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
 @:keep @:allow(stdgo._internal.embed.Embed.FS_asInterface) class FS_static_extension {
     @:keep
     @:tdfield

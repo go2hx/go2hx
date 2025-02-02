@@ -1,7 +1,4 @@
 package stdgo._internal.hash.adler32;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function _checksum(_p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32 {
         var __0 = ((1u32 : stdgo.GoUInt32) : stdgo.GoUInt32), __1 = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
 var _s2 = __1, _s1 = __0;

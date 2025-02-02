@@ -1,10 +1,4 @@
 package stdgo._internal.regexp.syntax;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
 function testAppendRangeCollapse(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _r:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         {

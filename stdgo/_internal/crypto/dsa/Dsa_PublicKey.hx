@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.dsa;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.crypto.internal.randutil.Randutil;
 @:structInit @:using(stdgo._internal.crypto.dsa.Dsa_PublicKey_static_extension.PublicKey_static_extension) class PublicKey {
     @:embedded
     public var parameters : stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters = ({} : stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters);

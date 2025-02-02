@@ -1,10 +1,4 @@
 package stdgo._internal.debug.plan9obj;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.os.Os;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.fmt.Fmt;
 function _walksymtab(_data:stdgo.Slice<stdgo.GoUInt8>, _ptrsz:stdgo.GoInt, _fn:stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym -> stdgo.Error):stdgo.Error {
         var _order:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian);
         var _s:stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym = ({} : stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym);

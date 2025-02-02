@@ -1,5 +1,4 @@
 package stdgo._internal.internal.sysinfo;
-import stdgo._internal.internal.cpu.Cpu;
 @:structInit @:using(stdgo._internal.internal.sysinfo.Sysinfo_T_cpuInfo_static_extension.T_cpuInfo_static_extension) class T_cpuInfo {
     public var _once : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);
     public var _name : stdgo.GoString = "";

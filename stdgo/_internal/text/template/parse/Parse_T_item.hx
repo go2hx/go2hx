@@ -1,10 +1,4 @@
 package stdgo._internal.text.template.parse;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.text.template.parse.Parse_T_item_static_extension.T_item_static_extension) class T_item {
     public var _typ : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType = ((0 : stdgo.GoInt) : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType);
     public var _pos : stdgo._internal.text.template.parse.Parse_Pos.Pos = ((0 : stdgo.GoInt) : stdgo._internal.text.template.parse.Parse_Pos.Pos);

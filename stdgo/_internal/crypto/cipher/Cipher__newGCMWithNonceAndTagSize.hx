@@ -1,10 +1,4 @@
 package stdgo._internal.crypto.cipher;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.io.Io;
 function _newGCMWithNonceAndTagSize(_cipher:stdgo._internal.crypto.cipher.Cipher_Block.Block, _nonceSize:stdgo.GoInt, _tagSize:stdgo.GoInt):{ var _0 : stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD; var _1 : stdgo.Error; } {
         if (((_tagSize < (12 : stdgo.GoInt) : Bool) || (_tagSize > (16 : stdgo.GoInt) : Bool) : Bool)) {
             return { _0 : (null : stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD), _1 : stdgo._internal.errors.Errors_new_.new_(("cipher: incorrect tag size given to GCM" : stdgo.GoString)) };

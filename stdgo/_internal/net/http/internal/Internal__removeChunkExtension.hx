@@ -1,9 +1,4 @@
 package stdgo._internal.net.http.internal;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
 function _removeChunkExtension(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         {
             var __tmp__ = stdgo._internal.bytes.Bytes_cut.cut(_p, stdgo._internal.net.http.internal.Internal__semi._semi);

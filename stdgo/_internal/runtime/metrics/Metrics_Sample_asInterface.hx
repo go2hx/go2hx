@@ -1,6 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.internal.godebugs.Godebugs;
-import stdgo._internal.math.Math;
 class Sample_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

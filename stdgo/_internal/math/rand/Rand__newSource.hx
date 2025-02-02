@@ -1,6 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.math.Math;
 function _newSource(_seed:stdgo.GoInt64):stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource> {
         var _rng:stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource = ({} : stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource);
         @:check2 _rng.seed(_seed);

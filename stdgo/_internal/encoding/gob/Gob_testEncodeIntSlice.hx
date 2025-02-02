@@ -1,25 +1,4 @@
 package stdgo._internal.encoding.gob;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.time.Time;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.io.Io;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.Math;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.os.Os;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.encoding.binary.Binary;
 function testEncodeIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _s8 = (new stdgo.Slice<stdgo.GoInt8>(9, 9, ...[(1 : stdgo.GoInt8), (5 : stdgo.GoInt8), (12 : stdgo.GoInt8), (22 : stdgo.GoInt8), (35 : stdgo.GoInt8), (51 : stdgo.GoInt8), (70 : stdgo.GoInt8), (92 : stdgo.GoInt8), (117 : stdgo.GoInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt8>);
         var _s16 = (new stdgo.Slice<stdgo.GoInt16>(9, 9, ...[(145 : stdgo.GoInt16), (176 : stdgo.GoInt16), (210 : stdgo.GoInt16), (247 : stdgo.GoInt16), (287 : stdgo.GoInt16), (330 : stdgo.GoInt16), (376 : stdgo.GoInt16), (425 : stdgo.GoInt16), (477 : stdgo.GoInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt16>);

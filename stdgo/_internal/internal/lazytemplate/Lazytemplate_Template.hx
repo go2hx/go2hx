@@ -1,7 +1,4 @@
 package stdgo._internal.internal.lazytemplate;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.text.template.Template;
 @:structInit @:using(stdgo._internal.internal.lazytemplate.Lazytemplate_Template_static_extension.Template_static_extension) class Template {
     public var _name : stdgo.GoString = "";
     public var _text : stdgo.GoString = "";

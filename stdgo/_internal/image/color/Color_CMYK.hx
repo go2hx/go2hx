@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_CMYK_static_extension.CMYK_static_extension) class CMYK {
     public var c : stdgo.GoUInt8 = 0;
     public var m : stdgo.GoUInt8 = 0;

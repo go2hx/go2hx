@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function _skip(_value:stdgo.GoString, _prefix:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         while (((_prefix.length) > (0 : stdgo.GoInt) : Bool)) {
             if (_prefix[(0 : stdgo.GoInt)] == ((32 : stdgo.GoUInt8))) {

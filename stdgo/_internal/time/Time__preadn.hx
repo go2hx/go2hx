@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function _preadn(_fd:stdgo.GoUIntptr, _buf:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt):stdgo.Error {
         var _whence = (0 : stdgo.GoInt);
         if ((_off < (0 : stdgo.GoInt) : Bool)) {

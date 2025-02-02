@@ -1,10 +1,4 @@
 package stdgo._internal.net.url;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _validEncoded(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encoding.T_encoding):Bool {
         {
             var _i = (0 : stdgo.GoInt);

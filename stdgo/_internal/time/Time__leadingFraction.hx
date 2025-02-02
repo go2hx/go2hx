@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function _leadingFraction(_s:stdgo.GoString):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; var _2 : stdgo.GoString; } {
         var _x = (0 : stdgo.GoUInt64), _scale = (0 : stdgo.GoFloat64), _rem = ("" : stdgo.GoString);
         var _i = (0 : stdgo.GoInt);

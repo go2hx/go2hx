@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 function testDumper_earlyclose(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _out:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         var _dumper = (stdgo._internal.encoding.hex.Hex_dumper.dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);

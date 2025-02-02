@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 function drawMask(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _mask:stdgo._internal.image.Image_Image.Image, _mp:stdgo._internal.image.Image_Point.Point, _op:stdgo._internal.image.draw.Draw_Op.Op):Void {
         stdgo._internal.image.draw.Draw__clip._clip(_dst, (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.image.Image_Rectangle.Rectangle>), _src, (stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.image.Image_Point.Point>), _mask, (stdgo.Go.setRef(_mp) : stdgo.Ref<stdgo._internal.image.Image_Point.Point>));
         if (_r.empty()) {

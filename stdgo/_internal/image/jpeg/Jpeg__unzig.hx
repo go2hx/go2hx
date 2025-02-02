@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 var _unzig : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(64, 64, ...[
 (0 : stdgo.GoInt),
 (1 : stdgo.GoInt),

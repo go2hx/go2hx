@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.cmerge;
-import stdgo._internal.fmt.Fmt;
 function saturatingAdd(_dst:stdgo.GoUInt32, _src:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : Bool; } {
         var __0 = (_dst : stdgo.GoUInt64), __1 = (_src : stdgo.GoUInt64);
 var _s = __1, _d = __0;

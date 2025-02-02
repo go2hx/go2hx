@@ -1,9 +1,4 @@
 package stdgo._internal.testing.slogtest;
-import stdgo._internal.log.slog.Slog;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.runtime.Runtime;
 function _inGroup(_name:stdgo.GoString, _c:stdgo._internal.testing.slogtest.Slogtest_T_check.T_check):stdgo._internal.testing.slogtest.Slogtest_T_check.T_check {
         return function(_m:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoString {
             var __tmp__ = (_m != null && _m.exists(_name?.__copy__()) ? { _0 : _m[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.AnyInterface), _1 : false }), _v:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;

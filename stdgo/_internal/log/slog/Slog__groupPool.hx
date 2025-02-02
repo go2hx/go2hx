@@ -1,22 +1,4 @@
 package stdgo._internal.log.slog;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.json.Json;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.log.Log;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.math.Math;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.log.slog.internal.buffer.Buffer;
-import stdgo._internal.slices.Slices;
-import stdgo._internal.log.slog.internal.Internal;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
 var _groupPool : stdgo._internal.sync.Sync_Pool.Pool = ({ new_ : function():stdgo.AnyInterface {
         var _s = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>);
         return stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Slice<stdgo.GoString>>));

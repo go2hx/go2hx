@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 class T__struct_0Pointer_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

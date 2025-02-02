@@ -1,13 +1,4 @@
 package stdgo._internal.internal.coverage.decodemeta;
-import stdgo._internal.internal.coverage.slicereader.Slicereader;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.internal.coverage.stringtab.Stringtab;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.internal.coverage.Coverage;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.internal.coverage.decodemeta.Decodemeta_CoverageMetaDataDecoder_static_extension.CoverageMetaDataDecoder_static_extension) class CoverageMetaDataDecoder {
     public var _r : stdgo.Ref<stdgo._internal.internal.coverage.slicereader.Slicereader_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.internal.coverage.slicereader.Slicereader_Reader.Reader>);
     public var _hdr : stdgo._internal.internal.coverage.Coverage_MetaSymbolHeader.MetaSymbolHeader = ({} : stdgo._internal.internal.coverage.Coverage_MetaSymbolHeader.MetaSymbolHeader);

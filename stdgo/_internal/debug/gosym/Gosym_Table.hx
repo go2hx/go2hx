@@ -1,10 +1,4 @@
 package stdgo._internal.debug.gosym;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.debug.gosym.Gosym_Table_static_extension.Table_static_extension) class Table {
     public var syms : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
     public var funcs : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);

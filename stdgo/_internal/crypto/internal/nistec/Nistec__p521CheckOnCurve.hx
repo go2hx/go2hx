@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 function _p521CheckOnCurve(_x:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>, _y:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>):stdgo.Error {
         var _rhs = stdgo._internal.crypto.internal.nistec.Nistec__p521Polynomial._p521Polynomial((stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>), _x);
         var _lhs = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>).square(_y);

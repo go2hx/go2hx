@@ -1,10 +1,4 @@
 package stdgo._internal.testing.iotest;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.log.Log;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
 @:keep @:allow(stdgo._internal.testing.iotest.Iotest.T_smallByteReader_asInterface) class T_smallByteReader_static_extension {
     @:keep
     @:tdfield

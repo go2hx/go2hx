@@ -1,6 +1,4 @@
 package stdgo._internal.hash.maphash;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.math.bits.Bits;
 @:structInit @:using(stdgo._internal.hash.maphash.Maphash_Seed_static_extension.Seed_static_extension) class Seed {
     public var _s : stdgo.GoUInt64 = 0;
     public function new(?_s:stdgo.GoUInt64) {

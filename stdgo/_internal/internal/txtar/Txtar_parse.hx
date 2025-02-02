@@ -1,8 +1,4 @@
 package stdgo._internal.internal.txtar;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
 function parse(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.internal.txtar.Txtar_Archive.Archive> {
         var _a = (stdgo.Go.setRef(({} : stdgo._internal.internal.txtar.Txtar_Archive.Archive)) : stdgo.Ref<stdgo._internal.internal.txtar.Txtar_Archive.Archive>);
         var _name:stdgo.GoString = ("" : stdgo.GoString);

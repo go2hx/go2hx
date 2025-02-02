@@ -1,5 +1,4 @@
 package stdgo._internal.plugin;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.plugin.Plugin_Plugin_static_extension.Plugin_static_extension) class Plugin {
     public var _pluginpath : stdgo.GoString = "";
     public var _err : stdgo.GoString = "";

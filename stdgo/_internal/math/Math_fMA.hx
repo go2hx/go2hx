@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function fMA(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64, _z:stdgo.GoFloat64):stdgo.GoFloat64 {
         var __0 = (stdgo._internal.math.Math_float64bits.float64bits(_x) : stdgo.GoUInt64), __1 = (stdgo._internal.math.Math_float64bits.float64bits(_y) : stdgo.GoUInt64), __2 = (stdgo._internal.math.Math_float64bits.float64bits(_z) : stdgo.GoUInt64);
 var _bz = __2, _by = __1, _bx = __0;

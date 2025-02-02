@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 @:structInit @:using(stdgo._internal.internal.profile.Profile_T_profileMerger_static_extension.T_profileMerger_static_extension) class T_profileMerger {
     public var _p : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile> = (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>);
     public var _locationsByID : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>> = (null : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>);

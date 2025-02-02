@@ -1,10 +1,4 @@
 package stdgo._internal.strings;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function cutSuffix(_s:stdgo.GoString, _suffix:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; } {
         var _before = ("" : stdgo.GoString), _found = false;
         if (!stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_s?.__copy__(), _suffix?.__copy__())) {

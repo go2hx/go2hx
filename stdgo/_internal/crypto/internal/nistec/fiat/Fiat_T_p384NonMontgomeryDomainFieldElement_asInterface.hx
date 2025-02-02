@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.internal.nistec.fiat;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.errors.Errors;
 class T_p384NonMontgomeryDomainFieldElement_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

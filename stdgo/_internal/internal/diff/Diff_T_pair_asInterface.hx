@@ -1,8 +1,4 @@
 package stdgo._internal.internal.diff;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 class T_pair_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

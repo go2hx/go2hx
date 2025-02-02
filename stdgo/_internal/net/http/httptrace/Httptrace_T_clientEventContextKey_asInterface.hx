@@ -1,6 +1,4 @@
 package stdgo._internal.net.http.httptrace;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
 class T_clientEventContextKey_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

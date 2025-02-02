@@ -1,20 +1,4 @@
 package stdgo._internal.regexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.regexp.syntax.Syntax;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.bzip2.Bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
 function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.Prog>):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } {
         var _prefix = ("" : stdgo.GoString), _complete = false, _pc = (0 : stdgo.GoUInt32);
         var _i = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>);

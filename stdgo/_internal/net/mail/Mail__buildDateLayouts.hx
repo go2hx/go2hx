@@ -1,13 +1,4 @@
 package stdgo._internal.net.mail;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.net.textproto.Textproto;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.log.Log;
 function _buildDateLayouts():Void {
         var _dows = (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[stdgo.Go.str()?.__copy__(), ("Mon, " : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__();
         var _days = (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("2" : stdgo.GoString), ("02" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__();

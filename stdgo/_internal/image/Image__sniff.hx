@@ -1,12 +1,4 @@
 package stdgo._internal.image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.strconv.Strconv;
 function _sniff(_r:stdgo._internal.image.Image_T_reader.T_reader):stdgo._internal.image.Image_T_format.T_format {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((@:check2 stdgo._internal.image.Image__atomicFormats._atomicFormats.load() : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>)) : stdgo.Slice<stdgo._internal.image.Image_T_format.T_format>), _1 : true };

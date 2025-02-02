@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 function _fiatScalarFromBytes(_out1:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>, _arg1:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>):Void {
         var _x1 = (((_arg1[(31 : stdgo.GoInt)] : stdgo.GoUInt64) << (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
         var _x2 = (((_arg1[(30 : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);

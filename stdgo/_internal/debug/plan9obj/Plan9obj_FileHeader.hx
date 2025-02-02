@@ -1,10 +1,4 @@
 package stdgo._internal.debug.plan9obj;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.os.Os;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.debug.plan9obj.Plan9obj_FileHeader_static_extension.FileHeader_static_extension) class FileHeader {
     public var magic : stdgo.GoUInt32 = 0;
     public var bss : stdgo.GoUInt32 = 0;

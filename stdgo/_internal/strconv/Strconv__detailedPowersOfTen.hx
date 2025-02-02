@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>(696, 696, ...[
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(1671618768450675795i64 : stdgo.GoUInt64), (-391859759250406776i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(1044761730281672372i64 : stdgo.GoUInt64), (-7162441377172586091i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),

@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function _tzruleTime(_year:stdgo.GoInt, _r:stdgo._internal.time.Time_T_rule.T_rule, _off:stdgo.GoInt):stdgo.GoInt {
         var _s:stdgo.GoInt = (0 : stdgo.GoInt);
         {

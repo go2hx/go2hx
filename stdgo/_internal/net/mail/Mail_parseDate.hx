@@ -1,13 +1,4 @@
 package stdgo._internal.net.mail;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.net.textproto.Textproto;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.log.Log;
 function parseDate(_date:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
         @:check2 stdgo._internal.net.mail.Mail__dateLayoutsBuildOnce._dateLayoutsBuildOnce.do_(stdgo._internal.net.mail.Mail__buildDateLayouts._buildDateLayouts);
         _date = stdgo._internal.strings.Strings_replaceAll.replaceAll(_date?.__copy__(), ("\r\n" : stdgo.GoString), stdgo.Go.str()?.__copy__())?.__copy__();

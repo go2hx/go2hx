@@ -1,6 +1,4 @@
 package stdgo._internal.html;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
 function unescapeString(_s:stdgo.GoString):stdgo.GoString {
         @:check2 stdgo._internal.html.Html__populateMapsOnce._populateMapsOnce.do_(stdgo._internal.html.Html__populateMaps._populateMaps);
         var _i = (stdgo._internal.strings.Strings_indexByte.indexByte(_s?.__copy__(), (38 : stdgo.GoUInt8)) : stdgo.GoInt);

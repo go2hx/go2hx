@@ -1,12 +1,4 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._internal.os.user.User_T_lineFunc.T_lineFunc, _readCols:stdgo.GoInt):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         var _v = (null : stdgo.AnyInterface), _err = (null : stdgo.Error);
         var _rd = stdgo._internal.bufio.Bufio_newReader.newReader(_r);

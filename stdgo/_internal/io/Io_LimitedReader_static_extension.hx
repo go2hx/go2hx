@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.io.Io.LimitedReader_asInterface) class LimitedReader_static_extension {
     @:keep
     @:tdfield

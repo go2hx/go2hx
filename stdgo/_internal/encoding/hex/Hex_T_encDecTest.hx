@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.encoding.hex.Hex_T_encDecTest_static_extension.T_encDecTest_static_extension) class T_encDecTest {
     public var _enc : stdgo.GoString = "";
     public var _dec : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

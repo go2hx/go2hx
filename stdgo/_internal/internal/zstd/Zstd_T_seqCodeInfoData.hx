@@ -1,9 +1,4 @@
 package stdgo._internal.internal.zstd;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.internal.zstd.Zstd_T_seqCodeInfoData_static_extension.T_seqCodeInfoData_static_extension) class T_seqCodeInfoData {
     public var _predefTable : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry> = (null : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry>);
     public var _predefTableBits : stdgo.GoInt = 0;

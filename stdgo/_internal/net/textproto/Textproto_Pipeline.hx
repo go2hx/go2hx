@@ -1,12 +1,4 @@
 package stdgo._internal.net.textproto;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.net.textproto.Textproto_Pipeline_static_extension.Pipeline_static_extension) class Pipeline {
     public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _id : stdgo.GoUInt = 0;

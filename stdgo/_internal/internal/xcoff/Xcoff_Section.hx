@@ -1,12 +1,4 @@
 package stdgo._internal.internal.xcoff;
-import stdgo._internal.os.Os;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.debug.dwarf.Dwarf;
 @:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_Section_static_extension.Section_static_extension) class Section {
     @:embedded
     public var sectionHeader : stdgo._internal.internal.xcoff.Xcoff_SectionHeader.SectionHeader = ({} : stdgo._internal.internal.xcoff.Xcoff_SectionHeader.SectionHeader);

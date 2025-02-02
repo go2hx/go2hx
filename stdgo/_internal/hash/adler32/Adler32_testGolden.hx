@@ -1,7 +1,4 @@
 package stdgo._internal.hash.adler32;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function testGolden(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _g in stdgo._internal.hash.adler32.Adler32__golden._golden) {
             var _in = (_g._in?.__copy__() : stdgo.GoString);

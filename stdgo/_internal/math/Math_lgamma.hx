@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function lgamma(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; } {
         var _lgamma = (0 : stdgo.GoFloat64), _sign = (0 : stdgo.GoInt);
         {};

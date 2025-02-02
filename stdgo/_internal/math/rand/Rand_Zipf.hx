@@ -1,6 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.math.rand.Rand_Zipf_static_extension.Zipf_static_extension) class Zipf {
     public var _r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
     public var _imax : stdgo.GoFloat64 = 0;

@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 var _scalarMinusOneBytes : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
 (236 : stdgo.GoUInt8),
 (211 : stdgo.GoUInt8),

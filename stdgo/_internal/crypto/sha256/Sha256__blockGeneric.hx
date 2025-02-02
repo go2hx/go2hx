@@ -1,9 +1,4 @@
 package stdgo._internal.crypto.sha256;
-import stdgo._internal.crypto.Crypto;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
         var _w:stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(64, 64).__setNumber32__();
         var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] : stdgo.GoUInt32), __4 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] : stdgo.GoUInt32), __5 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(5 : stdgo.GoInt)] : stdgo.GoUInt32), __6 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(6 : stdgo.GoInt)] : stdgo.GoUInt32), __7 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(7 : stdgo.GoInt)] : stdgo.GoUInt32);

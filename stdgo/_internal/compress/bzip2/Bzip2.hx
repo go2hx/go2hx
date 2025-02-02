@@ -1,11 +1,4 @@
 package stdgo._internal.compress.bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.os.Os;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.compress.bzip2.Bzip2__digits._digits, __tmp__1 = stdgo._internal.compress.bzip2.Bzip2__newton._newton, __tmp__2 = stdgo._internal.compress.bzip2.Bzip2__random._random;

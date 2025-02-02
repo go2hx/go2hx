@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function round(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         var _bits = (stdgo._internal.math.Math_float64bits.float64bits(_x) : stdgo.GoUInt64);
         var _e = (((_bits >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt) & (2047u32 : stdgo.GoUInt) : stdgo.GoUInt);

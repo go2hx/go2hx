@@ -1,13 +1,2 @@
 package stdgo._internal.slices;
-import stdgo._internal.math.Math;
-import stdgo._internal.cmp.Cmp;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 var _equalFloatTests : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_1.T__struct_1> = (new stdgo.Slice<stdgo._internal.slices.Slices_T__struct_1.T__struct_1>(2, 2, ...[({ _s1 : (new stdgo.Slice<stdgo.GoFloat64>(2, 2, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>), _s2 : (new stdgo.Slice<stdgo.GoFloat64>(2, 2, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>), _wantEqual : true, _wantEqualNaN : true } : stdgo._internal.slices.Slices_T__struct_1.T__struct_1), ({ _s1 : (new stdgo.Slice<stdgo.GoFloat64>(3, 3, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64), stdgo._internal.math.Math_naN.naN()]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>), _s2 : (new stdgo.Slice<stdgo.GoFloat64>(3, 3, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64), stdgo._internal.math.Math_naN.naN()]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>), _wantEqual : false, _wantEqualNaN : true } : stdgo._internal.slices.Slices_T__struct_1.T__struct_1)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _s1 : (null : stdgo.Slice<stdgo.GoFloat64>), _s2 : (null : stdgo.Slice<stdgo.GoFloat64>), _wantEqual : false, _wantEqualNaN : false } : stdgo._internal.slices.Slices_T__struct_1.T__struct_1)])) : stdgo.Slice<stdgo._internal.slices.Slices_T__struct_1.T__struct_1>);

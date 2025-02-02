@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension) class T_rulesParser {
     public var _lineno : stdgo.GoInt = 0;
     public var _lastWord : stdgo.GoString = "";

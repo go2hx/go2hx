@@ -1,7 +1,4 @@
 package stdgo._internal.path;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
 function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } {
         var _rest = ("" : stdgo.GoString), _ok = false, _err = (null : stdgo.Error);
         var _failed = (false : Bool);

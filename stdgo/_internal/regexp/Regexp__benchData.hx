@@ -1,18 +1,2 @@
 package stdgo._internal.regexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.regexp.syntax.Syntax;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.bzip2.Bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
 var _benchData : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2> = (new stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2>(6, 6, ...[({ _name : ("Easy0" : stdgo.GoString), _re : ("ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Easy0i" : stdgo.GoString), _re : ("(?i)ABCDEFGHIJklmnopqrstuvwxyz$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Easy1" : stdgo.GoString), _re : ("A[AB]B[BC]C[CD]D[DE]E[EF]F[FG]G[GH]H[HI]I[IJ]J$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Medium" : stdgo.GoString), _re : ("[XYZ]ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Hard" : stdgo.GoString), _re : ("[ -~]*ABCDEFGHIJKLMNOPQRSTUVWXYZ$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Hard1" : stdgo.GoString), _re : ("ABCD|CDEF|EFGH|GHIJ|IJKL|KLMN|MNOP|OPQR|QRST|STUV|UVWX|WXYZ" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _re : ("" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2)])) : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2>);

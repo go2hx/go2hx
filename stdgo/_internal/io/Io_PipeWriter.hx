@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_PipeWriter_static_extension.PipeWriter_static_extension) class PipeWriter {
     public var _p : stdgo.Ref<stdgo._internal.io.Io_T_pipe.T_pipe> = (null : stdgo.Ref<stdgo._internal.io.Io_T_pipe.T_pipe>);
     public function new(?_p:stdgo.Ref<stdgo._internal.io.Io_T_pipe.T_pipe>) {

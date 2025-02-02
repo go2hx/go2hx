@@ -1,10 +1,4 @@
 package stdgo._internal.text.scanner;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.unicode.Unicode;
 function testNumbers(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__0 => _test in (new stdgo.Slice<stdgo._internal.text.scanner.Scanner_T__struct_0.T__struct_0>(95, 95, ...[
 ({ _tok : (-3 : stdgo.GoInt32), _src : ("0b0" : stdgo.GoString), _tokens : ("0b0" : stdgo.GoString), _err : stdgo.Go.str()?.__copy__() } : stdgo._internal.text.scanner.Scanner_T__struct_0.T__struct_0),

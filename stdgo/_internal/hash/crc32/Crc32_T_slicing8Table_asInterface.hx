@@ -1,5 +1,4 @@
 package stdgo._internal.hash.crc32;
-import stdgo._internal.errors.Errors;
 class T_slicing8Table_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

@@ -1,15 +1,4 @@
 package stdgo._internal.slices;
-import stdgo._internal.math.Math;
-import stdgo._internal.cmp.Cmp;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 function benchmarkBinarySearchFuncStruct(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         for (__0 => _size in (new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(16 : stdgo.GoInt), (32 : stdgo.GoInt), (64 : stdgo.GoInt), (128 : stdgo.GoInt), (512 : stdgo.GoInt), (1024 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             @:check2r _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("Size%d" : stdgo.GoString), stdgo.Go.toInterface(_size))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {

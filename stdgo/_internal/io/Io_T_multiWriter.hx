@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_T_multiWriter_static_extension.T_multiWriter_static_extension) class T_multiWriter {
     public var _writers : stdgo.Slice<stdgo._internal.io.Io_Writer.Writer> = (null : stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>);
     public function new(?_writers:stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>) {

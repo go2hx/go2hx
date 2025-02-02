@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 function _nrgbaModel(_c:stdgo._internal.image.color.Color_Color.Color):stdgo._internal.image.color.Color_Color.Color {
         {
             var __tmp__ = try {

@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 function _typeString(_sotype:stdgo.GoInt):stdgo.GoString {
         var _s:stdgo.GoString = ("" : stdgo.GoString);
         {

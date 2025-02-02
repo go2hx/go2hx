@@ -1,9 +1,4 @@
 package stdgo._internal.internal.zstd;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
 class T_seqCodeInfoData_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

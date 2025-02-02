@@ -1,8 +1,4 @@
 package stdgo._internal.internal.goroot;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.os.Os;
-import stdgo._internal.os.exec.Exec;
-import stdgo._internal.strings.Strings;
 @:structInit @:using(stdgo._internal.internal.goroot.Goroot_T_gccgoDirs_static_extension.T_gccgoDirs_static_extension) class T_gccgoDirs {
     public var _once : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);
     public var _dirs : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

@@ -1,12 +1,4 @@
 package stdgo._internal.encoding.binary;
-import stdgo._internal.math.Math;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.encoding.binary.Binary_BlankFieldsProbe_static_extension.BlankFieldsProbe_static_extension) class BlankFieldsProbe {
     public var a : stdgo.GoUInt32 = 0;
     public var p0 : stdgo.GoInt32 = 0;

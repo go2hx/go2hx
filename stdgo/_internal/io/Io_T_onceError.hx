@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_T_onceError_static_extension.T_onceError_static_extension) class T_onceError {
     @:embedded
     public var mutex : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);

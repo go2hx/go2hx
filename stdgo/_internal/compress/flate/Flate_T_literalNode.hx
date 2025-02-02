@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.compress.flate.Flate_T_literalNode_static_extension.T_literalNode_static_extension) class T_literalNode {
     public var _literal : stdgo.GoUInt16 = 0;
     public var _freq : stdgo.GoInt32 = 0;

@@ -1,10 +1,4 @@
 package stdgo._internal.net.url;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _validUserinfo(_s:stdgo.GoString):Bool {
         for (__0 => _r in _s) {
             if ((((65 : stdgo.GoInt32) <= _r : Bool) && (_r <= (90 : stdgo.GoInt32) : Bool) : Bool)) {

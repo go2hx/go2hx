@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {

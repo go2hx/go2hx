@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension) class Graph {
     public var nodes : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var _byLabel : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 function _writeVarint(_buf:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.GoInt {
         {
             var _i = (0 : stdgo.GoInt);

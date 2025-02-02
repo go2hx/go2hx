@@ -1,10 +1,4 @@
 package stdgo._internal.text.scanner;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.unicode.Unicode;
 function testScanSelectedMask(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__testScanSelectedMode._testScanSelectedMode(_t, (0u32 : stdgo.GoUInt), (0 : stdgo.GoInt32));
         stdgo._internal.text.scanner.Scanner__testScanSelectedMode._testScanSelectedMode(_t, (4u32 : stdgo.GoUInt), (-2 : stdgo.GoInt32));

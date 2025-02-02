@@ -1,15 +1,4 @@
 package stdgo._internal.slices;
-import stdgo._internal.math.Math;
-import stdgo._internal.cmp.Cmp;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 function testClip(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _s1 = ((new stdgo.Slice<stdgo.GoInt>(6, 6, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>).__slice__(0, (3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
         var _orig = stdgo._internal.slices.Slices_clone.clone(_s1);

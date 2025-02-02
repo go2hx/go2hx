@@ -1,9 +1,4 @@
 package stdgo._internal.net.rpc.jsonrpc;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.json.Json;
-import stdgo._internal.net.rpc.Rpc;
-import stdgo._internal.net.Net;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_clientCodec_static_extension.T_clientCodec_static_extension) class T_clientCodec {
     public var _dec : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder> = (null : stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>);
     public var _enc : stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder> = (null : stdgo.Ref<stdgo._internal.encoding.json.Json_Encoder.Encoder>);

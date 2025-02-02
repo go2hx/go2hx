@@ -1,10 +1,4 @@
 package stdgo._internal.strings;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
         var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);

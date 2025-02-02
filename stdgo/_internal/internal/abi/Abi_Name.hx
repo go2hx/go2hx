@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_Name_static_extension.Name_static_extension) class Name {
     public var bytes : stdgo.Pointer<stdgo.GoUInt8> = (null : stdgo.Pointer<stdgo.GoUInt8>);
     public function new(?bytes:stdgo.Pointer<stdgo.GoUInt8>) {

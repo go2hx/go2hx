@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function sincos(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } {
         var _sin = (0 : stdgo.GoFloat64), _cos = (0 : stdgo.GoFloat64);
         {};

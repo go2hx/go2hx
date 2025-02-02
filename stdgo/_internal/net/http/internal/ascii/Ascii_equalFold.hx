@@ -1,5 +1,4 @@
 package stdgo._internal.net.http.internal.ascii;
-import stdgo._internal.strings.Strings;
 function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool {
         if ((_s.length) != ((_t.length))) {
             return false;

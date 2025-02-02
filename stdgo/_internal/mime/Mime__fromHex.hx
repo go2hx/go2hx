@@ -1,15 +1,4 @@
 package stdgo._internal.mime;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.os.Os;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 function _fromHex(_b:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         if (((_b >= (48 : stdgo.GoUInt8) : Bool) && (_b <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
             return { _0 : (_b - (48 : stdgo.GoUInt8) : stdgo.GoUInt8), _1 : (null : stdgo.Error) };

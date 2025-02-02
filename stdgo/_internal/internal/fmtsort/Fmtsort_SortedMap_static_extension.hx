@@ -1,6 +1,4 @@
 package stdgo._internal.internal.fmtsort;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.reflect.Reflect;
 @:keep @:allow(stdgo._internal.internal.fmtsort.Fmtsort.SortedMap_asInterface) class SortedMap_static_extension {
     @:keep
     @:tdfield

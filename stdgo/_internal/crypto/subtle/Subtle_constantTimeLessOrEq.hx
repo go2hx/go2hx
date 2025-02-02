@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.subtle;
-import stdgo._internal.unsafe.Unsafe;
 function constantTimeLessOrEq(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         var _x32 = (_x : stdgo.GoInt32);
         var _y32 = (_y : stdgo.GoInt32);

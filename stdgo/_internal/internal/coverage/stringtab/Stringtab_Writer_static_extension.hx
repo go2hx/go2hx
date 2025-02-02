@@ -1,6 +1,4 @@
 package stdgo._internal.internal.coverage.stringtab;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.internal.coverage.stringtab.Stringtab.Writer_asInterface) class Writer_static_extension {
     @:keep
     @:tdfield

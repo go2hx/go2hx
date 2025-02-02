@@ -1,15 +1,4 @@
 package stdgo._internal.debug.pe;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
-import stdgo._internal.strconv.Strconv;
 function _readOptionalHeader(_r:stdgo._internal.io.Io_ReadSeeker.ReadSeeker, _sz:stdgo.GoUInt16):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         if (_sz == ((0 : stdgo.GoUInt16))) {
             return { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };

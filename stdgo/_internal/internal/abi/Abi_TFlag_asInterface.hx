@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 class TFlag_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

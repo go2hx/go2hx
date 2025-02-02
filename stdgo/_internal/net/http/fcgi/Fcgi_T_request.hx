@@ -1,16 +1,4 @@
 package stdgo._internal.net.http.fcgi;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.net.Net;
-import stdgo._internal.os.Os;
-import stdgo._internal.net.http.Http;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.net.http.cgi.Cgi;
-import stdgo._internal.context.Context;
 @:structInit @:using(stdgo._internal.net.http.fcgi.Fcgi_T_request_static_extension.T_request_static_extension) class T_request {
     public var _pw : stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter> = (null : stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter>);
     public var _reqId : stdgo.GoUInt16 = 0;

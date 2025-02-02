@@ -1,6 +1,4 @@
 package stdgo._internal.internal.coverage.stringtab;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.internal.coverage.stringtab.Stringtab_Writer_static_extension.Writer_static_extension) class Writer {
     public var _stab : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>);
     public var _strs : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

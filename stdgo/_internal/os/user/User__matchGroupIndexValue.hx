@@ -1,12 +1,4 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._internal.os.user.User_T_lineFunc.T_lineFunc {
         var _leadColon:stdgo.GoString = ("" : stdgo.GoString);
         if ((_idx > (0 : stdgo.GoInt) : Bool)) {

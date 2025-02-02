@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:interface typedef Closer = stdgo.StructType & {
     /**
         

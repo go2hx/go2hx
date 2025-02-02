@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
         if (((_name == stdgo.Go.str()) || (_name == ("UTC" : stdgo.GoString)) : Bool)) {
             return { _0 : stdgo._internal.time.Time_uTC.uTC, _1 : (null : stdgo.Error) };

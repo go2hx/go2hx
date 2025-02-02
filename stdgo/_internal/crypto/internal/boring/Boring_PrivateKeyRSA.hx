@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.internal.boring;
-import stdgo._internal.crypto.internal.boring.sig.Sig;
 @:structInit @:using(stdgo._internal.crypto.internal.boring.Boring_PrivateKeyRSA_static_extension.PrivateKeyRSA_static_extension) class PrivateKeyRSA {
     @:optional
     public var __4 : stdgo.GoInt = 0;

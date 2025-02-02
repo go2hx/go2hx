@@ -1,8 +1,4 @@
 package stdgo._internal.internal.goroot;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.os.Os;
-import stdgo._internal.os.exec.Exec;
-import stdgo._internal.strings.Strings;
 function isStandardPackage(_goroot:stdgo.GoString, _compiler:stdgo.GoString, _path:stdgo.GoString):Bool {
         {
             final __value__ = _compiler;

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.slicewriter;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.internal.coverage.slicewriter.Slicewriter_WriteSeeker_static_extension.WriteSeeker_static_extension) class WriteSeeker {
     public var _payload : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _off : stdgo.GoInt64 = 0;

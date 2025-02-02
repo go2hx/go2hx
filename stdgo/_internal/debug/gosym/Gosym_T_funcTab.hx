@@ -1,10 +1,4 @@
 package stdgo._internal.debug.gosym;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.debug.gosym.Gosym_T_funcTab_static_extension.T_funcTab_static_extension) class T_funcTab {
     @:embedded
     public var lineTable : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>);

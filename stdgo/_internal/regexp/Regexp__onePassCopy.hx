@@ -1,20 +1,4 @@
 package stdgo._internal.regexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.regexp.syntax.Syntax;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.bzip2.Bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
 function _onePassCopy(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.Prog>):stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T_onePassProg> {
         var _p = (stdgo.Go.setRef(({ start : (@:checkr _prog ?? throw "null pointer dereference").start, numCap : (@:checkr _prog ?? throw "null pointer dereference").numCap, inst : (new stdgo.Slice<stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst>(((@:checkr _prog ?? throw "null pointer dereference").inst.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((@:checkr _prog ?? throw "null pointer dereference").inst.length : stdgo.GoInt).toBasic() > 0 ? ((@:checkr _prog ?? throw "null pointer dereference").inst.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst)]) : stdgo.Slice<stdgo._internal.regexp.Regexp_T_onePassInst.T_onePassInst>) } : stdgo._internal.regexp.Regexp_T_onePassProg.T_onePassProg)) : stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T_onePassProg>);
         for (_i => _inst in (@:checkr _prog ?? throw "null pointer dereference").inst) {

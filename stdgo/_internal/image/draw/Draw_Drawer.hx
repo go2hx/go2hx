@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 @:interface typedef Drawer = stdgo.StructType & {
     /**
         Draw aligns r.Min in dst with sp in src and then replaces the

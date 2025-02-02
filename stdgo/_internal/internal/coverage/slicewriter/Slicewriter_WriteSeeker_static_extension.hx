@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.slicewriter;
-import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.internal.coverage.slicewriter.Slicewriter.WriteSeeker_asInterface) class WriteSeeker_static_extension {
     @:keep
     @:tdfield

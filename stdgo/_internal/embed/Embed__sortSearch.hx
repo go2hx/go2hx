@@ -1,7 +1,4 @@
 package stdgo._internal.embed;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
 function _sortSearch(_n:stdgo.GoInt, _f:stdgo.GoInt -> Bool):stdgo.GoInt {
         var __0 = (0 : stdgo.GoInt), __1 = (_n : stdgo.GoInt);
 var _j = __1, _i = __0;

@@ -1,15 +1,4 @@
 package stdgo._internal.debug.pe;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
-import stdgo._internal.strconv.Strconv;
 function _readRelocs(_sh:stdgo.Ref<stdgo._internal.debug.pe.Pe_SectionHeader.SectionHeader>, _r:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):{ var _0 : stdgo.Slice<stdgo._internal.debug.pe.Pe_Reloc.Reloc>; var _1 : stdgo.Error; } {
         if (((@:checkr _sh ?? throw "null pointer dereference").numberOfRelocations <= (0 : stdgo.GoUInt16) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_Reloc.Reloc>), _1 : (null : stdgo.Error) };

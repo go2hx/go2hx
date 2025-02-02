@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 function _protocolString(_proto:stdgo.GoInt):stdgo.GoString {
         {
             final __value__ = _proto;

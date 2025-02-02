@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509.pkix;
-import stdgo._internal.encoding.asn1.Asn1;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.fmt.Fmt;
 class AlgorithmIdentifier_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 var _isPrint32 : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(508, 508, ...[
 (65536u32 : stdgo.GoUInt32),
 (65613u32 : stdgo.GoUInt32),

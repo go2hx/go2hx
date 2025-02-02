@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 function _parseContentionSample(_line:stdgo.GoString, _period:stdgo.GoInt64, _cpuHz:stdgo.GoInt64):{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } {
         var _value = (null : stdgo.Slice<stdgo.GoInt64>), _addrs = (null : stdgo.Slice<stdgo.GoUInt64>), _err = (null : stdgo.Error);
         var _sampleData = @:check2r stdgo._internal.internal.profile.Profile__contentionSampleRE._contentionSampleRE.findStringSubmatch(_line?.__copy__());

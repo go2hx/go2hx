@@ -1,12 +1,4 @@
 package stdgo._internal.net.textproto;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
 function _parseCodeLine(_line:stdgo.GoString, _expectCode:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } {
         var _code = (0 : stdgo.GoInt), _continued = false, _message = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         if ((((_line.length) < (4 : stdgo.GoInt) : Bool) || (_line[(3 : stdgo.GoInt)] != ((32 : stdgo.GoUInt8)) && _line[(3 : stdgo.GoInt)] != ((45 : stdgo.GoUInt8)) : Bool) : Bool)) {

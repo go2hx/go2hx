@@ -1,15 +1,4 @@
 package stdgo._internal.crypto.rsa;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.crypto.internal.boring.bbig.Bbig;
-import stdgo._internal.crypto.internal.bigmod.Bigmod;
-import stdgo._internal.math.Math;
-import stdgo._internal.crypto.rand.Rand;
 function signPSS(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>, _hash:stdgo._internal.crypto.Crypto_Hash.Hash, _digest:stdgo.Slice<stdgo.GoUInt8>, _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PSSOptions.PSSOptions>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         if ((false && (stdgo.Go.toInterface(_rand) == stdgo.Go.toInterface(stdgo.Go.asInterface((0 : stdgo._internal.crypto.internal.boring.Boring_T_randReader.T_randReader)))) : Bool)) {
             var __tmp__ = stdgo._internal.crypto.rsa.Rsa__boringPrivateKey._boringPrivateKey(_priv), _bkey:stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PrivateKeyRSA.PrivateKeyRSA> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

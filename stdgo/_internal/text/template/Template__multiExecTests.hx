@@ -1,20 +1,4 @@
 package stdgo._internal.text.template;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.net.url.Url;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.path.Path;
-import stdgo._internal.internal.fmtsort.Fmtsort;
 var _multiExecTests : stdgo.Slice<stdgo._internal.text.template.Template_T_execTest.T_execTest> = (new stdgo.Slice<stdgo._internal.text.template.Template_T_execTest.T_execTest>(11, 11, ...[
 (new stdgo._internal.text.template.Template_T_execTest.T_execTest(("empty" : stdgo.GoString), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (null : stdgo.AnyInterface), true) : stdgo._internal.text.template.Template_T_execTest.T_execTest),
 (new stdgo._internal.text.template.Template_T_execTest.T_execTest(("text" : stdgo.GoString), ("some text" : stdgo.GoString), ("some text" : stdgo.GoString), (null : stdgo.AnyInterface), true) : stdgo._internal.text.template.Template_T_execTest.T_execTest),

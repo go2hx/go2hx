@@ -1,13 +1,4 @@
 package stdgo._internal.internal.pkgbits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.go.constant.Constant;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder_static_extension.PkgDecoder_static_extension) class PkgDecoder {
     public var _version : stdgo.GoUInt32 = 0;
     public var _sync : Bool = false;

@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 function _rightShift(_a:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>, _k:stdgo.GoUInt):Void {
         var _r = (0 : stdgo.GoInt);
         var _w = (0 : stdgo.GoInt);

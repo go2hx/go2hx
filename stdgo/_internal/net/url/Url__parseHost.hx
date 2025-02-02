@@ -1,10 +1,4 @@
 package stdgo._internal.net.url;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _parseHost(_host:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_host?.__copy__(), ("[" : stdgo.GoString))) {
             var _i = (stdgo._internal.strings.Strings_lastIndex.lastIndex(_host?.__copy__(), ("]" : stdgo.GoString)) : stdgo.GoInt);

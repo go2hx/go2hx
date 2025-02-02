@@ -1,18 +1,2 @@
 package stdgo._internal.text.template;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.net.url.Url;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.path.Path;
-import stdgo._internal.internal.fmtsort.Fmtsort;
 var _templateFileExecTests : stdgo.Slice<stdgo._internal.text.template.Template_T_execTest.T_execTest> = (new stdgo.Slice<stdgo._internal.text.template.Template_T_execTest.T_execTest>(1, 1, ...[(new stdgo._internal.text.template.Template_T_execTest.T_execTest(("test" : stdgo.GoString), ("{{template \"tmpl1.tmpl\"}}{{template \"tmpl2.tmpl\"}}" : stdgo.GoString), ("template1\n\ny\ntemplate2\n\nx\n" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)), true) : stdgo._internal.text.template.Template_T_execTest.T_execTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_T_execTest.T_execTest)])) : stdgo.Slice<stdgo._internal.text.template.Template_T_execTest.T_execTest>);

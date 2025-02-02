@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.abi.Abi.RegArgs_asInterface) class RegArgs_static_extension {
     @:keep
     @:tdfield

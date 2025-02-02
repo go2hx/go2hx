@@ -1,6 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.internal.godebugs.Godebugs;
-import stdgo._internal.math.Math;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.runtime.metrics.Metrics__allDesc._allDesc;

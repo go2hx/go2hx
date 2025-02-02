@@ -1,8 +1,4 @@
 package stdgo._internal.internal.diff;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName:stdgo.GoString, _new:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         if (stdgo._internal.bytes.Bytes_equal.equal(_old, _new)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);

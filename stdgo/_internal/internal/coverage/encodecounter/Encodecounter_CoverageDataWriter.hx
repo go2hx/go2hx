@@ -1,11 +1,4 @@
 package stdgo._internal.internal.coverage.encodecounter;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.internal.coverage.Coverage;
 @:structInit @:using(stdgo._internal.internal.coverage.encodecounter.Encodecounter_CoverageDataWriter_static_extension.CoverageDataWriter_static_extension) class CoverageDataWriter {
     public var _stab : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer> = (null : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer>);
     public var _w : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);

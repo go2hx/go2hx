@@ -1,15 +1,4 @@
 package stdgo._internal.debug.pe;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
-import stdgo._internal.strconv.Strconv;
 function _removeAuxSymbols(_allsyms:stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>, _st:stdgo._internal.debug.pe.Pe_StringTable.StringTable):{ var _0 : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>; var _1 : stdgo.Error; } {
         if ((_allsyms.length) == ((0 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>), _1 : (null : stdgo.Error) };

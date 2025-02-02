@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 function _clip(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo.Ref<stdgo._internal.image.Image_Rectangle.Rectangle>, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo.Ref<stdgo._internal.image.Image_Point.Point>, _mask:stdgo._internal.image.Image_Image.Image, _mp:stdgo.Ref<stdgo._internal.image.Image_Point.Point>):Void {
         var _orig = ((@:checkr _r ?? throw "null pointer dereference").min?.__copy__() : stdgo._internal.image.Image_Point.Point);
         {

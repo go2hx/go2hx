@@ -1,13 +1,4 @@
 package stdgo._internal.log;
-import stdgo._internal.os.Os;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.runtime.Runtime;
 function testFlagAndPrefixSetting(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("Test:" : stdgo.GoString), (3 : stdgo.GoInt));

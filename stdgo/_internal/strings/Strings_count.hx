@@ -1,10 +1,4 @@
 package stdgo._internal.strings;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function count(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         if ((_substr.length) == ((0 : stdgo.GoInt))) {
             return (stdgo._internal.unicode.utf8.Utf8_runeCountInString.runeCountInString(_s?.__copy__()) + (1 : stdgo.GoInt) : stdgo.GoInt);

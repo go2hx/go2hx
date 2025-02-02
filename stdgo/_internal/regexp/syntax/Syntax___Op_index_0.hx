@@ -1,10 +1,4 @@
 package stdgo._internal.regexp.syntax;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
 var __Op_index_0 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[
 (0 : stdgo.GoUInt8),
 (7 : stdgo.GoUInt8),

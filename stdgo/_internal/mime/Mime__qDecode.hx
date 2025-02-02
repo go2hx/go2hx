@@ -1,15 +1,4 @@
 package stdgo._internal.mime;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.os.Os;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 function _qDecode(_s:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _dec = (new stdgo.Slice<stdgo.GoUInt8>((_s.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _n = (0 : stdgo.GoInt);

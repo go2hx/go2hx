@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 @:structInit @:using(stdgo._internal.crypto.internal.nistec.Nistec_P256Point_static_extension.P256Point_static_extension) class P256Point {
     public var _x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element> = (null : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
     public var _y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element> = (null : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);

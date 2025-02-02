@@ -1,7 +1,4 @@
 package stdgo._internal.internal.saferio;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
 function readDataAt(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         if ((((_n : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool) || (_n != ((_n : stdgo.GoInt) : stdgo.GoUInt64)) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };

@@ -1,13 +1,4 @@
 package stdgo._internal.image.gif;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.Image;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.image.draw.Draw;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.compress.lzw.Lzw;
-import stdgo._internal.bytes.Bytes;
 @:structInit @:using(stdgo._internal.image.gif.Gif_GIF_static_extension.GIF_static_extension) class GIF {
     public var image : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>);
     public var delay : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);

@@ -1,8 +1,4 @@
 package stdgo._internal.database.sql.driver;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 class TxOptions_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

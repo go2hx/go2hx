@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 function _newGraph():stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph> {
         return (stdgo.Go.setRef(({ _byLabel : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();

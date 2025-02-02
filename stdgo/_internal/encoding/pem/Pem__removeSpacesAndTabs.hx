@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.pem;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
 function _removeSpacesAndTabs(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         if (!stdgo._internal.bytes.Bytes_containsAny.containsAny(_data, (" \t" : stdgo.GoString))) {
             return _data;

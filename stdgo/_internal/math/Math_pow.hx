@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         #if (js || interp) {
             if (_x == 1 && std.Math.isNaN(_y.toBasic())) return 1;

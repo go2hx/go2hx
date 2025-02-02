@@ -1,15 +1,2 @@
 package stdgo._internal.archive.tar;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.time.Time;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.path.Path;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
 var _zeroBlock : stdgo._internal.archive.tar.Tar_T_block.T_block = new stdgo._internal.archive.tar.Tar_T_block.T_block(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);

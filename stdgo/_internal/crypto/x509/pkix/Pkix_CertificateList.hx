@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509.pkix;
-import stdgo._internal.encoding.asn1.Asn1;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_CertificateList_static_extension.CertificateList_static_extension) class CertificateList {
     public var tBSCertList : stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList = ({} : stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList);
     public var signatureAlgorithm : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);

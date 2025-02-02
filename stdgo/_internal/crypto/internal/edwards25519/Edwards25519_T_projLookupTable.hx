@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 @:structInit @:using(stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_projLookupTable_static_extension.T_projLookupTable_static_extension) class T_projLookupTable {
     public var _points : stdgo.GoArray<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_projCached.T_projCached> = new stdgo.GoArray<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_projCached.T_projCached>(8, 8, ...[for (i in 0 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_projCached.T_projCached)]);
     public function new(?_points:stdgo.GoArray<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_projCached.T_projCached>) {

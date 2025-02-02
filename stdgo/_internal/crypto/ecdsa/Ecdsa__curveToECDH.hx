@@ -1,19 +1,4 @@
 package stdgo._internal.crypto.ecdsa;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.elliptic.Elliptic;
-import stdgo._internal.crypto.ecdh.Ecdh;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.boring.bbig.Bbig;
-import stdgo._internal.crypto.internal.bigmod.Bigmod;
-import stdgo._internal.io.Io;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.crypto.sha512.Sha512;
-import stdgo._internal.crypto.aes.Aes;
-import stdgo._internal.crypto.cipher.Cipher;
-import stdgo._internal.math.big.Big;
 function _curveToECDH(_c:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve):stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve {
         {
             final __value__ = _c;

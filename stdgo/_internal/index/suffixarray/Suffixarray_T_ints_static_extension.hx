@@ -1,10 +1,4 @@
 package stdgo._internal.index.suffixarray;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.regexp.Regexp;
 @:keep @:allow(stdgo._internal.index.suffixarray.Suffixarray.T_ints_asInterface) class T_ints_static_extension {
     @:keep
     @:tdfield

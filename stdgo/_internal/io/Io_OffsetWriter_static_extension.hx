@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.io.Io.OffsetWriter_asInterface) class OffsetWriter_static_extension {
     @:keep
     @:tdfield

@@ -1,15 +1,4 @@
 package stdgo._internal.debug.pe;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
-import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.debug.pe.Pe_COFFSymbolAuxFormat5_static_extension.COFFSymbolAuxFormat5_static_extension) class COFFSymbolAuxFormat5 {
     public var size : stdgo.GoUInt32 = 0;
     public var numRelocs : stdgo.GoUInt16 = 0;

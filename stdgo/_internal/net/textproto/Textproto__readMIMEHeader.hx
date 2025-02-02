@@ -1,12 +1,4 @@
 package stdgo._internal.net.textproto;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
 function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>, _maxMemory:stdgo.GoInt64, _maxHeaders:stdgo.GoInt64):{ var _0 : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader; var _1 : stdgo.Error; } {
         var _strs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _hint = (@:check2r _r._upcomingHeaderKeys() : stdgo.GoInt);

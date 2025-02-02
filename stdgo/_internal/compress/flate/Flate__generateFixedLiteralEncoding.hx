@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder> {
         var _h = stdgo._internal.compress.flate.Flate__newHuffmanEncoder._newHuffmanEncoder((286 : stdgo.GoInt));
         var _codes = (@:checkr _h ?? throw "null pointer dereference")._codes;

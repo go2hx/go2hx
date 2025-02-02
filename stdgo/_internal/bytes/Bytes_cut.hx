@@ -1,9 +1,4 @@
 package stdgo._internal.bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
 function cut(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : Bool; } {
         var _before = (null : stdgo.Slice<stdgo.GoUInt8>), _after = (null : stdgo.Slice<stdgo.GoUInt8>), _found = false;
         {

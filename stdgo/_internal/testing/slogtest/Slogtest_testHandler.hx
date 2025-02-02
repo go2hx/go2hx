@@ -1,9 +1,4 @@
 package stdgo._internal.testing.slogtest;
-import stdgo._internal.log.slog.Slog;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.runtime.Runtime;
 function testHandler(_h:stdgo._internal.log.slog.Slog_Handler.Handler, _results:() -> stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Error {
         var _cases = (new stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_T_testCase.T_testCase>(15, 15, ...[
 ({ _explanation : stdgo._internal.testing.slogtest.Slogtest__withSource._withSource(("this test expects slog.TimeKey, slog.LevelKey and slog.MessageKey" : stdgo.GoString))?.__copy__(), _f : function(_l:stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger>):Void {

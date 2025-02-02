@@ -1,9 +1,4 @@
 package stdgo._internal.bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
 function _makeASCIISet(_chars:stdgo.GoString):{ var _0 : stdgo._internal.bytes.Bytes_T_asciiSet.T_asciiSet; var _1 : Bool; } {
         var _as = new stdgo._internal.bytes.Bytes_T_asciiSet.T_asciiSet(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt32)]), _ok = false;
         {

@@ -1,10 +1,4 @@
 package stdgo._internal.index.suffixarray;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.regexp.Regexp;
 function _induceL_8_32(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.GoInt32>, _freq:stdgo.Slice<stdgo.GoInt32>, _bucket:stdgo.Slice<stdgo.GoInt32>):Void {
         stdgo._internal.index.suffixarray.Suffixarray__bucketMin_8_32._bucketMin_8_32(_text, _freq, _bucket);
         _bucket = (_bucket.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);

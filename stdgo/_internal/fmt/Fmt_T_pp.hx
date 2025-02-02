@@ -1,13 +1,4 @@
 package stdgo._internal.fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.fmtsort.Fmtsort;
-import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension) class T_pp {
     public var _buf : stdgo._internal.fmt.Fmt_T_buffer.T_buffer = new stdgo._internal.fmt.Fmt_T_buffer.T_buffer(0, 0);
     public var _arg : stdgo.AnyInterface = (null : stdgo.AnyInterface);

@@ -1,14 +1,4 @@
 package stdgo._internal.encoding.base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.debug.Debug;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.time.Time;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.strconv.Strconv;
 function benchmarkDecodeString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _sizes = (new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(2 : stdgo.GoInt), (4 : stdgo.GoInt), (8 : stdgo.GoInt), (64 : stdgo.GoInt), (8192 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         var _benchFunc = function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _benchSize:stdgo.GoInt):Void {

@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 function rGBToYCbCr(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.GoUInt8; var _2 : stdgo.GoUInt8; } {
         var _r1 = (_r : stdgo.GoInt32);
         var _g1 = (_g : stdgo.GoInt32);

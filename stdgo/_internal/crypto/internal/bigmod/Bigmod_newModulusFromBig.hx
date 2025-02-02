@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.bigmod;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unsafe.Unsafe;
 function newModulusFromBig(_n:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>; var _1 : stdgo.Error; } {
         {
             var _b = @:check2r _n.bits();

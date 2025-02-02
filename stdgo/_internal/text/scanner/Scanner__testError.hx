@@ -1,10 +1,4 @@
 package stdgo._internal.text.scanner;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.unicode.Unicode;
 function _testError(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _src:stdgo.GoString, _pos:stdgo.GoString, _msg:stdgo.GoString, _tok:stdgo.GoInt32):Void {
         var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>).init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_src?.__copy__())));
         var _errorCalled = (false : Bool);

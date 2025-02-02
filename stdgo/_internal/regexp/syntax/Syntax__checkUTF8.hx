@@ -1,10 +1,4 @@
 package stdgo._internal.regexp.syntax;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
 function _checkUTF8(_s:stdgo.GoString):stdgo.Error {
         while (_s != (stdgo.Go.str())) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__()), _rune:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;

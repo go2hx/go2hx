@@ -1,20 +1,4 @@
 package stdgo._internal.text.template;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.net.url.Url;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.path.Path;
-import stdgo._internal.internal.fmtsort.Fmtsort;
 var _tVal : stdgo.Ref<stdgo._internal.text.template.Template_T_.T_> = (stdgo.Go.setRef(({ __True : true, i : (17 : stdgo.GoInt), u16 : (16 : stdgo.GoUInt16), x : ("x" : stdgo.GoString), s : ("xyz" : stdgo.GoString), u : (stdgo.Go.setRef((new stdgo._internal.text.template.Template_U.U(("v" : stdgo.GoString)) : stdgo._internal.text.template.Template_U.U)) : stdgo.Ref<stdgo._internal.text.template.Template_U.U>), v0 : (new stdgo._internal.text.template.Template_V.V((6666 : stdgo.GoInt)) : stdgo._internal.text.template.Template_V.V), v1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template_V.V((7777 : stdgo.GoInt)) : stdgo._internal.text.template.Template_V.V)) : stdgo.Ref<stdgo._internal.text.template.Template_V.V>), w0 : (new stdgo._internal.text.template.Template_W.W((888 : stdgo.GoInt)) : stdgo._internal.text.template.Template_W.W), w1 : (stdgo.Go.setRef((new stdgo._internal.text.template.Template_W.W((999 : stdgo.GoInt)) : stdgo._internal.text.template.Template_W.W)) : stdgo.Ref<stdgo._internal.text.template.Template_W.W>), sI : (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), sICap : (new stdgo.Slice<stdgo.GoInt>((5 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), aI : (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__(), sB : (new stdgo.Slice<Bool>(2, 2, ...[true, false]) : stdgo.Slice<Bool>), mSI : ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.GoInt);

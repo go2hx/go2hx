@@ -1,12 +1,4 @@
 package stdgo._internal.image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.strconv.Strconv;
 function _yCbCrSize(_r:stdgo._internal.image.Image_Rectangle.Rectangle, _subsampleRatio:stdgo._internal.image.Image_YCbCrSubsampleRatio.YCbCrSubsampleRatio):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } {
         var _w = (0 : stdgo.GoInt), _h = (0 : stdgo.GoInt), _cw = (0 : stdgo.GoInt), _ch = (0 : stdgo.GoInt);
         {

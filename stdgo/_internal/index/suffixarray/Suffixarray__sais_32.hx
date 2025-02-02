@@ -1,10 +1,4 @@
 package stdgo._internal.index.suffixarray;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.regexp.Regexp;
 function _sais_32(_text:stdgo.Slice<stdgo.GoInt32>, _textMax:stdgo.GoInt, _sa:stdgo.Slice<stdgo.GoInt32>, _tmp:stdgo.Slice<stdgo.GoInt32>):Void {
         if (((_sa.length != (_text.length)) || ((_tmp.length) < (_textMax : stdgo.GoInt) : Bool) : Bool)) {
             throw stdgo.Go.toInterface(("suffixarray: misuse of sais_32" : stdgo.GoString));

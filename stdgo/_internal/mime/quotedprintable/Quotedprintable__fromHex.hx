@@ -1,8 +1,4 @@
 package stdgo._internal.mime.quotedprintable;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
 function _fromHex(_b:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         if (((_b >= (48 : stdgo.GoUInt8) : Bool) && (_b <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
             return { _0 : (_b - (48 : stdgo.GoUInt8) : stdgo.GoUInt8), _1 : (null : stdgo.Error) };

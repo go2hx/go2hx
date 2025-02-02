@@ -1,13 +1,4 @@
 package stdgo._internal.log;
-import stdgo._internal.os.Os;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.runtime.Runtime;
 function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, _t:stdgo._internal.time.Time_Time.Time, _prefix:stdgo.GoString, _flag:stdgo.GoInt, _file:stdgo.GoString, _line:stdgo.GoInt):Void {
         if ((_flag & (64 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
             (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));

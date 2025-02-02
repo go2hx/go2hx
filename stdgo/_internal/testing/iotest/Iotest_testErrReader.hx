@@ -1,10 +1,4 @@
 package stdgo._internal.testing.iotest;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.log.Log;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
 function testErrReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _cases = (new stdgo.Slice<stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0>(3, 3, ...[({ _name : ("nil error" : stdgo.GoString), _err : (null : stdgo.Error) } : stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0), ({ _name : ("non-nil error" : stdgo.GoString), _err : stdgo._internal.errors.Errors_new_.new_(("io failure" : stdgo.GoString)) } : stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0), ({ _name : ("io.EOF" : stdgo.GoString), _err : stdgo._internal.io.Io_eOF.eOF } : stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _err : (null : stdgo.Error) } : stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0)])) : stdgo.Slice<stdgo._internal.testing.iotest.Iotest_T__struct_0.T__struct_0>);
         for (__0 => _tt in _cases) {

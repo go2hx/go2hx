@@ -1,5 +1,4 @@
 package stdgo._internal.hash.crc64;
-import stdgo._internal.errors.Errors;
 function _tableSum(_t:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table>):stdgo.GoUInt64 {
         var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2048, 2048).__setNumber32__();
         var _b = (_a.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

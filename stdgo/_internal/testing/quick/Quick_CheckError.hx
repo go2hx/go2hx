@@ -1,10 +1,4 @@
 package stdgo._internal.testing.quick;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.time.Time;
 @:structInit @:using(stdgo._internal.testing.quick.Quick_CheckError_static_extension.CheckError_static_extension) class CheckError {
     public var count : stdgo.GoInt = 0;
     public var in_ : stdgo.Slice<stdgo.AnyInterface> = (null : stdgo.Slice<stdgo.AnyInterface>);

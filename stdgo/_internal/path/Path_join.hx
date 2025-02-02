@@ -1,7 +1,4 @@
 package stdgo._internal.path;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
 function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
         var _elem = new stdgo.Slice<stdgo.GoString>(_elem.length, 0, ..._elem);
         var _size = (0 : stdgo.GoInt);

@@ -1,5 +1,4 @@
 package stdgo._internal.crypto;
-import stdgo._internal.strconv.Strconv;
 class PrivateKey_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 var _kindNames : stdgo.Slice<stdgo.GoString> = {
         var s = new stdgo.Slice<stdgo.GoString>(27, 0).__setString__();
         s[0] = ("invalid" : stdgo.GoString);

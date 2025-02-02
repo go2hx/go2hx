@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 @:structInit @:using(stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension) class Switch {
     public var _once : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);
     public var _fmu : stdgo._internal.sync.Sync_RWMutex.RWMutex = ({} : stdgo._internal.sync.Sync_RWMutex.RWMutex);

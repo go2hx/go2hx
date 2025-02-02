@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.bigmod;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unsafe.Unsafe;
 function _addMulVVW(_z:stdgo.Slice<stdgo.GoUInt>, _x:stdgo.Slice<stdgo.GoUInt>, _y:stdgo.GoUInt):stdgo.GoUInt {
         var _carry = (0 : stdgo.GoUInt);
         var __blank__ = _x[((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];

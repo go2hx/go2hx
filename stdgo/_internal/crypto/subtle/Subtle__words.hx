@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.subtle;
-import stdgo._internal.unsafe.Unsafe;
 function _words(_x:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUIntptr> {
         var _n = ((_x.length : stdgo.GoUIntptr) / (4 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         if (_n == ((0 : stdgo.GoUIntptr))) {

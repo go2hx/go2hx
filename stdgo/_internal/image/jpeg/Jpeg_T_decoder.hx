@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 @:structInit @:using(stdgo._internal.image.jpeg.Jpeg_T_decoder_static_extension.T_decoder_static_extension) class T_decoder {
     public var _r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _bits : stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits = ({} : stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits);

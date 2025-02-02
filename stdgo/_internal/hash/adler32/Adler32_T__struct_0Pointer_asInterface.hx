@@ -1,7 +1,4 @@
 package stdgo._internal.hash.adler32;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 class T__struct_0Pointer_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

@@ -1,13 +1,4 @@
 package stdgo._internal.log;
-import stdgo._internal.os.Os;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.runtime.Runtime;
 function testDiscard(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _l = stdgo._internal.log.Log_new_.new_(stdgo._internal.io.Io_discard.discard, stdgo.Go.str()?.__copy__(), (0 : stdgo.GoInt));
         var _s = (stdgo._internal.strings.Strings_repeat.repeat(("a" : stdgo.GoString), (102400 : stdgo.GoInt))?.__copy__() : stdgo.GoString);

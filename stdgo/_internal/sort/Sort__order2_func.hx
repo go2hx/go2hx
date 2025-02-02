@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 function _order2_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
         if (_data.less(_b, _a)) {
             _swaps.value++;

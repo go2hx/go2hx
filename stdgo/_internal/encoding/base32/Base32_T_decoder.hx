@@ -1,6 +1,4 @@
 package stdgo._internal.encoding.base32;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.encoding.base32.Base32_T_decoder_static_extension.T_decoder_static_extension) class T_decoder {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _enc : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding> = (null : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>);

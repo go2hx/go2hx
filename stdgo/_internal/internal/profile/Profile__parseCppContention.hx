@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 function _parseCppContention(_r:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>; var _1 : stdgo.Error; } {
         var _p = (stdgo.Go.setRef(({ periodType : (stdgo.Go.setRef(({ type : ("contentions" : stdgo.GoString), unit : ("count" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_ValueType_.ValueType_)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>), period : (1i64 : stdgo.GoInt64), sampleType : (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>>(2, 2, ...[({ type : ("contentions" : stdgo.GoString), unit : ("count" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_ValueType_.ValueType_), ({ type : ("delay" : stdgo.GoString), unit : ("nanoseconds" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_ValueType_.ValueType_)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>>) } : stdgo._internal.internal.profile.Profile_Profile.Profile)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>);
         var _cpuHz:stdgo.GoInt64 = (0 : stdgo.GoInt64);

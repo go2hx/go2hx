@@ -1,13 +1,4 @@
 package stdgo._internal.image.png;
-import stdgo._internal.hash.crc32.Crc32;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.image.png.Png__interlacing._interlacing, __tmp__1 = stdgo._internal.image.png.Png__chunkOrderError._chunkOrderError;

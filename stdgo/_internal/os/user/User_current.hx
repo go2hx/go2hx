@@ -1,12 +1,4 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 function current():{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_User.User>; var _1 : stdgo.Error; } {
         stdgo._internal.os.user.User__cache._cache.do_(function():Void {
             {

@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 @:keep class T_nistPoint_static_extension {
     @:interfacetypeffun
     static public function scalarBaseMult(t:stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nistPoint, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : Dynamic; var _1 : stdgo.Error; } return t.scalarBaseMult(_0);

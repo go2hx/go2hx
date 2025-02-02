@@ -1,5 +1,4 @@
 package stdgo._internal.hash.crc64;
-import stdgo._internal.errors.Errors;
 function _makeTable(_poly:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table> {
         var _t = (stdgo.Go.setRef(new stdgo._internal.hash.crc64.Crc64_Table.Table(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt64)])) : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table>);
         {

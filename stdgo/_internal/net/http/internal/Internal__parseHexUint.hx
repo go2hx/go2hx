@@ -1,9 +1,4 @@
 package stdgo._internal.net.http.internal;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
 function _parseHexUint(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } {
         var _n = (0 : stdgo.GoUInt64), _err = (null : stdgo.Error);
         for (_i => _b in _v) {

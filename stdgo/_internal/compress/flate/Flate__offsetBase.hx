@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 var _offsetBase : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(30, 30, ...[
 (0u32 : stdgo.GoUInt32),
 (1u32 : stdgo.GoUInt32),

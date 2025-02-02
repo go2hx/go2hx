@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 class Sockets_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

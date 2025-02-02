@@ -1,9 +1,4 @@
 package stdgo._internal.testing.slogtest;
-import stdgo._internal.log.slog.Slog;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.runtime.Runtime;
 class T_testCase_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

@@ -1,10 +1,4 @@
 package stdgo._internal.debug.plan9obj;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.os.Os;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.fmt.Fmt;
 function _newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _ptrsz:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_Sym.Sym>; var _1 : stdgo.Error; } {
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err = (stdgo._internal.debug.plan9obj.Plan9obj__walksymtab._walksymtab(_symtab, _ptrsz, function(_s:stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym):stdgo.Error {

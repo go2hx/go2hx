@@ -1,16 +1,4 @@
 package stdgo._internal.debug.buildinfo;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.runtime.debug.Debug;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.debug.elf.Elf;
-import stdgo._internal.debug.pe.Pe;
-import stdgo._internal.debug.macho.Macho;
-import stdgo._internal.internal.xcoff.Xcoff;
-import stdgo._internal.debug.plan9obj.Plan9obj;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.internal.saferio.Saferio;
 function read(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.debug.buildinfo.Buildinfo__readRawBuildInfo._readRawBuildInfo(_r), _vers:stdgo.GoString = __tmp__._0, _mod:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {

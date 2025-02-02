@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function unmarshal(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } {
         var _x = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         {

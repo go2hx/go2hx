@@ -1,10 +1,4 @@
 package stdgo._internal.testing.quick;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.time.Time;
 function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.Ref<stdgo._internal.testing.quick.Quick_Config.Config>):stdgo.Error {
         if ((_config == null || (_config : Dynamic).__nil__)) {
             _config = (stdgo.Go.setRef(stdgo._internal.testing.quick.Quick__defaultConfig._defaultConfig) : stdgo.Ref<stdgo._internal.testing.quick.Quick_Config.Config>);

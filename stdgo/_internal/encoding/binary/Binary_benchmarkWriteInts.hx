@@ -1,12 +1,4 @@
 package stdgo._internal.encoding.binary;
-import stdgo._internal.math.Math;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unsafe.Unsafe;
 function benchmarkWriteInts(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _w:stdgo._internal.io.Io_Writer.Writer = stdgo.Go.asInterface(_buf);

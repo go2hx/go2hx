@@ -1,10 +1,2 @@
 package stdgo._internal.crypto.ecdh;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.io.Io;
 var _p384 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P384Point.P384Point>>> = (stdgo.Go.setRef(({ _name : ("P-384" : stdgo.GoString), _newPoint : stdgo._internal.crypto.internal.nistec.Nistec_newP384Point.newP384Point, _scalarOrder : stdgo._internal.crypto.ecdh.Ecdh__p384Order._p384Order } : stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P384Point.P384Point>>)) : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_P384Point.P384Point>>>);

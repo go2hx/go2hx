@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 var _leftcheats : stdgo.Slice<stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat> = (new stdgo.Slice<stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat>(61, 61, ...[
 (new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__()) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),
 (new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((1 : stdgo.GoInt), ("5" : stdgo.GoString)) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),

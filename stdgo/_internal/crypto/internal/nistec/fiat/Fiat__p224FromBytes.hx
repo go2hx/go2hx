@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.internal.nistec.fiat;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.errors.Errors;
 function _p224FromBytes(_out1:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>, _arg1:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>):Void {
         var _x1 = (((_arg1[(27 : stdgo.GoInt)] : stdgo.GoUInt64) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
         var _x2 = (((_arg1[(26 : stdgo.GoInt)] : stdgo.GoUInt64) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);

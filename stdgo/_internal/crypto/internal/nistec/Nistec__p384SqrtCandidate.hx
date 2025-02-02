@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 function _p384SqrtCandidate(_z:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>, _x:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>):Void {
         var _t0 = (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
         var _t1 = (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);

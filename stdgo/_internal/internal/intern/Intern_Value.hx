@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.internal.intern.Intern_Value_static_extension.Value_static_extension) class Value {
     @:optional
     public var __1 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0);

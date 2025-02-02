@@ -1,6 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.internal.godebugs.Godebugs;
-import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.runtime.metrics.Metrics_Float64Histogram_static_extension.Float64Histogram_static_extension) class Float64Histogram {
     public var counts : stdgo.Slice<stdgo.GoUInt64> = (null : stdgo.Slice<stdgo.GoUInt64>);
     public var buckets : stdgo.Slice<stdgo.GoFloat64> = (null : stdgo.Slice<stdgo.GoFloat64>);

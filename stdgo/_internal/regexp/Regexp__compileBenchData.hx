@@ -1,18 +1,2 @@
 package stdgo._internal.regexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.regexp.syntax.Syntax;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.bzip2.Bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
 var _compileBenchData : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2> = (new stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2>(3, 3, ...[({ _name : ("Onepass" : stdgo.GoString), _re : ("^a.[l-nA-Cg-j]?e$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Medium" : stdgo.GoString), _re : ("^((a|b|[d-z0-9])*(日){4,5}.)+$" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2), ({ _name : ("Hard" : stdgo.GoString), _re : (stdgo._internal.strings.Strings_repeat.repeat(("((abc)*|" : stdgo.GoString), (50 : stdgo.GoInt)) + stdgo._internal.strings.Strings_repeat.repeat((")" : stdgo.GoString), (50 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__() } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _re : ("" : stdgo.GoString) } : stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2)])) : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_2.T__struct_2>);

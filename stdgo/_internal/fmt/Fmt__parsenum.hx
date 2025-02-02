@@ -1,13 +1,4 @@
 package stdgo._internal.fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.fmtsort.Fmtsort;
-import stdgo._internal.math.Math;
 function _parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } {
         var _num = (0 : stdgo.GoInt), _isnum = false, _newi = (0 : stdgo.GoInt);
         if ((_start >= _end : Bool)) {

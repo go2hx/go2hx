@@ -1,13 +1,2 @@
 package stdgo._internal.slices;
-import stdgo._internal.math.Math;
-import stdgo._internal.cmp.Cmp;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 var _strs : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString>(8, 8, ...[stdgo.Go.str()?.__copy__(), ("Hello" : stdgo.GoString), ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("foo" : stdgo.GoString), ("f00" : stdgo.GoString), ("%*&^*&^&" : stdgo.GoString), ("***" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>);

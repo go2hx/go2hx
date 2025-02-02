@@ -1,8 +1,4 @@
 package stdgo._internal.internal.txtar;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
 class File_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

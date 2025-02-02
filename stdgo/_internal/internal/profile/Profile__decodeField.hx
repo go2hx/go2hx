@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 function _decodeField(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_T_buffer.T_buffer>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.internal.profile.Profile__decodeVarint._decodeVarint(_data), _x:stdgo.GoUInt64 = __tmp__._0, _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {

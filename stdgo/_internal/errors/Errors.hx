@@ -1,5 +1,4 @@
 package stdgo._internal.errors;
-import stdgo._internal.internal.reflectlite.Reflectlite;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.errors.Errors_errUnsupported.errUnsupported, __tmp__1 = stdgo._internal.errors.Errors__errorType._errorType;

@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 function _symMerge(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo.GoInt, _m:stdgo.GoInt, _b:stdgo.GoInt):Void {
         if ((_m - _a : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
             var _i = (_m : stdgo.GoInt);

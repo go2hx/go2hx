@@ -1,5 +1,4 @@
 package stdgo._internal.hash.crc32;
-import stdgo._internal.errors.Errors;
 function _slicingMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table> {
         var _t = (stdgo.Go.setRef(new stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table(8, 8, ...[for (i in 0 ... 8) new stdgo._internal.hash.crc32.Crc32_Table.Table(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt32)])])) : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table>);
         stdgo._internal.hash.crc32.Crc32__simplePopulateTable._simplePopulateTable(_poly, (stdgo.Go.setRef(_t[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table>));

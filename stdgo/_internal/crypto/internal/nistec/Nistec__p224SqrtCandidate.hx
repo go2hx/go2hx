@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 function _p224SqrtCandidate(_r:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>, _x:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>):Void {
         @:check2 stdgo._internal.crypto.internal.nistec.Nistec__p224GGOnce._p224GGOnce.do_(function():Void {
             stdgo._internal.crypto.internal.nistec.Nistec__p224GG._p224GG = (stdgo.Go.setRef(new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>(96, 96, ...[for (i in 0 ... (96 > 96 ? 96 : 96 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element)])) : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>>);

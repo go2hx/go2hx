@@ -1,10 +1,4 @@
 package stdgo._internal.path.filepath;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.sort.Sort;
 function walkDir(_root:stdgo.GoString, _fn:stdgo._internal.io.fs.Fs_WalkDirFunc.WalkDirFunc):stdgo.Error {
         var __tmp__ = stdgo._internal.os.Os_lstat.lstat(_root?.__copy__()), _info:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

@@ -1,9 +1,4 @@
 package stdgo._internal.internal.zstd;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.internal.zstd.Zstd_Reader_static_extension.Reader_static_extension) class Reader {
     public var _r : stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
     public var _sawFrameHeader : Bool = false;

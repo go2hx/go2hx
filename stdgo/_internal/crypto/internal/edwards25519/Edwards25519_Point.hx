@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 @:structInit @:using(stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point_static_extension.Point_static_extension) class Point {
     @:optional
     public var __1 : stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_incomparable.T_incomparable = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_incomparable.T_incomparable(0, 0, ...[for (i in 0 ... 0) null]);

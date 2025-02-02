@@ -1,14 +1,4 @@
 package stdgo._internal.debug.macho;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
 function open(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.os.Os_open.open(_name?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.internal.nistec;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.subtle.Subtle;
 @:keep @:allow(stdgo._internal.crypto.internal.nistec.Nistec.P521Point_asInterface) class P521Point_static_extension {
     @:keep
     @:tdfield

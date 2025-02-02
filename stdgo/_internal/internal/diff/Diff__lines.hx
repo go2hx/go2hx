@@ -1,8 +1,4 @@
 package stdgo._internal.internal.diff;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 function _lines(_x:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoString> {
         var _l = stdgo._internal.strings.Strings_splitAfter.splitAfter((_x : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString));
         if (_l[((_l.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (stdgo.Go.str())) {

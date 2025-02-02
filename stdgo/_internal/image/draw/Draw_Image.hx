@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 @:interface typedef Image = stdgo.StructType & {
     > stdgo._internal.image.Image_Image.Image,
     /**

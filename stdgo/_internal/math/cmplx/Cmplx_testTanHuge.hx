@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function testTanHuge(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (_i => _x in stdgo._internal.math.cmplx.Cmplx__hugeIn._hugeIn) {
             {

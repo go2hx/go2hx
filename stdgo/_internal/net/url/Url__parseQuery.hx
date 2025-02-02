@@ -1,10 +1,4 @@
 package stdgo._internal.net.url;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _parseQuery(_m:stdgo._internal.net.url.Url_Values.Values, _query:stdgo.GoString):stdgo.Error {
         var _err = (null : stdgo.Error);
         while (_query != (stdgo.Go.str())) {

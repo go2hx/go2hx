@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.subtle;
-import stdgo._internal.unsafe.Unsafe;
 function _xorBytes(_dstb:stdgo.Pointer<stdgo.GoUInt8>, _xb:stdgo.Pointer<stdgo.GoUInt8>, _yb:stdgo.Pointer<stdgo.GoUInt8>, _n:stdgo.GoInt):Void {
         var _dst = stdgo._internal.unsafe.Unsafe_slice.slice(_dstb, _n);
         var _x = stdgo._internal.unsafe.Unsafe_slice.slice(_xb, _n);

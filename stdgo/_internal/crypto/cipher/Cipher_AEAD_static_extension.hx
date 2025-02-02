@@ -1,10 +1,4 @@
 package stdgo._internal.crypto.cipher;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.io.Io;
 @:keep class AEAD_static_extension {
     @:interfacetypeffun
     static public function open(t:stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD, _dst:stdgo.Slice<stdgo.GoUInt8>, _nonce:stdgo.Slice<stdgo.GoUInt8>, _ciphertext:stdgo.Slice<stdgo.GoUInt8>, _additionalData:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return t.open(_dst, _nonce, _ciphertext, _additionalData);

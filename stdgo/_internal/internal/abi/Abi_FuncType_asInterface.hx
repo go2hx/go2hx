@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 class FuncType_asInterface {
     @:keep
     @:tdfield

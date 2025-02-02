@@ -1,8 +1,4 @@
 package stdgo._internal.internal.txtar;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
 function format(_a:stdgo.Ref<stdgo._internal.internal.txtar.Txtar_Archive.Archive>):stdgo.Slice<stdgo.GoUInt8> {
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         @:check2 _buf.write(stdgo._internal.internal.txtar.Txtar__fixNL._fixNL((@:checkr _a ?? throw "null pointer dereference").comment));

@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function y0(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
         if (((_x < (0 : stdgo.GoFloat64) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {

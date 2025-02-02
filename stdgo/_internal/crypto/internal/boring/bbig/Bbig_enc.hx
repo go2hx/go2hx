@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.internal.boring.bbig;
-import stdgo._internal.unsafe.Unsafe;
 function enc(_b:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo._internal.crypto.internal.boring.Boring_BigInt.BigInt {
         if ((_b == null || (_b : Dynamic).__nil__)) {
             return null;

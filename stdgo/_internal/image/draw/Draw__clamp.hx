@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 function _clamp(_i:stdgo.GoInt32):stdgo.GoInt32 {
         if ((_i < (0 : stdgo.GoInt32) : Bool)) {
             return (0 : stdgo.GoInt32);

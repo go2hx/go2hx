@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function log10(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (false) {
             return stdgo._internal.math.Math__archLog10._archLog10(_x);

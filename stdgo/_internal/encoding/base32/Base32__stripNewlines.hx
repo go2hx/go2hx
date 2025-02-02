@@ -1,6 +1,4 @@
 package stdgo._internal.encoding.base32;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
 function _stripNewlines(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         var _offset = (0 : stdgo.GoInt);
         for (__0 => _b in _src) {

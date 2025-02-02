@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.Intern_T_key.T_key, stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>> {
         if (@:check2r stdgo._internal.internal.intern.Intern__intern._intern.value() == (("leaky" : stdgo.GoString))) {
             return ({

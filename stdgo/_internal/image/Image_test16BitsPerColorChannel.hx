@@ -1,12 +1,4 @@
 package stdgo._internal.image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.strconv.Strconv;
 function test16BitsPerColorChannel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _testColorModel = (new stdgo.Slice<stdgo._internal.image.color.Color_Model.Model>(4, 4, ...[stdgo._internal.image.color.Color_rGBA64Model.rGBA64Model, stdgo._internal.image.color.Color_nRGBA64Model.nRGBA64Model, stdgo._internal.image.color.Color_alpha16Model.alpha16Model, stdgo._internal.image.color.Color_gray16Model.gray16Model]) : stdgo.Slice<stdgo._internal.image.color.Color_Model.Model>);
         for (__0 => _cm in _testColorModel) {

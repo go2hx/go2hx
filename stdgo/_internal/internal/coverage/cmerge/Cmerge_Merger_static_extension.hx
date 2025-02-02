@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.cmerge;
-import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.internal.coverage.cmerge.Cmerge.Merger_asInterface) class Merger_static_extension {
     @:keep
     @:tdfield

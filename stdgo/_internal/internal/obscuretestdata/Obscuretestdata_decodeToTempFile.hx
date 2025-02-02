@@ -1,7 +1,4 @@
 package stdgo._internal.internal.obscuretestdata;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.base64.Base64;
 function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _path = ("" : stdgo.GoString), _err = (null : stdgo.Error);

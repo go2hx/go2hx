@@ -1,15 +1,4 @@
 package stdgo._internal.encoding.asn1;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unicode.utf16.Utf16;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
 function _appendTimeCommon(_dst:stdgo.Slice<stdgo.GoUInt8>, _t:stdgo._internal.time.Time_Time.Time):stdgo.Slice<stdgo.GoUInt8> {
         var __tmp__ = _t.date(), __0:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time_Month.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2;
         _dst = stdgo._internal.encoding.asn1.Asn1__appendTwoDigits._appendTwoDigits(_dst, (_month : stdgo.GoInt));

@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function modf(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } {
         var _int = (0 : stdgo.GoFloat64), _frac = (0 : stdgo.GoFloat64);
         if (false) {

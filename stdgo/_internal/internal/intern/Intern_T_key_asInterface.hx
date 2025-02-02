@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 class T_key_asInterface {
     @:keep
     @:tdfield

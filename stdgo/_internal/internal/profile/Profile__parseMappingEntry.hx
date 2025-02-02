@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 function _parseMappingEntry(_l:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>; var _1 : stdgo.Error; } {
         var _mapping = (stdgo.Go.setRef((new stdgo._internal.internal.profile.Profile_Mapping.Mapping() : stdgo._internal.internal.profile.Profile_Mapping.Mapping)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Mapping.Mapping>);
         var _err:stdgo.Error = (null : stdgo.Error);

@@ -1,8 +1,4 @@
 package stdgo._internal.sync;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.sync.atomic_.Atomic_;
-import stdgo._internal.internal.race.Race;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_T_notifyList_static_extension.T_notifyList_static_extension) class T_notifyList {
     public var _wait : stdgo.GoUInt32 = 0;
     public var _notify : stdgo.GoUInt32 = 0;

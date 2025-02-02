@@ -1,8 +1,4 @@
 package stdgo._internal.internal.diff;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.internal.diff.Diff_T_pair_static_extension.T_pair_static_extension) class T_pair {
     public var _x : stdgo.GoInt = 0;
     public var _y : stdgo.GoInt = 0;

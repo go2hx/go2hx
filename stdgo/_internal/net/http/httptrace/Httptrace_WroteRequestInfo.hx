@@ -1,6 +1,4 @@
 package stdgo._internal.net.http.httptrace;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo_static_extension.WroteRequestInfo_static_extension) class WroteRequestInfo {
     public var err : stdgo.Error = (null : stdgo.Error);
     public function new(?err:stdgo.Error) {

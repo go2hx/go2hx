@@ -1,11 +1,2 @@
 package stdgo._internal.internal.coverage.decodecounter;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.internal.coverage.Coverage;
-import stdgo._internal.internal.coverage.slicereader.Slicereader;
-import stdgo._internal.internal.coverage.stringtab.Stringtab;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.io.Io;
 @:keep @:follow @:using(stdgo._internal.internal.coverage.decodecounter.Decodecounter_FuncPayload_static_extension.FuncPayload_static_extension) typedef FuncPayloadPointer = stdgo.Pointer<stdgo._internal.internal.coverage.decodecounter.Decodecounter_FuncPayload.FuncPayload>;

@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 var __lgamT : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(15, 15, ...[
 (0.48383612272381005 : stdgo.GoFloat64),
 (-0.1475877229945939 : stdgo.GoFloat64),

@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function testPolar(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _i = (0 : stdgo.GoInt);

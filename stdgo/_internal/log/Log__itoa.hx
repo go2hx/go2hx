@@ -1,13 +1,4 @@
 package stdgo._internal.log;
-import stdgo._internal.os.Os;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.runtime.Runtime;
 function _itoa(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, _i:stdgo.GoInt, _wid:stdgo.GoInt):Void {
         var _b:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
         var _bp = (19 : stdgo.GoInt);

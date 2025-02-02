@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:keep @:allow(stdgo._internal.io.Io.T_teeReader_asInterface) class T_teeReader_static_extension {
     @:keep
     @:tdfield

@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 @:keep @:allow(stdgo._internal.image.color.Color.RGBA64_asInterface) class RGBA64_static_extension {
     @:keep
     @:tdfield

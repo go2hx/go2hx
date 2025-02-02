@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _decTests = (stdgo._internal.encoding.hex.Hex__encDecTests._encDecTests.__append__((new stdgo._internal.encoding.hex.Hex_T_encDecTest.T_encDecTest(("F8F9FAFBFCFDFEFF" : stdgo.GoString), (new stdgo.Slice<stdgo.GoUInt8>(8, 8, ...[(248 : stdgo.GoUInt8), (249 : stdgo.GoUInt8), (250 : stdgo.GoUInt8), (251 : stdgo.GoUInt8), (252 : stdgo.GoUInt8), (253 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.encoding.hex.Hex_T_encDecTest.T_encDecTest)));
         for (_i => _test in _decTests) {

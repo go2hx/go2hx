@@ -1,6 +1,4 @@
 package stdgo._internal.net.http.httptrace;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo_static_extension.GotConnInfo_static_extension) class GotConnInfo {
     public var conn : stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
     public var reused : Bool = false;

@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.dsa;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.crypto.internal.randutil.Randutil;
 @:structInit @:using(stdgo._internal.crypto.dsa.Dsa_Parameters_static_extension.Parameters_static_extension) class Parameters {
     public var p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
     public var q : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);

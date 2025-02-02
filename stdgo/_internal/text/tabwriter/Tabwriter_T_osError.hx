@@ -1,6 +1,4 @@
 package stdgo._internal.text.tabwriter;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 @:structInit @:using(stdgo._internal.text.tabwriter.Tabwriter_T_osError_static_extension.T_osError_static_extension) class T_osError {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public function new(?_err:stdgo.Error) {

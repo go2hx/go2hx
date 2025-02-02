@@ -1,10 +1,4 @@
 package stdgo._internal.regexp.syntax;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
 function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoInt32>, _lo:stdgo.GoInt32, _hi:stdgo.GoInt32):stdgo.Slice<stdgo.GoInt32> {
         if (((_lo <= (65 : stdgo.GoInt32) : Bool) && (_hi >= (125251 : stdgo.GoInt32) : Bool) : Bool)) {
             return stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _lo, _hi);

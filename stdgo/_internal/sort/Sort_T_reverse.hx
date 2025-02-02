@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 @:structInit @:using(stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension) class T_reverse {
     @:embedded
     public var interface_ : stdgo._internal.sort.Sort_Interface.Interface = (null : stdgo._internal.sort.Sort_Interface.Interface);

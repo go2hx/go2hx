@@ -1,14 +1,4 @@
 package stdgo._internal.encoding.base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.debug.Debug;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.time.Time;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.strconv.Strconv;
 function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _next = (new stdgo.Chan<stdgo._internal.encoding.base64.Base64_T_nextRead.T_nextRead>((10 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.encoding.base64.Base64_T_nextRead.T_nextRead)) : stdgo.Chan<stdgo._internal.encoding.base64.Base64_T_nextRead.T_nextRead>);
         var _wantErr = (stdgo._internal.errors.Errors_new_.new_(("my error" : stdgo.GoString)) : stdgo.Error);

@@ -1,5 +1,4 @@
 package stdgo._internal.errors;
-import stdgo._internal.internal.reflectlite.Reflectlite;
 function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
         if (_err == null) {
             return false;

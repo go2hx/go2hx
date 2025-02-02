@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension) class CurveParams {
     public var p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
     public var n : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);

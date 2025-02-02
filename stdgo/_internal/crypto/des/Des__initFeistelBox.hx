@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.des;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.strconv.Strconv;
 function _initFeistelBox():Void {
         for (_s => _ in stdgo._internal.crypto.des.Des__sBoxes._sBoxes) {
             {

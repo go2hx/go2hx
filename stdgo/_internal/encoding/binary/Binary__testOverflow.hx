@@ -1,12 +1,4 @@
 package stdgo._internal.encoding.binary;
-import stdgo._internal.math.Math;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unsafe.Unsafe;
 function _testOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _x0:stdgo.GoUInt64, _n0:stdgo.GoInt, _err0:stdgo.Error):Void {
         var __tmp__ = stdgo._internal.encoding.binary.Binary_uvarint.uvarint(_buf), _x:stdgo.GoUInt64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
         if (((_x != (0i64 : stdgo.GoUInt64)) || (_n != _n0) : Bool)) {

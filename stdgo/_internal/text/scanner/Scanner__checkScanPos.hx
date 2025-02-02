@@ -1,10 +1,4 @@
 package stdgo._internal.text.scanner;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.unicode.Unicode;
 function _checkScanPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _s:stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, _offset:stdgo.GoInt, _line:stdgo.GoInt, _column:stdgo.GoInt, _char:stdgo.GoInt32):Void {
         var _want = ({ offset : _offset, line : _line, column : _column } : stdgo._internal.text.scanner.Scanner_Position.Position);
         stdgo._internal.text.scanner.Scanner__checkPos._checkPos(_t, @:check2r _s.pos()?.__copy__(), _want?.__copy__());

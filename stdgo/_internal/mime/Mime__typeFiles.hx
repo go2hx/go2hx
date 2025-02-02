@@ -1,13 +1,2 @@
 package stdgo._internal.mime;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.os.Os;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 var _typeFiles : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("/etc/mime.types" : stdgo.GoString), ("/etc/apache2/mime.types" : stdgo.GoString), ("/etc/apache/mime.types" : stdgo.GoString), ("/etc/httpd/conf/mime.types" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

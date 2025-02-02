@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 @:keep @:allow(stdgo._internal.image.draw.Draw.T_floydSteinberg_asInterface) class T_floydSteinberg_static_extension {
     @:keep
     @:tdfield

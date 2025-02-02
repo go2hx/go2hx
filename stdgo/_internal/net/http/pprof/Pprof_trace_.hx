@@ -1,20 +1,4 @@
 package stdgo._internal.net.http.pprof;
-import stdgo._internal.net.http.Http;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.os.Os;
-import stdgo._internal.time.Time;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.runtime.pprof.Pprof;
-import _internal.runtime.trace_.Trace_;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.profile.Profile;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.log.Log;
-import stdgo._internal.html.Html;
-import stdgo._internal.context.Context;
 function trace_(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         _w.header().set(("X-Content-Type-Options" : stdgo.GoString), ("nosniff" : stdgo.GoString));
         var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(@:check2r _r.formValue(("seconds" : stdgo.GoString))?.__copy__(), (64 : stdgo.GoInt)), _sec:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;

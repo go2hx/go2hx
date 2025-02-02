@@ -1,10 +1,4 @@
 package stdgo._internal.index.suffixarray;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.regexp.Regexp;
 function _recurse_32(_sa:stdgo.Slice<stdgo.GoInt32>, _oldTmp:stdgo.Slice<stdgo.GoInt32>, _numLMS:stdgo.GoInt, _maxID:stdgo.GoInt):Void {
         var __0 = (_sa.__slice__(0, _numLMS) : stdgo.Slice<stdgo.GoInt32>), __1 = (_sa.__slice__(_numLMS, ((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>), __2 = (_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>);
 var _text = __2, _saTmp = __1, _dst = __0;

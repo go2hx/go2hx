@@ -1,29 +1,4 @@
 package stdgo._internal.math.big;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.Math;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.encoding.gob.Gob;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.json.Json;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.encoding.xml.Xml;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.os.Os;
-import stdgo._internal.os.exec.Exec;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.sort.Sort;
 function testFloatMul64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_25.T__struct_25>(8, 8, ...[({ _x : (0 : stdgo.GoFloat64), _y : (0 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (0 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (1 : stdgo.GoFloat64), _y : (1.5 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (1.234 : stdgo.GoFloat64), _y : (0.5678 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (2.718281828 : stdgo.GoFloat64), _y : (3.14159265358979 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (2.718281828e+10 : stdgo.GoFloat64), _y : (3.14159265358979e-32 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25), ({ _x : (0.3333333333333333 : stdgo.GoFloat64), _y : (1e+200 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25)].concat([for (i in 8 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoFloat64), _y : (0 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_25.T__struct_25)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_25.T__struct_25>)) {
             for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(8, 8, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)) {

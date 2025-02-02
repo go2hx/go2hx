@@ -1,13 +1,4 @@
 package stdgo._internal.crypto.sha1;
-import stdgo._internal.crypto.Crypto;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
         var _w:stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(16, 16).__setNumber32__();
         var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] : stdgo.GoUInt32), __4 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] : stdgo.GoUInt32);

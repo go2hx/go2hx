@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8324 {
     @:embedded
     public var ptrType : stdgo._internal.internal.abi.Abi_PtrType.PtrType = ({} : stdgo._internal.internal.abi.Abi_PtrType.PtrType);

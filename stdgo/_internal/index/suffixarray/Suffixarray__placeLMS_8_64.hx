@@ -1,10 +1,4 @@
 package stdgo._internal.index.suffixarray;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.regexp.Regexp;
 function _placeLMS_8_64(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.GoInt64>, _freq:stdgo.Slice<stdgo.GoInt64>, _bucket:stdgo.Slice<stdgo.GoInt64>):stdgo.GoInt {
         stdgo._internal.index.suffixarray.Suffixarray__bucketMax_8_64._bucketMax_8_64(_text, _freq, _bucket);
         var _numLMS = (0 : stdgo.GoInt);

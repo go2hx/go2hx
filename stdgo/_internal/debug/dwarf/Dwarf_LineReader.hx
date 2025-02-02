@@ -1,13 +1,4 @@
 package stdgo._internal.debug.dwarf;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.path.Path;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.debug.dwarf.Dwarf_LineReader_static_extension.LineReader_static_extension) class LineReader {
     public var _buf : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf = ({} : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
     public var _section : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

@@ -1,20 +1,4 @@
 package stdgo._internal.net.http.pprof;
-import stdgo._internal.net.http.Http;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.os.Os;
-import stdgo._internal.time.Time;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.runtime.pprof.Pprof;
-import _internal.runtime.trace_.Trace_;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.profile.Profile;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.log.Log;
-import stdgo._internal.html.Html;
-import stdgo._internal.context.Context;
 function _collectProfile(_p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>):{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>; var _1 : stdgo.Error; } {
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         {

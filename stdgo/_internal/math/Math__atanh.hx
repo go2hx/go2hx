@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function _atanh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
         if ((((_x < (-1 : stdgo.GoFloat64) : Bool) || (_x > (1 : stdgo.GoFloat64) : Bool) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {

@@ -1,10 +1,4 @@
 package stdgo._internal.debug.gosym;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
 function _walksymtab(_data:stdgo.Slice<stdgo.GoUInt8>, _fn:stdgo._internal.debug.gosym.Gosym_T_sym.T_sym -> stdgo.Error):stdgo.Error {
         if ((_data.length) == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Error);

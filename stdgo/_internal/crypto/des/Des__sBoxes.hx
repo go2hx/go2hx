@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.des;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.strconv.Strconv;
 var _sBoxes : stdgo.GoArray<stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>> = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>>(8, 8, ...[(new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>(4, 4, ...[(new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[
 (14 : stdgo.GoUInt8),
 (4 : stdgo.GoUInt8),

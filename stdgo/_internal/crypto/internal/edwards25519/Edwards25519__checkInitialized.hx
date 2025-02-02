@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 function _checkInitialized(_points:haxe.Rest<stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point.Point>>):Void {
         var _points = new stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point.Point>>(_points.length, 0, ..._points);
         for (__28 => _p in _points) {

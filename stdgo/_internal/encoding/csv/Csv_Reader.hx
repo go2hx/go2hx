@@ -1,12 +1,4 @@
 package stdgo._internal.encoding.csv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
 @:structInit @:using(stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension) class Reader {
     public var comma : stdgo.GoInt32 = 0;
     public var comment : stdgo.GoInt32 = 0;

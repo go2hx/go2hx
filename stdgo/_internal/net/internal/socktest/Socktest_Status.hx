@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 @:structInit @:using(stdgo._internal.net.internal.socktest.Socktest_Status_static_extension.Status_static_extension) class Status {
     public var cookie : stdgo._internal.net.internal.socktest.Socktest_Cookie.Cookie = ((0 : stdgo.GoUInt64) : stdgo._internal.net.internal.socktest.Socktest_Cookie.Cookie);
     public var err : stdgo.Error = (null : stdgo.Error);

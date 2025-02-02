@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 function _drawPaletted(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _src:stdgo._internal.image.Image_Image.Image, _sp:stdgo._internal.image.Image_Point.Point, _floydSteinberg:Bool):Void {
         var __0 = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>), __1 = (null : stdgo.Slice<stdgo.GoUInt8>), __2 = (0 : stdgo.GoInt);
 var _stride = __2, _pix = __1, _palette = __0;

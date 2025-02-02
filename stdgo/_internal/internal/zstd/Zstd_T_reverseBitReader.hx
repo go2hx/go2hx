@@ -1,9 +1,4 @@
 package stdgo._internal.internal.zstd;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.internal.zstd.Zstd_T_reverseBitReader_static_extension.T_reverseBitReader_static_extension) class T_reverseBitReader {
     public var _r : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_Reader.Reader>);
     public var _data : stdgo._internal.internal.zstd.Zstd_T_block.T_block = new stdgo._internal.internal.zstd.Zstd_T_block.T_block(0, 0);

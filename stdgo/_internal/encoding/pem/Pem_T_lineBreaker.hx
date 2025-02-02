@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.pem;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.encoding.pem.Pem_T_lineBreaker_static_extension.T_lineBreaker_static_extension) class T_lineBreaker {
     public var _line : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
     public var _used : stdgo.GoInt = 0;

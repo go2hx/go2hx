@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 @:structInit @:using(stdgo._internal.strconv.Strconv_T_decimalSlice_static_extension.T_decimalSlice_static_extension) class T_decimalSlice {
     public var _d : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _nd : stdgo.GoInt = 0;

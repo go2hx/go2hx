@@ -1,10 +1,4 @@
 package stdgo._internal.internal.coverage.pods;
-import stdgo._internal.os.Os;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _collectPodsImpl(_files:stdgo.Slice<stdgo.GoString>, _dirIndices:stdgo.Slice<stdgo.GoInt>, _warn:Bool):stdgo.Slice<stdgo._internal.internal.coverage.pods.Pods_Pod.Pod> {
         var _metaRE = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(stdgo._internal.fmt.Fmt_sprintf.sprintf(("^%s\\.(\\S+)$" : stdgo.GoString), stdgo.Go.toInterface(("covmeta" : stdgo.GoString)))?.__copy__());
         var _mm = (({

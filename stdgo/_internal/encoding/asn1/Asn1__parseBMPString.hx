@@ -1,15 +1,4 @@
 package stdgo._internal.encoding.asn1;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unicode.utf16.Utf16;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bytes.Bytes;
 function _parseBMPString(_bmpString:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (((_bmpString.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("pkcs12: odd-length BMP string" : stdgo.GoString)) };

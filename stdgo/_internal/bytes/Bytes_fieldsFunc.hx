@@ -1,9 +1,4 @@
 package stdgo._internal.bytes;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
 function fieldsFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:stdgo.GoInt32 -> Bool):stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>> {
         {};
         var _spans = (new stdgo.Slice<stdgo._internal.bytes.Bytes_T_fieldsFunc___localname___span_11914.T_fieldsFunc___localname___span_11914>((0 : stdgo.GoInt).toBasic(), (32 : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (32 : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (32 : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.bytes.Bytes_T_fieldsFunc___localname___span_11914.T_fieldsFunc___localname___span_11914)]) : stdgo.Slice<stdgo._internal.bytes.Bytes_T_fieldsFunc___localname___span_11914.T_fieldsFunc___localname___span_11914>);

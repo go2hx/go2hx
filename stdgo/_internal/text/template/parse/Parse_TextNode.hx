@@ -1,10 +1,4 @@
 package stdgo._internal.text.template.parse;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.strconv.Strconv;
 @:structInit @:using(stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension) class TextNode {
     @:embedded
     public var nodeType : stdgo._internal.text.template.parse.Parse_NodeType.NodeType = ((0 : stdgo.GoInt) : stdgo._internal.text.template.parse.Parse_NodeType.NodeType);

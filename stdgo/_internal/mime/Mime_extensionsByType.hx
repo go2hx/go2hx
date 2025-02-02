@@ -1,15 +1,4 @@
 package stdgo._internal.mime;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.os.Os;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 function extensionsByType(_typ:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_typ?.__copy__()), _justType:stdgo.GoString = __tmp__._0, __0:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {

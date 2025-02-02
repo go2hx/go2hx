@@ -1,6 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.math.Math;
 function newZipf(_r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _s:stdgo.GoFloat64, _v:stdgo.GoFloat64, _imax:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf> {
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.rand.Rand_Zipf.Zipf)) : stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>);
         if (((_s <= (1 : stdgo.GoFloat64) : Bool) || (_v < (1 : stdgo.GoFloat64) : Bool) : Bool)) {

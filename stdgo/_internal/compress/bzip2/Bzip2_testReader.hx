@@ -1,11 +1,4 @@
 package stdgo._internal.compress.bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.os.Os;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
 function testReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _vectors = (new stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_T__struct_0.T__struct_0>(12, 12, ...[
 ({ _desc : ("hello world" : stdgo.GoString), _input : stdgo._internal.compress.bzip2.Bzip2__mustDecodeHex._mustDecodeHex(("425a68393141592653594eece83600000251800010400006449080200031064c4101a7a9a580bb9431f8bb9229c28482776741b0" : stdgo.GoString)), _output : (("hello world\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _fail : false } : stdgo._internal.compress.bzip2.Bzip2_T__struct_0.T__struct_0),

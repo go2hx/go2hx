@@ -1,5 +1,4 @@
 package stdgo._internal.internal.types.errors;
-import stdgo._internal.strconv.Strconv;
 @:keep @:allow(stdgo._internal.internal.types.errors.Errors.Code_asInterface) class Code_static_extension {
     @:keep
     @:tdfield

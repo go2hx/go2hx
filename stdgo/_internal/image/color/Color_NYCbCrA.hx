@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_NYCbCrA_static_extension.NYCbCrA_static_extension) class NYCbCrA {
     @:embedded
     public var yCbCr : stdgo._internal.image.color.Color_YCbCr.YCbCr = ({} : stdgo._internal.image.color.Color_YCbCr.YCbCr);

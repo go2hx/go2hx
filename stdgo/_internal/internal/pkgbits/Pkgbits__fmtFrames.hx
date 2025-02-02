@@ -1,13 +1,4 @@
 package stdgo._internal.internal.pkgbits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.go.constant.Constant;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.strconv.Strconv;
 function _fmtFrames(_pcs:haxe.Rest<stdgo.GoUIntptr>):stdgo.Slice<stdgo.GoString> {
         var _pcs = new stdgo.Slice<stdgo.GoUIntptr>(_pcs.length, 0, ..._pcs);
         var _res = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_pcs.length)).__setString__() : stdgo.Slice<stdgo.GoString>);

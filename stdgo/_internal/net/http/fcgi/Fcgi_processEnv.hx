@@ -1,16 +1,4 @@
 package stdgo._internal.net.http.fcgi;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.net.Net;
-import stdgo._internal.os.Os;
-import stdgo._internal.net.http.Http;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.net.http.cgi.Cgi;
-import stdgo._internal.context.Context;
 function processEnv(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((@:check2r _r.context().value(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey() : stdgo._internal.net.http.fcgi.Fcgi_T_envVarsContextKey.T_envVarsContextKey)))) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>)) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _1 : true };

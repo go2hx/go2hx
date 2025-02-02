@@ -1,13 +1,4 @@
 package stdgo._internal.debug.dwarf;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.path.Path;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
 function _splitDrive(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _drive = ("" : stdgo.GoString), _rest = ("" : stdgo.GoString);
         if ((((_path.length) >= (2 : stdgo.GoInt) : Bool) && (_path[(1 : stdgo.GoInt)] == (58 : stdgo.GoUInt8)) : Bool)) {

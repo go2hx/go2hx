@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 function _stable(_data:stdgo._internal.sort.Sort_Interface.Interface, _n:stdgo.GoInt):Void {
         var _blockSize = (20 : stdgo.GoInt);
         var __0 = (0 : stdgo.GoInt), __1 = (_blockSize : stdgo.GoInt);

@@ -1,6 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.internal.godebugs.Godebugs;
-import stdgo._internal.math.Math;
 @:structInit @:using(stdgo._internal.runtime.metrics.Metrics_Description_static_extension.Description_static_extension) class Description {
     public var name : stdgo.GoString = "";
     public var description : stdgo.GoString = "";

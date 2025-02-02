@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_SectionReader_static_extension.SectionReader_static_extension) class SectionReader {
     public var _r : stdgo._internal.io.Io_ReaderAt.ReaderAt = (null : stdgo._internal.io.Io_ReaderAt.ReaderAt);
     public var _base : stdgo.GoInt64 = 0;

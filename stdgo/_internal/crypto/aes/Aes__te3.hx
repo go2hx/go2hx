@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.aes;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.strconv.Strconv;
 var _te3 : stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(256, 256, ...[
 (1667474886u32 : stdgo.GoUInt32),
 (2088535288u32 : stdgo.GoUInt32),

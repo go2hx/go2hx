@@ -1,8 +1,4 @@
 package stdgo._internal.mime.quotedprintable;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
 @:keep @:allow(stdgo._internal.mime.quotedprintable.Quotedprintable.Writer_asInterface) class Writer_static_extension {
     @:keep
     @:tdfield

@@ -1,6 +1,4 @@
 package stdgo._internal.net.internal.socktest;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.syscall.Syscall;
 @:keep @:allow(stdgo._internal.net.internal.socktest.Socktest.T_stats_asInterface) class T_stats_static_extension {
     @:keep
     @:tdfield

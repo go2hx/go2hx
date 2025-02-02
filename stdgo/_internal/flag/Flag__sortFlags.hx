@@ -1,14 +1,4 @@
 package stdgo._internal.flag;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.time.Time;
 function _sortFlags(_flags:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>>):stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>> {
         var _result = (new stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>>((_flags.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>>);
         var _i = (0 : stdgo.GoInt);

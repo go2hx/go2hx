@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function testInfiniteLoopIntanSeries(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _want = (stdgo._internal.math.cmplx.Cmplx_inf.inf() : stdgo.GoComplex128);
         {

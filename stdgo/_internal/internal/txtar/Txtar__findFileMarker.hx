@@ -1,8 +1,4 @@
 package stdgo._internal.internal.txtar;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
 function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } {
         var _before = (null : stdgo.Slice<stdgo.GoUInt8>), _name = ("" : stdgo.GoString), _after = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);

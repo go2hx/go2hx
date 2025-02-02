@@ -1,5 +1,4 @@
 package stdgo._internal.encoding.ascii85;
-import stdgo._internal.strconv.Strconv;
 @:keep @:allow(stdgo._internal.encoding.ascii85.Ascii85.T_decoder_asInterface) class T_decoder_static_extension {
     @:keep
     @:tdfield

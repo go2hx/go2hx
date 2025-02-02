@@ -1,13 +1,4 @@
 package stdgo._internal.internal.pkgbits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.go.constant.Constant;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.strconv.Strconv;
 function _walkFrames(_pcs:stdgo.Slice<stdgo.GoUIntptr>, _visit:stdgo._internal.internal.pkgbits.Pkgbits_T_frameVisitor.T_frameVisitor):Void {
         if ((_pcs.length) == ((0 : stdgo.GoInt))) {
             return;

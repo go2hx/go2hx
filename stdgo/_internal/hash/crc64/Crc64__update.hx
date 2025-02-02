@@ -1,5 +1,4 @@
 package stdgo._internal.hash.crc64;
-import stdgo._internal.errors.Errors;
 function _update(_crc:stdgo.GoUInt64, _tab:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_Table.Table>, _p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         stdgo._internal.hash.crc64.Crc64__buildSlicing8TablesOnce._buildSlicing8TablesOnce();
         _crc = (-1 ^ _crc);

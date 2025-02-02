@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function benchmarkCos(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         {
             var _i = (0 : stdgo.GoInt);

@@ -1,12 +1,4 @@
 package stdgo._internal.image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.strconv.Strconv;
 function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _call = (function(_f:stdgo._internal.image.Image_Rectangle.Rectangle -> Void, _r:stdgo._internal.image.Image_Rectangle.Rectangle):Bool {
             var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];

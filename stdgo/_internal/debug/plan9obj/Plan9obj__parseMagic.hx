@@ -1,10 +1,4 @@
 package stdgo._internal.debug.plan9obj;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.os.Os;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.fmt.Fmt;
 function _parseMagic(_magic:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.Error; } {
         var _m = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(_magic) : stdgo.GoUInt32);
         {

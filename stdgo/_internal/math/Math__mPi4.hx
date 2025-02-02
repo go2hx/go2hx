@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 var _mPi4 : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(20, 20, ...[
 (1i64 : stdgo.GoUInt64),
 (5040379952546458195i64 : stdgo.GoUInt64),

@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 var _lengthExtraBits : stdgo.Slice<stdgo.GoInt8> = (new stdgo.Slice<stdgo.GoInt8>(29, 29, ...[
 (0 : stdgo.GoInt8),
 (0 : stdgo.GoInt8),

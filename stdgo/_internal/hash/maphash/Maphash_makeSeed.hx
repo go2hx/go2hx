@@ -1,6 +1,4 @@
 package stdgo._internal.hash.maphash;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.math.bits.Bits;
 function makeSeed():stdgo._internal.hash.maphash.Maphash_Seed.Seed {
         var _s:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         while (true) {

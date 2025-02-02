@@ -1,11 +1,4 @@
 package stdgo._internal.net.http.cookiejar;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.time.Time;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.net.http.internal.ascii.Ascii;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension) class Jar {
     public var _psList : stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList.PublicSuffixList = (null : stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList.PublicSuffixList);
     public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);

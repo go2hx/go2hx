@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.slicewriter;
-import stdgo._internal.fmt.Fmt;
 class WriteSeeker_asInterface {
     @:keep
     @:tdfield

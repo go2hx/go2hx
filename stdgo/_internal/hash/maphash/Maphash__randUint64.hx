@@ -1,6 +1,4 @@
 package stdgo._internal.hash.maphash;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.math.bits.Bits;
 function _randUint64():stdgo.GoUInt64 {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((8 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __blank__ = stdgo._internal.crypto.rand.Rand_read.read(_buf);

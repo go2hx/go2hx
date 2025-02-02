@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 class T_sortedHint_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

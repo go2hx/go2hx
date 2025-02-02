@@ -1,7 +1,4 @@
 package stdgo._internal.internal.lazyregexp;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.regexp.Regexp;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.internal.lazyregexp.Lazyregexp__inTest._inTest;

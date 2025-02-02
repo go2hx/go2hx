@@ -1,8 +1,4 @@
 package stdgo._internal.internal.goroot;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.os.Os;
-import stdgo._internal.os.exec.Exec;
-import stdgo._internal.strings.Strings;
 @:keep @:allow(stdgo._internal.internal.goroot.Goroot.T_gccgoDirs_asInterface) class T_gccgoDirs_static_extension {
     @:keep
     @:tdfield

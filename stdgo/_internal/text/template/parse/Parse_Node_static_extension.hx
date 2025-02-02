@@ -1,10 +1,4 @@
 package stdgo._internal.text.template.parse;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.strconv.Strconv;
 @:keep class Node_static_extension {
     @:interfacetypeffun
     static public function _writeTo(t:stdgo._internal.text.template.parse.Parse_Node.Node, _0:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Void t._writeTo(_0);

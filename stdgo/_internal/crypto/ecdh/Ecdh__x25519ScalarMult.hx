@@ -1,12 +1,4 @@
 package stdgo._internal.crypto.ecdh;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.io.Io;
 function _x25519ScalarMult(_dst:stdgo.Slice<stdgo.GoUInt8>, _scalar:stdgo.Slice<stdgo.GoUInt8>, _point:stdgo.Slice<stdgo.GoUInt8>):Void {
         var _e:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         (_e.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_scalar.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));

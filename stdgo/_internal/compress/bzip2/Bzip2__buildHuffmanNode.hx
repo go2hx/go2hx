@@ -1,11 +1,4 @@
 package stdgo._internal.compress.bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.os.Os;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.sort.Sort;
 function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree>, _codes:stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode>, _level:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } {
         var _nodeIndex = (0 : stdgo.GoUInt16), _err = (null : stdgo.Error);
         var _test = ((1u32 : stdgo.GoUInt32) << (((31u32 : stdgo.GoUInt32) - _level : stdgo.GoUInt32)) : stdgo.GoUInt32);

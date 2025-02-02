@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoUInt8):{ var _0 : stdgo.GoInt32; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } {
         var _value = (0 : stdgo.GoInt32), _multibyte = false, _tail = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         if ((_s.length) == ((0 : stdgo.GoInt))) {

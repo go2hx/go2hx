@@ -1,12 +1,4 @@
 package stdgo._internal.crypto.ecdh;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.io.Io;
 @:keep class T_nistPoint_static_extension {
     @:interfacetypeffun
     static public function scalarBaseMult(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint, _0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : Dynamic; var _1 : stdgo.Error; } return t.scalarBaseMult(_0);

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8826 {
     @:embedded
     public var mapType : stdgo._internal.internal.abi.Abi_MapType.MapType = ({} : stdgo._internal.internal.abi.Abi_MapType.MapType);

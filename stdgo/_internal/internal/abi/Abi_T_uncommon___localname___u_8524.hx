@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_uncommon___localname___u_8524 {
     @:embedded
     public var sliceType : stdgo._internal.internal.abi.Abi_SliceType.SliceType = ({} : stdgo._internal.internal.abi.Abi_SliceType.SliceType);

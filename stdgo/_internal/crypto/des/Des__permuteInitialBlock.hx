@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.des;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.strconv.Strconv;
 function _permuteInitialBlock(_block:stdgo.GoUInt64):stdgo.GoUInt64 {
         var _b1 = (_block >> (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         var _b2 = (_block << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

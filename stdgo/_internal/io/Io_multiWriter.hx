@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 function multiWriter(_writers:haxe.Rest<stdgo._internal.io.Io_Writer.Writer>):stdgo._internal.io.Io_Writer.Writer {
         var _writers = new stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>(_writers.length, 0, ..._writers);
         var _allWriters = (new stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>((0 : stdgo.GoInt).toBasic(), (_writers.length)) : stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>);

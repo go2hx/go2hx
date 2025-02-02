@@ -1,5 +1,4 @@
 package stdgo._internal.internal.sysinfo;
-import stdgo._internal.internal.cpu.Cpu;
 @:keep @:allow(stdgo._internal.internal.sysinfo.Sysinfo.T_cpuInfo_asInterface) class T_cpuInfo_static_extension {
     @:keep
     @:tdfield

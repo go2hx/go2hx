@@ -1,7 +1,4 @@
 package stdgo._internal.internal.lazyregexp;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.regexp.Regexp;
 @:keep @:allow(stdgo._internal.internal.lazyregexp.Lazyregexp.Regexp_asInterface) class Regexp_static_extension {
     @:keep
     @:tdfield

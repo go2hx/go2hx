@@ -1,14 +1,4 @@
 package stdgo._internal.internal.coverage.encodemeta;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.internal.coverage.Coverage;
 @:structInit @:using(stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension) class CoverageMetaDataBuilder {
     public var _stab : stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer = ({} : stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer);
     public var _funcs : stdgo.Slice<stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc> = (null : stdgo.Slice<stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc>);

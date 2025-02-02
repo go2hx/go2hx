@@ -1,10 +1,4 @@
 package stdgo._internal.net.netip;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.internal.intern.Intern;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.math.bits.Bits;
 function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } {
         var _ip = ("" : stdgo.GoString), _port = ("" : stdgo.GoString), _v6 = false, _err = (null : stdgo.Error);
         var _i = (stdgo._internal.net.netip.Netip__stringsLastIndexByte._stringsLastIndexByte(_s?.__copy__(), (58 : stdgo.GoUInt8)) : stdgo.GoInt);

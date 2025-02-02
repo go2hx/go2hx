@@ -1,6 +1,4 @@
 package stdgo._internal.hash.maphash;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.math.bits.Bits;
 class Seed_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

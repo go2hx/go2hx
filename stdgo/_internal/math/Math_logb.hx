@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function logb(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (_x == (0 : stdgo.GoFloat64)) {
             return stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));

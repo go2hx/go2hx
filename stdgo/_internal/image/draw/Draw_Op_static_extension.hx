@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 @:keep @:allow(stdgo._internal.image.draw.Draw.Op_asInterface) class Op_static_extension {
     @:keep
     @:tdfield

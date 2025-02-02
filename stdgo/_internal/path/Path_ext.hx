@@ -1,7 +1,4 @@
 package stdgo._internal.path;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.utf8.Utf8;
 function ext(_path:stdgo.GoString):stdgo.GoString {
         {
             var _i = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);

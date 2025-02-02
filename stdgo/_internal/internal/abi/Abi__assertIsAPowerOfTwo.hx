@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 function _assertIsAPowerOfTwo(_x:stdgo.GoUInt8):Void {
         if (_x == ((0 : stdgo.GoUInt8))) {
             throw stdgo.Go.toInterface(("Zero is not a power of two" : stdgo.GoString));

@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509.pkix;
-import stdgo._internal.encoding.asn1.Asn1;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET_static_extension.AttributeTypeAndValueSET_static_extension) class AttributeTypeAndValueSET {
     public var type : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier(0, 0);
     @:tag("`asn1:\"set\"`")

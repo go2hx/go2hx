@@ -1,8 +1,4 @@
 package stdgo._internal.sync;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.sync.atomic_.Atomic_;
-import stdgo._internal.internal.race.Race;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_Map__static_extension.Map__static_extension) class Map_ {
     public var _mu : stdgo._internal.sync.Sync_Mutex.Mutex = ({} : stdgo._internal.sync.Sync_Mutex.Mutex);
     public var _read : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.sync.Sync_T_readOnly.T_readOnly> = ({} : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>);

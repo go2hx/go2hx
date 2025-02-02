@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.hex;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
 function dump(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoString {
         if ((_data.length) == ((0 : stdgo.GoInt))) {
             return stdgo.Go.str()?.__copy__();

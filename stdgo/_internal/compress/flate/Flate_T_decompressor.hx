@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 @:structInit @:using(stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension) class T_decompressor {
     public var _r : stdgo._internal.compress.flate.Flate_Reader.Reader = (null : stdgo._internal.compress.flate.Flate_Reader.Reader);
     public var _rBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);

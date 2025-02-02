@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {

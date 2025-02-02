@@ -1,9 +1,4 @@
 package stdgo._internal.encoding.pem;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
 function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>):stdgo.Error {
         for (_k => _ in (@:checkr _b ?? throw "null pointer dereference").headers) {
             if (stdgo._internal.strings.Strings_contains.contains(_k?.__copy__(), (":" : stdgo.GoString))) {

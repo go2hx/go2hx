@@ -1,13 +1,4 @@
 package stdgo._internal.internal.coverage.decodecounter;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.internal.coverage.Coverage;
-import stdgo._internal.internal.coverage.slicereader.Slicereader;
-import stdgo._internal.internal.coverage.stringtab.Stringtab;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.io.Io;
 function newCounterDataReader(_fn:stdgo.GoString, _rs:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):{ var _0 : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>; var _1 : stdgo.Error; } {
         var _cdr = (stdgo.Go.setRef(({ _mr : _rs, _u32b : (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _u8b : (new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader)) : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
         {

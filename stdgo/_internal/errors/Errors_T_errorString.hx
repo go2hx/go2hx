@@ -1,5 +1,4 @@
 package stdgo._internal.errors;
-import stdgo._internal.internal.reflectlite.Reflectlite;
 @:structInit @:using(stdgo._internal.errors.Errors_T_errorString_static_extension.T_errorString_static_extension) class T_errorString {
     public var _s : stdgo.GoString = "";
     public function new(?_s:stdgo.GoString) {

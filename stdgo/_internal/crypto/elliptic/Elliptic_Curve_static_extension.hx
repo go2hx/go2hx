@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 @:keep class Curve_static_extension {
     @:interfacetypeffun
     static public function scalarBaseMult(t:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _k:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return t.scalarBaseMult(_k);

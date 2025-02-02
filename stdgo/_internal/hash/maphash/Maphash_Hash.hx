@@ -1,6 +1,4 @@
 package stdgo._internal.hash.maphash;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.math.bits.Bits;
 @:structInit @:using(stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension) class Hash {
     @:optional
     public var __1 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0);

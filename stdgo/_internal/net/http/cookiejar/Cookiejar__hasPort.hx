@@ -1,11 +1,4 @@
 package stdgo._internal.net.http.cookiejar;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.time.Time;
-import stdgo._internal.net.Net;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.net.http.internal.ascii.Ascii;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
 function _hasPort(_host:stdgo.GoString):Bool {
         var _colons = (stdgo._internal.strings.Strings_count.count(_host?.__copy__(), (":" : stdgo.GoString)) : stdgo.GoInt);
         if (_colons == ((0 : stdgo.GoInt))) {

@@ -1,11 +1,4 @@
 package stdgo._internal.compress.flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.sort.Sort;
 @:keep var __init_go2hx__ = {
         try {
             var __tmp__0 = stdgo._internal.compress.flate.Flate__levels._levels, __tmp__1 = stdgo._internal.compress.flate.Flate__errWriterClosed._errWriterClosed, __tmp__2 = stdgo._internal.compress.flate.Flate__lengthExtraBits._lengthExtraBits, __tmp__3 = stdgo._internal.compress.flate.Flate__lengthBase._lengthBase, __tmp__4 = stdgo._internal.compress.flate.Flate__offsetExtraBits._offsetExtraBits, __tmp__5 = stdgo._internal.compress.flate.Flate__offsetBase._offsetBase, __tmp__6 = stdgo._internal.compress.flate.Flate__codegenOrder._codegenOrder, __tmp__7 = stdgo._internal.compress.flate.Flate__fixedOffsetEncoding._fixedOffsetEncoding, __tmp__8 = stdgo._internal.compress.flate.Flate__fixedLiteralEncoding._fixedLiteralEncoding, __tmp__9 = stdgo._internal.compress.flate.Flate__codeOrder._codeOrder, __tmp__10 = stdgo._internal.compress.flate.Flate__lengthCodes._lengthCodes, __tmp__11 = stdgo._internal.compress.flate.Flate__offsetCodes._offsetCodes;

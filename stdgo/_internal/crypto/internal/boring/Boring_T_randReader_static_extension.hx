@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.internal.boring;
-import stdgo._internal.crypto.internal.boring.sig.Sig;
 @:keep @:allow(stdgo._internal.crypto.internal.boring.Boring.T_randReader_asInterface) class T_randReader_static_extension {
     @:keep
     @:tdfield

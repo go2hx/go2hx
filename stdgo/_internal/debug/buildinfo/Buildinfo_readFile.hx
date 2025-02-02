@@ -1,16 +1,4 @@
 package stdgo._internal.debug.buildinfo;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.os.Os;
-import stdgo._internal.runtime.debug.Debug;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.debug.elf.Elf;
-import stdgo._internal.debug.pe.Pe;
-import stdgo._internal.debug.macho.Macho;
-import stdgo._internal.internal.xcoff.Xcoff;
-import stdgo._internal.debug.plan9obj.Plan9obj;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.internal.saferio.Saferio;
 function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _info = (null : stdgo.Ref<stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo>), _err = (null : stdgo.Error);

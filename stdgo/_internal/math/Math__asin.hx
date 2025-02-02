@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function _asin(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         if (_x == (0 : stdgo.GoFloat64)) {
             return _x;

@@ -1,14 +1,4 @@
 package stdgo._internal.encoding.xml;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
 function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>; var _1 : stdgo.Error; } {
         var _finfo = (stdgo.Go.setRef(({ _idx : (@:checkr _f ?? throw "null pointer dereference").index } : stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
         var _tag = ((@:checkr _f ?? throw "null pointer dereference").tag.get(("xml" : stdgo.GoString))?.__copy__() : stdgo.GoString);

@@ -1,6 +1,4 @@
 package stdgo._internal.hash.fnv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.bits.Bits;
 @:keep @:allow(stdgo._internal.hash.fnv.Fnv.T_sum32_asInterface) class T_sum32_static_extension {
     @:keep
     @:pointer

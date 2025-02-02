@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function _shrcompress(_u1:stdgo.GoUInt64, _u2:stdgo.GoUInt64, _n:stdgo.GoUInt):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
         var _r1 = (0 : stdgo.GoUInt64), _r2 = (0 : stdgo.GoUInt64);
         if (_n == ((0u32 : stdgo.GoUInt))) {

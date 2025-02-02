@@ -1,12 +1,4 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 function _listGroupsFromReader(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         if ((@:checkr _u ?? throw "null pointer dereference").username == (stdgo.Go.str())) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.errors.Errors_new_.new_(("user: list groups: empty username" : stdgo.GoString)) };

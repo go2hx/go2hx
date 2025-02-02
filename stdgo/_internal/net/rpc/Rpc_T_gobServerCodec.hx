@@ -1,17 +1,4 @@
 package stdgo._internal.net.rpc;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.html.template.Template;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.encoding.gob.Gob;
-import stdgo._internal.net.Net;
-import stdgo._internal.io.Io;
-import stdgo._internal.net.http.Http;
-import stdgo._internal.go.token.Token;
-import stdgo._internal.log.Log;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
 @:structInit @:using(stdgo._internal.net.rpc.Rpc_T_gobServerCodec_static_extension.T_gobServerCodec_static_extension) class T_gobServerCodec {
     public var _rwc : stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser = (null : stdgo._internal.io.Io_ReadWriteCloser.ReadWriteCloser);
     public var _dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>);

@@ -1,7 +1,4 @@
 package stdgo._internal.embed;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
 class T_openDir_asInterface {
     @:keep
     @:tdfield

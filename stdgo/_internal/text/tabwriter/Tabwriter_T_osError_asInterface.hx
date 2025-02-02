@@ -1,6 +1,4 @@
 package stdgo._internal.text.tabwriter;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 class T_osError_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

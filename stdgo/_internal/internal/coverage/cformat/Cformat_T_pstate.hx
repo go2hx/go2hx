@@ -1,8 +1,4 @@
 package stdgo._internal.internal.coverage.cformat;
-import stdgo._internal.internal.coverage.cmerge.Cmerge;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.text.tabwriter.Tabwriter;
 @:structInit @:using(stdgo._internal.internal.coverage.cformat.Cformat_T_pstate_static_extension.T_pstate_static_extension) class T_pstate {
     public var _funcs : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_T_fnfile.T_fnfile> = (null : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_T_fnfile.T_fnfile>);
     public var _funcTable : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_T_fnfile.T_fnfile, stdgo.GoUInt32> = (({

@@ -1,13 +1,4 @@
 package stdgo._internal.crypto.sha1;
-import stdgo._internal.crypto.Crypto;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.crypto.rand.Rand;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.errors.Errors;
 function _benchmarkSize(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _size:stdgo.GoInt):Void {
         var _sum = (new stdgo.Slice<stdgo.GoUInt8>((stdgo._internal.crypto.sha1.Sha1__bench._bench.size() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.run(("New" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {

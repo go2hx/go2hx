@@ -1,25 +1,4 @@
 package stdgo._internal.encoding.gob;
-import stdgo._internal.flag.Flag;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.time.Time;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.io.Io;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.math.Math;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.os.Os;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.encoding.binary.Binary;
 var _singleTests : stdgo.Slice<stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest> = (new stdgo.Slice<stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest>(8, 8, ...[(new stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest(stdgo.Go.toInterface((17 : stdgo.GoInt)), stdgo.Go.toInterface(stdgo.Go.pointer(stdgo._internal.encoding.gob.Gob__testInt._testInt)), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest), (new stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest(stdgo.Go.toInterface(((17.5 : stdgo.GoFloat64) : stdgo.GoFloat32)), stdgo.Go.toInterface(stdgo.Go.pointer(stdgo._internal.encoding.gob.Gob__testFloat32._testFloat32)), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest), (new stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest(stdgo.Go.toInterface(("bike shed" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.pointer(stdgo._internal.encoding.gob.Gob__testString._testString)), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest), (new stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest(stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(4, 4, ...[("bike" : stdgo.GoString), ("shed" : stdgo.GoString), ("paint" : stdgo.GoString), ("color" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)), stdgo.Go.toInterface((stdgo.Go.setRef(stdgo._internal.encoding.gob.Gob__testSlice._testSlice) : stdgo.Ref<stdgo.Slice<stdgo.GoString>>)), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest), (new stdgo._internal.encoding.gob.Gob_SingleTest.SingleTest(stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
         x.__defaultValue__ = () -> (0 : stdgo.GoInt);

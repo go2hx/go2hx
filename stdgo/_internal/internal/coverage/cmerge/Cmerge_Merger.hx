@@ -1,5 +1,4 @@
 package stdgo._internal.internal.coverage.cmerge;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.internal.coverage.cmerge.Cmerge_Merger_static_extension.Merger_static_extension) class Merger {
     public var _cmode : stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode = ((0 : stdgo.GoUInt8) : stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode);
     public var _cgran : stdgo._internal.internal.coverage.Coverage_CounterGranularity.CounterGranularity = ((0 : stdgo.GoUInt8) : stdgo._internal.internal.coverage.Coverage_CounterGranularity.CounterGranularity);

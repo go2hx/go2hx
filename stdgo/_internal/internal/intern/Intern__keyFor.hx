@@ -1,6 +1,4 @@
 package stdgo._internal.internal.intern;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.runtime.Runtime;
 function _keyFor(_cmpVal:stdgo.AnyInterface):stdgo._internal.internal.intern.Intern_T_key.T_key {
         {
             var __tmp__ = try {

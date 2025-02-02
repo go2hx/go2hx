@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 function _basepointTable():stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_affineLookupTable.T_affineLookupTable>> {
         @:check2 stdgo._internal.crypto.internal.edwards25519.Edwards25519__basepointTablePrecomp._basepointTablePrecomp._initOnce.do_(function():Void {
             var _p = stdgo._internal.crypto.internal.edwards25519.Edwards25519_newGeneratorPoint.newGeneratorPoint();

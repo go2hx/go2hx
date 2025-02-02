@@ -1,20 +1,4 @@
 package stdgo._internal.regexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.regexp.syntax.Syntax;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.bzip2.Bzip2;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
 var _runeMergeTests : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_5.T__struct_5> = (new stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_5.T__struct_5>(13, 13, ...[
 ({ _left : (new stdgo.Slice<stdgo.GoInt32>(2, 2, ...[(69 : stdgo.GoInt32), (69 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _right : (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _merged : (new stdgo.Slice<stdgo.GoInt32>(2, 2, ...[(69 : stdgo.GoInt32), (69 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _next : (new stdgo.Slice<stdgo.GoUInt32>(1, 1, ...[(1u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>), _leftPC : (1u32 : stdgo.GoUInt32), _rightPC : (2u32 : stdgo.GoUInt32) } : stdgo._internal.regexp.Regexp_T__struct_5.T__struct_5),
 ({ _left : (new stdgo.Slice<stdgo.GoInt32>(2, 2, ...[(69 : stdgo.GoInt32), (69 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _right : (new stdgo.Slice<stdgo.GoInt32>(2, 2, ...[(69 : stdgo.GoInt32), (69 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _merged : (new stdgo.Slice<stdgo.GoInt32>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>), _next : (new stdgo.Slice<stdgo.GoUInt32>(1, 1, ...[(-1u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>), _leftPC : (1u32 : stdgo.GoUInt32), _rightPC : (1u32 : stdgo.GoUInt32) } : stdgo._internal.regexp.Regexp_T__struct_5.T__struct_5),

@@ -1,15 +1,2 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 var _cpuProfilerRxStr : stdgo.GoString = stdgo._internal.strings.Strings_join.join((new stdgo.Slice<stdgo.GoString>(5, 5, ...[("ProfileData::Add" : stdgo.GoString), ("ProfileData::prof_handler" : stdgo.GoString), ("CpuProfiler::prof_handler" : stdgo.GoString), ("__pthread_sighandler" : stdgo.GoString), ("__restore" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), ("|" : stdgo.GoString));

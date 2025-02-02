@@ -1,6 +1,4 @@
 package stdgo._internal.html;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
 var _replacementTable : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(32, 32, ...[
 (8364 : stdgo.GoInt32),
 (129 : stdgo.GoInt32),

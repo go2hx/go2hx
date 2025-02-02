@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 class T_rule_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

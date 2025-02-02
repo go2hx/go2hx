@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.internal.nistec.fiat;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.errors.Errors;
 function _p521Selectznz(_out1:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>, _arg1:stdgo._internal.crypto.internal.nistec.fiat.Fiat_T_p521Uint1.T_p521Uint1, _arg2:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>, _arg3:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>):Void {
         var _x1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _x1__pointer__ = stdgo.Go.pointer(_x1);

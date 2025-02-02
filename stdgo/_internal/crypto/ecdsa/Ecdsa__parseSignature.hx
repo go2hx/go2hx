@@ -1,19 +1,4 @@
 package stdgo._internal.crypto.ecdsa;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.elliptic.Elliptic;
-import stdgo._internal.crypto.ecdh.Ecdh;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.crypto.internal.randutil.Randutil;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.internal.boring.bbig.Bbig;
-import stdgo._internal.crypto.internal.bigmod.Bigmod;
-import stdgo._internal.io.Io;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.crypto.sha512.Sha512;
-import stdgo._internal.crypto.aes.Aes;
-import stdgo._internal.crypto.cipher.Cipher;
-import stdgo._internal.math.big.Big;
 function _parseSignature(_sig:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         var _r = (null : stdgo.Slice<stdgo.GoUInt8>), _s = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         var _inner:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);

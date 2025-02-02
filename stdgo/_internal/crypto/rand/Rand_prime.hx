@@ -1,10 +1,4 @@
 package stdgo._internal.crypto.rand;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.compress.flate.Flate;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.crypto.internal.randutil.Randutil;
 function prime(_rand:stdgo._internal.io.Io_Reader.Reader, _bits:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } {
         if ((_bits < (2 : stdgo.GoInt) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/rand: prime size must be at least 2-bit" : stdgo.GoString)) };

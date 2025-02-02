@@ -1,6 +1,4 @@
 package stdgo._internal.image.color;
-import stdgo._internal.testing.quick.Quick;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.image.color.Color_YCbCr_static_extension.YCbCr_static_extension) class YCbCr {
     public var y : stdgo.GoUInt8 = 0;
     public var cb : stdgo.GoUInt8 = 0;

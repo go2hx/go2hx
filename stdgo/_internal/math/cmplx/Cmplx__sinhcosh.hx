@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 function _sinhcosh(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } {
         var _sh = (0 : stdgo.GoFloat64), _ch = (0 : stdgo.GoFloat64);
         if ((stdgo._internal.math.Math_abs.abs(_x) <= (0.5 : stdgo.GoFloat64) : Bool)) {

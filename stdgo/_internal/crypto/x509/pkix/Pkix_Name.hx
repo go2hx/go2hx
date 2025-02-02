@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509.pkix;
-import stdgo._internal.encoding.asn1.Asn1;
-import stdgo._internal.encoding.hex.Hex;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension) class Name {
     public var country : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var organization : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

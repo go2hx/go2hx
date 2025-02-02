@@ -1,6 +1,4 @@
 package stdgo._internal.net.http.httptrace;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.net.http.httptrace.Httptrace_ClientTrace_static_extension.ClientTrace_static_extension) class ClientTrace {
     public var getConn : stdgo.GoString -> Void = null;
     public var gotConn : stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo.GotConnInfo -> Void = null;

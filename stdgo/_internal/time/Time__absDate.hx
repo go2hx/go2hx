@@ -1,9 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.syscall.Syscall;
-import stdgo._internal.syscall.js.Js;
-import stdgo._internal.internal.itoa.Itoa;
-import stdgo._internal.runtime.Runtime;
 function _absDate(_abs:stdgo.GoUInt64, _full:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Month.Month; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } {
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_Month.Month), _day = (0 : stdgo.GoInt), _yday = (0 : stdgo.GoInt);
         var _d = (_abs / (86400i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_T_structTypeUncommon_static_extension.T_structTypeUncommon_static_extension) class T_structTypeUncommon {
     @:embedded
     public var structType : stdgo._internal.internal.abi.Abi_StructType.StructType = ({} : stdgo._internal.internal.abi.Abi_StructType.StructType);

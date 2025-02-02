@@ -1,15 +1,4 @@
 package stdgo._internal.mime;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.os.Os;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.unicode.utf8.Utf8;
 function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } {
         var _mediatype = ("" : stdgo.GoString), _params = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_v?.__copy__(), (";" : stdgo.GoString)), _base:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1, __1:Bool = __tmp__._2;

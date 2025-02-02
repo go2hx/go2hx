@@ -1,7 +1,4 @@
 package stdgo._internal.internal.saferio;
-import stdgo._internal.io.Io;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.bytes.Bytes;
 function testReadDataAt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
         var _input = stdgo._internal.bytes.Bytes_repeat.repeat((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(97 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (100 : stdgo.GoInt));

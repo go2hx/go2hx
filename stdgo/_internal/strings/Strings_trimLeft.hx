@@ -1,10 +1,4 @@
 package stdgo._internal.strings;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.internal.bytealg.Bytealg;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function trimLeft(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString {
         if (((_s == stdgo.Go.str()) || (_cutset == stdgo.Go.str()) : Bool)) {
             return _s?.__copy__();

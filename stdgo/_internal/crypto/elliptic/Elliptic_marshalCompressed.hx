@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.elliptic;
-import stdgo._internal.crypto.internal.nistec.Nistec;
-import stdgo._internal.io.Io;
-import stdgo._internal.errors.Errors;
 function marshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Slice<stdgo.GoUInt8> {
         stdgo._internal.crypto.elliptic.Elliptic__panicIfNotOnCurve._panicIfNotOnCurve(_curve, _x, _y);
         var _byteLen = (((_curve.params().bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);

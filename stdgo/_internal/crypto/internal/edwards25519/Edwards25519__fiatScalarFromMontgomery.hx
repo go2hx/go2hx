@@ -1,8 +1,4 @@
 package stdgo._internal.crypto.internal.edwards25519;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.subtle.Subtle;
 function _fiatScalarFromMontgomery(_out1:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_fiatScalarNonMontgomeryDomainFieldElement.T_fiatScalarNonMontgomeryDomainFieldElement>, _arg1:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_fiatScalarMontgomeryDomainFieldElement.T_fiatScalarMontgomeryDomainFieldElement>):Void {
         var _x1 = (_arg1[(0 : stdgo.GoInt)] : stdgo.GoUInt64);
         var _x2:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

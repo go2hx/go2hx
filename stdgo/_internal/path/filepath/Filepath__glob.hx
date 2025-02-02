@@ -1,10 +1,4 @@
 package stdgo._internal.path.filepath;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.sort.Sort;
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _m = (null : stdgo.Slice<stdgo.GoString>), _e = (null : stdgo.Error);

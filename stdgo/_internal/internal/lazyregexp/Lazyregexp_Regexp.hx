@@ -1,7 +1,4 @@
 package stdgo._internal.internal.lazyregexp;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.regexp.Regexp;
 @:structInit @:using(stdgo._internal.internal.lazyregexp.Lazyregexp_Regexp_static_extension.Regexp_static_extension) class Regexp {
     public var _str : stdgo.GoString = "";
     public var _once : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);

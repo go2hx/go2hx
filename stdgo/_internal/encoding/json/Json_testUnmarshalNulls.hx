@@ -1,31 +1,4 @@
 package stdgo._internal.encoding.json;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.math.Math;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.os.Os;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.testenv.Testenv;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.utf16.Utf16;
-import stdgo._internal.math.big.Big;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.encoding.base64.Base64;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.runtime.debug.Debug;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.log.Log;
-import stdgo._internal.math.rand.Rand;
-import stdgo._internal.net.Net;
-import stdgo._internal.net.http.httptest.Httptest;
-import stdgo._internal.net.http.Http;
 function testUnmarshalNulls(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _jsonData = (("{\n\t\t\t\t\"Bool\"    : null,\n\t\t\t\t\"Int\"     : null,\n\t\t\t\t\"Int8\"    : null,\n\t\t\t\t\"Int16\"   : null,\n\t\t\t\t\"Int32\"   : null,\n\t\t\t\t\"Int64\"   : null,\n\t\t\t\t\"Uint\"    : null,\n\t\t\t\t\"Uint8\"   : null,\n\t\t\t\t\"Uint16\"  : null,\n\t\t\t\t\"Uint32\"  : null,\n\t\t\t\t\"Uint64\"  : null,\n\t\t\t\t\"Float32\" : null,\n\t\t\t\t\"Float64\" : null,\n\t\t\t\t\"String\"  : null,\n\t\t\t\t\"PBool\": null,\n\t\t\t\t\"Map\": null,\n\t\t\t\t\"Slice\": null,\n\t\t\t\t\"Interface\": null,\n\t\t\t\t\"PRaw\": null,\n\t\t\t\t\"PTime\": null,\n\t\t\t\t\"PBigInt\": null,\n\t\t\t\t\"PText\": null,\n\t\t\t\t\"PBuffer\": null,\n\t\t\t\t\"PStruct\": null,\n\t\t\t\t\"Raw\": null,\n\t\t\t\t\"Time\": null,\n\t\t\t\t\"BigInt\": null,\n\t\t\t\t\"Text\": null,\n\t\t\t\t\"Buffer\": null,\n\t\t\t\t\"Struct\": null\n\t\t\t}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _nulls = ({ bool_ : true, int_ : (2 : stdgo.GoInt), int8 : (3 : stdgo.GoInt8), int16 : (4 : stdgo.GoInt16), int32 : (5 : stdgo.GoInt32), int64 : (6i64 : stdgo.GoInt64), uint : (7u32 : stdgo.GoUInt), uint8 : (8 : stdgo.GoUInt8), uint16 : (9 : stdgo.GoUInt16), uint32 : (10u32 : stdgo.GoUInt32), uint64 : (11i64 : stdgo.GoUInt64), float32 : (12.100000381469727 : stdgo.GoFloat64), float64 : (13.1 : stdgo.GoFloat64), string : ("14" : stdgo.GoString), pBool : stdgo.Go.pointer(false), map_ : ({

@@ -1,10 +1,4 @@
 package stdgo._internal.image.jpeg;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.image.Image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.internal.imageutil.Imageutil;
 function _rgbaToYCbCr(_m:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _p:stdgo._internal.image.Image_Point.Point, _yBlock:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>, _cbBlock:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>, _crBlock:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>):Void {
         var _b = (@:check2r _m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
         var _xmax = (_b.max.x - (1 : stdgo.GoInt) : stdgo.GoInt);

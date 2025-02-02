@@ -1,10 +1,2 @@
 package stdgo._internal.os.user;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.io.Io;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
 @:keep @:follow @:using(stdgo._internal.os.user.User_UnknownGroupIdError_static_extension.UnknownGroupIdError_static_extension) typedef UnknownGroupIdErrorPointer = stdgo.Pointer<stdgo._internal.os.user.User_UnknownGroupIdError.UnknownGroupIdError>;

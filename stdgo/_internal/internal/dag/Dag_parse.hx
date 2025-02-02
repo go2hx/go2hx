@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 function parse(_dag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>; var _1 : stdgo.Error; } {
         var _g = stdgo._internal.internal.dag.Dag__newGraph._newGraph();
         var _disallowed = (new stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.dag.Dag_T_rule.T_rule)])) : stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>);

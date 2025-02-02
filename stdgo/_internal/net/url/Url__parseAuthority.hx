@@ -1,10 +1,4 @@
 package stdgo._internal.net.url;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.path.Path;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
 function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _user = (null : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>), _host = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         var _i = (stdgo._internal.strings.Strings_lastIndex.lastIndex(_authority?.__copy__(), ("@" : stdgo.GoString)) : stdgo.GoInt);

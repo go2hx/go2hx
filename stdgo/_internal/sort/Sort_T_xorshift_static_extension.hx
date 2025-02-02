@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 @:keep @:allow(stdgo._internal.sort.Sort.T_xorshift_asInterface) class T_xorshift_static_extension {
     @:keep
     @:pointer

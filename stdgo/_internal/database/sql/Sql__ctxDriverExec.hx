@@ -1,17 +1,4 @@
 package stdgo._internal.database.sql;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.time.Time;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.database.sql.driver.Driver;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.context.Context;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.io.Io;
 function _ctxDriverExec(_ctx:stdgo._internal.context.Context_Context.Context, _execerCtx:stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext, _execer:stdgo._internal.database.sql.driver.Driver_Execer.Execer, _query:stdgo.GoString, _nvdargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>):{ var _0 : stdgo._internal.database.sql.driver.Driver_Result.Result; var _1 : stdgo.Error; } {
         if (_execerCtx != null) {
             return _execerCtx.execContext(_ctx, _query?.__copy__(), _nvdargs);

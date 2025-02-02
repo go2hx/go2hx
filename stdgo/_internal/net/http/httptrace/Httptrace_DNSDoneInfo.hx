@@ -1,6 +1,4 @@
 package stdgo._internal.net.http.httptrace;
-import stdgo._internal.context.Context;
-import stdgo._internal.reflect.Reflect;
 @:structInit @:using(stdgo._internal.net.http.httptrace.Httptrace_DNSDoneInfo_static_extension.DNSDoneInfo_static_extension) class DNSDoneInfo {
     public var addrs : stdgo.Slice<stdgo._internal.net.Net_IPAddr.IPAddr> = (null : stdgo.Slice<stdgo._internal.net.Net_IPAddr.IPAddr>);
     public var err : stdgo.Error = (null : stdgo.Error);

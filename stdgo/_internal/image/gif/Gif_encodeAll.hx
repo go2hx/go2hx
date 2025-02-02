@@ -1,13 +1,4 @@
 package stdgo._internal.image.gif;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.io.Io;
-import stdgo._internal.image.Image;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.image.draw.Draw;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.compress.lzw.Lzw;
-import stdgo._internal.bytes.Bytes;
 function encodeAll(_w:stdgo._internal.io.Io_Writer.Writer, _g:stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>):stdgo.Error {
         if (((@:checkr _g ?? throw "null pointer dereference").image.length) == ((0 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("gif: must provide at least one image" : stdgo.GoString));

@@ -1,13 +1,4 @@
 package stdgo._internal.fmt;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.os.Os;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.io.Io;
-import stdgo._internal.internal.fmtsort.Fmtsort;
-import stdgo._internal.math.Math;
 function _newScanState(_r:stdgo._internal.io.Io_Reader.Reader, _nlIsSpace:Bool, _nlIsEnd:Bool):{ var _0 : stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>; var _1 : stdgo._internal.fmt.Fmt_T_ssave.T_ssave; } {
         var _s = (null : stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>), _old = ({} : stdgo._internal.fmt.Fmt_T_ssave.T_ssave);
         _s = (stdgo.Go.typeAssert((@:check2 stdgo._internal.fmt.Fmt__ssFree._ssFree.get() : stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>)) : stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>);

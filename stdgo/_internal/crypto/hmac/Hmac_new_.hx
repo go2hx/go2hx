@@ -1,6 +1,4 @@
 package stdgo._internal.crypto.hmac;
-import stdgo._internal.crypto.internal.boring.Boring;
-import stdgo._internal.crypto.subtle.Subtle;
 function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.hash.Hash_Hash.Hash {
         if (false) {
             var _hm = (stdgo._internal.crypto.internal.boring.Boring_newHMAC.newHMAC(_h, _key) : stdgo._internal.hash.Hash_Hash.Hash);

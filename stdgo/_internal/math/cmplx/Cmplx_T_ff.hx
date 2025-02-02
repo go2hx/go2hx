@@ -1,6 +1,4 @@
 package stdgo._internal.math.cmplx;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
 @:structInit @:using(stdgo._internal.math.cmplx.Cmplx_T_ff_static_extension.T_ff_static_extension) class T_ff {
     public var _r : stdgo.GoFloat64 = 0;
     public var _theta : stdgo.GoFloat64 = 0;

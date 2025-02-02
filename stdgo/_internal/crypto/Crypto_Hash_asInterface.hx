@@ -1,5 +1,4 @@
 package stdgo._internal.crypto;
-import stdgo._internal.strconv.Strconv;
 class Hash_asInterface {
     @:keep
     @:tdfield

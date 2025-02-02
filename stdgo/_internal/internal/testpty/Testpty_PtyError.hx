@@ -1,6 +1,4 @@
 package stdgo._internal.internal.testpty;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.internal.testpty.Testpty_PtyError_static_extension.PtyError_static_extension) class PtyError {
     public var funcName : stdgo.GoString = "";
     public var errorString : stdgo.GoString = "";

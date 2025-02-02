@@ -1,6 +1,4 @@
 package stdgo._internal.html;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.unicode.utf8.Utf8;
 function _unescapeEntity(_b:stdgo.Slice<stdgo.GoUInt8>, _dst:stdgo.GoInt, _src:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
         var _dst1 = (0 : stdgo.GoInt), _src1 = (0 : stdgo.GoInt);
         {};

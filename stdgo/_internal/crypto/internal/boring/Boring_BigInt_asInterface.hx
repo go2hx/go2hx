@@ -1,5 +1,4 @@
 package stdgo._internal.crypto.internal.boring;
-import stdgo._internal.crypto.internal.boring.sig.Sig;
 class BigInt_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

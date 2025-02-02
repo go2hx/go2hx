@@ -1,17 +1,4 @@
 package stdgo._internal.internal.profile;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.internal.lazyregexp.Lazyregexp;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.math.Math;
-import stdgo._internal.compress.gzip.Gzip;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.time.Time;
-import stdgo._internal.regexp.Regexp;
 @:structInit @:using(stdgo._internal.internal.profile.Profile_Line_static_extension.Line_static_extension) class Line {
     public var function_ : stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function> = (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_Function.Function>);
     public var line : stdgo.GoInt64 = 0;

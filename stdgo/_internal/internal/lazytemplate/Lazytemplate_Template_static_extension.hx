@@ -1,7 +1,4 @@
 package stdgo._internal.internal.lazytemplate;
-import stdgo._internal.os.Os;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.text.template.Template;
 @:keep @:allow(stdgo._internal.internal.lazytemplate.Lazytemplate.Template_asInterface) class Template_static_extension {
     @:keep
     @:tdfield

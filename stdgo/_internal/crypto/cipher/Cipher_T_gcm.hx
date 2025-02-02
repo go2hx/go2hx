@@ -1,10 +1,4 @@
 package stdgo._internal.crypto.cipher;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.crypto.internal.alias.Alias;
-import stdgo._internal.crypto.subtle.Subtle;
-import stdgo._internal.io.Io;
 @:structInit @:using(stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension) class T_gcm {
     public var _cipher : stdgo._internal.crypto.cipher.Cipher_Block.Block = (null : stdgo._internal.crypto.cipher.Cipher_Block.Block);
     public var _nonceSize : stdgo.GoInt = 0;

@@ -1,17 +1,4 @@
 package stdgo._internal.archive.tar;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.time.Time;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.path.Path;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
 function fileInfoHeader(_fi:stdgo._internal.io.fs.Fs_FileInfo.FileInfo, _link:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.archive.tar.Tar_Header.Header>; var _1 : stdgo.Error; } {
         if (_fi == null) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("archive/tar: FileInfo is nil" : stdgo.GoString)) };

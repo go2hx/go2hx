@@ -1,11 +1,2 @@
 package stdgo._internal.internal.pkgbits;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.io.Io;
-import stdgo._internal.runtime.Runtime;
-import stdgo._internal.go.constant.Constant;
-import stdgo._internal.crypto.md5.Md5;
-import stdgo._internal.strconv.Strconv;
 var _overflow : stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("pkgbits: readUvarint overflows a 64-bit integer" : stdgo.GoString));

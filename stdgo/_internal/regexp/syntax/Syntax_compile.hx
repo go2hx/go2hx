@@ -1,10 +1,4 @@
 package stdgo._internal.regexp.syntax;
-import stdgo._internal.unicode.Unicode;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
 function compile(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.Prog>; var _1 : stdgo.Error; } {
         var _c:stdgo._internal.regexp.syntax.Syntax_T_compiler.T_compiler = ({} : stdgo._internal.regexp.syntax.Syntax_T_compiler.T_compiler);
         @:check2 _c._init();

@@ -1,8 +1,4 @@
 package stdgo._internal.bufio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.io.Io;
 function _isSpace(_r:stdgo.GoInt32):Bool {
         if ((_r <= (255 : stdgo.GoInt32) : Bool)) {
             {

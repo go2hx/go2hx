@@ -1,13 +1,4 @@
 package stdgo._internal.log;
-import stdgo._internal.os.Os;
-import stdgo._internal.log.internal.Internal;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.regexp.Regexp;
-import stdgo._internal.time.Time;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.runtime.Runtime;
 var _tests : stdgo.Slice<stdgo._internal.log.Log_T_tester.T_tester> = (new stdgo.Slice<stdgo._internal.log.Log_T_tester.T_tester>(14, 14, ...[
 (new stdgo._internal.log.Log_T_tester.T_tester((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.log.Log_T_tester.T_tester),
 (new stdgo._internal.log.Log_T_tester.T_tester((0 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX" : stdgo.GoString)) : stdgo._internal.log.Log_T_tester.T_tester),

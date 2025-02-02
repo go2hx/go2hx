@@ -1,7 +1,4 @@
 package stdgo._internal.internal.dag;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.sort.Sort;
 function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _out = (null : stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>), _err = (null : stdgo.Error);

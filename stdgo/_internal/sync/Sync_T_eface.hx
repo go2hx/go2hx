@@ -1,8 +1,4 @@
 package stdgo._internal.sync;
-import stdgo._internal.unsafe.Unsafe;
-import stdgo._internal.sync.atomic_.Atomic_;
-import stdgo._internal.internal.race.Race;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.sync.Sync_T_eface_static_extension.T_eface_static_extension) class T_eface {
     public var _typ : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
     public var _val : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;

@@ -1,6 +1,4 @@
 package stdgo._internal.image.draw;
-import stdgo._internal.image.internal.imageutil.Imageutil;
-import stdgo._internal.image.color.Color;
 function _drawCopySrc(_dstPix:stdgo.Slice<stdgo.GoUInt8>, _dstStride:stdgo.GoInt, _r:stdgo._internal.image.Image_Rectangle.Rectangle, _srcPix:stdgo.Slice<stdgo.GoUInt8>, _srcStride:stdgo.GoInt, _sp:stdgo._internal.image.Image_Point.Point, _bytesPerRow:stdgo.GoInt):Void {
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt), __2 = (_dstStride : stdgo.GoInt), __3 = (_srcStride : stdgo.GoInt), __4 = (_r.dy() : stdgo.GoInt);
 var _dy = __4, _sdelta = __3, _ddelta = __2, _s0 = __1, _d0 = __0;

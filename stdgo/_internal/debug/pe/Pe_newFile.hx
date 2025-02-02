@@ -1,15 +1,4 @@
 package stdgo._internal.debug.pe;
-import stdgo._internal.os.Os;
-import stdgo._internal.io.Io;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.internal.saferio.Saferio;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.compress.zlib.Zlib;
-import stdgo._internal.debug.dwarf.Dwarf;
-import stdgo._internal.strconv.Strconv;
 function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>; var _1 : stdgo.Error; } {
         var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_File.File)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));

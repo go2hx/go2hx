@@ -1,10 +1,4 @@
 package stdgo._internal.io.fs;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.unicode.utf8.Utf8;
-import stdgo._internal.internal.oserror.Oserror;
-import stdgo._internal.path.Path;
-import stdgo._internal.sort.Sort;
-import stdgo._internal.io.Io;
 function formatFileInfo(_info:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):stdgo.GoString {
         var _name = (_info.name()?.__copy__() : stdgo.GoString);
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((40 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

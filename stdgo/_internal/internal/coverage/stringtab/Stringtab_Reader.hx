@@ -1,6 +1,4 @@
 package stdgo._internal.internal.coverage.stringtab;
-import stdgo._internal.internal.coverage.uleb128.Uleb128;
-import stdgo._internal.fmt.Fmt;
 @:structInit @:using(stdgo._internal.internal.coverage.stringtab.Stringtab_Reader_static_extension.Reader_static_extension) class Reader {
     public var _r : stdgo.Ref<stdgo._internal.internal.coverage.slicereader.Slicereader_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.internal.coverage.slicereader.Slicereader_Reader.Reader>);
     public var _strs : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

@@ -1,5 +1,4 @@
 package stdgo._internal.math;
-import stdgo._internal.math.bits.Bits;
 function _isOddInt(_x:stdgo.GoFloat64):Bool {
         if ((stdgo._internal.math.Math_abs.abs(_x) >= (9.007199254740992e+15 : stdgo.GoFloat64) : Bool)) {
             return false;

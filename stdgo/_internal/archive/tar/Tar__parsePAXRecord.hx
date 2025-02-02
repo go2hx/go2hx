@@ -1,17 +1,4 @@
 package stdgo._internal.archive.tar;
-import stdgo._internal.internal.godebug.Godebug;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.strconv.Strconv;
-import stdgo._internal.strings.Strings;
-import stdgo._internal.io.Io;
-import stdgo._internal.time.Time;
-import stdgo._internal.reflect.Reflect;
-import stdgo._internal.path.Path;
-import stdgo._internal.io.fs.Fs;
-import stdgo._internal.path.filepath.Filepath;
-import stdgo._internal.bytes.Bytes;
-import stdgo._internal.sort.Sort;
 function _parsePAXRecord(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.GoString; var _3 : stdgo.Error; } {
         var _k = ("" : stdgo.GoString), _v = ("" : stdgo.GoString), _r = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_s?.__copy__(), (" " : stdgo.GoString)), _nStr:stdgo.GoString = __tmp__._0, _rest:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;

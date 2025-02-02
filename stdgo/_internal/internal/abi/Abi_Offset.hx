@@ -1,5 +1,4 @@
 package stdgo._internal.internal.abi;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_Offset_static_extension.Offset_static_extension) class Offset {
     public var _off : stdgo.GoUInt64 = 0;
     public var _align : stdgo.GoUInt8 = 0;

@@ -1,9 +1,4 @@
 package stdgo._internal.internal.zstd;
-import stdgo._internal.encoding.binary.Binary;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.io.Io;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.errors.Errors;
 var _predefinedOffsetTable : stdgo.GoArray<stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry> = (new stdgo.GoArray<stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry>(32, 32, ...[
 (new stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry((1u32 : stdgo.GoUInt32), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (0 : stdgo.GoUInt16)) : stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry),
 (new stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry((61u32 : stdgo.GoUInt32), (6 : stdgo.GoUInt8), (4 : stdgo.GoUInt8), (0 : stdgo.GoUInt16)) : stdgo._internal.internal.zstd.Zstd_T_fseBaselineEntry.T_fseBaselineEntry),

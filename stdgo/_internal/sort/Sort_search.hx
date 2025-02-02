@@ -1,6 +1,4 @@
 package stdgo._internal.sort;
-import stdgo._internal.internal.reflectlite.Reflectlite;
-import stdgo._internal.math.bits.Bits;
 function search(_n:stdgo.GoInt, _f:stdgo.GoInt -> Bool):stdgo.GoInt {
         var __0 = (0 : stdgo.GoInt), __1 = (_n : stdgo.GoInt);
 var _j = __1, _i = __0;

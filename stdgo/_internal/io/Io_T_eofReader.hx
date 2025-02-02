@@ -1,5 +1,4 @@
 package stdgo._internal.io;
-import stdgo._internal.errors.Errors;
 @:structInit @:using(stdgo._internal.io.Io_T_eofReader_static_extension.T_eofReader_static_extension) class T_eofReader {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);

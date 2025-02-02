@@ -1,12 +1,4 @@
 package stdgo._internal.image;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.image.color.Color;
-import stdgo._internal.bufio.Bufio;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.fmt.Fmt;
-import stdgo._internal.image.color.palette.Palette;
-import stdgo._internal.testing.Testing;
-import stdgo._internal.strconv.Strconv;
 function testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _rects = (new stdgo.Slice<stdgo._internal.image.Image_Rectangle.Rectangle>(20, 20, ...[
 stdgo._internal.image.Image_rect.rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (16 : stdgo.GoInt), (16 : stdgo.GoInt))?.__copy__(),

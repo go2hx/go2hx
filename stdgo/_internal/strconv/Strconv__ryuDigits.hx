@@ -1,8 +1,4 @@
 package stdgo._internal.strconv;
-import stdgo._internal.errors.Errors;
-import stdgo._internal.math.Math;
-import stdgo._internal.math.bits.Bits;
-import stdgo._internal.unicode.utf8.Utf8;
 function _ryuDigits(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>, _lower:stdgo.GoUInt64, _central:stdgo.GoUInt64, _upper:stdgo.GoUInt64, _c0:Bool, _cup:Bool):Void {
         var __tmp__ = stdgo._internal.strconv.Strconv__divmod1e9._divmod1e9(_lower), _lhi:stdgo.GoUInt32 = __tmp__._0, _llo:stdgo.GoUInt32 = __tmp__._1;
         var __tmp__ = stdgo._internal.strconv.Strconv__divmod1e9._divmod1e9(_central), _chi:stdgo.GoUInt32 = __tmp__._0, _clo:stdgo.GoUInt32 = __tmp__._1;

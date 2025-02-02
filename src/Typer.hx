@@ -5328,8 +5328,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		final ct = toComplexType(t, info);
 		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				e = macro (new stdgo.GoUIntptr($e) : $ct);
-			case basic(_):
+			e = macro (new stdgo.GoUIntptr($e) : $ct);
 			case invalidType:
 			default:
 				e = macro($e : $ct);

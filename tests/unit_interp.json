@@ -146,5 +146,8 @@
  "interp|uint32multi",
  "interp|init",
  "interp|reflectcall0",
- "interp|structembedfield"
+ "interp|structembedfield",
+ "interp|newnilstructkeymap0",
+ "interp|newnilstructkeymap1",
+ "interp|newniluinptrkeymap0"
 ]

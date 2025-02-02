@@ -1947,14 +1947,14 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		&& isInterface(toType)) {
 		e = wrapperExpr(fromType, e, info);
 	}
-	switch toType {
+	switch getUnderlying(toType) {
 		case basic(unsafepointer_kind):
 			if (fromType != toType) {
 				e = toAnyInterface(e, toType, info);
 			}
 		case basic(uintptr_kind):
 			if (fromType != toType) {
-				e = macro new stdgo.GoUIntptr($e);
+				e = macro (new stdgo.GoUIntptr($e) : $ct);
 			}
 		default:
 			switch fromType {
@@ -5325,13 +5325,13 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				throw info.panic() + "unknown token: " + expr.token;
 		}
 		final t = typeof(expr.type, info, false);
-		switch t {
+		final ct = toComplexType(t, info);
+		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				e = macro new stdgo.GoUIntptr($e);
+				e = macro (new stdgo.GoUIntptr($e) : $ct);
 			case basic(_):
 			case invalidType:
 			default:
-				final ct = toComplexType(t, info);
 				e = macro($e : $ct);
 		}
 		return e.expr;
@@ -5366,9 +5366,9 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		});
 		final ct = toComplexType(t, info);
 		final t = typeof(expr.type, info, false);
-		switch t {
+		switch getUnderlying(t) {
 			case basic(uintptr_kind): // uintptr
-				return (macro new stdgo.GoUIntptr($e)).expr;
+				return (macro (new stdgo.GoUIntptr($e) : $ct)).expr;
 			default:
 		}
 		// casting

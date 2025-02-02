@@ -1,6 +1,6 @@
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/text/template/Template_Template_static_extension.hx:28: characters 104-149
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/text/template/Template_Template_static_extension.hx:12: characters 104-149
 
- 28 | [2m            if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {[0m
+ 12 | [2m            if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && [0m[1mstdgo._internal.text.template.Template__parse[0m[2m._parse.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {[0m
     |                                                                                                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : stdgo._internal.text.template.Template__parse
 

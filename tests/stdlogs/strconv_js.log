@@ -239,14 +239,14 @@
 === RUN  TestCountMallocs
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94796 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94826 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:94427:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:51093:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 94237 column 9)
-Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57491 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117904:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:117905:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 63451 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 63481 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:63082:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testCountMallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:46465:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 62892 column 9)
+Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 52863 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:83396:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:83397:3)
 -- SKIP: TestCountMallocs
 
 === RUN  TestAllocationsFromBytes

@@ -1,6 +1,6 @@
 package stdgo._internal.regexp.syntax;
 function _isValidCaptureName(_name:stdgo.GoString):Bool {
-        if (_name == (stdgo.Go.str())) {
+        if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
             return false;
         };
         for (__1 => _c in _name) {

@@ -98,7 +98,7 @@ package stdgo._internal.net.netip;
         {
             final __value__ = _ip._z;
             if (__value__ == (stdgo._internal.net.netip.Netip__z0._z0)) {
-                return { _0 : (stdgo.Go.str() : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                return { _0 : ((stdgo.Go.str() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             } else if (__value__ == (stdgo._internal.net.netip.Netip__z4._z4)) {
                 var _max = (("255.255.255.255" : stdgo.GoString).length : stdgo.GoInt);
                 var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -107,11 +107,11 @@ package stdgo._internal.net.netip;
                 var _max = (("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff%enp5s0" : stdgo.GoString).length : stdgo.GoInt);
                 var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 if (_ip.is4In6()) {
-                    _b = (_b.__append__(...(("::ffff:" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                     _b = _ip.unmap()._appendTo4(_b);
                     {
                         var _z = (_ip.zone()?.__copy__() : stdgo.GoString);
-                        if (_z != (stdgo.Go.str())) {
+                        if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
                             _b = (_b.__append__((37 : stdgo.GoUInt8)));
                             _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)));
                         };
@@ -242,11 +242,11 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
                 return _ip._appendTo4(_b);
             } else {
                 if (_ip.is4In6()) {
-                    _b = (_b.__append__(...(("::ffff:" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                    _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                     _b = _ip.unmap()._appendTo4(_b);
                     {
                         var _z = (_ip.zone()?.__copy__() : stdgo.GoString);
-                        if (_z != (stdgo.Go.str())) {
+                        if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
                             _b = (_b.__append__((37 : stdgo.GoUInt8)));
                             _b = (_b.__append__(...(_z : Array<stdgo.GoUInt8>)));
                         };
@@ -271,7 +271,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
                 if (_ip.is4In6()) {
                     {
                         var _z = (_ip.zone()?.__copy__() : stdgo.GoString);
-                        if (_z != (stdgo.Go.str())) {
+                        if (_z != ((stdgo.Go.str() : stdgo.GoString))) {
                             return (((("::ffff:" : stdgo.GoString) + _ip.unmap()._string4()?.__copy__() : stdgo.GoString) + ("%" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _z?.__copy__() : stdgo.GoString)?.__copy__();
                         } else {
                             return (("::ffff:" : stdgo.GoString) + _ip.unmap()._string4()?.__copy__() : stdgo.GoString)?.__copy__();
@@ -491,7 +491,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         if (!_ip.is6()) {
             return _ip?.__copy__();
         };
-        if (_zone == (stdgo.Go.str())) {
+        if (_zone == ((stdgo.Go.str() : stdgo.GoString))) {
             _ip._z = stdgo._internal.net.netip.Netip__z6noz._z6noz;
             return _ip?.__copy__();
         };
@@ -576,7 +576,7 @@ var _zb = __1, _za = __0;
     static public function zone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
         if ((_ip._z == null || (_ip._z : Dynamic).__nil__)) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((@:check2r _ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };

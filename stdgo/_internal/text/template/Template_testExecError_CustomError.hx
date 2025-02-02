@@ -1,7 +1,7 @@
 package stdgo._internal.text.template;
 function testExecError_CustomError(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _failingFunc = (function():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.text.template.Template_CustomError.CustomError() : stdgo._internal.text.template.Template_CustomError.CustomError)) : stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.text.template.Template_CustomError.CustomError() : stdgo._internal.text.template.Template_CustomError.CustomError)) : stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>)) };
         } : () -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; });
         var _tmpl = ({
             var __f__ = stdgo._internal.text.template.Template_must.must;

@@ -11,7 +11,7 @@ function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._i
                 return { _0 : _v, _1 : _err };
             };
             var _parts = stdgo._internal.strings.Strings_splitN.splitN((_line : stdgo.GoString)?.__copy__(), (":" : stdgo.GoString), (4 : stdgo.GoInt));
-            if (((((((_parts.length) < (4 : stdgo.GoInt) : Bool) || _parts[(0 : stdgo.GoInt)] == (stdgo.Go.str()) : Bool) || _parts[(_idx : stdgo.GoInt)] != (_value) : Bool) || _parts[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == ((43 : stdgo.GoUInt8)) : Bool) || (_parts[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8)) : Bool)) {
+            if (((((((_parts.length) < (4 : stdgo.GoInt) : Bool) || _parts[(0 : stdgo.GoInt)] == ((stdgo.Go.str() : stdgo.GoString)) : Bool) || _parts[(_idx : stdgo.GoInt)] != (_value) : Bool) || _parts[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == ((43 : stdgo.GoUInt8)) : Bool) || (_parts[(0 : stdgo.GoInt)][(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8)) : Bool)) {
                 return { _0 : _v, _1 : _err };
             };
             {

@@ -1,7 +1,7 @@
 package stdgo._internal.strconv;
 function _formatBits(_dst:stdgo.Slice<stdgo.GoUInt8>, _u:stdgo.GoUInt64, _base:stdgo.GoInt, _neg:Bool, _append_:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; } {
         var _d = (null : stdgo.Slice<stdgo.GoUInt8>), _s = ("" : stdgo.GoString);
-        if (((_base < (2 : stdgo.GoInt) : Bool) || (_base > (("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString).length) : Bool) : Bool)) {
+        if (((_base < (2 : stdgo.GoInt) : Bool) || (_base > ((("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.GoString).length) : Bool) : Bool)) {
             throw stdgo.Go.toInterface(("strconv: illegal AppendInt/FormatInt base" : stdgo.GoString));
         };
         var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(65, 65).__setNumber32__();

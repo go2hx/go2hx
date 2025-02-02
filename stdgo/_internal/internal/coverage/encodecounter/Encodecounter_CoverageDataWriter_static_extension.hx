@@ -117,7 +117,7 @@ package stdgo._internal.internal.coverage.encodecounter;
         @:recv var _cfw:stdgo.Ref<stdgo._internal.internal.coverage.encodecounter.Encodecounter_CoverageDataWriter.CoverageDataWriter> = _cfw;
         (@:checkr _cfw ?? throw "null pointer dereference")._stab = (stdgo.Go.setRef((new stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer() : stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer)) : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_Writer.Writer>);
         @:check2r (@:checkr _cfw ?? throw "null pointer dereference")._stab.initWriter();
-        @:check2r (@:checkr _cfw ?? throw "null pointer dereference")._stab.lookup(stdgo.Go.str()?.__copy__());
+        @:check2r (@:checkr _cfw ?? throw "null pointer dereference")._stab.lookup((stdgo.Go.str() : stdgo.GoString)?.__copy__());
         var _err:stdgo.Error = (null : stdgo.Error);
         for (_k => _v in _args) {
             @:check2r (@:checkr _cfw ?? throw "null pointer dereference")._stab.lookup(_k?.__copy__());

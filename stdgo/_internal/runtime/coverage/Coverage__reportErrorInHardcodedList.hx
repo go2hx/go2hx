@@ -13,7 +13,7 @@ function _reportErrorInHardcodedList(_slot:stdgo.GoInt32, _pkgID:stdgo.GoInt32, 
             if (_b.pkgID != ((-1 : stdgo.GoInt))) {
                 stdgo.Go.print((" hard-coded id: " : stdgo.GoString), _b.pkgID);
             };
-            stdgo.Go.println(stdgo.Go.str());
+            stdgo.Go.println((stdgo.Go.str() : stdgo.GoString));
         };
         stdgo.Go.println(("remap table:" : stdgo.GoString));
         for (_from => _to in _pkgMap) {

@@ -5,7 +5,7 @@ function testMarshalUncommonFieldNames(_t:stdgo.Ref<stdgo._internal.testing.Test
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("Marshal:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        var _want = ("{\"A0\":0,\"À\":0,\"Aβ\":0}" : stdgo.GoString);
+        var _want = (("{\"A0\":0,\"À\":0,\"Aβ\":0}" : stdgo.GoString) : stdgo.GoString);
         var _got = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (_got != (_want)) {
             @:check2r _t.fatalf(("Marshal: got %s want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));

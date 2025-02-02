@@ -19,7 +19,7 @@ function testUnmarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     a();
                 }) });
             };
-            stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic() : stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic>))));
+            stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic() : stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshalPanic.T_unmarshalPanic>))));
             @:check2r _t.fatalf(("Unmarshal should have panicked" : stdgo.GoString));
             {
                 for (defer in __deferstack__) {

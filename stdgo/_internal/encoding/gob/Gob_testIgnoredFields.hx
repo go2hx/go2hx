@@ -10,7 +10,7 @@ function testIgnoredFields(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         _it0.ignore_e[(2 : stdgo.GoInt)] = (3 : stdgo.GoFloat64);
         _it0.ignore_f = true;
         _it0.ignore_g = ("pay no attention" : stdgo.GoString);
-        _it0.ignore_h = (("to the curtain" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        _it0.ignore_h = ((("to the curtain" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         _it0.ignore_i = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_RT1.RT1((3.1 : stdgo.GoFloat64), ("hi" : stdgo.GoString), (7 : stdgo.GoInt), ("hello" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_RT1.RT1)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_RT1.RT1>);
         _it0.ignore_m = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();

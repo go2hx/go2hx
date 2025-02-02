@@ -5,7 +5,7 @@ function _printStackRecord(_w:stdgo._internal.io.Io_Writer.Writer, _stk:stdgo.Sl
         while (true) {
             var __tmp__ = @:check2r _frames.next(), _frame:stdgo._internal.runtime.Runtime_Frame.Frame = __tmp__._0, _more:Bool = __tmp__._1;
             var _name = (_frame.function_?.__copy__() : stdgo.GoString);
-            if (_name == (stdgo.Go.str())) {
+            if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                 _show = true;
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("#\t%#x\n" : stdgo.GoString), stdgo.Go.toInterface(_frame.pC));
             } else if (((_name != ("runtime.goexit" : stdgo.GoString)) && ((_show || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_name?.__copy__(), ("runtime." : stdgo.GoString)) : Bool)) : Bool)) {

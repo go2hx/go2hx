@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function _extract(_str:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; var _3 : Bool; } {
         var _name = ("" : stdgo.GoString), _num = (0 : stdgo.GoInt), _rest = ("" : stdgo.GoString), _ok = false;
-        if (_str == (stdgo.Go.str())) {
+        if (_str == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : _name, _1 : _num, _2 : _rest, _3 : _ok };
         };
         var _brace = (false : Bool);

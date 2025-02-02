@@ -6,7 +6,7 @@ var _nsecs = __1, _secs = __0;
         if (_nsecs == ((0 : stdgo.GoInt))) {
             return _s = stdgo._internal.strconv.Strconv_formatInt.formatInt(_secs, (10 : stdgo.GoInt))?.__copy__();
         };
-        var _sign = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _sign = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if ((_secs < (0i64 : stdgo.GoInt64) : Bool)) {
             _sign = ("-" : stdgo.GoString);
             _secs = -((_secs + (1i64 : stdgo.GoInt64) : stdgo.GoInt64));

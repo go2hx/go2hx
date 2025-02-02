@@ -468,7 +468,7 @@ package stdgo._internal.crypto.tls;
         var _cs = (stdgo.Go.setRef(({ _ticket : (@:checkr _msg ?? throw "null pointer dereference")._label, _session : _session } : stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>);
         {
             var _cacheKey = (@:check2r _c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-            if (_cacheKey != (stdgo.Go.str())) {
+            if (_cacheKey != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").clientSessionCache.put(_cacheKey?.__copy__(), _cs);
             };
         };
@@ -484,7 +484,7 @@ package stdgo._internal.crypto.tls;
         if ((@:checkr _c ?? throw "null pointer dereference")._conn != null) {
             return ((@:checkr _c ?? throw "null pointer dereference")._conn.remoteAddr().string() : stdgo.GoString)?.__copy__();
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield
@@ -632,7 +632,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         var _cacheKey = (@:check2r _c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-        if (_cacheKey == (stdgo.Go.str())) {
+        if (_cacheKey == ((stdgo.Go.str() : stdgo.GoString))) {
             return {
                 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_SessionState.SessionState>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Slice<stdgo.GoUInt8>; var _3 : stdgo.Error; } = { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
                 _session = __tmp__._0;
@@ -833,7 +833,7 @@ package stdgo._internal.crypto.tls;
                             if (_err != null) {
                                 {
                                     var _cacheKey = (@:check2r _c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-                                    if (_cacheKey != (stdgo.Go.str())) {
+                                    if (_cacheKey != ((stdgo.Go.str() : stdgo.GoString))) {
                                         (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").clientSessionCache.put(_cacheKey?.__copy__(), null);
                                     };
                                 };
@@ -917,8 +917,8 @@ package stdgo._internal.crypto.tls;
                 };
             };
             var _maxVers = (@:check2r (@:checkr _c ?? throw "null pointer dereference")._config._maxSupportedVersion(true) : stdgo.GoUInt16);
-            var _tls12Downgrade = ((((@:checkr _serverHello ?? throw "null pointer dereference")._random.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) == (stdgo.Go.str("DOWNGRD", 1)) : Bool);
-            var _tls11Downgrade = ((((@:checkr _serverHello ?? throw "null pointer dereference")._random.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) == (stdgo.Go.str("DOWNGRD", 0)) : Bool);
+            var _tls12Downgrade = ((((@:checkr _serverHello ?? throw "null pointer dereference")._random.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) == ((stdgo.Go.str("DOWNGRD", 1) : stdgo.GoString)) : Bool);
+            var _tls11Downgrade = ((((@:checkr _serverHello ?? throw "null pointer dereference")._random.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) == ((stdgo.Go.str("DOWNGRD", 0) : stdgo.GoString)) : Bool);
             if ((((_maxVers == ((772 : stdgo.GoUInt16)) && ((@:checkr _c ?? throw "null pointer dereference")._vers <= (771 : stdgo.GoUInt16) : Bool) : Bool) && ((_tls12Downgrade || _tls11Downgrade : Bool)) : Bool) || ((_maxVers == ((771 : stdgo.GoUInt16)) && ((@:checkr _c ?? throw "null pointer dereference")._vers <= (770 : stdgo.GoUInt16) : Bool) : Bool) && _tls11Downgrade : Bool) : Bool)) {
                 @:check2r _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 {

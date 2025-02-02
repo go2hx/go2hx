@@ -9,11 +9,11 @@ function _parsePAXTime(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T
         if ((_sn.length) == ((0 : stdgo.GoInt))) {
             return { _0 : stdgo._internal.time.Time_unix.unix(_secs, (0i64 : stdgo.GoInt64))?.__copy__(), _1 : (null : stdgo.Error) };
         };
-        if (stdgo._internal.strings.Strings_trim.trim(_sn?.__copy__(), ("0123456789" : stdgo.GoString)) != (stdgo.Go.str())) {
+        if (stdgo._internal.strings.Strings_trim.trim(_sn?.__copy__(), ("0123456789" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo._internal.archive.tar.Tar_errHeader.errHeader };
         };
         if (((_sn.length) < (9 : stdgo.GoInt) : Bool)) {
-            _sn = (_sn + (stdgo._internal.strings.Strings_repeat.repeat(("0" : stdgo.GoString), ((9 : stdgo.GoInt) - (_sn.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
+            _sn = (_sn + (stdgo._internal.strings.Strings_repeat.repeat((("0" : stdgo.GoString) : stdgo.GoString), ((9 : stdgo.GoInt) - (_sn.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         } else {
             _sn = (_sn.__slice__(0, (9 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };

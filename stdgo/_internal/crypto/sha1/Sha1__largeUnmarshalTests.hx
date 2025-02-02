@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.sha1;
-var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest> = (new stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest>(2, 2, ...[({ _state : stdgo.Go.str("sha",
+var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest> = (new stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest>(2, 2, ...[({ _state : (stdgo.Go.str("sha",
 1,
 19,
 188,
@@ -31,7 +31,7 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmars
 0,
 1,
 167,
-"VCw")?.__copy__(), _sum : ("bc6245c9959cc33e1c2592e5c9ea9b5d0431246c" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest), ({ _state : stdgo.Go.str("sha",
+"VCw") : stdgo.GoString)?.__copy__(), _sum : ("bc6245c9959cc33e1c2592e5c9ea9b5d0431246c" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest), ({ _state : (stdgo.Go.str("sha",
 1,
 "m;",
 22,
@@ -65,4 +65,4 @@ var _largeUnmarshalTests : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmars
 0,
 1,
 135,
-"VCw")?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest)])) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest>);
+"VCw") : stdgo.GoString)?.__copy__(), _sum : ("8f2d1c0e4271768f35feb918bfe21ea1387a2072" : stdgo.GoString) } : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest)])) : stdgo.Slice<stdgo._internal.crypto.sha1.Sha1_T_unmarshalTest.T_unmarshalTest>);

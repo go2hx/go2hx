@@ -19,7 +19,7 @@ package stdgo._internal.flag;
                 };
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield

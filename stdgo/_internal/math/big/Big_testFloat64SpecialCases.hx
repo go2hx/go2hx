@@ -5,7 +5,7 @@ function testFloat64SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_
                 if (!stdgo._internal.math.big.Big__long._long.value) {
                     continue;
                 };
-                _input = (_input.__slice__((("long:" : stdgo.GoString).length)) : stdgo.GoString)?.__copy__();
+                _input = (_input.__slice__(((("long:" : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoString)?.__copy__();
             };
             var __tmp__ = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setString(_input?.__copy__()), _r:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {

@@ -7,14 +7,14 @@ package stdgo._internal.runtime.pprof;
         var __tmp__ = stdgo._internal.os.Os_readFile.readFile(("/proc/self/maps" : stdgo.GoString)), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
         stdgo._internal.runtime.pprof.Pprof__parseProcSelfMaps._parseProcSelfMaps(_data, @:check2r _b._addMapping);
         if (((@:checkr _b ?? throw "null pointer dereference")._mem.length) == ((0 : stdgo.GoInt))) {
-            @:check2r _b._addMappingEntry((0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), true);
+            @:check2r _b._addMappingEntry((0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), true);
         };
     }
     @:keep
     @:tdfield
     static public function _addMappingEntry( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>, _lo:stdgo.GoUInt64, _hi:stdgo.GoUInt64, _offset:stdgo.GoUInt64, _file:stdgo.GoString, _buildID:stdgo.GoString, _fake:Bool):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder> = _b;
-        (@:checkr _b ?? throw "null pointer dereference")._mem = ((@:checkr _b ?? throw "null pointer dereference")._mem.__append__(({ _start : (_lo : stdgo.GoUIntptr), _end : (_hi : stdgo.GoUIntptr), _offset : _offset, _file : _file?.__copy__(), _buildID : _buildID?.__copy__(), _fake : _fake } : stdgo._internal.runtime.pprof.Pprof_T_memMap.T_memMap)));
+        (@:checkr _b ?? throw "null pointer dereference")._mem = ((@:checkr _b ?? throw "null pointer dereference")._mem.__append__(({ _start : (new stdgo.GoUIntptr(_lo) : stdgo.GoUIntptr), _end : (new stdgo.GoUIntptr(_hi) : stdgo.GoUIntptr), _offset : _offset, _file : _file?.__copy__(), _buildID : _buildID?.__copy__(), _fake : _fake } : stdgo._internal.runtime.pprof.Pprof_T_memMap.T_memMap)));
     }
     @:keep
     @:tdfield
@@ -284,7 +284,7 @@ _locs = @:check2r _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) 
             _tags = (_tags.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
             if (((_count == (0i64 : stdgo.GoUInt64)) && (_stk.length == (1 : stdgo.GoInt)) : Bool)) {
                 _count = (_stk[(0 : stdgo.GoInt)] : stdgo.GoUInt64);
-                _stk = (new stdgo.Slice<stdgo.GoUInt64>(1, 1, ...[((stdgo._internal.internal.abi.Abi_funcPCABIInternal.funcPCABIInternal(stdgo.Go.toInterface(stdgo._internal.runtime.pprof.Pprof__lostProfileEvent._lostProfileEvent)) + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr) : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
+                _stk = (new stdgo.Slice<stdgo.GoUInt64>(1, 1, ...[((stdgo._internal.internal.abi.Abi_funcPCABIInternal.funcPCABIInternal(stdgo.Go.toInterface(stdgo._internal.runtime.pprof.Pprof__lostProfileEvent._lostProfileEvent)) + (new stdgo.GoUIntptr(1) : stdgo.GoUIntptr) : stdgo.GoUIntptr) : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
             };
             {
                 final __t__ = @:check2 (@:checkr _b ?? throw "null pointer dereference")._m._lookup(_stk, _tag);

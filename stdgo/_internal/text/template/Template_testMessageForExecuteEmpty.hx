@@ -7,11 +7,11 @@ function testMessageForExecuteEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing
             @:check2r _t.fatal(stdgo.Go.toInterface(("expected initial error" : stdgo.GoString)));
         };
         var _got = (_err.error()?.__copy__() : stdgo.GoString);
-        var _want = ("template: empty: \"empty\" is an incomplete or empty template" : stdgo.GoString);
+        var _want = (("template: empty: \"empty\" is an incomplete or empty template" : stdgo.GoString) : stdgo.GoString);
         if (_got != (_want)) {
             @:check2r _t.errorf(("expected error %s got %s" : stdgo.GoString), stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got));
         };
-        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{define \"one\"}}one{{end}}{{define \"two\"}}two{{end}}" : stdgo.GoString)), _tests:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{define \"one\"}}one{{end}}{{define \"two\"}}two{{end}}" : stdgo.GoString)), _tests:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };

@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-final pageCachePages : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+final pageCachePages : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);

@@ -46,7 +46,7 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:s
                     if (__value__ == ((0 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags))) {
                         (@:checkr _finfo ?? throw "null pointer dereference")._flags = ((@:checkr _finfo ?? throw "null pointer dereference")._flags | ((1 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags);
                     } else if (__value__ == ((2 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((4 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((8 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((16 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((32 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((64 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) || __value__ == ((66 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags))) {
-                        if ((((@:checkr _f ?? throw "null pointer dereference").name == ("XMLName" : stdgo.GoString)) || (_tag != (stdgo.Go.str()) && _mode != ((2 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) : Bool) : Bool)) {
+                        if ((((@:checkr _f ?? throw "null pointer dereference").name == ("XMLName" : stdgo.GoString)) || (_tag != ((stdgo.Go.str() : stdgo.GoString)) && _mode != ((2 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) : Bool) : Bool)) {
                             _valid = false;
                         };
                     } else {
@@ -64,14 +64,14 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:s
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("xml: invalid tag in field %s of type %s: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").name), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").tag.get(("xml" : stdgo.GoString)))) };
             };
         };
-        if ((((@:checkr _finfo ?? throw "null pointer dereference")._xmlns != stdgo.Go.str()) && (_tag == stdgo.Go.str()) : Bool)) {
+        if ((((@:checkr _finfo ?? throw "null pointer dereference")._xmlns != (stdgo.Go.str() : stdgo.GoString)) && (_tag == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("xml: namespace without name in field %s of type %s: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").name), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").tag.get(("xml" : stdgo.GoString)))) };
         };
         if ((@:checkr _f ?? throw "null pointer dereference").name == (("XMLName" : stdgo.GoString))) {
             (@:checkr _finfo ?? throw "null pointer dereference")._name = _tag?.__copy__();
             return { _0 : _finfo, _1 : (null : stdgo.Error) };
         };
-        if (_tag == (stdgo.Go.str())) {
+        if (_tag == ((stdgo.Go.str() : stdgo.GoString))) {
             {
                 var _xmlname = stdgo._internal.encoding.xml.Xml__lookupXMLName._lookupXMLName((@:checkr _f ?? throw "null pointer dereference").type);
                 if ((_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__))) {
@@ -88,10 +88,10 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:s
             return { _0 : _finfo, _1 : (null : stdgo.Error) };
         };
         var _parents = stdgo._internal.strings.Strings_split.split(_tag?.__copy__(), (">" : stdgo.GoString));
-        if (_parents[(0 : stdgo.GoInt)] == (stdgo.Go.str())) {
+        if (_parents[(0 : stdgo.GoInt)] == ((stdgo.Go.str() : stdgo.GoString))) {
             _parents[(0 : stdgo.GoInt)] = (@:checkr _f ?? throw "null pointer dereference").name?.__copy__();
         };
-        if (_parents[((_parents.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (stdgo.Go.str())) {
+        if (_parents[((_parents.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("xml: trailing \'>\' in field %s of type %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").name), stdgo.Go.toInterface(_typ)) };
         };
         (@:checkr _finfo ?? throw "null pointer dereference")._name = _parents[((_parents.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__();

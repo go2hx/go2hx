@@ -392,7 +392,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                                 {
                                     final __value__ = _c._urlPart;
                                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (0 : stdgo._internal.html.template.Template_T_urlPart.T_urlPart)))) {
-                                        _s = (_s.__append__(("_html_template_urlfilter" : stdgo.GoString)));
+                                        _s = (_s.__append__((("_html_template_urlfilter" : stdgo.GoString) : stdgo.GoString)));
                                         @:fallthrough {
                                             __switchIndex__ = 1;
                                             __run__ = true;
@@ -403,15 +403,15 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                                         {
                                             final __value__ = _c._state;
                                             if (__value__ == ((20 : stdgo._internal.html.template.Template_T_state.T_state)) || __value__ == ((21 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                                                _s = (_s.__append__(("_html_template_cssescaper" : stdgo.GoString)));
+                                                _s = (_s.__append__((("_html_template_cssescaper" : stdgo.GoString) : stdgo.GoString)));
                                             } else {
-                                                _s = (_s.__append__(("_html_template_urlnormalizer" : stdgo.GoString)));
+                                                _s = (_s.__append__((("_html_template_urlnormalizer" : stdgo.GoString) : stdgo.GoString)));
                                             };
                                         };
                                         break;
                                         break;
                                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (2 : stdgo._internal.html.template.Template_T_urlPart.T_urlPart)))) {
-                                        _s = (_s.__append__(("_html_template_urlescaper" : stdgo.GoString)));
+                                        _s = (_s.__append__((("_html_template_urlescaper" : stdgo.GoString) : stdgo.GoString)));
                                         break;
                                         break;
                                     } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && (__value__ == (3 : stdgo._internal.html.template.Template_T_urlPart.T_urlPart)))) {
@@ -428,44 +428,44 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                         };
                         break;
                     } else if (__value__ == ((10 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_jsvalescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_jsvalescaper" : stdgo.GoString) : stdgo.GoString)));
                         _c._jsCtx = (1 : stdgo._internal.html.template.Template_T_jsCtx.T_jsCtx);
                         break;
                     } else if (__value__ == ((11 : stdgo._internal.html.template.Template_T_state.T_state)) || __value__ == ((12 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_jsstrescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_jsstrescaper" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((13 : stdgo._internal.html.template.Template_T_state.T_state))) {
                         if (@:check2r stdgo._internal.html.template.Template__debugAllowActionJSTmpl._debugAllowActionJSTmpl.value() == (("1" : stdgo.GoString))) {
                             @:check2r stdgo._internal.html.template.Template__debugAllowActionJSTmpl._debugAllowActionJSTmpl.incNonDefault();
-                            _s = (_s.__append__(("_html_template_jsstrescaper" : stdgo.GoString)));
+                            _s = (_s.__append__((("_html_template_jsstrescaper" : stdgo.GoString) : stdgo.GoString)));
                         } else {
                             return ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((12 : stdgo._internal.html.template.Template_ErrorCode.ErrorCode), stdgo.Go.asInterface(_n), (@:checkr _n ?? throw "null pointer dereference").line, ("%s appears in a JS template literal" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_n))) } : stdgo._internal.html.template.Template_T_context.T_context);
                         };
                         break;
                     } else if (__value__ == ((14 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_jsregexpescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_jsregexpescaper" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((19 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_cssvaluefilter" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_cssvaluefilter" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((0 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_htmlescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_htmlescaper" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((6 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_rcdataescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_rcdataescaper" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((7 : stdgo._internal.html.template.Template_T_state.T_state))) {
                         break;
                     } else if (__value__ == ((2 : stdgo._internal.html.template.Template_T_state.T_state)) || __value__ == ((1 : stdgo._internal.html.template.Template_T_state.T_state))) {
                         _c._state = (2 : stdgo._internal.html.template.Template_T_state.T_state);
-                        _s = (_s.__append__(("_html_template_htmlnamefilter" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_htmlnamefilter" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else if (__value__ == ((9 : stdgo._internal.html.template.Template_T_state.T_state))) {
-                        _s = (_s.__append__(("_html_template_srcsetescaper" : stdgo.GoString)));
+                        _s = (_s.__append__((("_html_template_srcsetescaper" : stdgo.GoString) : stdgo.GoString)));
                         break;
                     } else {
                         if (stdgo._internal.html.template.Template__isComment._isComment(_c._state)) {
-                            _s = (_s.__append__(("_html_template_commentescaper" : stdgo.GoString)));
+                            _s = (_s.__append__((("_html_template_commentescaper" : stdgo.GoString) : stdgo.GoString)));
                         } else {
                             throw stdgo.Go.toInterface((("unexpected state " : stdgo.GoString) + (_c._state.string() : stdgo.GoString)?.__copy__() : stdgo.GoString));
                         };
@@ -477,9 +477,9 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
         {
             final __value__ = _c._delim;
             if (__value__ == ((0 : stdgo._internal.html.template.Template_T_delim.T_delim))) {} else if (__value__ == ((3 : stdgo._internal.html.template.Template_T_delim.T_delim))) {
-                _s = (_s.__append__(("_html_template_nospaceescaper" : stdgo.GoString)));
+                _s = (_s.__append__((("_html_template_nospaceescaper" : stdgo.GoString) : stdgo.GoString)));
             } else {
-                _s = (_s.__append__(("_html_template_attrescaper" : stdgo.GoString)));
+                _s = (_s.__append__((("_html_template_attrescaper" : stdgo.GoString) : stdgo.GoString)));
             };
         };
         @:check2r _e._editActionNode(_n, _s);

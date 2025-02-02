@@ -307,7 +307,7 @@ function _nextStdChunk(_layout:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } = { _0 : _layout?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.str()?.__copy__() };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } = { _0 : _layout?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
             _prefix = __tmp__._0;
             _std = __tmp__._1;
             _suffix = __tmp__._2;

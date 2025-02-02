@@ -18,7 +18,7 @@ package stdgo._internal.internal.profile;
             _numlabels = (_numlabels.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%q%x%x" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v), stdgo.Go.toInterface(((@:checkr _sample ?? throw "null pointer dereference").numUnit[_k] ?? (null : stdgo.Slice<stdgo.GoString>))))?.__copy__()));
         };
         stdgo._internal.sort.Sort_strings.strings(_numlabels);
-        return (new stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey(stdgo._internal.strings.Strings_join.join(_ids, ("|" : stdgo.GoString))?.__copy__(), stdgo._internal.strings.Strings_join.join(_labels, stdgo.Go.str()?.__copy__())?.__copy__(), stdgo._internal.strings.Strings_join.join(_numlabels, stdgo.Go.str()?.__copy__())?.__copy__()) : stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey);
+        return (new stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey(stdgo._internal.strings.Strings_join.join(_ids, ("|" : stdgo.GoString))?.__copy__(), stdgo._internal.strings.Strings_join.join(_labels, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__(), stdgo._internal.strings.Strings_join.join(_numlabels, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__()) : stdgo._internal.internal.profile.Profile_T_sampleKey.T_sampleKey);
     }
     @:keep
     @:tdfield

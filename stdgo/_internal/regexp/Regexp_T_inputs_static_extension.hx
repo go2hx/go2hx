@@ -21,7 +21,7 @@ package stdgo._internal.regexp;
         } else if ((@:checkr _i ?? throw "null pointer dereference")._reader._r != null) {
             (@:checkr _i ?? throw "null pointer dereference")._reader._r = (null : stdgo._internal.io.Io_RuneReader.RuneReader);
         } else {
-            (@:checkr _i ?? throw "null pointer dereference")._string._str = stdgo.Go.str()?.__copy__();
+            (@:checkr _i ?? throw "null pointer dereference")._string._str = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
     }
     @:keep

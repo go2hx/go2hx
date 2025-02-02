@@ -9,7 +9,7 @@ package stdgo._internal.html.template;
             return stdgo._internal.fmt.Fmt_sprintf.sprintf(("html/template:%s: %s" : stdgo.GoString), stdgo.Go.toInterface(_loc), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").description))?.__copy__();
         } else if ((@:checkr _e ?? throw "null pointer dereference").line != ((0 : stdgo.GoInt))) {
             return stdgo._internal.fmt.Fmt_sprintf.sprintf(("html/template:%s:%d: %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").name), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").line), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").description))?.__copy__();
-        } else if ((@:checkr _e ?? throw "null pointer dereference").name != (stdgo.Go.str())) {
+        } else if ((@:checkr _e ?? throw "null pointer dereference").name != ((stdgo.Go.str() : stdgo.GoString))) {
             return stdgo._internal.fmt.Fmt_sprintf.sprintf(("html/template:%s: %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").name), stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference").description))?.__copy__();
         };
         return (("html/template: " : stdgo.GoString) + (@:checkr _e ?? throw "null pointer dereference").description?.__copy__() : stdgo.GoString)?.__copy__();

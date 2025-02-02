@@ -774,7 +774,7 @@ package stdgo._internal.internal.abi;
     @:tdfield
     static public function pointers( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_> = _t;
-        return (@:checkr _t ?? throw "null pointer dereference").ptrBytes != ((0 : stdgo.GoUIntptr));
+        return (@:checkr _t ?? throw "null pointer dereference").ptrBytes != ((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr));
     }
     @:keep
     @:tdfield

@@ -30,7 +30,7 @@ function parseHTTPVersion(_vers:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 :
                 __tmp__;
             };
         };
-        if ((_vers.length) != ((("HTTP/X.Y" : stdgo.GoString).length))) {
+        if ((_vers.length) != (((("HTTP/X.Y" : stdgo.GoString) : stdgo.GoString).length))) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : false };
                 _major = __tmp__._0;

@@ -30,7 +30,7 @@ package stdgo._internal.hash.crc64;
     @:tdfield
     static public function unmarshalBinary( _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest> = _d;
-        if ((((_b.length) < (stdgo.Go.str("crc", 2).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("crc", 2).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("crc", 2)) : Bool)) {
+        if ((((_b.length) < ((stdgo.Go.str("crc", 2) : stdgo.GoString).length) : Bool) || (((_b.__slice__(0, ((stdgo.Go.str("crc", 2) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("crc", 2) : stdgo.GoString)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("hash/crc64: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((20 : stdgo.GoInt))) {
@@ -47,7 +47,7 @@ package stdgo._internal.hash.crc64;
     static public function marshalBinary( _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...(stdgo.Go.str("crc", 2) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("crc", 2) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.hash.crc64.Crc64__appendUint64._appendUint64(_b, stdgo._internal.hash.crc64.Crc64__tableSum._tableSum((@:checkr _d ?? throw "null pointer dereference")._tab));
         _b = stdgo._internal.hash.crc64.Crc64__appendUint64._appendUint64(_b, (@:checkr _d ?? throw "null pointer dereference")._crc);
         return { _0 : _b, _1 : (null : stdgo.Error) };

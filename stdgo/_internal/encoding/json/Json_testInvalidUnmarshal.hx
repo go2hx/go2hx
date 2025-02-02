@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testInvalidUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _buf = (("{\"a\":\"1\"}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _buf = ((("{\"a\":\"1\"}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         for (__4 => _tt in stdgo._internal.encoding.json.Json__invalidUnmarshalTests._invalidUnmarshalTests) {
             var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_buf, _tt._v) : stdgo.Error);
             if (_err == null) {

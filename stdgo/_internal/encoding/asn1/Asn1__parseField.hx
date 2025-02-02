@@ -298,7 +298,7 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                     _err = _err1;
                     return { _0 : _offset, _1 : _err };
                 } else if (__value__ == ((2u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    if (_val.type().size() == ((4 : stdgo.GoUIntptr))) {
+                    if (_val.type().size() == ((new stdgo.GoUIntptr(4) : stdgo.GoUIntptr))) {
                         var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseInt32._parseInt32(_innerBytes), _parsedInt:stdgo.GoInt32 = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
                         if (_err1 == null) {
                             _val.setInt((_parsedInt : stdgo.GoInt64));

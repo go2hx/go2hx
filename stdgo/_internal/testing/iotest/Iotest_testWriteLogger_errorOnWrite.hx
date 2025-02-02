@@ -22,12 +22,12 @@ function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo._internal.testing.Testi
             var _lw = ({ _err : stdgo._internal.errors.Errors_new_.new_(("Write Error!" : stdgo.GoString)) } : stdgo._internal.testing.iotest.Iotest_T_errWriter.T_errWriter);
             var _wl = (stdgo._internal.testing.iotest.Iotest_newWriteLogger.newWriteLogger(("write:" : stdgo.GoString), stdgo.Go.asInterface(_lw)) : stdgo._internal.io.Io_Writer.Writer);
             {
-                var __tmp__ = _wl.write((("Hello, World!" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _wl.write(((("Hello, World!" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
                     @:check2r _t.fatalf(("Unexpectedly succeeded to write: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
             };
-            var _wantLogWithHex = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("lw: write: %x: %v\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.str()), stdgo.Go.toInterface(("Write Error!" : stdgo.GoString)))?.__copy__() : stdgo.GoString);
+            var _wantLogWithHex = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("lw: write: %x: %v\n" : stdgo.GoString), stdgo.Go.toInterface((stdgo.Go.str() : stdgo.GoString)), stdgo.Go.toInterface(("Write Error!" : stdgo.GoString)))?.__copy__() : stdgo.GoString);
             {
                 var __0 = ((@:check2r _lOut.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (_wantLogWithHex?.__copy__() : stdgo.GoString);
 var _w = __1, _g = __0;

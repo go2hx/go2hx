@@ -4,11 +4,11 @@ package stdgo._internal.image.png;
     @:tdfield
     static public function _checkHeader( _d:stdgo.Ref<stdgo._internal.image.png.Png_T_decoder.T_decoder>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.png.Png_T_decoder.T_decoder> = _d;
-        var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _d ?? throw "null pointer dereference")._r, ((@:checkr _d ?? throw "null pointer dereference")._tmp.__slice__(0, (stdgo.Go.str(137, "PNG\r\n", 26, "\n").length)) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.Io_readFull.readFull((@:checkr _d ?? throw "null pointer dereference")._r, ((@:checkr _d ?? throw "null pointer dereference")._tmp.__slice__(0, ((stdgo.Go.str(137, "PNG\r\n", 26, "\n") : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return _err;
         };
-        if ((((@:checkr _d ?? throw "null pointer dereference")._tmp.__slice__(0, (stdgo.Go.str(137, "PNG\r\n", 26, "\n").length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str(137, "PNG\r\n", 26, "\n"))) {
+        if ((((@:checkr _d ?? throw "null pointer dereference")._tmp.__slice__(0, ((stdgo.Go.str(137, "PNG\r\n", 26, "\n") : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != ((stdgo.Go.str(137, "PNG\r\n", 26, "\n") : stdgo.GoString))) {
             return stdgo.Go.asInterface((("not a PNG file" : stdgo.GoString) : stdgo._internal.image.png.Png_FormatError.FormatError));
         };
         return (null : stdgo.Error);

@@ -9,7 +9,7 @@ function testMaxExecDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         var _err = (@:check2r _tmpl.execute(stdgo._internal.io.Io_discard.discard, (null : stdgo.AnyInterface)) : stdgo.Error);
-        var _got = ("<nil>" : stdgo.GoString);
+        var _got = (("<nil>" : stdgo.GoString) : stdgo.GoString);
         if (_err != null) {
             _got = _err.error()?.__copy__();
         };

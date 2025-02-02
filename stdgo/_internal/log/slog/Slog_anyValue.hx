@@ -36,7 +36,7 @@ function anyValue(_v:stdgo.AnyInterface):stdgo._internal.log.slog.Slog_Value.Val
                 var _v:stdgo.GoUInt32 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
                 return stdgo._internal.log.slog.Slog_uint64Value.uint64Value((_v : stdgo.GoUInt64))?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoUIntptr))) {
-                var _v:stdgo.GoUIntptr = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
+                var _v:stdgo.GoUIntptr = __type__ == null ? new stdgo.GoUIntptr(0) : __type__.__underlying__() == null ? new stdgo.GoUIntptr(0) : __type__ == null ? new stdgo.GoUIntptr(0) : __type__.__underlying__().value;
                 return stdgo._internal.log.slog.Slog_uint64Value.uint64Value((_v : stdgo.GoUInt64))?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt8))) {
                 var _v:stdgo.GoInt8 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;

@@ -16,14 +16,14 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing_TB.TB, _dstPath:stdgo
                 _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((@:checkr _cmd ?? throw "null pointer dereference").stderr));
             };
             for (__24 => _line in stdgo._internal.strings.Strings_split.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
-                if (_line == (stdgo.Go.str())) {
+                if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_line?.__copy__(), ("=" : stdgo.GoString)), _importPath:stdgo.GoString = __tmp__._0, _export:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
                 if (!_ok) {
                     _t.fatalf(("invalid line in output from %v:\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_line));
                 };
-                if ((_packageFiles[_importPath] ?? ("" : stdgo.GoString)) == (stdgo.Go.str())) {
+                if ((_packageFiles[_importPath] ?? ("" : stdgo.GoString)) == ((stdgo.Go.str() : stdgo.GoString))) {
                     stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_icfg), ("packagefile %s=%s\n" : stdgo.GoString), stdgo.Go.toInterface(_importPath), stdgo.Go.toInterface(_export));
                 };
             };

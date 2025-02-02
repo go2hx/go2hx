@@ -4,14 +4,14 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function string( _a:stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix> = _a;
-        var _s = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _s = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _a ?? throw "null pointer dereference")._n : Bool)) {
                 {
                     var _j = (0 : stdgo.GoInt);
                     while ((_j < (@:checkr _a ?? throw "null pointer dereference")._m : Bool)) {
-                        _s = (_s + (stdgo._internal.fmt.Fmt_sprintf.sprintf(("\t%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _a._at(_i, _j))))).__copy__() : stdgo.GoString);
+                        _s = (_s + (stdgo._internal.fmt.Fmt_sprintf.sprintf((("\t%s" : stdgo.GoString) : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _a._at(_i, _j))))).__copy__() : stdgo.GoString);
                         _j++;
                     };
                 };

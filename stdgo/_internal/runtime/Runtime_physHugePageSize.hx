@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-var physHugePageSize : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+var physHugePageSize : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);

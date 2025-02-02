@@ -1,6 +1,6 @@
 package stdgo._internal.path.filepath;
 function _hasMeta(_path:stdgo.GoString):Bool {
-        var _magicChars = ("*?[" : stdgo.GoString);
+        var _magicChars = (("*?[" : stdgo.GoString) : stdgo.GoString);
         if (true) {
             _magicChars = ("*?[\\" : stdgo.GoString);
         };

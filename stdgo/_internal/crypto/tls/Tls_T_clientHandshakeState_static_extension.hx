@@ -31,7 +31,7 @@ package stdgo._internal.crypto.tls;
         };
         var _c = (@:checkr _hs ?? throw "null pointer dereference")._c;
         var _cacheKey = (@:check2r _c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-        if (_cacheKey == (stdgo.Go.str())) {
+        if (_cacheKey == ((stdgo.Go.str() : stdgo.GoString))) {
             return (null : stdgo.Error);
         };
         var __tmp__ = @:check2r _c._sessionState(), _session:stdgo.Ref<stdgo._internal.crypto.tls.Tls_SessionState.SessionState> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

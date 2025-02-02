@@ -44,7 +44,7 @@ function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Re
                     return { _0 : _m, _1 : stdgo.Go.asInterface(((("malformed MIME header line: " : stdgo.GoString) + (_kv : stdgo.GoString)?.__copy__() : stdgo.GoString) : stdgo._internal.net.textproto.Textproto_ProtocolError.ProtocolError)) };
                 };
             };
-            if (_key == (stdgo.Go.str())) {
+            if (_key == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             _maxHeaders--;

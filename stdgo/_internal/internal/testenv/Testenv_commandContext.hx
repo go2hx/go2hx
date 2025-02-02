@@ -18,7 +18,7 @@ var _gracePeriod = __1, _cancelCtx = __0;
                         _gracePeriod = (100000000i64 : stdgo._internal.time.Time_Duration.Duration);
                         {
                             var _s = (stdgo._internal.os.Os_getenv.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-                            if (_s != (stdgo.Go.str())) {
+                            if (_s != ((stdgo.Go.str() : stdgo.GoString))) {
                                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_s?.__copy__()), _scale:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _t.fatalf(("invalid GO_TEST_TIMEOUT_SCALE: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

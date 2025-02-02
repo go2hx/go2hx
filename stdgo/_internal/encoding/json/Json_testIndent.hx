@@ -4,7 +4,7 @@ function testIndent(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__4 => _tt in stdgo._internal.encoding.json.Json__examples._examples) {
             @:check2 _buf.reset();
             {
-                var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._indent : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.str()?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._indent : stdgo.Slice<stdgo.GoUInt8>), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
                 if (_err != null) {
                     @:check2r _t.errorf(("Indent(%#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._indent), stdgo.Go.toInterface(_err));
                 } else {
@@ -16,7 +16,7 @@ function testIndent(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             };
             @:check2 _buf.reset();
             {
-                var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._compact : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.str()?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._compact : stdgo.Slice<stdgo.GoUInt8>), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
                 if (_err != null) {
                     @:check2r _t.errorf(("Indent(%#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._compact), stdgo.Go.toInterface(_err));
                     continue;

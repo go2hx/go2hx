@@ -1,6 +1,6 @@
 package stdgo._internal.bytes;
 function indexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdgo.GoInt {
-        if (_chars == (stdgo.Go.str())) {
+        if (_chars == ((stdgo.Go.str() : stdgo.GoString))) {
             return (-1 : stdgo.GoInt);
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {

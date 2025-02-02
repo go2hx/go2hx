@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.base64;
 function testDecoderRaw(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _source = ("AAAAAA" : stdgo.GoString);
+        var _source = (("AAAAAA" : stdgo.GoString) : stdgo.GoString);
         var _want = (new stdgo.Slice<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = @:check2r stdgo._internal.encoding.base64.Base64_rawURLEncoding.rawURLEncoding.decodeString(_source?.__copy__()), _dec1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (((_err != null) || !stdgo._internal.bytes.Bytes_equal.equal(_dec1, _want) : Bool)) {

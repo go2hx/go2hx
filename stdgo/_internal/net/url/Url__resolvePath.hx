@@ -1,7 +1,7 @@
 package stdgo._internal.net.url;
 function _resolvePath(_base:stdgo.GoString, _ref:stdgo.GoString):stdgo.GoString {
         var _full:stdgo.GoString = ("" : stdgo.GoString);
-        if (_ref == (stdgo.Go.str())) {
+        if (_ref == ((stdgo.Go.str() : stdgo.GoString))) {
             _full = _base?.__copy__();
         } else if (_ref[(0 : stdgo.GoInt)] != ((47 : stdgo.GoUInt8))) {
             var _i = (stdgo._internal.strings.Strings_lastIndex.lastIndex(_base?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
@@ -9,8 +9,8 @@ function _resolvePath(_base:stdgo.GoString, _ref:stdgo.GoString):stdgo.GoString 
         } else {
             _full = _ref?.__copy__();
         };
-        if (_full == (stdgo.Go.str())) {
-            return stdgo.Go.str()?.__copy__();
+        if (_full == ((stdgo.Go.str() : stdgo.GoString))) {
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
 var _dst = __1, _elem = __0;

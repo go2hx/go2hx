@@ -1,6 +1,6 @@
 package stdgo._internal.strconv;
 var _leftcheats : stdgo.Slice<stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat> = (new stdgo.Slice<stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat>(61, 61, ...[
-(new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__()) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),
+(new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),
 (new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((1 : stdgo.GoInt), ("5" : stdgo.GoString)) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),
 (new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((1 : stdgo.GoInt), ("25" : stdgo.GoString)) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),
 (new stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat((1 : stdgo.GoInt), ("125" : stdgo.GoString)) : stdgo._internal.strconv.Strconv_T_leftCheat.T_leftCheat),

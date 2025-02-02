@@ -12,9 +12,9 @@ function testFloatScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             s[7] = ({ _input : ("-1.234E-56" : stdgo.GoString), _format : ("%E" : stdgo.GoString), _output : ("-1.234e-56" : stdgo.GoString), _remaining : (0 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
             s[8] = ({ _input : ("-1.234e+567" : stdgo.GoString), _format : ("%g" : stdgo.GoString), _output : ("-1.234e+567" : stdgo.GoString), _remaining : (0 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
             s[9] = ({ _input : ("+1234567891011.234" : stdgo.GoString), _format : ("%G" : stdgo.GoString), _output : ("1.234567891e+12" : stdgo.GoString), _remaining : (0 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
-            s[10] = ({ _input : ("Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
-            s[11] = ({ _input : ("-Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
-            s[12] = ({ _input : ("-Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : stdgo.Go.str()?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
+            s[10] = ({ _input : ("Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
+            s[11] = ({ _input : ("-Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
+            s[12] = ({ _input : ("-Inf" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _remaining : (3 : stdgo.GoInt), _wantErr : true } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
             s;
         };
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);

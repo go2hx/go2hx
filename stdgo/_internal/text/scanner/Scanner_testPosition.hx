@@ -4,7 +4,7 @@ function testPosition(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>).init(stdgo.Go.asInterface(_src));
         (@:checkr _s ?? throw "null pointer dereference").mode = (500u32 : stdgo.GoUInt);
         @:check2r _s.scan();
-        var _pos = (new stdgo._internal.text.scanner.Scanner_Position.Position(stdgo.Go.str()?.__copy__(), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo._internal.text.scanner.Scanner_Position.Position);
+        var _pos = (new stdgo._internal.text.scanner.Scanner_Position.Position((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo._internal.text.scanner.Scanner_Position.Position);
         for (__0 => _k in stdgo._internal.text.scanner.Scanner__tokenList._tokenList) {
             if ((@:checkr _s ?? throw "null pointer dereference").position.offset != (_pos.offset)) {
                 @:check2r _t.errorf(("offset = %d, want %d for %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").position.offset), stdgo.Go.toInterface(_pos.offset), stdgo.Go.toInterface(_k._text));

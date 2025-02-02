@@ -4,7 +4,7 @@ package stdgo._internal.encoding.csv;
     @:tdfield
     static public function _fieldNeedsQuotes( _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer>, _field:stdgo.GoString):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Writer.Writer> = _w;
-        if (_field == (stdgo.Go.str())) {
+        if (_field == ((stdgo.Go.str() : stdgo.GoString))) {
             return false;
         };
         if (_field == (("\\." : stdgo.GoString))) {

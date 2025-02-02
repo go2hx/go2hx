@@ -6,7 +6,7 @@ function testEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
 var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)));
 @:check2r _enc.setIndent((">" : stdgo.GoString), ("." : stdgo.GoString));
-@:check2r _enc.setIndent(stdgo.Go.str().__copy__(), stdgo.Go.str().__copy__());
+@:check2r _enc.setIndent((stdgo.Go.str() : stdgo.GoString).__copy__(), (stdgo.Go.str() : stdgo.GoString).__copy__());
 for (_j => _v in (stdgo._internal.encoding.json.Json__streamTest._streamTest.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.AnyInterface>)) {
                     {
                         var _err = (@:check2r _enc.encode(_v) : stdgo.Error);

@@ -10,7 +10,7 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function error( _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError):stdgo.GoString {
         @:recv var _se:stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError = _se?.__copy__();
-        var _msg = ("x509: failed to load system roots and no roots provided" : stdgo.GoString);
+        var _msg = (("x509: failed to load system roots and no roots provided" : stdgo.GoString) : stdgo.GoString);
         if (_se.err != null) {
             return ((_msg + ("; " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _se.err.error()?.__copy__() : stdgo.GoString)?.__copy__();
         };

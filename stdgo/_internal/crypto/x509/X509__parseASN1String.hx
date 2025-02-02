@@ -7,18 +7,18 @@ function _parseASN1String(_tag:_internal.vendor.golang_dot_org.x.crypto.cryptoby
             } else if (__value__ == ((19 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 for (__1 => _b in _value) {
                     if (!stdgo._internal.crypto.x509.X509__isPrintable._isPrintable(_b)) {
-                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid PrintableString" : stdgo.GoString)) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid PrintableString" : stdgo.GoString)) };
                     };
                 };
                 return { _0 : (_value : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
             } else if (__value__ == ((12 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 if (!stdgo._internal.unicode.utf8.Utf8_valid.valid(_value)) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid UTF-8 string" : stdgo.GoString)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid UTF-8 string" : stdgo.GoString)) };
                 };
                 return { _0 : (_value : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
             } else if (__value__ == ((30 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 if (((_value.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid BMPString" : stdgo.GoString)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid BMPString" : stdgo.GoString)) };
                 };
                 {
                     var _l = (_value.length : stdgo.GoInt);
@@ -35,17 +35,17 @@ function _parseASN1String(_tag:_internal.vendor.golang_dot_org.x.crypto.cryptoby
             } else if (__value__ == ((22 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 var _s = ((_value : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_s?.__copy__()) != null) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid IA5String" : stdgo.GoString)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid IA5String" : stdgo.GoString)) };
                 };
                 return { _0 : _s?.__copy__(), _1 : (null : stdgo.Error) };
             } else if (__value__ == ((18 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 for (__1 => _b in _value) {
                     if (!(((((48 : stdgo.GoUInt8) <= _b : Bool) && (_b <= (57 : stdgo.GoUInt8) : Bool) : Bool) || (_b == (32 : stdgo.GoUInt8)) : Bool))) {
-                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid NumericString" : stdgo.GoString)) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid NumericString" : stdgo.GoString)) };
                     };
                 };
                 return { _0 : (_value : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
             };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported string type: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tag))) };
+        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported string type: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tag))) };
     }

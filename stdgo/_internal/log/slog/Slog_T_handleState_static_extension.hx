@@ -104,13 +104,13 @@ package stdgo._internal.log.slog;
         if (_a.value.kind() == ((8 : stdgo._internal.log.slog.Slog_Kind.Kind))) {
             var _attrs = _a.value.group();
             if (((_attrs.length) > (0 : stdgo.GoInt) : Bool)) {
-                if (_a.key != (stdgo.Go.str())) {
+                if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _s._openGroup(_a.key?.__copy__());
                 };
                 for (__802 => _aa in _attrs) {
                     @:check2r _s._appendAttr(_aa?.__copy__());
                 };
-                if (_a.key != (stdgo.Go.str())) {
+                if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _s._closeGroup(_a.key?.__copy__());
                 };
             };
@@ -140,7 +140,7 @@ package stdgo._internal.log.slog;
         if ((@:checkr (@:checkr _s ?? throw "null pointer dereference")._h ?? throw "null pointer dereference")._json) {
             @:check2r _s._appendKey(_name?.__copy__());
             @:check2r (@:checkr _s ?? throw "null pointer dereference")._buf.writeByte((123 : stdgo.GoUInt8));
-            (@:checkr _s ?? throw "null pointer dereference")._sep = stdgo.Go.str()?.__copy__();
+            (@:checkr _s ?? throw "null pointer dereference")._sep = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         } else {
             @:check2r (@:checkr _s ?? throw "null pointer dereference")._prefix.writeString(_name?.__copy__());
             @:check2r (@:checkr _s ?? throw "null pointer dereference")._prefix.writeByte((46 : stdgo.GoUInt8));

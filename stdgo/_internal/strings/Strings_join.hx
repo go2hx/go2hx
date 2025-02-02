@@ -3,7 +3,7 @@ function join(_elems:stdgo.Slice<stdgo.GoString>, _sep:stdgo.GoString):stdgo.GoS
         {
             final __value__ = (_elems.length);
             if (__value__ == ((0 : stdgo.GoInt))) {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             } else if (__value__ == ((1 : stdgo.GoInt))) {
                 return _elems[(0 : stdgo.GoInt)]?.__copy__();
             };

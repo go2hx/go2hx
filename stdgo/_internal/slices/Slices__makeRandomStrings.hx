@@ -1,7 +1,7 @@
 package stdgo._internal.slices;
 function _makeRandomStrings(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoString> {
         stdgo._internal.math.rand.Rand_seed.seed((42i64 : stdgo.GoInt64));
-        var _letters = (("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
+        var _letters = ((("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
         var _ss = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _i = (0 : stdgo.GoInt);

@@ -6,10 +6,10 @@ package stdgo._internal.os.signal;
         @:recv var _c:stdgo.Ref<stdgo._internal.os.signal.Signal_T_signalCtx.T_signalCtx> = _c;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _name = (((stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").context) : stdgo._internal.os.signal.Signal_T_stringer.T_stringer)) : stdgo._internal.os.signal.Signal_T_stringer.T_stringer).string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        _name = (_name.__slice__(0, ((_name.length) - ((".WithCancel" : stdgo.GoString).length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+        _name = (_name.__slice__(0, ((_name.length) - (((".WithCancel" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         _buf = (_buf.__append__(...((("signal.NotifyContext(" : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         if (((@:checkr _c ?? throw "null pointer dereference")._signals.length) != ((0 : stdgo.GoInt))) {
-            _buf = (_buf.__append__(...((", [" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...(((", [" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             for (_i => _s in (@:checkr _c ?? throw "null pointer dereference")._signals) {
                 _buf = (_buf.__append__(...((_s.string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                 if (_i != ((((@:checkr _c ?? throw "null pointer dereference")._signals.length) - (1 : stdgo.GoInt) : stdgo.GoInt))) {

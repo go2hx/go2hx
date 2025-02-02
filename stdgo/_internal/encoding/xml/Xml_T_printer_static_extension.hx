@@ -426,29 +426,29 @@ package stdgo._internal.encoding.xml;
                             _bytes = (new stdgo.Slice<stdgo.GoUInt8>((_val.len() : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                             stdgo._internal.reflect.Reflect_copy.copy(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_bytes))?.__copy__(), _val?.__copy__());
                         };
-                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _bytes, _2 : (null : stdgo.Error) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _bytes, _2 : (null : stdgo.Error) };
                         break;
                     } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                         if (_typ.elem().kind() != ((8u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             break;
                         };
-                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _val.bytes(), _2 : (null : stdgo.Error) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _val.bytes(), _2 : (null : stdgo.Error) };
                         break;
                     };
                 };
                 break;
             };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError(_typ) : stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError>)) };
+        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError(_typ) : stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError>)) };
     }
     @:keep
     @:tdfield
     static public function _writeEnd( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _name:stdgo._internal.encoding.xml.Xml_Name.Name):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
-        if (_name.local == (stdgo.Go.str())) {
+        if (_name.local == ((stdgo.Go.str() : stdgo.GoString))) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: end tag with no name" : stdgo.GoString));
         };
-        if ((((@:checkr _p ?? throw "null pointer dereference")._tags.length == (0 : stdgo.GoInt)) || ((@:checkr _p ?? throw "null pointer dereference")._tags[(((@:checkr _p ?? throw "null pointer dereference")._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].local == stdgo.Go.str()) : Bool)) {
+        if ((((@:checkr _p ?? throw "null pointer dereference")._tags.length == (0 : stdgo.GoInt)) || ((@:checkr _p ?? throw "null pointer dereference")._tags[(((@:checkr _p ?? throw "null pointer dereference")._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].local == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: end tag </%s> without start tag" : stdgo.GoString), stdgo.Go.toInterface(_name.local));
         };
         {
@@ -473,7 +473,7 @@ package stdgo._internal.encoding.xml;
     @:tdfield
     static public function _writeStart( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _start:stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
-        if ((@:checkr _start ?? throw "null pointer dereference").name.local == (stdgo.Go.str())) {
+        if ((@:checkr _start ?? throw "null pointer dereference").name.local == ((stdgo.Go.str() : stdgo.GoString))) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: start tag with no name" : stdgo.GoString));
         };
         (@:checkr _p ?? throw "null pointer dereference")._tags = ((@:checkr _p ?? throw "null pointer dereference")._tags.__append__((@:checkr _start ?? throw "null pointer dereference").name?.__copy__()));
@@ -481,18 +481,18 @@ package stdgo._internal.encoding.xml;
         @:check2r _p._writeIndent((1 : stdgo.GoInt));
         @:check2r _p.writeByte((60 : stdgo.GoUInt8));
         @:check2r _p.writeString((@:checkr _start ?? throw "null pointer dereference").name.local?.__copy__());
-        if ((@:checkr _start ?? throw "null pointer dereference").name.space != (stdgo.Go.str())) {
+        if ((@:checkr _start ?? throw "null pointer dereference").name.space != ((stdgo.Go.str() : stdgo.GoString))) {
             @:check2r _p.writeString((" xmlns=\"" : stdgo.GoString));
             @:check2r _p.escapeString((@:checkr _start ?? throw "null pointer dereference").name.space?.__copy__());
             @:check2r _p.writeByte((34 : stdgo.GoUInt8));
         };
         for (__0 => _attr in (@:checkr _start ?? throw "null pointer dereference").attr) {
             var _name = (_attr.name?.__copy__() : stdgo._internal.encoding.xml.Xml_Name.Name);
-            if (_name.local == (stdgo.Go.str())) {
+            if (_name.local == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             @:check2r _p.writeByte((32 : stdgo.GoUInt8));
-            if (_name.space != (stdgo.Go.str())) {
+            if (_name.space != ((stdgo.Go.str() : stdgo.GoString))) {
                 @:check2r _p.writeString(@:check2r _p._createAttrPrefix(_name.space?.__copy__())?.__copy__());
                 @:check2r _p.writeByte((58 : stdgo.GoUInt8));
             };
@@ -546,7 +546,7 @@ package stdgo._internal.encoding.xml;
             if (_err != null) {
                 return _err;
             };
-            if (_attr.name.local != (stdgo.Go.str())) {
+            if (_attr.name.local != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _start ?? throw "null pointer dereference").attr = ((@:checkr _start ?? throw "null pointer dereference").attr.__append__(_attr?.__copy__()));
             };
             return (null : stdgo.Error);
@@ -558,7 +558,7 @@ package stdgo._internal.encoding.xml;
                 if (_err != null) {
                     return _err;
                 };
-                if (_attr.name.local != (stdgo.Go.str())) {
+                if (_attr.name.local != ((stdgo.Go.str() : stdgo.GoString))) {
                     (@:checkr _start ?? throw "null pointer dereference").attr = ((@:checkr _start ?? throw "null pointer dereference").attr.__append__(_attr?.__copy__()));
                 };
                 return (null : stdgo.Error);
@@ -626,7 +626,7 @@ package stdgo._internal.encoding.xml;
     @:tdfield
     static public function _marshalValue( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _val:stdgo._internal.reflect.Reflect_Value.Value, _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>, _startTemplate:stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
-        if (((_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__)) && ((@:checkr _startTemplate ?? throw "null pointer dereference").name.local == stdgo.Go.str()) : Bool)) {
+        if (((_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__)) && ((@:checkr _startTemplate ?? throw "null pointer dereference").name.local == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeElement of StartElement with missing name" : stdgo.GoString));
         };
         if (!_val.isValid()) {
@@ -687,7 +687,7 @@ var _n = __1, _i = __0;
             _start.attr = (_start.attr.__append__(...((@:checkr _startTemplate ?? throw "null pointer dereference").attr : Array<stdgo._internal.encoding.xml.Xml_Attr.Attr>)));
         } else if (((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname != null && (((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__ == null || !((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__))) {
             var _xmlname = (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname;
-            if ((@:checkr _xmlname ?? throw "null pointer dereference")._name != (stdgo.Go.str())) {
+            if ((@:checkr _xmlname ?? throw "null pointer dereference")._name != ((stdgo.Go.str() : stdgo.GoString))) {
                 {
                     final __tmp__0 = (@:checkr _xmlname ?? throw "null pointer dereference")._xmlns?.__copy__();
                     final __tmp__1 = (@:checkr _xmlname ?? throw "null pointer dereference")._name?.__copy__();
@@ -702,13 +702,13 @@ var _n = __1, _i = __0;
                     } catch(_) {
                         { _0 : ({} : stdgo._internal.encoding.xml.Xml_Name.Name), _1 : false };
                     }, _v = __tmp__._0, _ok = __tmp__._1;
-                    if ((_ok && (_v.local != stdgo.Go.str()) : Bool)) {
+                    if ((_ok && (_v.local != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                         _start.name = _v?.__copy__();
                     };
                 };
             };
         };
-        if (((_start.name.local == stdgo.Go.str()) && (_finfo != null && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__)) : Bool)) {
+        if (((_start.name.local == (stdgo.Go.str() : stdgo.GoString)) && (_finfo != null && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__)) : Bool)) {
             {
                 final __tmp__0 = (@:checkr _finfo ?? throw "null pointer dereference")._xmlns?.__copy__();
                 final __tmp__1 = (@:checkr _finfo ?? throw "null pointer dereference")._name?.__copy__();
@@ -716,7 +716,7 @@ var _n = __1, _i = __0;
                 _start.name.local = __tmp__1;
             };
         };
-        if (_start.name.local == (stdgo.Go.str())) {
+        if (_start.name.local == ((stdgo.Go.str() : stdgo.GoString))) {
             var _name = (_typ.name()?.__copy__() : stdgo.GoString);
             {
                 var _i = (stdgo._internal.strings.Strings_indexByte.indexByte(_name?.__copy__(), (91 : stdgo.GoUInt8)) : stdgo.GoInt);
@@ -724,7 +724,7 @@ var _n = __1, _i = __0;
                     _name = (_name.__slice__(0, _i) : stdgo.GoString)?.__copy__();
                 };
             };
-            if (_name == (stdgo.Go.str())) {
+            if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                 return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError(_typ) : stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError)) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError>));
             };
             _start.name.local = _name?.__copy__();
@@ -749,8 +749,8 @@ var _n = __1, _i = __0;
                 };
             };
         };
-        if ((((((((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname != null && (((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__ == null || !((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__)) && _start.name.space == (stdgo.Go.str()) : Bool) && (@:checkr (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname ?? throw "null pointer dereference")._xmlns == (stdgo.Go.str()) : Bool) && (@:checkr (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname ?? throw "null pointer dereference")._name == (stdgo.Go.str()) : Bool) && ((@:checkr _p ?? throw "null pointer dereference")._tags.length) != ((0 : stdgo.GoInt)) : Bool) && ((@:checkr _p ?? throw "null pointer dereference")._tags[(((@:checkr _p ?? throw "null pointer dereference")._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].space != stdgo.Go.str()) : Bool)) {
-            _start.attr = (_start.attr.__append__((new stdgo._internal.encoding.xml.Xml_Attr.Attr((new stdgo._internal.encoding.xml.Xml_Name.Name(stdgo.Go.str()?.__copy__(), ("xmlns" : stdgo.GoString)) : stdgo._internal.encoding.xml.Xml_Name.Name), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.xml.Xml_Attr.Attr)));
+        if ((((((((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname != null && (((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__ == null || !((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__)) && _start.name.space == ((stdgo.Go.str() : stdgo.GoString)) : Bool) && (@:checkr (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname ?? throw "null pointer dereference")._xmlns == ((stdgo.Go.str() : stdgo.GoString)) : Bool) && (@:checkr (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString)) : Bool) && ((@:checkr _p ?? throw "null pointer dereference")._tags.length) != ((0 : stdgo.GoInt)) : Bool) && ((@:checkr _p ?? throw "null pointer dereference")._tags[(((@:checkr _p ?? throw "null pointer dereference")._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].space != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
+            _start.attr = (_start.attr.__append__((new stdgo._internal.encoding.xml.Xml_Attr.Attr((new stdgo._internal.encoding.xml.Xml_Name.Name((stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("xmlns" : stdgo.GoString)) : stdgo._internal.encoding.xml.Xml_Name.Name), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.encoding.xml.Xml_Attr.Attr)));
         };
         {
             var _err = (@:check2r _p._writeStart((stdgo.Go.setRef(_start) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>)) : stdgo.Error);
@@ -788,7 +788,7 @@ var _n = __1, _i = __0;
         while ((((@:checkr _p ?? throw "null pointer dereference")._prefixes.length) > (0 : stdgo.GoInt) : Bool)) {
             var _prefix = ((@:checkr _p ?? throw "null pointer dereference")._prefixes[(((@:checkr _p ?? throw "null pointer dereference")._prefixes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
             (@:checkr _p ?? throw "null pointer dereference")._prefixes = ((@:checkr _p ?? throw "null pointer dereference")._prefixes.__slice__(0, (((@:checkr _p ?? throw "null pointer dereference")._prefixes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-            if (_prefix == (stdgo.Go.str())) {
+            if (_prefix == ((stdgo.Go.str() : stdgo.GoString))) {
                 break;
             };
             @:check2r _p._deleteAttrPrefix(_prefix?.__copy__());
@@ -798,7 +798,7 @@ var _n = __1, _i = __0;
     @:tdfield
     static public function _markPrefix( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
-        (@:checkr _p ?? throw "null pointer dereference")._prefixes = ((@:checkr _p ?? throw "null pointer dereference")._prefixes.__append__(stdgo.Go.str()?.__copy__()));
+        (@:checkr _p ?? throw "null pointer dereference")._prefixes = ((@:checkr _p ?? throw "null pointer dereference")._prefixes.__append__((stdgo.Go.str() : stdgo.GoString)?.__copy__()));
     }
     @:keep
     @:tdfield
@@ -813,7 +813,7 @@ var _n = __1, _i = __0;
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
         {
             var _prefix = (((@:checkr _p ?? throw "null pointer dereference")._attrPrefix[_url] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_prefix != (stdgo.Go.str())) {
+            if (_prefix != ((stdgo.Go.str() : stdgo.GoString))) {
                 return _prefix?.__copy__();
             };
         };
@@ -841,19 +841,19 @@ var _n = __1, _i = __0;
                 _prefix = (_prefix.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
         };
-        if (((_prefix == (stdgo.Go.str()) || !stdgo._internal.encoding.xml.Xml__isName._isName((_prefix : stdgo.Slice<stdgo.GoUInt8>)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_prefix?.__copy__(), (":" : stdgo.GoString)) : Bool)) {
+        if (((_prefix == ((stdgo.Go.str() : stdgo.GoString)) || !stdgo._internal.encoding.xml.Xml__isName._isName((_prefix : stdgo.Slice<stdgo.GoUInt8>)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_prefix?.__copy__(), (":" : stdgo.GoString)) : Bool)) {
             _prefix = ("_" : stdgo.GoString);
         };
         if ((((_prefix.length) >= (3 : stdgo.GoInt) : Bool) && stdgo._internal.strings.Strings_equalFold.equalFold((_prefix.__slice__(0, (3 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), ("xml" : stdgo.GoString)) : Bool)) {
             _prefix = (("_" : stdgo.GoString) + _prefix?.__copy__() : stdgo.GoString)?.__copy__();
         };
-        if (((@:checkr _p ?? throw "null pointer dereference")._attrNS[_prefix] ?? ("" : stdgo.GoString)) != (stdgo.Go.str())) {
+        if (((@:checkr _p ?? throw "null pointer dereference")._attrNS[_prefix] ?? ("" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString))) {
             {
                 (@:checkr _p ?? throw "null pointer dereference")._seq++;
                 while (true) {
                     {
                         var _id = (((_prefix + ("_" : stdgo.GoString).__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((@:checkr _p ?? throw "null pointer dereference")._seq).__copy__() : stdgo.GoString).__copy__() : stdgo.GoString);
-                        if (((@:checkr _p ?? throw "null pointer dereference")._attrNS[_id] ?? ("" : stdgo.GoString)) == (stdgo.Go.str())) {
+                        if (((@:checkr _p ?? throw "null pointer dereference")._attrNS[_id] ?? ("" : stdgo.GoString)) == ((stdgo.Go.str() : stdgo.GoString))) {
                             _prefix = _id.__copy__();
                             break;
                         };

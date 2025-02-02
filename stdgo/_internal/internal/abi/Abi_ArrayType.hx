@@ -4,7 +4,7 @@ package stdgo._internal.internal.abi;
     public var type : stdgo._internal.internal.abi.Abi_Type_.Type_ = ({} : stdgo._internal.internal.abi.Abi_Type_.Type_);
     public var elem : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_> = (null : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
     public var slice : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_> = (null : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
-    public var len : stdgo.GoUIntptr = 0;
+    public var len : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public function new(?type:stdgo._internal.internal.abi.Abi_Type_.Type_, ?elem:stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>, ?slice:stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>, ?len:stdgo.GoUIntptr) {
         if (type != null) this.type = type;
         if (elem != null) this.elem = elem;

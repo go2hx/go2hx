@@ -55,7 +55,7 @@ function gOGOARCH():{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__() };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
             _name = __tmp__._0;
             _value = __tmp__._1;
             __tmp__;

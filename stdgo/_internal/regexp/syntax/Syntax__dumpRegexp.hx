@@ -1,6 +1,6 @@
 package stdgo._internal.regexp.syntax;
 function _dumpRegexp(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):Void {
-        if (((((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt) >= (stdgo._internal.regexp.syntax.Syntax__opNames._opNames.length) : Bool) || (stdgo._internal.regexp.syntax.Syntax__opNames._opNames[((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt)] == stdgo.Go.str()) : Bool)) {
+        if (((((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt) >= (stdgo._internal.regexp.syntax.Syntax__opNames._opNames.length) : Bool) || (stdgo._internal.regexp.syntax.Syntax__opNames._opNames[((@:checkr _re ?? throw "null pointer dereference").op : stdgo.GoInt)] == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("op%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _re ?? throw "null pointer dereference").op)));
         } else {
             {
@@ -60,13 +60,13 @@ function _dumpRegexp(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builde
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%d,%d " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _re ?? throw "null pointer dereference").min), stdgo.Go.toInterface((@:checkr _re ?? throw "null pointer dereference").max));
                 stdgo._internal.regexp.syntax.Syntax__dumpRegexp._dumpRegexp(_b, (@:checkr _re ?? throw "null pointer dereference").sub[(0 : stdgo.GoInt)]);
             } else if (__value__ == ((13 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                if ((@:checkr _re ?? throw "null pointer dereference").name != (stdgo.Go.str())) {
+                if ((@:checkr _re ?? throw "null pointer dereference").name != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _b.writeString((@:checkr _re ?? throw "null pointer dereference").name?.__copy__());
                     @:check2r _b.writeByte((58 : stdgo.GoUInt8));
                 };
                 stdgo._internal.regexp.syntax.Syntax__dumpRegexp._dumpRegexp(_b, (@:checkr _re ?? throw "null pointer dereference").sub[(0 : stdgo.GoInt)]);
             } else if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                var _sep = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+                var _sep = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 {
                     var _i = (0 : stdgo.GoInt);
                     while ((_i < ((@:checkr _re ?? throw "null pointer dereference").rune.length) : Bool)) {

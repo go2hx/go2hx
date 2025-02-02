@@ -37,7 +37,7 @@ var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
                         @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mustNotBe((2 : stdgo._internal.archive.tar.Tar_Format.Format));
                     };
                 };
-                if (_paxKey == (stdgo.Go.str())) {
+                if (_paxKey == ((stdgo.Go.str() : stdgo.GoString))) {
                     _whyNoPAX = stdgo._internal.fmt.Fmt_sprintf.sprintf(("PAX cannot encode %s=%q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_s))?.__copy__();
                     @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mustNotBe((4 : stdgo._internal.archive.tar.Tar_Format.Format));
                 } else {
@@ -59,7 +59,7 @@ var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
             if (!stdgo._internal.archive.tar.Tar__fitsInOctal._fitsInOctal(_size, _n)) {
                 _whyNoUSTAR = stdgo._internal.fmt.Fmt_sprintf.sprintf(("USTAR cannot encode %s=%d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_n))?.__copy__();
                 @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mustNotBe((2 : stdgo._internal.archive.tar.Tar_Format.Format));
-                if (_paxKey == (stdgo.Go.str())) {
+                if (_paxKey == ((stdgo.Go.str() : stdgo.GoString))) {
                     _whyNoPAX = stdgo._internal.fmt.Fmt_sprintf.sprintf(("PAX cannot encode %s=%d" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_n))?.__copy__();
                     @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mustNotBe((4 : stdgo._internal.archive.tar.Tar_Format.Format));
                 } else {
@@ -90,7 +90,7 @@ var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
             var _needsNano = (_ts.nanosecond() != ((0 : stdgo.GoInt)) : Bool);
             if (((!_isMtime || !_fitsOctal : Bool) || _needsNano : Bool)) {
                 _preferPAX = true;
-                if (_paxKey == (stdgo.Go.str())) {
+                if (_paxKey == ((stdgo.Go.str() : stdgo.GoString))) {
                     _whyNoPAX = stdgo._internal.fmt.Fmt_sprintf.sprintf(("PAX cannot encode %s=%v" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(stdgo.Go.asInterface(_ts)))?.__copy__();
                     @:notptr (stdgo.Go.pointer(_format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mustNotBe((4 : stdgo._internal.archive.tar.Tar_Format.Format));
                 } else {
@@ -112,12 +112,12 @@ var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
         _verifyString(_h.linkname?.__copy__(), (@:check2r _v7._linkName().length), ("Linkname" : stdgo.GoString), ("linkpath" : stdgo.GoString));
         _verifyString(_h.uname?.__copy__(), (@:check2r _ustar._userName().length), ("Uname" : stdgo.GoString), ("uname" : stdgo.GoString));
         _verifyString(_h.gname?.__copy__(), (@:check2r _ustar._groupName().length), ("Gname" : stdgo.GoString), ("gname" : stdgo.GoString));
-        _verifyNumeric(_h.mode, (@:check2r _v7._mode().length), ("Mode" : stdgo.GoString), stdgo.Go.str()?.__copy__());
+        _verifyNumeric(_h.mode, (@:check2r _v7._mode().length), ("Mode" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
         _verifyNumeric((_h.uid : stdgo.GoInt64), (@:check2r _v7._uid().length), ("Uid" : stdgo.GoString), ("uid" : stdgo.GoString));
         _verifyNumeric((_h.gid : stdgo.GoInt64), (@:check2r _v7._gid().length), ("Gid" : stdgo.GoString), ("gid" : stdgo.GoString));
         _verifyNumeric(_h.size, (@:check2r _v7._size().length), ("Size" : stdgo.GoString), ("size" : stdgo.GoString));
-        _verifyNumeric(_h.devmajor, (@:check2r _ustar._devMajor().length), ("Devmajor" : stdgo.GoString), stdgo.Go.str()?.__copy__());
-        _verifyNumeric(_h.devminor, (@:check2r _ustar._devMinor().length), ("Devminor" : stdgo.GoString), stdgo.Go.str()?.__copy__());
+        _verifyNumeric(_h.devmajor, (@:check2r _ustar._devMajor().length), ("Devmajor" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
+        _verifyNumeric(_h.devminor, (@:check2r _ustar._devMinor().length), ("Devminor" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
         _verifyTime(_h.modTime?.__copy__(), (@:check2r _v7._modTime().length), ("ModTime" : stdgo.GoString), ("mtime" : stdgo.GoString));
         _verifyTime(_h.accessTime?.__copy__(), (@:check2r _gnu._accessTime().length), ("AccessTime" : stdgo.GoString), ("atime" : stdgo.GoString));
         _verifyTime(_h.changeTime?.__copy__(), (@:check2r _gnu._changeTime().length), ("ChangeTime" : stdgo.GoString), ("ctime" : stdgo.GoString));

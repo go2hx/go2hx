@@ -1,9 +1,9 @@
 package stdgo._internal.encoding.base64;
 var _pairs : stdgo.Slice<stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair> = (new stdgo.Slice<stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair>(18, 18, ...[
-(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217, "~")?.__copy__(), ("FPucA9l+" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
-(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217)?.__copy__(), ("FPucA9k=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
-(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(stdgo.Go.str(20, 251, 156, 3)?.__copy__(), ("FPucAw==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
-(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
+(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair((stdgo.Go.str(20, 251, 156, 3, 217, "~") : stdgo.GoString)?.__copy__(), ("FPucA9l+" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
+(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair((stdgo.Go.str(20, 251, 156, 3, 217) : stdgo.GoString)?.__copy__(), ("FPucA9k=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
+(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair((stdgo.Go.str(20, 251, 156, 3) : stdgo.GoString)?.__copy__(), ("FPucAw==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
+(new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
 (new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(("f" : stdgo.GoString), ("Zg==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
 (new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(("fo" : stdgo.GoString), ("Zm8=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),
 (new stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair(("foo" : stdgo.GoString), ("Zm9v" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64_T_testpair.T_testpair),

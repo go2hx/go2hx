@@ -4,7 +4,7 @@ package stdgo._internal.archive.tar;
     @:tdfield
     static public function _parseOctal( _p:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_parser.T_parser>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt64 {
         @:recv var _p:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_parser.T_parser> = _p;
-        _b = stdgo._internal.bytes.Bytes_trim.trim(_b, stdgo.Go.str(" ", 0)?.__copy__());
+        _b = stdgo._internal.bytes.Bytes_trim.trim(_b, (stdgo.Go.str(" ", 0) : stdgo.GoString)?.__copy__());
         if ((_b.length) == ((0 : stdgo.GoInt))) {
             return (0i64 : stdgo.GoInt64);
         };

@@ -18,7 +18,7 @@ package stdgo._internal.net.rpc;
             var _function = ((@:checkr _mtype ?? throw "null pointer dereference")._method.func?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _returnValues = _function.call((new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>(3, 3, ...[(@:checkr _s ?? throw "null pointer dereference")._rcvr?.__copy__(), _argv?.__copy__(), _replyv?.__copy__()].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_Value.Value)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>));
             var _errInter = (_returnValues[(0 : stdgo.GoInt)].interface_() : stdgo.AnyInterface);
-            var _errmsg = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+            var _errmsg = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_errInter != null) {
                 _errmsg = (stdgo.Go.typeAssert((_errInter : stdgo.Error)) : stdgo.Error).error()?.__copy__();
             };

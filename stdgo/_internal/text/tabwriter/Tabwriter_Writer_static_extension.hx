@@ -478,7 +478,7 @@ if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == (((@:checkr _b ?? throw "null poin
             (@:checkr _b ?? throw "null pointer dereference")._padbytes[(_i : stdgo.GoInt)] = _padchar;
         };
         if (_padchar == ((9 : stdgo.GoUInt8))) {
-            _flags = (_flags & ((((4u32 : stdgo.GoUInt)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt)) : stdgo.GoUInt);
+            _flags = (_flags & ((((4u32 : stdgo.GoUInt)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt)) : stdgo.GoUInt);
         };
         (@:checkr _b ?? throw "null pointer dereference")._flags = _flags;
         @:check2r _b._reset();

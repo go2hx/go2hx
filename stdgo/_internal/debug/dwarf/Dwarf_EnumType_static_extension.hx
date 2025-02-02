@@ -4,8 +4,8 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType> = _t;
-        var _s = ("enum" : stdgo.GoString);
-        if ((@:checkr _t ?? throw "null pointer dereference").enumName != (stdgo.Go.str())) {
+        var _s = (("enum" : stdgo.GoString) : stdgo.GoString);
+        if ((@:checkr _t ?? throw "null pointer dereference").enumName != ((stdgo.Go.str() : stdgo.GoString))) {
             _s = (_s + (((" " : stdgo.GoString) + (@:checkr _t ?? throw "null pointer dereference").enumName?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         _s = (_s + ((" {" : stdgo.GoString))?.__copy__() : stdgo.GoString);

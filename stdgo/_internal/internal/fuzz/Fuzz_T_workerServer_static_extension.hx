@@ -307,7 +307,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 if (_err != null) {
                     _errMsg = _err.error()?.__copy__();
-                    if (_errMsg == (stdgo.Go.str())) {
+                    if (_errMsg == ((stdgo.Go.str() : stdgo.GoString))) {
                         _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
                     };
                     return {
@@ -320,7 +320,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 if ((((@:checkr _ws ?? throw "null pointer dereference")._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countNewCoverageBits._countNewCoverageBits((@:checkr _ws ?? throw "null pointer dereference")._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : stdgo.Go.str()?.__copy__() };
+                        final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                         _dur = __tmp__._0;
                         _cov = __tmp__._1;
                         _errMsg = __tmp__._2;
@@ -328,7 +328,7 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.str()?.__copy__() };
+                    final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                     _dur = __tmp__._0;
                     _cov = __tmp__._1;
                     _errMsg = __tmp__._2;
@@ -337,7 +337,7 @@ package stdgo._internal.internal.fuzz;
             } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; });
             if (_args.warmup) {
                 var __tmp__ = _fuzzOnce(({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, __8:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;
-                if (_errMsg != (stdgo.Go.str())) {
+                if (_errMsg != ((stdgo.Go.str() : stdgo.GoString))) {
                     _resp.err = _errMsg?.__copy__();
                     {
                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
@@ -393,7 +393,7 @@ package stdgo._internal.internal.fuzz;
                                 @:check2r (@:checkr _ws ?? throw "null pointer dereference")._m._mutate(_vals, @:check2r _mem._valueRef().capacity);
                                 var _entry = ({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry);
                                 var __tmp__ = _fuzzOnce(_entry?.__copy__()), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, _cov:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;
-                                if (_errMsg != (stdgo.Go.str())) {
+                                if (_errMsg != ((stdgo.Go.str() : stdgo.GoString))) {
                                     _resp.err = _errMsg?.__copy__();
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();

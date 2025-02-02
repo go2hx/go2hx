@@ -28,7 +28,7 @@ function _parseMappingEntry(_l:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._inter
                         return { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errUnrecognized._errUnrecognized };
                     };
                 };
-                if (_me[(4 : stdgo.GoInt)] != (stdgo.Go.str())) {
+                if (_me[(4 : stdgo.GoInt)] != ((stdgo.Go.str() : stdgo.GoString))) {
                     {
                         {
                             var __tmp__ = stdgo._internal.strconv.Strconv_parseUint.parseUint(_me[(4 : stdgo.GoInt)]?.__copy__(), (16 : stdgo.GoInt), (64 : stdgo.GoInt));
@@ -68,7 +68,7 @@ function _parseMappingEntry(_l:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._inter
                     };
                 };
                 (@:checkr _mapping ?? throw "null pointer dereference").file = _me[(3 : stdgo.GoInt)]?.__copy__();
-                if (_me[(5 : stdgo.GoInt)] != (stdgo.Go.str())) {
+                if (_me[(5 : stdgo.GoInt)] != ((stdgo.Go.str() : stdgo.GoString))) {
                     {
                         {
                             var __tmp__ = stdgo._internal.strconv.Strconv_parseUint.parseUint(_me[(5 : stdgo.GoInt)]?.__copy__(), (16 : stdgo.GoInt), (64 : stdgo.GoInt));

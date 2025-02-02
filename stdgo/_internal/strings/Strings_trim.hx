@@ -1,6 +1,6 @@
 package stdgo._internal.strings;
 function trim(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString {
-        if (((_s == stdgo.Go.str()) || (_cutset == stdgo.Go.str()) : Bool)) {
+        if (((_s == (stdgo.Go.str() : stdgo.GoString)) || (_cutset == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return _s?.__copy__();
         };
         if (((_cutset.length == (1 : stdgo.GoInt)) && (_cutset[(0 : stdgo.GoInt)] < (128 : stdgo.GoUInt8) : Bool) : Bool)) {

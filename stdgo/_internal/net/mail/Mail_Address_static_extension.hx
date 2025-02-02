@@ -34,7 +34,7 @@ var _domain = __1, _local = __0;
             _local = stdgo._internal.net.mail.Mail__quoteString._quoteString(_local?.__copy__())?.__copy__();
         };
         var _s = (((((("<" : stdgo.GoString) + _local?.__copy__() : stdgo.GoString) + ("@" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _domain?.__copy__() : stdgo.GoString) + (">" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        if ((@:checkr _a ?? throw "null pointer dereference").name == (stdgo.Go.str())) {
+        if ((@:checkr _a ?? throw "null pointer dereference").name == ((stdgo.Go.str() : stdgo.GoString))) {
             return _s?.__copy__();
         };
         var _allPrintable = (true : Bool);

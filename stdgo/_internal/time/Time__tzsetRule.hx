@@ -2,7 +2,7 @@ package stdgo._internal.time;
 function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_rule.T_rule; var _1 : stdgo.GoString; var _2 : Bool; } {
         var _r:stdgo._internal.time.Time_T_rule.T_rule = ({} : stdgo._internal.time.Time_T_rule.T_rule);
         if ((_s.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
         };
         var _ok = (false : Bool);
         if (_s[(0 : stdgo.GoInt)] == ((74 : stdgo.GoUInt8))) {
@@ -14,7 +14,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
                 _ok = @:tmpset0 __tmp__._2;
             };
             if (!_ok) {
-                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             };
             _r._kind = (0 : stdgo._internal.time.Time_T_ruleKind.T_ruleKind);
             _r._day = _jday;
@@ -27,7 +27,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
                 _ok = @:tmpset0 __tmp__._2;
             };
             if (((!_ok || (_s.length) == ((0 : stdgo.GoInt)) : Bool) || (_s[(0 : stdgo.GoInt)] != (46 : stdgo.GoUInt8)) : Bool)) {
-                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             };
             var _week:stdgo.GoInt = (0 : stdgo.GoInt);
             {
@@ -37,7 +37,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
                 _ok = @:tmpset0 __tmp__._2;
             };
             if (((!_ok || (_s.length) == ((0 : stdgo.GoInt)) : Bool) || (_s[(0 : stdgo.GoInt)] != (46 : stdgo.GoUInt8)) : Bool)) {
-                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             };
             var _day:stdgo.GoInt = (0 : stdgo.GoInt);
             {
@@ -47,7 +47,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
                 _ok = @:tmpset0 __tmp__._2;
             };
             if (!_ok) {
-                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             };
             _r._kind = (2 : stdgo._internal.time.Time_T_ruleKind.T_ruleKind);
             _r._day = _day;
@@ -62,7 +62,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
                 _ok = @:tmpset0 __tmp__._2;
             };
             if (!_ok) {
-                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             };
             _r._kind = (1 : stdgo._internal.time.Time_T_ruleKind.T_ruleKind);
             _r._day = _day;
@@ -73,7 +73,7 @@ function _tzsetRule(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_T_ru
         };
         var __tmp__ = stdgo._internal.time.Time__tzsetOffset._tzsetOffset((_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__()), _offset:stdgo.GoInt = __tmp__._0, _s:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
         if (!_ok) {
-            return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : (new stdgo._internal.time.Time_T_rule.T_rule() : stdgo._internal.time.Time_T_rule.T_rule), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
         };
         _r._time = _offset;
         return { _0 : _r?.__copy__(), _1 : _s?.__copy__(), _2 : true };

@@ -5,7 +5,7 @@ function testIssue50909(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         _s.isIdentRune = function(_ch:stdgo.GoInt32, __0:stdgo.GoInt):Bool {
             return _ch != ((10 : stdgo.GoInt32));
         };
-        var _r = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _r = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _n = (0 : stdgo.GoInt);
         while (((@:check2 _s.scan() != (-1 : stdgo.GoInt32)) && (_n < (10 : stdgo.GoInt) : Bool) : Bool)) {
             _r = (_r + (@:check2 _s.tokenText())?.__copy__() : stdgo.GoString);

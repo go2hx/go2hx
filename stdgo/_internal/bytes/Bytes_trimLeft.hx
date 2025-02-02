@@ -3,7 +3,7 @@ function trimLeft(_s:stdgo.Slice<stdgo.GoUInt8>, _cutset:stdgo.GoString):stdgo.S
         if ((_s.length) == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
-        if (_cutset == (stdgo.Go.str())) {
+        if (_cutset == ((stdgo.Go.str() : stdgo.GoString))) {
             return _s;
         };
         if (((_cutset.length == (1 : stdgo.GoInt)) && (_cutset[(0 : stdgo.GoInt)] < (128 : stdgo.GoUInt8) : Bool) : Bool)) {

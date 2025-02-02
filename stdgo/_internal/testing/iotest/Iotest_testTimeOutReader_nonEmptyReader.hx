@@ -1,6 +1,6 @@
 package stdgo._internal.testing.iotest;
 function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _msg = ("Hello, World!" : stdgo.GoString);
+        var _msg = (("Hello, World!" : stdgo.GoString) : stdgo.GoString);
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         @:check2r _buf.writeString(_msg?.__copy__());
         var _tor = (stdgo._internal.testing.iotest.Iotest_timeoutReader.timeoutReader(stdgo.Go.asInterface(_buf)) : stdgo._internal.io.Io_Reader.Reader);

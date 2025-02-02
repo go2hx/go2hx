@@ -1,6 +1,6 @@
 package stdgo._internal.log;
 function benchmarkDiscard(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
-        var _l = stdgo._internal.log.Log_new_.new_(stdgo._internal.io.Io_discard.discard, stdgo.Go.str()?.__copy__(), (19 : stdgo.GoInt));
+        var _l = stdgo._internal.log.Log_new_.new_(stdgo._internal.io.Io_discard.discard, (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (19 : stdgo.GoInt));
         @:check2r _b.reportAllocs();
         {
             var _i = (0 : stdgo.GoInt);

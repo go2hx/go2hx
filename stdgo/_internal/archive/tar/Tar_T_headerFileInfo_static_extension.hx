@@ -22,7 +22,7 @@ package stdgo._internal.archive.tar;
             _mode = (_mode | ((1048576u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo._internal.io.fs.Fs_FileMode.FileMode);
         };
         {
-            var _m = (((@:checkr _fi._h ?? throw "null pointer dereference").mode : stdgo._internal.io.fs.Fs_FileMode.FileMode) & (((4095u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo._internal.io.fs.Fs_FileMode.FileMode);
+            var _m = (((@:checkr _fi._h ?? throw "null pointer dereference").mode : stdgo._internal.io.fs.Fs_FileMode.FileMode) & (((4095u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo._internal.io.fs.Fs_FileMode.FileMode);
             {
                 final __value__ = _m;
                 if (__value__ == ((16384u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode))) {

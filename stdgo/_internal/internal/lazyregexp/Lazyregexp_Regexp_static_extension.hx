@@ -53,7 +53,7 @@ package stdgo._internal.internal.lazyregexp;
     static public function _build( _r:stdgo.Ref<stdgo._internal.internal.lazyregexp.Lazyregexp_Regexp.Regexp>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.lazyregexp.Lazyregexp_Regexp.Regexp> = _r;
         (@:checkr _r ?? throw "null pointer dereference")._rx = stdgo._internal.regexp.Regexp_mustCompile.mustCompile((@:checkr _r ?? throw "null pointer dereference")._str?.__copy__());
-        (@:checkr _r ?? throw "null pointer dereference")._str = stdgo.Go.str()?.__copy__();
+        (@:checkr _r ?? throw "null pointer dereference")._str = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield

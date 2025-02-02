@@ -1,6 +1,6 @@
 package stdgo._internal.archive.tar;
 function _validPAXRecord(_k:stdgo.GoString, _v:stdgo.GoString):Bool {
-        if (((_k == stdgo.Go.str()) || stdgo._internal.strings.Strings_contains.contains(_k?.__copy__(), ("=" : stdgo.GoString)) : Bool)) {
+        if (((_k == (stdgo.Go.str() : stdgo.GoString)) || stdgo._internal.strings.Strings_contains.contains(_k?.__copy__(), ("=" : stdgo.GoString)) : Bool)) {
             return false;
         };
         {

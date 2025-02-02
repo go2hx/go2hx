@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.tls;
 function _checkALPN(_clientProtos:stdgo.Slice<stdgo.GoString>, _serverProto:stdgo.GoString, _quic:Bool):stdgo.Error {
-        if (_serverProto == (stdgo.Go.str())) {
+        if (_serverProto == ((stdgo.Go.str() : stdgo.GoString))) {
             if ((_quic && ((_clientProtos.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server did not select an ALPN protocol" : stdgo.GoString));
             };

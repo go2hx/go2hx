@@ -1,6 +1,6 @@
 package stdgo._internal.net.url;
 function _validOptionalPort(_port:stdgo.GoString):Bool {
-        if (_port == (stdgo.Go.str())) {
+        if (_port == ((stdgo.Go.str() : stdgo.GoString))) {
             return true;
         };
         if (_port[(0 : stdgo.GoInt)] != ((58 : stdgo.GoUInt8))) {

@@ -5,7 +5,7 @@ var _j = __1, _i = __0;
         while ((_j < (_src.length) : Bool)) {
             var _p = (_src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
 var _q = (_src[(_j : stdgo.GoInt)] : stdgo.GoUInt8);
-var _a = (stdgo.Go.str(255,
+var _a = ((stdgo.Go.str(255,
 255,
 255,
 255,
@@ -252,8 +252,8 @@ var _a = (stdgo.Go.str(255,
 255,
 255,
 255,
-255)[(_p : stdgo.GoInt)] : stdgo.GoUInt8);
-var _b = (stdgo.Go.str(255,
+255) : stdgo.GoString)[(_p : stdgo.GoInt)] : stdgo.GoUInt8);
+var _b = ((stdgo.Go.str(255,
 255,
 255,
 255,
@@ -500,7 +500,7 @@ var _b = (stdgo.Go.str(255,
 255,
 255,
 255,
-255)[(_q : stdgo.GoInt)] : stdgo.GoUInt8);
+255) : stdgo.GoString)[(_q : stdgo.GoInt)] : stdgo.GoUInt8);
 if ((_a > (15 : stdgo.GoUInt8) : Bool)) {
                 return { _0 : _i, _1 : stdgo.Go.asInterface((_p : stdgo._internal.encoding.hex.Hex_InvalidByteError.InvalidByteError)) };
             };
@@ -512,7 +512,7 @@ _i++;
             _j = (_j + ((2 : stdgo.GoInt)) : stdgo.GoInt);
         };
         if (((_src.length) % (2 : stdgo.GoInt) : stdgo.GoInt) == ((1 : stdgo.GoInt))) {
-            if ((stdgo.Go.str(255,
+            if (((stdgo.Go.str(255,
 255,
 255,
 255,
@@ -759,7 +759,7 @@ _i++;
 255,
 255,
 255,
-255)[(_src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)] > (15 : stdgo.GoUInt8) : Bool)) {
+255) : stdgo.GoString)[(_src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)] > (15 : stdgo.GoUInt8) : Bool)) {
                 return { _0 : _i, _1 : stdgo.Go.asInterface((_src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.encoding.hex.Hex_InvalidByteError.InvalidByteError)) };
             };
             return { _0 : _i, _1 : stdgo._internal.encoding.hex.Hex_errLength.errLength };

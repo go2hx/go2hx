@@ -7,6 +7,6 @@ package stdgo._internal.text.template;
         if (_b) {
             return ("true" : stdgo.GoString);
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
 }

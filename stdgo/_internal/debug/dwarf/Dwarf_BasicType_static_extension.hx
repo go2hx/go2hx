@@ -4,7 +4,7 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType> = _t;
-        if ((@:checkr _t ?? throw "null pointer dereference").commonType.name != (stdgo.Go.str())) {
+        if ((@:checkr _t ?? throw "null pointer dereference").commonType.name != ((stdgo.Go.str() : stdgo.GoString))) {
             return (@:checkr _t ?? throw "null pointer dereference").commonType.name?.__copy__();
         };
         return ("?" : stdgo.GoString);

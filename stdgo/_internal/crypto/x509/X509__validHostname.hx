@@ -7,7 +7,7 @@ function _validHostname(_host:stdgo.GoString, _isPattern:Bool):Bool {
             return false;
         };
         for (_i => _part in stdgo._internal.strings.Strings_split.split(_host?.__copy__(), ("." : stdgo.GoString))) {
-            if (_part == (stdgo.Go.str())) {
+            if (_part == ((stdgo.Go.str() : stdgo.GoString))) {
                 return false;
             };
             if (((_isPattern && _i == ((0 : stdgo.GoInt)) : Bool) && (_part == ("*" : stdgo.GoString)) : Bool)) {

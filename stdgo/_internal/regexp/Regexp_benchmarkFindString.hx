@@ -2,7 +2,7 @@ package stdgo._internal.regexp;
 function benchmarkFindString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.stopTimer();
         var _re = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("a+b+" : stdgo.GoString));
-        var _wantSubs = ("aaabb" : stdgo.GoString);
+        var _wantSubs = (("aaabb" : stdgo.GoString) : stdgo.GoString);
         var _s = (((("acbb" : stdgo.GoString) + _wantSubs?.__copy__() : stdgo.GoString) + ("dd" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         @:check2r _b.startTimer();
         @:check2r _b.reportAllocs();

@@ -68,7 +68,7 @@ package stdgo._internal.flag;
         };
         (@:checkr _f ?? throw "null pointer dereference")._args = ((@:checkr _f ?? throw "null pointer dereference")._args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
         var _hasValue = (false : Bool);
-        var _value = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _value = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var _i = (1 : stdgo.GoInt);
             while ((_i < (_name.length) : Bool)) {
@@ -184,7 +184,7 @@ package stdgo._internal.flag;
         var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.exists(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>), _1 : false }), __0:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag> = __tmp__._0, _alreadythere:Bool = __tmp__._1;
         if (_alreadythere) {
             var _msg:stdgo.GoString = ("" : stdgo.GoString);
-            if ((@:checkr _f ?? throw "null pointer dereference")._name == (stdgo.Go.str())) {
+            if ((@:checkr _f ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString))) {
                 _msg = @:check2r _f._sprintf(("flag redefined: %s" : stdgo.GoString), stdgo.Go.toInterface(_name))?.__copy__();
             } else {
                 _msg = @:check2r _f._sprintf(("%s flag redefined: %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference")._name), stdgo.Go.toInterface(_name))?.__copy__();
@@ -193,7 +193,7 @@ package stdgo._internal.flag;
         };
         {
             var _pos = (((@:checkr _f ?? throw "null pointer dereference")._undef[_name] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_pos != (stdgo.Go.str())) {
+            if (_pos != ((stdgo.Go.str() : stdgo.GoString))) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("flag %s set at %s before being defined" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pos)));
             };
         };
@@ -354,7 +354,7 @@ package stdgo._internal.flag;
     static public function arg( _f:stdgo.Ref<stdgo._internal.flag.Flag_FlagSet.FlagSet>, _i:stdgo.GoInt):stdgo.GoString {
         @:recv var _f:stdgo.Ref<stdgo._internal.flag.Flag_FlagSet.FlagSet> = _f;
         if (((_i < (0 : stdgo.GoInt) : Bool) || (_i >= ((@:checkr _f ?? throw "null pointer dereference")._args.length) : Bool) : Bool)) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return (@:checkr _f ?? throw "null pointer dereference")._args[(_i : stdgo.GoInt)]?.__copy__();
     }
@@ -368,7 +368,7 @@ package stdgo._internal.flag;
     @:tdfield
     static public function _defaultUsage( _f:stdgo.Ref<stdgo._internal.flag.Flag_FlagSet.FlagSet>):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.flag.Flag_FlagSet.FlagSet> = _f;
-        if ((@:checkr _f ?? throw "null pointer dereference")._name == (stdgo.Go.str())) {
+        if ((@:checkr _f ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString))) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(@:check2r _f.output(), ("Usage:\n" : stdgo.GoString));
         } else {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(@:check2r _f.output(), ("Usage of %s:\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference")._name));

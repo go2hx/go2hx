@@ -4,7 +4,7 @@ function _loadSystemRoots():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X50
         var _files = stdgo._internal.crypto.x509.X509__certFiles._certFiles;
         {
             var _f = (stdgo._internal.os.Os_getenv.getenv(("SSL_CERT_FILE" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_f != (stdgo.Go.str())) {
+            if (_f != ((stdgo.Go.str() : stdgo.GoString))) {
                 _files = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_f?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
             };
         };
@@ -22,7 +22,7 @@ function _loadSystemRoots():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X50
         var _dirs = stdgo._internal.crypto.x509.X509__certDirectories._certDirectories;
         {
             var _d = (stdgo._internal.os.Os_getenv.getenv(("SSL_CERT_DIR" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_d != (stdgo.Go.str())) {
+            if (_d != ((stdgo.Go.str() : stdgo.GoString))) {
                 _dirs = stdgo._internal.strings.Strings_split.split(_d?.__copy__(), (":" : stdgo.GoString));
             };
         };

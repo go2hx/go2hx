@@ -28,13 +28,13 @@ package stdgo._internal.net.http;
         @:recv var _mh:stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame> = _mh;
         for (__2370 => _hf in (@:checkr _mh ?? throw "null pointer dereference").fields) {
             if (!_hf.isPseudo()) {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             if ((_hf.name.__slice__((1 : stdgo.GoInt)) : stdgo.GoString) == (_pseudo)) {
                 return _hf.value?.__copy__();
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:embedded
     @:embeddededffieldsffun

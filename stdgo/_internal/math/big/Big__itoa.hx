@@ -3,7 +3,7 @@ function _itoa(_x:stdgo._internal.math.big.Big_T_nat.T_nat, _base:stdgo.GoInt):s
         if ((_base < (2 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("illegal base" : stdgo.GoString));
         } else if ((_x.length) == ((0 : stdgo.GoInt))) {
-            return (("0" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            return ((("0" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _i = ((_x._bitLen() / stdgo._internal.math.big.Big__log2._log2((_base : stdgo._internal.math.big.Big_Word.Word)) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
         var _s = (new stdgo.Slice<stdgo.GoUInt8>((_i : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

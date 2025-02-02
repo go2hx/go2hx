@@ -48,7 +48,7 @@ var _hi = __1, _lo = __0;
                                     };
                                     if (_err != null) {
                                         return {
-                                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
                                             _rest = __tmp__._0;
                                             _ok = __tmp__._1;
                                             _err = __tmp__._2;
@@ -67,7 +67,7 @@ var _hi = __1, _lo = __0;
                                         };
                                         if (_err != null) {
                                             return {
-                                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
                                                 _rest = __tmp__._0;
                                                 _ok = __tmp__._1;
                                                 _err = __tmp__._2;
@@ -102,7 +102,7 @@ var _hi = __1, _lo = __0;
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 if ((_chunk.length) == ((0 : stdgo.GoInt))) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
                                         _rest = __tmp__._0;
                                         _ok = __tmp__._1;
                                         _err = __tmp__._2;
@@ -133,7 +133,7 @@ var _hi = __1, _lo = __0;
         };
         if (_failed) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
                 _rest = __tmp__._0;
                 _ok = __tmp__._1;
                 _err = __tmp__._2;

@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function _parseFowlerResult(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; var _2 : Bool; var _3 : stdgo.Slice<stdgo.GoInt>; } {
         var _ok = false, _compiled = false, _matched = false, _pos = (null : stdgo.Slice<stdgo.GoInt>);
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             _ok = true;
             _compiled = true;
             _matched = true;
@@ -18,7 +18,7 @@ function _parseFowlerResult(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; v
         };
         _compiled = true;
         var _x:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-        while (_s != (stdgo.Go.str())) {
+        while (_s != ((stdgo.Go.str() : stdgo.GoString))) {
             var _end:stdgo.GoUInt8 = (41 : stdgo.GoUInt8);
             if (((_x.length) % (2 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                 if (_s[(0 : stdgo.GoInt)] != ((40 : stdgo.GoUInt8))) {

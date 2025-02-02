@@ -10,7 +10,7 @@ package stdgo._internal.sync;
         var _pid = (stdgo._internal.sync.Sync__runtime_procPin._runtime_procPin() : stdgo.GoInt);
         var _s = (stdgo._internal.sync.Sync__runtime_LoadAcquintptr._runtime_LoadAcquintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._localSize)) : stdgo.GoUIntptr);
         var _l = ((@:checkr _p ?? throw "null pointer dereference")._local : stdgo._internal.unsafe.Unsafe.UnsafePointer);
-        if (((_pid : stdgo.GoUIntptr) < _s : Bool)) {
+        if (((new stdgo.GoUIntptr(_pid) : stdgo.GoUIntptr) < _s : Bool)) {
             return { _0 : stdgo._internal.sync.Sync__indexLocal._indexLocal(_l, _pid), _1 : _pid };
         };
         return @:check2r _p._pinSlow();
@@ -35,7 +35,7 @@ package stdgo._internal.sync;
             };
         };
         _size = stdgo._internal.sync.atomic_.Atomic__loadUintptr.loadUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize));
-        if (((_pid : stdgo.GoUIntptr) >= _size : Bool)) {
+        if (((new stdgo.GoUIntptr(_pid) : stdgo.GoUIntptr) >= _size : Bool)) {
             return (null : stdgo.AnyInterface);
         };
         _locals = (@:checkr _p ?? throw "null pointer dereference")._victim;
@@ -60,7 +60,7 @@ package stdgo._internal.sync;
                 _i++;
             };
         };
-        stdgo._internal.sync.atomic_.Atomic__storeUintptr.storeUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize), (0 : stdgo.GoUIntptr));
+        stdgo._internal.sync.atomic_.Atomic__storeUintptr.storeUintptr(stdgo.Go.pointer((@:checkr _p ?? throw "null pointer dereference")._victimSize), (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr));
         return (null : stdgo.AnyInterface);
     }
     @:keep

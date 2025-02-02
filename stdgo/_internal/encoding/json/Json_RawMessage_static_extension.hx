@@ -15,7 +15,7 @@ package stdgo._internal.encoding.json;
     static public function marshalJSON( _m:stdgo._internal.encoding.json.Json_RawMessage.RawMessage):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo._internal.encoding.json.Json_RawMessage.RawMessage = _m;
         if (_m == null) {
-            return { _0 : (("null" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return { _0 : ((("null" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         return { _0 : _m, _1 : (null : stdgo.Error) };
     }

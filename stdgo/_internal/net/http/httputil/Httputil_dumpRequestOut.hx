@@ -139,7 +139,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             var _dump = @:check2 _buf.bytes();
             if (_dummyBody) {
                 {
-                    var _i = (stdgo._internal.bytes.Bytes_index.index(_dump, (("\r\n\r\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
+                    var _i = (stdgo._internal.bytes.Bytes_index.index(_dump, ((("\r\n\r\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
                     if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                         _dump = (_dump.__slice__(0, (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     };

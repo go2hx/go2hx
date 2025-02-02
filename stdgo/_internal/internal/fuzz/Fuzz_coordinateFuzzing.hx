@@ -83,7 +83,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                     a();
                 }) });
             };
-            var _dir = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+            var _dir = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             var _binPath = (stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
             var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-test.fuzzworker" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo._internal.os.Os_args.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
             var _env = stdgo._internal.os.Os_environ_.environ_();
@@ -189,7 +189,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                         break;
                                     };
                                     @:check2r _c._updateStats(_result?.__copy__());
-                                    if (_result._crasherMsg != (stdgo.Go.str())) {
+                                    if (_result._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))) {
                                         if ((@:check2r _c._warmupRun() && _result._entry.isSeed : Bool)) {
                                             var _target = (stdgo._internal.path.filepath.Filepath_base.base((@:checkr _c ?? throw "null pointer dereference")._opts.corpusDir?.__copy__())?.__copy__() : stdgo.GoString);
                                             stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("failure while testing seed corpus entry: %s/%s\n" : stdgo.GoString), stdgo.Go.toInterface(_target), stdgo.Go.toInterface(stdgo._internal.internal.fuzz.Fuzz__testName._testName(_result._entry.parent?.__copy__())));

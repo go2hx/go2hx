@@ -14,7 +14,7 @@ function testInvalidExponent(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         stdgo._internal.text.scanner.Scanner__checkTokErr._checkTokErr(_t, _s, (1 : stdgo.GoInt), (-4 : stdgo.GoInt32), ("1e-" : stdgo.GoString));
         stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-4 : stdgo.GoInt32), ("1.5" : stdgo.GoString));
         stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-2 : stdgo.GoInt32), ("z" : stdgo.GoString));
-        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-1 : stdgo.GoInt32), stdgo.Go.str()?.__copy__());
+        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-1 : stdgo.GoInt32), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
         if ((@:checkr _s ?? throw "null pointer dereference").errorCount != ((4 : stdgo.GoInt))) {
             @:check2r _t.errorf(("%d errors, want 4" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").errorCount));
         };

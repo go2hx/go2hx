@@ -8,7 +8,7 @@ package stdgo._internal.encoding.json;
             return false;
         };
         var _s = ((_o : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        while (_s != (stdgo.Go.str())) {
+        while (_s != ((stdgo.Go.str() : stdgo.GoString))) {
             var _name:stdgo.GoString = ("" : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_s?.__copy__(), ("," : stdgo.GoString));

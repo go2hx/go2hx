@@ -5,7 +5,7 @@ package stdgo._internal.text.template.parse;
     static public function _scanNumber( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):Bool {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer> = _l;
         @:check2r _l._accept(("+-" : stdgo.GoString));
-        var _digits = ("0123456789_" : stdgo.GoString);
+        var _digits = (("0123456789_" : stdgo.GoString) : stdgo.GoString);
         if (@:check2r _l._accept(("0" : stdgo.GoString))) {
             if (@:check2r _l._accept(("xX" : stdgo.GoString))) {
                 _digits = ("0123456789abcdefABCDEF_" : stdgo.GoString);
@@ -126,7 +126,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function _ignore( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer> = _l;
-        (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) : stdgo.GoInt);
+        (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), (("\n" : stdgo.GoString) : stdgo.GoString))) : stdgo.GoInt);
         (@:checkr _l ?? throw "null pointer dereference")._start = (@:checkr _l ?? throw "null pointer dereference")._pos;
         (@:checkr _l ?? throw "null pointer dereference")._startLine = (@:checkr _l ?? throw "null pointer dereference")._line;
     }

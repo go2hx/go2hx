@@ -22,7 +22,7 @@ package stdgo._internal.net.rpc.jsonrpc;
             _b = (stdgo.Go.setRef(nil) : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>);
         };
         var _resp = ({ id : _b } : stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverResponse.T_serverResponse);
-        if ((@:checkr _r ?? throw "null pointer dereference").error == (stdgo.Go.str())) {
+        if ((@:checkr _r ?? throw "null pointer dereference").error == ((stdgo.Go.str() : stdgo.GoString))) {
             _resp.result = _x;
         } else {
             _resp.error = stdgo.Go.toInterface((@:checkr _r ?? throw "null pointer dereference").error);

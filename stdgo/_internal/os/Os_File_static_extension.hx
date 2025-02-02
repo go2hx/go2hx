@@ -91,7 +91,17 @@ package stdgo._internal.os;
     static public function writeString( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return _f.write(_s);
     @:keep
     @:tdfield
-    static public function seek( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } throw "File:os.seek is not yet implemented";
+    static public function seek( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = _f;
+        #if (sys || hxnodejs) {
+            final input:sys.io.FileInput = cast @:privateAccess _f._input;
+            final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
+            @:privateAccess input.seek(_offset.toBasic().low, pos);
+            return { _0 : input.tell(), _1 : null };
+        } #else null #end;
+        trace("not supported on non sys target");
+        return { _0 : 0, _1 : null };
+    }
     @:keep
     @:tdfield
     static public function writeAt( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.writeAt is not yet implemented";
@@ -112,7 +122,14 @@ package stdgo._internal.os;
     static public function readAt( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.readAt is not yet implemented";
     @:keep
     @:tdfield
-    static public function read( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.read is not yet implemented";
+    static public function read( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = _f;
+        final bytes = @:privateAccess _f._input.read(_b.length);
+        for (i in 0 ... bytes.length) {
+            _b[i] = bytes.get(i);
+        };
+        return { _0 : bytes.length, _1 : null };
+    }
     @:keep
     @:tdfield
     static public function name( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>):stdgo.GoString throw "File:os.name is not yet implemented";

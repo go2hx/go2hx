@@ -2,7 +2,7 @@ package stdgo._internal.strconv;
 function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         var _i = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {};
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxError._syntaxError(("ParseInt" : stdgo.GoString), _s?.__copy__())) };
                 _i = __tmp__._0;

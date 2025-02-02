@@ -31,7 +31,7 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Synt
                 (@:checkr _regexp ?? throw "null pointer dereference")._prefixEnd = @:tmpset0 __tmp__._2;
             };
         };
-        if ((@:checkr _regexp ?? throw "null pointer dereference")._prefix != (stdgo.Go.str())) {
+        if ((@:checkr _regexp ?? throw "null pointer dereference")._prefix != ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _regexp ?? throw "null pointer dereference")._prefixBytes = ((@:checkr _regexp ?? throw "null pointer dereference")._prefix : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((@:checkr _regexp ?? throw "null pointer dereference")._prefix?.__copy__());

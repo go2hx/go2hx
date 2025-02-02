@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function _benchMarshalBytesError(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.testing.Testing_B.B> -> Void {
-        var _sample = (("hello world" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _sample = ((("hello world" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _v = (stdgo.Go.setRef(({ bytes : (stdgo._internal.bytes.Bytes_repeat.repeat(_sample, (((_n / (_sample.length) : stdgo.GoInt)) + (1 : stdgo.GoInt) : stdgo.GoInt)).__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.json.Json_T__struct_0.T__struct_0)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_0.T__struct_0>);
         {};
         var _dummy = ({ name : ("Dummy" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406.T__benchMarshalBytesError___localname___Dummy_4406);

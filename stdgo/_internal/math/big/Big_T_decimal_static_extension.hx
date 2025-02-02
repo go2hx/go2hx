@@ -52,7 +52,7 @@ package stdgo._internal.math.big;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         if (((@:checkr _x ?? throw "null pointer dereference")._exp <= (0 : stdgo.GoInt) : Bool)) {
             _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((2 : stdgo.GoInt) + (-(@:checkr _x ?? throw "null pointer dereference")._exp) : stdgo.GoInt) + ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            _buf = (_buf.__append__(...(("0." : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            _buf = (_buf.__append__(...((("0." : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
             _buf = stdgo._internal.math.big.Big__appendZeros._appendZeros(_buf, -(@:checkr _x ?? throw "null pointer dereference")._exp);
             _buf = (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._mant : Array<stdgo.GoUInt8>)));
         } else if (((@:checkr _x ?? throw "null pointer dereference")._exp < ((@:checkr _x ?? throw "null pointer dereference")._mant.length) : Bool)) {

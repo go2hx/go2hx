@@ -68,7 +68,7 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             };
         };
         var _invalidTests = (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
-stdgo.Go.str()?.__copy__(),
+(stdgo.Go.str() : stdgo.GoString)?.__copy__(),
 ("invalid" : stdgo.GoString),
 ("1.0.1" : stdgo.GoString),
 ("1..1" : stdgo.GoString),

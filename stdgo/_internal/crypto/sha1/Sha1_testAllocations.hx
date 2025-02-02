@@ -3,7 +3,7 @@ function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         if (false) {
             @:check2r _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
         };
-        var _in = (("hello, world!" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _in = ((("hello, world!" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _out = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (20 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _h = (stdgo._internal.crypto.sha1.Sha1_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
         var _n = (stdgo._internal.testing.Testing_allocsPerRun.allocsPerRun((10 : stdgo.GoInt), function():Void {

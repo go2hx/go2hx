@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function _isValidTag(_s:stdgo.GoString):Bool {
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             return false;
         };
         for (__4 => _c in _s) {

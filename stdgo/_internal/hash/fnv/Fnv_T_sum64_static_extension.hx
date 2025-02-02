@@ -4,7 +4,7 @@ package stdgo._internal.hash.fnv;
     @:pointer
     @:tdfield
     static public function unmarshalBinary( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        if ((((_b.length) < (stdgo.Go.str("fnv", 3).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("fnv", 3).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("fnv", 3)) : Bool)) {
+        if ((((_b.length) < ((stdgo.Go.str("fnv", 3) : stdgo.GoString).length) : Bool) || (((_b.__slice__(0, ((stdgo.Go.str("fnv", 3) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("fnv", 3) : stdgo.GoString)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("hash/fnv: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((12 : stdgo.GoInt))) {
@@ -18,7 +18,7 @@ package stdgo._internal.hash.fnv;
     @:tdfield
     static public function marshalBinary( _s:stdgo.Pointer<stdgo._internal.hash.fnv.Fnv_T_sum64.T_sum64>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (12 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...(stdgo.Go.str("fnv", 3) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("fnv", 3) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.hash.fnv.Fnv__appendUint64._appendUint64(_b, (_s.value : stdgo.GoUInt64));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }

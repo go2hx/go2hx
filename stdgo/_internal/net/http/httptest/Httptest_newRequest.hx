@@ -1,6 +1,6 @@
 package stdgo._internal.net.http.httptest;
 function newRequest(_method:stdgo.GoString, _target:stdgo.GoString, _body:stdgo._internal.io.Io_Reader.Reader):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> {
-        if (_method == (stdgo.Go.str())) {
+        if (_method == ((stdgo.Go.str() : stdgo.GoString))) {
             _method = ("GET" : stdgo.GoString);
         };
         var __tmp__ = stdgo._internal.net.http.Http_readRequest.readRequest(stdgo._internal.bufio.Bufio_newReader.newReader(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader((((_method + (" " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _target?.__copy__() : stdgo.GoString) + (" HTTP/1.0\r\n\r\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__())))), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -41,7 +41,7 @@ function newRequest(_method:stdgo.GoString, _target:stdgo.GoString, _body:stdgo.
             };
         };
         (@:checkr _req ?? throw "null pointer dereference").remoteAddr = ("192.0.2.1:1234" : stdgo.GoString);
-        if ((@:checkr _req ?? throw "null pointer dereference").host == (stdgo.Go.str())) {
+        if ((@:checkr _req ?? throw "null pointer dereference").host == ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _req ?? throw "null pointer dereference").host = ("example.com" : stdgo.GoString);
         };
         if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_target?.__copy__(), ("https://" : stdgo.GoString))) {

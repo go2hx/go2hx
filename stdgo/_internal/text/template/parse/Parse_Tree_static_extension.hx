@@ -927,11 +927,11 @@ package stdgo._internal.text.template.parse;
     static public function _unexpected( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>, _token:stdgo._internal.text.template.parse.Parse_T_item.T_item, _context:stdgo.GoString):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
         if (_token._typ == ((0 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-            var _extra = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+            var _extra = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if ((((@:checkr _t ?? throw "null pointer dereference")._actionLine != (0 : stdgo.GoInt)) && ((@:checkr _t ?? throw "null pointer dereference")._actionLine != _token._line) : Bool)) {
                 _extra = stdgo._internal.fmt.Fmt_sprintf.sprintf((" in action started at %s:%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference").parseName), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference")._actionLine))?.__copy__();
                 if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_token._val?.__copy__(), (" action" : stdgo.GoString))) {
-                    _extra = (_extra.__slice__(((" in action" : stdgo.GoString).length)) : stdgo.GoString)?.__copy__();
+                    _extra = (_extra.__slice__((((" in action" : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoString)?.__copy__();
                 };
             };
             @:check2r _t._errorf(("%s%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_token)), stdgo.Go.toInterface(_extra));

@@ -128,7 +128,7 @@ if (_ac == ((0 : stdgo.GoInt32))) {
         };
         @:check2r _e._writeMarkerHeader((196 : stdgo.GoUInt8), _markerlen);
         for (_i => _s in _specs) {
-            @:check2r _e._writeByte(stdgo.Go.str(0, 16, 1, 17)[(_i : stdgo.GoInt)]);
+            @:check2r _e._writeByte((stdgo.Go.str(0, 16, 1, 17) : stdgo.GoString)[(_i : stdgo.GoInt)]);
             @:check2r _e._write((_s._count.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
             @:check2r _e._write(_s._value);
         };
@@ -154,8 +154,8 @@ if (_ac == ((0 : stdgo.GoInt32))) {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _nComponent : Bool)) {
                     (@:checkr _e ?? throw "null pointer dereference")._buf[(((3 : stdgo.GoInt) * _i : stdgo.GoInt) + (6 : stdgo.GoInt) : stdgo.GoInt)] = ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
-(@:checkr _e ?? throw "null pointer dereference")._buf[(((3 : stdgo.GoInt) * _i : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt)] = stdgo.Go.str("\"", 17, 17)[(_i : stdgo.GoInt)];
-(@:checkr _e ?? throw "null pointer dereference")._buf[(((3 : stdgo.GoInt) * _i : stdgo.GoInt) + (8 : stdgo.GoInt) : stdgo.GoInt)] = stdgo.Go.str(0, 1, 1)[(_i : stdgo.GoInt)];
+(@:checkr _e ?? throw "null pointer dereference")._buf[(((3 : stdgo.GoInt) * _i : stdgo.GoInt) + (7 : stdgo.GoInt) : stdgo.GoInt)] = (stdgo.Go.str("\"", 17, 17) : stdgo.GoString)[(_i : stdgo.GoInt)];
+(@:checkr _e ?? throw "null pointer dereference")._buf[(((3 : stdgo.GoInt) * _i : stdgo.GoInt) + (8 : stdgo.GoInt) : stdgo.GoInt)] = (stdgo.Go.str(0, 1, 1) : stdgo.GoString)[(_i : stdgo.GoInt)];
                     _i++;
                 };
             };

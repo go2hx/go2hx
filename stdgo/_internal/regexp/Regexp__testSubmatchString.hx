@@ -8,7 +8,7 @@ function _testSubmatchString(_test:stdgo.Ref<stdgo._internal.regexp.Regexp_FindT
             var _k = (0 : stdgo.GoInt);
             while ((_k < (_submatches.length) : Bool)) {
                 if (_submatches[(_k : stdgo.GoInt)] == ((-1 : stdgo.GoInt))) {
-                    if (_result[(_k / (2 : stdgo.GoInt) : stdgo.GoInt)] != (stdgo.Go.str())) {
+                    if (_result[(_k / (2 : stdgo.GoInt) : stdgo.GoInt)] != ((stdgo.Go.str() : stdgo.GoString))) {
                         @:check2r _t.errorf(("match %d: expected nil got %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_result), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
                     };
                     {

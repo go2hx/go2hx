@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function registerName(_name:stdgo.GoString, _value:stdgo.AnyInterface):Void {
-        if (_name == (stdgo.Go.str())) {
+        if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("attempt to register empty name" : stdgo.GoString));
         };
         var _ut = stdgo._internal.encoding.gob.Gob__userType._userType(stdgo._internal.reflect.Reflect_typeOf.typeOf(_value));

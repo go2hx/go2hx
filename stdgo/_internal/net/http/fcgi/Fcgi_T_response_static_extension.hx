@@ -49,7 +49,7 @@ package stdgo._internal.net.http.fcgi;
             (@:checkr _r ?? throw "null pointer dereference")._header.del(("Content-Length" : stdgo.GoString));
             (@:checkr _r ?? throw "null pointer dereference")._header.del(("Transfer-Encoding" : stdgo.GoString));
         };
-        if ((@:checkr _r ?? throw "null pointer dereference")._header.get(("Date" : stdgo.GoString)) == (stdgo.Go.str())) {
+        if ((@:checkr _r ?? throw "null pointer dereference")._header.get(("Date" : stdgo.GoString)) == ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _r ?? throw "null pointer dereference")._header.set(("Date" : stdgo.GoString), stdgo._internal.time.Time_now.now().uTC().format(("Mon, 02 Jan 2006 15:04:05 GMT" : stdgo.GoString))?.__copy__());
         };
     }

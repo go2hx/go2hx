@@ -1,6 +1,6 @@
 package stdgo._internal.mime;
 function _initMimeForTests():stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        stdgo._internal.mime.Mime__mimeGlobs._mimeGlobs = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo.Go.str()?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        stdgo._internal.mime.Mime__mimeGlobs._mimeGlobs = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[(stdgo.Go.str() : stdgo.GoString)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.mime.Mime__typeFiles._typeFiles = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("testdata/test.types" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         return ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();

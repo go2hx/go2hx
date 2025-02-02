@@ -1,6 +1,6 @@
 package stdgo._internal.runtime.internal.sys;
 function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
-        return (stdgo.Go.str("\x08",
+        return ((stdgo.Go.str("\x08",
 0,
 1,
 0,
@@ -255,5 +255,5 @@ function trailingZeros8(_x:stdgo.GoUInt8):stdgo.GoInt {
 2,
 0,
 1,
-0)[(_x : stdgo.GoInt)] : stdgo.GoInt);
+0) : stdgo.GoString)[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }

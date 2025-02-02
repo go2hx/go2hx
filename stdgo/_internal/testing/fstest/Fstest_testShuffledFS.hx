@@ -3,9 +3,9 @@ function testShuffledFS(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var _fsys = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.testing.fstest.Fstest_MapFile.MapFile>>();
             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_MapFile.MapFile>);
-            x.set(("tmp/one" : stdgo.GoString), ({ data : (("1" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
-x.set(("tmp/two" : stdgo.GoString), ({ data : (("2" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
-x.set(("tmp/three" : stdgo.GoString), ({ data : (("3" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
+            x.set(("tmp/one" : stdgo.GoString), ({ data : ((("1" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
+x.set(("tmp/two" : stdgo.GoString), ({ data : ((("2" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
+x.set(("tmp/three" : stdgo.GoString), ({ data : ((("3" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.testing.fstest.Fstest_MapFile.MapFile));
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.testing.fstest.Fstest_MapFile.MapFile>>) : stdgo._internal.testing.fstest.Fstest_T_shuffledFS.T_shuffledFS);
         {

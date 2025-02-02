@@ -17,7 +17,7 @@ var _numRead = __1, _numCopy = __0;
             (@:checkr _d ?? throw "null pointer dereference")._in = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0, (_numCopy + _numRead : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             if (((stdgo.Go.toInterface((@:checkr _d ?? throw "null pointer dereference")._err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) && ((((@:checkr _d ?? throw "null pointer dereference")._in.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 {
-                    var _a = (stdgo.Go.str(255,
+                    var _a = ((stdgo.Go.str(255,
 255,
 255,
 255,
@@ -264,7 +264,7 @@ var _numRead = __1, _numCopy = __0;
 255,
 255,
 255,
-255)[((@:checkr _d ?? throw "null pointer dereference")._in[(((@:checkr _d ?? throw "null pointer dereference")._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoUInt8);
+255) : stdgo.GoString)[((@:checkr _d ?? throw "null pointer dereference")._in[(((@:checkr _d ?? throw "null pointer dereference")._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoUInt8);
                     if ((_a > (15 : stdgo.GoUInt8) : Bool)) {
                         (@:checkr _d ?? throw "null pointer dereference")._err = stdgo.Go.asInterface(((@:checkr _d ?? throw "null pointer dereference")._in[(((@:checkr _d ?? throw "null pointer dereference")._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.encoding.hex.Hex_InvalidByteError.InvalidByteError));
                     } else {

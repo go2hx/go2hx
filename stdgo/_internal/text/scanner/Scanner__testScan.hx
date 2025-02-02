@@ -11,5 +11,5 @@ function _testScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _mode:st
             };
             _line = (_line + ((stdgo._internal.text.scanner.Scanner__countNewlines._countNewlines(_k._text?.__copy__()) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         };
-        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, _line, _tok, (-1 : stdgo.GoInt32), stdgo.Go.str()?.__copy__());
+        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, _line, _tok, (-1 : stdgo.GoInt32), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
     }

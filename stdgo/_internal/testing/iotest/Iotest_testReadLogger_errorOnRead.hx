@@ -19,7 +19,7 @@ function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo._internal.testing.Testing
             stdgo._internal.log.Log_setPrefix.setPrefix(("lr: " : stdgo.GoString));
             stdgo._internal.log.Log_setOutput.setOutput(stdgo.Go.asInterface(_lOut));
             stdgo._internal.log.Log_setFlags.setFlags((0 : stdgo.GoInt));
-            var _data = (("Hello, World!" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _data = ((("Hello, World!" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _p = (new stdgo.Slice<stdgo.GoUInt8>((_data.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _lr = (stdgo._internal.testing.iotest.Iotest_errReader.errReader(stdgo._internal.errors.Errors_new_.new_(("io failure" : stdgo.GoString))) : stdgo._internal.io.Io_Reader.Reader);
             var _rl = (stdgo._internal.testing.iotest.Iotest_newReadLogger.newReadLogger(("read" : stdgo.GoString), _lr) : stdgo._internal.io.Io_Reader.Reader);

@@ -6,5 +6,5 @@ function _currentUID():stdgo.GoString {
                 return stdgo._internal.strconv.Strconv_itoa.itoa(_id)?.__copy__();
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }

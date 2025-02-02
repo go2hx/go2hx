@@ -7,7 +7,7 @@ package stdgo._internal.log.slog;
         if (!(@:checkr _w ?? throw "null pointer dereference")._h.enabled(stdgo._internal.context.Context_background.background(), (@:checkr _w ?? throw "null pointer dereference")._level)) {
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
         };
-        var _pc:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _pc:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         if ((!stdgo._internal.log.slog.internal.Internal_ignorePC.ignorePC && (@:checkr _w ?? throw "null pointer dereference")._capturePC : Bool)) {
             var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1);
             stdgo._internal.runtime.Runtime_callers.callers((4 : stdgo.GoInt), (_pcs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>));

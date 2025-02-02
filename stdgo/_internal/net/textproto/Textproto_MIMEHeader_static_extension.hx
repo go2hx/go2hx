@@ -20,11 +20,11 @@ package stdgo._internal.net.textproto;
     static public function get( _h:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader, _key:stdgo.GoString):stdgo.GoString {
         @:recv var _h:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = _h;
         if (_h == null) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _v = (_h[stdgo._internal.net.textproto.Textproto_canonicalMIMEHeaderKey.canonicalMIMEHeaderKey(_key?.__copy__())] ?? (null : stdgo.Slice<stdgo.GoString>));
         if ((_v.length) == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return _v[(0 : stdgo.GoInt)]?.__copy__();
     }

@@ -14,7 +14,7 @@ var _written = __2, _w = __1, _r = __0;
                     _w = @:tmpset0 __tmp__._1;
                 };
 var _repl:stdgo.GoString = ("" : stdgo.GoString);
-if ((((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable.length) : Bool) && (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)] != stdgo.Go.str()) : Bool)) {
+if ((((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable.length) : Bool) && (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)] != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                     _repl = stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)].__copy__();
                 } else {
                     {

@@ -3,7 +3,7 @@ function parseDuration(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_D
         var _orig = (_s?.__copy__() : stdgo.GoString);
         var _d:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _neg = (false : Bool);
-        if (_s != (stdgo.Go.str())) {
+        if (_s != ((stdgo.Go.str() : stdgo.GoString))) {
             var _c = (_s[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
             if (((_c == (45 : stdgo.GoUInt8)) || (_c == (43 : stdgo.GoUInt8)) : Bool)) {
                 _neg = _c == ((45 : stdgo.GoUInt8));
@@ -13,10 +13,10 @@ function parseDuration(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_D
         if (_s == (("0" : stdgo.GoString))) {
             return { _0 : (0i64 : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
         };
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : (0i64 : stdgo._internal.time.Time_Duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: invalid duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
-        while (_s != (stdgo.Go.str())) {
+        while (_s != ((stdgo.Go.str() : stdgo.GoString))) {
             var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __2:stdgo.GoFloat64 = (1 : stdgo.GoFloat64);
 var _scale = __2, _f = __1, _v = __0;
             var _err:stdgo.Error = (null : stdgo.Error);
@@ -35,7 +35,7 @@ var _scale = __2, _f = __1, _v = __0;
             };
             var _pre = (_pl != ((_s.length)) : Bool);
             var _post = (false : Bool);
-            if (((_s != stdgo.Go.str()) && (_s[(0 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
+            if (((_s != (stdgo.Go.str() : stdgo.GoString)) && (_s[(0 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
                 _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 var _pl = (_s.length : stdgo.GoInt);
                 {

@@ -24,25 +24,25 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                 {
                     final __value__ = _r;
                     if (__value__ == ((7 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\a" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\a" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((8 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\b" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\b" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((12 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\f" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\f" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((10 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\n" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\n" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((13 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\r" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\r" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((9 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\t" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\t" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else if (__value__ == ((11 : stdgo.GoInt32))) {
-                        _buf = (_buf.__append__(...(("\\v" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                        _buf = (_buf.__append__(...((("\\v" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                         break;
                     } else {
                         {
@@ -51,7 +51,7 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                             while (__run__) {
                                 __run__ = false;
                                 if (__switchIndex__ == 0 || (__switchIndex__ == -1 && ((_r < (32 : stdgo.GoInt32) : Bool) || (_r == (127 : stdgo.GoInt32)) : Bool))) {
-                                    _buf = (_buf.__append__(...(("\\x" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                    _buf = (_buf.__append__(...((("\\x" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                                     _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[(((_r : stdgo.GoUInt8) >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]));
                                     _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[(((_r : stdgo.GoUInt8) & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
                                     break;
@@ -65,7 +65,7 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                                     };
                                     break;
                                 } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_r < (65536 : stdgo.GoInt32) : Bool))) {
-                                    _buf = (_buf.__append__(...(("\\u" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                    _buf = (_buf.__append__(...((("\\u" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                                     {
                                         var _s = (12 : stdgo.GoInt);
                                         while ((_s >= (0 : stdgo.GoInt) : Bool)) {
@@ -76,7 +76,7 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                                     break;
                                     break;
                                 } else {
-                                    _buf = (_buf.__append__(...(("\\U" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                                    _buf = (_buf.__append__(...((("\\U" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                                     {
                                         var _s = (28 : stdgo.GoInt);
                                         while ((_s >= (0 : stdgo.GoInt) : Bool)) {

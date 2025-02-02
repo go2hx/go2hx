@@ -11,7 +11,7 @@ package stdgo._internal.encoding.json;
     public var uint16 : stdgo.GoUInt16 = 0;
     public var uint32 : stdgo.GoUInt32 = 0;
     public var uint64 : stdgo.GoUInt64 = 0;
-    public var uintptr : stdgo.GoUIntptr = 0;
+    public var uintptr : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var float32 : stdgo.GoFloat32 = 0;
     public var float64 : stdgo.GoFloat64 = 0;
     @:tag("`json:\"bar\"`")
@@ -21,7 +21,7 @@ package stdgo._internal.encoding.json;
     @:tag("`json:\",string\"`")
     public var intStr : stdgo.GoInt64 = 0;
     @:tag("`json:\",string\"`")
-    public var uintptrStr : stdgo.GoUIntptr = 0;
+    public var uintptrStr : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var pBool : stdgo.Pointer<Bool> = (null : stdgo.Pointer<Bool>);
     public var pInt : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
     public var pInt8 : stdgo.Pointer<stdgo.GoInt8> = (null : stdgo.Pointer<stdgo.GoInt8>);

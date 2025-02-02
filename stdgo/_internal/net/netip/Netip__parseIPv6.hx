@@ -1,7 +1,7 @@
 package stdgo._internal.net.netip;
 function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Netip_Addr.Addr; var _1 : stdgo.Error; } {
         var _s = (_in?.__copy__() : stdgo.GoString);
-        var _zone = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _zone = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _i = (stdgo._internal.internal.bytealg.Bytealg_indexByteString.indexByteString(_s?.__copy__(), (37 : stdgo.GoUInt8)) : stdgo.GoInt);
         if (_i != ((-1 : stdgo.GoInt))) {
             {
@@ -10,7 +10,7 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
                 _s = __tmp__0;
                 _zone = __tmp__1;
             };
-            if (_zone == (stdgo.Go.str())) {
+            if (_zone == ((stdgo.Go.str() : stdgo.GoString))) {
                 return { _0 : (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in?.__copy__(), _msg : ("zone must be a non-empty string" : stdgo.GoString) } : stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError)) };
             };
         };
@@ -61,7 +61,7 @@ if ((_acc > (65535u32 : stdgo.GoUInt32) : Bool)) {
                 _ip[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = _ip4._v4((1 : stdgo.GoUInt8));
                 _ip[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] = _ip4._v4((2 : stdgo.GoUInt8));
                 _ip[(_i + (3 : stdgo.GoInt) : stdgo.GoInt)] = _ip4._v4((3 : stdgo.GoUInt8));
-                _s = stdgo.Go.str()?.__copy__();
+                _s = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt);
                 break;
             };

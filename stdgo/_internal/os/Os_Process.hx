@@ -1,7 +1,7 @@
 package stdgo._internal.os;
 @:structInit @:using(stdgo._internal.os.Os_Process_static_extension.Process_static_extension) class Process {
     public var pid : stdgo.GoInt = 0;
-    public var _handle : stdgo.GoUIntptr = 0;
+    public var _handle : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _isdone : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_);
     public var _sigMu : stdgo._internal.sync.Sync_RWMutex.RWMutex = ({} : stdgo._internal.sync.Sync_RWMutex.RWMutex);
     public function new(?pid:stdgo.GoInt, ?_handle:stdgo.GoUIntptr, ?_isdone:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_sigMu:stdgo._internal.sync.Sync_RWMutex.RWMutex) {

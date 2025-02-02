@@ -3,7 +3,7 @@ package stdgo._internal.sync;
     public var _noCopy : stdgo._internal.sync.Sync_T_noCopy.T_noCopy = ({} : stdgo._internal.sync.Sync_T_noCopy.T_noCopy);
     public var l : stdgo._internal.sync.Sync_Locker.Locker = (null : stdgo._internal.sync.Sync_Locker.Locker);
     public var _notify : stdgo._internal.sync.Sync_T_notifyList.T_notifyList = ({} : stdgo._internal.sync.Sync_T_notifyList.T_notifyList);
-    public var _checker : stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker = ((0 : stdgo.GoUIntptr) : stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker);
+    public var _checker : stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker = (new stdgo.GoUIntptr(0) : stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker);
     public function new(?_noCopy:stdgo._internal.sync.Sync_T_noCopy.T_noCopy, ?l:stdgo._internal.sync.Sync_Locker.Locker, ?_notify:stdgo._internal.sync.Sync_T_notifyList.T_notifyList, ?_checker:stdgo._internal.sync.Sync_T_copyChecker.T_copyChecker) {
         if (_noCopy != null) this._noCopy = _noCopy;
         if (l != null) this.l = l;

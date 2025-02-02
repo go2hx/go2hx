@@ -18,7 +18,7 @@ stdgo.Go.toInterface(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 1f
 stdgo.Go.toInterface(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 1f64) : stdgo.GoComplex128)),
 stdgo.Go.toInterface(true),
 stdgo.Go.toInterface(("hello" : stdgo.GoString)),
-stdgo.Go.toInterface((("sailor" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo._internal.encoding.gob.Gob_BasicInterfaceItem.BasicInterfaceItem)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_BasicInterfaceItem.BasicInterfaceItem>);
+stdgo.Go.toInterface(((("sailor" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo._internal.encoding.gob.Gob_BasicInterfaceItem.BasicInterfaceItem)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_BasicInterfaceItem.BasicInterfaceItem>);
         var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.asInterface(_item1))) : stdgo.Error);
         if (_err != null) {
             @:check2r _t.error(stdgo.Go.toInterface(("expected no encode error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));

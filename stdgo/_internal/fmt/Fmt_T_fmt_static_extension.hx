@@ -158,7 +158,7 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _fmtBx( _f:stdgo.Ref<stdgo._internal.fmt.Fmt_T_fmt.T_fmt>, _b:stdgo.Slice<stdgo.GoUInt8>, _digits:stdgo.GoString):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.fmt.Fmt_T_fmt.T_fmt> = _f;
-        @:check2r _f._fmtSbx(stdgo.Go.str()?.__copy__(), _b, _digits?.__copy__());
+        @:check2r _f._fmtSbx((stdgo.Go.str() : stdgo.GoString)?.__copy__(), _b, _digits?.__copy__());
     }
     @:keep
     @:tdfield

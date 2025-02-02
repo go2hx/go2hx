@@ -86,7 +86,7 @@ function _walksymtab(_data:stdgo.Slice<stdgo.GoUInt8>, _fn:stdgo._internal.debug
                 if ((_typ & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_DecodingError.DecodingError((((_data.length) - (_p.length) : stdgo.GoInt) + (4 : stdgo.GoInt) : stdgo.GoInt), ("bad symbol type" : stdgo.GoString), stdgo.Go.toInterface(_typ)) : stdgo._internal.debug.gosym.Gosym_DecodingError.DecodingError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_DecodingError.DecodingError>));
                 };
-                _typ = (_typ & ((((128 : stdgo.GoUInt8)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                _typ = (_typ & ((((128 : stdgo.GoUInt8)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8);
                 _s._typ = _typ;
                 _p = (_p.__slice__((5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             };

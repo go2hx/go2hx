@@ -4,7 +4,7 @@ function testIndentBig(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         stdgo._internal.encoding.json.Json__initBig._initBig();
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         {
-            var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), stdgo._internal.encoding.json.Json__jsonBig._jsonBig, stdgo.Go.str()?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), stdgo._internal.encoding.json.Json__jsonBig._jsonBig, (stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatalf(("Indent1: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -15,7 +15,7 @@ function testIndentBig(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         };
         var _buf1:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         {
-            var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf1) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), _b, stdgo.Go.str()?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_indent.indent((stdgo.Go.setRef(_buf1) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), _b, (stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("\t" : stdgo.GoString)) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatalf(("Indent2: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

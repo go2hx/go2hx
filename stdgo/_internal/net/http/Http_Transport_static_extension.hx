@@ -158,21 +158,21 @@ package stdgo._internal.net.http;
         _opt.set(("credentials" : stdgo.GoString), stdgo.Go.toInterface(("same-origin" : stdgo.GoString)));
         {
             var _h = ((@:checkr _req ?? throw "null pointer dereference").header.get(("js.fetch:credentials" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_h != (stdgo.Go.str())) {
+            if (_h != ((stdgo.Go.str() : stdgo.GoString))) {
                 _opt.set(("credentials" : stdgo.GoString), stdgo.Go.toInterface(_h));
                 (@:checkr _req ?? throw "null pointer dereference").header.del(("js.fetch:credentials" : stdgo.GoString));
             };
         };
         {
             var _h = ((@:checkr _req ?? throw "null pointer dereference").header.get(("js.fetch:mode" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_h != (stdgo.Go.str())) {
+            if (_h != ((stdgo.Go.str() : stdgo.GoString))) {
                 _opt.set(("mode" : stdgo.GoString), stdgo.Go.toInterface(_h));
                 (@:checkr _req ?? throw "null pointer dereference").header.del(("js.fetch:mode" : stdgo.GoString));
             };
         };
         {
             var _h = ((@:checkr _req ?? throw "null pointer dereference").header.get(("js.fetch:redirect" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_h != (stdgo.Go.str())) {
+            if (_h != ((stdgo.Go.str() : stdgo.GoString))) {
                 _opt.set(("redirect" : stdgo.GoString), stdgo.Go.toInterface(_h));
                 (@:checkr _req ?? throw "null pointer dereference").header.del(("js.fetch:redirect" : stdgo.GoString));
             };
@@ -227,7 +227,7 @@ var _value = __1, _key = __0;
             };
             var _contentLength = ((0i64 : stdgo.GoInt64) : stdgo.GoInt64);
             var _clHeader = (_header.get(("Content-Length" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_clHeader != (stdgo.Go.str())) {
+            if (_clHeader != ((stdgo.Go.str() : stdgo.GoString))) {
                 var __tmp__ = stdgo._internal.net.http.Http__strconv._strconv.parseInt(_clHeader?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _cl:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _errCh.__send__(stdgo._internal.net.http.Http__fmt._fmt.errorf(("net/http: ill-formed Content-Length header: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));

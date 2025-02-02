@@ -109,7 +109,7 @@ package stdgo._internal.net.http.httptest;
     @:tdfield
     static public function write( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder> = _rw;
-        @:check2r _rw._writeHeader(_buf, stdgo.Go.str()?.__copy__());
+        @:check2r _rw._writeHeader(_buf, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
         if (((@:checkr _rw ?? throw "null pointer dereference").body != null && (((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__ == null || !((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__))) {
             @:check2r (@:checkr _rw ?? throw "null pointer dereference").body.write(_buf);
         };
@@ -127,7 +127,7 @@ package stdgo._internal.net.http.httptest;
         };
         var _m = (@:check2r _rw.header() : stdgo._internal.net.http.Http_Header.Header);
         var __tmp__ = (_m != null && _m.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _m[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasType:Bool = __tmp__._1;
-        var _hasTE = (_m.get(("Transfer-Encoding" : stdgo.GoString)) != (stdgo.Go.str()) : Bool);
+        var _hasTE = (_m.get(("Transfer-Encoding" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString)) : Bool);
         if ((!_hasType && !_hasTE : Bool)) {
             if (_b == null) {
                 _b = (_str : stdgo.Slice<stdgo.GoUInt8>);

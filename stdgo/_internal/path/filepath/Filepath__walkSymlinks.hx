@@ -57,11 +57,11 @@ if ((((_dest.length) > stdgo._internal.path.filepath.Filepath__volumeNameLen._vo
 _dest = (_dest + ((_path.__slice__(_start, _end) : stdgo.GoString)).__copy__() : stdgo.GoString);
 var __tmp__ = stdgo._internal.os.Os_lstat.lstat(_dest.__copy__()), _fi:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : _err };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : _err };
                 };
 if ((_fi.mode() & (134217728u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : stdgo._internal.io.fs.Fs_FileMode.FileMode) == ((0u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode))) {
                     if ((!_fi.mode().isDir() && (_end < (_path.length) : Bool) : Bool)) {
-                        return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo.Go.asInterface((20 : stdgo._internal.syscall.Syscall_Errno.Errno)) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : stdgo.Go.asInterface((new stdgo.GoUIntptr(20) : stdgo._internal.syscall.Syscall_Errno.Errno)) };
                     };
                     {
                         _start = _end;
@@ -70,11 +70,11 @@ if ((_fi.mode() & (134217728u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode) : 
                 };
 _linksWalked++;
 if ((_linksWalked > (255 : stdgo.GoInt) : Bool)) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("EvalSymlinks: too many links" : stdgo.GoString)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("EvalSymlinks: too many links" : stdgo.GoString)) };
                 };
 var __tmp__ = stdgo._internal.os.Os_readlink.readlink(_dest.__copy__()), _link:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : _err };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : _err };
                 };
 if ((_isWindowsDot && !stdgo._internal.path.filepath.Filepath_isAbs.isAbs(_link.__copy__()) : Bool)) {
                     break;

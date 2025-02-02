@@ -29,7 +29,7 @@ package stdgo._internal.runtime.coverage;
         };
         var _dpkg = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         for (__7 => _c in (@:checkr _s ?? throw "null pointer dereference")._counterlist) {
-            (@:checkr _bufHdr ?? throw "null pointer dereference").data = ((stdgo.Go.toInterface(_c.counters) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+            (@:checkr _bufHdr ?? throw "null pointer dereference").data = (new stdgo.GoUIntptr((stdgo.Go.toInterface(_c.counters) : stdgo._internal.unsafe.Unsafe.UnsafePointer)) : stdgo.GoUIntptr);
             (@:checkr _bufHdr ?? throw "null pointer dereference").len = (_c.len : stdgo.GoInt);
             (@:checkr _bufHdr ?? throw "null pointer dereference").cap = (_c.len : stdgo.GoInt);
             {

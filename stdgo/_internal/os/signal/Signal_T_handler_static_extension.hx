@@ -4,7 +4,7 @@ package stdgo._internal.os.signal;
     @:tdfield
     static public function _clear( _h:stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>, _sig:stdgo.GoInt):Void {
         @:recv var _h:stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler> = _h;
-        (@:checkr _h ?? throw "null pointer dereference")._mask[(_sig / (32 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _h ?? throw "null pointer dereference")._mask[(_sig / (32 : stdgo.GoInt) : stdgo.GoInt)] & (((((1u32 : stdgo.GoUInt32) << ((_sig & (31 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt32)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+        (@:checkr _h ?? throw "null pointer dereference")._mask[(_sig / (32 : stdgo.GoInt) : stdgo.GoInt)] = ((@:checkr _h ?? throw "null pointer dereference")._mask[(_sig / (32 : stdgo.GoInt) : stdgo.GoInt)] & (((((1u32 : stdgo.GoUInt32) << ((_sig & (31 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt32)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
     }
     @:keep
     @:tdfield

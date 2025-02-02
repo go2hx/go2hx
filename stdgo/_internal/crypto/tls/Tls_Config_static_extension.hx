@@ -112,7 +112,7 @@ package stdgo._internal.crypto.tls;
             if (_err != null) {
                 continue;
             };
-            if ((((@:checkr _x509Cert ?? throw "null pointer dereference").subject.commonName != stdgo.Go.str()) && ((@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames.length == (0 : stdgo.GoInt)) : Bool)) {
+            if ((((@:checkr _x509Cert ?? throw "null pointer dereference").subject.commonName != (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames.length == (0 : stdgo.GoInt)) : Bool)) {
                 (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[(@:checkr _x509Cert ?? throw "null pointer dereference").subject.commonName] = _cert;
             };
             for (__77 => _san in (@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames) {

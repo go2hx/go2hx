@@ -14,10 +14,10 @@ function _focusedSample(_s:stdgo.Ref<stdgo._internal.internal.profile.Profile_Sa
         };
         for (_key => _vals in (@:checkr _s ?? throw "null pointer dereference").numLabel) {
             for (__0 => _val in _vals) {
-                if (((_ignore != null) && _ignore(_key?.__copy__(), stdgo.Go.str()?.__copy__(), _val) : Bool)) {
+                if (((_ignore != null) && _ignore(_key?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _val) : Bool)) {
                     _im = true;
                 };
-                if ((!_fm && _focus(_key?.__copy__(), stdgo.Go.str()?.__copy__(), _val) : Bool)) {
+                if ((!_fm && _focus(_key?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _val) : Bool)) {
                     _fm = true;
                 };
             };

@@ -14,7 +14,7 @@ function _startTimer(_0:stdgo.Ref<stdgo._internal.time.Time_T_runtimeTimer.T_run
                 t._when += t._period;
                 _startTimer(t);
             };
-            stdgo.Go.routine(() -> t._f(t._arg, 0));
+            stdgo.Go.routine(() -> t._f(t._arg, new stdgo.GoUIntptr(0)));
         };
-        t._pp = (timer : stdgo.GoUIntptr);
+        t._pp = new stdgo.GoUIntptr(timer);
     }

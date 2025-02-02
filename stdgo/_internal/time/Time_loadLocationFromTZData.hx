@@ -181,7 +181,7 @@ _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
                 (@:checkr _l ?? throw "null pointer dereference")._cacheZone = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._zone[(_tx[(_i : stdgo.GoInt)]._index : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
                 if (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_tx.length) : Bool)) {
                     (@:checkr _l ?? throw "null pointer dereference")._cacheEnd = _tx[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]._when;
-                } else if ((@:checkr _l ?? throw "null pointer dereference")._extend != (stdgo.Go.str())) {
+                } else if ((@:checkr _l ?? throw "null pointer dereference")._extend != ((stdgo.Go.str() : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.time.Time__tzset._tzset((@:checkr _l ?? throw "null pointer dereference")._extend?.__copy__(), (@:checkr _l ?? throw "null pointer dereference")._cacheStart, _sec), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _estart:stdgo.GoInt64 = __tmp__._2, _eend:stdgo.GoInt64 = __tmp__._3, _isDST:Bool = __tmp__._4, _ok:Bool = __tmp__._5;
                         if (_ok) {

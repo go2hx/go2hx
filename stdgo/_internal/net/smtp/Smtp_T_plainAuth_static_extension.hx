@@ -14,12 +14,12 @@ package stdgo._internal.net.smtp;
     static public function start( _a:stdgo.Ref<stdgo._internal.net.smtp.Smtp_T_plainAuth.T_plainAuth>, _server:stdgo.Ref<stdgo._internal.net.smtp.Smtp_ServerInfo.ServerInfo>):{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _a:stdgo.Ref<stdgo._internal.net.smtp.Smtp_T_plainAuth.T_plainAuth> = _a;
         if ((!(@:checkr _server ?? throw "null pointer dereference").tLS && !stdgo._internal.net.smtp.Smtp__isLocalhost._isLocalhost((@:checkr _server ?? throw "null pointer dereference").name?.__copy__()) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.errors.Errors_new_.new_(("unencrypted connection" : stdgo.GoString)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.errors.Errors_new_.new_(("unencrypted connection" : stdgo.GoString)) };
         };
         if ((@:checkr _server ?? throw "null pointer dereference").name != ((@:checkr _a ?? throw "null pointer dereference")._host)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.errors.Errors_new_.new_(("wrong host name" : stdgo.GoString)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.errors.Errors_new_.new_(("wrong host name" : stdgo.GoString)) };
         };
-        var _resp = ((((((@:checkr _a ?? throw "null pointer dereference")._identity + stdgo.Go.str(0)?.__copy__() : stdgo.GoString) + (@:checkr _a ?? throw "null pointer dereference")._username?.__copy__() : stdgo.GoString) + stdgo.Go.str(0)?.__copy__() : stdgo.GoString) + (@:checkr _a ?? throw "null pointer dereference")._password?.__copy__() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _resp = ((((((@:checkr _a ?? throw "null pointer dereference")._identity + (stdgo.Go.str(0) : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _a ?? throw "null pointer dereference")._username?.__copy__() : stdgo.GoString) + (stdgo.Go.str(0) : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _a ?? throw "null pointer dereference")._password?.__copy__() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         return { _0 : ("PLAIN" : stdgo.GoString), _1 : _resp, _2 : (null : stdgo.Error) };
     }
 }

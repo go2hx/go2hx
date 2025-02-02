@@ -5,7 +5,7 @@ function parse(_rawURL:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.
         if (_err != null) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.url.Url_Error.Error(("parse" : stdgo.GoString), _u?.__copy__(), _err) : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>)) };
         };
-        if (_frag == (stdgo.Go.str())) {
+        if (_frag == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : _url, _1 : (null : stdgo.Error) };
         };
         {

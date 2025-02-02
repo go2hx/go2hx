@@ -11,7 +11,7 @@ function _lexText(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer
                         _trimLength = stdgo._internal.text.template.parse.Parse__rightTrimLength._rightTrimLength(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__());
                     };
                     (@:checkr _l ?? throw "null pointer dereference")._pos = ((@:checkr _l ?? throw "null pointer dereference")._pos - (_trimLength) : stdgo._internal.text.template.parse.Parse_Pos.Pos);
-                    (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) : stdgo.GoInt);
+                    (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), (("\n" : stdgo.GoString) : stdgo.GoString))) : stdgo.GoInt);
                     var _i = (@:check2r _l._thisItem((20 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
                     (@:checkr _l ?? throw "null pointer dereference")._pos = ((@:checkr _l ?? throw "null pointer dereference")._pos + (_trimLength) : stdgo._internal.text.template.parse.Parse_Pos.Pos);
                     @:check2r _l._ignore();
@@ -24,7 +24,7 @@ function _lexText(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer
         };
         (@:checkr _l ?? throw "null pointer dereference")._pos = ((@:checkr _l ?? throw "null pointer dereference")._input.length : stdgo._internal.text.template.parse.Parse_Pos.Pos);
         if (((@:checkr _l ?? throw "null pointer dereference")._pos > (@:checkr _l ?? throw "null pointer dereference")._start : Bool)) {
-            (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) : stdgo.GoInt);
+            (@:checkr _l ?? throw "null pointer dereference")._line = ((@:checkr _l ?? throw "null pointer dereference")._line + (stdgo._internal.strings.Strings_count.count(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._start, (@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), (("\n" : stdgo.GoString) : stdgo.GoString))) : stdgo.GoInt);
             return @:check2r _l._emit((20 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType));
         };
         return @:check2r _l._emit((8 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType));

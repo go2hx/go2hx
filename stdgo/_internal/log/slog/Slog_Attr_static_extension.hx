@@ -4,7 +4,7 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function _isEmpty( _a:stdgo._internal.log.slog.Slog_Attr.Attr):Bool {
         @:recv var _a:stdgo._internal.log.slog.Slog_Attr.Attr = _a?.__copy__();
-        return ((_a.key == (stdgo.Go.str()) && _a.value._num == ((0i64 : stdgo.GoUInt64)) : Bool) && (_a.value._any == null) : Bool);
+        return ((_a.key == ((stdgo.Go.str() : stdgo.GoString)) && _a.value._num == ((0i64 : stdgo.GoUInt64)) : Bool) && (_a.value._any == null) : Bool);
     }
     @:keep
     @:tdfield

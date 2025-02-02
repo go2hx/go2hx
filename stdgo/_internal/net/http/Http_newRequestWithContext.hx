@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Context, _method:stdgo.GoString, _url:stdgo.GoString, _body:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } {
-        if (_method == (stdgo.Go.str())) {
+        if (_method == ((stdgo.Go.str() : stdgo.GoString))) {
             _method = ("GET" : stdgo.GoString);
         };
         if (!stdgo._internal.net.http.Http__validMethod._validMethod(_method?.__copy__())) {

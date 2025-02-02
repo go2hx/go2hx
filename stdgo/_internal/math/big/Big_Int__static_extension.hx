@@ -65,7 +65,7 @@ var _rB = __1, _rA = __0;
     static public function marshalJSON( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
         if ((_x == null || (_x : Dynamic).__nil__)) {
-            return { _0 : (("null" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            return { _0 : ((("null" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         return { _0 : (@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, (10 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
     }
@@ -88,7 +88,7 @@ var _rB = __1, _rA = __0;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if ((_x == null || (_x : Dynamic).__nil__)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (("<nil>" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((("<nil>" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 _text = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -205,7 +205,7 @@ var _rB = __1, _rA = __0;
             stdgo._internal.fmt.Fmt_fprint.fprint(_s, stdgo.Go.toInterface(("<nil>" : stdgo.GoString)));
             return;
         };
-        var _sign = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _sign = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if ((@:checkr _x ?? throw "null pointer dereference")._neg) {
             _sign = ("-" : stdgo.GoString);
         } else if (_s.flag((43 : stdgo.GoInt))) {
@@ -213,7 +213,7 @@ var _rB = __1, _rA = __0;
         } else if (_s.flag((32 : stdgo.GoInt))) {
             _sign = (" " : stdgo.GoString);
         };
-        var _prefix = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _prefix = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (_s.flag((35 : stdgo.GoInt))) {
             {
                 final __value__ = _ch;
@@ -284,7 +284,7 @@ var _rB = __1, _rA = __0;
     static public function append( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
         if ((_x == null || (_x : Dynamic).__nil__)) {
-            return (_buf.__append__(...(("<nil>" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            return (_buf.__append__(...((("<nil>" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         return (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, _base) : Array<stdgo.GoUInt8>)));
     }

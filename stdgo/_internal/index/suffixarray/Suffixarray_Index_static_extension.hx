@@ -7,7 +7,7 @@ package stdgo._internal.index.suffixarray;
         var _result = (null : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
         var __tmp__ = @:check2r _r.literalPrefix(), _prefix:stdgo.GoString = __tmp__._0, _complete:Bool = __tmp__._1;
         var _lit = (_prefix : stdgo.Slice<stdgo.GoUInt8>);
-        if (_prefix == (stdgo.Go.str())) {
+        if (_prefix == ((stdgo.Go.str() : stdgo.GoString))) {
             return _result = @:check2r _r.findAllIndex((@:checkr _x ?? throw "null pointer dereference")._data, _n);
         };
         if (_complete) {

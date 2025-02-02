@@ -46,7 +46,7 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
             if ((_config == null || (_config : Dynamic).__nil__)) {
                 _config = stdgo._internal.crypto.tls.Tls__defaultConfig._defaultConfig();
             };
-            if ((@:checkr _config ?? throw "null pointer dereference").serverName == (stdgo.Go.str())) {
+            if ((@:checkr _config ?? throw "null pointer dereference").serverName == ((stdgo.Go.str() : stdgo.GoString))) {
                 var _c = @:check2r _config.clone();
                 (@:checkr _c ?? throw "null pointer dereference").serverName = _hostname?.__copy__();
                 _config = _c;

@@ -5,7 +5,7 @@ package stdgo._internal.internal.abi;
     static public function tag( _n:stdgo._internal.internal.abi.Abi_Name.Name):stdgo.GoString {
         @:recv var _n:stdgo._internal.internal.abi.Abi_Name.Name = _n?.__copy__();
         if (!_n.hasTag()) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var __tmp__ = _n.readVarint((1 : stdgo.GoInt)), _i:stdgo.GoInt = __tmp__._0, _l:stdgo.GoInt = __tmp__._1;
         var __tmp__ = _n.readVarint((((1 : stdgo.GoInt) + _i : stdgo.GoInt) + _l : stdgo.GoInt)), _i2:stdgo.GoInt = __tmp__._0, _l2:stdgo.GoInt = __tmp__._1;
@@ -16,7 +16,7 @@ package stdgo._internal.internal.abi;
     static public function name( _n:stdgo._internal.internal.abi.Abi_Name.Name):stdgo.GoString {
         @:recv var _n:stdgo._internal.internal.abi.Abi_Name.Name = _n?.__copy__();
         if (_n.bytes == null) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var __tmp__ = _n.readVarint((1 : stdgo.GoInt)), _i:stdgo.GoInt = __tmp__._0, _l:stdgo.GoInt = __tmp__._1;
         return stdgo._internal.internal.abi.Abi__unsafeStringFor._unsafeStringFor(_n.dataChecked(((1 : stdgo.GoInt) + _i : stdgo.GoInt), ("non-empty string" : stdgo.GoString)), _l)?.__copy__();
@@ -70,12 +70,12 @@ if ((_x & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
     @:tdfield
     static public function data( _n:stdgo._internal.internal.abi.Abi_Name.Name, _off:stdgo.GoInt):stdgo.Pointer<stdgo.GoUInt8> {
         @:recv var _n:stdgo._internal.internal.abi.Abi_Name.Name = _n?.__copy__();
-        return (stdgo._internal.internal.abi.Abi__addChecked._addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (_off : stdgo.GoUIntptr), ("the runtime doesn\'t need to give you a reason" : stdgo.GoString)).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.GoUInt8>);
+        return (stdgo._internal.internal.abi.Abi__addChecked._addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (new stdgo.GoUIntptr(_off) : stdgo.GoUIntptr), ("the runtime doesn\'t need to give you a reason" : stdgo.GoString)).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.GoUInt8>);
     }
     @:keep
     @:tdfield
     static public function dataChecked( _n:stdgo._internal.internal.abi.Abi_Name.Name, _off:stdgo.GoInt, _whySafe:stdgo.GoString):stdgo.Pointer<stdgo.GoUInt8> {
         @:recv var _n:stdgo._internal.internal.abi.Abi_Name.Name = _n?.__copy__();
-        return (stdgo._internal.internal.abi.Abi__addChecked._addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (_off : stdgo.GoUIntptr), _whySafe?.__copy__()).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.GoUInt8>);
+        return (stdgo._internal.internal.abi.Abi__addChecked._addChecked((stdgo.Go.toInterface(_n.bytes) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (new stdgo.GoUIntptr(_off) : stdgo.GoUIntptr), _whySafe?.__copy__()).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.GoUInt8>);
     }
 }

@@ -1,6 +1,6 @@
 package stdgo._internal.math.bits;
 function onesCount8(_x:stdgo.GoUInt8):stdgo.GoInt {
-        return (stdgo.Go.str(0,
+        return ((stdgo.Go.str(0,
 1,
 1,
 2,
@@ -253,5 +253,5 @@ function onesCount8(_x:stdgo.GoUInt8):stdgo.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
+"\x07\x07\x08") : stdgo.GoString)[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }

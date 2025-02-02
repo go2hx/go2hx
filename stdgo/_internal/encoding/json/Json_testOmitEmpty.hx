@@ -14,7 +14,7 @@ function testOmitEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
-        var __tmp__ = stdgo._internal.encoding.json.Json_marshalIndent.marshalIndent(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o) : stdgo.Ref<stdgo._internal.encoding.json.Json_Optionals.Optionals>))), stdgo.Go.str()?.__copy__(), (" " : stdgo.GoString)), _got:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.encoding.json.Json_marshalIndent.marshalIndent(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_o) : stdgo.Ref<stdgo._internal.encoding.json.Json_Optionals.Optionals>))), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (" " : stdgo.GoString)), _got:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };

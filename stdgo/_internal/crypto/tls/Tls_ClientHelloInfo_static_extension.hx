@@ -12,7 +12,7 @@ package stdgo._internal.crypto.tls;
         if (!_ok) {
             return stdgo._internal.errors.Errors_new_.new_(("no mutually supported protocol versions" : stdgo.GoString));
         };
-        if ((@:checkr _chi ?? throw "null pointer dereference").serverName != (stdgo.Go.str())) {
+        if ((@:checkr _chi ?? throw "null pointer dereference").serverName != ((stdgo.Go.str() : stdgo.GoString))) {
             var __tmp__ = @:check2r _c._leaf(), _x509Cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("failed to parse certificate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));

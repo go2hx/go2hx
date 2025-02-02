@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function testSliceOfCustomByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
-        var _a = (("hello" : stdgo.GoString) : stdgo.Slice<stdgo._internal.encoding.json.Json_T_testSliceOfCustomByte___localname___Uint8_47988.T_testSliceOfCustomByte___localname___Uint8_47988>);
+        var _a = ((("hello" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo._internal.encoding.json.Json_T_testSliceOfCustomByte___localname___Uint8_47988.T_testSliceOfCustomByte___localname___Uint8_47988>);
         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_a)), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));

@@ -1,9 +1,9 @@
 package stdgo._internal.net.http.httputil;
 function _joinURLPath(_a:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _b:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _path = ("" : stdgo.GoString), _rawpath = ("" : stdgo.GoString);
-        if ((((@:checkr _a ?? throw "null pointer dereference").rawPath == stdgo.Go.str()) && ((@:checkr _b ?? throw "null pointer dereference").rawPath == stdgo.Go.str()) : Bool)) {
+        if ((((@:checkr _a ?? throw "null pointer dereference").rawPath == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _b ?? throw "null pointer dereference").rawPath == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.httputil.Httputil__singleJoiningSlash._singleJoiningSlash((@:checkr _a ?? throw "null pointer dereference").path?.__copy__(), (@:checkr _b ?? throw "null pointer dereference").path?.__copy__())?.__copy__(), _1 : stdgo.Go.str()?.__copy__() };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.httputil.Httputil__singleJoiningSlash._singleJoiningSlash((@:checkr _a ?? throw "null pointer dereference").path?.__copy__(), (@:checkr _b ?? throw "null pointer dereference").path?.__copy__())?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                 _path = __tmp__._0;
                 _rawpath = __tmp__._1;
                 __tmp__;

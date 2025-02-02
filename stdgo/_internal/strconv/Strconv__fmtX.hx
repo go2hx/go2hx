@@ -21,7 +21,7 @@ function _fmtX(_dst:stdgo.Slice<stdgo.GoUInt8>, _prec:stdgo.GoInt, _fmt:stdgo.Go
                 _exp++;
             };
         };
-        var _hex = ("0123456789abcdef" : stdgo.GoString);
+        var _hex = (("0123456789abcdef" : stdgo.GoString) : stdgo.GoString);
         if (_fmt == ((88 : stdgo.GoUInt8))) {
             _hex = ("0123456789ABCDEF" : stdgo.GoString);
         };

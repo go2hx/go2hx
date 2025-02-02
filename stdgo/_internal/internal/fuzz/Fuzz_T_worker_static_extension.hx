@@ -309,7 +309,7 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            if (((_input._crasherMsg != stdgo.Go.str()) && (_resp.err == stdgo.Go.str()) : Bool)) {
+            if (((_input._crasherMsg != (stdgo.Go.str() : stdgo.GoString)) && (_resp.err == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = {
                         final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : (new stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult() : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("attempted to minimize a crash but could not reproduce" : stdgo.GoString)) };
@@ -486,12 +486,12 @@ package stdgo._internal.internal.fuzz;
                                 var __tmp__ = @:check2r _w._minimize(_ctx, _input?.__copy__()), _result:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _result = ({ _entry : _input._entry?.__copy__(), _crasherMsg : _input._crasherMsg?.__copy__(), _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult);
-                                    if (_result._crasherMsg == (stdgo.Go.str())) {
+                                    if (_result._crasherMsg == ((stdgo.Go.str() : stdgo.GoString))) {
                                         _result._crasherMsg = _err.error()?.__copy__();
                                     };
                                 };
                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                                    @:check2r (@:checkr _w ?? throw "null pointer dereference")._coordinator._debugLogf(("input minimized, id: %s, original id: %s, crasher: %t, originally crasher: %t, minimizing took: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_input._entry.path), stdgo.Go.toInterface(_result._crasherMsg != (stdgo.Go.str())), stdgo.Go.toInterface(_input._crasherMsg != (stdgo.Go.str())), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._totalDuration)));
+                                    @:check2r (@:checkr _w ?? throw "null pointer dereference")._coordinator._debugLogf(("input minimized, id: %s, original id: %s, crasher: %t, originally crasher: %t, minimizing took: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_input._entry.path), stdgo.Go.toInterface(_result._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))), stdgo.Go.toInterface(_input._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._totalDuration)));
                                 };
                                 (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result);
                             };

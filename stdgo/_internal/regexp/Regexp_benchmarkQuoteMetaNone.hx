@@ -1,6 +1,6 @@
 package stdgo._internal.regexp;
 function benchmarkQuoteMetaNone(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
-        var _s = ("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString);
+        var _s = (("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.GoString);
         @:check2r _b.setBytes((_s.length : stdgo.GoInt64));
         @:check2r _b.resetTimer();
         {

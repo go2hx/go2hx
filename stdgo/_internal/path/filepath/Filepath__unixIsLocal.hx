@@ -1,12 +1,12 @@
 package stdgo._internal.path.filepath;
 function _unixIsLocal(_path:stdgo.GoString):Bool {
-        if ((stdgo._internal.path.filepath.Filepath_isAbs.isAbs(_path?.__copy__()) || (_path == stdgo.Go.str()) : Bool)) {
+        if ((stdgo._internal.path.filepath.Filepath_isAbs.isAbs(_path?.__copy__()) || (_path == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return false;
         };
         var _hasDots = (false : Bool);
         {
             var _p = (_path?.__copy__() : stdgo.GoString);
-            while (_p != (stdgo.Go.str())) {
+            while (_p != ((stdgo.Go.str() : stdgo.GoString))) {
                 var _part:stdgo.GoString = ("" : stdgo.GoString);
                 {
                     var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_p?.__copy__(), ("/" : stdgo.GoString));

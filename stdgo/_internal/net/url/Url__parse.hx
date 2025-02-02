@@ -5,7 +5,7 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
         if (stdgo._internal.net.url.Url__stringContainsCTLByte._stringContainsCTLByte(_rawURL?.__copy__())) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("net/url: invalid control character in URL" : stdgo.GoString)) };
         };
-        if (((_rawURL == stdgo.Go.str()) && _viaRequest : Bool)) {
+        if (((_rawURL == (stdgo.Go.str() : stdgo.GoString)) && _viaRequest : Bool)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("empty url" : stdgo.GoString)) };
         };
         var _url = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
@@ -36,7 +36,7 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
             };
         };
         if (!stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("/" : stdgo.GoString))) {
-            if ((@:checkr _url ?? throw "null pointer dereference").scheme != (stdgo.Go.str())) {
+            if ((@:checkr _url ?? throw "null pointer dereference").scheme != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _url ?? throw "null pointer dereference").opaque = _rest?.__copy__();
                 return { _0 : _url, _1 : (null : stdgo.Error) };
             };
@@ -50,11 +50,11 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
                 };
             };
         };
-        if ((((((@:checkr _url ?? throw "null pointer dereference").scheme != stdgo.Go.str()) || (!_viaRequest && !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("///" : stdgo.GoString)) : Bool) : Bool)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("//" : stdgo.GoString)) : Bool)) {
+        if ((((((@:checkr _url ?? throw "null pointer dereference").scheme != (stdgo.Go.str() : stdgo.GoString)) || (!_viaRequest && !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("///" : stdgo.GoString)) : Bool) : Bool)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("//" : stdgo.GoString)) : Bool)) {
             var _authority:stdgo.GoString = ("" : stdgo.GoString);
             {
                 final __tmp__0 = (_rest.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                final __tmp__1 = stdgo.Go.str()?.__copy__();
+                final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 _authority = __tmp__0;
                 _rest = __tmp__1;
             };
@@ -78,7 +78,7 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
-        } else if ((((@:checkr _url ?? throw "null pointer dereference").scheme != stdgo.Go.str()) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("/" : stdgo.GoString)) : Bool)) {
+        } else if ((((@:checkr _url ?? throw "null pointer dereference").scheme != (stdgo.Go.str() : stdgo.GoString)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_rest?.__copy__(), ("/" : stdgo.GoString)) : Bool)) {
             (@:checkr _url ?? throw "null pointer dereference").omitHost = true;
         };
         {

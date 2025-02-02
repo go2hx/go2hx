@@ -10,7 +10,7 @@ package stdgo._internal.net.http;
                 return stdgo._internal.net.http.Http_errServerClosed.errServerClosed;
             };
             var _addr = ((@:checkr _srv ?? throw "null pointer dereference").addr?.__copy__() : stdgo.GoString);
-            if (_addr == (stdgo.Go.str())) {
+            if (_addr == ((stdgo.Go.str() : stdgo.GoString))) {
                 _addr = (":https" : stdgo.GoString);
             };
             var __tmp__ = stdgo._internal.net.http.Http__net._net.listen(("tcp" : stdgo.GoString), _addr?.__copy__()), _ln:stdgo._internal.net.Net_Listener.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -107,10 +107,10 @@ package stdgo._internal.net.http;
         };
         var _config = stdgo._internal.net.http.Http__cloneTLSConfig._cloneTLSConfig((@:checkr _srv ?? throw "null pointer dereference").tLSConfig);
         if (!stdgo._internal.net.http.Http__strSliceContains._strSliceContains((@:checkr _config ?? throw "null pointer dereference").nextProtos, ("http/1.1" : stdgo.GoString))) {
-            (@:checkr _config ?? throw "null pointer dereference").nextProtos = ((@:checkr _config ?? throw "null pointer dereference").nextProtos.__append__(("http/1.1" : stdgo.GoString)));
+            (@:checkr _config ?? throw "null pointer dereference").nextProtos = ((@:checkr _config ?? throw "null pointer dereference").nextProtos.__append__((("http/1.1" : stdgo.GoString) : stdgo.GoString)));
         };
         var _configHasCert = ((((@:checkr _config ?? throw "null pointer dereference").certificates.length) > (0 : stdgo.GoInt) : Bool) || ((@:checkr _config ?? throw "null pointer dereference").getCertificate != null) : Bool);
-        if (((!_configHasCert || _certFile != (stdgo.Go.str()) : Bool) || (_keyFile != stdgo.Go.str()) : Bool)) {
+        if (((!_configHasCert || _certFile != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || (_keyFile != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             var _err:stdgo.Error = (null : stdgo.Error);
             (@:checkr _config ?? throw "null pointer dereference").certificates = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>((1 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((1 : stdgo.GoInt).toBasic() > 0 ? (1 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_Certificate.Certificate)]) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>);
             {
@@ -303,7 +303,7 @@ package stdgo._internal.net.http;
             return stdgo._internal.net.http.Http_errServerClosed.errServerClosed;
         };
         var _addr = ((@:checkr _srv ?? throw "null pointer dereference").addr?.__copy__() : stdgo.GoString);
-        if (_addr == (stdgo.Go.str())) {
+        if (_addr == ((stdgo.Go.str() : stdgo.GoString))) {
             _addr = (":http" : stdgo.GoString);
         };
         var __tmp__ = stdgo._internal.net.http.Http__net._net.listen(("tcp" : stdgo.GoString), _addr?.__copy__()), _ln:stdgo._internal.net.Net_Listener.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;

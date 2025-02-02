@@ -47,7 +47,7 @@ package stdgo._internal.crypto.md5;
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (((_p.length) >= (64 : stdgo.GoInt) : Bool)) {
-            var _n = ((_p.length) & (((63 : stdgo.GoInt) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+            var _n = ((_p.length) & (((63 : stdgo.GoInt) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt)) : stdgo.GoInt);
             if (false) {
                 stdgo._internal.crypto.md5.Md5__block._block(_d, (_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
             } else {
@@ -76,13 +76,13 @@ package stdgo._internal.crypto.md5;
     @:tdfield
     static public function unmarshalBinary( _d:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest> = _d;
-        if ((((_b.length) < (stdgo.Go.str("md5", 1).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("md5", 1).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("md5", 1)) : Bool)) {
+        if ((((_b.length) < ((stdgo.Go.str("md5", 1) : stdgo.GoString).length) : Bool) || (((_b.__slice__(0, ((stdgo.Go.str("md5", 1) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("md5", 1) : stdgo.GoString)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/md5: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((92 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/md5: invalid hash state size" : stdgo.GoString));
         };
-        _b = (_b.__slice__((stdgo.Go.str("md5", 1).length)) : stdgo.Slice<stdgo.GoUInt8>);
+        _b = (_b.__slice__(((stdgo.Go.str("md5", 1) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.md5.Md5__consumeUint32._consumeUint32(_b);
             _b = @:tmpset0 __tmp__._0;
@@ -117,7 +117,7 @@ package stdgo._internal.crypto.md5;
     static public function marshalBinary( _d:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.md5.Md5_T_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (92 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...(stdgo.Go.str("md5", 1) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("md5", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)]);

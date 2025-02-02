@@ -80,7 +80,7 @@ var _wn = __1, _last = __0;
                 _keylen = _n;
                 _found = true;
             };
-            if (_s == (stdgo.Go.str())) {
+            if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
                 break;
             };
             if ((@:checkr _node ?? throw "null pointer dereference")._table != null) {
@@ -91,7 +91,7 @@ var _wn = __1, _last = __0;
                 _node = (@:checkr _node ?? throw "null pointer dereference")._table[(_index : stdgo.GoInt)];
                 _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 _n++;
-            } else if ((((@:checkr _node ?? throw "null pointer dereference")._prefix != stdgo.Go.str()) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_s?.__copy__(), (@:checkr _node ?? throw "null pointer dereference")._prefix?.__copy__()) : Bool)) {
+            } else if ((((@:checkr _node ?? throw "null pointer dereference")._prefix != (stdgo.Go.str() : stdgo.GoString)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_s?.__copy__(), (@:checkr _node ?? throw "null pointer dereference")._prefix?.__copy__()) : Bool)) {
                 _n = (_n + (((@:checkr _node ?? throw "null pointer dereference")._prefix.length)) : stdgo.GoInt);
                 _s = (_s.__slice__(((@:checkr _node ?? throw "null pointer dereference")._prefix.length)) : stdgo.GoString)?.__copy__();
                 _node = (@:checkr _node ?? throw "null pointer dereference")._next;
@@ -112,7 +112,7 @@ var _wn = __1, _last = __0;
             _s = (_s + (("-" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         _s = (_s + (("\n" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if ((@:checkr _t ?? throw "null pointer dereference")._prefix != (stdgo.Go.str())) {
+        if ((@:checkr _t ?? throw "null pointer dereference")._prefix != ((stdgo.Go.str() : stdgo.GoString))) {
             _s = (_s + ((stdgo._internal.strings.Strings_repeat.repeat(("." : stdgo.GoString), _depth) + (@:checkr _t ?? throw "null pointer dereference")._prefix?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
             _s = (_s + (@:check2r _r._printNode((@:checkr _t ?? throw "null pointer dereference")._next, (_depth + ((@:checkr _t ?? throw "null pointer dereference")._prefix.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         } else if ((@:checkr _t ?? throw "null pointer dereference")._table != null) {

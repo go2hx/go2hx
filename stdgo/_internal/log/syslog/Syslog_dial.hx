@@ -5,7 +5,7 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             if (((_priority < (0 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : Bool) || (_priority > (191 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : Bool) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("log/syslog: invalid priority" : stdgo.GoString)) };
             };
-            if (_tag == (stdgo.Go.str())) {
+            if (_tag == ((stdgo.Go.str() : stdgo.GoString))) {
                 _tag = stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__();
             };
             var __tmp__ = stdgo._internal.os.Os_hostname.hostname(), _hostname:stdgo.GoString = __tmp__._0, __4:stdgo.Error = __tmp__._1;

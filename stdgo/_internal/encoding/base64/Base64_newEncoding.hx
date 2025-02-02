@@ -15,7 +15,7 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
         var _e = (stdgo.Go.setRef(({} : stdgo._internal.encoding.base64.Base64_Encoding.Encoding)) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>);
         (@:checkr _e ?? throw "null pointer dereference")._padChar = (61 : stdgo.GoInt32);
         ((@:checkr _e ?? throw "null pointer dereference")._encode.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_encoder);
-        ((@:checkr _e ?? throw "null pointer dereference")._decodeMap.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str(255,
+        ((@:checkr _e ?? throw "null pointer dereference")._decodeMap.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((stdgo.Go.str(255,
 255,
 255,
 255,
@@ -270,7 +270,7 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
 255,
 255,
 255,
-255));
+255) : stdgo.GoString));
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_encoder.length) : Bool)) {

@@ -32,7 +32,7 @@ package stdgo._internal.debug.dwarf;
             };
             if (_b1._err != null) {
                 (@:checkr _b ?? throw "null pointer dereference")._err = _b1._err;
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             if (((_off : stdgo.GoInt) : stdgo.GoUInt64) != (_off)) {
                 @:check2r _b._error(("DW_FORM_strx indirect offset out of range" : stdgo.GoString));
@@ -544,7 +544,7 @@ if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
         var _i = (stdgo._internal.bytes.Bytes_indexByte.indexByte((@:checkr _b ?? throw "null pointer dereference")._data, (0 : stdgo.GoUInt8)) : stdgo.GoInt);
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             @:check2r _b._error(("underflow" : stdgo.GoString));
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _s = ((((@:checkr _b ?? throw "null pointer dereference")._data.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

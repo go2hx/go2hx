@@ -134,7 +134,7 @@ var _tokenList : stdgo.Slice<stdgo._internal.text.scanner.Scanner_T_token.T_toke
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((-7 : stdgo.GoInt32), ("`\n\n/* foobar */\n\n`" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((-7 : stdgo.GoInt32), ((("`" : stdgo.GoString) + stdgo._internal.text.scanner.Scanner__f100._f100?.__copy__() : stdgo.GoString) + ("`" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((-8 : stdgo.GoInt32), ("// individual characters" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
-(new stdgo._internal.text.scanner.Scanner_T_token.T_token((1 : stdgo.GoInt32), stdgo.Go.str(1)?.__copy__()) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
+(new stdgo._internal.text.scanner.Scanner_T_token.T_token((1 : stdgo.GoInt32), (stdgo.Go.str(1) : stdgo.GoString)?.__copy__()) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((31 : stdgo.GoInt32), ((31 : stdgo.GoInt32) : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((43 : stdgo.GoInt32), ("+" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),
 (new stdgo._internal.text.scanner.Scanner_T_token.T_token((47 : stdgo.GoInt32), ("/" : stdgo.GoString)) : stdgo._internal.text.scanner.Scanner_T_token.T_token),

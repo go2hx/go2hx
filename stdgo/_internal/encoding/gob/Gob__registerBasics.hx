@@ -14,9 +14,9 @@ function _registerBasics():Void {
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((0 : stdgo.GoFloat64)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64) : stdgo.GoComplex64)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64) : stdgo.GoComplex128)));
-        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((0 : stdgo.GoUIntptr)));
+        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((new stdgo.GoUIntptr((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) : stdgo.GoUIntptr)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(false));
-        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(stdgo.Go.str()));
+        stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((stdgo.Go.str() : stdgo.GoString)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((null : stdgo.Slice<stdgo.GoUInt8>)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((null : stdgo.Slice<stdgo.GoInt>)));
         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface((null : stdgo.Slice<stdgo.GoInt8>)));

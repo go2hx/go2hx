@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.hex;
 function dump(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoString {
         if ((_data.length) == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         @:check2 _buf.grow(((((1 : stdgo.GoInt) + (((((_data.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)) * (79 : stdgo.GoInt) : stdgo.GoInt));

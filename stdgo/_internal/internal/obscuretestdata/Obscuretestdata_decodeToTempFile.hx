@@ -6,7 +6,7 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
             var __tmp__ = stdgo._internal.os.Os_open.open(_name?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                     _path = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -16,11 +16,11 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                 final __f__ = @:check2r _f.close;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var __tmp__ = stdgo._internal.os.Os_createTemp.createTemp(stdgo.Go.str()?.__copy__(), ("obscuretestdata-decoded-" : stdgo.GoString)), _tmp:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.os.Os_createTemp.createTemp((stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("obscuretestdata-decoded-" : stdgo.GoString)), _tmp:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _path = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -40,7 +40,7 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                     stdgo._internal.os.Os_remove.remove(@:check2r _tmp.name()?.__copy__());
                     {
                         final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                             _path = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -60,7 +60,7 @@ function decodeToTempFile(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                     stdgo._internal.os.Os_remove.remove(@:check2r _tmp.name()?.__copy__());
                     {
                         final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                             _path = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;

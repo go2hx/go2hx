@@ -3,12 +3,12 @@ function redirect(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter
         {
             var __tmp__ = stdgo._internal.net.http.Http__urlpkg._urlpkg.parse(_url?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
-                if ((((@:checkr _u ?? throw "null pointer dereference").scheme == stdgo.Go.str()) && ((@:checkr _u ?? throw "null pointer dereference").host == stdgo.Go.str()) : Bool)) {
+                if ((((@:checkr _u ?? throw "null pointer dereference").scheme == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _u ?? throw "null pointer dereference").host == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                     var _oldpath = ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__() : stdgo.GoString);
-                    if (_oldpath == (stdgo.Go.str())) {
+                    if (_oldpath == ((stdgo.Go.str() : stdgo.GoString))) {
                         _oldpath = ("/" : stdgo.GoString);
                     };
-                    if (((_url == stdgo.Go.str()) || (_url[(0 : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
+                    if (((_url == (stdgo.Go.str() : stdgo.GoString)) || (_url[(0 : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                         var __tmp__ = stdgo._internal.net.http.Http__path._path.split(_oldpath?.__copy__()), _olddir:stdgo.GoString = __tmp__._0, __4:stdgo.GoString = __tmp__._1;
                         _url = (_olddir + _url?.__copy__() : stdgo.GoString)?.__copy__();
                     };

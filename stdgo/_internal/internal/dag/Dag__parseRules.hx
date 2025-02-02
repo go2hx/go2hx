@@ -33,7 +33,7 @@ function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._intern
             var _op:stdgo.GoString = ("" : stdgo.GoString);
             while (true) {
                 var __tmp__ = @:check2r _p._nextList(), _list:stdgo.Slice<stdgo.GoString> = __tmp__._0, _tok:stdgo.GoString = __tmp__._1;
-                if (_tok == (stdgo.Go.str())) {
+                if (_tok == ((stdgo.Go.str() : stdgo.GoString))) {
                     if (_prev == null) {
                         break;
                     };
@@ -45,7 +45,7 @@ function _parseRules(_rules:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo._intern
                 _prev = _list;
                 if (_tok == ((";" : stdgo.GoString))) {
                     _prev = (null : stdgo.Slice<stdgo.GoString>);
-                    _op = stdgo.Go.str()?.__copy__();
+                    _op = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                     continue;
                 };
                 if (((_tok != ("<" : stdgo.GoString)) && (_tok != ("!<" : stdgo.GoString)) : Bool)) {

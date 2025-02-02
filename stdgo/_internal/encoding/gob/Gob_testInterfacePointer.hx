@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.gob;
 function testInterfacePointer(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        var _str1 = ("howdy" : stdgo.GoString);
+        var _str1 = (("howdy" : stdgo.GoString) : stdgo.GoString);
         var _str1__pointer__ = stdgo.Go.pointer(_str1);
         var _str1__pointer__ = stdgo.Go.pointer(_str1);
         var _str1__pointer__ = stdgo.Go.pointer(_str1);

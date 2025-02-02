@@ -17,7 +17,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
 ({ _x : ("3.14159265" : stdgo.GoString), _want : ("7244019449799623199/2305843009213693952" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_23.T__struct_23)].concat([for (i in 14 ... (14 > 14 ? 14 : 14 : stdgo.GoInt).toBasic()) ({ _x : ("" : stdgo.GoString), _want : ("" : stdgo.GoString), _acc : ((0 : stdgo.GoInt8) : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_23.T__struct_23)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_23.T__struct_23>)) {
             var _x = @:check2r stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._x?.__copy__()).setPrec((64u32 : stdgo.GoUInt));
             var __tmp__ = @:check2r _x.rat(null), _res:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
-            var _got = ("nil" : stdgo.GoString);
+            var _got = (("nil" : stdgo.GoString) : stdgo.GoString);
             if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
                 _got = (@:check2r _res.string() : stdgo.GoString)?.__copy__();
             };

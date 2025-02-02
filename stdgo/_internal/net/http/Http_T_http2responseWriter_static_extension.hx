@@ -13,7 +13,7 @@ package stdgo._internal.net.http;
         if ((_opts == null || (_opts : Dynamic).__nil__)) {
             _opts = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.Http_PushOptions_static_extension.PushOptions_static_extension.stdgo._internal.net.http.Http_PushOptions_static_extension.PushOptions_static_extension);
         };
-        if ((@:checkr _opts ?? throw "null pointer dereference").method == (stdgo.Go.str())) {
+        if ((@:checkr _opts ?? throw "null pointer dereference").method == ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _opts ?? throw "null pointer dereference").method = ("GET" : stdgo.GoString);
         };
         if ((@:checkr _opts ?? throw "null pointer dereference").header == null) {
@@ -24,7 +24,7 @@ package stdgo._internal.net.http;
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
         };
-        var _wantScheme = ("http" : stdgo.GoString);
+        var _wantScheme = (("http" : stdgo.GoString) : stdgo.GoString);
         if (((@:checkr (@:checkr (@:checkr _w ?? throw "null pointer dereference")._rws ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").tLS != null && (((@:checkr (@:checkr (@:checkr _w ?? throw "null pointer dereference")._rws ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").tLS : Dynamic).__nil__ == null || !((@:checkr (@:checkr (@:checkr _w ?? throw "null pointer dereference")._rws ?? throw "null pointer dereference")._req ?? throw "null pointer dereference").tLS : Dynamic).__nil__))) {
             _wantScheme = ("https" : stdgo.GoString);
         };
@@ -32,7 +32,7 @@ package stdgo._internal.net.http;
         if (_err != null) {
             return _err;
         };
-        if ((@:checkr _u ?? throw "null pointer dereference").scheme == (stdgo.Go.str())) {
+        if ((@:checkr _u ?? throw "null pointer dereference").scheme == ((stdgo.Go.str() : stdgo.GoString))) {
             if (!stdgo._internal.net.http.Http__strings._strings.hasPrefix(_target?.__copy__(), ("/" : stdgo.GoString))) {
                 return stdgo._internal.net.http.Http__fmt._fmt.errorf(("target must be an absolute URL or an absolute path: %q" : stdgo.GoString), stdgo.Go.toInterface(_target));
             };
@@ -42,7 +42,7 @@ package stdgo._internal.net.http;
             if ((@:checkr _u ?? throw "null pointer dereference").scheme != (_wantScheme)) {
                 return stdgo._internal.net.http.Http__fmt._fmt.errorf(("cannot push URL with scheme %q from request with scheme %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _u ?? throw "null pointer dereference").scheme), stdgo.Go.toInterface(_wantScheme));
             };
-            if ((@:checkr _u ?? throw "null pointer dereference").host == (stdgo.Go.str())) {
+            if ((@:checkr _u ?? throw "null pointer dereference").host == ((stdgo.Go.str() : stdgo.GoString))) {
                 return stdgo._internal.net.http.Http__errors._errors.new_(("URL must have a host" : stdgo.GoString));
             };
         };
@@ -149,7 +149,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_p.length), _p, stdgo.Go.str()?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_p.length), _p, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

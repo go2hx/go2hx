@@ -12,12 +12,12 @@ function testArrayType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             @:check2r _t.errorf(("registration of [3]int creates same type as [4]int" : stdgo.GoString));
         };
         var _b3:stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(3, 3);
-        var _a3bool = (stdgo._internal.encoding.gob.Gob__getTypeUnlocked._getTypeUnlocked(stdgo.Go.str()?.__copy__(), stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_b3))) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
+        var _a3bool = (stdgo._internal.encoding.gob.Gob__getTypeUnlocked._getTypeUnlocked((stdgo.Go.str() : stdgo.GoString)?.__copy__(), stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_b3))) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
         if (stdgo.Go.toInterface(_a3int) == (stdgo.Go.toInterface(_a3bool))) {
             @:check2r _t.errorf(("registration of [3]bool creates same type as [3]int" : stdgo.GoString));
         };
         var _str = (_a3bool._string()?.__copy__() : stdgo.GoString);
-        var _expected = ("[3]bool" : stdgo.GoString);
+        var _expected = (("[3]bool" : stdgo.GoString) : stdgo.GoString);
         if (_str != (_expected)) {
             @:check2r _t.errorf(("array printed as %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_str), stdgo.Go.toInterface(_expected));
         };

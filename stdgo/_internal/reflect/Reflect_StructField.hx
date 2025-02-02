@@ -4,7 +4,7 @@ package stdgo._internal.reflect;
     public var pkgPath : stdgo.GoString = "";
     public var type : stdgo._internal.reflect.Reflect_Type_.Type_ = (null : stdgo._internal.reflect.Reflect_Type_.Type_);
     public var tag : stdgo._internal.reflect.Reflect_StructTag.StructTag = (("" : stdgo.GoString) : stdgo._internal.reflect.Reflect_StructTag.StructTag);
-    public var offset : stdgo.GoUIntptr = 0;
+    public var offset : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var index : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public var anonymous : Bool = false;
     public function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo._internal.reflect.Reflect_Type_.Type_, ?tag:stdgo._internal.reflect.Reflect_StructTag.StructTag, ?offset:stdgo.GoUIntptr, ?index:stdgo.Slice<stdgo.GoInt>, ?anonymous:Bool) {

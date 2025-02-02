@@ -15,7 +15,7 @@ function testDecoderBuffered(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var __0 = ((_rest : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (" extra " : stdgo.GoString);
+            var __0 = ((_rest : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = ((" extra " : stdgo.GoString) : stdgo.GoString);
 var _w = __1, _g = __0;
             if (_g != (_w)) {
                 @:check2r _t.errorf(("Remaining = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));

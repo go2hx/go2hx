@@ -4,7 +4,7 @@ function _prepareForMetaEmit():{ var _0 : stdgo.Slice<stdgo._internal.internal.c
         if ((_ml.length) == ((0 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>), _1 : (null : stdgo.Error) };
         };
-        var _s = (stdgo.Go.setRef(({ _metalist : _ml, _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != (stdgo.Go.str()) } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        var _s = (stdgo.Go.setRef(({ _metalist : _ml, _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString)) } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
         stdgo._internal.runtime.coverage.Coverage__capturedOsArgs._capturedOsArgs = stdgo._internal.runtime.coverage.Coverage__captureOsArgs._captureOsArgs();
         if ((@:checkr _s ?? throw "null pointer dereference")._debug) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os_stderr.stderr), ("=+= GOCOVERDIR is %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.os.Os_getenv.getenv(("GOCOVERDIR" : stdgo.GoString))));

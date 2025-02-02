@@ -96,7 +96,7 @@ var _type1 = __1, _type0 = __0;
                         var _at = stdgo._internal.encoding.gob.Gob__newArrayType._newArrayType(_name?.__copy__());
                         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_at);
                         {
-                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.elem());
+                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType((stdgo.Go.str() : stdgo.GoString)?.__copy__(), _t.elem());
                             _type0 = @:tmpset0 __tmp__._0;
                             _err = @:tmpset0 __tmp__._1;
                         };
@@ -125,7 +125,7 @@ var _type1 = __1, _type0 = __0;
                         var _mt = stdgo._internal.encoding.gob.Gob__newMapType._newMapType(_name?.__copy__());
                         stdgo._internal.encoding.gob.Gob__types._types[_rt] = stdgo.Go.asInterface(_mt);
                         {
-                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.key());
+                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType((stdgo.Go.str() : stdgo.GoString)?.__copy__(), _t.key());
                             _type0 = @:tmpset0 __tmp__._0;
                             _err = @:tmpset0 __tmp__._1;
                         };
@@ -141,7 +141,7 @@ var _type1 = __1, _type0 = __0;
                             };
                         };
                         {
-                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(stdgo.Go.str()?.__copy__(), _t.elem());
+                            var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType((stdgo.Go.str() : stdgo.GoString)?.__copy__(), _t.elem());
                             _type1 = @:tmpset0 __tmp__._0;
                             _err = @:tmpset0 __tmp__._1;
                         };
@@ -222,7 +222,7 @@ if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : std
                                 };
 var _typ = (stdgo._internal.encoding.gob.Gob__userType._userType(_f.type)._base : stdgo._internal.reflect.Reflect_Type_.Type_);
 var _tname = (_typ.name().__copy__() : stdgo.GoString);
-if (_tname == (stdgo.Go.str())) {
+if (_tname == ((stdgo.Go.str() : stdgo.GoString))) {
                                     var _t = (stdgo._internal.encoding.gob.Gob__userType._userType(_f.type)._base : stdgo._internal.reflect.Reflect_Type_.Type_);
                                     _tname = (_t.string() : stdgo.GoString).__copy__();
                                 };

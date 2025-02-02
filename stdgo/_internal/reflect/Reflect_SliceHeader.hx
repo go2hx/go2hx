@@ -1,6 +1,6 @@
 package stdgo._internal.reflect;
 @:structInit @:using(stdgo._internal.reflect.Reflect_SliceHeader_static_extension.SliceHeader_static_extension) class SliceHeader {
-    public var data : stdgo.GoUIntptr = 0;
+    public var data : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var len : stdgo.GoInt = 0;
     public var cap : stdgo.GoInt = 0;
     public function new(?data:stdgo.GoUIntptr, ?len:stdgo.GoInt, ?cap:stdgo.GoInt) {

@@ -63,7 +63,7 @@ package stdgo._internal.crypto.sha256;
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (((_p.length) >= (64 : stdgo.GoInt) : Bool)) {
-            var _n = ((_p.length) & (((63 : stdgo.GoInt) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+            var _n = ((_p.length) & (((63 : stdgo.GoInt) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt)) : stdgo.GoInt);
             stdgo._internal.crypto.sha256.Sha256__block._block(_d, (_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
@@ -117,13 +117,13 @@ package stdgo._internal.crypto.sha256;
     @:tdfield
     static public function unmarshalBinary( _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_T_digest.T_digest>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_T_digest.T_digest> = _d;
-        if (((((_b.length) < (stdgo.Go.str("sha", 2).length) : Bool) || (((@:checkr _d ?? throw "null pointer dereference")._is224 && (((_b.__slice__(0, (stdgo.Go.str("sha", 2).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("sha", 2)) : Bool)) : Bool) || ((!(@:checkr _d ?? throw "null pointer dereference")._is224 && (((_b.__slice__(0, (stdgo.Go.str("sha", 3).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("sha", 3)) : Bool)) : Bool)) {
+        if (((((_b.length) < ((stdgo.Go.str("sha", 2) : stdgo.GoString).length) : Bool) || (((@:checkr _d ?? throw "null pointer dereference")._is224 && (((_b.__slice__(0, ((stdgo.Go.str("sha", 2) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("sha", 2) : stdgo.GoString)) : Bool)) : Bool) || ((!(@:checkr _d ?? throw "null pointer dereference")._is224 && (((_b.__slice__(0, ((stdgo.Go.str("sha", 3) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("sha", 3) : stdgo.GoString)) : Bool)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/sha256: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((108 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/sha256: invalid hash state size" : stdgo.GoString));
         };
-        _b = (_b.__slice__((stdgo.Go.str("sha", 2).length)) : stdgo.Slice<stdgo.GoUInt8>);
+        _b = (_b.__slice__(((stdgo.Go.str("sha", 2) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha256.Sha256__consumeUint32._consumeUint32(_b);
             _b = @:tmpset0 __tmp__._0;
@@ -179,9 +179,9 @@ package stdgo._internal.crypto.sha256;
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_T_digest.T_digest> = _d;
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (108 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         if ((@:checkr _d ?? throw "null pointer dereference")._is224) {
-            _b = (_b.__append__(...(stdgo.Go.str("sha", 2) : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...((stdgo.Go.str("sha", 2) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         } else {
-            _b = (_b.__append__(...(stdgo.Go.str("sha", 3) : Array<stdgo.GoUInt8>)));
+            _b = (_b.__append__(...((stdgo.Go.str("sha", 3) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         _b = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)]);
         _b = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.appendUint32(_b, (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)]);

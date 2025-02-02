@@ -510,7 +510,7 @@ package stdgo._internal.net.http.httptest;
     @:tdfield
     static public function startTLS( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
-        if ((@:checkr _s ?? throw "null pointer dereference").uRL != (stdgo.Go.str())) {
+        if ((@:checkr _s ?? throw "null pointer dereference").uRL != ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
         if (((@:checkr _s ?? throw "null pointer dereference")._client == null || ((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__)) {
@@ -556,7 +556,7 @@ package stdgo._internal.net.http.httptest;
     @:tdfield
     static public function start( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
-        if ((@:checkr _s ?? throw "null pointer dereference").uRL != (stdgo.Go.str())) {
+        if ((@:checkr _s ?? throw "null pointer dereference").uRL != ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
         if (((@:checkr _s ?? throw "null pointer dereference")._client == null || ((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__)) {
@@ -565,7 +565,7 @@ package stdgo._internal.net.http.httptest;
         (@:checkr _s ?? throw "null pointer dereference").uRL = (("http://" : stdgo.GoString) + ((@:checkr _s ?? throw "null pointer dereference").listener.addr().string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
         @:check2r _s._wrap();
         @:check2r _s._goServe();
-        if (stdgo._internal.net.http.httptest.Httptest__serveFlag._serveFlag != (stdgo.Go.str())) {
+        if (stdgo._internal.net.http.httptest.Httptest__serveFlag._serveFlag != ((stdgo.Go.str() : stdgo.GoString))) {
             stdgo._internal.fmt.Fmt_fprintln.fprintln(stdgo.Go.asInterface(stdgo._internal.os.Os_stderr.stderr), stdgo.Go.toInterface(("httptest: serving on" : stdgo.GoString)), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").uRL));
             @:null_select {};
         };

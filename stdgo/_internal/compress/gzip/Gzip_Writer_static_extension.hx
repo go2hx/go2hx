@@ -68,10 +68,10 @@ package stdgo._internal.compress.gzip;
             if ((@:checkr _z ?? throw "null pointer dereference").header.extra != null) {
                 (@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] = ((@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] | ((4 : stdgo.GoUInt8)) : stdgo.GoUInt8);
             };
-            if ((@:checkr _z ?? throw "null pointer dereference").header.name != (stdgo.Go.str())) {
+            if ((@:checkr _z ?? throw "null pointer dereference").header.name != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] = ((@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] | ((8 : stdgo.GoUInt8)) : stdgo.GoUInt8);
             };
-            if ((@:checkr _z ?? throw "null pointer dereference").header.comment != (stdgo.Go.str())) {
+            if ((@:checkr _z ?? throw "null pointer dereference").header.comment != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] = ((@:checkr _z ?? throw "null pointer dereference")._buf[(3 : stdgo.GoInt)] | ((16 : stdgo.GoUInt8)) : stdgo.GoUInt8);
             };
             if ((@:checkr _z ?? throw "null pointer dereference").header.modTime.after(stdgo._internal.time.Time_unix.unix((0i64 : stdgo.GoInt64), (0i64 : stdgo.GoInt64))?.__copy__())) {
@@ -96,13 +96,13 @@ package stdgo._internal.compress.gzip;
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                 };
             };
-            if ((@:checkr _z ?? throw "null pointer dereference").header.name != (stdgo.Go.str())) {
+            if ((@:checkr _z ?? throw "null pointer dereference").header.name != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _z ?? throw "null pointer dereference")._err = @:check2r _z._writeString((@:checkr _z ?? throw "null pointer dereference").header.name?.__copy__());
                 if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                 };
             };
-            if ((@:checkr _z ?? throw "null pointer dereference").header.comment != (stdgo.Go.str())) {
+            if ((@:checkr _z ?? throw "null pointer dereference").header.comment != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _z ?? throw "null pointer dereference")._err = @:check2r _z._writeString((@:checkr _z ?? throw "null pointer dereference").header.comment?.__copy__());
                 if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };

@@ -150,7 +150,7 @@ package stdgo._internal.log;
     static public function println( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        @:check2r _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        @:check2r _l._output((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
             return stdgo._internal.fmt.Fmt_appendln.appendln(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
@@ -159,7 +159,7 @@ package stdgo._internal.log;
     static public function printf( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        @:check2r _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        @:check2r _l._output((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
             return stdgo._internal.fmt.Fmt_appendf.appendf(_b, _format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
         });
     }
@@ -168,7 +168,7 @@ package stdgo._internal.log;
     static public function print( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
-        @:check2r _l._output((0 : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        @:check2r _l._output((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr), (2 : stdgo.GoInt), function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
             return stdgo._internal.fmt.Fmt_append.append(_b, ...(_v : Array<stdgo.AnyInterface>));
         });
     }
@@ -187,7 +187,7 @@ package stdgo._internal.log;
             var _file:stdgo.GoString = ("" : stdgo.GoString);
             var _line:stdgo.GoInt = (0 : stdgo.GoInt);
             if ((_flag & (24 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                if (_pc == ((0 : stdgo.GoUIntptr))) {
+                if (_pc == ((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr))) {
                     var _ok:Bool = false;
                     {
                         var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller(_calldepth);
@@ -203,7 +203,7 @@ package stdgo._internal.log;
                     var _fs = stdgo._internal.runtime.Runtime_callersFrames.callersFrames((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[_pc]) : stdgo.Slice<stdgo.GoUIntptr>));
                     var __tmp__ = @:check2r _fs.next(), _f:stdgo._internal.runtime.Runtime_Frame.Frame = __tmp__._0, __35:Bool = __tmp__._1;
                     _file = _f.file?.__copy__();
-                    if (_file == (stdgo.Go.str())) {
+                    if (_file == ((stdgo.Go.str() : stdgo.GoString))) {
                         _file = ("???" : stdgo.GoString);
                     };
                     _line = _f.line;
@@ -293,7 +293,7 @@ package stdgo._internal.log;
     static public function output( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _calldepth:stdgo.GoInt, _s:stdgo.GoString):stdgo.Error {
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
         _calldepth++;
-        return @:check2r _l._output((0 : stdgo.GoUIntptr), _calldepth, function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        return @:check2r _l._output((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr), _calldepth, function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
             return (_b.__append__(...(_s : Array<stdgo.GoUInt8>)));
         });
     }

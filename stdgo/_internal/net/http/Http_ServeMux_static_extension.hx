@@ -20,7 +20,7 @@ package stdgo._internal.net.http;
                 final __f__ = @:check2 (@:checkr _mux ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            if (_pattern == (stdgo.Go.str())) {
+            if (_pattern == ((stdgo.Go.str() : stdgo.GoString))) {
                 throw stdgo.Go.toInterface(("http: invalid pattern" : stdgo.GoString));
             };
             if (_handler == null) {

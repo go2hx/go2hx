@@ -29,7 +29,7 @@ package stdgo._internal.archive.tar;
     @:pointer
     @:tdfield
     static public function _mustNotBe( _f:stdgo.Pointer<stdgo._internal.archive.tar.Tar_Format.Format>, _f2:stdgo._internal.archive.tar.Tar_Format.Format):Void {
-        _f.value = (_f.value & (((_f2) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.archive.tar.Tar_Format.Format)) : stdgo._internal.archive.tar.Tar_Format.Format);
+        _f.value = (_f.value & (((_f2) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.archive.tar.Tar_Format.Format)) : stdgo._internal.archive.tar.Tar_Format.Format);
     }
     @:keep
     @:pointer

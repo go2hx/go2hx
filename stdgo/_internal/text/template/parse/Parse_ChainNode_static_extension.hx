@@ -51,7 +51,7 @@ package stdgo._internal.text.template.parse;
             throw stdgo.Go.toInterface(("no dot in field" : stdgo.GoString));
         };
         _field = (_field.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-        if (_field == (stdgo.Go.str())) {
+        if (_field == ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("empty field" : stdgo.GoString));
         };
         (@:checkr _c ?? throw "null pointer dereference").field = ((@:checkr _c ?? throw "null pointer dereference").field.__append__(_field?.__copy__()));

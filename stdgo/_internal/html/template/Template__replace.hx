@@ -14,7 +14,7 @@ var _written = __2, _w = __1, _r = __0;
 var _repl:stdgo.GoString = ("" : stdgo.GoString);
 if (((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__lowUnicodeReplacementTable._lowUnicodeReplacementTable.length) : Bool)) {
                     _repl = stdgo._internal.html.template.Template__lowUnicodeReplacementTable._lowUnicodeReplacementTable[(_r : stdgo.GoInt)].__copy__();
-                } else if ((((_r : stdgo.GoInt) < (_replacementTable.length) : Bool) && (_replacementTable[(_r : stdgo.GoInt)] != stdgo.Go.str()) : Bool)) {
+                } else if ((((_r : stdgo.GoInt) < (_replacementTable.length) : Bool) && (_replacementTable[(_r : stdgo.GoInt)] != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                     _repl = _replacementTable[(_r : stdgo.GoInt)].__copy__();
                 } else if (_r == ((8232 : stdgo.GoInt32))) {
                     _repl = ("\\u2028" : stdgo.GoString);

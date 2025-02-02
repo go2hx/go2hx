@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _p:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"开源\":\"12345开源\"}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{\"开源\":\"12345开源\"}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatalf(("Unmarshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -32,8 +32,8 @@ function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.t
         var _input = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
-            x.set((("FOO" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), stdgo.Go.str());
-x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), stdgo.Go.str());
+            x.set((("FOO" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), (stdgo.Go.str() : stdgo.GoString));
+x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), (stdgo.Go.str() : stdgo.GoString));
             x;
         } : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_input)), _encoded:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -50,8 +50,8 @@ x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmars
         var _want = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
-            x.set((("foo" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), stdgo.Go.str());
-x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), stdgo.Go.str());
+            x.set((("foo" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), (stdgo.Go.str() : stdgo.GoString));
+x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString), (stdgo.Go.str() : stdgo.GoString));
             x;
         } : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
         if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got))) {

@@ -241,7 +241,7 @@ package stdgo._internal.net.rpc;
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server> = _server;
         var _resp = @:check2r _server._getResponse();
         (@:checkr _resp ?? throw "null pointer dereference").serviceMethod = (@:checkr _req ?? throw "null pointer dereference").serviceMethod?.__copy__();
-        if (_errmsg != (stdgo.Go.str())) {
+        if (_errmsg != ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _resp ?? throw "null pointer dereference").error = _errmsg?.__copy__();
             _reply = stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.rpc.Rpc__invalidRequest._invalidRequest));
         };
@@ -265,7 +265,7 @@ package stdgo._internal.net.rpc;
         if (!_useName) {
             _sname = stdgo._internal.reflect.Reflect_indirect.indirect((@:checkr _s ?? throw "null pointer dereference")._rcvr?.__copy__()).type().name()?.__copy__();
         };
-        if (_sname == (stdgo.Go.str())) {
+        if (_sname == ((stdgo.Go.str() : stdgo.GoString))) {
             var _s = ((("rpc.Register: no service name for type " : stdgo.GoString) + ((@:checkr _s ?? throw "null pointer dereference")._typ.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             stdgo._internal.log.Log_print.print(stdgo.Go.toInterface(_s));
             return stdgo._internal.errors.Errors_new_.new_(_s?.__copy__());
@@ -278,7 +278,7 @@ package stdgo._internal.net.rpc;
         (@:checkr _s ?? throw "null pointer dereference")._name = _sname?.__copy__();
         (@:checkr _s ?? throw "null pointer dereference")._method = stdgo._internal.net.rpc.Rpc__suitableMethods._suitableMethods((@:checkr _s ?? throw "null pointer dereference")._typ, false);
         if (((@:checkr _s ?? throw "null pointer dereference")._method.length) == ((0 : stdgo.GoInt))) {
-            var _str = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+            var _str = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             var _method = stdgo._internal.net.rpc.Rpc__suitableMethods._suitableMethods(stdgo._internal.reflect.Reflect_pointerTo.pointerTo((@:checkr _s ?? throw "null pointer dereference")._typ), false);
             if ((_method.length) != ((0 : stdgo.GoInt))) {
                 _str = ((("rpc.Register: type " : stdgo.GoString) + _sname?.__copy__() : stdgo.GoString) + (" has no exported methods of suitable type (hint: pass a pointer to value of that type)" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
@@ -306,6 +306,6 @@ package stdgo._internal.net.rpc;
     @:tdfield
     static public function register( _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server>, _rcvr:stdgo.AnyInterface):stdgo.Error {
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server> = _server;
-        return @:check2r _server._register(_rcvr, stdgo.Go.str()?.__copy__(), false);
+        return @:check2r _server._register(_rcvr, (stdgo.Go.str() : stdgo.GoString)?.__copy__(), false);
     }
 }

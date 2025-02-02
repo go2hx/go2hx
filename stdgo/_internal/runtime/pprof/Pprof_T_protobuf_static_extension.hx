@@ -43,7 +43,7 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function _stringOpt( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>, _tag:stdgo.GoInt, _x:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf> = _b;
-        if (_x == (stdgo.Go.str())) {
+        if (_x == ((stdgo.Go.str() : stdgo.GoString))) {
             return;
         };
         @:check2r _b._string(_tag, _x?.__copy__());

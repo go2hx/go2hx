@@ -18,7 +18,7 @@ function _typeString(_sotype:stdgo.GoInt):stdgo.GoString {
         {
             var _flags = ((_sotype : stdgo.GoUInt) & (-256u32 : stdgo.GoUInt) : stdgo.GoUInt);
             if (_flags != ((0u32 : stdgo.GoUInt))) {
-                _s = (_s + (stdgo._internal.fmt.Fmt_sprintf.sprintf(("|%#x" : stdgo.GoString), stdgo.Go.toInterface(_flags)))?.__copy__() : stdgo.GoString);
+                _s = (_s + (stdgo._internal.fmt.Fmt_sprintf.sprintf((("|%#x" : stdgo.GoString) : stdgo.GoString), stdgo.Go.toInterface(_flags)))?.__copy__() : stdgo.GoString);
             };
         };
         return _s?.__copy__();

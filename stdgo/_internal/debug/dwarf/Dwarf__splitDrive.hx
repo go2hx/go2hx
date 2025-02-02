@@ -30,7 +30,7 @@ function _splitDrive(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _path?.__copy__() };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _path?.__copy__() };
             _drive = __tmp__._0;
             _rest = __tmp__._1;
             __tmp__;

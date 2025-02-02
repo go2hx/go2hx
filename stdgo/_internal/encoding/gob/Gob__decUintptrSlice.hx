@@ -18,10 +18,10 @@ if ((_i >= (_slice.length) : Bool)) {
                     stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoUIntptr>>), _length);
                 };
 var _x = (@:check2r _state._decodeUint() : stdgo.GoUInt64);
-if ((((4294967295 : stdgo.GoUIntptr) : stdgo.GoUInt64) < _x : Bool)) {
+if ((((new stdgo.GoUIntptr(4294967295) : stdgo.GoUIntptr) : stdgo.GoUInt64) < _x : Bool)) {
                     stdgo._internal.encoding.gob.Gob__error_._error_(_ovfl);
                 };
-_slice[(_i : stdgo.GoInt)] = (_x : stdgo.GoUIntptr);
+_slice[(_i : stdgo.GoInt)] = (new stdgo.GoUIntptr(_x) : stdgo.GoUIntptr);
                 _i++;
             };
         };

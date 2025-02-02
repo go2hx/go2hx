@@ -171,7 +171,7 @@ package stdgo._internal.net.http.pprof;
         };
         {
             var _sec = (@:check2r _r.formValue(("seconds" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_sec != (stdgo.Go.str())) {
+            if (_sec != ((stdgo.Go.str() : stdgo.GoString))) {
                 _name._serveDeltaProfile(_w, _r, _p, _sec?.__copy__());
                 return;
             };

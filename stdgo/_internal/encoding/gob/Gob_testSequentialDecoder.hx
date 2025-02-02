@@ -31,7 +31,7 @@ var _s__pointer__ = stdgo.Go.pointer(_s);
                         @:check2r _t.fatal(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };
                 };
-if (_s != (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface(_i)))) {
+if (_s != (stdgo._internal.fmt.Fmt_sprintf.sprintf((("%d" : stdgo.GoString) : stdgo.GoString), stdgo.Go.toInterface(_i)))) {
                     @:check2r _t.fatalf(("decode expected %d got %s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s));
                 };
                 _i++;

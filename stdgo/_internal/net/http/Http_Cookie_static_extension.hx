@@ -45,7 +45,7 @@ package stdgo._internal.net.http;
     static public function string( _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>):stdgo.GoString {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie> = _c;
         if (((_c == null || (_c : Dynamic).__nil__) || !stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid((@:checkr _c ?? throw "null pointer dereference").name?.__copy__()) : Bool)) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         {};
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);

@@ -20,7 +20,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                     };
                 };
             };
-            if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
+            if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
                 _firstErr = _err;
             };
         };
@@ -43,7 +43,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                     };
                 };
             };
-            if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
+            if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
                 _firstErr = _err;
             };
         };
@@ -68,7 +68,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                         };
                     };
                 };
-                if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
+                if (((_firstErr == null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) {
                     _firstErr = _err;
                 };
             };

@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.stopTimer();
-        var _x = (("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _x = ((("abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (15 : stdgo.GoInt) : Bool)) {

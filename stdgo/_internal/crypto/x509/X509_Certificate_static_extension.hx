@@ -350,7 +350,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         };
         if ((_chains.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError)) };
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError)) };
                 _chains = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -373,7 +373,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         if (((_currentChain.length) > (0 : stdgo.GoInt) : Bool)) {
             var _child = _currentChain[((_currentChain.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
             if (!stdgo._internal.bytes.Bytes_equal.equal((@:checkr _child ?? throw "null pointer dereference").rawIssuer, (@:checkr _c ?? throw "null pointer dereference").rawSubject)) {
-                return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (5 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+                return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (5 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
             };
         };
         var _now = ((@:checkr _opts ?? throw "null pointer dereference").currentTime?.__copy__() : stdgo._internal.time.Time_Time.Time);
@@ -477,16 +477,16 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
             };
         };
         if (((_certType == (1 : stdgo.GoInt)) && ((!(@:checkr _c ?? throw "null pointer dereference").basicConstraintsValid || !(@:checkr _c ?? throw "null pointer dereference").isCA : Bool)) : Bool)) {
-            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (0 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (0 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
         };
         if (((@:checkr _c ?? throw "null pointer dereference").basicConstraintsValid && ((@:checkr _c ?? throw "null pointer dereference").maxPathLen >= (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _numIntermediates = ((_currentChain.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             if ((_numIntermediates > (@:checkr _c ?? throw "null pointer dereference").maxPathLen : Bool)) {
-                return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (3 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+                return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (3 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
             };
         };
         if (!stdgo._internal.crypto.x509.X509__boringAllowCert._boringAllowCert(_c)) {
-            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
         };
         return (null : stdgo.Error);
     }
@@ -497,7 +497,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         var _excludedValue = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_excluded)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         _count.value = (_count.value + (_excludedValue.len()) : stdgo.GoInt);
         if ((_count.value > _maxConstraintComparisons : Bool)) {
-            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (8 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (8 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
         };
         {
             var _i = (0 : stdgo.GoInt);
@@ -516,7 +516,7 @@ if (_match) {
         var _permittedValue = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_permitted)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         _count.value = (_count.value + (_permittedValue.len()) : stdgo.GoInt);
         if ((_count.value > _maxConstraintComparisons : Bool)) {
-            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (8 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+            return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (8 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
         };
         var _ok = (true : Bool);
         {

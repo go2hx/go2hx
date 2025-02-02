@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.json;
 function _isValidNumber(_s:stdgo.GoString):Bool {
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             return false;
         };
         if (_s[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8))) {
             _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-            if (_s == (stdgo.Go.str())) {
+            if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
                 return false;
             };
         };
@@ -29,7 +29,7 @@ function _isValidNumber(_s:stdgo.GoString):Bool {
             _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             if (((_s[(0 : stdgo.GoInt)] == (43 : stdgo.GoUInt8)) || (_s[(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8)) : Bool)) {
                 _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                if (_s == (stdgo.Go.str())) {
+                if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
                     return false;
                 };
             };
@@ -37,5 +37,5 @@ function _isValidNumber(_s:stdgo.GoString):Bool {
                 _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
         };
-        return _s == (stdgo.Go.str());
+        return _s == ((stdgo.Go.str() : stdgo.GoString));
     }

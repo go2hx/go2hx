@@ -2,7 +2,7 @@ package stdgo._internal.internal.testenv;
 function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:check2 stdgo._internal.internal.testenv.Testenv__gorootOnce._gorootOnce.do_(function():Void {
             stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath = stdgo._internal.runtime.Runtime_gOROOT.gOROOT()?.__copy__();
-            if (stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath != (stdgo.Go.str())) {
+            if (stdgo._internal.internal.testenv.Testenv__gorootPath._gorootPath != ((stdgo.Go.str() : stdgo.GoString))) {
                 return;
             };
             var __tmp__ = stdgo._internal.os.Os_getwd.getwd(), _cwd:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -34,7 +34,7 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                     return;
                 };
                 var _goMod = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                while (_goMod != (stdgo.Go.str())) {
+                while (_goMod != ((stdgo.Go.str() : stdgo.GoString))) {
                     var _line:stdgo.GoString = ("" : stdgo.GoString);
                     {
                         var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_goMod?.__copy__(), ("\n" : stdgo.GoString));

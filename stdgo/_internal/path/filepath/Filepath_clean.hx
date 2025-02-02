@@ -3,7 +3,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         var _originalPath = (_path?.__copy__() : stdgo.GoString);
         var _volLen = (stdgo._internal.path.filepath.Filepath__volumeNameLen._volumeNameLen(_path?.__copy__()) : stdgo.GoInt);
         _path = (_path.__slice__(_volLen) : stdgo.GoString)?.__copy__();
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             if ((((_volLen > (1 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_originalPath[(0 : stdgo.GoInt)]) : Bool) && stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_originalPath[(1 : stdgo.GoInt)]) : Bool)) {
                 return stdgo._internal.path.filepath.Filepath_fromSlash.fromSlash(_originalPath?.__copy__())?.__copy__();
             };

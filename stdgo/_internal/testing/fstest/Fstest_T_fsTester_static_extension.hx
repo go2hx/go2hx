@@ -6,7 +6,7 @@ package stdgo._internal.testing.fstest;
         @:recv var _t:stdgo.Ref<stdgo._internal.testing.fstest.Fstest_T_fsTester.T_fsTester> = _t;
         var _bad = (new stdgo.Slice<stdgo.GoString>(2, 2, ...[(("/" : stdgo.GoString) + _file?.__copy__() : stdgo.GoString)?.__copy__(), (_file + ("/." : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>);
         if (_file == (("." : stdgo.GoString))) {
-            _bad = (_bad.__append__(("/" : stdgo.GoString)));
+            _bad = (_bad.__append__((("/" : stdgo.GoString) : stdgo.GoString)));
         };
         {
             var _i = (stdgo._internal.strings.Strings_index.index(_file?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
@@ -425,13 +425,13 @@ if ((_have && _haveNot : Bool)) {
             };
             var _prefix:stdgo.GoString = ("" : stdgo.GoString);
             if (_dir == (("." : stdgo.GoString))) {
-                _prefix = stdgo.Go.str()?.__copy__();
+                _prefix = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             } else {
                 _prefix = (_dir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
             };
             for (__2 => _info in _list) {
                 var _name = (_info.name()?.__copy__() : stdgo.GoString);
-                if (_name == (("." : stdgo.GoString)) || _name == ((".." : stdgo.GoString)) || _name == (stdgo.Go.str())) {
+                if (_name == (("." : stdgo.GoString)) || _name == ((".." : stdgo.GoString)) || _name == ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _t._errorf(("%s: ReadDir: child has invalid name: %#q" : stdgo.GoString), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_name));
                     continue;
                 } else if (stdgo._internal.strings.Strings_contains.contains(_name?.__copy__(), ("/" : stdgo.GoString))) {

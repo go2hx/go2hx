@@ -1,6 +1,6 @@
 package stdgo._internal.math.bits;
 function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8 {
-        return stdgo.Go.str(0,
+        return (stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -255,5 +255,5 @@ function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8 {
 "?",
 191,
 127,
-255)[(_x : stdgo.GoInt)];
+255) : stdgo.GoString)[(_x : stdgo.GoInt)];
     }

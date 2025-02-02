@@ -244,7 +244,7 @@ package stdgo._internal.expvar;
                 if ((_i >= ((@:checkr _v ?? throw "null pointer dereference")._keys.length) : Bool)) {
                     (@:checkr _v ?? throw "null pointer dereference")._keys = ((@:checkr _v ?? throw "null pointer dereference")._keys.__append__(_key?.__copy__()));
                 } else if ((@:checkr _v ?? throw "null pointer dereference")._keys[(_i : stdgo.GoInt)] != (_key)) {
-                    (@:checkr _v ?? throw "null pointer dereference")._keys = ((@:checkr _v ?? throw "null pointer dereference")._keys.__append__(stdgo.Go.str()?.__copy__()));
+                    (@:checkr _v ?? throw "null pointer dereference")._keys = ((@:checkr _v ?? throw "null pointer dereference")._keys.__append__((stdgo.Go.str() : stdgo.GoString)?.__copy__()));
                     ((@:checkr _v ?? throw "null pointer dereference")._keys.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>).__copyTo__(((@:checkr _v ?? throw "null pointer dereference")._keys.__slice__(_i) : stdgo.Slice<stdgo.GoString>));
                     (@:checkr _v ?? throw "null pointer dereference")._keys[(_i : stdgo.GoInt)] = _key?.__copy__();
                 };

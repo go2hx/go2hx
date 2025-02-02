@@ -3,7 +3,7 @@ package stdgo._internal.log.slog;
     public var time : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
     public var message : stdgo.GoString = "";
     public var level : stdgo._internal.log.slog.Slog_Level.Level = ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_Level.Level);
-    public var pC : stdgo.GoUIntptr = 0;
+    public var pC : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _front : stdgo.GoArray<stdgo._internal.log.slog.Slog_Attr.Attr> = new stdgo.GoArray<stdgo._internal.log.slog.Slog_Attr.Attr>(5, 5, ...[for (i in 0 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.slog.Slog_Attr.Attr)]);
     public var _nFront : stdgo.GoInt = 0;
     public var _back : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr>);

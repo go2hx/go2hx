@@ -1,7 +1,7 @@
 package stdgo._internal.log;
 function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.str()?.__copy__(), (0 : stdgo.GoInt));
+        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt));
         var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
         @:check2 _wg.add((100 : stdgo.GoInt));
         {
@@ -16,7 +16,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
                             };
                             @:check2r _l.setFlags((0 : stdgo.GoInt));
-                            @:check2r _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
+                            @:check2r _l.output((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString).__copy__());
                             {
                                 for (defer in __deferstack__) {
                                     if (defer.ran) continue;

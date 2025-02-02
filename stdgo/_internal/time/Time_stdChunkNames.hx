@@ -2,7 +2,7 @@ package stdgo._internal.time;
 var stdChunkNames : stdgo.GoMap<stdgo.GoInt, stdgo.GoString> = ({
         final x = new stdgo.GoMap.GoIntMap<stdgo.GoString>();
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
-        x.set((0 : stdgo.GoInt), stdgo.Go.str());
+        x.set((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString));
 x.set((257 : stdgo.GoInt), ("January" : stdgo.GoString));
 x.set((258 : stdgo.GoInt), ("Jan" : stdgo.GoString));
 x.set((259 : stdgo.GoInt), ("1" : stdgo.GoString));

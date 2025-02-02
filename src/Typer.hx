@@ -7093,7 +7093,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case string_kind: macro "";
 					case int_kind, int8_kind, int16_kind, int32_kind, int64_kind: macro 0;
 					case uint_kind, uint8_kind, uint16_kind, uint32_kind, uint64_kind: macro 0;
-					case uintptr_kind: macro 0;
+					case uintptr_kind: macro new stdgo.GoUIntptr(0);
 					case float32_kind, float64_kind: macro 0;
 					case complex64_kind: macro new stdgo.GoComplex64(0, 0);
 					case complex128_kind: macro new stdgo.GoComplex128(0, 0);

@@ -146,5 +146,8 @@
  "js|slice2",
  "js|init",
  "js|reflectcall0",
- "js|structembedfield"
+ "js|structembedfield",
+ "js|newnilstructkeymap0",
+ "js|newnilstructkeymap1",
+ "js|newniluinptrkeymap0"
 ]

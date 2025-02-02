@@ -712,7 +712,7 @@ final list = [
 				case stdgo._internal.internal.reflect.Reflect.KindType.uint:
 					(_x : stdgo.GoUInt);
 				case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-					(_x : stdgo.GoUIntptr);
+					new stdgo.GoUIntptr(_x);
 				default:
 					throw "unknown setUInt kind: " + k.string();
 			};
@@ -785,9 +785,9 @@ final list = [
 	},
 	"reflect.Value:pointer" => macro {
 		if (@:privateAccess _v.value == null)
-			return 0;
+			return new stdgo.GoUIntptr(0);
 		var value = @:privateAccess _v.value.value;
-		return value != null ? 1 : 0;
+		return new stdgo.GoUIntptr(value != null ? 1 : 0);
 	},
 	"reflect.Value:field" => macro {
 		final initgt = @:privateAccess _v.value.type._common();

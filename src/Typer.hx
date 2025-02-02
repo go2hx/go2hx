@@ -1858,6 +1858,7 @@ private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String,
 	return toExpr(EObjectDecl(objectFields));
 }
 // implicit conversion
+// explicit conversion: assignTranslate
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
 	if (e != null) {
@@ -1950,6 +1951,10 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		case basic(unsafepointer_kind):
 			if (fromType != toType) {
 				e = toAnyInterface(e, toType, info);
+			}
+		case basic(uintptr_kind):
+			if (fromType != toType) {
+				e = macro new stdgo.GoUIntptr($e);
 			}
 		default:
 			switch fromType {
@@ -2912,6 +2917,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 	}
 }
 // explicit conversion
+// implicit conversion: checkType
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	if (goTypesEqual(fromType, toType, 0)) {
 		if (passCopy) {
@@ -5320,6 +5326,8 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		}
 		final t = typeof(expr.type, info, false);
 		switch t {
+			case basic(uintptr_kind): // uintptr
+				e = macro new stdgo.GoUIntptr($e);
 			case basic(_):
 			case invalidType:
 			default:
@@ -5357,6 +5365,12 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				EConst(CInt(expr.value));
 		});
 		final ct = toComplexType(t, info);
+		final t = typeof(expr.type, info, false);
+		switch t {
+			case basic(uintptr_kind): // uintptr
+				return (macro new stdgo.GoUIntptr($e)).expr;
+			default:
+		}
 		// casting
 		(macro($e : $ct)).expr;
 	} else if (expr.info & Ast.BasicInfo.isComplex != 0) {
@@ -5830,6 +5844,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	final keyT = toReflectType(k, info, [], true);
 	final defaultValueExpr = defaultValue(v, info, true);
 	var isObjectMap = false;
+	var isUIntptrMap = false;
 	function createRefPointerMap(name:String) {
 		final keyElemComplexType = keyComplexType;
 		final p:TypePath = {name: "GoMap", sub: name, pack: ["stdgo"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
@@ -5862,12 +5877,13 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		case basic(kind):
 			switch kind {
 				case bool_kind, untyped_bool_kind: p.sub = "GoBoolMap";
-				case int_kind, int8_kind, int16_kind, int32_kind, uint_kind, uint8_kind, uint16_kind, uint32_kind, uintptr_kind: p.sub = "GoIntMap";
+				case int_kind, int8_kind, int16_kind, int32_kind, uint_kind, uint8_kind, uint16_kind, uint32_kind: p.sub = "GoIntMap";
 				case int64_kind, untyped_int_kind: p.sub = "GoInt64Map";
 				case uint64_kind: p.sub = "GoUInt64Map";
 				case float32_kind, float64_kind: p.sub = "GoFloat64Map";
 				case complex64_kind, complex128_kind, untyped_complex_kind: p.sub = "GoComplex128Map";
 				case string_kind, untyped_string_kind: p.sub = "GoStringMap";
+				case uintptr_kind: isUIntptrMap = true;
 				//case unsafepointer_kind: KindType.unsafePointer;
 				case unsafepointer_kind: isObjectMap = true;
 				default: throw info.panic() + 'Unknown BasicKind: $kind';
@@ -5883,6 +5899,14 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		return macro(({
 			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
 			x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
+			x.__defaultValue__ = () -> $defaultValueExpr;
+			@:mergeBlock $b{exprs};
+			cast x;
+		} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
+	}
+	if (isUIntptrMap) {
+		return macro(({
+			final x = new stdgo.GoMap.GoUIntptrMap<$valueComplexType>();
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;
@@ -6289,11 +6313,11 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				}
 				if (!exists) {
 					if (stdgoList.indexOf(toGoPath(info.global.path)) == -1) {
-					info.data.imports.push({
-						path: s.split("."),
-						doc: "",
-						alias: "",
-					});
+						info.data.imports.push({
+							path: s.split("."),
+							doc: "",
+							alias: "",
+						});
 					}
 				}
 				x = macro $i{s + "_" + sel};
@@ -7054,7 +7078,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case uint16_kind: macro(0 : stdgo.GoUInt16);
 					case uint32_kind: macro(0 : stdgo.GoUInt32);
 					case uint64_kind: macro(0 : stdgo.GoUInt64);
-					case uintptr_kind: macro(0 : stdgo.GoUIntptr);
+					case uintptr_kind: macro new stdgo.GoUIntptr(0);
 					case float32_kind: macro(0 : stdgo.GoFloat32);
 					case float64_kind: macro(0 : stdgo.GoFloat64);
 					case complex64_kind: macro new stdgo.GoComplex64(0, 0);

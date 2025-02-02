@@ -77,10 +77,14 @@ class ChanData<T> {
     }
 
     public function __isSend__():Bool {
+        if (debug)
+            trace("__isSend__ " + sendBool);
         return sendBool;
     }
 
     public function __isGet__():Bool {
+        if (debug)
+            trace("__isGet__ " + getBool);
         return getBool;
     }
 
@@ -112,8 +116,6 @@ class ChanData<T> {
         if (debug)
             trace("__get__ wait for mutex.acquire0");
         mutex.acquire();
-        sendBool = false;
-        getBool = true;
         mutex.release();
         if (debug)
             trace("__get__ wait for mutex.release0");
@@ -121,6 +123,12 @@ class ChanData<T> {
         while (!getLock.wait(debug ? 0.2 : 0.01)) {
             if (debug)
                 trace("__get__ wait for !getLock.wait");
+            // set bools
+            mutex.acquire();
+            getBool = false;
+            sendBool = true;
+            mutex.release();
+
             Async.tick();
             if (closed) {
                 return defaultValue();
@@ -151,8 +159,7 @@ class ChanData<T> {
         buffer[bufferAddPos++] = value;
 		if (bufferAddPos >= buffer.length)
 			bufferAddPos = 0;
-        // set bools
-        getBool = false;
+
         mutex.release();
         if (debug)
             trace("__send__ wait for mutex.release0");
@@ -160,7 +167,11 @@ class ChanData<T> {
         while (!sendLock.wait(debug ? 0.2 : 0.01) && !closed && !buffered) {
             if (debug)
                 trace("__send__ wait for !sendLock.wait");
-            sendBool = true;
+            // set bools
+            mutex.acquire();
+            getBool = true;
+            sendBool = false;
+            mutex.release();
             Async.tick();
         }
         if (debug)

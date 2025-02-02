@@ -146,5 +146,8 @@
  "hl|uint32multi",
  "hl|init",
  "hl|reflectcall0",
- "hl|structembedfield"
+ "hl|structembedfield",
+ "hl|newnilstructkeymap0",
+ "hl|newnilstructkeymap1",
+ "hl|newniluinptrkeymap0"
 ]

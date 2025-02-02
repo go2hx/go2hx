@@ -4,10 +4,10 @@
     |                                                                                                                                       [31m^^^^^[0m
     | Uncaught exception Value:reflect.unsafePointer is not yet implemented
 
-    [30;41m -> [0m ./_internal/internal/fmtsort_test/Fmtsort_test__makeChans.hx:11: characters 22-132
+    [30;41m -> [0m ./_internal/internal/fmtsort_test/Fmtsort_test__makeChans.hx:11: characters 42-152
 
-     11 | [2m            return (([0m[1mstdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer()[0m[2m.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) < (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : Bool);[0m
-        |                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     11 | [2m            return ((new stdgo.GoUIntptr([0m[1mstdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer()[0m[2m) : stdgo.GoUIntptr) < (new stdgo.GoUIntptr(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer()) : stdgo.GoUIntptr) : Bool);[0m
+        |                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
     [30;41m -> [0m ./stdgo/_internal/sort/Sort__insertionSort_func.hx:8: characters 64-102
@@ -31,7 +31,7 @@
     [30;41m -> [0m ./_internal/internal/fmtsort_test/Fmtsort_test__makeChans.hx:10: lines 10-12
 
      10 | [2m        [0m[1mstdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_cs), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {[0m
-     11 | [1m            return ((stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) < (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer().__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : Bool);[0m
+     11 | [1m            return ((new stdgo.GoUIntptr(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_i : stdgo.GoInt)])).unsafePointer()) : stdgo.GoUIntptr) < (new stdgo.GoUIntptr(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_cs[(_j : stdgo.GoInt)])).unsafePointer()) : stdgo.GoUIntptr) : Bool);[0m
      12 | [1m        })[0m[2m;[0m
         |
         | Called from here

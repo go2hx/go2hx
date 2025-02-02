@@ -16,7 +16,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testCheckProperty.Quick_testCheckProperty_Fields_.testCheckProperty (./stdgo/_internal/testing/quick/Quick_testCheckProperty.hx line 3 column 110)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestCheckProperty
@@ -26,7 +26,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testFailure.Quick_testFailure_Fields_.testFailure (./stdgo/_internal/testing/quick/Quick_testFailure.hx line 6 column 20)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestFailure
@@ -36,7 +36,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testRecursive.Quick_testRecursive_Fields_.testRecursive (./stdgo/_internal/testing/quick/Quick_testRecursive.hx line 7 column 9)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestRecursive
@@ -46,7 +46,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testEmptyStruct.Quick_testEmptyStruct_Fields_.testEmptyStruct (./stdgo/_internal/testing/quick/Quick_testEmptyStruct.hx line 6 column 9)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestEmptyStruct
@@ -56,7 +56,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testMutuallyRecursive.Quick_testMutuallyRecursive_Fields_.testMutuallyRecursive (./stdgo/_internal/testing/quick/Quick_testMutuallyRecursive.hx line 6 column 9)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestMutuallyRecursive
@@ -66,7 +66,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testNonZeroSliceAndMap.Quick_testNonZeroSliceAndMap_Fields_.testNonZeroSliceAndMap (./stdgo/_internal/testing/quick/Quick_testNonZeroSliceAndMap.hx line 7 column 20)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestNonZeroSliceAndMap
@@ -76,7 +76,7 @@ Exception: not implemented numOut
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.quick._Quick_testInt64.Quick_testInt64_Fields_.testInt64 (./stdgo/_internal/testing/quick/Quick_testInt64.hx line 15 column 9)
 Called from stdgo._internal.testing.quick._Quick_check.Quick_check_Fields_.check (./stdgo/_internal/testing/quick/Quick_check.hx line 10 column 13)
-Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1412 column 10)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 1413 column 10)
 Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./stdgo/_internal/internal/reflect/Reflect.hx line 961 column 3)
 
 -- FAIL: TestInt64

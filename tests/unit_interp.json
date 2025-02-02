@@ -149,5 +149,8 @@
  "interp|structembedfield",
  "interp|newnilstructkeymap0",
  "interp|newnilstructkeymap1",
- "interp|newniluinptrkeymap0"
+ "interp|newniluinptrkeymap0",
+ "interp|base64DecoderIssue3577",
+ "interp|base64chan",
+ "interp|chantimer"
 ]

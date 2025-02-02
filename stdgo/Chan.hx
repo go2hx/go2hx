@@ -13,7 +13,7 @@ import sys.thread.Thread;
     length,
     capacity,
     __isSend__,
-    _isGet__,
+    __isGet__,
     __smartGet__,
     __get__,
     __send__,

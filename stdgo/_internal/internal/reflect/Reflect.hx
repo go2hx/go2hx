@@ -1325,8 +1325,8 @@ class _Type {
 	static public function size(t:_Type):GoUIntptr {
 		final k = t.kind();
 		if (k == KindType.invalid)
-			return 0;
-		return switch k {
+			return new stdgo.GoUIntptr(0);
+		final addr = switch k {
 			case KindType.bool, KindType.int8, KindType.uint8: 1;
 			case KindType.int16, KindType.uint16: 2;
 			case KindType.int32, KindType.uint32, KindType.int, KindType.uint: 4;
@@ -1343,9 +1343,9 @@ class _Type {
 			case KindType.array:
 				final gt = t._common();
 				var gt = getUnderlying(gt);
-				return switch gt {
+				switch gt {
 					case arrayType(_.get() => elem, len):
-						((new _Type(elem).size().toBasic() * len) : GoUIntptr);
+						(new _Type(elem).size().toBasic() * len);
 					default:
 						0;
 				}
@@ -1355,6 +1355,7 @@ class _Type {
 			default:
 				throw "unimplemented: size of type: " + k.string();
 		}
+		return new stdgo.GoUIntptr(addr);
 	}
 
 	static public function pkgPath(t:_Type):GoString

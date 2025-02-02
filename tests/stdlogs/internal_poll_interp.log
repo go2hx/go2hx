@@ -1,18 +1,55 @@
-[30;41m ERROR [0m ./_internal/internal/poll_test/Poll_test_testMutexCloseUnblock.hx:36: characters 38-47
+=== RUN  TestReadError
+-- PASS: TestReadError
 
- 36 | [2m                if (_c != null && _c.[0m[1m__isGet__[0m[2m()) {[0m
-    |                                      [31m^^^^^^^^^[0m
-    | stdgo.Chan<Bool> has no field __isGet__
+=== RUN  TestMutexLock
+Exception: XFDMutex:internal.poll.incref is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexLock.Poll_test_testMutexLock_Fields_.testMutexLock (./_internal/internal/poll_test/Poll_test_testMutexLock.hx line 14 column 23)
+Called from stdgo._internal.internal.poll.XFDMutex_static_extension.incref (./stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 17 column 110)
 
-[30;41m ERROR [0m ./_internal/internal/poll_test/Poll_test_testMutexCloseUnblock.hx:59: characters 46-55
+-- FAIL: TestMutexLock
 
- 59 | [2m                        if (_c != null && _c.[0m[1m__isGet__[0m[2m()) {[0m
-    |                                              [31m^^^^^^^^^[0m
-    | stdgo.Chan<Bool> has no field __isGet__
+=== RUN  TestMutexClose
+Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexClose.Poll_test_testMutexClose_Fields_.testMutexClose (./_internal/internal/poll_test/Poll_test_testMutexClose.hx line 14 column 23)
+Called from stdgo._internal.internal.poll.XFDMutex_static_extension.increfAndClose (./stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 14 column 118)
 
-[30;41m ERROR [0m ./_internal/internal/poll_test/Poll_test_testMutexCloseUnblock.hx:65: characters 251-260
+-- FAIL: TestMutexClose
 
- 65 | [2m                        } else if (stdgo._internal.time.Time_after.after((10000000000i64 : stdgo._internal.time.Time_Duration.Duration)) != null && stdgo._internal.time.Time_after.after((10000000000i64 : stdgo._internal.time.Time_Duration.Duration)).[0m[1m__isGet__[0m[2m()) {[0m
-    |                                                                                                                                                                                                                                                           [31m^^^^^^^^^[0m
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __isGet__
+=== RUN  TestMutexCloseUnblock
+Exception: XFDMutex:internal.poll.rWLock is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexCloseUnblock.Poll_test_testMutexCloseUnblock_Fields_.testMutexCloseUnblock (./_internal/internal/poll_test/Poll_test_testMutexCloseUnblock.hx line 15 column 18)
+Called from stdgo._internal.internal.poll.XFDMutex_static_extension.rWLock (./stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 8 column 122)
+
+-- FAIL: TestMutexCloseUnblock
+
+=== RUN  TestMutexPanic
+Exception: XFDMutex:internal.poll.incref is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexPanic.Poll_test_testMutexPanic_Fields_.testMutexPanic (./_internal/internal/poll_test/Poll_test_testMutexPanic.hx line 110 column 18)
+Called from stdgo._internal.internal.poll.XFDMutex_static_extension.incref (./stdgo/_internal/internal/poll/Poll_XFDMutex_static_extension.hx line 17 column 110)
+
+-- FAIL: TestMutexPanic
+
+=== RUN  TestMutexOverflowPanic
+-- PASS: TestMutexOverflowPanic
+
+=== RUN  TestMutexStress
+Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testMutexStress.Poll_test_testMutexStress_Fields_.testMutexStress (./_internal/internal/poll_test/Poll_test_testMutexStress.hx line 273 column 21)
+
+-- FAIL: TestMutexStress
+
+=== RUN  TestRead
+-- PASS: TestRead
+
+=== RUN  TestConsume
+Exception: Cannot call null
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testConsume.Poll_test_testConsume_Fields_.testConsume (./_internal/internal/poll_test/Poll_test_testConsume.hx line 16 column 13)
+
+-- FAIL: TestConsume
 

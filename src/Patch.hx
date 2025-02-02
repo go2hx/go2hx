@@ -322,7 +322,7 @@ final list = [
 				t._when += t._period;
 				_startTimer(t);
 			}
-			stdgo.Go.routine(() -> t._f(t._arg, 0));
+			stdgo.Go.routine(() -> t._f(t._arg, new stdgo.GoUIntptr(0)));
 		};
 		t._pp = new stdgo.GoUIntptr(timer);
 	},
@@ -519,6 +519,31 @@ final list = [
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,*/
+	    // Seek sets the offset for the next Read or Write on file to offset, interpreted
+    // according to whence: 0 means relative to the origin of the file, 1 means
+    // relative to the current offset, and 2 means relative to the end.
+    // It returns the new offset and an error, if any.
+    // The behavior of Seek on a file opened with O_APPEND is not specified.
+    // Seek(offset int64, whence int) (ret int64, err error) {
+	"os.File:seek" => macro {
+		// seek(p:Int, pos:FileSeek):Void
+		// SeekBegin, SeekCur, SeekEnd
+		@:define("(sys || hxnodejs)") {
+			final input:sys.io.FileInput = cast @:privateAccess _f._input;
+			final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
+			@:privateAccess input.seek(_offset.toBasic().low, pos);
+			return { _0 : input.tell(), _1 : null };
+		}
+		trace("not supported on non sys target");
+		return {_0: 0, _1: null};
+	},
+	"os.File:read" => macro {
+		final bytes = @:privateAccess _f._input.read(_b.length);
+		for (i in 0...bytes.length) {
+			_b[i] = bytes.get(i);
+		}
+		return {_0: bytes.length, _1: null};
+	},
 	"os:create" => macro {
 		//O_RDWR|O_CREATE|O_TRUNC
 		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);

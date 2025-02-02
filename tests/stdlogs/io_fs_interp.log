@@ -53,3 +53,34 @@ Try 'chmod --help' for more information.
 
  8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
    |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Uncaught exception rq63cou27p/a/bad: Permission denied
+
+    11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
+       |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       | Called from here
+
+       | Called from here
+
+    23 | [2m        deleteRecursively([0m[1m_path[0m[2m);[0m
+       |                           [31m^^^^^[0m
+       | Called from here
+
+   [30;41m -> [0m ./stdgo/_internal/testing/Testing_T_common_static_extension.hx:21: characters 17-71
+
+    21 | [2m                [0m[1mstdgo._internal.os.Os_removeAll.removeAll(_c._tempDir)[0m[2m;[0m
+       |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       | Called from here
+
+   [30;41m -> [0m ./stdgo/_internal/testing/Testing_M_static_extension.hx:45: characters 17-20
+
+    45 | [2m                [0m[1mf()[0m[2m;[0m
+       |                 [31m^^^[0m
+       | Called from here
+
+   [30;41m -> [0m ./_internal/io/fs_dot_test/Fs_dot_test.hx:7: characters 50-58
+
+     7 | [2m        #if (sys || hxnodejs) Sys.exit(@:check2r [0m[1m_m.run()[0m[2m) #else null #end;[0m
+       |                                                  [31m^^^^^^^^[0m
+       | Called from here
+
+got directories [.], want [. a a/bad a/next]

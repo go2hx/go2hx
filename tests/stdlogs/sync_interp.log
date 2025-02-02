@@ -308,7 +308,13 @@
 
 [30;41m ERROR [0m ./_internal/sync_test/Sync_test__testPool.hx:67: characters 34-38
 
+  67 | [2m                    _v_5006638 = [0m[1m_new[0m[2m(_internal.sync_test.Sync_test__string._string);[0m
+     |                                  [31m^^^^[0m
+     | Unknown identifier : _new
 
+[30;41m ERROR [0m ./_internal/sync_test/Sync_test__testPool.hx:69: characters 82-94
+
+  69 | [2m                        stdgo._internal.sync.atomic_.Atomic__addUint32.addUint32([0m[1m_fin_5006591[0m[2m, (1u32 : stdgo.GoUInt32));[0m
      |                                                                                  [31m^^^^^^^^^^^^[0m
      | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
      | For function argument '_addr'
@@ -327,7 +333,8 @@
 
      [30;41m -> [0m ./_internal/sync_test/Sync_test__testPool.hx:68: lines 68-70
 
-
+       68 | [2m                    stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(_v_5006638), [0m[1mstdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {[0m
+       69 | [1m                        stdgo._internal.sync.atomic_.Atomic__addUint32.addUint32(_fin_5006591, (1u32 : stdgo.GoUInt32));[0m
        70 | [1m                    })[0m[2m);[0m
           |
           | Called from here
@@ -336,7 +343,7 @@
 
 [30;41m ERROR [0m ./_internal/sync_test/Sync_test__testPool.hx:108: characters 100-112
 
-
+ 108 | [2m                        _fin1_5006596 = stdgo._internal.sync.atomic_.Atomic__loadUint32.loadUint32([0m[1m_fin_5006591[0m[2m);[0m
      |                                                                                                    [31m^^^^^^^^^^^^[0m
      | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
      | For function argument '_addr'

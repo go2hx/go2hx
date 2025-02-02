@@ -54,7 +54,6 @@ class ChanData<T> {
     var mutex = new Mutex();
     var sendBool = false;
     var getBool = false;
-    var count = 0;
     var buffered:Bool = false;
 
     public var length(get, never):GoInt;
@@ -83,9 +82,10 @@ class ChanData<T> {
     }
 
     public function __isGet__():Bool {
+        final b = getBool || amount > 0;
         if (debug)
-            trace("__isGet__ " + getBool);
-        return getBool;
+            trace("__isGet__ " + b, amount);
+        return b;
     }
 
     public function __smartGet__():{value:T, ok:Bool} {

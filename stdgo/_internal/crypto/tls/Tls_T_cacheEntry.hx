@@ -37,9 +37,9 @@ import stdgo._internal.crypto.subtle.Subtle;
 import stdgo._internal.encoding.binary.Binary;
 import _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte;
 @:structInit @:using(stdgo._internal.crypto.tls.Tls_T_cacheEntry_static_extension.T_cacheEntry_static_extension) class T_cacheEntry {
-    public var _refs : _internal.sync.atomic_.Atomic__Int64_.Int64_ = ({} : _internal.sync.atomic_.Atomic__Int64_.Int64_);
+    public var _refs : stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_ = ({} : stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_);
     public var _cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
-    public function new(?_refs:_internal.sync.atomic_.Atomic__Int64_.Int64_, ?_cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>) {
+    public function new(?_refs:stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_, ?_cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>) {
         if (_refs != null) this._refs = _refs;
         if (_cert != null) this._cert = _cert;
     }

@@ -33,10 +33,10 @@ import stdgo._internal.encoding.json.Json;
     @:tdfield
     static public function visitFuncs( _s:stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>, _f:stdgo._internal.internal.coverage.encodecounter.Encodecounter_CounterVisitorFn.CounterVisitorFn):stdgo.Error {
         @:recv var _s:stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState> = _s;
-        var _sd:stdgo.Slice<_internal.sync.atomic_.Atomic__Uint32.Uint32> = (null : stdgo.Slice<_internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        var _sd:stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32> = (null : stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
         var _tcounters:stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
-        var _bufHdr = ((stdgo.Go.toInterface((stdgo.Go.setRef(_sd) : stdgo.Ref<stdgo.Slice<_internal.sync.atomic_.Atomic__Uint32.Uint32>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }, { name : "len", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "cap", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader>);
-        var _rdCounters = function(_actrs:stdgo.Slice<_internal.sync.atomic_.Atomic__Uint32.Uint32>, _ctrs:stdgo.Slice<stdgo.GoUInt32>):stdgo.Slice<stdgo.GoUInt32> {
+        var _bufHdr = ((stdgo.Go.toInterface((stdgo.Go.setRef(_sd) : stdgo.Ref<stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "data", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }, { name : "len", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }, { name : "cap", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.reflect.Reflect_SliceHeader.SliceHeader>);
+        var _rdCounters = function(_actrs:stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>, _ctrs:stdgo.Slice<stdgo.GoUInt32>):stdgo.Slice<stdgo.GoUInt32> {
             _ctrs = (_ctrs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt32>);
             for (_i => _ in _actrs) {
                 _ctrs = (_ctrs.__append__(@:check2 _actrs[(_i : stdgo.GoInt)].load()));
@@ -62,7 +62,7 @@ var _nCtrs = (@:check2 _sd[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)].load() : stdg
 var _pkgId = (@:check2 _sd[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].load() : stdgo.GoUInt32);
 var _funcId = (@:check2 _sd[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)].load() : stdgo.GoUInt32);
 var _cst = (_i + (3 : stdgo.GoInt) : stdgo.GoInt);
-var _counters = (_sd.__slice__(_cst, (_cst + (_nCtrs : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<_internal.sync.atomic_.Atomic__Uint32.Uint32>);
+var _counters = (_sd.__slice__(_cst, (_cst + (_nCtrs : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
 var _isLive = (false : Bool);
 {
                         var _i = (0 : stdgo.GoInt);

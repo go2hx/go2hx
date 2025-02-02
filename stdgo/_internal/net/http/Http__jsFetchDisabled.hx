@@ -1,2 +1,0 @@
-package stdgo._internal.net.http;
-var _jsFetchDisabled : Bool = ((stdgo._internal.syscall.js.Js_global.global().get(("process" : stdgo.GoString)).type() == (6 : stdgo._internal.syscall.js.Js_Type_.Type_)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix((stdgo._internal.syscall.js.Js_global.global().get(("process" : stdgo.GoString)).get(("argv0" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__(), ("node" : stdgo.GoString)) : Bool);

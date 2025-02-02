@@ -1,2 +1,0 @@
-package stdgo._internal.net.http;
-var _nopCloserWriterToType : stdgo._internal.reflect.Reflect_Type_.Type_ = stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(({ reader : (null : stdgo._internal.io.Io_Reader.Reader), writerTo : (null : stdgo._internal.io.Io_WriterTo.WriterTo) } : stdgo._internal.net.http.Http_T__struct_2.T__struct_2)))));

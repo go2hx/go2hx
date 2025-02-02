@@ -1,6 +1,6 @@
 package stdgo._internal.sync;
 import stdgo._internal.unsafe.Unsafe;
-import _internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
 import stdgo._internal.internal.race.Race;
 import stdgo._internal.runtime.Runtime;
 function _indexLocal(_l:stdgo._internal.unsafe.Unsafe.UnsafePointer, _i:stdgo.GoInt):stdgo.Ref<stdgo._internal.sync.Sync_T_poolLocal.T_poolLocal> {

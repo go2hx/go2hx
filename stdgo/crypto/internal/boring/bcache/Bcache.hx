@@ -1,12 +1,12 @@
 package stdgo.crypto.internal.boring.bcache;
 @:structInit @:using(stdgo.crypto.internal.boring.bcache.Bcache.Cache_static_extension) abstract Cache(stdgo._internal.crypto.internal.boring.bcache.Bcache_Cache.Cache) from stdgo._internal.crypto.internal.boring.bcache.Bcache_Cache.Cache to stdgo._internal.crypto.internal.boring.bcache.Bcache_Cache.Cache {
-    public var _ptable(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_cacheTable<Dynamic, Dynamic>>;
-    function get__ptable():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_cacheTable<Dynamic, Dynamic>> return this._ptable;
-    function set__ptable(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_cacheTable<Dynamic, Dynamic>>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_cacheTable<Dynamic, Dynamic>> {
+    public var _ptable(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheTable.T_cacheTable<Dynamic, Dynamic>>;
+    function get__ptable():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheTable.T_cacheTable<Dynamic, Dynamic>> return this._ptable;
+    function set__ptable(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheTable.T_cacheTable<Dynamic, Dynamic>>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheTable.T_cacheTable<Dynamic, Dynamic>> {
         this._ptable = v;
         return v;
     }
-    public function new(?_ptable:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_cacheTable<Dynamic, Dynamic>>) this = new stdgo._internal.crypto.internal.boring.bcache.Bcache_Cache.Cache(_ptable);
+    public function new(?_ptable:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheTable.T_cacheTable<Dynamic, Dynamic>>) this = new stdgo._internal.crypto.internal.boring.bcache.Bcache_Cache.Cache(_ptable);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -17,9 +17,9 @@ package stdgo.crypto.internal.boring.bcache;
         this._k = (v : stdgo.Ref<Dynamic>);
         return v;
     }
-    public var _v(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>;
-    function get__v():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic> return this._v;
-    function set__v(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic> {
+    public var _v(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>;
+    function get__v():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic> return this._v;
+    function set__v(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic> {
         this._v = v;
         return v;
     }
@@ -29,7 +29,7 @@ package stdgo.crypto.internal.boring.bcache;
         this._next = (v : stdgo.Ref<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheEntry.T_cacheEntry<Dynamic, Dynamic>>);
         return v;
     }
-    public function new(?_k:Dynamic, ?_v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>, ?_next:T_cacheEntry<Dynamic, Dynamic>) this = new stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheEntry.T_cacheEntry((_k : stdgo.Ref<Dynamic>), _v, (_next : stdgo.Ref<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheEntry.T_cacheEntry<Dynamic, Dynamic>>));
+    public function new(?_k:Dynamic, ?_v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>, ?_next:T_cacheEntry<Dynamic, Dynamic>) this = new stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheEntry.T_cacheEntry((_k : stdgo.Ref<Dynamic>), _v, (_next : stdgo.Ref<stdgo._internal.crypto.internal.boring.bcache.Bcache_T_cacheEntry.T_cacheEntry<Dynamic, Dynamic>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

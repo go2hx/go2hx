@@ -1,36 +1,3 @@
 [30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:70: characters 21-63
 
-  70 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
-
-[30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:89: characters 21-63
-
-  89 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
-
-[30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:100: characters 21-63
-
- 100 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
-
-[30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:133: characters 21-63
-
- 133 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
-
-[30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:157: characters 21-63
-
- 157 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
-
-[30;41m ERROR [0m ./_internal/image_test/Image_test_testDecode.hx:167: characters 21-63
-
- 167 | [2m                    [0m[1m_internal.image_test.Image_test__i_5256254[0m[2m._i_5256254++;[0m
-     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : _internal.image_test.Image_test__i_5256254
 

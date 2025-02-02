@@ -17,13 +17,13 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.expvar.Expvar.Float__static_extension) abstract Float_(stdgo._internal.expvar.Expvar_Float_.Float_) from stdgo._internal.expvar.Expvar_Float_.Float_ to stdgo._internal.expvar.Expvar_Float_.Float_ {
-    public var _f(get, set) : _internal.sync.atomic_.Atomic__Uint64.Uint64;
-    function get__f():_internal.sync.atomic_.Atomic__Uint64.Uint64 return this._f;
-    function set__f(v:_internal.sync.atomic_.Atomic__Uint64.Uint64):_internal.sync.atomic_.Atomic__Uint64.Uint64 {
+    public var _f(get, set) : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64;
+    function get__f():stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 return this._f;
+    function set__f(v:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 {
         this._f = v;
         return v;
     }
-    public function new(?_f:_internal.sync.atomic_.Atomic__Uint64.Uint64) this = new stdgo._internal.expvar.Expvar_Float_.Float_(_f);
+    public function new(?_f:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64) this = new stdgo._internal.expvar.Expvar_Float_.Float_(_f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -68,13 +68,13 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.expvar.Expvar.String__static_extension) abstract String_(stdgo._internal.expvar.Expvar_String_.String_) from stdgo._internal.expvar.Expvar_String_.String_ to stdgo._internal.expvar.Expvar_String_.String_ {
-    public var _s(get, set) : _internal.sync.atomic_.Atomic__Value.Value;
-    function get__s():_internal.sync.atomic_.Atomic__Value.Value return this._s;
-    function set__s(v:_internal.sync.atomic_.Atomic__Value.Value):_internal.sync.atomic_.Atomic__Value.Value {
+    public var _s(get, set) : stdgo._internal.sync.atomic_.Atomic__Value.Value;
+    function get__s():stdgo._internal.sync.atomic_.Atomic__Value.Value return this._s;
+    function set__s(v:stdgo._internal.sync.atomic_.Atomic__Value.Value):stdgo._internal.sync.atomic_.Atomic__Value.Value {
         this._s = v;
         return v;
     }
-    public function new(?_s:_internal.sync.atomic_.Atomic__Value.Value) this = new stdgo._internal.expvar.Expvar_String_.String_(_s);
+    public function new(?_s:stdgo._internal.sync.atomic_.Atomic__Value.Value) this = new stdgo._internal.expvar.Expvar_String_.String_(_s);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

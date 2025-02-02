@@ -1997,9 +1997,9 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_GobDecoder.GobDecoder;
         this._encInit = v;
         return v;
     }
-    public var _encoder(get, set) : _internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_encEngine>;
-    function get__encoder():_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_encEngine> return this._encoder;
-    function set__encoder(v:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_encEngine>):_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_encEngine> {
+    public var _encoder(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine>;
+    function get__encoder():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine> return this._encoder;
+    function set__encoder(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine> {
         this._encoder = v;
         return v;
     }
@@ -2009,7 +2009,7 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_GobDecoder.GobDecoder;
         this._wire = v;
         return v;
     }
-    public function new(?_id:T_typeId, ?_encInit:stdgo._internal.sync.Sync_Mutex.Mutex, ?_encoder:_internal.sync.atomic_.Atomic__Pointer_.Pointer_<T_encEngine>, ?_wire:T_wireType) this = new stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo(_id, _encInit, _encoder, _wire);
+    public function new(?_id:T_typeId, ?_encInit:stdgo._internal.sync.Sync_Mutex.Mutex, ?_encoder:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.encoding.gob.Gob_T_encEngine.T_encEngine>, ?_wire:T_wireType) this = new stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo(_id, _encInit, _encoder, _wire);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

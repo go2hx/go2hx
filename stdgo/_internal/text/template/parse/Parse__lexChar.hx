@@ -6,8 +6,8 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.unicode.utf8.Utf8;
 import stdgo._internal.strconv.Strconv;
 function _lexChar(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):stdgo._internal.text.template.parse.Parse_T_stateFn.T_stateFn {
-        var loopBreak = false;
         var _r_3643687:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

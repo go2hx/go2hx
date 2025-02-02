@@ -825,15 +825,15 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_T_corpusEntry.T_corpusEn
         this._bench = v;
         return v;
     }
-    public var _hasSub(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__hasSub():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._hasSub;
-    function set__hasSub(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _hasSub(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__hasSub():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._hasSub;
+    function set__hasSub(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._hasSub = v;
         return v;
     }
-    public var _cleanupStarted(get, set) : _internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__cleanupStarted():_internal.sync.atomic_.Atomic__Bool_.Bool_ return this._cleanupStarted;
-    function set__cleanupStarted(v:_internal.sync.atomic_.Atomic__Bool_.Bool_):_internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _cleanupStarted(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
+    function get__cleanupStarted():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._cleanupStarted;
+    function set__cleanupStarted(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
         this._cleanupStarted = v;
         return v;
     }
@@ -933,7 +933,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_T_corpusEntry.T_corpusEn
         this._tempDirSeq = (v : stdgo.GoInt32);
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_output:Array<std.UInt>, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_helperNames:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_cleanups:Array<() -> Void>, ?_cleanupName:String, ?_cleanupPc:Array<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:T_chattyPrinter, ?_bench:Bool, ?_hasSub:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_cleanupStarted:_internal.sync.atomic_.Atomic__Bool_.Bool_, ?_raceErrors:StdTypes.Int, ?_runner:String, ?_isParallel:Bool, ?_parent:T_common, ?_level:StdTypes.Int, ?_creator:Array<stdgo.GoUIntptr>, ?_name:String, ?_start:stdgo._internal.time.Time_Time.Time, ?_duration:stdgo._internal.time.Time_Duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:Array<T_>, ?_tempDirMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_tempDir:String, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:StdTypes.Int, ?failCount) this = new stdgo._internal.testing.Testing_T_common.T_common(
+    public function new(?_mu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_output:Array<std.UInt>, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_helperNames:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_T_discard.T_discard>, ?_cleanups:Array<() -> Void>, ?_cleanupName:String, ?_cleanupPc:Array<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:T_chattyPrinter, ?_bench:Bool, ?_hasSub:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_cleanupStarted:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_raceErrors:StdTypes.Int, ?_runner:String, ?_isParallel:Bool, ?_parent:T_common, ?_level:StdTypes.Int, ?_creator:Array<stdgo.GoUIntptr>, ?_name:String, ?_start:stdgo._internal.time.Time_Time.Time, ?_duration:stdgo._internal.time.Time_Duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:Array<T_>, ?_tempDirMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_tempDir:String, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:StdTypes.Int, ?failCount) this = new stdgo._internal.testing.Testing_T_common.T_common(
 _mu,
 ([for (i in _output) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 _w,

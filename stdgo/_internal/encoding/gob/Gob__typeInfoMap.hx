@@ -20,4 +20,4 @@ import stdgo._internal.runtime.Runtime;
 import stdgo._internal.unicode.utf8.Utf8;
 import stdgo._internal.unicode.Unicode;
 import stdgo._internal.encoding.binary.Binary;
-var _typeInfoMap : _internal.sync.atomic_.Atomic__Value.Value = ({} : _internal.sync.atomic_.Atomic__Value.Value);
+var _typeInfoMap : stdgo._internal.sync.atomic_.Atomic__Value.Value = ({} : stdgo._internal.sync.atomic_.Atomic__Value.Value);

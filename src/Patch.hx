@@ -298,7 +298,7 @@ final list = [
 	"time:_stopTimer" => macro {
 		final t = _0;
 		if (t._pp != new stdgo.GoUIntptr(0)) {
-			final timer:haxe.Timer = t._pp;
+			final timer:haxe.Timer = t._pp.toDynamic();
 			timer.stop();
 		}
 		final wasActive = t._status == 1;

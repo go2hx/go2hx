@@ -21,6 +21,9 @@ abstract GoUIntptr(Dynamic) {
 	public inline function toBasic():Int
 		return address().toBasic();
 
+	public inline function toDynamic():Dynamic
+		return this;
+
 	@:to inline function toInt64():GoInt64
 		return address();
 

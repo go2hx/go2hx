@@ -209,10 +209,10 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 === RUN  TestBug3486
 Exception: :runtime.gOROOT is not yet implemented
 Called from stdgo._internal.runtime._Runtime_gOROOT.$Runtime_gOROOT_Fields_.gOROOT (stdgo/_internal/runtime/Runtime_gOROOT.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_.~_findGOROOT.0 (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 19)
-Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 87)
-Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_._findGOROOT (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 18)
-Called from stdgo._internal.internal.testenv._Testenv_gOROOT.$Testenv_gOROOT_Fields_.gOROOT (stdgo/_internal/internal/testenv/Testenv_gOROOT.hx line 18)
+Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_.~_findGOROOT.0 (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 4)
+Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 83)
+Called from stdgo._internal.internal.testenv._Testenv__findGOROOT.$Testenv__findGOROOT_Fields_._findGOROOT (stdgo/_internal/internal/testenv/Testenv__findGOROOT.hx line 3)
+Called from stdgo._internal.internal.testenv._Testenv_gOROOT.$Testenv_gOROOT_Fields_.gOROOT (stdgo/_internal/internal/testenv/Testenv_gOROOT.hx line 3)
 Called from _internal.path.filepath_test._Filepath_test_testBug3486.$Filepath_test_testBug3486_Fields_.testBug3486 (_internal/path/filepath_test/Filepath_test_testBug3486.hx line 18)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 7)
@@ -252,7 +252,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]
-Uncaught exception: SysError(Failed to read directory 7ktedrvdf3/a/bad)
+Uncaught exception: SysError(Failed to read directory 3qyi32dux6/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:8)
 Called from stdgo._internal.os._Os_removeAll.$Os_removeAll_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeAll.hx:11)

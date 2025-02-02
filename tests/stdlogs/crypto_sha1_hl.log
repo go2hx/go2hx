@@ -11,16 +11,11 @@
 -- PASS: TestBlockSize
 
 === RUN  TestBlockGeneric
-Exception: Value:syscall.js.new_ is not yet implemented
-Called from stdgo._internal.syscall.js.$Value_static_extension.new_ (stdgo/_internal/syscall/js/Js_Value_static_extension.hx line 29)
-Called from stdgo._internal.crypto.rand._Rand__getRandom.$Rand__getRandom_Fields_._getRandom (stdgo/_internal/crypto/rand/Rand__getRandom.hx line 9)
-Called from stdgo._internal.crypto.rand._Rand__batched.$Rand__batched_Fields_.~_batched.0 (stdgo/_internal/crypto/rand/Rand__batched.hx line 16)
-Called from stdgo._internal.crypto.rand.$T_reader_static_extension.read (stdgo/_internal/crypto/rand/Rand_T_reader_static_extension.hx line 14)
-Called from stdgo._internal.crypto.rand.T_reader_asInterface.read (stdgo/_internal/crypto/rand/Rand_T_reader_asInterface.hx line 11)
-Called from stdgo._internal.io._Io_readAtLeast.$Io_readAtLeast_Fields_.readAtLeast (stdgo/_internal/io/Io_readAtLeast.hx line 16)
-Called from stdgo._internal.io._Io_readFull.$Io_readFull_Fields_.readFull (stdgo/_internal/io/Io_readFull.hx line 6)
-Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 11)
-Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.$Sha1_testBlockGeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testBlockGeneric.hx line 21)
+Exception: Null access .read
+Called from stdgo._internal.io._Io_readAtLeast.$Io_readAtLeast_Fields_.readAtLeast (stdgo/_internal/io/Io_readAtLeast.hx line 15)
+Called from stdgo._internal.io._Io_readFull.$Io_readFull_Fields_.readFull (stdgo/_internal/io/Io_readFull.hx line 5)
+Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 5)
+Called from stdgo._internal.crypto.sha1._Sha1_testBlockGeneric.$Sha1_testBlockGeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha1/Sha1_testBlockGeneric.hx line 12)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.crypto.sha1_dot_test._Sha1_dot_test.$Sha1_dot_test_Fields_.main (_internal/crypto/sha1_dot_test/Sha1_dot_test.hx line 8)
 

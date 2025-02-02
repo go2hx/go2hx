@@ -14,10 +14,10 @@ Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Field
 === RUN  TestExecErrPermutedFds
 Exception: :testing.testing is not yet implemented
 Called from stdgo._internal.testing._Testing_testing.$Testing_testing_Fields_.testing (stdgo/_internal/testing/Testing_testing.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv__tryExec.$Testenv__tryExec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryExec.hx line 24)
-Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.$Testenv_mustHaveExec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 19)
-Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 87)
-Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.$Testenv_mustHaveExec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 18)
+Called from stdgo._internal.internal.testenv._Testenv__tryExec.$Testenv__tryExec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryExec.hx line 9)
+Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.$Testenv_mustHaveExec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 4)
+Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_Once_static_extension.hx line 83)
+Called from stdgo._internal.internal.testenv._Testenv_mustHaveExec.$Testenv_mustHaveExec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_mustHaveExec.hx line 3)
 Called from _internal.syscall_test._Syscall_test_testExecErrPermutedFds.$Syscall_test_testExecErrPermutedFds_Fields_.testExecErrPermutedFds (_internal/syscall_test/Syscall_test_testExecErrPermutedFds.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
 Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Fields_.main (_internal/syscall_dot_test/Syscall_dot_test.hx line 7)

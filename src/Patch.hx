@@ -296,8 +296,8 @@ final list = [
 	},
 	"time:forceUSPacificForTesting" => macro {},
 	"time:_stopTimer" => macro {
-		final t:Dynamic = _0;
-		if ((t._pp : stdgo.GoUIntptr) != (0 : stdgo.GoUIntptr)) {
+		final t = _0;
+		if (t._pp != new stdgo.GoUIntptr(0)) {
 			final timer:haxe.Timer = t._pp;
 			timer.stop();
 		}
@@ -324,7 +324,7 @@ final list = [
 			}
 			stdgo.Go.routine(() -> t._f(t._arg, 0));
 		};
-		t._pp = (timer : stdgo.GoUIntptr);
+		t._pp = new stdgo.GoUIntptr(timer);
 	},
 	"time:_resetTimer" => macro {
 		final t = _0;
@@ -1015,7 +1015,7 @@ final list = [
 				case stdgo._internal.internal.reflect.Reflect.KindType.uint64:
 					(value : stdgo.GoUInt64);
 				case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-					(value : stdgo.GoUIntptr);
+					new stdgo.GoUIntptr(value);
 				default:
 					throw new $newValueError("reflect.Value.Uint", _v.kind());
 			}

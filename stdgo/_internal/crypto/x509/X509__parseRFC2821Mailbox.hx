@@ -30,13 +30,13 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.time.Time;
 function _parseRFC2821Mailbox(_in:stdgo.GoString):{ var _0 : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox; var _1 : Bool; } {
         var _mailbox = ({} : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox), _ok = false;
+        var nextCharBreak = false;
+        var _c_5596732:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var quotedStringBreak = false;
         var _localPartBytes_5596103:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _ok_5599251:Bool = false;
         var _twoDots_5598824:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _c_5597769:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var nextCharBreak = false;
-        var _c_5596732:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

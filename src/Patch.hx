@@ -1731,6 +1731,7 @@ final skipTests = [
 	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
+	"bytes_test:TestMixedReadsAndWrites" => ["js"], // randomly causes errors in max call stack depth uses rand.Intn in the tests so it is random
 	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)
 	"strings_test:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp", "js"],

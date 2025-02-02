@@ -6288,11 +6288,13 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					}
 				}
 				if (!exists) {
+					if (stdgoList.indexOf(toGoPath(info.global.path)) == -1) {
 					info.data.imports.push({
 						path: s.split("."),
 						doc: "",
 						alias: "",
 					});
+					}
 				}
 				x = macro $i{s + "_" + sel};
 			}

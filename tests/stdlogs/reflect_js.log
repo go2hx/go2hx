@@ -1,6 +1,6 @@
-[30;41m ERROR [0m stdgo/Go.macro.hx:563: characters 8-13
+[30;41m ERROR [0m stdgo/Go.macro.hx:564: characters 8-13
 
- 563 | [2m       [0m[1mthrow[0m[2m "invalid underlying type: " + t.type;[0m
+ 564 | [2m       [0m[1mthrow[0m[2m "invalid underlying type: " + t.type;[0m
      |        [31m^^^^^[0m
      | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
 
@@ -10,9 +10,9 @@
           |                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-     [30;41m -> [0m stdgo/Go.macro.hx:652: characters 11-31
+     [30;41m -> [0m stdgo/Go.macro.hx:653: characters 11-31
 
-      652 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
+      653 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
           |           [31m^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
@@ -28,9 +28,9 @@
           |                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-     [30;41m -> [0m stdgo/Go.macro.hx:585: characters 21-31
+     [30;41m -> [0m stdgo/Go.macro.hx:586: characters 21-31
 
-      585 | [2m  final valueNull = [0m[1mgen(false)[0m[2m;[0m
+      586 | [2m  final valueNull = [0m[1mgen(false)[0m[2m;[0m
           |                     [31m^^^^^^^^^^[0m
           | Called from here
 

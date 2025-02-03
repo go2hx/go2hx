@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_cgoTracebackArgPointer = stdgo._internal.runtime.Runtime_T_cgoTracebackArgPointer.T_cgoTracebackArgPointer;

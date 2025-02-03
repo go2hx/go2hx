@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testValueError___localname___Type4_7228Pointer = stdgo._internal.encoding.gob.Gob_T_testValueError___localname___Type4_7228Pointer.T_testValueError___localname___Type4_7228Pointer;

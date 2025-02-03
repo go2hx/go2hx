@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_semaProfileFlagsPointer = stdgo._internal.runtime.Runtime_T_semaProfileFlagsPointer.T_semaProfileFlagsPointer;

@@ -1,2 +1,0 @@
-package stdgo.internal.fuzz;
-typedef CoordinateFuzzingOptsPointer = stdgo._internal.internal.fuzz.Fuzz_CoordinateFuzzingOptsPointer.CoordinateFuzzingOptsPointer;

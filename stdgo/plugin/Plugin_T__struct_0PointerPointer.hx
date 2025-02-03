@@ -1,2 +1,0 @@
-package stdgo.plugin;
-typedef T__struct_0PointerPointer = stdgo._internal.plugin.Plugin_T__struct_0PointerPointer.T__struct_0PointerPointer;

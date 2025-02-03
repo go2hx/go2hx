@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testNullString___localname___T_41259Pointer = stdgo._internal.encoding.json.Json_T_testNullString___localname___T_41259Pointer.T_testNullString___localname___T_41259Pointer;

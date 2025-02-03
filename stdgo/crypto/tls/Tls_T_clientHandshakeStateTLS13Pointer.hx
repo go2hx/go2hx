@@ -1,2 +1,0 @@
-package stdgo.crypto.tls;
-typedef T_clientHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13Pointer.T_clientHandshakeStateTLS13Pointer;

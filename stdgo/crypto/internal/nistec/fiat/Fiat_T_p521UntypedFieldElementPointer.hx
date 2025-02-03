@@ -1,2 +1,0 @@
-package stdgo.crypto.internal.nistec.fiat;
-typedef T_p521UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_T_p521UntypedFieldElementPointer.T_p521UntypedFieldElementPointer;

@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef TypeAssertionErrorPointer = stdgo._internal.runtime.Runtime_TypeAssertionErrorPointer.TypeAssertionErrorPointer;

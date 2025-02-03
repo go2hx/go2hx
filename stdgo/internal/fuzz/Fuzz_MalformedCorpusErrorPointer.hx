@@ -1,2 +1,0 @@
-package stdgo.internal.fuzz;
-typedef MalformedCorpusErrorPointer = stdgo._internal.internal.fuzz.Fuzz_MalformedCorpusErrorPointer.MalformedCorpusErrorPointer;

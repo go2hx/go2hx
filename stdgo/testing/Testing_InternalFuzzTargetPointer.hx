@@ -1,2 +1,0 @@
-package stdgo.testing;
-typedef InternalFuzzTargetPointer = stdgo._internal.testing.Testing_InternalFuzzTargetPointer.InternalFuzzTargetPointer;

@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef PointerCycleIndirectPointer = stdgo._internal.encoding.json.Json_PointerCycleIndirectPointer.PointerCycleIndirectPointer;

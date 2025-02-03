@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_atomicSpanSetSpinePointerPointer = stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointerPointer.T_atomicSpanSetSpinePointerPointer;

@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_mapStringToStringDataPointer = stdgo._internal.encoding.json.Json_T_mapStringToStringDataPointer.T_mapStringToStringDataPointer;

@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testSliceOfCustomByte___localname___Uint8_47988Pointer = stdgo._internal.encoding.json.Json_T_testSliceOfCustomByte___localname___Uint8_47988Pointer.T_testSliceOfCustomByte___localname___Uint8_47988Pointer;

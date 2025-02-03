@@ -1,4 +1,0 @@
-package stdgo.encoding.json;
-class T_testEncoderErrorAndReuseEncodeState___localname___Data_1733_static_extension {
-
-}

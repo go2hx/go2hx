@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_atomicHeadTailIndexPointer = stdgo._internal.runtime.Runtime_T_atomicHeadTailIndexPointer.T_atomicHeadTailIndexPointer;

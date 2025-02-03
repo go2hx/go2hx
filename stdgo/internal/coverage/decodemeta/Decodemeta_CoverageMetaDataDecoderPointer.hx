@@ -1,2 +1,0 @@
-package stdgo.internal.coverage.decodemeta;
-typedef CoverageMetaDataDecoderPointer = stdgo._internal.internal.coverage.decodemeta.Decodemeta_CoverageMetaDataDecoderPointer.CoverageMetaDataDecoderPointer;

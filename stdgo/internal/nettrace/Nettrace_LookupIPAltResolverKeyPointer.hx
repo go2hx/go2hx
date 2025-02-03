@@ -1,2 +1,0 @@
-package stdgo.internal.nettrace;
-typedef LookupIPAltResolverKeyPointer = stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKeyPointer.LookupIPAltResolverKeyPointer;

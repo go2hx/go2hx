@@ -1,2 +1,0 @@
-package stdgo.reflect;
-typedef T_visibleFieldsWalkerPointer = stdgo._internal.reflect.Reflect_T_visibleFieldsWalkerPointer.T_visibleFieldsWalkerPointer;

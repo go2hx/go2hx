@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testEndToEnd___localname___T2_13762Pointer = stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T2_13762Pointer.T_testEndToEnd___localname___T2_13762Pointer;

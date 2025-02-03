@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_traceStackTablePointer = stdgo._internal.runtime.Runtime_T_traceStackTablePointer.T_traceStackTablePointer;

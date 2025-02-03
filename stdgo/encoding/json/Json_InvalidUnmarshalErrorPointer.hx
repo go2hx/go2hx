@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef InvalidUnmarshalErrorPointer = stdgo._internal.encoding.json.Json_InvalidUnmarshalErrorPointer.InvalidUnmarshalErrorPointer;

@@ -1,2 +1,0 @@
-package stdgo.crypto.internal.nistec.fiat;
-typedef T_p224NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_T_p224NonMontgomeryDomainFieldElement.T_p224NonMontgomeryDomainFieldElement;

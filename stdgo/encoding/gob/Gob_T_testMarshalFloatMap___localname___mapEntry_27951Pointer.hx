@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testMarshalFloatMap___localname___mapEntry_27951Pointer = stdgo._internal.encoding.gob.Gob_T_testMarshalFloatMap___localname___mapEntry_27951Pointer.T_testMarshalFloatMap___localname___mapEntry_27951Pointer;

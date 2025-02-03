@@ -1,2 +1,0 @@
-package stdgo.slices;
-typedef T_benchmarkEqualFunc_Large___localname___Large_2927 = stdgo._internal.slices.Slices_T_benchmarkEqualFunc_Large___localname___Large_2927.T_benchmarkEqualFunc_Large___localname___Large_2927;

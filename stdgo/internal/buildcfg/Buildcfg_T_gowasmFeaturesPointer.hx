@@ -1,2 +1,0 @@
-package stdgo.internal.buildcfg;
-typedef T_gowasmFeaturesPointer = stdgo._internal.internal.buildcfg.Buildcfg_T_gowasmFeaturesPointer.T_gowasmFeaturesPointer;

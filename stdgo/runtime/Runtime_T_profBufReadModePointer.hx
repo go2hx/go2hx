@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_profBufReadModePointer = stdgo._internal.runtime.Runtime_T_profBufReadModePointer.T_profBufReadModePointer;

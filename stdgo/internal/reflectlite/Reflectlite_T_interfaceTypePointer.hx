@@ -1,2 +1,0 @@
-package stdgo.internal.reflectlite;
-typedef T_interfaceTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_T_interfaceTypePointer.T_interfaceTypePointer;

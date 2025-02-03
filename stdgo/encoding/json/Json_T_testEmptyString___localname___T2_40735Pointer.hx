@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testEmptyString___localname___T2_40735Pointer = stdgo._internal.encoding.json.Json_T_testEmptyString___localname___T2_40735Pointer.T_testEmptyString___localname___T2_40735Pointer;

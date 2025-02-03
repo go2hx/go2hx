@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_renamedRenamedByteSlicePointer = stdgo._internal.encoding.json.Json_T_renamedRenamedByteSlicePointer.T_renamedRenamedByteSlicePointer;

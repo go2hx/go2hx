@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testByteKind___localname___byteKind_47617Pointer = stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617Pointer.T_testByteKind___localname___byteKind_47617Pointer;

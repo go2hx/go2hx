@@ -1,2 +1,0 @@
-package stdgo.context;
-typedef T_withoutCancelCtxPointer = stdgo._internal.context.Context_T_withoutCancelCtxPointer.T_withoutCancelCtxPointer;

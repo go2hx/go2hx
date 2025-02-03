@@ -1,2 +1,0 @@
-package stdgo.testing;
-typedef T__struct_1PointerPointer = stdgo._internal.testing.Testing_T__struct_1PointerPointer.T__struct_1PointerPointer;

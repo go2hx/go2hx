@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef GobTestIndirectArrayEncDecPointer = stdgo._internal.encoding.gob.Gob_GobTestIndirectArrayEncDecPointer.GobTestIndirectArrayEncDecPointer;

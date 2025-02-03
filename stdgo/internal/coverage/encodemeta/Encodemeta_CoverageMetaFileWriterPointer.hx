@@ -1,2 +1,0 @@
-package stdgo.internal.coverage.encodemeta;
-typedef CoverageMetaFileWriterPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriterPointer.CoverageMetaFileWriterPointer;

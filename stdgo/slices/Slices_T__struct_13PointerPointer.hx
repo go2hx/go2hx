@@ -1,2 +1,0 @@
-package stdgo.slices;
-typedef T__struct_13PointerPointer = stdgo._internal.slices.Slices_T__struct_13PointerPointer.T__struct_13PointerPointer;

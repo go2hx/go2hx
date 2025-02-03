@@ -1,2 +1,0 @@
-package stdgo.crypto.internal.randutil;
-typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0PointerPointer.T__struct_0PointerPointer;

@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testPtrTypeToType___localname___Type1_6414Pointer = stdgo._internal.encoding.gob.Gob_T_testPtrTypeToType___localname___Type1_6414Pointer.T_testPtrTypeToType___localname___Type1_6414Pointer;

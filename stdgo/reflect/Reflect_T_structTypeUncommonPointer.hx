@@ -1,2 +1,0 @@
-package stdgo.reflect;
-typedef T_structTypeUncommonPointer = stdgo._internal.reflect.Reflect_T_structTypeUncommonPointer.T_structTypeUncommonPointer;

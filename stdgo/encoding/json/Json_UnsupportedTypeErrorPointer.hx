@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef UnsupportedTypeErrorPointer = stdgo._internal.encoding.json.Json_UnsupportedTypeErrorPointer.UnsupportedTypeErrorPointer;

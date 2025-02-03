@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_neverCallThisFunctionPointer = stdgo._internal.runtime.Runtime_T_neverCallThisFunctionPointer.T_neverCallThisFunctionPointer;

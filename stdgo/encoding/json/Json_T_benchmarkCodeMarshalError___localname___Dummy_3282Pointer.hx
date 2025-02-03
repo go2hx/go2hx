@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer = stdgo._internal.encoding.json.Json_T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer.T_benchmarkCodeMarshalError___localname___Dummy_3282Pointer;

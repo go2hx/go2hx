@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_typeCacheBucketPointer = stdgo._internal.runtime.Runtime_T_typeCacheBucketPointer.T_typeCacheBucketPointer;

@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_cgoSymbolizerArgPointer = stdgo._internal.runtime.Runtime_T_cgoSymbolizerArgPointer.T_cgoSymbolizerArgPointer;

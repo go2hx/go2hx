@@ -1,2 +1,0 @@
-package stdgo.crypto.tls;
-typedef QUICSessionTicketOptionsPointer = stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptionsPointer.QUICSessionTicketOptionsPointer;

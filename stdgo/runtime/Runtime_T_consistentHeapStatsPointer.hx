@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_consistentHeapStatsPointer = stdgo._internal.runtime.Runtime_T_consistentHeapStatsPointer.T_consistentHeapStatsPointer;

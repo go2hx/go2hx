@@ -1,2 +1,0 @@
-package stdgo.crypto.internal.edwards25519;
-typedef T_incomparablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_incomparablePointer.T_incomparablePointer;

@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef MustNotUnmarshalTextPointer = stdgo._internal.encoding.json.Json_MustNotUnmarshalTextPointer.MustNotUnmarshalTextPointer;

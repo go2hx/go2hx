@@ -1,2 +1,0 @@
-package stdgo.net.http;
-typedef T_http2sortPriorityNodeSiblingsPointer = stdgo._internal.net.http.Http_T_http2sortPriorityNodeSiblingsPointer.T_http2sortPriorityNodeSiblingsPointer;

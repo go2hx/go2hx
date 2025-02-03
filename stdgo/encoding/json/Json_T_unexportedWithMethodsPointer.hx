@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_unexportedWithMethodsPointer = stdgo._internal.encoding.json.Json_T_unexportedWithMethodsPointer.T_unexportedWithMethodsPointer;

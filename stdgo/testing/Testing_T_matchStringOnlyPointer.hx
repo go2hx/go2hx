@@ -1,2 +1,0 @@
-package stdgo.testing;
-typedef T_matchStringOnlyPointer = stdgo._internal.testing.Testing_T_matchStringOnlyPointer.T_matchStringOnlyPointer;

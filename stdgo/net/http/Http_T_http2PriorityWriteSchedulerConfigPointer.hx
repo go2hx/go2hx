@@ -1,2 +1,0 @@
-package stdgo.net.http;
-typedef T_http2PriorityWriteSchedulerConfigPointer = stdgo._internal.net.http.Http_T_http2PriorityWriteSchedulerConfigPointer.T_http2PriorityWriteSchedulerConfigPointer;

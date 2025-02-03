@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_spanSetBlockAllocPointer = stdgo._internal.runtime.Runtime_T_spanSetBlockAllocPointer.T_spanSetBlockAllocPointer;

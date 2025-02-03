@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_uint64InterfacePtrPointer = stdgo._internal.runtime.Runtime_T_uint64InterfacePtrPointer.T_uint64InterfacePtrPointer;

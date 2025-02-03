@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testSlice___localname___Type3_7005Pointer = stdgo._internal.encoding.gob.Gob_T_testSlice___localname___Type3_7005Pointer.T_testSlice___localname___Type3_7005Pointer;

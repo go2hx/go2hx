@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_stringStructDWARFPointer = stdgo._internal.runtime.Runtime_T_stringStructDWARFPointer.T_stringStructDWARFPointer;

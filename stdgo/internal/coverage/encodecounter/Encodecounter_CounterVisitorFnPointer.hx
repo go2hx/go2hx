@@ -1,2 +1,0 @@
-package stdgo.internal.coverage.encodecounter;
-typedef CounterVisitorFnPointer = stdgo._internal.internal.coverage.encodecounter.Encodecounter_CounterVisitorFnPointer.CounterVisitorFnPointer;

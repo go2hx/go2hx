@@ -1,2 +1,0 @@
-package stdgo.encoding.base64;
-typedef T_faultInjectReaderPointer = stdgo._internal.encoding.base64.Base64_T_faultInjectReaderPointer.T_faultInjectReaderPointer;

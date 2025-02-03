@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testRecursiveSliceType___localname___recursiveSlice_8150 = stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150;

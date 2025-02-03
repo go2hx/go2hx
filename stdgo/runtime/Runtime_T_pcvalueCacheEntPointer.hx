@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_pcvalueCacheEntPointer = stdgo._internal.runtime.Runtime_T_pcvalueCacheEntPointer.T_pcvalueCacheEntPointer;

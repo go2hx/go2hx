@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_benchmarkEncoderEncode___localname___T_11092Pointer = stdgo._internal.encoding.json.Json_T_benchmarkEncoderEncode___localname___T_11092Pointer.T_benchmarkEncoderEncode___localname___T_11092Pointer;

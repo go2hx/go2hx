@@ -1,2 +1,0 @@
-package stdgo.net.http;
-typedef T_tlsHandshakeTimeoutErrorPointer = stdgo._internal.net.http.Http_T_tlsHandshakeTimeoutErrorPointer.T_tlsHandshakeTimeoutErrorPointer;

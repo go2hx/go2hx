@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_specialPinCounterPointer = stdgo._internal.runtime.Runtime_T_specialPinCounterPointer.T_specialPinCounterPointer;

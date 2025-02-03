@@ -1,2 +1,0 @@
-package stdgo.internal.coverage.decodecounter;
-typedef CounterDataReaderPointer = stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReaderPointer.CounterDataReaderPointer;

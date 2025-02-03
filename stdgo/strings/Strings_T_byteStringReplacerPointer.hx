@@ -1,2 +1,0 @@
-package stdgo.strings;
-typedef T_byteStringReplacerPointer = stdgo._internal.strings.Strings_T_byteStringReplacerPointer.T_byteStringReplacerPointer;

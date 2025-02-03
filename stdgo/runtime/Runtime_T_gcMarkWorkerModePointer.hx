@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_gcMarkWorkerModePointer = stdgo._internal.runtime.Runtime_T_gcMarkWorkerModePointer.T_gcMarkWorkerModePointer;

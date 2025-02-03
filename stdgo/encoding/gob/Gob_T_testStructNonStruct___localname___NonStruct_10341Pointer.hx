@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testStructNonStruct___localname___NonStruct_10341Pointer = stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___NonStruct_10341Pointer.T_testStructNonStruct___localname___NonStruct_10341Pointer;

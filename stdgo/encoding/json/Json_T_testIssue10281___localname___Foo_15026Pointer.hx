@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testIssue10281___localname___Foo_15026Pointer = stdgo._internal.encoding.json.Json_T_testIssue10281___localname___Foo_15026Pointer.T_testIssue10281___localname___Foo_15026Pointer;

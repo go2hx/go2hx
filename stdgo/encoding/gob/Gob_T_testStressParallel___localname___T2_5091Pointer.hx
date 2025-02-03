@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testStressParallel___localname___T2_5091Pointer = stdgo._internal.encoding.gob.Gob_T_testStressParallel___localname___T2_5091Pointer.T_testStressParallel___localname___T2_5091Pointer;

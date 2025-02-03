@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testUnmarshalEmbeddedUnexported___localname___S6_54655Pointer = stdgo._internal.encoding.json.Json_T_testUnmarshalEmbeddedUnexported___localname___S6_54655Pointer.T_testUnmarshalEmbeddedUnexported___localname___S6_54655Pointer;

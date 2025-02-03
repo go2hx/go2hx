@@ -1,2 +1,0 @@
-package stdgo.encoding.base64;
-typedef T__struct_0PointerPointer = stdgo._internal.encoding.base64.Base64_T__struct_0PointerPointer.T__struct_0PointerPointer;

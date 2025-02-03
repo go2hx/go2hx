@@ -1,2 +1,0 @@
-package stdgo.unicode;
-private function get_noncharacter_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_noncharacter_Code_Point.noncharacter_Code_Point;

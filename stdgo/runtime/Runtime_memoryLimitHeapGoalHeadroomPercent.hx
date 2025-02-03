@@ -1,2 +1,0 @@
-package stdgo.runtime;
-final memoryLimitHeapGoalHeadroomPercent : haxe.UInt64 = stdgo._internal.runtime.Runtime_memoryLimitHeapGoalHeadroomPercent.memoryLimitHeapGoalHeadroomPercent;

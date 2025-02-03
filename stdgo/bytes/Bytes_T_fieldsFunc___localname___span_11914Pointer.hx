@@ -1,2 +1,0 @@
-package stdgo.bytes;
-typedef T_fieldsFunc___localname___span_11914Pointer = stdgo._internal.bytes.Bytes_T_fieldsFunc___localname___span_11914Pointer.T_fieldsFunc___localname___span_11914Pointer;

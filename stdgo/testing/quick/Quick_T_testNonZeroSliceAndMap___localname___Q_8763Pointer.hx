@@ -1,2 +1,0 @@
-package stdgo.testing.quick;
-typedef T_testNonZeroSliceAndMap___localname___Q_8763Pointer = stdgo._internal.testing.quick.Quick_T_testNonZeroSliceAndMap___localname___Q_8763Pointer.T_testNonZeroSliceAndMap___localname___Q_8763Pointer;

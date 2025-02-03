@@ -1,2 +1,0 @@
-package stdgo.internal.coverage;
-typedef CounterFileHeaderPointer = stdgo._internal.internal.coverage.Coverage_CounterFileHeaderPointer.CounterFileHeaderPointer;

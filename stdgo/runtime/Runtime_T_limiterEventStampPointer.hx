@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_limiterEventStampPointer = stdgo._internal.runtime.Runtime_T_limiterEventStampPointer.T_limiterEventStampPointer;

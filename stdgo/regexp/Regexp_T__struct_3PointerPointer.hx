@@ -1,2 +1,0 @@
-package stdgo.regexp;
-typedef T__struct_3PointerPointer = stdgo._internal.regexp.Regexp_T__struct_3PointerPointer.T__struct_3PointerPointer;

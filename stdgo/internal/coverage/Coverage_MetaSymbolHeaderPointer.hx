@@ -1,2 +1,0 @@
-package stdgo.internal.coverage;
-typedef MetaSymbolHeaderPointer = stdgo._internal.internal.coverage.Coverage_MetaSymbolHeaderPointer.MetaSymbolHeaderPointer;

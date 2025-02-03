@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_testRefUnmarshal___localname___S_40168Pointer = stdgo._internal.encoding.json.Json_T_testRefUnmarshal___localname___S_40168Pointer.T_testRefUnmarshal___localname___S_40168Pointer;

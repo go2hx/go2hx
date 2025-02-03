@@ -1,2 +1,0 @@
-package stdgo.net.http;
-typedef T_http2serverInternalStatePointer = stdgo._internal.net.http.Http_T_http2serverInternalStatePointer.T_http2serverInternalStatePointer;

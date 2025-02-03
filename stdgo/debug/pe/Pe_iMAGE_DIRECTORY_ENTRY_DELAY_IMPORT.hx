@@ -1,2 +1,0 @@
-package stdgo.debug.pe;
-final iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT.iMAGE_DIRECTORY_ENTRY_DELAY_IMPORT;

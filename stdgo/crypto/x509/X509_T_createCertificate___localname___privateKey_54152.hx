@@ -1,2 +1,0 @@
-package stdgo.crypto.x509;
-typedef T_createCertificate___localname___privateKey_54152 = stdgo._internal.crypto.x509.X509_T_createCertificate___localname___privateKey_54152.T_createCertificate___localname___privateKey_54152;

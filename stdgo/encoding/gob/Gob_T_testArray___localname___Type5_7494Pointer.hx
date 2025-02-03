@@ -1,2 +1,0 @@
-package stdgo.encoding.gob;
-typedef T_testArray___localname___Type5_7494Pointer = stdgo._internal.encoding.gob.Gob_T_testArray___localname___Type5_7494Pointer.T_testArray___localname___Type5_7494Pointer;

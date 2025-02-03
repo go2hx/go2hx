@@ -1,2 +1,0 @@
-package stdgo.internal.coverage.decodemeta;
-typedef CoverageMetaFileReaderPointer = stdgo._internal.internal.coverage.decodemeta.Decodemeta_CoverageMetaFileReaderPointer.CoverageMetaFileReaderPointer;

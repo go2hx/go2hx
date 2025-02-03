@@ -1,2 +1,0 @@
-package stdgo.runtime;
-typedef T_traceAllocBlockPointer = stdgo._internal.runtime.Runtime_T_traceAllocBlockPointer.T_traceAllocBlockPointer;

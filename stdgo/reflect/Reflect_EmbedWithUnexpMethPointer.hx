@@ -1,2 +1,0 @@
-package stdgo.reflect;
-typedef EmbedWithUnexpMethPointer = stdgo._internal.reflect.Reflect_EmbedWithUnexpMethPointer.EmbedWithUnexpMethPointer;

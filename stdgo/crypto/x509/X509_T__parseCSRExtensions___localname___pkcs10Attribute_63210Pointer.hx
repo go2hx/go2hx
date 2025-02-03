@@ -1,2 +1,0 @@
-package stdgo.crypto.x509;
-typedef T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer = stdgo._internal.crypto.x509.X509_T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer.T__parseCSRExtensions___localname___pkcs10Attribute_63210Pointer;

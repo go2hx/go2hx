@@ -1,4 +1,0 @@
-package stdgo.encoding.json;
-class T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829_static_extension {
-
-}

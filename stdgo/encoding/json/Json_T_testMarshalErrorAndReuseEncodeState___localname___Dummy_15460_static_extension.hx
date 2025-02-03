@@ -1,4 +1,0 @@
-package stdgo.encoding.json;
-class T_testMarshalErrorAndReuseEncodeState___localname___Dummy_15460_static_extension {
-
-}

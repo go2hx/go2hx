@@ -1,2 +1,0 @@
-package stdgo.database.sql.driver;
-typedef RowsColumnTypeDatabaseTypeName = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeDatabaseTypeName.RowsColumnTypeDatabaseTypeName;

@@ -1,2 +1,0 @@
-package stdgo.encoding.json;
-typedef T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer = stdgo._internal.encoding.json.Json_T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer.T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer;

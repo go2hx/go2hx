@@ -1,2 +1,0 @@
-package stdgo.crypto.tls;
-final qUICTransportParametersRequired = stdgo._internal.crypto.tls.Tls_qUICTransportParametersRequired.qUICTransportParametersRequired;

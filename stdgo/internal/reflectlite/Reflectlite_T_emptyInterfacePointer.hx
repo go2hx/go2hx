@@ -1,2 +1,0 @@
-package stdgo.internal.reflectlite;
-typedef T_emptyInterfacePointer = stdgo._internal.internal.reflectlite.Reflectlite_T_emptyInterfacePointer.T_emptyInterfacePointer;

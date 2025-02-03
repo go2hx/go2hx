@@ -1,2 +1,0 @@
-package stdgo.crypto.internal.edwards25519;
-typedef T_affineLookupTablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_affineLookupTablePointer.T_affineLookupTablePointer;

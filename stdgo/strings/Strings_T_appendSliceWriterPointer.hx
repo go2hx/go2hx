@@ -1,2 +1,0 @@
-package stdgo.strings;
-typedef T_appendSliceWriterPointer = stdgo._internal.strings.Strings_T_appendSliceWriterPointer.T_appendSliceWriterPointer;

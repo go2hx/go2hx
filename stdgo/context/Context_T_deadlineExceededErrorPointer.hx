@@ -1,2 +1,0 @@
-package stdgo.context;
-typedef T_deadlineExceededErrorPointer = stdgo._internal.context.Context_T_deadlineExceededErrorPointer.T_deadlineExceededErrorPointer;

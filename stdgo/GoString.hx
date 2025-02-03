@@ -18,7 +18,7 @@ private class GoStringData {
 
 	public function toString():String {
 		#if !nolinkstd
-		if (!stdgo._internal.unicode.utf8.Utf8_validString.validString((this : GoString)))
+		if (!stdgo._internal.unicode.utf8.Utf8_validstring.validString((this : GoString)))
 			return "invalid string";
 		#end
 		return bytes.sub(this.low, this.high - this.low).toString();

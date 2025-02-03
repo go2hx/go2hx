@@ -392,11 +392,11 @@ package stdgo._internal.text.template.parse;
     static public function _pipeline( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>, _context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
         var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        var _tokenAfterVariable_3636900:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _v_3636539:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _token_3636409:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _token_3637816:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _next_3636933:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-        var _tokenAfterVariable_3636900:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

@@ -163,20 +163,20 @@ if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
     @:tdfield
     static public function _refine( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>, _zigStart:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _delta:stdgo.GoInt32):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder> = _d;
-        var _bits_3003055:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _bit_3003231:Bool = false;
-        var _err_3002833:stdgo.Error = (null : stdgo.Error);
-        var _err_3002543:stdgo.Error = (null : stdgo.Error);
-        var _bit_3002538:Bool = false;
-        var _val0_3002901:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _z_3002809:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _loopBreak = false;
-        var _err_3003669:stdgo.Error = (null : stdgo.Error);
-        var _err_3003236:stdgo.Error = (null : stdgo.Error);
-        var _err_3003061:stdgo.Error = (null : stdgo.Error);
         var _val1_3002923:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _val0_3002901:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_3002833:stdgo.Error = (null : stdgo.Error);
+        var _err_3003061:stdgo.Error = (null : stdgo.Error);
+        var _bits_3003055:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _value_3002826:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _z_3002809:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _zig_3002732:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _bit_3002538:Bool = false;
+        var _err_3003236:stdgo.Error = (null : stdgo.Error);
+        var _bit_3003231:Bool = false;
+        var _err_3003669:stdgo.Error = (null : stdgo.Error);
+        var _loopBreak = false;
+        var _err_3002543:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1013,14 +1013,14 @@ if (_subsample) {
     @:tdfield
     static public function _processDQT( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>, _n:stdgo.GoInt):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder> = _d;
+        var _err_2980538:stdgo.Error = (null : stdgo.Error);
+        var _i_2980389:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_2980311:stdgo.Error = (null : stdgo.Error);
         var _tq_2980093:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _err_2980035:stdgo.Error = (null : stdgo.Error);
         var _x_2980032:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _loopBreak = false;
         var _i_2980618:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_2980538:stdgo.Error = (null : stdgo.Error);
-        var _i_2980389:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1535,13 +1535,13 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
     @:tdfield
     static public function _decodeHuffman( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder> = _d;
-        var _slowPathBreak = false;
-        var _code_2966924:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_2966921:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_2966814:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _v_2966748:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_2966325:stdgo.Error = (null : stdgo.Error);
         var _err_2966997:stdgo.Error = (null : stdgo.Error);
+        var _slowPathBreak = false;
+        var _code_2966924:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

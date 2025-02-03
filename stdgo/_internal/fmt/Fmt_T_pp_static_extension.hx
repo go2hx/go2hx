@@ -30,433 +30,433 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _doPrintf( _p:stdgo.Ref<stdgo._internal.fmt.Fmt_T_pp.T_pp>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.fmt.Fmt_T_pp.T_pp> = _p;
-        var _size_4054101:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _verb_4054095:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _c_4051524:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _simpleFormatBreak = false;
         var _formatLoopBreak = false;
-        var _i_4051184:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _argNum_4051005:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_4055108:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _arg_4055111:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _lasti_4051227:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _afterIndex_4051076:Bool = false;
-        var _end_4050985:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_4089013:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_4088006:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _verb_4088000:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _simpleFormatBreak = false;
+        var _lasti_4085132:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_4084890:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_4089016:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+        var _c_4085429:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _i_4085089:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _afterIndex_4084981:Bool = false;
+        var _argNum_4084910:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _end_4050985 = (_format.length);
-                    _argNum_4051005 = (0 : stdgo.GoInt);
-                    _afterIndex_4051076 = false;
+                    _end_4084890 = (_format.length);
+                    _argNum_4084910 = (0 : stdgo.GoInt);
+                    _afterIndex_4084981 = false;
                     (@:checkr _p ?? throw "null pointer dereference")._reordered = false;
-                    _gotoNext = 4051167i32;
-                } else if (__value__ == (4051167i32)) {
-                    _i_4051184 = (0 : stdgo.GoInt);
+                    _gotoNext = 4085072i32;
+                } else if (__value__ == (4085072i32)) {
+                    _i_4085089 = (0 : stdgo.GoInt);
                     _formatLoopBreak = false;
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4051180i32)) {
-                    if (!_formatLoopBreak && ((_i_4051184 < _end_4050985 : Bool))) {
-                        _gotoNext = 4051201i32;
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4085085i32)) {
+                    if (!_formatLoopBreak && ((_i_4085089 < _end_4084890 : Bool))) {
+                        _gotoNext = 4085106i32;
                     } else {
-                        _gotoNext = 4055011i32;
+                        _gotoNext = 4088916i32;
                     };
-                } else if (__value__ == (4051201i32)) {
+                } else if (__value__ == (4085106i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._goodArgNum = true;
-                    _lasti_4051227 = _i_4051184;
+                    _lasti_4085132 = _i_4085089;
                     var __blank__ = 0i32;
-                    _gotoNext = 4051240i32;
-                } else if (__value__ == (4051240i32)) {
-                    if (((_i_4051184 < _end_4050985 : Bool) && (_format[(_i_4051184 : stdgo.GoInt)] != (37 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 4051272i32;
+                    _gotoNext = 4085145i32;
+                } else if (__value__ == (4085145i32)) {
+                    if (((_i_4085089 < _end_4084890 : Bool) && (_format[(_i_4085089 : stdgo.GoInt)] != (37 : stdgo.GoUInt8)) : Bool)) {
+                        _gotoNext = 4085177i32;
                     } else {
-                        _gotoNext = 4051287i32;
+                        _gotoNext = 4085192i32;
                     };
-                } else if (__value__ == (4051272i32)) {
-                    _i_4051184++;
-                    _gotoNext = 4051240i32;
-                } else if (__value__ == (4051287i32)) {
-                    if ((_i_4051184 > _lasti_4051227 : Bool)) {
-                        _gotoNext = 4051300i32;
+                } else if (__value__ == (4085177i32)) {
+                    _i_4085089++;
+                    _gotoNext = 4085145i32;
+                } else if (__value__ == (4085192i32)) {
+                    if ((_i_4085089 > _lasti_4085132 : Bool)) {
+                        _gotoNext = 4085205i32;
                     } else {
-                        _gotoNext = 4051346i32;
+                        _gotoNext = 4085251i32;
                     };
-                } else if (__value__ == (4051300i32)) {
-                    @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString((_format.__slice__(_lasti_4051227, _i_4051184) : stdgo.GoString)?.__copy__());
-                    _gotoNext = 4051346i32;
-                } else if (__value__ == (4051346i32)) {
-                    if ((_i_4051184 >= _end_4050985 : Bool)) {
-                        _gotoNext = 4051358i32;
+                } else if (__value__ == (4085205i32)) {
+                    @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString((_format.__slice__(_lasti_4085132, _i_4085089) : stdgo.GoString)?.__copy__());
+                    _gotoNext = 4085251i32;
+                } else if (__value__ == (4085251i32)) {
+                    if ((_i_4085089 >= _end_4084890 : Bool)) {
+                        _gotoNext = 4085263i32;
                     } else {
-                        _gotoNext = 4051434i32;
+                        _gotoNext = 4085339i32;
                     };
-                } else if (__value__ == (4051358i32)) {
-                    _gotoNext = 4055011i32;
-                } else if (__value__ == (4051434i32)) {
-                    _i_4051184++;
+                } else if (__value__ == (4085263i32)) {
+                    _gotoNext = 4088916i32;
+                } else if (__value__ == (4085339i32)) {
+                    _i_4085089++;
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._fmt._clearflags();
-                    _gotoNext = 4051484i32;
-                } else if (__value__ == (4051484i32)) {
+                    _gotoNext = 4085389i32;
+                } else if (__value__ == (4085389i32)) {
                     var __blank__ = 0i32;
                     _simpleFormatBreak = false;
-                    _gotoNext = 4051500i32;
-                } else if (__value__ == (4051500i32)) {
-                    if (!_simpleFormatBreak && ((_i_4051184 < _end_4050985 : Bool))) {
-                        _gotoNext = 4051519i32;
+                    _gotoNext = 4085405i32;
+                } else if (__value__ == (4085405i32)) {
+                    if (!_simpleFormatBreak && ((_i_4085089 < _end_4084890 : Bool))) {
+                        _gotoNext = 4085424i32;
                     } else {
-                        _gotoNext = 4052554i32;
+                        _gotoNext = 4086459i32;
                     };
-                } else if (__value__ == (4051515i32)) {
-                    _i_4051184++;
-                    _gotoNext = 4051500i32;
-                } else if (__value__ == (4051519i32)) {
-                    _c_4051524 = _format[(_i_4051184 : stdgo.GoInt)];
-                    _gotoNext = 4051542i32;
-                } else if (__value__ == (4051542i32)) {
+                } else if (__value__ == (4085420i32)) {
+                    _i_4085089++;
+                    _gotoNext = 4085405i32;
+                } else if (__value__ == (4085424i32)) {
+                    _c_4085429 = _format[(_i_4085089 : stdgo.GoInt)];
+                    _gotoNext = 4085447i32;
+                } else if (__value__ == (4085447i32)) {
                     {
-                        final __value__ = _c_4051524;
+                        final __value__ = _c_4085429;
                         if (__value__ == ((35 : stdgo.GoUInt8))) {
-                            _gotoNext = 4051556i32;
+                            _gotoNext = 4085461i32;
                         } else if (__value__ == ((48 : stdgo.GoUInt8))) {
-                            _gotoNext = 4051592i32;
+                            _gotoNext = 4085497i32;
                         } else if (__value__ == ((43 : stdgo.GoUInt8))) {
-                            _gotoNext = 4051675i32;
+                            _gotoNext = 4085580i32;
                         } else if (__value__ == ((45 : stdgo.GoUInt8))) {
-                            _gotoNext = 4051710i32;
+                            _gotoNext = 4085615i32;
                         } else if (__value__ == ((32 : stdgo.GoUInt8))) {
-                            _gotoNext = 4051808i32;
+                            _gotoNext = 4085713i32;
                         } else {
-                            _gotoNext = 4051844i32;
+                            _gotoNext = 4085749i32;
                         };
                     };
-                } else if (__value__ == (4051556i32)) {
+                } else if (__value__ == (4085461i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharp = true;
-                    _gotoNext = 4051515i32;
-                } else if (__value__ == (4051592i32)) {
+                    _gotoNext = 4085420i32;
+                } else if (__value__ == (4085497i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._zero = !(@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._minus;
-                    _gotoNext = 4051515i32;
-                } else if (__value__ == (4051675i32)) {
+                    _gotoNext = 4085420i32;
+                } else if (__value__ == (4085580i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plus = true;
-                    _gotoNext = 4051515i32;
-                } else if (__value__ == (4051710i32)) {
+                    _gotoNext = 4085420i32;
+                } else if (__value__ == (4085615i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._minus = true;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._zero = false;
-                    _gotoNext = 4051515i32;
-                } else if (__value__ == (4051808i32)) {
+                    _gotoNext = 4085420i32;
+                } else if (__value__ == (4085713i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._space = true;
-                    _gotoNext = 4051515i32;
-                } else if (__value__ == (4051844i32)) {
-                    if (((((97 : stdgo.GoUInt8) <= _c_4051524 : Bool) && (_c_4051524 <= (122 : stdgo.GoUInt8) : Bool) : Bool) && (_argNum_4051005 < (_a.length) : Bool) : Bool)) {
-                        _gotoNext = 4052021i32;
+                    _gotoNext = 4085420i32;
+                } else if (__value__ == (4085749i32)) {
+                    if (((((97 : stdgo.GoUInt8) <= _c_4085429 : Bool) && (_c_4085429 <= (122 : stdgo.GoUInt8) : Bool) : Bool) && (_argNum_4084910 < (_a.length) : Bool) : Bool)) {
+                        _gotoNext = 4085926i32;
                     } else {
-                        _gotoNext = 4052479i32;
+                        _gotoNext = 4086384i32;
                     };
-                } else if (__value__ == (4052021i32)) {
-                    _gotoNext = 4052028i32;
-                } else if (__value__ == (4052028i32)) {
+                } else if (__value__ == (4085926i32)) {
+                    _gotoNext = 4085933i32;
+                } else if (__value__ == (4085933i32)) {
                     {
-                        final __value__ = _c_4051524;
+                        final __value__ = _c_4085429;
                         if (__value__ == ((119 : stdgo.GoUInt8))) {
-                            _gotoNext = 4052044i32;
+                            _gotoNext = 4085949i32;
                         } else if (__value__ == ((118 : stdgo.GoUInt8))) {
-                            _gotoNext = 4052129i32;
+                            _gotoNext = 4086034i32;
                         } else {
-                            _gotoNext = 4052314i32;
+                            _gotoNext = 4086219i32;
                         };
                     };
-                } else if (__value__ == (4052044i32)) {
-                    (@:checkr _p ?? throw "null pointer dereference")._wrappedErrs = ((@:checkr _p ?? throw "null pointer dereference")._wrappedErrs.__append__(_argNum_4051005));
-                    _gotoNext = 4052129i32;
-                } else if (__value__ == (4052129i32)) {
+                } else if (__value__ == (4085949i32)) {
+                    (@:checkr _p ?? throw "null pointer dereference")._wrappedErrs = ((@:checkr _p ?? throw "null pointer dereference")._wrappedErrs.__append__(_argNum_4084910));
+                    _gotoNext = 4086034i32;
+                } else if (__value__ == (4086034i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharpV = (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharp;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharp = false;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plusV = (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plus;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plus = false;
-                    _gotoNext = 4052314i32;
-                } else if (__value__ == (4052314i32)) {
-                    @:check2r _p._printArg(_a[(_argNum_4051005 : stdgo.GoInt)], (_c_4051524 : stdgo.GoInt32));
-                    _argNum_4051005++;
-                    _i_4051184++;
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4052479i32)) {
+                    _gotoNext = 4086219i32;
+                } else if (__value__ == (4086219i32)) {
+                    @:check2r _p._printArg(_a[(_argNum_4084910 : stdgo.GoInt)], (_c_4085429 : stdgo.GoInt32));
+                    _argNum_4084910++;
+                    _i_4085089++;
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4086384i32)) {
                     _simpleFormatBreak = true;
-                    _gotoNext = 4051500i32;
-                } else if (__value__ == (4052554i32)) {
+                    _gotoNext = 4085405i32;
+                } else if (__value__ == (4086459i32)) {
                     {
-                        var __tmp__ = @:check2r _p._argNumber(_argNum_4051005, _format?.__copy__(), _i_4051184, (_a.length));
-                        _argNum_4051005 = @:tmpset0 __tmp__._0;
-                        _i_4051184 = @:tmpset0 __tmp__._1;
-                        _afterIndex_4051076 = @:tmpset0 __tmp__._2;
+                        var __tmp__ = @:check2r _p._argNumber(_argNum_4084910, _format?.__copy__(), _i_4085089, (_a.length));
+                        _argNum_4084910 = @:tmpset0 __tmp__._0;
+                        _i_4085089 = @:tmpset0 __tmp__._1;
+                        _afterIndex_4084981 = @:tmpset0 __tmp__._2;
                     };
-                    if (((_i_4051184 < _end_4050985 : Bool) && (_format[(_i_4051184 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 4052674i32;
+                    if (((_i_4085089 < _end_4084890 : Bool) && (_format[(_i_4085089 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
+                        _gotoNext = 4086579i32;
                     } else {
-                        _gotoNext = 4053081i32;
+                        _gotoNext = 4086986i32;
                     };
-                } else if (__value__ == (4052674i32)) {
-                    _i_4051184++;
+                } else if (__value__ == (4086579i32)) {
+                    _i_4085089++;
                     {
-                        var __tmp__ = stdgo._internal.fmt.Fmt__intFromArg._intFromArg(_a, _argNum_4051005);
+                        var __tmp__ = stdgo._internal.fmt.Fmt__intFromArg._intFromArg(_a, _argNum_4084910);
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._wid = @:tmpset0 __tmp__._0;
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._widPresent = @:tmpset0 __tmp__._1;
-                        _argNum_4051005 = @:tmpset0 __tmp__._2;
+                        _argNum_4084910 = @:tmpset0 __tmp__._2;
                     };
                     if (!(@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._widPresent) {
-                        _gotoNext = 4052771i32;
+                        _gotoNext = 4086676i32;
                     } else {
-                        _gotoNext = 4052914i32;
+                        _gotoNext = 4086819i32;
                     };
-                } else if (__value__ == (4052771i32)) {
+                } else if (__value__ == (4086676i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString(("%!(BADWIDTH)" : stdgo.GoString));
-                    _gotoNext = 4052914i32;
-                } else if (__value__ == (4052914i32)) {
+                    _gotoNext = 4086819i32;
+                } else if (__value__ == (4086819i32)) {
                     if (((@:checkr _p ?? throw "null pointer dereference")._fmt._wid < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 4052931i32;
+                        _gotoNext = 4086836i32;
                     } else {
-                        _gotoNext = 4053053i32;
+                        _gotoNext = 4086958i32;
                     };
-                } else if (__value__ == (4052931i32)) {
+                } else if (__value__ == (4086836i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._wid = -(@:checkr _p ?? throw "null pointer dereference")._fmt._wid;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._minus = true;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._zero = false;
-                    _gotoNext = 4053053i32;
-                } else if (__value__ == (4053053i32)) {
-                    _afterIndex_4051076 = false;
-                    _gotoNext = 4053259i32;
-                } else if (__value__ == (4053081i32)) {
-                    _gotoNext = 4053081i32;
+                    _gotoNext = 4086958i32;
+                } else if (__value__ == (4086958i32)) {
+                    _afterIndex_4084981 = false;
+                    _gotoNext = 4087164i32;
+                } else if (__value__ == (4086986i32)) {
+                    _gotoNext = 4086986i32;
                     {
-                        var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), _i_4051184, _end_4050985);
+                        var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), _i_4085089, _end_4084890);
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._wid = @:tmpset0 __tmp__._0;
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._widPresent = @:tmpset0 __tmp__._1;
-                        _i_4051184 = @:tmpset0 __tmp__._2;
+                        _i_4085089 = @:tmpset0 __tmp__._2;
                     };
-                    if ((_afterIndex_4051076 && (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._widPresent : Bool)) {
-                        _gotoNext = 4053181i32;
+                    if ((_afterIndex_4084981 && (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._widPresent : Bool)) {
+                        _gotoNext = 4087086i32;
                     } else {
-                        _gotoNext = 4053259i32;
+                        _gotoNext = 4087164i32;
                     };
-                } else if (__value__ == (4053181i32)) {
+                } else if (__value__ == (4087086i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._goodArgNum = false;
-                    _gotoNext = 4053259i32;
-                } else if (__value__ == (4053259i32)) {
-                    if ((((_i_4051184 + (1 : stdgo.GoInt) : stdgo.GoInt) < _end_4050985 : Bool) && (_format[(_i_4051184 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 4053292i32;
+                    _gotoNext = 4087164i32;
+                } else if (__value__ == (4087164i32)) {
+                    if ((((_i_4085089 + (1 : stdgo.GoInt) : stdgo.GoInt) < _end_4084890 : Bool) && (_format[(_i_4085089 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
+                        _gotoNext = 4087197i32;
                     } else {
-                        _gotoNext = 4053940i32;
+                        _gotoNext = 4087845i32;
                     };
-                } else if (__value__ == (4053292i32)) {
-                    _i_4051184++;
-                    if (_afterIndex_4051076) {
-                        _gotoNext = 4053318i32;
+                } else if (__value__ == (4087197i32)) {
+                    _i_4085089++;
+                    if (_afterIndex_4084981) {
+                        _gotoNext = 4087223i32;
                     } else {
-                        _gotoNext = 4053366i32;
+                        _gotoNext = 4087271i32;
                     };
-                } else if (__value__ == (4053318i32)) {
+                } else if (__value__ == (4087223i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._goodArgNum = false;
-                    _gotoNext = 4053366i32;
-                } else if (__value__ == (4053366i32)) {
+                    _gotoNext = 4087271i32;
+                } else if (__value__ == (4087271i32)) {
                     {
-                        var __tmp__ = @:check2r _p._argNumber(_argNum_4051005, _format?.__copy__(), _i_4051184, (_a.length));
-                        _argNum_4051005 = @:tmpset0 __tmp__._0;
-                        _i_4051184 = @:tmpset0 __tmp__._1;
-                        _afterIndex_4051076 = @:tmpset0 __tmp__._2;
+                        var __tmp__ = @:check2r _p._argNumber(_argNum_4084910, _format?.__copy__(), _i_4085089, (_a.length));
+                        _argNum_4084910 = @:tmpset0 __tmp__._0;
+                        _i_4085089 = @:tmpset0 __tmp__._1;
+                        _afterIndex_4084981 = @:tmpset0 __tmp__._2;
                     };
-                    if (((_i_4051184 < _end_4050985 : Bool) && (_format[(_i_4051184 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 4053463i32;
+                    if (((_i_4085089 < _end_4084890 : Bool) && (_format[(_i_4085089 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
+                        _gotoNext = 4087368i32;
                     } else {
-                        _gotoNext = 4053778i32;
+                        _gotoNext = 4087683i32;
                     };
-                } else if (__value__ == (4053463i32)) {
-                    _i_4051184++;
+                } else if (__value__ == (4087368i32)) {
+                    _i_4085089++;
                     {
-                        var __tmp__ = stdgo._internal.fmt.Fmt__intFromArg._intFromArg(_a, _argNum_4051005);
+                        var __tmp__ = stdgo._internal.fmt.Fmt__intFromArg._intFromArg(_a, _argNum_4084910);
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._prec = @:tmpset0 __tmp__._0;
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent = @:tmpset0 __tmp__._1;
-                        _argNum_4051005 = @:tmpset0 __tmp__._2;
+                        _argNum_4084910 = @:tmpset0 __tmp__._2;
                     };
                     if (((@:checkr _p ?? throw "null pointer dereference")._fmt._prec < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 4053614i32;
+                        _gotoNext = 4087519i32;
                     } else {
-                        _gotoNext = 4053677i32;
+                        _gotoNext = 4087582i32;
                     };
-                } else if (__value__ == (4053614i32)) {
+                } else if (__value__ == (4087519i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._prec = (0 : stdgo.GoInt);
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent = false;
-                    _gotoNext = 4053677i32;
-                } else if (__value__ == (4053677i32)) {
+                    _gotoNext = 4087582i32;
+                } else if (__value__ == (4087582i32)) {
                     if (!(@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent) {
-                        _gotoNext = 4053699i32;
+                        _gotoNext = 4087604i32;
                     } else {
-                        _gotoNext = 4053749i32;
+                        _gotoNext = 4087654i32;
                     };
-                } else if (__value__ == (4053699i32)) {
+                } else if (__value__ == (4087604i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString(("%!(BADPREC)" : stdgo.GoString));
-                    _gotoNext = 4053749i32;
-                } else if (__value__ == (4053749i32)) {
-                    _afterIndex_4051076 = false;
-                    _gotoNext = 4053940i32;
-                } else if (__value__ == (4053778i32)) {
-                    _gotoNext = 4053778i32;
+                    _gotoNext = 4087654i32;
+                } else if (__value__ == (4087654i32)) {
+                    _afterIndex_4084981 = false;
+                    _gotoNext = 4087845i32;
+                } else if (__value__ == (4087683i32)) {
+                    _gotoNext = 4087683i32;
                     {
-                        var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), _i_4051184, _end_4050985);
+                        var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), _i_4085089, _end_4084890);
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._prec = @:tmpset0 __tmp__._0;
                         (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent = @:tmpset0 __tmp__._1;
-                        _i_4051184 = @:tmpset0 __tmp__._2;
+                        _i_4085089 = @:tmpset0 __tmp__._2;
                     };
                     if (!(@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent) {
-                        _gotoNext = 4053870i32;
+                        _gotoNext = 4087775i32;
                     } else {
-                        _gotoNext = 4053940i32;
+                        _gotoNext = 4087845i32;
                     };
-                } else if (__value__ == (4053870i32)) {
+                } else if (__value__ == (4087775i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._prec = (0 : stdgo.GoInt);
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._precPresent = true;
-                    _gotoNext = 4053940i32;
-                } else if (__value__ == (4053940i32)) {
-                    if (!_afterIndex_4051076) {
-                        _gotoNext = 4053955i32;
+                    _gotoNext = 4087845i32;
+                } else if (__value__ == (4087845i32)) {
+                    if (!_afterIndex_4084981) {
+                        _gotoNext = 4087860i32;
                     } else {
-                        _gotoNext = 4054030i32;
+                        _gotoNext = 4087935i32;
                     };
-                } else if (__value__ == (4053955i32)) {
+                } else if (__value__ == (4087860i32)) {
                     {
-                        var __tmp__ = @:check2r _p._argNumber(_argNum_4051005, _format?.__copy__(), _i_4051184, (_a.length));
-                        _argNum_4051005 = @:tmpset0 __tmp__._0;
-                        _i_4051184 = @:tmpset0 __tmp__._1;
-                        _afterIndex_4051076 = @:tmpset0 __tmp__._2;
+                        var __tmp__ = @:check2r _p._argNumber(_argNum_4084910, _format?.__copy__(), _i_4085089, (_a.length));
+                        _argNum_4084910 = @:tmpset0 __tmp__._0;
+                        _i_4085089 = @:tmpset0 __tmp__._1;
+                        _afterIndex_4084981 = @:tmpset0 __tmp__._2;
                     };
-                    _gotoNext = 4054030i32;
-                } else if (__value__ == (4054030i32)) {
-                    if ((_i_4051184 >= _end_4050985 : Bool)) {
-                        _gotoNext = 4054042i32;
+                    _gotoNext = 4087935i32;
+                } else if (__value__ == (4087935i32)) {
+                    if ((_i_4085089 >= _end_4084890 : Bool)) {
+                        _gotoNext = 4087947i32;
                     } else {
-                        _gotoNext = 4054095i32;
+                        _gotoNext = 4088000i32;
                     };
-                } else if (__value__ == (4054042i32)) {
+                } else if (__value__ == (4087947i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString(("%!(NOVERB)" : stdgo.GoString));
-                    _gotoNext = 4055011i32;
-                } else if (__value__ == (4054095i32)) {
+                    _gotoNext = 4088916i32;
+                } else if (__value__ == (4088000i32)) {
                     {
-                        final __tmp__0 = (_format[(_i_4051184 : stdgo.GoInt)] : stdgo.GoInt32);
+                        final __tmp__0 = (_format[(_i_4085089 : stdgo.GoInt)] : stdgo.GoInt32);
                         final __tmp__1 = (1 : stdgo.GoInt);
-                        _verb_4054095 = __tmp__0;
-                        _size_4054101 = __tmp__1;
+                        _verb_4088000 = __tmp__0;
+                        _size_4088006 = __tmp__1;
                     };
-                    if ((_verb_4054095 >= (128 : stdgo.GoInt32) : Bool)) {
-                        _gotoNext = 4054155i32;
+                    if ((_verb_4088000 >= (128 : stdgo.GoInt32) : Bool)) {
+                        _gotoNext = 4088060i32;
                     } else {
-                        _gotoNext = 4054215i32;
+                        _gotoNext = 4088120i32;
                     };
-                } else if (__value__ == (4054155i32)) {
+                } else if (__value__ == (4088060i32)) {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_format.__slice__(_i_4051184) : stdgo.GoString)?.__copy__());
-                        _verb_4054095 = @:tmpset0 __tmp__._0;
-                        _size_4054101 = @:tmpset0 __tmp__._1;
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_format.__slice__(_i_4085089) : stdgo.GoString)?.__copy__());
+                        _verb_4088000 = @:tmpset0 __tmp__._0;
+                        _size_4088006 = @:tmpset0 __tmp__._1;
                     };
-                    _gotoNext = 4054215i32;
-                } else if (__value__ == (4054215i32)) {
-                    _i_4051184 = (_i_4051184 + (_size_4054101) : stdgo.GoInt);
-                    _gotoNext = 4054228i32;
-                } else if (__value__ == (4054228i32)) {
-                    if (_verb_4054095 == ((37 : stdgo.GoInt32))) {
-                        _gotoNext = 4054239i32;
+                    _gotoNext = 4088120i32;
+                } else if (__value__ == (4088120i32)) {
+                    _i_4085089 = (_i_4085089 + (_size_4088006) : stdgo.GoInt);
+                    _gotoNext = 4088133i32;
+                } else if (__value__ == (4088133i32)) {
+                    if (_verb_4088000 == ((37 : stdgo.GoInt32))) {
+                        _gotoNext = 4088144i32;
                     } else if (!(@:checkr _p ?? throw "null pointer dereference")._goodArgNum) {
-                        _gotoNext = 4054349i32;
-                    } else if ((_argNum_4051005 >= (_a.length) : Bool)) {
-                        _gotoNext = 4054392i32;
-                    } else if (_verb_4054095 == ((119 : stdgo.GoInt32))) {
-                        _gotoNext = 4054495i32;
-                    } else if (_verb_4054095 == ((118 : stdgo.GoInt32))) {
-                        _gotoNext = 4054579i32;
+                        _gotoNext = 4088254i32;
+                    } else if ((_argNum_4084910 >= (_a.length) : Bool)) {
+                        _gotoNext = 4088297i32;
+                    } else if (_verb_4088000 == ((119 : stdgo.GoInt32))) {
+                        _gotoNext = 4088400i32;
+                    } else if (_verb_4088000 == ((118 : stdgo.GoInt32))) {
+                        _gotoNext = 4088484i32;
                     } else {
-                        _gotoNext = 4054759i32;
+                        _gotoNext = 4088664i32;
                     };
-                } else if (__value__ == (4054239i32)) {
+                } else if (__value__ == (4088144i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeByte((37 : stdgo.GoUInt8));
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4054349i32)) {
-                    @:check2r _p._badArgNum(_verb_4054095);
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4054392i32)) {
-                    @:check2r _p._missingArg(_verb_4054095);
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4054495i32)) {
-                    (@:checkr _p ?? throw "null pointer dereference")._wrappedErrs = ((@:checkr _p ?? throw "null pointer dereference")._wrappedErrs.__append__(_argNum_4051005));
-                    _gotoNext = 4054579i32;
-                } else if (__value__ == (4054579i32)) {
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4088254i32)) {
+                    @:check2r _p._badArgNum(_verb_4088000);
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4088297i32)) {
+                    @:check2r _p._missingArg(_verb_4088000);
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4088400i32)) {
+                    (@:checkr _p ?? throw "null pointer dereference")._wrappedErrs = ((@:checkr _p ?? throw "null pointer dereference")._wrappedErrs.__append__(_argNum_4084910));
+                    _gotoNext = 4088484i32;
+                } else if (__value__ == (4088484i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharpV = (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharp;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._sharp = false;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plusV = (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plus;
                     (@:checkr _p ?? throw "null pointer dereference")._fmt._fmtFlags._plus = false;
-                    _gotoNext = 4054759i32;
-                } else if (__value__ == (4054759i32)) {
-                    @:check2r _p._printArg(_a[(_argNum_4051005 : stdgo.GoInt)], _verb_4054095);
-                    _argNum_4051005++;
-                    _gotoNext = 4051180i32;
-                } else if (__value__ == (4055011i32)) {
-                    if ((!(@:checkr _p ?? throw "null pointer dereference")._reordered && (_argNum_4051005 < (_a.length) : Bool) : Bool)) {
-                        _gotoNext = 4055046i32;
+                    _gotoNext = 4088664i32;
+                } else if (__value__ == (4088664i32)) {
+                    @:check2r _p._printArg(_a[(_argNum_4084910 : stdgo.GoInt)], _verb_4088000);
+                    _argNum_4084910++;
+                    _gotoNext = 4085085i32;
+                } else if (__value__ == (4088916i32)) {
+                    if ((!(@:checkr _p ?? throw "null pointer dereference")._reordered && (_argNum_4084910 < (_a.length) : Bool) : Bool)) {
+                        _gotoNext = 4088951i32;
                     } else {
-                        _gotoNext = 4055402i32;
+                        _gotoNext = 4089307i32;
                     };
-                } else if (__value__ == (4055046i32)) {
+                } else if (__value__ == (4088951i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._fmt._clearflags();
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString(("%!(EXTRA " : stdgo.GoString));
-                    if ((0i32 : stdgo.GoInt) < ((_a.__slice__(_argNum_4051005) : stdgo.Slice<stdgo.AnyInterface>).length)) {
-                        _gotoNext = 4055373i32;
+                    if ((0i32 : stdgo.GoInt) < ((_a.__slice__(_argNum_4084910) : stdgo.Slice<stdgo.AnyInterface>).length)) {
+                        _gotoNext = 4089278i32;
                     } else {
-                        _gotoNext = 4055378i32;
+                        _gotoNext = 4089283i32;
                     };
-                } else if (__value__ == (4055108i32)) {
-                    _i_4055108++;
-                    _gotoNext = 4055374i32;
-                } else if (__value__ == (4055135i32)) {
-                    _arg_4055111 = stdgo.Go.toInterface((_a.__slice__(_argNum_4051005) : stdgo.Slice<stdgo.AnyInterface>)[(_i_4055108 : stdgo.GoInt)]);
-                    if ((_i_4055108 > (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 4055149i32;
+                } else if (__value__ == (4089013i32)) {
+                    _i_4089013++;
+                    _gotoNext = 4089279i32;
+                } else if (__value__ == (4089040i32)) {
+                    _arg_4089016 = stdgo.Go.toInterface((_a.__slice__(_argNum_4084910) : stdgo.Slice<stdgo.AnyInterface>)[(_i_4089013 : stdgo.GoInt)]);
+                    if ((_i_4089013 > (0 : stdgo.GoInt) : Bool)) {
+                        _gotoNext = 4089054i32;
                     } else {
-                        _gotoNext = 4055199i32;
+                        _gotoNext = 4089104i32;
                     };
-                } else if (__value__ == (4055149i32)) {
+                } else if (__value__ == (4089054i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString((", " : stdgo.GoString));
-                    _gotoNext = 4055199i32;
-                } else if (__value__ == (4055199i32)) {
-                    if (_arg_4055111 == null) {
-                        _gotoNext = 4055213i32;
+                    _gotoNext = 4089104i32;
+                } else if (__value__ == (4089104i32)) {
+                    if (_arg_4089016 == null) {
+                        _gotoNext = 4089118i32;
                     } else {
-                        _gotoNext = 4055263i32;
+                        _gotoNext = 4089168i32;
                     };
-                } else if (__value__ == (4055213i32)) {
+                } else if (__value__ == (4089118i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString(("<nil>" : stdgo.GoString));
-                    _gotoNext = 4055108i32;
-                } else if (__value__ == (4055263i32)) {
-                    _gotoNext = 4055263i32;
-                    @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString((stdgo._internal.reflect.Reflect_typeOf.typeOf(_arg_4055111).string() : stdgo.GoString)?.__copy__());
+                    _gotoNext = 4089013i32;
+                } else if (__value__ == (4089168i32)) {
+                    _gotoNext = 4089168i32;
+                    @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeString((stdgo._internal.reflect.Reflect_typeOf.typeOf(_arg_4089016).string() : stdgo.GoString)?.__copy__());
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeByte((61 : stdgo.GoUInt8));
-                    @:check2r _p._printArg(_arg_4055111, (118 : stdgo.GoInt32));
+                    @:check2r _p._printArg(_arg_4089016, (118 : stdgo.GoInt32));
                     var __blank__ = 0i32;
-                    _gotoNext = 4055108i32;
-                } else if (__value__ == (4055373i32)) {
+                    _gotoNext = 4089013i32;
+                } else if (__value__ == (4089278i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = stdgo.Go.toInterface((_a.__slice__(_argNum_4051005) : stdgo.Slice<stdgo.AnyInterface>)[(0i32 : stdgo.GoInt)]);
-                        _i_4055108 = __tmp__0;
-                        _arg_4055111 = __tmp__1;
+                        final __tmp__1 = stdgo.Go.toInterface((_a.__slice__(_argNum_4084910) : stdgo.Slice<stdgo.AnyInterface>)[(0i32 : stdgo.GoInt)]);
+                        _i_4089013 = __tmp__0;
+                        _arg_4089016 = __tmp__1;
                     };
-                    _gotoNext = 4055374i32;
-                } else if (__value__ == (4055374i32)) {
-                    if (_i_4055108 < ((_a.__slice__(_argNum_4051005) : stdgo.Slice<stdgo.AnyInterface>).length)) {
-                        _gotoNext = 4055135i32;
+                    _gotoNext = 4089279i32;
+                } else if (__value__ == (4089279i32)) {
+                    if (_i_4089013 < ((_a.__slice__(_argNum_4084910) : stdgo.Slice<stdgo.AnyInterface>).length)) {
+                        _gotoNext = 4089040i32;
                     } else {
-                        _gotoNext = 4055378i32;
+                        _gotoNext = 4089283i32;
                     };
-                } else if (__value__ == (4055378i32)) {
+                } else if (__value__ == (4089283i32)) {
                     @:check2 (@:checkr _p ?? throw "null pointer dereference")._buf._writeByte((41 : stdgo.GoUInt8));
-                    _gotoNext = 4055402i32;
-                } else if (__value__ == (4055402i32)) {
+                    _gotoNext = 4089307i32;
+                } else if (__value__ == (4089307i32)) {
                     _gotoNext = -1i32;
                 };
             };

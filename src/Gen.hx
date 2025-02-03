@@ -404,7 +404,7 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 			break;
 		}
 	}
-	final isNameUsed = td.name == cl.name;
+	final isNameUsed = td.name == clName;
 	final td = {
 		name: isNameUsed ? td.name + "_" : td.name,
 		pack: td.pack,
@@ -420,8 +420,9 @@ function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 	return switch td.kind {
 		case TDAlias(_):
 			final pack = path.split("/");
+			final isNameUsed = td.name == clName;
 			{
-				name: td.name,
+				name: isNameUsed ? td.name + "_" : td.name,
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,

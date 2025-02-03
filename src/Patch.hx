@@ -2,8 +2,8 @@ import haxe.macro.Expr.TypePath;
 
 
 final splitDepsBool = true;
-final newValue:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_Value".split("."), name: "Value"} : {pack: [], name: "Value"};
-final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_ValueError".split("."), name: "ValueError"} : {pack: [], name: "ValueError"};
+final newValue:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_value".split("."), name: "Value"} : {pack: [], name: "Value"};
+final newValueError:TypePath = splitDepsBool ? {pack: "stdgo._internal.reflect.Reflect_valueError".split("."), name: "ValueError"} : {pack: [], name: "ValueError"};
 
 final list = [
 	// stdgo/compress/Bzip2
@@ -16,25 +16,25 @@ final list = [
 		return new stdgo.Slice<stdgo.GoByte>(0, 0).__setNumber32__();
 	},
 	// internal/Reflectlite
-	"internal.reflectlite:typeOf" => macro return stdgo._internal.reflect.Reflect_typeOf.typeOf(_i),
-	"internal.reflectlite:valueOf" => macro return stdgo._internal.reflect.Reflect_valueOf.valueOf(_i),
+	"internal.reflectlite:typeOf" => macro return stdgo._internal.reflect.Reflect_typeof.typeOf(_i),
+	"internal.reflectlite:valueOf" => macro return stdgo._internal.reflect.Reflect_valueof.valueOf(_i),
 	"internal.reflectlite:swapper" => macro {
-			var _v:stdgo._internal.reflect.Reflect_Value.Value = (stdgo._internal.reflect.Reflect_valueOf.valueOf(Go.toInterface(_slice)) == null ? null : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_slice))
+			var _v:stdgo._internal.reflect.Reflect_value.Value = (stdgo._internal.reflect.Reflect_valueof.valueOf(Go.toInterface(_slice)) == null ? null : stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_slice))
 			.__copy__());
-		var _tmp:stdgo._internal.reflect.Reflect_Value.Value = (stdgo._internal.reflect.Reflect_new_.new_(_v.type().elem())
+		var _tmp:stdgo._internal.reflect.Reflect_value.Value = (stdgo._internal.reflect.Reflect_new_.new_(_v.type().elem())
 			.elem() == null ? null : stdgo._internal.reflect.Reflect_new_.new_(_v.type().elem())
 			.elem()
 			.__copy__());
 		return function(_i:stdgo.GoInt, _j:stdgo.GoInt):Void {
-			var _a:stdgo._internal.reflect.Reflect_Value.Value = (_v.index(_i) == null ? null : _v.index(_i).__copy__()),
-				_b:stdgo._internal.reflect.Reflect_Value.Value = (_v.index(_j) == null ? null : _v.index(_j).__copy__());
+			var _a:stdgo._internal.reflect.Reflect_value.Value = (_v.index(_i) == null ? null : _v.index(_i).__copy__()),
+				_b:stdgo._internal.reflect.Reflect_value.Value = (_v.index(_j) == null ? null : _v.index(_j).__copy__());
 			_tmp.set((_a == null ? null : _a.__copy__()));
 			_a.set((_b == null ? null : _b.__copy__()));
 			_b.set((_tmp == null ? null : _tmp.__copy__()));
 		};
 	},
 	// stdgo/errors
-	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeOf.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
+	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeof.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
 	"os:mkdir" => macro @:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
@@ -61,14 +61,14 @@ final list = [
 		}
 		return stdgo._internal.errors.Errors_new_.new_("chmod not supported on this target");
 	},
-	"os:dirFS" => macro return stdgo.Go.asInterface((_dir : stdgo._internal.os.Os_T_dirFS.T_dirFS)),
+	"os:dirFS" => macro return stdgo.Go.asInterface((_dir : stdgo._internal.os.Os_t_dirfs.T_dirFS)),
 	"os:readDir" => macro {
 		@:define("(sys || hxnodejs)") {
 			final name = _name;
 			final paths = sys.FileSystem.readDirectory(name);
-			final dirs = new stdgo.Slice<stdgo._internal.os.Os_DirEntry.DirEntry>(paths.length, paths.length);
+			final dirs = new stdgo.Slice<stdgo._internal.os.Os_direntry.DirEntry>(paths.length, paths.length);
 			for (i in 0...paths.length) {
-				dirs[i] = cast stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(paths[i]));
+				dirs[i] = cast stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(paths[i]));
 			}
 			return {_0: dirs, _1: null};
 		}
@@ -76,7 +76,7 @@ final list = [
 	},
 	"os.T_dirFS:readDir" => macro {
 		final fullname = haxe.io.Path.join([_dir, _name]);
-		return stdgo._internal.os.Os_readDir.readDir(fullname);
+		return stdgo._internal.os.Os_readdir.readDir(fullname);
 	},
 	"os.T_dirFS:open" => macro {
 		final fullname = haxe.io.Path.join([_dir, _name]);
@@ -93,7 +93,7 @@ final list = [
 			if (!sys.FileSystem.exists(_name))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 		}
-		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 	},
 	"os:mkdirTemp" => macro {
 		@:define("(sys || hxnodejs)") {
@@ -126,7 +126,7 @@ final list = [
 			if (!sys.FileSystem.exists(_name))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 		}
-		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_name)), _1: null};
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_name)), _1: null};
 	},
 	"os.T_fileStat:name" => macro {
 		return _fs._name;
@@ -139,14 +139,14 @@ final list = [
 			if (!sys.FileSystem.exists(_fs._name))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _fs._name + ": no such file or directory")};
 		}
-		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_fs._name)), _1: null};
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_fs._name)), _1: null};
 	},
 	"os.T_dirFS:stat" => macro {
 		@:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_dir))
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _dir + ": no such file or directory")};
 		}
-		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_T_fileStat.T_fileStat(_dir)), _1: null};
+		return {_0: stdgo.Go.asInterface(new stdgo._internal.os.Os_t_filestat.T_fileStat(_dir)), _1: null};
 	},
 	"os.T_fileStat:isDir" => macro {
 		@:define("(sys || hxnodejs)") {
@@ -218,7 +218,7 @@ final list = [
 		};
 	},
 	"os:open" => macro {
-		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);
+		return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
 	},
 	"os:openFile" => macro {
 		return @:define("(sys || hxnodejs)") {
@@ -308,7 +308,7 @@ final list = [
 	"time:_startTimer" => macro {
 		final t = _0;
 		t._status = 1;
-		var diff = (t._when - stdgo._internal.time.Time__runtimeNano._runtimeNano()) / (1000 * 1000);
+		var diff = (t._when - stdgo._internal.time.Time__runtimenano._runtimeNano()) / (1000 * 1000);
 		if (diff > 1 << 31 - 1)
 			return;
 		if (diff < 0)
@@ -345,11 +345,11 @@ final list = [
 		return (((@:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time()) * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
 	},
 	"time:_now" => macro {
-		final n = stdgo._internal.time.Time__runtimeNano._runtimeNano();
+		final n = stdgo._internal.time.Time__runtimenano._runtimeNano();
 		return {_0: n / 1000000000, _1: n % 1000000000, _2: n};
 	},
 	"time:_initLocal" => macro {
-		stdgo._internal.time.Time__localLoc._localLoc._name = ("Local" : stdgo.GoString);
+		stdgo._internal.time.Time__localloc._localLoc._name = ("Local" : stdgo.GoString);
 		final d = new std.Date(0, 0, 0, 0, 0, 0);
 		var offset = d.getTimezoneOffset() * -1;
 		offset *= 60;
@@ -365,15 +365,15 @@ final list = [
 		if (min != 0) {
 			name += ":" + std.Std.string(min);
 		}
-		stdgo._internal.time.Time__localLoc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>(1, 1, ...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
+		stdgo._internal.time.Time__localloc._localLoc._zone = new stdgo.Slice<stdgo._internal.time.Time_t_zone.T_zone>(1, 1, ...[{_name: (name : stdgo.GoString), _offset: offset, _isDST: false}]);
 	},
 	// stdgo/math
 	// func archHypot(p, q float64) float64
 	"math:_archHypot" => macro {
-		if (stdgo._internal.math.Math_isInf.isInf(_p, 0) || stdgo._internal.math.Math_isInf.isInf(_q, 0))
+		if (stdgo._internal.math.Math_isinf.isInf(_p, 0) || stdgo._internal.math.Math_isinf.isInf(_q, 0))
 			return stdgo._internal.math.Math_inf.inf(1);
 		if (!std.Math.isFinite(_p.toBasic()) || std.Math.isNaN(_q.toBasic()))
-			return stdgo._internal.math.Math_naN.naN();
+			return stdgo._internal.math.Math_nan.naN();
 		_p = stdgo._internal.math.Math_abs.abs(_p);
 		_q = stdgo._internal.math.Math_abs.abs(_q);
 		if (_p < _q) {
@@ -392,7 +392,7 @@ final list = [
 		@:define("(js || interp)") {
 			if (_x == 1 && std.Math.isNaN(_y.toBasic()))
 				return 1;
-			if ((_x == -1 || _x == 1) && stdgo._internal.math.Math_isInf.isInf(_y, 0))
+			if ((_x == -1 || _x == 1) && stdgo._internal.math.Math_isinf.isInf(_y, 0))
 				return 1;
 		};
 		return std.Math.pow(_x.toBasic(), _y.toBasic());
@@ -455,10 +455,10 @@ final list = [
 		if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic())) // special cases
 			return _x;
 		if (_x == 0.0 && stdgo._internal.math.Math_signbit.signbit(_x))
-			return stdgo._internal.math.Math_negZero.negZero();
+			return stdgo._internal.math.Math_negzero.negZero();
 		if (_x > -1.0 && _x < 0.0) {
 			//-0.0
-			return stdgo._internal.math.Math_negZero.negZero();
+			return stdgo._internal.math.Math_negzero.negZero();
 		}
 		return std.Math.ceil(_x.toBasic());
 	},
@@ -468,20 +468,20 @@ final list = [
 		// special cases
 		if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic()))
 			return stdgo._internal.math.Math_inf.inf(-1);
-		if (_x == 0.0 && stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isNaN.isNaN(_y) || _y == 0.0 && stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isNaN.isNaN(_x))
-			return stdgo._internal.math.Math_negZero.negZero();
-		if (stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y))
-			return stdgo._internal.math.Math_naN.naN();
+		if (_x == 0.0 && stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isnan.isNaN(_y) || _y == 0.0 && stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isnan.isNaN(_x))
+			return stdgo._internal.math.Math_negzero.negZero();
+		if (stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y))
+			return stdgo._internal.math.Math_nan.naN();
 		return std.Math.min(_x.toBasic(), _y.toBasic());
 	},
 	"math:max" => macro {
 		// special cases
 		if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
 			return stdgo._internal.math.Math_inf.inf(1);
-		if (_x == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isNaN.isNaN(_y) || _y == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isNaN.isNaN(_x))
+		if (_x == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_inNan.isNaN(_y) || _y == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isnan.isNaN(_x))
 			return 0.0;
-		if (stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y))
-			return stdgo._internal.math.Math_naN.naN();
+		if (stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y))
+			return stdgo._internal.math.Math_nan.naN();
 		return std.Math.max(_x.toBasic(), _y.toBasic());
 	},
 	"math:sin" => macro return std.Math.sin(_x.toBasic()),
@@ -493,10 +493,10 @@ final list = [
 	"math:atan2" => macro return std.Math.atan2(_y.toBasic(), _x.toBasic()),
 	"math:isInf" => macro return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY,
 	"math:hypnot" => macro {
-		if (stdgo._internal.math.Math_isInf.isInf(_p, 0) || stdgo._internal.math.Math_isInf.isInf(_q, 0))
+		if (stdgo._internal.math.Math_isinf.isInf(_p, 0) || stdgo._internal.math.Math_isinf.isInf(_q, 0))
 			return stdgo._internal.math.Math_inf.inf(1);
 		if (_p == std.Math.NaN || _q == std.Math.NaN)
-			return stdgo._internal.math.Math_naN.naN();
+			return stdgo._internal.math.Math_nan.naN();
 		_p = stdgo._internal.math.Math_abs.abs(_p);
 		_q = stdgo._internal.math.Math_abs.abs(_q);
 		if (_p < _q) {
@@ -546,21 +546,21 @@ final list = [
 	},
 	"os:create" => macro {
 		//O_RDWR|O_CREATE|O_TRUNC
-		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);
+		return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
 	},
 	"os:stdin" => macro {
 		final input:haxe.io.Input = @:define("(sys || hxnodejs)") std.Sys.stdin();
-		new stdgo._internal.os.Os_File.File(input, null);
+		new stdgo._internal.os.Os_file.File(input, null);
 	},
 	"os:stdout" => macro {
 		var output:haxe.io.Output = null;
-		@:define("js") output = new stdgo._internal.os.Os_JsOutput.JsOutput();
+		@:define("js") output = new stdgo._internal.os.Os_jsoutput.JsOutput();
 		@:define("(sys || hxnodejs)") output = std.Sys.stdout();
-		new stdgo._internal.os.Os_File.File(null, output);
+		new stdgo._internal.os.Os_file.File(null, output);
 	},
 	"os:stderr" => macro {
 		final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stderr();
-		new stdgo._internal.os.Os_File.File(null, output);
+		new stdgo._internal.os.Os_file.File(null, output);
 	},
 	"os.File:writeString" => macro return _f.write(_s),
 	"os:_fastrand" => macro return std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
@@ -603,8 +603,8 @@ final list = [
 		if (new $newValue(_x).isNil() || new $newValue(_y).isNil()) {
 			return (_x : stdgo.AnyInterface) == (_y : stdgo.AnyInterface);
 		};
-		var v1 = stdgo._internal.reflect.Reflect_valueOf.valueOf(_x);
-		var v2 = stdgo._internal.reflect.Reflect_valueOf.valueOf(_y);
+		var v1 = stdgo._internal.reflect.Reflect_valueof.valueOf(_x);
+		var v2 = stdgo._internal.reflect.Reflect_valueof.valueOf(_y);
 		return stdgo._internal.internal.reflect.Reflect.deepValueEqual(v1, v2, null, 0);
 	},
 	"reflect.Value:canInterface" => macro {
@@ -635,7 +635,7 @@ final list = [
 		final gt = @:privateAccess stdgo._internal.internal.reflect.Reflect.getUnderlying(_v.value.type._common());
 		switch gt {
 			case signature(_, _.get() => params, _.get() => out, _):
-				final values = new stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>(0,0);
+				final values = new stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>(0,0);
                 // TODO castings for input
                 // TODO return output
                 std.Reflect.callMethod(null, _v.interface_().value, _in.__toArray__().map(value -> value.interface_().value));
@@ -645,7 +645,7 @@ final list = [
 		}
 	},
 	"reflect.Value:mapRange" => macro @:splitdeps {
-		return new stdgo._internal.reflect.Reflect_MapIter.MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
+		return new stdgo._internal.reflect.Reflect_mapiter.MapIter(@:privateAccess _v.value.value, @:privateAccess _v.value.type);
 	},
 	"reflect.MapIter:key" => macro @:splitdeps {
 		@:privateAccess if (_iter.keys == null) {
@@ -1428,7 +1428,7 @@ final list = [
 	},
 	"sync.Pool:_pinSlow" => macro return {_0: null, _1: 0},
 	// Atomic -> Atomic_ because of restriction for cpp
-	"sync.atomic_.Bool_:store" => macro stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
+	"sync.atomic_.Bool_:store" => macro stdgo._internal.sync.atomic_.Atomic__storeuint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
 	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
@@ -1469,7 +1469,7 @@ final list = [
 	"log.Logger:setPrefix" => macro {},
 	"log.Logger:prefix" => macro return "",
 	// stdgo/internal/godebug
-	"internal.godebug:new_" => macro return new stdgo._internal.internal.godebug.Godebug_Setting.Setting(),
+	"internal.godebug:new_" => macro return new stdgo._internal.internal.godebug.Godebug_setting.Setting(),
 	"internal.godebug.Setting:value" => macro return "",
 	// stdgo/internal/bytealg
 	"internal.bytealg:countString" => macro {
@@ -1585,7 +1585,7 @@ final list = [
 	"crypto.internal.boring:unreachable" => macro {},
 	// syscall/js
 	"syscall.js:global" => macro {
-		final value = new stdgo._internal.syscall.js.Js_Value.Value();
+		final value = new stdgo._internal.syscall.js.Js_value.Value();
 		// TODO: Global returns the JavaScript global object, usually "window" or "global". 
 		return value;
 	},
@@ -1599,7 +1599,7 @@ final list = [
 	// testing
 	"testing:mainStart" => macro {
 		final args = @:define("(sys || hxnodejs)", []) Sys.args();
-		var testlist:Array<stdgo._internal.testing.Testing_InternalTest.InternalTest> = [];
+		var testlist:Array<stdgo._internal.testing.Testing_internaltest.InternalTest> = [];
 		var runArgBool = false;
 		var excludes:Array<String> = [];
 		for (i in 0...args.length) {
@@ -1625,7 +1625,7 @@ final list = [
 				}
 			}
 		}
-		var m = new stdgo._internal.testing.Testing_M.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
+		var m = new stdgo._internal.testing.Testing_m.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
 		return m;
 	},
 	"testing:coverMode" => macro return "",
@@ -1642,14 +1642,14 @@ final list = [
 	"testing.T_common:fatalf" => macro {},
 	"testing.T_common:tempDir" => macro {
 		final pattern = "";
-		final obj = stdgo._internal.os.Os_mkdirTemp.mkdirTemp("", pattern);
+		final obj = stdgo._internal.os.Os_mkdirtemp.mkdirTemp("", pattern);
 		_c._tempDir = obj._0;
 		_c._tempDirErr = obj._1;
 		if (_c._tempDirErr != null) {
 			_c.fatalf("TempDir: %v", stdgo.Go.toInterface(_c._tempDirErr));
 		}else{
 			_c.cleanup(() -> {
-				stdgo._internal.os.Os_removeAll.removeAll(_c._tempDir);
+				stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
 			});
 		}
 		return _c._tempDir;
@@ -1698,7 +1698,7 @@ final list = [
 			var error = false;
 			var exit = false;
 			final output = new StringBuf();
-			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
+			var t = new stdgo._internal.testing.Testing_t_.T_(null, null, null, output);
 			final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
 			stdgo.Go.println("=== RUN  " + test.name.toString());
 			try {
@@ -1734,7 +1734,7 @@ final list = [
 		}
 		return _m._exitCode;
 	},
-	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_BenchmarkResult.BenchmarkResult(),
+	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult(),
 	// testing/iotest
 	"testing.iotest:testWriteLogger" => macro {},
 	// testing/fstest
@@ -1798,8 +1798,8 @@ final skipTests = [
 ];
 
 final replace = [
-	"internal.reflectlite:Value" => macro stdgo._internal.reflect.Reflect_Value.Value,
-	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_Type_.Type_,
+	"internal.reflectlite:Value" => macro stdgo._internal.reflect.Reflect_value.Value,
+	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_type_.Type_,
 ];
 
 final structs = [

@@ -3,15 +3,15 @@ package stdgo._internal.internal.reflect;
 import stdgo.Pointer;
 import stdgo.AnyInterface;
 
-@:follow private typedef Type = stdgo._internal.reflect.Reflect_Type_.Type_;
+@:follow private typedef Type = stdgo._internal.reflect.Reflect_type_.Type_;
 
-private typedef ReflectKind = stdgo._internal.reflect.Reflect_Kind.Kind;
+private typedef ReflectKind = stdgo._internal.reflect.Reflect_kind.Kind;
 
-private typedef ReflectMethod = stdgo._internal.reflect.Reflect_Method.Method;
+private typedef ReflectMethod = stdgo._internal.reflect.Reflect_method.Method;
 
 
 enum abstract KindType(ReflectKind) from Int 
-from stdgo._internal.reflect.Reflect_Kind.Kind to stdgo._internal.reflect.Reflect_Kind.Kind
+from stdgo._internal.reflect.Reflect_kind.Kind to stdgo._internal.reflect.Reflect_kind.Kind
 {
 	final invalid = 0;
 	final bool;
@@ -72,7 +72,7 @@ function namedUnderlying(obj:AnyInterface):AnyInterface {
 	public function new(?_typ) {}
 }
 
-private typedef ReflectValue = stdgo._internal.reflect.Reflect_Value.Value;
+private typedef ReflectValue = stdgo._internal.reflect.Reflect_value.Value;
 
 function deepValueEqual(v1:ReflectValue, v2:ReflectValue, visited:Map<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
@@ -1395,9 +1395,9 @@ class _Type {
 		throw "not implemented align";
 }
 
-private typedef ReflectStructField = stdgo._internal.reflect.Reflect_StructField.StructField;
+private typedef ReflectStructField = stdgo._internal.reflect.Reflect_structfield.StructField;
 
-private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_ChanDir.ChanDir;
+private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_chandir.ChanDir;
 
 class _Type_asInterface {
 	public dynamic function _uncommon():Dynamic

@@ -1,0 +1,2 @@
+package stdgo.crypto.internal.nistec.fiat;
+typedef T_p256UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_T_p256UntypedFieldElementPointer.T_p256UntypedFieldElementPointer;

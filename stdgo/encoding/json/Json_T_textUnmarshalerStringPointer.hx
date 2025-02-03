@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_textUnmarshalerStringPointer = stdgo._internal.encoding.json.Json_T_textUnmarshalerStringPointer.T_textUnmarshalerStringPointer;

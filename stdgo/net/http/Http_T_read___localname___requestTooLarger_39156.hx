@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_read___localname___requestTooLarger_39156 = stdgo._internal.net.http.Http_T_read___localname___requestTooLarger_39156.T_read___localname___requestTooLarger_39156;

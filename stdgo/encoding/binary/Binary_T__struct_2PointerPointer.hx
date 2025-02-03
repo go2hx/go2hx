@@ -1,0 +1,2 @@
+package stdgo.encoding.binary;
+typedef T__struct_2PointerPointer = stdgo._internal.encoding.binary.Binary_T__struct_2PointerPointer.T__struct_2PointerPointer;

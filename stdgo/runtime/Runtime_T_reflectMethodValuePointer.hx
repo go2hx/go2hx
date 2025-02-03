@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_reflectMethodValuePointer = stdgo._internal.runtime.Runtime_T_reflectMethodValuePointer.T_reflectMethodValuePointer;

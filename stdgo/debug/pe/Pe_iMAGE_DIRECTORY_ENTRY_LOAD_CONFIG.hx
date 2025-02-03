@@ -1,0 +1,2 @@
+package stdgo.debug.pe;
+final iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG.iMAGE_DIRECTORY_ENTRY_LOAD_CONFIG;

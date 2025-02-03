@@ -1,0 +1,2 @@
+package stdgo.internal.coverage;
+typedef CounterFileFooterPointer = stdgo._internal.internal.coverage.Coverage_CounterFileFooterPointer.CounterFileFooterPointer;

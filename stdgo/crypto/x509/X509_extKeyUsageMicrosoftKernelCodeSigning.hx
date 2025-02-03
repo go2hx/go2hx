@@ -1,0 +1,2 @@
+package stdgo.crypto.x509;
+final extKeyUsageMicrosoftKernelCodeSigning = stdgo._internal.crypto.x509.X509_extKeyUsageMicrosoftKernelCodeSigning.extKeyUsageMicrosoftKernelCodeSigning;

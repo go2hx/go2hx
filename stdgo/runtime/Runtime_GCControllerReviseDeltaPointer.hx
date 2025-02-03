@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef GCControllerReviseDeltaPointer = stdgo._internal.runtime.Runtime_GCControllerReviseDeltaPointer.GCControllerReviseDeltaPointer;

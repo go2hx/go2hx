@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_metricFloat64HistogramPointer = stdgo._internal.runtime.Runtime_T_metricFloat64HistogramPointer.T_metricFloat64HistogramPointer;

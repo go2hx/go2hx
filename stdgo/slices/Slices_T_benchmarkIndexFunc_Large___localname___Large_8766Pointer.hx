@@ -1,0 +1,2 @@
+package stdgo.slices;
+typedef T_benchmarkIndexFunc_Large___localname___Large_8766Pointer = stdgo._internal.slices.Slices_T_benchmarkIndexFunc_Large___localname___Large_8766Pointer.T_benchmarkIndexFunc_Large___localname___Large_8766Pointer;

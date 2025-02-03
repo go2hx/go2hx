@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_noteWithTimeoutPointer = stdgo._internal.runtime.Runtime_T_noteWithTimeoutPointer.T_noteWithTimeoutPointer;

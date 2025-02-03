@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_errorAddressStringPointer = stdgo._internal.runtime.Runtime_T_errorAddressStringPointer.T_errorAddressStringPointer;

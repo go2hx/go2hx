@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2HeadersFrameParamPointer = stdgo._internal.net.http.Http_T_http2HeadersFrameParamPointer.T_http2HeadersFrameParamPointer;

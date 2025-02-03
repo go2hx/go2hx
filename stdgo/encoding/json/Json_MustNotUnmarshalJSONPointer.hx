@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef MustNotUnmarshalJSONPointer = stdgo._internal.encoding.json.Json_MustNotUnmarshalJSONPointer.MustNotUnmarshalJSONPointer;

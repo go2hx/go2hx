@@ -1,0 +1,2 @@
+package stdgo.crypto.internal.nistec.fiat;
+typedef T_p224NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_T_p224NonMontgomeryDomainFieldElementPointer.T_p224NonMontgomeryDomainFieldElementPointer;

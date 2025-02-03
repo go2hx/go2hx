@@ -1,0 +1,2 @@
+package stdgo.text.template;
+typedef T_testIssue48215___localname___A_58273Pointer = stdgo._internal.text.template.Template_T_testIssue48215___localname___A_58273Pointer.T_testIssue48215___localname___A_58273Pointer;

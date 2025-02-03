@@ -1,0 +1,2 @@
+package stdgo.encoding.binary;
+typedef T_testNoFixedSize___localname___Person_12888Pointer = stdgo._internal.encoding.binary.Binary_T_testNoFixedSize___localname___Person_12888Pointer.T_testNoFixedSize___localname___Person_12888Pointer;

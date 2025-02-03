@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_closeIdleConnections___localname___closeIdler_31464 = stdgo._internal.net.http.Http_T_closeIdleConnections___localname___closeIdler_31464.T_closeIdleConnections___localname___closeIdler_31464;

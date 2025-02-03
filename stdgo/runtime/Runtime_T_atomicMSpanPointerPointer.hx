@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_atomicMSpanPointerPointer = stdgo._internal.runtime.Runtime_T_atomicMSpanPointerPointer.T_atomicMSpanPointerPointer;

@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_specialReachablePointer = stdgo._internal.runtime.Runtime_T_specialReachablePointer.T_specialReachablePointer;

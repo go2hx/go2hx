@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2write100ContinueHeadersFramePointer = stdgo._internal.net.http.Http_T_http2write100ContinueHeadersFramePointer.T_http2write100ContinueHeadersFramePointer;

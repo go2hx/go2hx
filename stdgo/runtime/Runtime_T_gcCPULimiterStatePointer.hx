@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_gcCPULimiterStatePointer = stdgo._internal.runtime.Runtime_T_gcCPULimiterStatePointer.T_gcCPULimiterStatePointer;

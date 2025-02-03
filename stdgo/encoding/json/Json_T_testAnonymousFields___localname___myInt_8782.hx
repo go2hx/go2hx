@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_testAnonymousFields___localname___myInt_8782 = stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___myInt_8782.T_testAnonymousFields___localname___myInt_8782;

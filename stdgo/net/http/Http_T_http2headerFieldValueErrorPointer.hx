@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2headerFieldValueErrorPointer = stdgo._internal.net.http.Http_T_http2headerFieldValueErrorPointer.T_http2headerFieldValueErrorPointer;

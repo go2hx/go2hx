@@ -1,0 +1,2 @@
+package stdgo.debug.pe;
+final iMAGE_DLLCHARACTERISTICS_NO_SEH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iMAGE_DLLCHARACTERISTICS_NO_SEH.iMAGE_DLLCHARACTERISTICS_NO_SEH;

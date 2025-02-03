@@ -1,0 +1,2 @@
+package stdgo.reflect;
+typedef T_nonEmptyInterfacePointer = stdgo._internal.reflect.Reflect_T_nonEmptyInterfacePointer.T_nonEmptyInterfacePointer;

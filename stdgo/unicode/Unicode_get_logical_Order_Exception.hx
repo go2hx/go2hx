@@ -1,0 +1,2 @@
+package stdgo.unicode;
+private function get_logical_Order_Exception():RangeTable return stdgo._internal.unicode.Unicode_logical_Order_Exception.logical_Order_Exception;

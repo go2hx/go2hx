@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_gcStatsAggregatePointer = stdgo._internal.runtime.Runtime_T_gcStatsAggregatePointer.T_gcStatsAggregatePointer;

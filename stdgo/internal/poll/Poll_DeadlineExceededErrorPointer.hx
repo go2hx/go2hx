@@ -1,0 +1,2 @@
+package stdgo.internal.poll;
+typedef DeadlineExceededErrorPointer = stdgo._internal.internal.poll.Poll_DeadlineExceededErrorPointer.DeadlineExceededErrorPointer;

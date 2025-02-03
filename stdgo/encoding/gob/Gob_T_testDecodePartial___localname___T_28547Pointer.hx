@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testDecodePartial___localname___T_28547Pointer = stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547Pointer.T_testDecodePartial___localname___T_28547Pointer;

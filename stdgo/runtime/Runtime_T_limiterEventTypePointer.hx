@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_limiterEventTypePointer = stdgo._internal.runtime.Runtime_T_limiterEventTypePointer.T_limiterEventTypePointer;

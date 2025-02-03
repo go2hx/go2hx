@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2FrameWriteRequestPointer = stdgo._internal.net.http.Http_T_http2FrameWriteRequestPointer.T_http2FrameWriteRequestPointer;

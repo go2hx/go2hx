@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef BlockProfileRecordPointer = stdgo._internal.runtime.Runtime_BlockProfileRecordPointer.BlockProfileRecordPointer;

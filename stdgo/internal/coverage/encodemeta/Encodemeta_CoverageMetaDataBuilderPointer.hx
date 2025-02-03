@@ -1,0 +1,2 @@
+package stdgo.internal.coverage.encodemeta;
+typedef CoverageMetaDataBuilderPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilderPointer.CoverageMetaDataBuilderPointer;

@@ -1,0 +1,2 @@
+package stdgo.internal.bisect;
+typedef T_atomicPointerDedupPointer = stdgo._internal.internal.bisect.Bisect_T_atomicPointerDedupPointer.T_atomicPointerDedupPointer;

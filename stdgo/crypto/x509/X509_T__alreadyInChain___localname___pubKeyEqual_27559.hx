@@ -1,0 +1,2 @@
+package stdgo.crypto.x509;
+typedef T__alreadyInChain___localname___pubKeyEqual_27559 = stdgo._internal.crypto.x509.X509_T__alreadyInChain___localname___pubKeyEqual_27559.T__alreadyInChain___localname___pubKeyEqual_27559;

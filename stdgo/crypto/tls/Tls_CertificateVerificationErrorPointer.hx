@@ -1,0 +1,2 @@
+package stdgo.crypto.tls;
+typedef CertificateVerificationErrorPointer = stdgo._internal.crypto.tls.Tls_CertificateVerificationErrorPointer.CertificateVerificationErrorPointer;

@@ -1,0 +1,2 @@
+package stdgo.testing.quick;
+typedef T_testRecursive___localname___R_8108Pointer = stdgo._internal.testing.quick.Quick_T_testRecursive___localname___R_8108Pointer.T_testRecursive___localname___R_8108Pointer;

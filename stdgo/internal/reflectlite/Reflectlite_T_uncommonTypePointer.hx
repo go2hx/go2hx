@@ -1,0 +1,2 @@
+package stdgo.internal.reflectlite;
+typedef T_uncommonTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_T_uncommonTypePointer.T_uncommonTypePointer;

@@ -1,0 +1,2 @@
+package stdgo.crypto.tls;
+typedef T_encryptedExtensionsMsgPointer = stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsgPointer.T_encryptedExtensionsMsgPointer;

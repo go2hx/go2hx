@@ -1,0 +1,2 @@
+package stdgo.internal.coverage;
+typedef CounterGranularityPointer = stdgo._internal.internal.coverage.Coverage_CounterGranularityPointer.CounterGranularityPointer;

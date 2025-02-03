@@ -1,0 +1,2 @@
+package stdgo.slices;
+typedef T_testInference___localname___S_22782Pointer = stdgo._internal.slices.Slices_T_testInference___localname___S_22782Pointer.T_testInference___localname___S_22782Pointer;

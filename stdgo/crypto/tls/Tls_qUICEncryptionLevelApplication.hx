@@ -1,0 +1,2 @@
+package stdgo.crypto.tls;
+final qUICEncryptionLevelApplication = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelApplication.qUICEncryptionLevelApplication;

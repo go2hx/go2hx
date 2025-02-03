@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_byteWithMarshalJSONPointer = stdgo._internal.encoding.json.Json_T_byteWithMarshalJSONPointer.T_byteWithMarshalJSONPointer;

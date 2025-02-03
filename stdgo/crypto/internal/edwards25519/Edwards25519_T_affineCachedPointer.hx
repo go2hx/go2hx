@@ -1,0 +1,2 @@
+package stdgo.crypto.internal.edwards25519;
+typedef T_affineCachedPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_affineCachedPointer.T_affineCachedPointer;

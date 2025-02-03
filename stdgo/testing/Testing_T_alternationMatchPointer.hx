@@ -1,0 +1,2 @@
+package stdgo.testing;
+typedef T_alternationMatchPointer = stdgo._internal.testing.Testing_T_alternationMatchPointer.T_alternationMatchPointer;

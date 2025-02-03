@@ -1,0 +1,2 @@
+package stdgo.encoding.ascii85;
+typedef CorruptInputErrorPointer = stdgo._internal.encoding.ascii85.Ascii85_CorruptInputErrorPointer.CorruptInputErrorPointer;

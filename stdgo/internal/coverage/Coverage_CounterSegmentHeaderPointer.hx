@@ -1,0 +1,2 @@
+package stdgo.internal.coverage;
+typedef CounterSegmentHeaderPointer = stdgo._internal.internal.coverage.Coverage_CounterSegmentHeaderPointer.CounterSegmentHeaderPointer;

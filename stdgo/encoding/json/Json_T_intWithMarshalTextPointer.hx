@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_intWithMarshalTextPointer = stdgo._internal.encoding.json.Json_T_intWithMarshalTextPointer.T_intWithMarshalTextPointer;

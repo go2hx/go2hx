@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_traceBlockReasonPointer = stdgo._internal.runtime.Runtime_T_traceBlockReasonPointer.T_traceBlockReasonPointer;

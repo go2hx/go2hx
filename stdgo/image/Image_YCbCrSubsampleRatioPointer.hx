@@ -1,0 +1,2 @@
+package stdgo.image;
+typedef YCbCrSubsampleRatioPointer = stdgo._internal.image.Image_YCbCrSubsampleRatioPointer.YCbCrSubsampleRatioPointer;

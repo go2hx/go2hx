@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testRecursiveMapType___localname___recursiveMap_7903 = stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903;

@@ -1,0 +1,2 @@
+package stdgo.crypto.tls;
+typedef T_certificateRequestMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13Pointer.T_certificateRequestMsgTLS13Pointer;

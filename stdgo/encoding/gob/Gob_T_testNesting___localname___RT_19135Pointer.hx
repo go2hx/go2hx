@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testNesting___localname___RT_19135Pointer = stdgo._internal.encoding.gob.Gob_T_testNesting___localname___RT_19135Pointer.T_testNesting___localname___RT_19135Pointer;

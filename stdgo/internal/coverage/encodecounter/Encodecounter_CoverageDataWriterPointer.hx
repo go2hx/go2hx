@@ -1,0 +1,2 @@
+package stdgo.internal.coverage.encodecounter;
+typedef CoverageDataWriterPointer = stdgo._internal.internal.coverage.encodecounter.Encodecounter_CoverageDataWriterPointer.CoverageDataWriterPointer;

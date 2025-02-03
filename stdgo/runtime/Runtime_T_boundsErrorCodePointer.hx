@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_boundsErrorCodePointer = stdgo._internal.runtime.Runtime_T_boundsErrorCodePointer.T_boundsErrorCodePointer;

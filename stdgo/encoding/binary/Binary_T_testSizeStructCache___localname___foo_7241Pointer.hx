@@ -1,0 +1,2 @@
+package stdgo.encoding.binary;
+typedef T_testSizeStructCache___localname___foo_7241Pointer = stdgo._internal.encoding.binary.Binary_T_testSizeStructCache___localname___foo_7241Pointer.T_testSizeStructCache___localname___foo_7241Pointer;

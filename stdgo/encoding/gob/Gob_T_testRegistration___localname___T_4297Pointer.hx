@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testRegistration___localname___T_4297Pointer = stdgo._internal.encoding.gob.Gob_T_testRegistration___localname___T_4297Pointer.T_testRegistration___localname___T_4297Pointer;

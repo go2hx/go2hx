@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T__benchMarshalBytesError___localname___Dummy_4406Pointer = stdgo._internal.encoding.json.Json_T__benchMarshalBytesError___localname___Dummy_4406Pointer.T__benchMarshalBytesError___localname___Dummy_4406Pointer;

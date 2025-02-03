@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_testStringKind___localname___stringKind_47067Pointer = stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067Pointer.T_testStringKind___localname___stringKind_47067Pointer;

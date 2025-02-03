@@ -1,0 +1,2 @@
+package stdgo.mime.multipart;
+typedef T_stickyErrorReaderPointer = stdgo._internal.mime.multipart.Multipart_T_stickyErrorReaderPointer.T_stickyErrorReaderPointer;

@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_gcControllerStatePointer = stdgo._internal.runtime.Runtime_T_gcControllerStatePointer.T_gcControllerStatePointer;

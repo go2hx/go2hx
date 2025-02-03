@@ -1,0 +1,2 @@
+package stdgo.testing;
+typedef T_durationOrCountFlagPointer = stdgo._internal.testing.Testing_T_durationOrCountFlagPointer.T_durationOrCountFlagPointer;

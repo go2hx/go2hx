@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_goroutineProfileStateHolderPointer = stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolderPointer.T_goroutineProfileStateHolderPointer;

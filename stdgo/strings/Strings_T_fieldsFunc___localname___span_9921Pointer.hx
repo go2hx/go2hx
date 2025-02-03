@@ -1,0 +1,2 @@
+package stdgo.strings;
+typedef T_fieldsFunc___localname___span_9921Pointer = stdgo._internal.strings.Strings_T_fieldsFunc___localname___span_9921Pointer.T_fieldsFunc___localname___span_9921Pointer;

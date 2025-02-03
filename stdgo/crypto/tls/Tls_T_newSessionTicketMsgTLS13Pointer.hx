@@ -1,0 +1,2 @@
+package stdgo.crypto.tls;
+typedef T_newSessionTicketMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13Pointer.T_newSessionTicketMsgTLS13Pointer;

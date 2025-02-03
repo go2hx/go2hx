@@ -1,0 +1,2 @@
+package stdgo.unicode;
+private function get_other_Default_Ignorable_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_other_Default_Ignorable_Code_Point.other_Default_Ignorable_Code_Point;

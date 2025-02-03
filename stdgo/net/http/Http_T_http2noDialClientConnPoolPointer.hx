@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2noDialClientConnPoolPointer = stdgo._internal.net.http.Http_T_http2noDialClientConnPoolPointer.T_http2noDialClientConnPoolPointer;

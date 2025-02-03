@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_transportReadFromServerErrorPointer = stdgo._internal.net.http.Http_T_transportReadFromServerErrorPointer.T_transportReadFromServerErrorPointer;

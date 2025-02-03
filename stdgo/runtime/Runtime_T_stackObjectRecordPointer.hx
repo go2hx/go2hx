@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_stackObjectRecordPointer = stdgo._internal.runtime.Runtime_T_stackObjectRecordPointer.T_stackObjectRecordPointer;

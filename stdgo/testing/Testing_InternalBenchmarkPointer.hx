@@ -1,0 +1,2 @@
+package stdgo.testing;
+typedef InternalBenchmarkPointer = stdgo._internal.testing.Testing_InternalBenchmarkPointer.InternalBenchmarkPointer;

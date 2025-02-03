@@ -1,0 +1,2 @@
+package stdgo.net.http;
+typedef T_http2OpenStreamOptionsPointer = stdgo._internal.net.http.Http_T_http2OpenStreamOptionsPointer.T_http2OpenStreamOptionsPointer;

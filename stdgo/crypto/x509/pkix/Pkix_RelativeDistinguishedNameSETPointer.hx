@@ -1,0 +1,2 @@
+package stdgo.crypto.x509.pkix;
+typedef RelativeDistinguishedNameSETPointer = stdgo._internal.crypto.x509.pkix.Pkix_RelativeDistinguishedNameSETPointer.RelativeDistinguishedNameSETPointer;

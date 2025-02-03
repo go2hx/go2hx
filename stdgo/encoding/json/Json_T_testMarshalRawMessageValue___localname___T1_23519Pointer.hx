@@ -1,0 +1,2 @@
+package stdgo.encoding.json;
+typedef T_testMarshalRawMessageValue___localname___T1_23519Pointer = stdgo._internal.encoding.json.Json_T_testMarshalRawMessageValue___localname___T1_23519Pointer.T_testMarshalRawMessageValue___localname___T1_23519Pointer;

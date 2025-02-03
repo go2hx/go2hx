@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_stackWorkBufHdrPointer = stdgo._internal.runtime.Runtime_T_stackWorkBufHdrPointer.T_stackWorkBufHdrPointer;

@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_uint32InterfacePtrPointer = stdgo._internal.runtime.Runtime_T_uint32InterfacePtrPointer.T_uint32InterfacePtrPointer;

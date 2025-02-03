@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_persistentAllocPointer = stdgo._internal.runtime.Runtime_T_persistentAllocPointer.T_persistentAllocPointer;

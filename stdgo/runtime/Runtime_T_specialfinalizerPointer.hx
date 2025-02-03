@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_specialfinalizerPointer = stdgo._internal.runtime.Runtime_T_specialfinalizerPointer.T_specialfinalizerPointer;

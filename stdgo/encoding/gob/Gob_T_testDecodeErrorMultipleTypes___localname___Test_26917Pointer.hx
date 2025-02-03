@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testDecodeErrorMultipleTypes___localname___Test_26917Pointer = stdgo._internal.encoding.gob.Gob_T_testDecodeErrorMultipleTypes___localname___Test_26917Pointer.T_testDecodeErrorMultipleTypes___localname___Test_26917Pointer;

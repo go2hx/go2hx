@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_arrayLargeBlockWrapperPointer = stdgo._internal.runtime.Runtime_T_arrayLargeBlockWrapperPointer.T_arrayLargeBlockWrapperPointer<T_>;

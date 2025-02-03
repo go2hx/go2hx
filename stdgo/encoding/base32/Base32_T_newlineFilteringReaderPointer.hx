@@ -1,0 +1,2 @@
+package stdgo.encoding.base32;
+typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base32.Base32_T_newlineFilteringReaderPointer.T_newlineFilteringReaderPointer;

@@ -1,0 +1,2 @@
+package stdgo.runtime.coverage;
+typedef T__struct_0PointerPointer = stdgo._internal.runtime.coverage.Coverage_T__struct_0PointerPointer.T__struct_0PointerPointer;

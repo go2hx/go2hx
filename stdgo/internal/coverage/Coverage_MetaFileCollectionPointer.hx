@@ -1,0 +1,2 @@
+package stdgo.internal.coverage;
+typedef MetaFileCollectionPointer = stdgo._internal.internal.coverage.Coverage_MetaFileCollectionPointer.MetaFileCollectionPointer;

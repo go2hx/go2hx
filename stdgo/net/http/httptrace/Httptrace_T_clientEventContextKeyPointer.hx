@@ -1,0 +1,2 @@
+package stdgo.net.http.httptrace;
+typedef T_clientEventContextKeyPointer = stdgo._internal.net.http.httptrace.Httptrace_T_clientEventContextKeyPointer.T_clientEventContextKeyPointer;

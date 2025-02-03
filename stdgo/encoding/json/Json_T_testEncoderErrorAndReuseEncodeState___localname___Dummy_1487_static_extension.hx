@@ -1,0 +1,4 @@
+package stdgo.encoding.json;
+class T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487_static_extension {
+
+}

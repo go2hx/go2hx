@@ -1,0 +1,2 @@
+package stdgo.strings;
+typedef T_singleStringReplacerPointer = stdgo._internal.strings.Strings_T_singleStringReplacerPointer.T_singleStringReplacerPointer;

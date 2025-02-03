@@ -1,0 +1,2 @@
+package stdgo.encoding.gob;
+typedef T_testOverflow___localname___outi32_17183Pointer = stdgo._internal.encoding.gob.Gob_T_testOverflow___localname___outi32_17183Pointer.T_testOverflow___localname___outi32_17183Pointer;

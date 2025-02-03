@@ -1,0 +1,2 @@
+package stdgo.net;
+typedef T_ipStackCapabilitiesPointer = stdgo._internal.net.Net_T_ipStackCapabilitiesPointer.T_ipStackCapabilitiesPointer;

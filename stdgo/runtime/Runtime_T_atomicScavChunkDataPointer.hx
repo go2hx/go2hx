@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_atomicScavChunkDataPointer = stdgo._internal.runtime.Runtime_T_atomicScavChunkDataPointer.T_atomicScavChunkDataPointer;

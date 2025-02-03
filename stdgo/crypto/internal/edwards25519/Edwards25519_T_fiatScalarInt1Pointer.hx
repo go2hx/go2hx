@@ -1,0 +1,2 @@
+package stdgo.crypto.internal.edwards25519;
+typedef T_fiatScalarInt1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_fiatScalarInt1Pointer.T_fiatScalarInt1Pointer;

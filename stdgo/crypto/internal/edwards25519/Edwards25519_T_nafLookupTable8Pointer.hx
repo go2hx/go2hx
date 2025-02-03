@@ -1,0 +1,2 @@
+package stdgo.crypto.internal.edwards25519;
+typedef T_nafLookupTable8Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_T_nafLookupTable8Pointer.T_nafLookupTable8Pointer;

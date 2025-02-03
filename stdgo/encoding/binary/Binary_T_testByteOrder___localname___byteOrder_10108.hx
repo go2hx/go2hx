@@ -1,0 +1,2 @@
+package stdgo.encoding.binary;
+typedef T_testByteOrder___localname___byteOrder_10108 = stdgo._internal.encoding.binary.Binary_T_testByteOrder___localname___byteOrder_10108.T_testByteOrder___localname___byteOrder_10108;

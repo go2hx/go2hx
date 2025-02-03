@@ -1,0 +1,2 @@
+package stdgo.slices;
+typedef T_benchmarkCompactFunc_Large___localname___Large_15780 = stdgo._internal.slices.Slices_T_benchmarkCompactFunc_Large___localname___Large_15780.T_benchmarkCompactFunc_Large___localname___Large_15780;

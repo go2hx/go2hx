@@ -1,0 +1,2 @@
+package stdgo.runtime;
+typedef T_gcBgMarkWorkerNodePointer = stdgo._internal.runtime.Runtime_T_gcBgMarkWorkerNodePointer.T_gcBgMarkWorkerNodePointer;

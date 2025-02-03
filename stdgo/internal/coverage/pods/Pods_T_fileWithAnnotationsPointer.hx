@@ -1,0 +1,2 @@
+package stdgo.internal.coverage.pods;
+typedef T_fileWithAnnotationsPointer = stdgo._internal.internal.coverage.pods.Pods_T_fileWithAnnotationsPointer.T_fileWithAnnotationsPointer;

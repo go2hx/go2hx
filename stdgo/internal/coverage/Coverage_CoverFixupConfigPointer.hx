@@ -1,0 +1,2 @@
+package stdgo.internal.coverage;
+typedef CoverFixupConfigPointer = stdgo._internal.internal.coverage.Coverage_CoverFixupConfigPointer.CoverFixupConfigPointer;

@@ -168,7 +168,8 @@ private function runCmd(cmd:String) {
 private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool=true) {
 	if (content.length == 0)
 		return;
-	content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
+	if (splitDepsContent)
+		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
 	saveRaw(dir,name,contentString, prefix, extension);
@@ -303,7 +304,6 @@ function copyField(field:Field, kind:FieldType):Field {
 	};
 }
 
-var splitDepsBool = true;
 
 function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];

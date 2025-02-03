@@ -340,7 +340,7 @@ class Go {
 				if (p.pack != ["stdgo"] && p.name == "Error") {
 
 				}else{
-					p.name += s;
+					p.name += s.toLowerCase();
 				}
 				// trace(new haxe.macro.Printer().printTypePath(p));
 				return p;

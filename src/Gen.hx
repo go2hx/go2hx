@@ -168,7 +168,10 @@ private function runCmd(cmd:String) {
 private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool=true) {
 	if (content.length == 0)
 		return;
-	splitDeps(dir, name, prefix, extension, content);
+	content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
+	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
+	// used to create the main file and/or hold the init func
+	saveRaw(dir,name,contentString, prefix, extension);
 }
 
 function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>):Array<TypeDefinition> {
@@ -299,6 +302,8 @@ function copyField(field:Field, kind:FieldType):Field {
 		kind: kind,
 	};
 }
+
+var splitDepsBool = true;
 
 function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];

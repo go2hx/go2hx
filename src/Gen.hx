@@ -8,6 +8,7 @@ import sys.FileSystem;
 import sys.io.File;
 
 var clName = "";
+var splitFiles:Array<String> = [];
 
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
@@ -67,6 +68,7 @@ function create(outputPath:String, module:Module, root:String) {
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		final cl = macro class C {};
 		final clMacro = macro class C {};
+		splitFiles = [];
 		clName = Typer.title(paths.pop());
 		cl.name = clName;
 		clMacro.name = clName;
@@ -199,8 +201,16 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 			default:
 		}
 		// raw save file
-		final contentString = prefix + Typer.printer.printTypeDefinition(td,false);
-		saveRaw(dir,name + "_" + td.name,contentString, prefix, extension);
+		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
+		var contentString = Typer.printer.printTypeDefinition(td,false);
+		if (splitFiles.indexOf(fullPath) != -1) {
+			trace("aready exists");
+			appendRaw(dir,name + "_" + td.name.toLowerCase(),contentString, prefix, extension);
+		}else{
+			contentString = prefix + contentString;
+			saveRaw(dir,name + "_" + td.name.toLowerCase(),contentString, prefix, extension);
+			splitFiles.push(fullPath);
+		}
 	}
 	return newContent;
 }
@@ -211,6 +221,14 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 	final path = dir + name + extension + ".hx";
 	File.saveContent(path, contentString);
 	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
+}
+
+private function appendRaw(dir:String, name:String, contentString, prefix:String, extension:String) {
+	if (!FileSystem.exists(dir))
+		FileSystem.createDirectory(dir);
+	final path = dir + name + extension + ".hx";
+	File.saveContent(path, File.getContent(path) + contentString);
+	Sys.println("Appended: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 }
 
 function staticExtensionName(name:String,cl:TypeDefinition):String {

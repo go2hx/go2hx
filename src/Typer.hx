@@ -5124,7 +5124,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	// for split deps
 	pack.push(title(pkg));
 	final last = pack.pop();
-	pack.push(last + "_" + cl);
+	pack.push(last + "_" + cl.toLowerCase());
 	return {pack: pack, name: cl};
 }
 
@@ -8631,7 +8631,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		}
 		final filePath = pack.pop();
 		pack.push(filePath);
-		pack.push(title(filePath) + "_" + name);
+		pack.push(title(filePath) + "_" + name.toLowerCase());
 		pack.push(name);
 		//name = path + "." + filePath + "_" + name + "." + name;
 		name = pack.join(".");
@@ -8657,7 +8657,7 @@ function splitDepFullPathName(name:String, info:Info):String {
 	/*if (StringTools.endsWith(filePath, "_test")) {
 		filePath = filePath.substr(0, filePath.length - "_test".length);
 	}*/
-	name = path + "." + filePath + "_" + name + "." + name;
+	name = path + "." + filePath + "_" + name.toLowerCase() + "." + name;
 	return name;
 }
 

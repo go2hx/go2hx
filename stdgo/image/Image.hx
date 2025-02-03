@@ -70,7 +70,7 @@ class Image_static_extension {
         return stdgo._internal.image.Image_Image_static_extension.Image_static_extension.colorModel(t);
     }
 }
-typedef Image = stdgo._internal.image.Image_Image.Image;
+typedef Image_ = stdgo._internal.image.Image_Image.Image;
 class RGBA64Image_static_extension {
     static public function rGBA64At(t:stdgo._internal.image.Image_RGBA64Image.RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int):RGBA64 {
         final _x = (_x : stdgo.GoInt);

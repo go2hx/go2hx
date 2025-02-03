@@ -14,7 +14,7 @@ class Hash_static_extension {
         return [for (i in stdgo._internal.hash.Hash_Hash_static_extension.Hash_static_extension.sum(t, _b)) i];
     }
 }
-typedef Hash = stdgo._internal.hash.Hash_Hash.Hash;
+typedef Hash_ = stdgo._internal.hash.Hash_Hash.Hash;
 class Hash32_static_extension {
     static public function sum32(t:stdgo._internal.hash.Hash_Hash32.Hash32):std.UInt {
         return stdgo._internal.hash.Hash_Hash32_static_extension.Hash32_static_extension.sum32(t);

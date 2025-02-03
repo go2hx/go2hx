@@ -1,5 +1,5 @@
 package stdgo.log.slog.internal.buffer;
-typedef Buffer = stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer;
+typedef Buffer_ = stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer;
 typedef BufferPointer = stdgo._internal.log.slog.internal.buffer.Buffer_BufferPointer.BufferPointer;
 class Buffer_static_extension {
     static public function string(_b:Buffer_):String {

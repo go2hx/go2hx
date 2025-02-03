@@ -56,7 +56,7 @@ class Driver_static_extension {
         };
     }
 }
-typedef Driver = stdgo._internal.database.sql.driver.Driver_Driver.Driver;
+typedef Driver_ = stdgo._internal.database.sql.driver.Driver_Driver.Driver;
 class DriverContext_static_extension {
     static public function openConnector(t:stdgo._internal.database.sql.driver.Driver_DriverContext.DriverContext, _name:String):stdgo.Tuple<Connector, stdgo.Error> {
         final _name = (_name : stdgo.GoString);

@@ -277,11 +277,11 @@ return { _0 : _c, _1 : (null : stdgo.Error) };
     @:tdfield
     static public function _readValue( _dec:stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.json.Json_Decoder.Decoder> = _dec;
-        var _c_5366152:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _n_5449439:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_5448503:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var inputBreak = false;
-        var _err_5365929:stdgo.Error = (null : stdgo.Error);
-        var _scanp_5365905:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_5367088:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_5448280:stdgo.Error = (null : stdgo.Error);
+        var _scanp_5448256:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -289,106 +289,106 @@ return { _0 : _c, _1 : (null : stdgo.Error) };
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     @:check2 (@:checkr _dec ?? throw "null pointer dereference")._scan._reset();
-                    _scanp_5365905 = (@:checkr _dec ?? throw "null pointer dereference")._scanp;
-                    _gotoNext = 5365939i32;
-                } else if (__value__ == (5365939i32)) {
+                    _scanp_5448256 = (@:checkr _dec ?? throw "null pointer dereference")._scanp;
+                    _gotoNext = 5448290i32;
+                } else if (__value__ == (5448290i32)) {
                     var __blank__ = 0i32;
                     inputBreak = false;
-                    _gotoNext = 5366050i32;
-                } else if (__value__ == (5366050i32)) {
-                    if (!inputBreak && ((_scanp_5365905 >= (0 : stdgo.GoInt) : Bool))) {
-                        _gotoNext = 5366065i32;
+                    _gotoNext = 5448401i32;
+                } else if (__value__ == (5448401i32)) {
+                    if (!inputBreak && ((_scanp_5448256 >= (0 : stdgo.GoInt) : Bool))) {
+                        _gotoNext = 5448416i32;
                     } else {
-                        _gotoNext = 5367160i32;
+                        _gotoNext = 5449511i32;
                     };
-                } else if (__value__ == (5366065i32)) {
+                } else if (__value__ == (5448416i32)) {
                     var __blank__ = 0i32;
-                    _gotoNext = 5366111i32;
-                } else if (__value__ == (5366111i32)) {
-                    if ((_scanp_5365905 < ((@:checkr _dec ?? throw "null pointer dereference")._buf.length) : Bool)) {
-                        _gotoNext = 5366147i32;
+                    _gotoNext = 5448462i32;
+                } else if (__value__ == (5448462i32)) {
+                    if ((_scanp_5448256 < ((@:checkr _dec ?? throw "null pointer dereference")._buf.length) : Bool)) {
+                        _gotoNext = 5448498i32;
                     } else {
-                        _gotoNext = 5366867i32;
+                        _gotoNext = 5449218i32;
                     };
-                } else if (__value__ == (5366139i32)) {
-                    _scanp_5365905++;
-                    _gotoNext = 5366111i32;
-                } else if (__value__ == (5366147i32)) {
-                    _c_5366152 = (@:checkr _dec ?? throw "null pointer dereference")._buf[(_scanp_5365905 : stdgo.GoInt)];
+                } else if (__value__ == (5448490i32)) {
+                    _scanp_5448256++;
+                    _gotoNext = 5448462i32;
+                } else if (__value__ == (5448498i32)) {
+                    _c_5448503 = (@:checkr _dec ?? throw "null pointer dereference")._buf[(_scanp_5448256 : stdgo.GoInt)];
                     (@:checkr _dec ?? throw "null pointer dereference")._scan._bytes++;
-                    _gotoNext = 5366195i32;
-                } else if (__value__ == (5366195i32)) {
+                    _gotoNext = 5448546i32;
+                } else if (__value__ == (5448546i32)) {
                     {
-                        final __value__ = (@:checkr _dec ?? throw "null pointer dereference")._scan._step((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), _c_5366152);
+                        final __value__ = (@:checkr _dec ?? throw "null pointer dereference")._scan._step((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), _c_5448503);
                         if (__value__ == ((10 : stdgo.GoInt))) {
-                            _gotoNext = 5366235i32;
+                            _gotoNext = 5448586i32;
                         } else if (__value__ == ((5 : stdgo.GoInt)) || __value__ == ((8 : stdgo.GoInt))) {
-                            _gotoNext = 5366448i32;
+                            _gotoNext = 5448799i32;
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
-                            _gotoNext = 5366702i32;
+                            _gotoNext = 5449053i32;
                         } else {
-                            _gotoNext = 5366139i32;
+                            _gotoNext = 5448490i32;
                         };
                     };
-                } else if (__value__ == (5366235i32)) {
+                } else if (__value__ == (5448586i32)) {
                     (@:checkr _dec ?? throw "null pointer dereference")._scan._bytes--;
                     inputBreak = true;
-                    _gotoNext = 5366050i32;
-                } else if (__value__ == (5366448i32)) {
+                    _gotoNext = 5448401i32;
+                } else if (__value__ == (5448799i32)) {
                     if (stdgo._internal.encoding.json.Json__stateEndValue._stateEndValue((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), (32 : stdgo.GoUInt8)) == ((10 : stdgo.GoInt))) {
-                        _gotoNext = 5366661i32;
+                        _gotoNext = 5449012i32;
                     } else {
-                        _gotoNext = 5366139i32;
+                        _gotoNext = 5448490i32;
                     };
-                } else if (__value__ == (5366661i32)) {
-                    _scanp_5365905++;
+                } else if (__value__ == (5449012i32)) {
+                    _scanp_5448256++;
                     inputBreak = true;
-                    _gotoNext = 5366050i32;
-                } else if (__value__ == (5366702i32)) {
+                    _gotoNext = 5448401i32;
+                } else if (__value__ == (5449053i32)) {
                     (@:checkr _dec ?? throw "null pointer dereference")._err = (@:checkr _dec ?? throw "null pointer dereference")._scan._err;
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _dec ?? throw "null pointer dereference")._scan._err };
-                    _gotoNext = 5366139i32;
-                } else if (__value__ == (5366867i32)) {
-                    if (_err_5365929 != null) {
-                        _gotoNext = 5366881i32;
+                    _gotoNext = 5448490i32;
+                } else if (__value__ == (5449218i32)) {
+                    if (_err_5448280 != null) {
+                        _gotoNext = 5449232i32;
                     } else {
-                        _gotoNext = 5367088i32;
+                        _gotoNext = 5449439i32;
                     };
-                } else if (__value__ == (5366881i32)) {
-                    if (stdgo.Go.toInterface(_err_5365929) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
-                        _gotoNext = 5366903i32;
+                } else if (__value__ == (5449232i32)) {
+                    if (stdgo.Go.toInterface(_err_5448280) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
+                        _gotoNext = 5449254i32;
                     } else {
-                        _gotoNext = 5367050i32;
+                        _gotoNext = 5449401i32;
                     };
-                } else if (__value__ == (5366903i32)) {
+                } else if (__value__ == (5449254i32)) {
                     if ((@:checkr _dec ?? throw "null pointer dereference")._scan._step((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), (32 : stdgo.GoUInt8)) == ((10 : stdgo.GoInt))) {
-                        _gotoNext = 5366953i32;
+                        _gotoNext = 5449304i32;
                     } else {
-                        _gotoNext = 5366982i32;
+                        _gotoNext = 5449333i32;
                     };
-                } else if (__value__ == (5366953i32)) {
+                } else if (__value__ == (5449304i32)) {
                     inputBreak = true;
-                    _gotoNext = 5366050i32;
-                } else if (__value__ == (5366982i32)) {
+                    _gotoNext = 5448401i32;
+                } else if (__value__ == (5449333i32)) {
                     if (stdgo._internal.encoding.json.Json__nonSpace._nonSpace((@:checkr _dec ?? throw "null pointer dereference")._buf)) {
-                        _gotoNext = 5367003i32;
+                        _gotoNext = 5449354i32;
                     } else {
-                        _gotoNext = 5367050i32;
+                        _gotoNext = 5449401i32;
                     };
-                } else if (__value__ == (5367003i32)) {
-                    _err_5365929 = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
-                    _gotoNext = 5367050i32;
-                } else if (__value__ == (5367050i32)) {
-                    (@:checkr _dec ?? throw "null pointer dereference")._err = _err_5365929;
-                    return { _0 : (0 : stdgo.GoInt), _1 : _err_5365929 };
-                    _gotoNext = 5367088i32;
-                } else if (__value__ == (5367088i32)) {
-                    _n_5367088 = (_scanp_5365905 - (@:checkr _dec ?? throw "null pointer dereference")._scanp : stdgo.GoInt);
-                    _err_5365929 = @:check2r _dec._refill();
-                    _scanp_5365905 = ((@:checkr _dec ?? throw "null pointer dereference")._scanp + _n_5367088 : stdgo.GoInt);
-                    _gotoNext = 5366050i32;
-                } else if (__value__ == (5367160i32)) {
-                    return { _0 : (_scanp_5365905 - (@:checkr _dec ?? throw "null pointer dereference")._scanp : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                } else if (__value__ == (5449354i32)) {
+                    _err_5448280 = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
+                    _gotoNext = 5449401i32;
+                } else if (__value__ == (5449401i32)) {
+                    (@:checkr _dec ?? throw "null pointer dereference")._err = _err_5448280;
+                    return { _0 : (0 : stdgo.GoInt), _1 : _err_5448280 };
+                    _gotoNext = 5449439i32;
+                } else if (__value__ == (5449439i32)) {
+                    _n_5449439 = (_scanp_5448256 - (@:checkr _dec ?? throw "null pointer dereference")._scanp : stdgo.GoInt);
+                    _err_5448280 = @:check2r _dec._refill();
+                    _scanp_5448256 = ((@:checkr _dec ?? throw "null pointer dereference")._scanp + _n_5449439 : stdgo.GoInt);
+                    _gotoNext = 5448401i32;
+                } else if (__value__ == (5449511i32)) {
+                    return { _0 : (_scanp_5448256 - (@:checkr _dec ?? throw "null pointer dereference")._scanp : stdgo.GoInt), _1 : (null : stdgo.Error) };
                     _gotoNext = -1i32;
                 };
             };

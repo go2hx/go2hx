@@ -21,7 +21,7 @@ function testFlagAndPrefixSetting(_t:stdgo.Ref<stdgo._internal.testing.Testing_T
             @:check2r _t.errorf(("Prefix: expected \"Reality:\" got %q" : stdgo.GoString), stdgo.Go.toInterface(_p));
         };
         @:check2r _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));
-        var _pattern = ("^Reality:[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello\n" : stdgo.GoString);
+        var _pattern = (("^Reality:[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello\n" : stdgo.GoString) : stdgo.GoString);
         var __tmp__ = stdgo._internal.regexp.Regexp_match.match(_pattern?.__copy__(), @:check2 _b.bytes()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatalf(("pattern %q did not compile: %s" : stdgo.GoString), stdgo.Go.toInterface(_pattern), stdgo.Go.toInterface(_err));
@@ -32,7 +32,7 @@ function testFlagAndPrefixSetting(_t:stdgo.Ref<stdgo._internal.testing.Testing_T
         @:check2 _b.reset();
         @:check2r _l.setFlags((0 : stdgo.GoInt));
         @:check2r _l.setPrefix(("\n" : stdgo.GoString));
-        @:check2r _l.output((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
+        @:check2r _l.output((0 : stdgo.GoInt), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
         {
             var _got = ((@:check2 _b.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (_got != (("\n" : stdgo.GoString))) {

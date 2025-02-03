@@ -11,7 +11,7 @@ x.set((stdgo._internal.math.Math_naN.naN() : stdgo._internal.encoding.json.Json_
         if (_err != null) {
             @:check2r _t.errorf(("Marshal() error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
-        var _want = ("{\"TF:NaN\":\"1\",\"TF:NaN\":\"1\"}" : stdgo.GoString);
+        var _want = (("{\"TF:NaN\":\"1\",\"TF:NaN\":\"1\"}" : stdgo.GoString) : stdgo.GoString);
         if ((_got : stdgo.GoString) != (_want)) {
             @:check2r _t.errorf(("Marshal() = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };

@@ -8,7 +8,7 @@ function parse(_data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.inter
             _name = @:tmpset0 __tmp__._1?.__copy__();
             _data = @:tmpset0 __tmp__._2;
         };
-        while (_name != (stdgo.Go.str())) {
+        while (_name != ((stdgo.Go.str() : stdgo.GoString))) {
             var _f = (new stdgo._internal.internal.txtar.Txtar_File.File(_name?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.internal.txtar.Txtar_File.File);
             {
                 var __tmp__ = stdgo._internal.internal.txtar.Txtar__findFileMarker._findFileMarker(_data);

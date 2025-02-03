@@ -27,14 +27,14 @@ var _remaining = __1, _b = __0;
             };
             _delta = (_delta + ((((_m - _n : stdgo.GoInt32)) * ((_h + (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32)) : stdgo.GoInt32);
             if ((_delta < (0 : stdgo.GoInt32) : Bool)) {
-                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("cookiejar: invalid label %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
+                return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("cookiejar: invalid label %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
             };
             _n = _m;
             for (__2 => _r in _s) {
                 if ((_r < _n : Bool)) {
                     _delta++;
                     if ((_delta < (0 : stdgo.GoInt32) : Bool)) {
-                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("cookiejar: invalid label %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
+                        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("cookiejar: invalid label %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
                     };
                     continue;
                 };

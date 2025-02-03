@@ -36,7 +36,7 @@ function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_T_buffer.T_buffer
         if (_err != null) {
             return _err;
         };
-        if ((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>) ?? throw "null pointer dereference")._stringTable[(0 : stdgo.GoInt)] != (stdgo.Go.str())) {
+        if ((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_Profile.Profile>) ?? throw "null pointer dereference")._stringTable[(0 : stdgo.GoInt)] != ((stdgo.Go.str() : stdgo.GoString))) {
             return stdgo._internal.errors.Errors_new_.new_(("string_table[0] must be \'\'" : stdgo.GoString));
         };
         return (null : stdgo.Error);

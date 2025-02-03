@@ -4,7 +4,7 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function writeTo( _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>, _w:stdgo._internal.io.Io_Writer.Writer, _debug:stdgo.GoInt):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = _p;
-        if ((@:checkr _p ?? throw "null pointer dereference")._name == (stdgo.Go.str())) {
+        if ((@:checkr _p ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("pprof: use of zero Profile" : stdgo.GoString));
         };
         if ((@:checkr _p ?? throw "null pointer dereference")._write != null) {
@@ -104,7 +104,7 @@ var _u = __1, _t = __0;
         @:recv var _p:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = _p;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if ((@:checkr _p ?? throw "null pointer dereference")._name == (stdgo.Go.str())) {
+            if ((@:checkr _p ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString))) {
                 throw stdgo.Go.toInterface(("pprof: use of uninitialized Profile" : stdgo.GoString));
             };
             if ((@:checkr _p ?? throw "null pointer dereference")._write != null) {

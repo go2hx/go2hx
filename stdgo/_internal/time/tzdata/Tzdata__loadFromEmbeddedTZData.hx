@@ -1,7 +1,7 @@
 package stdgo._internal.time.tzdata;
 function _loadFromEmbeddedTZData(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         {};
-        var _z = (stdgo.Go.str("PK",
+        var _z = ((stdgo.Go.str("PK",
 3,
 4,
 0,
@@ -342895,7 +342895,7 @@ function _loadFromEmbeddedTZData(_name:stdgo.GoString):{ var _0 : stdgo.GoString
 5,
 0,
 0,
-0)?.__copy__() : stdgo.GoString);
+0) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _idx = ((_z.length) - (22 : stdgo.GoInt) : stdgo.GoInt);
         var _n = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (10 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
         _idx = stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
@@ -342920,11 +342920,11 @@ if (_zname != (_name)) {
                     };
                 };
 if (_meth != ((0 : stdgo.GoInt))) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(((("unsupported compression for " : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (" in embedded tzdata" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__()) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(((("unsupported compression for " : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (" in embedded tzdata" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__()) };
                 };
 _idx = _off;
 if ((((stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__(_idx) : stdgo.GoString).__copy__()) != ((67324752 : stdgo.GoInt)) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) != (_meth) : Bool) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (26 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) != (_namelen) : Bool) || ((_z.__slice__((_idx + (30 : stdgo.GoInt) : stdgo.GoInt), ((_idx + (30 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.GoString) != _name) : Bool)) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("corrupt embedded tzdata" : stdgo.GoString)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("corrupt embedded tzdata" : stdgo.GoString)) };
                 };
 _xlen = stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (28 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__());
 _idx = (_idx + ((((30 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt)) : stdgo.GoInt);
@@ -342932,5 +342932,5 @@ return { _0 : (_z.__slice__(_idx, (_idx + _size : stdgo.GoInt)) : stdgo.GoString
                 _i++;
             };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno)) };
+        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_Errno.Errno)) };
     }

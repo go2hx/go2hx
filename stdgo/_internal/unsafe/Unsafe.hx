@@ -54,15 +54,15 @@ abstract UnsafePointer(stdgo.AnyInterface) from stdgo.AnyInterface to stdgo.AnyI
 }
 
 function sizeof(x:AnyInterface):GoUIntptr {
-	return x.type.size();
+	return new stdgo.GoUIntptr(x.type.size());
 }
 
 function offsetof_(x:AnyInterface):GoUIntptr {
-	return 0;
+	return new stdgo.GoUIntptr(0);
 }
 
 function alignof_(x:AnyInterface):GoUIntptr {
-	return 0;
+	return new stdgo.GoUIntptr(0);
 }
 
 function stringData(s:GoString):Dynamic

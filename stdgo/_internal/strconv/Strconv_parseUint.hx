@@ -1,7 +1,7 @@
 package stdgo._internal.strconv;
 function parseUint(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } {
         {};
-        if (_s == (stdgo.Go.str())) {
+        if (_s == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxError._syntaxError(("ParseUint" : stdgo.GoString), _s?.__copy__())) };
         };
         var _base0 = (_base == ((0 : stdgo.GoInt)) : Bool);

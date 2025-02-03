@@ -111,7 +111,7 @@ var _fileOff = __1, _file = __0;
             var _maxParts = (1000 : stdgo.GoInt);
             {
                 var _s = (@:check2r stdgo._internal.mime.multipart.Multipart__multipartMaxParts._multipartMaxParts.value()?.__copy__() : stdgo.GoString);
-                if (_s != (stdgo.Go.str())) {
+                if (_s != ((stdgo.Go.str() : stdgo.GoString))) {
                     {
                         var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_s?.__copy__()), _v:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (((_err == null) && (_v >= (0 : stdgo.GoInt) : Bool) : Bool)) {
@@ -202,7 +202,7 @@ var _fileOff = __1, _file = __0;
                 };
                 _maxParts--;
                 var _name = (@:check2r _p.formName()?.__copy__() : stdgo.GoString);
-                if (_name == (stdgo.Go.str())) {
+                if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
                 var _filename = (@:check2r _p.fileName()?.__copy__() : stdgo.GoString);
@@ -226,7 +226,7 @@ var _fileOff = __1, _file = __0;
                     };
                 };
                 var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-                if (_filename == (stdgo.Go.str())) {
+                if (_filename == ((stdgo.Go.str() : stdgo.GoString))) {
                     var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_p), (_maxMemoryBytes + (1i64 : stdgo.GoInt64) : stdgo.GoInt64)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) {
                         {

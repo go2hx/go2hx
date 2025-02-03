@@ -6,7 +6,7 @@ function _readGNUSparseMap0x1(_paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoStrin
             return { _0 : null, _1 : stdgo._internal.archive.tar.Tar_errHeader.errHeader };
         };
         var _sparseMap = stdgo._internal.strings.Strings_split.split((_paxHdrs[("GNU.sparse.map" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__(), ("," : stdgo.GoString));
-        if (((_sparseMap.length == (1 : stdgo.GoInt)) && (_sparseMap[(0 : stdgo.GoInt)] == stdgo.Go.str()) : Bool)) {
+        if (((_sparseMap.length == (1 : stdgo.GoInt)) && (_sparseMap[(0 : stdgo.GoInt)] == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             _sparseMap = (_sparseMap.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
         };
         if ((_sparseMap.length : stdgo.GoInt64) != (((2i64 : stdgo.GoInt64) * _numEntries : stdgo.GoInt64))) {

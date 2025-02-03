@@ -2,12 +2,12 @@ package stdgo._internal.encoding.json;
 function testNullRawMessage(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _data:stdgo._internal.encoding.json.Json_T__struct_43.T__struct_43 = ({ x : (0 : stdgo.GoFloat64), id : new stdgo._internal.encoding.json.Json_RawMessage.RawMessage(0, 0), idPtr : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>), y : (0 : stdgo.GoFloat32) } : stdgo._internal.encoding.json.Json_T__struct_43.T__struct_43);
         {};
-        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"X\":0.1,\"Id\":null,\"IdPtr\":null,\"Y\":0.2}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_43.T__struct_43>)))) : stdgo.Error);
+        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{\"X\":0.1,\"Id\":null,\"IdPtr\":null,\"Y\":0.2}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_43.T__struct_43>)))) : stdgo.Error);
         if (_err != null) {
             @:check2r _t.fatalf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
-            var __0 = ("null" : stdgo.GoString), __1 = ((_data.id : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            var __0 = (("null" : stdgo.GoString) : stdgo.GoString), __1 = ((_data.id : stdgo.GoString)?.__copy__() : stdgo.GoString);
 var _got = __1, _want = __0;
             if (_want != (_got)) {
                 @:check2r _t.fatalf(("Raw mismatch: have %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));

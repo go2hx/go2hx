@@ -2,7 +2,7 @@ package stdgo._internal.encoding.asn1;
 function _parseUTCTime(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
         var _ret = ({} : stdgo._internal.time.Time_Time.Time), _err = (null : stdgo.Error);
         var _s = ((_bytes : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        var _formatStr = ("0601021504Z0700" : stdgo.GoString);
+        var _formatStr = (("0601021504Z0700" : stdgo.GoString) : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.time.Time_parse.parse(_formatStr?.__copy__(), _s?.__copy__());
             _ret = @:tmpset0 __tmp__._0?.__copy__();

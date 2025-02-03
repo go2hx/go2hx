@@ -1,11 +1,11 @@
 package stdgo._internal.time;
 @:structInit @:using(stdgo._internal.time.Time_T_runtimeTimer_static_extension.T_runtimeTimer_static_extension) class T_runtimeTimer {
-    public var _pp : stdgo.GoUIntptr = 0;
+    public var _pp : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _when : stdgo.GoInt64 = 0;
     public var _period : stdgo.GoInt64 = 0;
     public var _f : (stdgo.AnyInterface, stdgo.GoUIntptr) -> Void = null;
     public var _arg : stdgo.AnyInterface = (null : stdgo.AnyInterface);
-    public var _seq : stdgo.GoUIntptr = 0;
+    public var _seq : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _nextwhen : stdgo.GoInt64 = 0;
     public var _status : stdgo.GoUInt32 = 0;
     public function new(?_pp:stdgo.GoUIntptr, ?_when:stdgo.GoInt64, ?_period:stdgo.GoInt64, ?_f:(stdgo.AnyInterface, stdgo.GoUIntptr) -> Void, ?_arg:stdgo.AnyInterface, ?_seq:stdgo.GoUIntptr, ?_nextwhen:stdgo.GoInt64, ?_status:stdgo.GoUInt32) {

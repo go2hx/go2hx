@@ -10,7 +10,7 @@ package stdgo._internal.regexp.syntax;
         (@:checkr _i ?? throw "null pointer dereference").rune = _r;
         _flags = (_flags & ((1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
         if (((_r.length != (1 : stdgo.GoInt)) || (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r[(0 : stdgo.GoInt)]) == _r[(0 : stdgo.GoInt)]) : Bool)) {
-            _flags = (_flags & ((((1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
+            _flags = (_flags & ((((1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags);
         };
         (@:checkr _i ?? throw "null pointer dereference").arg = (_flags : stdgo.GoUInt32);
         _f._out = stdgo._internal.regexp.syntax.Syntax__makePatchList._makePatchList((_f._i << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32))?.__copy__();

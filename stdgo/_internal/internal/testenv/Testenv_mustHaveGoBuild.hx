@@ -1,6 +1,6 @@
 package stdgo._internal.internal.testenv;
 function mustHaveGoBuild(_t:stdgo._internal.testing.Testing_TB.TB):Void {
-        if (stdgo._internal.os.Os_getenv.getenv(("GO_GCFLAGS" : stdgo.GoString)) != (stdgo.Go.str())) {
+        if (stdgo._internal.os.Os_getenv.getenv(("GO_GCFLAGS" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString))) {
             _t.helper();
             _t.skipf(("skipping test: \'go build\' not compatible with setting $GO_GCFLAGS" : stdgo.GoString));
         };

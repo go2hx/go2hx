@@ -145,7 +145,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_data.length), _data, stdgo.Go.str()?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_data.length), _data, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -185,7 +185,7 @@ package stdgo._internal.net.http;
         };
         {
             var _cl = ((@:checkr _w ?? throw "null pointer dereference")._handlerHeader._get(("Content-Length" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_cl != (stdgo.Go.str())) {
+            if (_cl != ((stdgo.Go.str() : stdgo.GoString))) {
                 var __tmp__ = stdgo._internal.net.http.Http__strconv._strconv.parseInt(_cl?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _v:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) && (_v >= (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
                     (@:checkr _w ?? throw "null pointer dereference")._contentLength = _v;

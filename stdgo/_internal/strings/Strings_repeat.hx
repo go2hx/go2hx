@@ -3,7 +3,7 @@ function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString {
         {
             final __value__ = _count;
             if (__value__ == ((0 : stdgo.GoInt))) {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             } else if (__value__ == ((1 : stdgo.GoInt))) {
                 return _s?.__copy__();
             };
@@ -16,7 +16,7 @@ function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString {
         };
         var _n = ((_s.length) * _count : stdgo.GoInt);
         if ((_s.length) == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         {};
         var _chunkMax = (_n : stdgo.GoInt);

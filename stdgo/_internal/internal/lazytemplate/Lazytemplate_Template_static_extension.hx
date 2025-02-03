@@ -16,8 +16,8 @@ package stdgo._internal.internal.lazytemplate;
             __f__((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         {
-            final __tmp__0 = stdgo.Go.str()?.__copy__();
-            final __tmp__1 = stdgo.Go.str()?.__copy__();
+            final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
+            final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             (@:checkr _r ?? throw "null pointer dereference")._name = __tmp__0;
             (@:checkr _r ?? throw "null pointer dereference")._text = __tmp__1;
         };

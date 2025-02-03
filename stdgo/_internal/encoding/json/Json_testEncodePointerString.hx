@@ -11,7 +11,7 @@ function testEncodePointerString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_
             @:check2r _t.fatalf(("Marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
-            var __0 = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = ("{\"n\":\"42\"}" : stdgo.GoString);
+            var __0 = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (("{\"n\":\"42\"}" : stdgo.GoString) : stdgo.GoString);
 var _want = __1, _got = __0;
             if (_got != (_want)) {
                 @:check2r _t.errorf(("Marshal = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));

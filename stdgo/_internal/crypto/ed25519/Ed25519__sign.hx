@@ -15,7 +15,7 @@ var _publicKey = __1, _seed = __0;
         };
         var _prefix = (_h.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _mh = (stdgo._internal.crypto.sha512.Sha512_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
-        if (_domPrefix != (stdgo.Go.str())) {
+        if (_domPrefix != ((stdgo.Go.str() : stdgo.GoString))) {
             _mh.write((_domPrefix : stdgo.Slice<stdgo.GoUInt8>));
             _mh.write((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_context.length : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
             _mh.write((_context : stdgo.Slice<stdgo.GoUInt8>));
@@ -30,7 +30,7 @@ var _publicKey = __1, _seed = __0;
         };
         var r = @:check2r (stdgo.Go.setRef((new stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_Point.Point>).scalarBaseMult(_r);
         var _kh = (stdgo._internal.crypto.sha512.Sha512_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
-        if (_domPrefix != (stdgo.Go.str())) {
+        if (_domPrefix != ((stdgo.Go.str() : stdgo.GoString))) {
             _kh.write((_domPrefix : stdgo.Slice<stdgo.GoUInt8>));
             _kh.write((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_context.length : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
             _kh.write((_context : stdgo.Slice<stdgo.GoUInt8>));

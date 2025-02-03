@@ -1,7 +1,7 @@
 package stdgo._internal.net.mail;
 function parseDate(_date:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
         @:check2 stdgo._internal.net.mail.Mail__dateLayoutsBuildOnce._dateLayoutsBuildOnce.do_(stdgo._internal.net.mail.Mail__buildDateLayouts._buildDateLayouts);
-        _date = stdgo._internal.strings.Strings_replaceAll.replaceAll(_date?.__copy__(), ("\r\n" : stdgo.GoString), stdgo.Go.str()?.__copy__())?.__copy__();
+        _date = stdgo._internal.strings.Strings_replaceAll.replaceAll(_date?.__copy__(), ("\r\n" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__();
         if (stdgo._internal.strings.Strings_contains.contains(_date?.__copy__(), ("\r" : stdgo.GoString))) {
             return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: header has a CR without LF" : stdgo.GoString)) };
         };

@@ -6,7 +6,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             if (_err != null) {
                 return _err;
             };
-            if ((stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_mimeType?.__copy__(), ("text/" : stdgo.GoString)) && ((_param[("charset" : stdgo.GoString)] ?? ("" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
+            if ((stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_mimeType?.__copy__(), ("text/" : stdgo.GoString)) && ((_param[("charset" : stdgo.GoString)] ?? ("" : stdgo.GoString)) == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 _param[("charset" : stdgo.GoString)] = ("utf-8" : stdgo.GoString);
                 _mimeType = stdgo._internal.mime.Mime_formatMediaType.formatMediaType(_mimeType?.__copy__(), _param)?.__copy__();
             };

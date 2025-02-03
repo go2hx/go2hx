@@ -13,7 +13,7 @@ package stdgo._internal.runtime.pprof;
                 if ((_last.func != null && ((_last.func : Dynamic).__nil__ == null || !(_last.func : Dynamic).__nil__))) {
                     return _success = false;
                 };
-                if (((_last.entry == (0 : stdgo.GoUIntptr)) || (_newFrame.entry == (0 : stdgo.GoUIntptr)) : Bool)) {
+                if (((_last.entry == (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) || (_newFrame.entry == (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) : Bool)) {
                     return _success = false;
                 };
                 if (_last.entry != (_newFrame.entry)) {

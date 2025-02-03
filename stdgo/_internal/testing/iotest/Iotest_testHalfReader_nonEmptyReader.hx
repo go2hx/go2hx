@@ -1,6 +1,6 @@
 package stdgo._internal.testing.iotest;
 function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _msg = ("Hello, World!" : stdgo.GoString);
+        var _msg = (("Hello, World!" : stdgo.GoString) : stdgo.GoString);
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         @:check2r _buf.writeString(_msg?.__copy__());
         var _hr = (stdgo._internal.testing.iotest.Iotest_halfReader.halfReader(stdgo.Go.asInterface(_buf)) : stdgo._internal.io.Io_Reader.Reader);
@@ -41,7 +41,7 @@ var _w = __1, _g = __0;
             };
         };
         {
-            var __0 = ((@:check2r _got.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = ("Hello, World!" : stdgo.GoString);
+            var __0 = ((@:check2r _got.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = (("Hello, World!" : stdgo.GoString) : stdgo.GoString);
 var _w = __1, _g = __0;
             if (_g != (_w)) {
                 @:check2r _t.errorf(("Read mismatch\n\tGot:  %q\n\tWant: %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_w));

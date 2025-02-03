@@ -8,7 +8,7 @@ function testBinarySearch(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         var _strSame = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("xx" : stdgo.GoString), ("xx" : stdgo.GoString), ("xx" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _tests = (new stdgo.Slice<stdgo._internal.slices.Slices_T__struct_14.T__struct_14>(34, 34, ...[
 ({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>), _target : ("foo" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
-({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>), _target : stdgo.Go.str()?.__copy__(), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
+({ _data : (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>), _target : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
 ({ _data : _str1, _target : ("foo" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : true } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
 ({ _data : _str1, _target : ("bar" : stdgo.GoString), _wantPos : (0 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),
 ({ _data : _str1, _target : ("zx" : stdgo.GoString), _wantPos : (1 : stdgo.GoInt), _wantFound : false } : stdgo._internal.slices.Slices_T__struct_14.T__struct_14),

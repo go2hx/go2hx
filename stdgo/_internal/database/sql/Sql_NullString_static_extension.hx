@@ -15,7 +15,7 @@ package stdgo._internal.database.sql;
         @:recv var _ns:stdgo.Ref<stdgo._internal.database.sql.Sql_NullString.NullString> = _ns;
         if (_value == null) {
             {
-                final __tmp__0 = stdgo.Go.str()?.__copy__();
+                final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 final __tmp__1 = false;
                 (@:checkr _ns ?? throw "null pointer dereference").string = __tmp__0;
                 (@:checkr _ns ?? throw "null pointer dereference").valid = __tmp__1;

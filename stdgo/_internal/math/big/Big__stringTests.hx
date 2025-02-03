@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 var _stringTests : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_49.T__struct_49> = (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_49.T__struct_49>(58, 58, ...[
-({ _in : stdgo.Go.str()?.__copy__(), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : stdgo._internal.math.big.Big_T__struct_49.T__struct_49),
+({ _in : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : stdgo._internal.math.big.Big_T__struct_49.T__struct_49),
 ({ _in : ("a" : stdgo.GoString), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : stdgo._internal.math.big.Big_T__struct_49.T__struct_49),
 ({ _in : ("z" : stdgo.GoString), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : stdgo._internal.math.big.Big_T__struct_49.T__struct_49),
 ({ _in : ("+" : stdgo.GoString), _out : ("" : stdgo.GoString), _base : (0 : stdgo.GoInt), _val : (0 : stdgo.GoInt64), _ok : false } : stdgo._internal.math.big.Big_T__struct_49.T__struct_49),

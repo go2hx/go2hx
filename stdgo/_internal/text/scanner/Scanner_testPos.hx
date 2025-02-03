@@ -1,6 +1,6 @@
 package stdgo._internal.text.scanner;
 function testPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>).init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(stdgo.Go.str()?.__copy__())));
+        var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>).init(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader((stdgo.Go.str() : stdgo.GoString)?.__copy__())));
         stdgo._internal.text.scanner.Scanner__checkPos._checkPos(_t, @:check2r _s.pos()?.__copy__(), ({ offset : (0 : stdgo.GoInt), line : (1 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo._internal.text.scanner.Scanner_Position.Position));
         @:check2r _s.peek();
         stdgo._internal.text.scanner.Scanner__checkPos._checkPos(_t, @:check2r _s.pos()?.__copy__(), ({ offset : (0 : stdgo.GoInt), line : (1 : stdgo.GoInt), column : (1 : stdgo.GoInt) } : stdgo._internal.text.scanner.Scanner_Position.Position));

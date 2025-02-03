@@ -18,7 +18,7 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoInt32, _caseRange:stdgo.Slice<stdgo.
                 var _delta = (_cr.delta[(__case : stdgo.GoInt)] : stdgo.GoInt32);
                 if ((_delta > (1114111 : stdgo.GoInt32) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : ((_cr.lo : stdgo.GoInt32) + (((((_r - (_cr.lo : stdgo.GoInt32) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
+                        final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : ((_cr.lo : stdgo.GoInt32) + (((((_r - (_cr.lo : stdgo.GoInt32) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
                         _mappedRune = __tmp__._0;
                         _foundMapping = __tmp__._1;
                         __tmp__;

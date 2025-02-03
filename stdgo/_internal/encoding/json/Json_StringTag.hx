@@ -5,7 +5,7 @@ package stdgo._internal.encoding.json;
     @:tag("`json:\",string\"`")
     public var intStr : stdgo.GoInt64 = 0;
     @:tag("`json:\",string\"`")
-    public var uintptrStr : stdgo.GoUIntptr = 0;
+    public var uintptrStr : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     @:tag("`json:\",string\"`")
     public var strStr : stdgo.GoString = "";
     @:tag("`json:\",string\"`")

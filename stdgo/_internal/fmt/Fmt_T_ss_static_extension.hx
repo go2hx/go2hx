@@ -360,7 +360,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                 _v.value = @:check2r _s._scanUint(_verb, (64 : stdgo.GoInt));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoUIntptr>))) {
                 var _v:stdgo.Pointer<stdgo.GoUIntptr> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoUIntptr>) : __type__.__underlying__().value;
-                _v.value = (@:check2r _s._scanUint(_verb, (32 : stdgo.GoInt)) : stdgo.GoUIntptr);
+                _v.value = (new stdgo.GoUIntptr(@:check2r _s._scanUint(_verb, (32 : stdgo.GoInt))) : stdgo.GoUIntptr);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoFloat32>))) {
                 var _v:stdgo.Pointer<stdgo.GoFloat32> = __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__ == null ? (null : stdgo.Pointer<stdgo.GoFloat32>) : __type__.__underlying__().value;
                 if (@:check2r _s._okVerb(_verb, ("beEfFgGv" : stdgo.GoString), ("float32" : stdgo.GoString))) {
@@ -453,7 +453,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         };
         if (((@:checkr _s ?? throw "null pointer dereference")._buf.length) == ((0 : stdgo.GoInt))) {
             @:check2r _s._errorString(("no hex data for %x string" : stdgo.GoString));
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return ((@:checkr _s ?? throw "null pointer dereference")._buf : stdgo.GoString)?.__copy__();
     }
@@ -530,7 +530,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                 break;
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield
@@ -538,7 +538,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
         var _str = ("" : stdgo.GoString);
         if (!@:check2r _s._okVerb(_verb, ("svqxX" : stdgo.GoString), ("string" : stdgo.GoString))) {
-            return _str = stdgo.Go.str()?.__copy__();
+            return _str = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         @:check2r _s.skipSpace();
         @:check2r _s._notEOF();
@@ -650,8 +650,8 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         if (((@:check2r _s._accept(("iI" : stdgo.GoString)) && @:check2r _s._accept(("nN" : stdgo.GoString)) : Bool) && @:check2r _s._accept(("fF" : stdgo.GoString)) : Bool)) {
             return ((@:checkr _s ?? throw "null pointer dereference")._buf : stdgo.GoString)?.__copy__();
         };
-        var _digits = ("0123456789_" : stdgo.GoString);
-        var _exp = ("eEpP" : stdgo.GoString);
+        var _digits = (("0123456789_" : stdgo.GoString) : stdgo.GoString);
+        var _exp = (("eEpP" : stdgo.GoString) : stdgo.GoString);
         if ((@:check2r _s._accept(("0" : stdgo.GoString)) && @:check2r _s._accept(("xX" : stdgo.GoString)) : Bool)) {
             _digits = ("0123456789aAbBcCdDeEfF_" : stdgo.GoString);
             _exp = ("pP" : stdgo.GoString);

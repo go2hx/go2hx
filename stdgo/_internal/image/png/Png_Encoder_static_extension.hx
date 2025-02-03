@@ -86,7 +86,7 @@ var _mh = __1, _mw = __0;
                 };
             };
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, stdgo.Go.str(137, "PNG\r\n", 26, "\n")?.__copy__());
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, (stdgo.Go.str(137, "PNG\r\n", 26, "\n") : stdgo.GoString)?.__copy__());
                 (@:checkr _e ?? throw "null pointer dereference")._err = @:tmpset0 __tmp__._1;
             };
             @:check2r _e._writeIHDR();

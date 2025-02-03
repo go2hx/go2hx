@@ -1,6 +1,6 @@
 [30;41m ERROR [0m ./stdgo/_internal/go/token/Token_testFileSetRace2.hx:4: characters 91-96
 
-  4 | [2m        var __0 = stdgo._internal.go.token.Token_newFileSet.newFileSet(), __1 = @:check2r [0m[1m_fset[0m[2m.addFile(stdgo.Go.str()?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2 = (new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);[0m
+  4 | [2m        var __0 = stdgo._internal.go.token.Token_newFileSet.newFileSet(), __1 = @:check2r [0m[1m_fset[0m[2m.addFile((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2 = (new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);[0m
     |                                                                                           [31m^^^^^[0m
     | Unknown identifier : _fset
 

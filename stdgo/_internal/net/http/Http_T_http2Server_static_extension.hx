@@ -79,7 +79,7 @@ package stdgo._internal.net.http;
                             return;
                         };
                     };
-                    if ((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").serverName == (stdgo.Go.str())) {};
+                    if ((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").serverName == ((stdgo.Go.str() : stdgo.GoString))) {};
                     if ((!(@:checkr _s ?? throw "null pointer dereference").permitProhibitedCipherSuites && stdgo._internal.net.http.Http__http2isBadCipher._http2isBadCipher((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite) : Bool)) {
                         @:check2r _sc._rejectConn((12u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), stdgo._internal.net.http.Http__fmt._fmt.sprintf(("Prohibited TLS 1.2 Cipher Suite: %x" : stdgo.GoString), stdgo.Go.toInterface((@:checkr (@:checkr _sc ?? throw "null pointer dereference")._tlsState ?? throw "null pointer dereference").cipherSuite))?.__copy__());
                         {

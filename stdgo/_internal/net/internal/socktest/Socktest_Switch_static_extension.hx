@@ -31,7 +31,7 @@ package stdgo._internal.net.internal.socktest;
             _soerr = @:tmpset0 __tmp__._0;
             (@:checkr _so ?? throw "null pointer dereference").err = @:tmpset0 __tmp__._1;
         };
-        (@:checkr _so ?? throw "null pointer dereference").socketErr = stdgo.Go.asInterface((_soerr : stdgo._internal.syscall.Syscall_Errno.Errno));
+        (@:checkr _so ?? throw "null pointer dereference").socketErr = stdgo.Go.asInterface((new stdgo.GoUIntptr(_soerr) : stdgo._internal.syscall.Syscall_Errno.Errno));
         {
             _err = _af._apply(_so);
             if (_err != null) {
@@ -51,7 +51,7 @@ package stdgo._internal.net.internal.socktest;
                 __tmp__;
             };
         };
-        if (((_opt == (3 : stdgo.GoInt)) && (((stdgo.Go.toInterface((@:checkr _so ?? throw "null pointer dereference").socketErr) == stdgo.Go.toInterface(stdgo.Go.asInterface((0 : stdgo._internal.syscall.Syscall_Errno.Errno)))) || (stdgo.Go.toInterface((@:checkr _so ?? throw "null pointer dereference").socketErr) == stdgo.Go.toInterface(stdgo.Go.asInterface((106 : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) : Bool)) {
+        if (((_opt == (3 : stdgo.GoInt)) && (((stdgo.Go.toInterface((@:checkr _so ?? throw "null pointer dereference").socketErr) == stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr((new stdgo.GoUIntptr(0) : stdgo._internal.syscall.Syscall_Errno.Errno)) : stdgo._internal.syscall.Syscall_Errno.Errno)))) || (stdgo.Go.toInterface((@:checkr _so ?? throw "null pointer dereference").socketErr) == stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr(106) : stdgo._internal.syscall.Syscall_Errno.Errno)))) : Bool)) : Bool)) {
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.lock();
             (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _so ?? throw "null pointer dereference").cookie).connected++;
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.unlock();

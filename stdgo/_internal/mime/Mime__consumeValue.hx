@@ -1,7 +1,7 @@
 package stdgo._internal.mime;
 function _consumeValue(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _value = ("" : stdgo.GoString), _rest = ("" : stdgo.GoString);
-        if (_v == (stdgo.Go.str())) {
+        if (_v == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : _value, _1 : _rest };
         };
         if (_v[(0 : stdgo.GoInt)] != ((34 : stdgo.GoUInt8))) {
@@ -35,7 +35,7 @@ if (((_r == ((92 : stdgo.GoUInt8)) && ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < 
                 };
 if (((_r == (13 : stdgo.GoUInt8)) || (_r == (10 : stdgo.GoUInt8)) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo.Go.str().__copy__(), _1 : _v.__copy__() };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : _v.__copy__() };
                         _value = __tmp__._0;
                         _rest = __tmp__._1;
                         __tmp__;
@@ -46,7 +46,7 @@ if (((_r == (13 : stdgo.GoUInt8)) || (_r == (10 : stdgo.GoUInt8)) : Bool)) {
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _v?.__copy__() };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _v?.__copy__() };
             _value = __tmp__._0;
             _rest = __tmp__._1;
             __tmp__;

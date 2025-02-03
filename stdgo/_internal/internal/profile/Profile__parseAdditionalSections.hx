@@ -11,7 +11,7 @@ function _parseAdditionalSections(_l:stdgo.GoString, _b:stdgo.Ref<stdgo._interna
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         return _err;
                     };
-                    if (_l == (stdgo.Go.str())) {
+                    if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                         break;
                     };
                 };

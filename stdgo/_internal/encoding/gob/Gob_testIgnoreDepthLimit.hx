@@ -27,7 +27,7 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             @:check2r _enc.encode(_badStruct.interface_());
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _output:stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4 = ({ hello : (0 : stdgo.GoInt) } : stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4);
-            var _expectedErr = ("invalid nesting depth" : stdgo.GoString);
+            var _expectedErr = (("invalid nesting depth" : stdgo.GoString) : stdgo.GoString);
             {
                 var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>)))) : stdgo.Error);
                 if (((_err == null) || (_err.error() != _expectedErr) : Bool)) {

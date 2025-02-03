@@ -1,6 +1,6 @@
 package stdgo._internal.path.filepath;
 function base(_path:stdgo.GoString):stdgo.GoString {
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             return ("." : stdgo.GoString);
         };
         while ((((_path.length) > (0 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
@@ -14,7 +14,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
         if ((_i >= (0 : stdgo.GoInt) : Bool)) {
             _path = (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             return ((47 : stdgo.GoInt32) : stdgo.GoString);
         };
         return _path?.__copy__();

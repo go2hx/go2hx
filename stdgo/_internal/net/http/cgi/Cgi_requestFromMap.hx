@@ -2,7 +2,7 @@ package stdgo._internal.net.http.cgi;
 function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } {
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_Request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
         (@:checkr _r ?? throw "null pointer dereference").method = (_params[("REQUEST_METHOD" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
-        if ((@:checkr _r ?? throw "null pointer dereference").method == (stdgo.Go.str())) {
+        if ((@:checkr _r ?? throw "null pointer dereference").method == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("cgi: no REQUEST_METHOD in environment" : stdgo.GoString)) };
         };
         (@:checkr _r ?? throw "null pointer dereference").proto = (_params[("SERVER_PROTOCOL" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
@@ -32,7 +32,7 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
         (@:checkr _r ?? throw "null pointer dereference").host = (_params[("HTTP_HOST" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
         {
             var _lenstr = ((_params[("CONTENT_LENGTH" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_lenstr != (stdgo.Go.str())) {
+            if (_lenstr != ((stdgo.Go.str() : stdgo.GoString))) {
                 var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_lenstr?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _clen:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((("cgi: bad CONTENT_LENGTH in environment: " : stdgo.GoString) + _lenstr?.__copy__() : stdgo.GoString)?.__copy__()) };
@@ -42,7 +42,7 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
         };
         {
             var _ct = ((_params[("CONTENT_TYPE" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_ct != (stdgo.Go.str())) {
+            if (_ct != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _r ?? throw "null pointer dereference").header.set(("Content-Type" : stdgo.GoString), _ct?.__copy__());
             };
         };
@@ -58,10 +58,10 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
             };
         };
         var _uriStr = ((_params[("REQUEST_URI" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_uriStr == (stdgo.Go.str())) {
+        if (_uriStr == ((stdgo.Go.str() : stdgo.GoString))) {
             _uriStr = ((_params[("SCRIPT_NAME" : stdgo.GoString)] ?? ("" : stdgo.GoString)) + (_params[("PATH_INFO" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString)?.__copy__();
             var _s = ((_params[("QUERY_STRING" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_s != (stdgo.Go.str())) {
+            if (_s != ((stdgo.Go.str() : stdgo.GoString))) {
                 _uriStr = (_uriStr + ((("?" : stdgo.GoString) + _s?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };
         };
@@ -71,7 +71,7 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
                 (@:checkr _r ?? throw "null pointer dereference").tLS = (stdgo.Go.setRef(({ handshakeComplete : true } : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
             };
         };
-        if ((@:checkr _r ?? throw "null pointer dereference").host != (stdgo.Go.str())) {
+        if ((@:checkr _r ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString))) {
             var _rawurl = (((@:checkr _r ?? throw "null pointer dereference").host + _uriStr?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (((@:checkr _r ?? throw "null pointer dereference").tLS == null || ((@:checkr _r ?? throw "null pointer dereference").tLS : Dynamic).__nil__)) {
                 _rawurl = (("http://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();

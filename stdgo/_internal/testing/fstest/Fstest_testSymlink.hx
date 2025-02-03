@@ -4,7 +4,7 @@ function testSymlink(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _tmp = (@:check2r _t.tempDir()?.__copy__() : stdgo.GoString);
         var _tmpfs = (stdgo._internal.os.Os_dirFS.dirFS(_tmp?.__copy__()) : stdgo._internal.io.fs.Fs_FS.FS);
         {
-            var _err = (stdgo._internal.os.Os_writeFile.writeFile(stdgo._internal.path.filepath.Filepath_join.join(_tmp?.__copy__(), ("hello" : stdgo.GoString))?.__copy__(), (("hello, world\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo.Error);
+            var _err = (stdgo._internal.os.Os_writeFile.writeFile(stdgo._internal.path.filepath.Filepath_join.join(_tmp?.__copy__(), ("hello" : stdgo.GoString))?.__copy__(), ((("hello, world\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatal(stdgo.Go.toInterface(_err));
             };

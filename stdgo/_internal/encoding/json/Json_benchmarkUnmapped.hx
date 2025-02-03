@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function benchmarkUnmapped(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.reportAllocs();
-        var _j = (("{\"s\": \"hello\", \"y\": 2, \"o\": {\"x\": 0}, \"a\": [1, 99, {\"x\": 1}]}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _j = ((("{\"s\": \"hello\", \"y\": 2, \"o\": {\"x\": 0}, \"a\": [1, 99, {\"x\": 1}]}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
             var _s:stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue = ({} : stdgo._internal.encoding.json.Json_T_unquotedValue.T_unquotedValue);
             while (@:check2r _pb.next()) {

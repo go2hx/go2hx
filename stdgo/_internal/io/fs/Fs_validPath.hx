@@ -12,7 +12,7 @@ function validPath(_name:stdgo.GoString):Bool {
                 _i++;
             };
             var _elem = ((_name.__slice__(0, _i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            if (((_elem == (stdgo.Go.str()) || _elem == (("." : stdgo.GoString)) : Bool) || (_elem == (".." : stdgo.GoString)) : Bool)) {
+            if (((_elem == ((stdgo.Go.str() : stdgo.GoString)) || _elem == (("." : stdgo.GoString)) : Bool) || (_elem == (".." : stdgo.GoString)) : Bool)) {
                 return false;
             };
             if (_i == ((_name.length))) {

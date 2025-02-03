@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function testUnmarshalMapWithTextUnmarshalerStringKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _p:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"FOO\": \"1\"}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{\"FOO\": \"1\"}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatalf(("Unmarshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

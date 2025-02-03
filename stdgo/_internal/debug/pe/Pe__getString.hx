@@ -1,7 +1,7 @@
 package stdgo._internal.debug.pe;
 function _getString(_section:stdgo.Slice<stdgo.GoUInt8>, _start:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : Bool; } {
         if (((_start < (0 : stdgo.GoInt) : Bool) || (_start >= (_section.length) : Bool) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false };
         };
         {
             var _end = (_start : stdgo.GoInt);
@@ -12,5 +12,5 @@ function _getString(_section:stdgo.Slice<stdgo.GoUInt8>, _start:stdgo.GoInt):{ v
                 _end++;
             };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
+        return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false };
     }

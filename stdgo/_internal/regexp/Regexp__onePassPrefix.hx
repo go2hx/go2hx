@@ -4,7 +4,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.P
         var _i = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>);
         if ((((@:checkr _i ?? throw "null pointer dereference").op != (3 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || (((((@:checkr _i ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) & (4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) == (0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
                 _prefix = __tmp__._0;
                 _complete = __tmp__._1;
                 _pc = __tmp__._2;
@@ -19,7 +19,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.P
         };
         if (((stdgo._internal.regexp.Regexp__iop._iop(_i) != (7 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || ((@:checkr _i ?? throw "null pointer dereference").rune.length != (1 : stdgo.GoInt)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
                 _prefix = __tmp__._0;
                 _complete = __tmp__._1;
                 _pc = __tmp__._2;

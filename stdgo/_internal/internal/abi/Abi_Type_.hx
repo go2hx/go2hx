@@ -1,7 +1,7 @@
 package stdgo._internal.internal.abi;
 @:structInit @:using(stdgo._internal.internal.abi.Abi_Type__static_extension.Type__static_extension) class Type_ {
-    public var size_ : stdgo.GoUIntptr = 0;
-    public var ptrBytes : stdgo.GoUIntptr = 0;
+    public var size_ : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
+    public var ptrBytes : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var hash : stdgo.GoUInt32 = 0;
     public var tFlag : stdgo._internal.internal.abi.Abi_TFlag.TFlag = ((0 : stdgo.GoUInt8) : stdgo._internal.internal.abi.Abi_TFlag.TFlag);
     public var align_ : stdgo.GoUInt8 = 0;

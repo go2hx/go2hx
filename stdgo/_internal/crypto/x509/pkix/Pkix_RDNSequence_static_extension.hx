@@ -4,7 +4,7 @@ package stdgo._internal.crypto.x509.pkix;
     @:tdfield
     static public function string( _r:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence):stdgo.GoString {
         @:recv var _r:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence = _r;
-        var _s = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _s = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_r.length) : Bool)) {

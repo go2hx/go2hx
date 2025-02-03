@@ -33,7 +33,7 @@ function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing_
 ({ _s : ("inf" : stdgo.GoString), _x : _inf } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("+inf" : stdgo.GoString), _x : _inf } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("-inf" : stdgo.GoString), _x : -_inf } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
-({ _s : stdgo.Go.str()?.__copy__(), _x : _nan } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
+({ _s : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _x : _nan } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("-" : stdgo.GoString), _x : _nan } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("0x" : stdgo.GoString), _x : _nan } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("0e" : stdgo.GoString), _x : _nan } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),

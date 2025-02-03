@@ -33,7 +33,7 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>):{ va
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag))) {
                 var _fv:stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag = __type__ == null ? (null : stdgo._internal.flag.Flag_T_boolFlag.T_boolFlag) : cast __type__;
                 if (_fv.isBoolFlag()) {
-                    _name = stdgo.Go.str()?.__copy__();
+                    _name = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo._internal.flag.Flag_T_durationValue.T_durationValue>))) {
                 var _fv:stdgo.Pointer<stdgo._internal.flag.Flag_T_durationValue.T_durationValue> = __type__ == null ? (null : stdgo.Pointer<stdgo._internal.flag.Flag_T_durationValue.T_durationValue>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo._internal.flag.Flag_T_durationValue.T_durationValue>) : __type__ == null ? (null : stdgo.Pointer<stdgo._internal.flag.Flag_T_durationValue.T_durationValue>) : __type__.__underlying__().value;

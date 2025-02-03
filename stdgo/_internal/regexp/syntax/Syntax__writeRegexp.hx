@@ -93,7 +93,7 @@ if (_lo != (_hi)) {
                         @:check2r _b.writeString(("\\B" : stdgo.GoString));
                         break;
                     } else if (__value__ == ((13 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
-                        if ((@:checkr _re ?? throw "null pointer dereference").name != (stdgo.Go.str())) {
+                        if ((@:checkr _re ?? throw "null pointer dereference").name != ((stdgo.Go.str() : stdgo.GoString))) {
                             @:check2r _b.writeString(("(?P<" : stdgo.GoString));
                             @:check2r _b.writeString((@:checkr _re ?? throw "null pointer dereference").name?.__copy__());
                             @:check2r _b.writeRune((62 : stdgo.GoInt32));

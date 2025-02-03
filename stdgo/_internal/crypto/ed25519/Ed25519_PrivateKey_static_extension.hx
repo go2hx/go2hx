@@ -6,7 +6,7 @@ package stdgo._internal.crypto.ed25519;
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         var _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         var _hash = (_opts.hashFunc() : stdgo._internal.crypto.Crypto_Hash.Hash);
-        var _context = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _context = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_opts) : stdgo.Ref<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>)) : stdgo.Ref<stdgo._internal.crypto.ed25519.Ed25519_Options.Options>), _1 : true };
@@ -41,14 +41,14 @@ package stdgo._internal.crypto.ed25519;
                 };
             };
             var _signature = (new stdgo.Slice<stdgo.GoUInt8>((64 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, stdgo.Go.str("SigEd25519 no Ed25519 collisions", 1)?.__copy__(), _context?.__copy__());
+            stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, (stdgo.Go.str("SigEd25519 no Ed25519 collisions", 1) : stdgo.GoString)?.__copy__(), _context?.__copy__());
             return {
                 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _signature, _1 : (null : stdgo.Error) };
                 _signature = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
-        } else if (((_hash == (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) && (_context != stdgo.Go.str()) : Bool)) {
+        } else if (((_hash == (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) && (_context != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             {
                 var _l = (_context.length : stdgo.GoInt);
                 if ((_l > (255 : stdgo.GoInt) : Bool)) {
@@ -61,7 +61,7 @@ package stdgo._internal.crypto.ed25519;
                 };
             };
             var _signature = (new stdgo.Slice<stdgo.GoUInt8>((64 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, stdgo.Go.str("SigEd25519 no Ed25519 collisions", 0)?.__copy__(), _context?.__copy__());
+            stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, (stdgo.Go.str("SigEd25519 no Ed25519 collisions", 0) : stdgo.GoString)?.__copy__(), _context?.__copy__());
             return {
                 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _signature, _1 : (null : stdgo.Error) };
                 _signature = __tmp__._0;

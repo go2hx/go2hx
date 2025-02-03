@@ -7,6 +7,6 @@ function _hasKey(_key:stdgo.GoString):stdgo._internal.testing.slogtest.Slogtest_
                     return stdgo._internal.fmt.Fmt_sprintf.sprintf(("missing key %q" : stdgo.GoString), stdgo.Go.toInterface(_key))?.__copy__();
                 };
             };
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
     }

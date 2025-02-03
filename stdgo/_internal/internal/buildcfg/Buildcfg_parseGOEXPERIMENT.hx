@@ -11,7 +11,7 @@ var _regabiAlwaysOn = __1, _regabiSupported = __0;
         };
         var _baseline = ({ regabiWrappers : _regabiSupported, regabiArgs : _regabiSupported, coverageRedesign : true } : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags);
         var _flags = (stdgo.Go.setRef(({ flags : _baseline?.__copy__(), _baseline : _baseline?.__copy__() } : stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags)) : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
-        if (_goexp != (stdgo.Go.str())) {
+        if (_goexp != ((stdgo.Go.str() : stdgo.GoString))) {
             var _names = (({
                 final x = new stdgo.GoMap.GoStringMap<Bool -> Void>();
                 x.__defaultValue__ = () -> null;
@@ -33,7 +33,7 @@ _names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy
                 (@:checkr _flags ?? throw "null pointer dereference").flags.regabiArgs = _v;
             };
             for (__0 => _f in stdgo._internal.strings.Strings_split.split(_goexp?.__copy__(), ("," : stdgo.GoString))) {
-                if (_f == (stdgo.Go.str())) {
+                if (_f == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
                 if (_f == (("none" : stdgo.GoString))) {

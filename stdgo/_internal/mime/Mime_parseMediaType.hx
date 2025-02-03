@@ -6,7 +6,7 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         _err = stdgo._internal.mime.Mime__checkMediaTypeDisposition._checkMediaTypeDisposition(_mediatype?.__copy__());
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err };
                 _mediatype = __tmp__._0;
                 _params = __tmp__._1;
                 _err = __tmp__._2;
@@ -27,7 +27,7 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 break;
             };
             var __tmp__ = stdgo._internal.mime.Mime__consumeMediaParam._consumeMediaParam(_v?.__copy__()), _key:stdgo.GoString = __tmp__._0, _value:stdgo.GoString = __tmp__._1, _rest:stdgo.GoString = __tmp__._2;
-            if (_key == (stdgo.Go.str())) {
+            if (_key == ((stdgo.Go.str() : stdgo.GoString))) {
                 if (stdgo._internal.strings.Strings_trimSpace.trimSpace(_rest?.__copy__()) == ((";" : stdgo.GoString))) {
                     break;
                 };
@@ -74,7 +74,7 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 var __tmp__ = (_pmap != null && _pmap.exists(_key?.__copy__()) ? { _0 : _pmap[_key?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _exists:Bool = __tmp__._1;
                 if ((_exists && (_v != _value) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo._internal.errors.Errors_new_.new_(("mime: duplicate parameter name" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo._internal.errors.Errors_new_.new_(("mime: duplicate parameter name" : stdgo.GoString)) };
                         _mediatype = __tmp__._0;
                         _params = __tmp__._1;
                         _err = __tmp__._2;

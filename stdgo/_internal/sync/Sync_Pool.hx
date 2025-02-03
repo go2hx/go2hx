@@ -2,9 +2,9 @@ package stdgo._internal.sync;
 @:structInit @:using(stdgo._internal.sync.Sync_Pool_static_extension.Pool_static_extension) class Pool {
     public var _noCopy : stdgo._internal.sync.Sync_T_noCopy.T_noCopy = ({} : stdgo._internal.sync.Sync_T_noCopy.T_noCopy);
     public var _local : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
-    public var _localSize : stdgo.GoUIntptr = 0;
+    public var _localSize : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _victim : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;
-    public var _victimSize : stdgo.GoUIntptr = 0;
+    public var _victimSize : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var new_ : () -> stdgo.AnyInterface = null;
     @:local
     var pool = #if target.threaded new sys.thread.Deque<stdgo.AnyInterface>() #else new Array<stdgo.AnyInterface>() #end;

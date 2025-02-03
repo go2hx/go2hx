@@ -185,7 +185,7 @@ if (_err != null) {
         var _sget = (function():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
             var _kidx = (@:check2r _slr.readULEB128() : stdgo.GoUInt64);
             if (((_kidx : stdgo.GoInt) >= @:check2r (@:checkr _cdr ?? throw "null pointer dereference")._stab.entries() : Bool)) {
-                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed string table ref" : stdgo.GoString)) };
+                return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed string table ref" : stdgo.GoString)) };
             };
             return { _0 : @:check2r (@:checkr _cdr ?? throw "null pointer dereference")._stab.get((_kidx : stdgo.GoUInt32))?.__copy__(), _1 : (null : stdgo.Error) };
         } : () -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; });

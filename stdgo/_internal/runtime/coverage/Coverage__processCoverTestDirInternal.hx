@@ -27,7 +27,7 @@ function _processCoverTestDirInternal(_dir:stdgo.GoString, _cfile:stdgo.GoString
             };
             var _tf:stdgo.Ref<stdgo._internal.os.Os_File.File> = (null : stdgo.Ref<stdgo._internal.os.Os_File.File>);
             var _tfClosed:Bool = false;
-            if (_cfile != (stdgo.Go.str())) {
+            if (_cfile != ((stdgo.Go.str() : stdgo.GoString))) {
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.os.Os_create.create(_cfile?.__copy__());

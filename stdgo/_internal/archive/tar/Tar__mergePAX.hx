@@ -2,7 +2,7 @@ package stdgo._internal.archive.tar;
 function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_Header.Header>, _paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
         var _err = (null : stdgo.Error);
         for (_k => _v in _paxHdrs) {
-            if (_v == (stdgo.Go.str())) {
+            if (_v == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             var _id64:stdgo.GoInt64 = (0 : stdgo.GoInt64);
@@ -64,7 +64,7 @@ function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_Header.Header>
                                 x;
                             } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
                         };
-                        (@:checkr _hdr ?? throw "null pointer dereference").xattrs[(_k.__slice__((("SCHILY.xattr." : stdgo.GoString).length)) : stdgo.GoString)] = _v?.__copy__();
+                        (@:checkr _hdr ?? throw "null pointer dereference").xattrs[(_k.__slice__(((("SCHILY.xattr." : stdgo.GoString) : stdgo.GoString).length)) : stdgo.GoString)] = _v?.__copy__();
                     };
                 };
             };

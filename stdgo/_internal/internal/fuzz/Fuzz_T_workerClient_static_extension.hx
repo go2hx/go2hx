@@ -147,7 +147,7 @@ package stdgo._internal.internal.fuzz;
             (@:checkr _wc ?? throw "null pointer dereference")._workerComm._memMu.__send__(_mem);
             var _c = ({ fuzz : (stdgo.Go.setRef(_args) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzArgs.T_fuzzArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
             var _callErr = (@:check2r _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse>)))) : stdgo.Error);
-            if (_resp.internalErr != (stdgo.Go.str())) {
+            if (_resp.internalErr != ((stdgo.Go.str() : stdgo.GoString))) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = {
                         final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry), _1 : (new stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse() : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse), _2 : true, _3 : stdgo._internal.errors.Errors_new_.new_(_resp.internalErr?.__copy__()) };
@@ -215,7 +215,7 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            var _needEntryOut = ((_callErr != null || _resp.err != (stdgo.Go.str()) : Bool) || ((!_args.warmup && (_resp.coverageData != null) : Bool)) : Bool);
+            var _needEntryOut = ((_callErr != null || _resp.err != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ((!_args.warmup && (_resp.coverageData != null) : Bool)) : Bool);
             if (_needEntryOut) {
                 var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(_inp), _valuesOut:stdgo.Slice<stdgo.AnyInterface> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

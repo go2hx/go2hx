@@ -1,6 +1,6 @@
 package stdgo._internal.time;
 function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
-        if (((_name == stdgo.Go.str()) || (_name == ("UTC" : stdgo.GoString)) : Bool)) {
+        if (((_name == (stdgo.Go.str() : stdgo.GoString)) || (_name == ("UTC" : stdgo.GoString)) : Bool)) {
             return { _0 : stdgo._internal.time.Time_uTC.uTC, _1 : (null : stdgo.Error) };
         };
         if (_name == (("Local" : stdgo.GoString))) {
@@ -18,7 +18,7 @@ function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
             stdgo._internal.time.Time__zoneinfo._zoneinfo = _env__pointer__;
         });
         var _firstErr:stdgo.Error = (null : stdgo.Error);
-        if (stdgo._internal.time.Time__zoneinfo._zoneinfo.value != (stdgo.Go.str())) {
+        if (stdgo._internal.time.Time__zoneinfo._zoneinfo.value != ((stdgo.Go.str() : stdgo.GoString))) {
             {
                 var __tmp__ = stdgo._internal.time.Time__loadTzinfoFromDirOrZip._loadTzinfoFromDirOrZip(stdgo._internal.time.Time__zoneinfo._zoneinfo.value?.__copy__(), _name?.__copy__()), _zoneData:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
@@ -29,7 +29,7 @@ function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
                         };
                     };
                     _firstErr = _err;
-                } else if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno))))) {
+                } else if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo.GoUIntptr(2) : stdgo._internal.syscall.Syscall_Errno.Errno))))) {
                     _firstErr = _err;
                 };
             };

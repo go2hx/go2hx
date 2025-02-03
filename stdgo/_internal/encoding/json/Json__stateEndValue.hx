@@ -43,5 +43,5 @@ function _stateEndValue(_s:stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanne
                 return @:check2r _s._error(_c, ("after array element" : stdgo.GoString));
             };
         };
-        return @:check2r _s._error(_c, stdgo.Go.str()?.__copy__());
+        return @:check2r _s._error(_c, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
     }

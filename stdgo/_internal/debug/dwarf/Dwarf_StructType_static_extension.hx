@@ -5,7 +5,7 @@ package stdgo._internal.debug.dwarf;
     static public function defn( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType> = _t;
         var _s = ((@:checkr _t ?? throw "null pointer dereference").kind?.__copy__() : stdgo.GoString);
-        if ((@:checkr _t ?? throw "null pointer dereference").structName != (stdgo.Go.str())) {
+        if ((@:checkr _t ?? throw "null pointer dereference").structName != ((stdgo.Go.str() : stdgo.GoString))) {
             _s = (_s + (((" " : stdgo.GoString) + (@:checkr _t ?? throw "null pointer dereference").structName?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         if ((@:checkr _t ?? throw "null pointer dereference").incomplete) {
@@ -31,7 +31,7 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType> = _t;
-        if ((@:checkr _t ?? throw "null pointer dereference").structName != (stdgo.Go.str())) {
+        if ((@:checkr _t ?? throw "null pointer dereference").structName != ((stdgo.Go.str() : stdgo.GoString))) {
             return (((@:checkr _t ?? throw "null pointer dereference").kind + (" " : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _t ?? throw "null pointer dereference").structName?.__copy__() : stdgo.GoString)?.__copy__();
         };
         return @:check2r _t.defn()?.__copy__();

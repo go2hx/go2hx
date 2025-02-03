@@ -1,6 +1,6 @@
 package stdgo._internal.path;
 function clean(_path:stdgo.GoString):stdgo.GoString {
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             return ("." : stdgo.GoString);
         };
         var _rooted = (_path[(0 : stdgo.GoInt)] == ((47 : stdgo.GoUInt8)) : Bool);

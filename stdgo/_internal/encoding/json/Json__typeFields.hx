@@ -67,13 +67,13 @@ if (_tag == (("-" : stdgo.GoString))) {
                         };
 var __tmp__ = stdgo._internal.encoding.json.Json__parseTag._parseTag(_tag.__copy__()), _name:stdgo.GoString = __tmp__._0, _opts:stdgo._internal.encoding.json.Json_T_tagOptions.T_tagOptions = __tmp__._1;
 if (!stdgo._internal.encoding.json.Json__isValidTag._isValidTag(_name.__copy__())) {
-                            _name = stdgo.Go.str().__copy__();
+                            _name = (stdgo.Go.str() : stdgo.GoString).__copy__();
                         };
 var _index = (new stdgo.Slice<stdgo.GoInt>(((_f._index.length) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
 _index.__copyTo__(_f._index);
 _index[(_f._index.length : stdgo.GoInt)] = _i;
 var _ft = (_sf.type : stdgo._internal.reflect.Reflect_Type_.Type_);
-if (((_ft.name() == stdgo.Go.str()) && (_ft.kind() == (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
+if (((_ft.name() == (stdgo.Go.str() : stdgo.GoString)) && (_ft.kind() == (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
                             _ft = _ft.elem();
                         };
 var _quoted = (false : Bool);
@@ -85,9 +85,9 @@ if (_opts.contains(("string" : stdgo.GoString))) {
                                 };
                             };
                         };
-if (((_name != (stdgo.Go.str()) || !_sf.anonymous : Bool) || (_ft.kind() != (25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
-                            var _tagged = (_name != (stdgo.Go.str()) : Bool);
-                            if (_name == (stdgo.Go.str())) {
+if (((_name != ((stdgo.Go.str() : stdgo.GoString)) || !_sf.anonymous : Bool) || (_ft.kind() != (25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
+                            var _tagged = (_name != ((stdgo.Go.str() : stdgo.GoString)) : Bool);
+                            if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                                 _name = _sf.name.__copy__();
                             };
                             var _field = ({ _name : _name.__copy__(), _tag : _tagged, _index : _index, _typ : _ft, _omitEmpty : _opts.contains(("omitempty" : stdgo.GoString)), _quoted : _quoted } : stdgo._internal.encoding.json.Json_T_field.T_field);

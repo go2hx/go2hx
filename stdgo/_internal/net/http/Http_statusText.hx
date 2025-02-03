@@ -127,7 +127,7 @@ function statusText(_code:stdgo.GoInt):stdgo.GoString {
             } else if (__value__ == ((511 : stdgo.GoInt))) {
                 return ("Network Authentication Required" : stdgo.GoString);
             } else {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
         };
     }

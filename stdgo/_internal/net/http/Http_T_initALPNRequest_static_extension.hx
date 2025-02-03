@@ -27,7 +27,7 @@ package stdgo._internal.net.http;
         if ((@:checkr _req ?? throw "null pointer dereference").body == null) {
             (@:checkr _req ?? throw "null pointer dereference").body = stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody);
         };
-        if ((@:checkr _req ?? throw "null pointer dereference").remoteAddr == (stdgo.Go.str())) {
+        if ((@:checkr _req ?? throw "null pointer dereference").remoteAddr == ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _req ?? throw "null pointer dereference").remoteAddr = (@:check2r _h._c.remoteAddr().string() : stdgo.GoString)?.__copy__();
         };
         _h._h.serveHTTP(_rw, _req);

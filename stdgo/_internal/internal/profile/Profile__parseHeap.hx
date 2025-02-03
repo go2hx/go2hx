@@ -11,7 +11,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                 __tmp__;
             };
         };
-        var _sampling = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _sampling = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             var _header = @:check2r stdgo._internal.internal.profile.Profile__heapHeaderRE._heapHeaderRE.findStringSubmatch(_l?.__copy__());
             if (_header != null) {
@@ -45,7 +45,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         };
                     } else if (__value__ == (("heapprofile" : stdgo.GoString))) {
                         {
-                            final __tmp__0 = stdgo.Go.str()?.__copy__();
+                            final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                             final __tmp__1 = (1i64 : stdgo.GoInt64);
                             _sampling = __tmp__0;
                             (@:checkr _p ?? throw "null pointer dereference").period = __tmp__1;
@@ -115,7 +115,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         __tmp__;
                     };
                 };
-                if (_l == (stdgo.Go.str())) {
+                if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                     break;
                 };
             };

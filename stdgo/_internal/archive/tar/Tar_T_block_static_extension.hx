@@ -31,13 +31,13 @@ package stdgo._internal.archive.tar;
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block> = _b;
         if (_format._has((1 : stdgo._internal.archive.tar.Tar_Format.Format))) {} else if (_format._has((8 : stdgo._internal.archive.tar.Tar_Format.Format))) {
             @:check2r @:check2r _b._toGNU()._magic().__copyTo__(("ustar " : stdgo.GoString));
-            @:check2r @:check2r _b._toGNU()._version().__copyTo__(stdgo.Go.str(" ", 0));
+            @:check2r @:check2r _b._toGNU()._version().__copyTo__((stdgo.Go.str(" ", 0) : stdgo.GoString));
         } else if (_format._has((16 : stdgo._internal.archive.tar.Tar_Format.Format))) {
-            @:check2r @:check2r _b._toSTAR()._magic().__copyTo__(stdgo.Go.str("ustar", 0));
+            @:check2r @:check2r _b._toSTAR()._magic().__copyTo__((stdgo.Go.str("ustar", 0) : stdgo.GoString));
             @:check2r @:check2r _b._toSTAR()._version().__copyTo__(("00" : stdgo.GoString));
-            @:check2r @:check2r _b._toSTAR()._trailer().__copyTo__(stdgo.Go.str("tar", 0));
+            @:check2r @:check2r _b._toSTAR()._trailer().__copyTo__((stdgo.Go.str("tar", 0) : stdgo.GoString));
         } else if (_format._has((6 : stdgo._internal.archive.tar.Tar_Format.Format))) {
-            @:check2r @:check2r _b._toUSTAR()._magic().__copyTo__(stdgo.Go.str("ustar", 0));
+            @:check2r @:check2r _b._toUSTAR()._magic().__copyTo__((stdgo.Go.str("ustar", 0) : stdgo.GoString));
             @:check2r @:check2r _b._toUSTAR()._version().__copyTo__(("00" : stdgo.GoString));
         } else {
             throw stdgo.Go.toInterface(("invalid format" : stdgo.GoString));
@@ -61,11 +61,11 @@ package stdgo._internal.archive.tar;
         var _magic = ((@:check2r @:check2r _b._toUSTAR()._magic() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _version = ((@:check2r @:check2r _b._toUSTAR()._version() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _trailer = ((@:check2r @:check2r _b._toSTAR()._trailer() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        if (((_magic == stdgo.Go.str("ustar", 0)) && (_trailer == stdgo.Go.str("tar", 0)) : Bool)) {
+        if (((_magic == (stdgo.Go.str("ustar", 0) : stdgo.GoString)) && (_trailer == (stdgo.Go.str("tar", 0) : stdgo.GoString)) : Bool)) {
             return (16 : stdgo._internal.archive.tar.Tar_Format.Format);
-        } else if (_magic == (stdgo.Go.str("ustar", 0))) {
+        } else if (_magic == ((stdgo.Go.str("ustar", 0) : stdgo.GoString))) {
             return (6 : stdgo._internal.archive.tar.Tar_Format.Format);
-        } else if (((_magic == ("ustar " : stdgo.GoString)) && (_version == stdgo.Go.str(" ", 0)) : Bool)) {
+        } else if (((_magic == ("ustar " : stdgo.GoString)) && (_version == (stdgo.Go.str(" ", 0) : stdgo.GoString)) : Bool)) {
             return (8 : stdgo._internal.archive.tar.Tar_Format.Format);
         } else {
             return (1 : stdgo._internal.archive.tar.Tar_Format.Format);

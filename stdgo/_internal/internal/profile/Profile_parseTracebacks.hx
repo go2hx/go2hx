@@ -16,7 +16,7 @@ function parseTracebacks(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<std
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     return { _0 : null, _1 : _err };
                 };
-                if (_l == (stdgo.Go.str())) {
+                if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                     break;
                 };
             };

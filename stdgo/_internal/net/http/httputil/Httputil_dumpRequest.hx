@@ -17,17 +17,17 @@ function dumpRequest(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Reques
         };
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _reqURI = ((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__() : stdgo.GoString);
-        if (_reqURI == (stdgo.Go.str())) {
+        if (_reqURI == ((stdgo.Go.str() : stdgo.GoString))) {
             _reqURI = @:check2r (@:checkr _req ?? throw "null pointer dereference").uRL.requestURI()?.__copy__();
         };
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("%s %s HTTP/%d.%d\r\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.httputil.Httputil__valueOrDefault._valueOrDefault((@:checkr _req ?? throw "null pointer dereference").method?.__copy__(), ("GET" : stdgo.GoString))), stdgo.Go.toInterface(_reqURI), stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").protoMajor), stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").protoMinor));
         var _absRequestURI = (stdgo._internal.strings.Strings_hasPrefix.hasPrefix((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__(), ("http://" : stdgo.GoString)) || stdgo._internal.strings.Strings_hasPrefix.hasPrefix((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__(), ("https://" : stdgo.GoString)) : Bool);
         if (!_absRequestURI) {
             var _host = ((@:checkr _req ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString);
-            if (((_host == stdgo.Go.str()) && ((@:checkr _req ?? throw "null pointer dereference").uRL != null && (((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) : Bool)) {
+            if (((_host == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _req ?? throw "null pointer dereference").uRL != null && (((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) : Bool)) {
                 _host = (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").host?.__copy__();
             };
-            if (_host != (stdgo.Go.str())) {
+            if (_host != ((stdgo.Go.str() : stdgo.GoString))) {
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("Host: %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_host));
             };
         };

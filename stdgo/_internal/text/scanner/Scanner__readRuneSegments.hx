@@ -1,7 +1,7 @@
 package stdgo._internal.text.scanner;
 function _readRuneSegments(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _segments:stdgo.Slice<stdgo.GoString>):Void {
-        var _got = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
-        var _want = (stdgo._internal.strings.Strings_join.join(_segments, stdgo.Go.str()?.__copy__())?.__copy__() : stdgo.GoString);
+        var _got = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+        var _want = (stdgo._internal.strings.Strings_join.join(_segments, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo.GoString);
         var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_Scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>).init(stdgo.Go.asInterface((stdgo.Go.setRef(({ _data : _segments } : stdgo._internal.text.scanner.Scanner_StringReader.StringReader)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_StringReader.StringReader>)));
         while (true) {
             var _ch = (@:check2r _s.next() : stdgo.GoInt32);

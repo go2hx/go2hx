@@ -5,7 +5,7 @@ function _lexComment(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_le
         if ((_x < (0 : stdgo.GoInt) : Bool)) {
             return @:check2r _l._errorf(("unclosed comment" : stdgo.GoString));
         };
-        (@:checkr _l ?? throw "null pointer dereference")._pos = ((@:checkr _l ?? throw "null pointer dereference")._pos + (((_x + (("*/" : stdgo.GoString).length) : stdgo.GoInt) : stdgo._internal.text.template.parse.Parse_Pos.Pos)) : stdgo._internal.text.template.parse.Parse_Pos.Pos);
+        (@:checkr _l ?? throw "null pointer dereference")._pos = ((@:checkr _l ?? throw "null pointer dereference")._pos + (((_x + ((("*/" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt) : stdgo._internal.text.template.parse.Parse_Pos.Pos)) : stdgo._internal.text.template.parse.Parse_Pos.Pos);
         var __tmp__ = @:check2r _l._atRightDelim(), _delim:Bool = __tmp__._0, _trimSpace:Bool = __tmp__._1;
         if (!_delim) {
             return @:check2r _l._errorf(("comment ends before closing delimiter" : stdgo.GoString));

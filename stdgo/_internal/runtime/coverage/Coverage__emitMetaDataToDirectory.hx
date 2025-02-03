@@ -8,7 +8,7 @@ function _emitMetaDataToDirectory(_outdir:stdgo.GoString, _ml:stdgo.Slice<stdgo.
             return (null : stdgo.Error);
         };
         stdgo._internal.runtime.coverage.Coverage__metaDataEmitAttempted._metaDataEmitAttempted = true;
-        var _s = (stdgo.Go.setRef(({ _metalist : _ml, _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != (stdgo.Go.str()), _outdir : _outdir?.__copy__() } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        var _s = (stdgo.Go.setRef(({ _metalist : _ml, _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString)), _outdir : _outdir?.__copy__() } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
         {
             var _err = (@:check2r _s._openOutputFiles(stdgo._internal.runtime.coverage.Coverage__finalHash._finalHash?.__copy__(), stdgo._internal.runtime.coverage.Coverage__finalMetaLen._finalMetaLen, (2 : stdgo._internal.runtime.coverage.Coverage_T_fileType.T_fileType)) : stdgo.Error);
             if (_err != null) {

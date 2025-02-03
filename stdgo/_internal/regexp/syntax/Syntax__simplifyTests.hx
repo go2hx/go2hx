@@ -56,7 +56,7 @@ var _simplifyTests : stdgo.Slice<stdgo._internal.regexp.syntax.Syntax_T__struct_
 ({ regexp : ("(?:a{1,})*" : stdgo.GoString), simple : ("(?:a+)*" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
 ({ regexp : ("(?:a{1,})+" : stdgo.GoString), simple : ("a+" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
 ({ regexp : ("(?:a{1,})?" : stdgo.GoString), simple : ("(?:a+)?" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
-({ regexp : stdgo.Go.str()?.__copy__(), simple : ("(?:)" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
+({ regexp : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), simple : ("(?:)" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
 ({ regexp : ("a{0}" : stdgo.GoString), simple : ("(?:)" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
 ({ regexp : ("[ab]" : stdgo.GoString), simple : ("[a-b]" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),
 ({ regexp : ("[a-za-za-z]" : stdgo.GoString), simple : ("[a-z]" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_2.T__struct_2),

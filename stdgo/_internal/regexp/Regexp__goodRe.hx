@@ -1,6 +1,6 @@
 package stdgo._internal.regexp;
 var _goodRe : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(17, 17, ...[
-stdgo.Go.str()?.__copy__(),
+(stdgo.Go.str() : stdgo.GoString)?.__copy__(),
 ("." : stdgo.GoString),
 ("^.$" : stdgo.GoString),
 ("a" : stdgo.GoString),

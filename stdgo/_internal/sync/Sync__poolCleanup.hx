@@ -2,13 +2,13 @@ package stdgo._internal.sync;
 function _poolCleanup():Void {
         for (__16 => _p in stdgo._internal.sync.Sync__oldPools._oldPools) {
             (@:checkr _p ?? throw "null pointer dereference")._victim = @:default_value null;
-            (@:checkr _p ?? throw "null pointer dereference")._victimSize = (0 : stdgo.GoUIntptr);
+            (@:checkr _p ?? throw "null pointer dereference")._victimSize = (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr);
         };
         for (__17 => _p in stdgo._internal.sync.Sync__allPools._allPools) {
             (@:checkr _p ?? throw "null pointer dereference")._victim = (@:checkr _p ?? throw "null pointer dereference")._local;
             (@:checkr _p ?? throw "null pointer dereference")._victimSize = (@:checkr _p ?? throw "null pointer dereference")._localSize;
             (@:checkr _p ?? throw "null pointer dereference")._local = @:default_value null;
-            (@:checkr _p ?? throw "null pointer dereference")._localSize = (0 : stdgo.GoUIntptr);
+            (@:checkr _p ?? throw "null pointer dereference")._localSize = (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr);
         };
         {
             final __tmp__0 = stdgo._internal.sync.Sync__allPools._allPools;

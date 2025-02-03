@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function _nlines(_s:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoString {
         if ((_n <= (0 : stdgo.GoInt) : Bool)) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         for (_i => _c in _s) {
             if (_c == ((10 : stdgo.GoInt32))) {

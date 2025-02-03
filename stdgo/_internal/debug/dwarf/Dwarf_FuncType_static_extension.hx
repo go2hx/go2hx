@@ -4,7 +4,7 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function string( _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType> = _t;
-        var _s = ("func(" : stdgo.GoString);
+        var _s = (("func(" : stdgo.GoString) : stdgo.GoString);
         for (_i => _t in (@:checkr _t ?? throw "null pointer dereference").paramType) {
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _s = (_s + ((", " : stdgo.GoString))?.__copy__() : stdgo.GoString);

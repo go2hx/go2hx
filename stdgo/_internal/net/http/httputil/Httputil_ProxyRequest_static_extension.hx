@@ -26,6 +26,6 @@ package stdgo._internal.net.http.httputil;
     static public function setURL( _r:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest>, _target:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> = _r;
         stdgo._internal.net.http.httputil.Httputil__rewriteRequestURL._rewriteRequestURL((@:checkr _r ?? throw "null pointer dereference").out, _target);
-        (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").host = stdgo.Go.str()?.__copy__();
+        (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").host = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
 }

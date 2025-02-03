@@ -13,21 +13,21 @@ function _parseThreadSample(_b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buff
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : _err };
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : _err };
                             _nextl = __tmp__._0;
                             _addrs = __tmp__._1;
                             _err = __tmp__._2;
                             __tmp__;
                         };
                     };
-                    if (_l == (stdgo.Go.str())) {
+                    if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                         break;
                     };
                 };
             };
             {
                 _l = stdgo._internal.strings.Strings_trimSpace.trimSpace(_l?.__copy__())?.__copy__();
-                if (_l == (stdgo.Go.str())) {
+                if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
             };

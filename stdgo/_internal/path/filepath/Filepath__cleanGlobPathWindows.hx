@@ -2,7 +2,7 @@ package stdgo._internal.path.filepath;
 function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; } {
         var _prefixLen = (0 : stdgo.GoInt), _cleaned = ("" : stdgo.GoString);
         var _vollen = (stdgo._internal.path.filepath.Filepath__volumeNameLen._volumeNameLen(_path?.__copy__()) : stdgo.GoInt);
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; } = { _0 : (0 : stdgo.GoInt), _1 : ("." : stdgo.GoString) };
                 _prefixLen = __tmp__._0;

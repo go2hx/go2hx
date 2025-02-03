@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function benchmarkUnmarshalFloat64(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.reportAllocs();
-        var _data = (("3.14" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _data = ((("3.14" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
             var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
             var _f__pointer__ = stdgo.Go.pointer(_f);

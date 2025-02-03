@@ -296,9 +296,9 @@ final list = [
 	},
 	"time:forceUSPacificForTesting" => macro {},
 	"time:_stopTimer" => macro {
-		final t:Dynamic = _0;
-		if ((t._pp : stdgo.GoUIntptr) != (0 : stdgo.GoUIntptr)) {
-			final timer:haxe.Timer = t._pp;
+		final t = _0;
+		if (t._pp != new stdgo.GoUIntptr(0)) {
+			final timer:haxe.Timer = t._pp.toDynamic();
 			timer.stop();
 		}
 		final wasActive = t._status == 1;
@@ -322,9 +322,9 @@ final list = [
 				t._when += t._period;
 				_startTimer(t);
 			}
-			stdgo.Go.routine(() -> t._f(t._arg, 0));
+			stdgo.Go.routine(() -> t._f(t._arg, new stdgo.GoUIntptr(0)));
 		};
-		t._pp = (timer : stdgo.GoUIntptr);
+		t._pp = new stdgo.GoUIntptr(timer);
 	},
 	"time:_resetTimer" => macro {
 		final t = _0;
@@ -519,6 +519,31 @@ final list = [
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,*/
+	    // Seek sets the offset for the next Read or Write on file to offset, interpreted
+    // according to whence: 0 means relative to the origin of the file, 1 means
+    // relative to the current offset, and 2 means relative to the end.
+    // It returns the new offset and an error, if any.
+    // The behavior of Seek on a file opened with O_APPEND is not specified.
+    // Seek(offset int64, whence int) (ret int64, err error) {
+	"os.File:seek" => macro {
+		// seek(p:Int, pos:FileSeek):Void
+		// SeekBegin, SeekCur, SeekEnd
+		@:define("(sys || hxnodejs)") {
+			final input:sys.io.FileInput = cast @:privateAccess _f._input;
+			final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
+			@:privateAccess input.seek(_offset.toBasic().low, pos);
+			return { _0 : input.tell(), _1 : null };
+		}
+		trace("not supported on non sys target");
+		return {_0: 0, _1: null};
+	},
+	"os.File:read" => macro {
+		final bytes = @:privateAccess _f._input.read(_b.length);
+		for (i in 0...bytes.length) {
+			_b[i] = bytes.get(i);
+		}
+		return {_0: bytes.length, _1: null};
+	},
 	"os:create" => macro {
 		//O_RDWR|O_CREATE|O_TRUNC
 		return stdgo._internal.os.Os_openFile.openFile(_name, 0, 0);
@@ -712,7 +737,7 @@ final list = [
 				case stdgo._internal.internal.reflect.Reflect.KindType.uint:
 					(_x : stdgo.GoUInt);
 				case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-					(_x : stdgo.GoUIntptr);
+					new stdgo.GoUIntptr(_x);
 				default:
 					throw "unknown setUInt kind: " + k.string();
 			};
@@ -785,9 +810,9 @@ final list = [
 	},
 	"reflect.Value:pointer" => macro {
 		if (@:privateAccess _v.value == null)
-			return 0;
+			return new stdgo.GoUIntptr(0);
 		var value = @:privateAccess _v.value.value;
-		return value != null ? 1 : 0;
+		return new stdgo.GoUIntptr(value != null ? 1 : 0);
 	},
 	"reflect.Value:field" => macro {
 		final initgt = @:privateAccess _v.value.type._common();
@@ -1015,7 +1040,7 @@ final list = [
 				case stdgo._internal.internal.reflect.Reflect.KindType.uint64:
 					(value : stdgo.GoUInt64);
 				case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-					(value : stdgo.GoUIntptr);
+					new stdgo.GoUIntptr(value);
 				default:
 					throw new $newValueError("reflect.Value.Uint", _v.kind());
 			}

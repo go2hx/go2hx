@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function _stringEncoder(_e:stdgo.Ref<stdgo._internal.encoding.json.Json_T_encodeState.T_encodeState>, _v:stdgo._internal.reflect.Reflect_Value.Value, _opts:stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts):Void {
         if ((_v.type().string() : String) == (stdgo._internal.encoding.json.Json__numberType._numberType.string() : String)) {
             var _numStr = ((_v.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            if (_numStr == (stdgo.Go.str())) {
+            if (_numStr == ((stdgo.Go.str() : stdgo.GoString))) {
                 _numStr = ("0" : stdgo.GoString);
             };
             if (!stdgo._internal.encoding.json.Json__isValidNumber._isValidNumber(_numStr?.__copy__())) {

@@ -1,6 +1,6 @@
 package stdgo._internal.strings;
 function indexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt {
-        if (_chars == (stdgo.Go.str())) {
+        if (_chars == ((stdgo.Go.str() : stdgo.GoString))) {
             return (-1 : stdgo.GoInt);
         };
         if ((_chars.length) == ((1 : stdgo.GoInt))) {

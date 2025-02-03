@@ -61,7 +61,7 @@ package stdgo._internal.net.rpc;
                 if (_err != null) {
                     _err = stdgo._internal.errors.Errors_new_.new_((("reading error body: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__());
                 };
-            } else if (_response.error != (stdgo.Go.str())) {
+            } else if (_response.error != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _call ?? throw "null pointer dereference").error = stdgo.Go.asInterface((_response.error : stdgo._internal.net.rpc.Rpc_ServerError.ServerError));
                 _err = (@:checkr _client ?? throw "null pointer dereference")._codec.readResponseBody((null : stdgo.AnyInterface));
                 if (_err != null) {

@@ -31,7 +31,7 @@ function testExecuteGivesExecError(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         if (!_ok) {
             @:check2r _t.fatalf(("did not expect ExecError %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_eerr)));
         };
-        var _expect = ("field X in type int" : stdgo.GoString);
+        var _expect = (("field X in type int" : stdgo.GoString) : stdgo.GoString);
         if (!stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), _expect?.__copy__())) {
             @:check2r _t.errorf(("expected %q; got %q" : stdgo.GoString), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_err));
         };

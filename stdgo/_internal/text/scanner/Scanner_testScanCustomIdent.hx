@@ -15,5 +15,5 @@ function testScanCustomIdent(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-2 : stdgo.GoInt32), ("a12" : stdgo.GoString));
         stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-3 : stdgo.GoInt32), ("3" : stdgo.GoString));
         stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-2 : stdgo.GoInt32), ("b" : stdgo.GoString));
-        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-1 : stdgo.GoInt32), stdgo.Go.str()?.__copy__());
+        stdgo._internal.text.scanner.Scanner__checkTok._checkTok(_t, _s, (1 : stdgo.GoInt), @:check2r _s.scan(), (-1 : stdgo.GoInt32), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
     }

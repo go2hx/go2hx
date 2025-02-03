@@ -11,13 +11,13 @@ function testSingletons(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                 continue;
             };
             _err = @:check2r _dec.decode(_test._out);
-            if (((_err != null) && (_test._err == stdgo.Go.str()) : Bool)) {
+            if (((_err != null) && (_test._err == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 @:check2r _t.errorf(("error decoding %v: %s" : stdgo.GoString), _test._in, stdgo.Go.toInterface(_err));
                 continue;
-            } else if (((_err == null) && (_test._err != stdgo.Go.str()) : Bool)) {
+            } else if (((_err == null) && (_test._err != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 @:check2r _t.errorf(("expected error decoding %v: %s" : stdgo.GoString), _test._in, stdgo.Go.toInterface(_test._err));
                 continue;
-            } else if (((_err != null) && (_test._err != stdgo.Go.str()) : Bool)) {
+            } else if (((_err != null) && (_test._err != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 if (!stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), _test._err?.__copy__())) {
                     @:check2r _t.errorf(("wrong error decoding %v: wanted %s, got %v" : stdgo.GoString), _test._in, stdgo.Go.toInterface(_test._err), stdgo.Go.toInterface(_err));
                 };

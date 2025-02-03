@@ -5,8 +5,8 @@ package stdgo._internal.internal.dag;
     static public function _nextToken( _p:stdgo.Ref<stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser>):stdgo.GoString {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser> = _p;
         while (true) {
-            if ((@:checkr _p ?? throw "null pointer dereference")._text == (stdgo.Go.str())) {
-                return stdgo.Go.str()?.__copy__();
+            if ((@:checkr _p ?? throw "null pointer dereference")._text == ((stdgo.Go.str() : stdgo.GoString))) {
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             {
                 var __continue__ = false;
@@ -90,10 +90,10 @@ package stdgo._internal.internal.dag;
                     __run__ = false;
                     {
                         final __value__ = _tok;
-                        if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == stdgo.Go.str()))) {
+                        if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (stdgo.Go.str() : stdgo.GoString)))) {
                             if ((_list.length) == ((0 : stdgo.GoInt))) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo.Go.str()?.__copy__() };
+                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                                     _list = __tmp__._0;
                                     _token = __tmp__._1;
                                     __tmp__;

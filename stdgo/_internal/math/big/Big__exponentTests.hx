@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 var _exponentTests : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_64.T__struct_64> = (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_64.T__struct_64>(29, 29, ...[
-({ _s : stdgo.Go.str()?.__copy__(), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : stdgo._internal.math.big.Big_T__struct_64.T__struct_64),
+({ _s : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : stdgo._internal.math.big.Big_T__struct_64.T__struct_64),
 ({ _s : ("1" : stdgo.GoString), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (49 : stdgo.GoInt32) } : stdgo._internal.math.big.Big_T__struct_64.T__struct_64),
 ({ _s : ("e0" : stdgo.GoString), _base2ok : false, _sepOk : false, _x : (0i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : stdgo._internal.math.big.Big_T__struct_64.T__struct_64),
 ({ _s : ("E1" : stdgo.GoString), _base2ok : false, _sepOk : false, _x : (1i64 : stdgo.GoInt64), _b : (10 : stdgo.GoInt), _err : (null : stdgo.Error), _next : (0 : stdgo.GoInt32) } : stdgo._internal.math.big.Big_T__struct_64.T__struct_64),

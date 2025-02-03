@@ -6,7 +6,7 @@ var _expNNTests : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_39.T__struc
 ({ _x : ("2" : stdgo.GoString), _y : ("1" : stdgo.GoString), _m : ("1" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
 ({ _x : ("2" : stdgo.GoString), _y : ("2" : stdgo.GoString), _m : ("1" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
 ({ _x : ("10" : stdgo.GoString), _y : ("100000000000" : stdgo.GoString), _m : ("1" : stdgo.GoString), _out : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
-({ _x : ("0x8000000000000000" : stdgo.GoString), _y : ("2" : stdgo.GoString), _m : stdgo.Go.str()?.__copy__(), _out : ("0x40000000000000000000000000000000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
+({ _x : ("0x8000000000000000" : stdgo.GoString), _y : ("2" : stdgo.GoString), _m : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _out : ("0x40000000000000000000000000000000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
 ({ _x : ("0x8000000000000000" : stdgo.GoString), _y : ("2" : stdgo.GoString), _m : ("6719" : stdgo.GoString), _out : ("4944" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
 ({ _x : ("0x8000000000000000" : stdgo.GoString), _y : ("3" : stdgo.GoString), _m : ("6719" : stdgo.GoString), _out : ("5447" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),
 ({ _x : ("0x8000000000000000" : stdgo.GoString), _y : ("1000" : stdgo.GoString), _m : ("6719" : stdgo.GoString), _out : ("1603" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_39.T__struct_39),

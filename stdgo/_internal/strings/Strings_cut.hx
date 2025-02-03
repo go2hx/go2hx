@@ -14,7 +14,7 @@ function cut(_s:stdgo.GoString, _sep:stdgo.GoString):{ var _0 : stdgo.GoString; 
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : _s?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : _s?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
             _before = __tmp__._0;
             _after = __tmp__._1;
             _found = __tmp__._2;

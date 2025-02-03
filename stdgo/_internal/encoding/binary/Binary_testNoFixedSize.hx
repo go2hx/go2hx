@@ -7,7 +7,7 @@ function testNoFixedSize(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         if (_err == null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("binary.Write: unexpected success as size of type *binary.Person is not fixed" : stdgo.GoString)));
         };
-        var _errs = ("binary.Write: some values are not fixed-sized in type *binary.Person" : stdgo.GoString);
+        var _errs = (("binary.Write: some values are not fixed-sized in type *binary.Person" : stdgo.GoString) : stdgo.GoString);
         if (_err.error() != (_errs)) {
             @:check2r _t.fatalf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_errs));
         };

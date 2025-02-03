@@ -136,7 +136,7 @@ package stdgo._internal.archive.tar;
         @:recv var _tw:stdgo.Ref<stdgo._internal.archive.tar.Tar_Writer.Writer> = _tw;
         {};
         if ((((@:checkr _hdr ?? throw "null pointer dereference").name.length) > (100 : stdgo.GoInt) : Bool)) {
-            var _data = (((@:checkr _hdr ?? throw "null pointer dereference").name + stdgo.Go.str(0)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            var _data = (((@:checkr _hdr ?? throw "null pointer dereference").name + (stdgo.Go.str(0) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             {
                 var _err = (@:check2r _tw._writeRawFile(("././@LongLink" : stdgo.GoString), _data?.__copy__(), (76 : stdgo.GoUInt8), (8 : stdgo._internal.archive.tar.Tar_Format.Format)) : stdgo.Error);
                 if (_err != null) {
@@ -145,7 +145,7 @@ package stdgo._internal.archive.tar;
             };
         };
         if ((((@:checkr _hdr ?? throw "null pointer dereference").linkname.length) > (100 : stdgo.GoInt) : Bool)) {
-            var _data = (((@:checkr _hdr ?? throw "null pointer dereference").linkname + stdgo.Go.str(0)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+            var _data = (((@:checkr _hdr ?? throw "null pointer dereference").linkname + (stdgo.Go.str(0) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             {
                 var _err = (@:check2r _tw._writeRawFile(("././@LongLink" : stdgo.GoString), _data?.__copy__(), (75 : stdgo.GoUInt8), (8 : stdgo._internal.archive.tar.Tar_Format.Format)) : stdgo.Error);
                 if (_err != null) {
@@ -207,7 +207,7 @@ var _realSize = __1, _realName = __0;
             var _flag:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
             if (_isGlobal) {
                 _name = _realName?.__copy__();
-                if (_name == (stdgo.Go.str())) {
+                if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                     _name = ("GlobalHead.0.0" : stdgo.GoString);
                 };
                 _flag = (103 : stdgo.GoUInt8);

@@ -11,7 +11,7 @@ var _n = __1, _size = __0;
             };
             _n = (4 : stdgo.GoInt);
             _size = stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32(_s);
-            _size = (_size & ((((-2147483648u32 : stdgo.GoUInt32)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+            _size = (_size & ((((-2147483648u32 : stdgo.GoUInt32)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         };
         return { _0 : _size, _1 : _n };
     }

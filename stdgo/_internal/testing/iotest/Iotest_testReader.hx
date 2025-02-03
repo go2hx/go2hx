@@ -156,7 +156,7 @@ function testReader(_r:stdgo._internal.io.Io_Reader.Reader, _content:stdgo.Slice
                         _err = @:tmpset0 __tmp__._1;
                     };
                     if (((_n != (1 : stdgo.GoInt)) || (_err != null && (((_i != ((_data.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) || (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF)) : Bool)) : Bool) : Bool)) {
-                        var _want = ("nil" : stdgo.GoString);
+                        var _want = (("nil" : stdgo.GoString) : stdgo.GoString);
                         if (_i == (((_data.length) - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                             _want = ("nil or EOF" : stdgo.GoString);
                         };

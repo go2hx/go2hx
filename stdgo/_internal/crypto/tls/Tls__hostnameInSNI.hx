@@ -11,7 +11,7 @@ function _hostnameInSNI(_name:stdgo.GoString):stdgo.GoString {
             };
         };
         if (stdgo._internal.net.Net_parseIP.parseIP(_host?.__copy__()) != null) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         while ((((_name.length) > (0 : stdgo.GoInt) : Bool) && (_name[((_name.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
             _name = (_name.__slice__(0, ((_name.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();

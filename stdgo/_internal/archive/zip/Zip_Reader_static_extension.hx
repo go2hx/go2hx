@@ -83,7 +83,7 @@ package stdgo._internal.archive.zip;
             for (__0 => _file in (@:checkr _r ?? throw "null pointer dereference").file) {
                 var _isDir = ((((@:checkr _file ?? throw "null pointer dereference").fileHeader.name.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _file ?? throw "null pointer dereference").fileHeader.name[(((@:checkr _file ?? throw "null pointer dereference").fileHeader.name.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
                 var _name = (stdgo._internal.archive.zip.Zip__toValidName._toValidName((@:checkr _file ?? throw "null pointer dereference").fileHeader.name?.__copy__())?.__copy__() : stdgo.GoString);
-                if (_name == (stdgo.Go.str())) {
+                if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
                 {
@@ -203,7 +203,7 @@ package stdgo._internal.archive.zip;
         };
         if (@:check2r stdgo._internal.archive.zip.Zip__zipinsecurepath._zipinsecurepath.value() == (("0" : stdgo.GoString))) {
             for (__8 => _f in (@:checkr _r ?? throw "null pointer dereference").file) {
-                if ((@:checkr _f ?? throw "null pointer dereference").fileHeader.name == (stdgo.Go.str())) {
+                if ((@:checkr _f ?? throw "null pointer dereference").fileHeader.name == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
                 if ((!stdgo._internal.path.filepath.Filepath_isLocal.isLocal((@:checkr _f ?? throw "null pointer dereference").fileHeader.name?.__copy__()) || stdgo._internal.strings.Strings_contains.contains((@:checkr _f ?? throw "null pointer dereference").fileHeader.name?.__copy__(), ("\\" : stdgo.GoString)) : Bool)) {

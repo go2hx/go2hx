@@ -2,7 +2,7 @@ package stdgo._internal.text.template;
 function testIssue48215(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
         {};
-        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{ .S }}" : stdgo.GoString)), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{ .S }}" : stdgo.GoString)), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };

@@ -54,7 +54,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
             case stdgo._internal.internal.reflect.Reflect.KindType.uint64:
                 (value : stdgo.GoUInt64);
             case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-                (value : stdgo.GoUIntptr);
+                new stdgo.GoUIntptr(value);
             default:
                 throw new stdgo._internal.reflect.Reflect_ValueError.ValueError("reflect.Value.Uint", _v.kind());
         };
@@ -194,7 +194,7 @@ if (std.StringTools.endsWith(name, "_asInterface")) value = (value : Dynamic).__
             case stdgo._internal.internal.reflect.Reflect.KindType.uint:
                 (_x : stdgo.GoUInt);
             case stdgo._internal.internal.reflect.Reflect.KindType.uintptr:
-                (_x : stdgo.GoUIntptr);
+                new stdgo.GoUIntptr(_x);
             default:
                 throw "unknown setUInt kind: " + k.string();
         };
@@ -354,9 +354,9 @@ stdgo._internal.internal.reflect.Reflect._set(_v);
     @:tdfield
     static public function pointer( _v:stdgo._internal.reflect.Reflect_Value.Value):stdgo.GoUIntptr {
         @:recv var _v:stdgo._internal.reflect.Reflect_Value.Value = _v?.__copy__();
-        if (@:privateAccess _v.value == null) return 0;
+        if (@:privateAccess _v.value == null) return new stdgo.GoUIntptr(0);
         var value = @:privateAccess _v.value.value;
-        return value != null ? 1 : 0;
+        return new stdgo.GoUIntptr(value != null ? 1 : 0);
     }
     @:keep
     @:tdfield

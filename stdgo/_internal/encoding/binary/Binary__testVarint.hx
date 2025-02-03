@@ -9,7 +9,7 @@ function _testVarint(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _x:std
         if (_n != (_m)) {
             @:check2r _t.errorf(("Varint(%d): got n = %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_m), stdgo.Go.toInterface(_n));
         };
-        var _buf2 = (("prefix" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _buf2 = ((("prefix" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         _buf2 = stdgo._internal.encoding.binary.Binary_appendVarint.appendVarint(_buf2, _x);
         if ((_buf2 : stdgo.GoString) != ((("prefix" : stdgo.GoString) + ((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))) {
             @:check2r _t.errorf(("AppendVarint(%d): got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_buf2), stdgo.Go.toInterface((("prefix" : stdgo.GoString) + ((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString)));

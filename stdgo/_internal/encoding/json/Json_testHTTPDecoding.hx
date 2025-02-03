@@ -4,7 +4,7 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         try {
             {};
             var _ts = stdgo._internal.net.http.httptest.Httptest_newServer.newServer(stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
-                _w.write((("{ \"foo\": \"bar\" }" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
+                _w.write(((("{ \"foo\": \"bar\" }" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
             } : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
             {
                 final __f__ = @:check2r _ts.close;

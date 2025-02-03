@@ -83,7 +83,7 @@ package stdgo._internal.archive.zip;
         var __tmp__ = stdgo._internal.archive.zip.Zip__detectUTF8._detectUTF8((@:checkr _fh ?? throw "null pointer dereference").name?.__copy__()), _utf8Valid1:Bool = __tmp__._0, _utf8Require1:Bool = __tmp__._1;
         var __tmp__ = stdgo._internal.archive.zip.Zip__detectUTF8._detectUTF8((@:checkr _fh ?? throw "null pointer dereference").comment?.__copy__()), _utf8Valid2:Bool = __tmp__._0, _utf8Require2:Bool = __tmp__._1;
         if ((@:checkr _fh ?? throw "null pointer dereference").nonUTF8) {
-            (@:checkr _fh ?? throw "null pointer dereference").flags = ((@:checkr _fh ?? throw "null pointer dereference").flags & ((((2048 : stdgo.GoUInt16)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt16)) : stdgo.GoUInt16);
+            (@:checkr _fh ?? throw "null pointer dereference").flags = ((@:checkr _fh ?? throw "null pointer dereference").flags & ((((2048 : stdgo.GoUInt16)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt16)) : stdgo.GoUInt16);
         } else if ((((_utf8Require1 || _utf8Require2 : Bool)) && ((_utf8Valid1 && _utf8Valid2 : Bool)) : Bool)) {
             (@:checkr _fh ?? throw "null pointer dereference").flags = ((@:checkr _fh ?? throw "null pointer dereference").flags | ((2048 : stdgo.GoUInt16)) : stdgo.GoUInt16);
         };
@@ -109,7 +109,7 @@ var _fw = __1, _ow = __0;
         var _h = (stdgo.Go.setRef(({ fileHeader : _fh, _offset : ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._cw ?? throw "null pointer dereference")._count : stdgo.GoUInt64) } : stdgo._internal.archive.zip.Zip_T_header.T_header)) : stdgo.Ref<stdgo._internal.archive.zip.Zip_T_header.T_header>);
         if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix((@:checkr _fh ?? throw "null pointer dereference").name?.__copy__(), ("/" : stdgo.GoString))) {
             (@:checkr _fh ?? throw "null pointer dereference").method = (0 : stdgo.GoUInt16);
-            (@:checkr _fh ?? throw "null pointer dereference").flags = ((@:checkr _fh ?? throw "null pointer dereference").flags & ((((8 : stdgo.GoUInt16)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt16)) : stdgo.GoUInt16);
+            (@:checkr _fh ?? throw "null pointer dereference").flags = ((@:checkr _fh ?? throw "null pointer dereference").flags & ((((8 : stdgo.GoUInt16)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt16)) : stdgo.GoUInt16);
             (@:checkr _fh ?? throw "null pointer dereference").compressedSize = (0u32 : stdgo.GoUInt32);
             (@:checkr _fh ?? throw "null pointer dereference").compressedSize64 = (0i64 : stdgo.GoUInt64);
             (@:checkr _fh ?? throw "null pointer dereference").uncompressedSize = (0u32 : stdgo.GoUInt32);

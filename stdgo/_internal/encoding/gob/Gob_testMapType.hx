@@ -8,12 +8,12 @@ function testMapType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             @:check2r _t.errorf(("second registration of map[string]int creates new type" : stdgo.GoString));
         };
         var _b:stdgo.GoMap<stdgo.GoString, Bool> = (null : stdgo.GoMap<stdgo.GoString, Bool>);
-        var _mapStringBool = (stdgo._internal.encoding.gob.Gob__getTypeUnlocked._getTypeUnlocked(stdgo.Go.str()?.__copy__(), stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_b))) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
+        var _mapStringBool = (stdgo._internal.encoding.gob.Gob__getTypeUnlocked._getTypeUnlocked((stdgo.Go.str() : stdgo.GoString)?.__copy__(), stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_b))) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
         if (stdgo.Go.toInterface(_mapStringBool) == (stdgo.Go.toInterface(_mapStringInt))) {
             @:check2r _t.errorf(("registration of map[string]bool creates same type as map[string]int" : stdgo.GoString));
         };
         var _str = (_mapStringBool._string()?.__copy__() : stdgo.GoString);
-        var _expected = ("map[string]bool" : stdgo.GoString);
+        var _expected = (("map[string]bool" : stdgo.GoString) : stdgo.GoString);
         if (_str != (_expected)) {
             @:check2r _t.errorf(("map printed as %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_str), stdgo.Go.toInterface(_expected));
         };

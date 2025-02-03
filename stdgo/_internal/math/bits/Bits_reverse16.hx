@@ -1,6 +1,6 @@
 package stdgo._internal.math.bits;
 function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
-        return ((stdgo.Go.str(0,
+        return (((stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -255,7 +255,7 @@ function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
 "?",
 191,
 127,
-255)[((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoUInt16) | ((stdgo.Go.str(0,
+255) : stdgo.GoString)[((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoUInt16) | (((stdgo.Go.str(0,
 128,
 "@",
 192,
@@ -510,5 +510,5 @@ function reverse16(_x:stdgo.GoUInt16):stdgo.GoUInt16 {
 "?",
 191,
 127,
-255)[((_x & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt16);
+255) : stdgo.GoString)[((_x & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt16);
     }

@@ -135,11 +135,11 @@ package stdgo._internal.net.mail;
     static public function _consumeDisplayNameComment( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         if (!@:check2r _p._consume((40 : stdgo.GoUInt8))) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: comment does not start with (" : stdgo.GoString)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: comment does not start with (" : stdgo.GoString)) };
         };
         var __tmp__ = @:check2r _p._consumeComment(), _comment:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: misformatted parenthetical comment" : stdgo.GoString)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: misformatted parenthetical comment" : stdgo.GoString)) };
         };
         var _words = stdgo._internal.strings.Strings_fieldsFunc.fieldsFunc(_comment?.__copy__(), function(_r:stdgo.GoInt32):Bool {
             return ((_r == (32 : stdgo.GoInt32)) || (_r == (9 : stdgo.GoInt32)) : Bool);
@@ -147,7 +147,7 @@ package stdgo._internal.net.mail;
         for (_idx => _word in _words) {
             var __tmp__ = @:check2r _p._decodeRFC2047Word(_word?.__copy__()), _decoded:stdgo.GoString = __tmp__._0, _isEncoded:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
             };
             if (_isEncoded) {
                 _words[(_idx : stdgo.GoInt)] = _decoded?.__copy__();
@@ -199,7 +199,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212372i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in address: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._s)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in address: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._s)) };
                         _atom = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -219,7 +219,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212589i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: invalid string" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: invalid string" : stdgo.GoString)) };
                         _atom = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -245,7 +245,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212724i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: leading dot in atom" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: leading dot in atom" : stdgo.GoString)) };
                         _atom = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -259,7 +259,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212818i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: double dot in atom" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: double dot in atom" : stdgo.GoString)) };
                         _atom = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -273,7 +273,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212911i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: trailing dot in atom" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: trailing dot in atom" : stdgo.GoString)) };
                         _atom = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -348,7 +348,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4211076i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: unclosed quoted-string" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: unclosed quoted-string" : stdgo.GoString)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -356,7 +356,7 @@ package stdgo._internal.net.mail;
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211152i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._s)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _p ?? throw "null pointer dereference")._s)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -370,7 +370,7 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4211355i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -391,7 +391,7 @@ package stdgo._internal.net.mail;
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211702i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -464,7 +464,7 @@ package stdgo._internal.net.mail;
         if (((_err != null) && (_words.length == (0 : stdgo.GoInt)) : Bool)) {
             stdgo._internal.net.mail.Mail__debug._debug.printf(("consumePhrase: hit err: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: missing word in phrase: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: missing word in phrase: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 _phrase = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -507,7 +507,7 @@ package stdgo._internal.net.mail;
             if (@:check2r _p._empty()) {
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: no addr-spec" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: no addr-spec" : stdgo.GoString)) };
                         _spec = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -527,7 +527,7 @@ package stdgo._internal.net.mail;
                     _localPart = @:tmpset0 __tmp__._0?.__copy__();
                     _err = @:tmpset0 __tmp__._1;
                 };
-                if (_localPart == (stdgo.Go.str())) {
+                if (_localPart == ((stdgo.Go.str() : stdgo.GoString))) {
                     _err = stdgo._internal.errors.Errors_new_.new_(("mail: empty quoted string in addr-spec" : stdgo.GoString));
                 };
             } else {
@@ -542,7 +542,7 @@ package stdgo._internal.net.mail;
                 stdgo._internal.net.mail.Mail__debug._debug.printf(("consumeAddrSpec: failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _spec = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -558,7 +558,7 @@ package stdgo._internal.net.mail;
             if (!@:check2r _p._consume((64 : stdgo.GoUInt8))) {
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: missing @ in addr-spec" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: missing @ in addr-spec" : stdgo.GoString)) };
                         _spec = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -576,7 +576,7 @@ package stdgo._internal.net.mail;
             if (@:check2r _p._empty()) {
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: no domain in addr-spec" : stdgo.GoString)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: no domain in addr-spec" : stdgo.GoString)) };
                         _spec = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -597,7 +597,7 @@ package stdgo._internal.net.mail;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _spec = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;

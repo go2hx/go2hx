@@ -36,19 +36,19 @@ package stdgo._internal.net.http.cgi;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _root = ((@:checkr _h ?? throw "null pointer dereference").root?.__copy__() : stdgo.GoString);
-            if (_root == (stdgo.Go.str())) {
+            if (_root == ((stdgo.Go.str() : stdgo.GoString))) {
                 _root = ("/" : stdgo.GoString);
             };
             if (((((@:checkr _req ?? throw "null pointer dereference").transferEncoding.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _req ?? throw "null pointer dereference").transferEncoding[(0 : stdgo.GoInt)] == ("chunked" : stdgo.GoString)) : Bool)) {
                 _rw.writeHeader((400 : stdgo.GoInt));
-                _rw.write((("Chunked request bodies are not supported by CGI." : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
+                _rw.write(((("Chunked request bodies are not supported by CGI." : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
                 return;
             };
             var _pathInfo = ((@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__() : stdgo.GoString);
             if (((_root != ("/" : stdgo.GoString)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_pathInfo?.__copy__(), _root?.__copy__()) : Bool)) {
                 _pathInfo = (_pathInfo.__slice__((_root.length)) : stdgo.GoString)?.__copy__();
             };
-            var _port = ("80" : stdgo.GoString);
+            var _port = (("80" : stdgo.GoString) : stdgo.GoString);
             {
                 var _matches = @:check2r stdgo._internal.net.http.cgi.Cgi__trailingPort._trailingPort.findStringSubmatch((@:checkr _req ?? throw "null pointer dereference").host?.__copy__());
                 if ((_matches.length) != ((0 : stdgo.GoInt))) {
@@ -84,14 +84,14 @@ package stdgo._internal.net.http.cgi;
                 };
             };
             if (((@:checkr _req ?? throw "null pointer dereference").tLS != null && (((@:checkr _req ?? throw "null pointer dereference").tLS : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").tLS : Dynamic).__nil__))) {
-                _env = (_env.__append__(("HTTPS=on" : stdgo.GoString)));
+                _env = (_env.__append__((("HTTPS=on" : stdgo.GoString) : stdgo.GoString)));
             };
             for (_k => _v in (@:checkr _req ?? throw "null pointer dereference").header) {
                 _k = stdgo._internal.strings.Strings_map_.map_(stdgo._internal.net.http.cgi.Cgi__upperCaseAndUnderscore._upperCaseAndUnderscore, _k?.__copy__())?.__copy__();
                 if (_k == (("PROXY" : stdgo.GoString))) {
                     continue;
                 };
-                var _joinStr = (", " : stdgo.GoString);
+                var _joinStr = ((", " : stdgo.GoString) : stdgo.GoString);
                 if (_k == (("COOKIE" : stdgo.GoString))) {
                     _joinStr = ("; " : stdgo.GoString);
                 };
@@ -102,19 +102,19 @@ package stdgo._internal.net.http.cgi;
             };
             {
                 var _ctype = ((@:checkr _req ?? throw "null pointer dereference").header.get(("Content-Type" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-                if (_ctype != (stdgo.Go.str())) {
+                if (_ctype != ((stdgo.Go.str() : stdgo.GoString))) {
                     _env = (_env.__append__((("CONTENT_TYPE=" : stdgo.GoString) + _ctype?.__copy__() : stdgo.GoString)?.__copy__()));
                 };
             };
             var _envPath = (stdgo._internal.os.Os_getenv.getenv(("PATH" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_envPath == (stdgo.Go.str())) {
+            if (_envPath == ((stdgo.Go.str() : stdgo.GoString))) {
                 _envPath = ("/bin:/usr/bin:/usr/ucb:/usr/bsd:/usr/local/bin" : stdgo.GoString);
             };
             _env = (_env.__append__((("PATH=" : stdgo.GoString) + _envPath?.__copy__() : stdgo.GoString)?.__copy__()));
             for (__25 => _e in (@:checkr _h ?? throw "null pointer dereference").inheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
-                    if (_v != (stdgo.Go.str())) {
+                    if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
                         _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()));
                     };
                 };
@@ -122,7 +122,7 @@ package stdgo._internal.net.http.cgi;
             for (__26 => _e in stdgo._internal.net.http.cgi.Cgi__osDefaultInheritEnv._osDefaultInheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
-                    if (_v != (stdgo.Go.str())) {
+                    if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
                         _env = (_env.__append__(((_e + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)?.__copy__()));
                     };
                 };
@@ -133,7 +133,7 @@ package stdgo._internal.net.http.cgi;
             _env = stdgo._internal.net.http.cgi.Cgi__removeLeadingDuplicates._removeLeadingDuplicates(_env);
             var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
 var _path = __1, _cwd = __0;
-            if ((@:checkr _h ?? throw "null pointer dereference").dir != (stdgo.Go.str())) {
+            if ((@:checkr _h ?? throw "null pointer dereference").dir != ((stdgo.Go.str() : stdgo.GoString))) {
                 _path = (@:checkr _h ?? throw "null pointer dereference").path?.__copy__();
                 _cwd = (@:checkr _h ?? throw "null pointer dereference").dir?.__copy__();
             } else {
@@ -143,7 +143,7 @@ var _path = __1, _cwd = __0;
                     _path = @:tmpset0 __tmp__._1?.__copy__();
                 };
             };
-            if (_cwd == (stdgo.Go.str())) {
+            if (_cwd == ((stdgo.Go.str() : stdgo.GoString))) {
                 _cwd = ("." : stdgo.GoString);
             };
             var _internalError = (function(_err:stdgo.Error):Void {
@@ -276,7 +276,7 @@ var _path = __1, _cwd = __0;
             };
             {
                 var _loc = (_headers.get(("Location" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-                if (_loc != (stdgo.Go.str())) {
+                if (_loc != ((stdgo.Go.str() : stdgo.GoString))) {
                     if ((stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_loc?.__copy__(), ("/" : stdgo.GoString)) && ((@:checkr _h ?? throw "null pointer dereference").pathLocationHandler != null) : Bool)) {
                         @:check2r _h._handleInternalRedirect(_rw, _req, _loc?.__copy__());
                         {
@@ -293,7 +293,7 @@ var _path = __1, _cwd = __0;
                     };
                 };
             };
-            if (((_statusCode == (0 : stdgo.GoInt)) && (_headers.get(("Content-Type" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
+            if (((_statusCode == (0 : stdgo.GoInt)) && (_headers.get(("Content-Type" : stdgo.GoString)) == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 _rw.writeHeader((500 : stdgo.GoInt));
                 @:check2r _h._printf(("cgi: missing required Content-Type in headers" : stdgo.GoString));
                 {

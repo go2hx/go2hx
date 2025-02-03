@@ -8,7 +8,7 @@ package stdgo._internal.log.slog;
         if (!@:check2r _l.enabled(_ctx, _level)) {
             return;
         };
-        var _pc:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _pc:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         if (!stdgo._internal.log.slog.internal.Internal_ignorePC.ignorePC) {
             var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1);
             stdgo._internal.runtime.Runtime_callers.callers((3 : stdgo.GoInt), (_pcs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>));
@@ -29,7 +29,7 @@ package stdgo._internal.log.slog;
         if (!@:check2r _l.enabled(_ctx, _level)) {
             return;
         };
-        var _pc:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _pc:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         if (!stdgo._internal.log.slog.internal.Internal_ignorePC.ignorePC) {
             var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1);
             stdgo._internal.runtime.Runtime_callers.callers((3 : stdgo.GoInt), (_pcs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>));
@@ -125,7 +125,7 @@ package stdgo._internal.log.slog;
     @:tdfield
     static public function withGroup( _l:stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> {
         @:recv var _l:stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> = _l;
-        if (_name == (stdgo.Go.str())) {
+        if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
             return _l;
         };
         var _c = @:check2r _l._clone();

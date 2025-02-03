@@ -94,7 +94,7 @@ _j = (_v.length);
                     _i++;
                 };
             };
-            var _printableChars = (("012789ABCXYZabcxyz !\"#$%&\'()*+,." : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _printableChars = ((("012789ABCXYZabcxyz !\"#$%&\'()*+,." : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             for (_i => _b in _v) {
                 if (_shouldStop()) {
                     {

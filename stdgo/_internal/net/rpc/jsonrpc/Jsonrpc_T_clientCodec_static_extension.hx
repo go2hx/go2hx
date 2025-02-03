@@ -30,7 +30,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         (@:checkr _r ?? throw "null pointer dereference").serviceMethod = ((@:checkr _c ?? throw "null pointer dereference")._pending[(@:checkr _c ?? throw "null pointer dereference")._resp.id] ?? ("" : stdgo.GoString))?.__copy__();
         if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.remove((@:checkr _c ?? throw "null pointer dereference")._resp.id);
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
-        (@:checkr _r ?? throw "null pointer dereference").error = stdgo.Go.str()?.__copy__();
+        (@:checkr _r ?? throw "null pointer dereference").error = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         (@:checkr _r ?? throw "null pointer dereference").seq = (@:checkr _c ?? throw "null pointer dereference")._resp.id;
         if ((((@:checkr _c ?? throw "null pointer dereference")._resp.error != null) || ((@:checkr _c ?? throw "null pointer dereference")._resp.result == null || ((@:checkr _c ?? throw "null pointer dereference")._resp.result : Dynamic).__nil__) : Bool)) {
             var __tmp__ = try {
@@ -41,7 +41,7 @@ package stdgo._internal.net.rpc.jsonrpc;
             if (!_ok) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("invalid error %v" : stdgo.GoString), (@:checkr _c ?? throw "null pointer dereference")._resp.error);
             };
-            if (_x == (stdgo.Go.str())) {
+            if (_x == ((stdgo.Go.str() : stdgo.GoString))) {
                 _x = ("unspecified error" : stdgo.GoString);
             };
             (@:checkr _r ?? throw "null pointer dereference").error = _x?.__copy__();

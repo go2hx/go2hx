@@ -7,6 +7,6 @@ function _missingKey(_key:stdgo.GoString):stdgo._internal.testing.slogtest.Slogt
                     return stdgo._internal.fmt.Fmt_sprintf.sprintf(("unexpected key %q" : stdgo.GoString), stdgo.Go.toInterface(_key))?.__copy__();
                 };
             };
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
     }

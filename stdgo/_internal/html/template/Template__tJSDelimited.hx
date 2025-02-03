@@ -1,6 +1,6 @@
 package stdgo._internal.html.template;
 function _tJSDelimited(_c:stdgo._internal.html.template.Template_T_context.T_context, _s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.html.template.Template_T_context.T_context; var _1 : stdgo.GoInt; } {
-        var _specials = ("\\\"" : stdgo.GoString);
+        var _specials = (("\\\"" : stdgo.GoString) : stdgo.GoString);
         {
             final __value__ = _c._state;
             if (__value__ == ((12 : stdgo._internal.html.template.Template_T_state.T_state))) {
@@ -30,7 +30,7 @@ var _inCharset = __1, _k = __0;
                 } else if (__value__ == ((93 : stdgo.GoUInt8))) {
                     _inCharset = false;
                 } else if (__value__ == ((47 : stdgo.GoUInt8))) {
-                    if ((((_i > (0 : stdgo.GoInt) : Bool) && ((_i + (7 : stdgo.GoInt) : stdgo.GoInt) <= (_s.length) : Bool) : Bool) && (stdgo._internal.bytes.Bytes_compare.compare(stdgo._internal.bytes.Bytes_toLower.toLower((_s.__slice__((_i - (1 : stdgo.GoInt) : stdgo.GoInt), (_i + (7 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), (("</script" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) == (0 : stdgo.GoInt)) : Bool)) {
+                    if ((((_i > (0 : stdgo.GoInt) : Bool) && ((_i + (7 : stdgo.GoInt) : stdgo.GoInt) <= (_s.length) : Bool) : Bool) && (stdgo._internal.bytes.Bytes_compare.compare(stdgo._internal.bytes.Bytes_toLower.toLower((_s.__slice__((_i - (1 : stdgo.GoInt) : stdgo.GoInt), (_i + (7 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), ((("</script" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) == (0 : stdgo.GoInt)) : Bool)) {
                         _i++;
                     } else if (!_inCharset) {
                         {

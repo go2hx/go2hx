@@ -6,7 +6,7 @@ function _testParseDump(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _te
                 @:check2r _t.errorf(("Parse(%#q): %v" : stdgo.GoString), stdgo.Go.toInterface(_tt.regexp), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (_tt.dump == (stdgo.Go.str())) {
+            if (_tt.dump == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             var _d = (stdgo._internal.regexp.syntax.Syntax__dump._dump(_re)?.__copy__() : stdgo.GoString);

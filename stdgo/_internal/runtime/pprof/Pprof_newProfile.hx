@@ -7,7 +7,7 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
                 final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            if (_name == (stdgo.Go.str())) {
+            if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
                 throw stdgo.Go.toInterface(("pprof: NewProfile with empty name" : stdgo.GoString));
             };
             if (((stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>)) != null && ((stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>) : Dynamic).__nil__ == null || !(stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>) : Dynamic).__nil__))) {

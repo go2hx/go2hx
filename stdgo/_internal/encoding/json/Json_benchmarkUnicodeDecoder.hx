@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function benchmarkUnicodeDecoder(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.reportAllocs();
-        var _j = (("\"\\uD83D\\uDE01\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _j = ((("\"\\uD83D\\uDE01\"" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.setBytes((_j.length : stdgo.GoInt64));
         var _r = stdgo._internal.bytes.Bytes_newReader.newReader(_j);
         var _dec = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface(_r));

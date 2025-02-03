@@ -5,12 +5,12 @@ function formatMediaType(_t:stdgo.GoString, _param:stdgo.GoMap<stdgo.GoString, s
             var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_t?.__copy__(), ("/" : stdgo.GoString)), _major:stdgo.GoString = __tmp__._0, _sub:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
             if (!_ok) {
                 if (!stdgo._internal.mime.Mime__isToken._isToken(_t?.__copy__())) {
-                    return stdgo.Go.str()?.__copy__();
+                    return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 };
                 @:check2 _b.writeString(stdgo._internal.strings.Strings_toLower.toLower(_t?.__copy__())?.__copy__());
             } else {
                 if ((!stdgo._internal.mime.Mime__isToken._isToken(_major?.__copy__()) || !stdgo._internal.mime.Mime__isToken._isToken(_sub?.__copy__()) : Bool)) {
-                    return stdgo.Go.str()?.__copy__();
+                    return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 };
                 @:check2 _b.writeString(stdgo._internal.strings.Strings_toLower.toLower(_major?.__copy__())?.__copy__());
                 @:check2 _b.writeByte((47 : stdgo.GoUInt8));
@@ -27,7 +27,7 @@ function formatMediaType(_t:stdgo.GoString, _param:stdgo.GoMap<stdgo.GoString, s
             @:check2 _b.writeByte((59 : stdgo.GoUInt8));
             @:check2 _b.writeByte((32 : stdgo.GoUInt8));
             if (!stdgo._internal.mime.Mime__isToken._isToken(_attribute?.__copy__())) {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             @:check2 _b.writeString(stdgo._internal.strings.Strings_toLower.toLower(_attribute?.__copy__())?.__copy__());
             var _needEnc = (stdgo._internal.mime.Mime__needsEncoding._needsEncoding(_value?.__copy__()) : Bool);

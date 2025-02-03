@@ -14,7 +14,7 @@ function _percentHexUnescape(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _
                     if (((_s.length) > (3 : stdgo.GoInt) : Bool)) {
                         _s = (_s.__slice__((0 : stdgo.GoInt), (3 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     };
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mime: bogus characters after %%: %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mime: bogus characters after %%: %q" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
                 };
                 _i = (_i + ((3 : stdgo.GoInt)) : stdgo.GoInt);
             };

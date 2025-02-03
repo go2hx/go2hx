@@ -30,13 +30,13 @@ package stdgo._internal.hash.adler32;
     @:pointer
     @:tdfield
     static public function unmarshalBinary( _d:stdgo.Pointer<stdgo._internal.hash.adler32.Adler32_T_digest.T_digest>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        if ((((_b.length) < (stdgo.Go.str("adl", 1).length) : Bool) || (((_b.__slice__(0, (stdgo.Go.str("adl", 1).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != stdgo.Go.str("adl", 1)) : Bool)) {
+        if ((((_b.length) < ((stdgo.Go.str("adl", 1) : stdgo.GoString).length) : Bool) || (((_b.__slice__(0, ((stdgo.Go.str("adl", 1) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString) != (stdgo.Go.str("adl", 1) : stdgo.GoString)) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("hash/adler32: invalid hash state identifier" : stdgo.GoString));
         };
         if ((_b.length) != ((8 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("hash/adler32: invalid hash state size" : stdgo.GoString));
         };
-        _d.value = (stdgo._internal.hash.adler32.Adler32__readUint32._readUint32((_b.__slice__((stdgo.Go.str("adl", 1).length)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.hash.adler32.Adler32_T_digest.T_digest);
+        _d.value = (stdgo._internal.hash.adler32.Adler32__readUint32._readUint32((_b.__slice__(((stdgo.Go.str("adl", 1) : stdgo.GoString).length)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.hash.adler32.Adler32_T_digest.T_digest);
         return (null : stdgo.Error);
     }
     @:keep
@@ -44,7 +44,7 @@ package stdgo._internal.hash.adler32;
     @:tdfield
     static public function marshalBinary( _d:stdgo.Pointer<stdgo._internal.hash.adler32.Adler32_T_digest.T_digest>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        _b = (_b.__append__(...(stdgo.Go.str("adl", 1) : Array<stdgo.GoUInt8>)));
+        _b = (_b.__append__(...((stdgo.Go.str("adl", 1) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = stdgo._internal.hash.adler32.Adler32__appendUint32._appendUint32(_b, (_d.value : stdgo.GoUInt32));
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }

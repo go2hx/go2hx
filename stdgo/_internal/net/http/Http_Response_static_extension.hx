@@ -5,9 +5,9 @@ package stdgo._internal.net.http;
     static public function write( _r:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = _r;
         var _text = ((@:checkr _r ?? throw "null pointer dereference").status?.__copy__() : stdgo.GoString);
-        if (_text == (stdgo.Go.str())) {
+        if (_text == ((stdgo.Go.str() : stdgo.GoString))) {
             _text = stdgo._internal.net.http.Http_statusText.statusText((@:checkr _r ?? throw "null pointer dereference").statusCode)?.__copy__();
-            if (_text == (stdgo.Go.str())) {
+            if (_text == ((stdgo.Go.str() : stdgo.GoString))) {
                 _text = (("status code " : stdgo.GoString) + stdgo._internal.net.http.Http__strconv._strconv.itoa((@:checkr _r ?? throw "null pointer dereference").statusCode)?.__copy__() : stdgo.GoString)?.__copy__();
             };
         } else {
@@ -98,7 +98,7 @@ package stdgo._internal.net.http;
     static public function location( _r:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>):{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = _r;
         var _lv = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Location" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_lv == (stdgo.Go.str())) {
+        if (_lv == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoLocation.errNoLocation };
         };
         if ((((@:checkr _r ?? throw "null pointer dereference").request != null && (((@:checkr _r ?? throw "null pointer dereference").request : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").request : Dynamic).__nil__)) && ((@:checkr (@:checkr _r ?? throw "null pointer dereference").request ?? throw "null pointer dereference").uRL != null && (((@:checkr (@:checkr _r ?? throw "null pointer dereference").request ?? throw "null pointer dereference").uRL : Dynamic).__nil__ == null || !((@:checkr (@:checkr _r ?? throw "null pointer dereference").request ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) : Bool)) {

@@ -9,5 +9,5 @@ function ext(_path:stdgo.GoString):stdgo.GoString {
                 _i--;
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }

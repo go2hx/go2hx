@@ -17,7 +17,7 @@ package stdgo._internal.internal.pkgbits;
             @:check2r _pr.retireDecoder((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>));
         };
         var _path = (@:check2r _pr.peekPkgPath(_ridx)?.__copy__() : stdgo.GoString);
-        stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_name != (stdgo.Go.str()));
+        stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_name != ((stdgo.Go.str() : stdgo.GoString)));
         var _tag = (_rcode : stdgo._internal.internal.pkgbits.Pkgbits_CodeObj.CodeObj);
         return { _0 : _path?.__copy__(), _1 : _name?.__copy__(), _2 : _tag };
     }
@@ -31,7 +31,7 @@ package stdgo._internal.internal.pkgbits;
             _path = (@:check2 _r.string() : stdgo.GoString)?.__copy__();
             @:check2r _pr.retireDecoder((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>));
         };
-        if (_path == (stdgo.Go.str())) {
+        if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
             _path = (@:checkr _pr ?? throw "null pointer dereference")._pkgPath?.__copy__();
         };
         return _path?.__copy__();

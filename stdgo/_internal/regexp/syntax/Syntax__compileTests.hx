@@ -2,7 +2,7 @@ package stdgo._internal.regexp.syntax;
 var _compileTests : stdgo.Slice<stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1> = (new stdgo.Slice<stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1>(16, 16, ...[
 ({ regexp : ("a" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
 ({ regexp : ("[A-M][n-z]" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune \"AM\" -> 2\n  2\trune \"nz\" -> 3\n  3\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
-({ regexp : stdgo.Go.str()?.__copy__(), prog : ("  0\tfail\n  1*\tnop -> 2\n  2\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
+({ regexp : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), prog : ("  0\tfail\n  1*\tnop -> 2\n  2\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
 ({ regexp : ("a?" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
 ({ regexp : ("a??" : stdgo.GoString), prog : ("  0\tfail\n  1\trune1 \"a\" -> 3\n  2*\talt -> 3, 1\n  3\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),
 ({ regexp : ("a+" : stdgo.GoString), prog : ("  0\tfail\n  1*\trune1 \"a\" -> 2\n  2\talt -> 1, 3\n  3\tmatch\n" : stdgo.GoString) } : stdgo._internal.regexp.syntax.Syntax_T__struct_1.T__struct_1),

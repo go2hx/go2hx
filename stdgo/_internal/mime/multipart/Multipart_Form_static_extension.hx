@@ -7,7 +7,7 @@ package stdgo._internal.mime.multipart;
         var _err:stdgo.Error = (null : stdgo.Error);
         for (__0 => _fhs in (@:checkr _f ?? throw "null pointer dereference").file) {
             for (__1 => _fh in _fhs) {
-                if ((@:checkr _fh ?? throw "null pointer dereference")._tmpfile != (stdgo.Go.str())) {
+                if ((@:checkr _fh ?? throw "null pointer dereference")._tmpfile != ((stdgo.Go.str() : stdgo.GoString))) {
                     var _e = (stdgo._internal.os.Os_remove.remove((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__()) : stdgo.Error);
                     if (((_e != null && !stdgo._internal.errors.Errors_is_.is_(_e, stdgo._internal.os.Os_errNotExist.errNotExist) : Bool) && (_err == null) : Bool)) {
                         _err = _e;

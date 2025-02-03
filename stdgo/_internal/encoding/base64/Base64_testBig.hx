@@ -6,7 +6,7 @@ function testBig(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _n : Bool)) {
-                _raw[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[(_i % (("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString).length) : stdgo.GoInt)];
+                _raw[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[(_i % ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt)];
                 _i++;
             };
         };

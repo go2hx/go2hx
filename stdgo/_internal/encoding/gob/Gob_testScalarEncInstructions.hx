@@ -132,7 +132,7 @@ function testScalarEncInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         };
         {
             @:check2r _b.reset();
-            var _data = (("hello" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _data = ((("hello" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr(stdgo._internal.encoding.gob.Gob__encUint8Array._encUint8Array, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt)) : stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newEncoderState._newEncoderState(_b);
             (@:checkr _instr ?? throw "null pointer dereference")._op(_instr, _state, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data))?.__copy__());

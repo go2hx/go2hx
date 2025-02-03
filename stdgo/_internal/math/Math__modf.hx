@@ -32,7 +32,7 @@ function _modf(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.Go
         var _x = (stdgo._internal.math.Math_float64bits.float64bits(_f) : stdgo.GoUInt64);
         var _e = ((((_x >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt) & (2047u32 : stdgo.GoUInt) : stdgo.GoUInt) - (1023u32 : stdgo.GoUInt) : stdgo.GoUInt);
         if ((_e < (52u32 : stdgo.GoUInt) : Bool)) {
-            _x = (_x & ((((((1i64 : stdgo.GoUInt64) << (((52u32 : stdgo.GoUInt) - _e : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            _x = (_x & ((((((1i64 : stdgo.GoUInt64) << (((52u32 : stdgo.GoUInt) - _e : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         _int = stdgo._internal.math.Math_float64frombits.float64frombits(_x);
         _frac = (_f - _int : stdgo.GoFloat64);

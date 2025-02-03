@@ -15,7 +15,7 @@ function decodeRuneInString(_s:stdgo.GoString):{ var _0 : stdgo.GoInt32; var _1 
         if ((_x >= (240 : stdgo.GoUInt8) : Bool)) {
             var _mask = (((_x : stdgo.GoInt32) << (31i64 : stdgo.GoUInt64) : stdgo.GoInt32) >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (((_s[(0 : stdgo.GoInt)] : stdgo.GoInt32) & ((_mask ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt32) | ((65533 : stdgo.GoInt32) & _mask : stdgo.GoInt32) : stdgo.GoInt32), _1 : (1 : stdgo.GoInt) };
+                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (((_s[(0 : stdgo.GoInt)] : stdgo.GoInt32) & ((_mask ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) | ((65533 : stdgo.GoInt32) & _mask : stdgo.GoInt32) : stdgo.GoInt32), _1 : (1 : stdgo.GoInt) };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 __tmp__;

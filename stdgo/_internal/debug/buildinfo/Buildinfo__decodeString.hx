@@ -4,7 +4,7 @@ function _decodeString(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoStri
         var __tmp__ = stdgo._internal.encoding.binary.Binary_uvarint.uvarint(_data), _u:stdgo.GoUInt64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
         if (((_n <= (0 : stdgo.GoInt) : Bool) || (_u >= (((_data.length) - _n : stdgo.GoInt) : stdgo.GoUInt64) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>) };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt8>) };
                 _s = __tmp__._0;
                 _rest = __tmp__._1;
                 __tmp__;

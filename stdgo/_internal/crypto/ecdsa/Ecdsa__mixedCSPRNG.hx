@@ -17,5 +17,5 @@ function _mixedCSPRNG(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref
             return { _0 : (null : stdgo._internal.io.Io_Reader.Reader), _1 : _err };
         };
         {};
-        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ r : stdgo.Go.asInterface(stdgo._internal.crypto.ecdsa.Ecdsa__zeroReader._zeroReader), s : stdgo._internal.crypto.cipher.Cipher_newCTR.newCTR(_block, (("IV for ECDSA CTR" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) } : stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader)) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader>)), _1 : (null : stdgo.Error) };
+        return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ r : stdgo.Go.asInterface(stdgo._internal.crypto.ecdsa.Ecdsa__zeroReader._zeroReader), s : stdgo._internal.crypto.cipher.Cipher_newCTR.newCTR(_block, ((("IV for ECDSA CTR" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) } : stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader)) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader>)), _1 : (null : stdgo.Error) };
     }

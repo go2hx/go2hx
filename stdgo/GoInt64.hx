@@ -63,7 +63,7 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 		return toIntInt64(this);
 
 	@:to inline function toUIntptr():GoUIntptr
-		return toIntInt64(this);
+		return new stdgo.GoUIntptr(toIntInt64(this));
 
 	public static inline function ofInt(x:Int):GoInt64
 		return ofIntInt64(x);

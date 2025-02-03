@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function benchmarkFindAllNoMatches(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _re = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("a+b+" : stdgo.GoString));
-        var _s = (("acddee" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _s = ((("acddee" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.reportAllocs();
         @:check2r _b.resetTimer();
         {

@@ -550,9 +550,9 @@ var _serverHash = __1, _clientHash = __0;
         var _maxVers = (@:check2r (@:checkr _c ?? throw "null pointer dereference")._config._maxSupportedVersion(false) : stdgo.GoUInt16);
         if ((((_maxVers >= (771 : stdgo.GoUInt16) : Bool) && ((@:checkr _c ?? throw "null pointer dereference")._vers < _maxVers : Bool) : Bool) || stdgo._internal.crypto.tls.Tls__testingOnlyForceDowngradeCanary._testingOnlyForceDowngradeCanary : Bool)) {
             if ((@:checkr _c ?? throw "null pointer dereference")._vers == ((771 : stdgo.GoUInt16))) {
-                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str("DOWNGRD", 1));
+                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((stdgo.Go.str("DOWNGRD", 1) : stdgo.GoString));
             } else {
-                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str("DOWNGRD", 0));
+                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((stdgo.Go.str("DOWNGRD", 0) : stdgo.GoString));
             };
             _serverRandom = (_serverRandom.__slice__(0, (24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };

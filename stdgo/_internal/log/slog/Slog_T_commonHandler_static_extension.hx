@@ -26,7 +26,7 @@ package stdgo._internal.log.slog;
         @:recv var _h:stdgo.Ref<stdgo._internal.log.slog.Slog_T_commonHandler.T_commonHandler> = _h;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _state = (@:check2r _h._newHandleState(stdgo._internal.log.slog.internal.buffer.Buffer_new_.new_(), true, stdgo.Go.str()?.__copy__())?.__copy__() : stdgo._internal.log.slog.Slog_T_handleState.T_handleState);
+            var _state = (@:check2r _h._newHandleState(stdgo._internal.log.slog.internal.buffer.Buffer_new_.new_(), true, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo._internal.log.slog.Slog_T_handleState.T_handleState);
             {
                 final __f__ = @:check2 _state._free;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
@@ -38,7 +38,7 @@ package stdgo._internal.log.slog;
             _state._groups = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
             var _rep = (@:checkr _h ?? throw "null pointer dereference")._opts.replaceAttr;
             if (!_r.time.isZero()) {
-                var _key = ("time" : stdgo.GoString);
+                var _key = (("time" : stdgo.GoString) : stdgo.GoString);
                 var _val = (_r.time.round((0i64 : stdgo._internal.time.Time_Duration.Duration))?.__copy__() : stdgo._internal.time.Time_Time.Time);
                 if (_rep == null) {
                     @:check2 _state._appendKey(_key?.__copy__());
@@ -47,7 +47,7 @@ package stdgo._internal.log.slog;
                     @:check2 _state._appendAttr(stdgo._internal.log.slog.Slog_time.time(_key?.__copy__(), _val?.__copy__())?.__copy__());
                 };
             };
-            var _key = ("level" : stdgo.GoString);
+            var _key = (("level" : stdgo.GoString) : stdgo.GoString);
             var _val = (_r.level : stdgo._internal.log.slog.Slog_Level.Level);
             if (_rep == null) {
                 @:check2 _state._appendKey(_key?.__copy__());
@@ -155,7 +155,7 @@ package stdgo._internal.log.slog;
                 return _h;
             };
             var _h2 = @:check2r _h._clone();
-            var _state = (@:check2r _h2._newHandleState(((stdgo.Go.setRef((@:checkr _h2 ?? throw "null pointer dereference")._preformattedAttrs) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer>), false, stdgo.Go.str()?.__copy__())?.__copy__() : stdgo._internal.log.slog.Slog_T_handleState.T_handleState);
+            var _state = (@:check2r _h2._newHandleState(((stdgo.Go.setRef((@:checkr _h2 ?? throw "null pointer dereference")._preformattedAttrs) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer>), false, (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__() : stdgo._internal.log.slog.Slog_T_handleState.T_handleState);
             {
                 final __f__ = @:check2 _state._free;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });

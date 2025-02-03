@@ -1,7 +1,7 @@
 package stdgo._internal.runtime.pprof;
 @:structInit @:using(stdgo._internal.runtime.pprof.Pprof_T_memMap_static_extension.T_memMap_static_extension) class T_memMap {
-    public var _start : stdgo.GoUIntptr = 0;
-    public var _end : stdgo.GoUIntptr = 0;
+    public var _start : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
+    public var _end : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
     public var _offset : stdgo.GoUInt64 = 0;
     public var _file : stdgo.GoString = "";
     public var _buildID : stdgo.GoString = "";

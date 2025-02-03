@@ -5,7 +5,7 @@ package stdgo._internal.internal.pkgbits;
     static public function newEncoderRaw( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder>, _k:stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind):stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgEncoder.PkgEncoder> = _pw;
         var _idx = ((@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)].length : stdgo._internal.internal.pkgbits.Pkgbits_Index.Index);
-        (@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)] = ((@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)].__append__(stdgo.Go.str()?.__copy__()));
+        (@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)] = ((@:checkr _pw ?? throw "null pointer dereference")._elems[(_k : stdgo.GoInt)].__append__((stdgo.Go.str() : stdgo.GoString)?.__copy__()));
         return ({ _p : _pw, _k : _k, idx : _idx } : stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder);
     }
     @:keep

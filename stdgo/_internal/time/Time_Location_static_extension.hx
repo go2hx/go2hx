@@ -126,7 +126,7 @@ package stdgo._internal.time;
         _offset = (@:checkr _zone ?? throw "null pointer dereference")._offset;
         _start = _tx[(_lo : stdgo.GoInt)]._when;
         _isDST = (@:checkr _zone ?? throw "null pointer dereference")._isDST;
-        if (((_lo == ((_tx.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) && ((@:checkr _l ?? throw "null pointer dereference")._extend != stdgo.Go.str()) : Bool)) {
+        if (((_lo == ((_tx.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) && ((@:checkr _l ?? throw "null pointer dereference")._extend != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.time.Time__tzset._tzset((@:checkr _l ?? throw "null pointer dereference")._extend?.__copy__(), _start, _sec), _ename:stdgo.GoString = __tmp__._0, _eoffset:stdgo.GoInt = __tmp__._1, _estart:stdgo.GoInt64 = __tmp__._2, _eend:stdgo.GoInt64 = __tmp__._3, _eisDST:Bool = __tmp__._4, _ok:Bool = __tmp__._5;
                 if (_ok) {

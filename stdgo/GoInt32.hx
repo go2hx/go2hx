@@ -50,7 +50,7 @@ abstract GoInt32(Int32) from Int32 to Int32 to Int {
 		return this;
 
 	@:to inline function toUIntptr():stdgo.GoUIntptr
-		return this;
+		return new GoUIntptr(this);
 
 	public static function ofInt(x:Int):GoInt32
 		return x;

@@ -425,7 +425,7 @@ package stdgo._internal.net.http.httputil;
             if (_internal.golang_dot_org.x.net.http.httpguts.Httpguts_headerValuesContainsToken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Te" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("trailers" : stdgo.GoString))) {
                 (@:checkr _outreq ?? throw "null pointer dereference").header.set(("Te" : stdgo.GoString), ("trailers" : stdgo.GoString));
             };
-            if (_reqUpType != (stdgo.Go.str())) {
+            if (_reqUpType != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _outreq ?? throw "null pointer dereference").header.set(("Connection" : stdgo.GoString), ("Upgrade" : stdgo.GoString));
                 (@:checkr _outreq ?? throw "null pointer dereference").header.set(("Upgrade" : stdgo.GoString), _reqUpType?.__copy__());
             };
@@ -456,7 +456,7 @@ package stdgo._internal.net.http.httputil;
             {
                 var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.exists(("User-Agent" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("User-Agent" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __40:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
-                    (@:checkr _outreq ?? throw "null pointer dereference").header.set(("User-Agent" : stdgo.GoString), stdgo.Go.str()?.__copy__());
+                    (@:checkr _outreq ?? throw "null pointer dereference").header.set(("User-Agent" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
                 };
             };
             var _trace = (stdgo.Go.setRef(({ got1xxResponse : function(_code:stdgo.GoInt, _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo.Error {

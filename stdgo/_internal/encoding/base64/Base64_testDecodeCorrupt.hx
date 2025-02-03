@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.base64;
 function testDecodeCorrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _testCases = (new stdgo.Slice<stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0>(24, 24, ...[
-({ _input : stdgo.Go.str()?.__copy__(), _offset : (-1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),
+({ _input : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _offset : (-1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),
 ({ _input : ("\n" : stdgo.GoString), _offset : (-1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),
 ({ _input : ("AAA=\n" : stdgo.GoString), _offset : (-1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),
 ({ _input : ("AAAA\n" : stdgo.GoString), _offset : (-1 : stdgo.GoInt) } : stdgo._internal.encoding.base64.Base64_T__struct_0.T__struct_0),

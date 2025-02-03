@@ -61,7 +61,7 @@ package stdgo._internal.crypto.tls;
         var _hkdfLabel:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder);
         @:check2 _hkdfLabel.addUint16((_length : stdgo.GoUInt16));
         @:check2 _hkdfLabel.addUint8LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
-            @:check2r _b.addBytes((("tls13 " : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
+            @:check2r _b.addBytes(((("tls13 " : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
             @:check2r _b.addBytes((_label : stdgo.Slice<stdgo.GoUInt8>));
         });
         @:check2 _hkdfLabel.addUint8LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {

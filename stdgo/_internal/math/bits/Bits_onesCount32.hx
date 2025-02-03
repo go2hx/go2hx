@@ -1,6 +1,6 @@
 package stdgo._internal.math.bits;
 function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
-        return ((((stdgo.Go.str(0,
+        return (((((stdgo.Go.str(0,
 1,
 1,
 2,
@@ -253,7 +253,7 @@ function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)] + stdgo.Go.str(0,
+"\x07\x07\x08") : stdgo.GoString)[((_x >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoInt)] + (stdgo.Go.str(0,
 1,
 1,
 2,
@@ -506,7 +506,7 @@ function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) + stdgo.Go.str(0,
+"\x07\x07\x08") : stdgo.GoString)[(((_x >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) + (stdgo.Go.str(0,
 1,
 1,
 2,
@@ -759,7 +759,7 @@ function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[(((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) + stdgo.Go.str(0,
+"\x07\x07\x08") : stdgo.GoString)[(((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) + (stdgo.Go.str(0,
 1,
 1,
 2,
@@ -1012,5 +1012,5 @@ function onesCount32(_x:stdgo.GoUInt32):stdgo.GoInt {
 6,
 "\x07",
 6,
-"\x07\x07\x08")[((_x & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) : stdgo.GoInt);
+"\x07\x07\x08") : stdgo.GoString)[((_x & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] : stdgo.GoUInt8) : stdgo.GoInt);
     }

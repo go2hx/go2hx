@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.asn1;
 function _parseBMPString(_bmpString:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         if (((_bmpString.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("pkcs12: odd-length BMP string" : stdgo.GoString)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("pkcs12: odd-length BMP string" : stdgo.GoString)) };
         };
         {
             var _l = (_bmpString.length : stdgo.GoInt);

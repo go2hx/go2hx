@@ -60,7 +60,7 @@ package stdgo._internal.internal.fuzz;
         };
         var _newBitCount = (0 : stdgo.GoInt);
         for (_i => _ in _newCoverage) {
-            var _diff = (_newCoverage[(_i : stdgo.GoInt)] & (((@:checkr _c ?? throw "null pointer dereference")._coverageMask[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
+            var _diff = (_newCoverage[(_i : stdgo.GoInt)] & (((@:checkr _c ?? throw "null pointer dereference")._coverageMask[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8);
             _newBitCount = (_newBitCount + (stdgo._internal.math.bits.Bits_onesCount8.onesCount8(_diff)) : stdgo.GoInt);
             (@:checkr _c ?? throw "null pointer dereference")._coverageMask[(_i : stdgo.GoInt)] = ((@:checkr _c ?? throw "null pointer dereference")._coverageMask[(_i : stdgo.GoInt)] | (_newCoverage[(_i : stdgo.GoInt)]) : stdgo.GoUInt8);
         };
@@ -97,7 +97,7 @@ package stdgo._internal.internal.fuzz;
         if (((@:checkr _c ?? throw "null pointer dereference")._opts.minimizeLimit > (0i64 : stdgo.GoInt64) : Bool)) {
             _input._limit = (@:checkr _c ?? throw "null pointer dereference")._opts.minimizeLimit;
         } else if (((@:checkr _c ?? throw "null pointer dereference")._opts.limit > (0i64 : stdgo.GoInt64) : Bool)) {
-            if (_input._crasherMsg != (stdgo.Go.str())) {
+            if (_input._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))) {
                 _input._limit = (@:checkr _c ?? throw "null pointer dereference")._opts.limit;
             } else {
                 _input._limit = ((@:checkr _c ?? throw "null pointer dereference")._opts.limit / ((@:checkr _c ?? throw "null pointer dereference")._opts.parallel : stdgo.GoInt64) : stdgo.GoInt64);
@@ -119,9 +119,9 @@ package stdgo._internal.internal.fuzz;
     static public function _queueForMinimization( _c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator>, _result:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult, _keepCoverage:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator> = _c;
         if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-            @:check2r _c._debugLogf(("queueing input for minimization, id: %s, parent: %s, keepCoverage: %t, crasher: %t" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_keepCoverage != null), stdgo.Go.toInterface(_result._crasherMsg != (stdgo.Go.str())));
+            @:check2r _c._debugLogf(("queueing input for minimization, id: %s, parent: %s, keepCoverage: %t, crasher: %t" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_result._entry.parent), stdgo.Go.toInterface(_keepCoverage != null), stdgo.Go.toInterface(_result._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))));
         };
-        if (_result._crasherMsg != (stdgo.Go.str())) {
+        if (_result._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))) {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._minimizeQueue._clear();
         };
         var _input = ({ _entry : _result._entry?.__copy__(), _crasherMsg : _result._crasherMsg?.__copy__(), _keepCoverage : _keepCoverage } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput);

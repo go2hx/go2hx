@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-final pallocSumBytes : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+final pallocSumBytes : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);

@@ -35,7 +35,7 @@ var _period = __2, _durationNanos = __1, _timeNanos = __0;
                     };
                 };
             };
-            if (_defaultSampleType == (stdgo.Go.str())) {
+            if (_defaultSampleType == ((stdgo.Go.str() : stdgo.GoString))) {
                 _defaultSampleType = (@:checkr _s ?? throw "null pointer dereference").defaultSampleType?.__copy__();
             };
         };

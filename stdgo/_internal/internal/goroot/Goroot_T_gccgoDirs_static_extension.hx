@@ -34,7 +34,7 @@ package stdgo._internal.internal.goroot;
     static public function _init( _gd:stdgo.Ref<stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs>):Void {
         @:recv var _gd:stdgo.Ref<stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs> = _gd;
         var _gccgo = (stdgo._internal.os.Os_getenv.getenv(("GCCGO" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_gccgo == (stdgo.Go.str())) {
+        if (_gccgo == ((stdgo.Go.str() : stdgo.GoString))) {
             _gccgo = ("gccgo" : stdgo.GoString);
         };
         var __tmp__ = stdgo._internal.os.exec.Exec_lookPath.lookPath(_gccgo?.__copy__()), _bin:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;

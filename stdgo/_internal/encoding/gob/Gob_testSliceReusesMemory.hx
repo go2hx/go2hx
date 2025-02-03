@@ -2,13 +2,13 @@ package stdgo._internal.encoding.gob;
 function testSliceReusesMemory(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _buf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         {
-            var _x = (("abcd" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _x = ((("abcd" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf));
             var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_x)) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.errorf(("bytes: encode: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
-            var _y = (("ABCDE" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _y = ((("ABCDE" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _addr = stdgo.Go.pointer(_y[(0 : stdgo.GoInt)]);
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
             _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)));
@@ -23,13 +23,13 @@ function testSliceReusesMemory(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             };
         };
         {
-            var _x = (("abcd" : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
+            var _x = ((("abcd" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf));
             var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(_x)) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.errorf(("ints: encode: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
-            var _y = (("ABCDE" : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
+            var _y = ((("ABCDE" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
             var _addr = stdgo.Go.pointer(_y[(0 : stdgo.GoInt)]);
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
             _err = @:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>)));

@@ -4,13 +4,13 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
+        var _depth_3648250:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3648128:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3648125:stdgo.GoInt = (0 : stdgo.GoInt);
         var _val_3648351:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3648323:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3648328_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_3648267:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _depth_3648250:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -61,7 +61,7 @@ package stdgo._internal.debug.gosym;
                 } else if (__value__ == (3648374i32)) {
                     if (((_depth_3648250 == (1 : stdgo.GoInt)) && (_val_3648351 >= _line : Bool) : Bool)) {
                         _gotoNext = 3648386i32;
-                    } else if (_s_3648323.name == (stdgo.Go.str())) {
+                    } else if (_s_3648323.name == ((stdgo.Go.str() : stdgo.GoString))) {
                         _gotoNext = 3648447i32;
                     } else {
                         _gotoNext = 3648583i32;
@@ -140,11 +140,11 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
+        var _tos_3647462:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
+        var _noPath_3647426:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _val_3647518:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3647495:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3647500_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _tos_3647462:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
-        var _noPath_3647426:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -152,7 +152,7 @@ package stdgo._internal.debug.gosym;
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     {};
-                    _noPath_3647426 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022(stdgo.Go.str()?.__copy__(), (0 : stdgo.GoInt), (0 : stdgo.GoInt), null) : stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022>);
+                    _noPath_3647426 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), (0 : stdgo.GoInt), null) : stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T__lineFromAline___localname___stackEnt_16022.T__lineFromAline___localname___stackEnt_16022>);
                     _tos_3647462 = _noPath_3647426;
                     _gotoNext = 3647477i32;
                 } else if (__value__ == (3647477i32)) {
@@ -173,7 +173,7 @@ package stdgo._internal.debug.gosym;
                         _gotoNext = 3647551i32;
                     } else if (_val_3647518 == ((1 : stdgo.GoInt))) {
                         _gotoNext = 3647590i32;
-                    } else if (_s_3647495.name == (stdgo.Go.str())) {
+                    } else if (_s_3647495.name == ((stdgo.Go.str() : stdgo.GoString))) {
                         _gotoNext = 3647675i32;
                     } else {
                         _gotoNext = 3647831i32;
@@ -221,7 +221,7 @@ package stdgo._internal.debug.gosym;
                         _gotoNext = 3647938i32;
                     };
                 } else if (__value__ == (3647917i32)) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt) };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (0 : stdgo.GoInt) };
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647938i32)) {
                     return { _0 : (@:checkr _tos_3647462 ?? throw "null pointer dereference")._path?.__copy__(), _1 : (((_aline - (@:checkr _tos_3647462 ?? throw "null pointer dereference")._start : stdgo.GoInt) - (@:checkr _tos_3647462 ?? throw "null pointer dereference")._offset : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };

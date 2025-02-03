@@ -11,7 +11,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
             };
         };
         {
-            var __tmp__ = stdgo._internal.path.filepath.Filepath_match.match(_pattern?.__copy__(), stdgo.Go.str()?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.path.filepath.Filepath_match.match(_pattern?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
                     final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };

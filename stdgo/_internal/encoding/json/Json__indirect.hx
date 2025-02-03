@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function _indirect(_v:stdgo._internal.reflect.Reflect_Value.Value, _decodingNull:Bool):{ var _0 : stdgo._internal.encoding.json.Json_Unmarshaler.Unmarshaler; var _1 : stdgo._internal.encoding.Encoding_TextUnmarshaler.TextUnmarshaler; var _2 : stdgo._internal.reflect.Reflect_Value.Value; } {
         var _v0 = (_v?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         var _haveAddr = (false : Bool);
-        if (((_v.kind() != ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && _v.type().name() != (stdgo.Go.str()) : Bool) && _v.canAddr() : Bool)) {
+        if (((_v.kind() != ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && _v.type().name() != ((stdgo.Go.str() : stdgo.GoString)) : Bool) && _v.canAddr() : Bool)) {
             _haveAddr = true;
             _v = _v.addr()?.__copy__();
         };

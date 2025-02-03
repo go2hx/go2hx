@@ -7,7 +7,7 @@ package stdgo._internal.internal.sysinfo;
         @:check2 (@:checkr _cpu ?? throw "null pointer dereference")._once.do_(function():Void {
             {
                 var _name = (stdgo._internal.internal.cpu.Cpu_name.name()?.__copy__() : stdgo.GoString);
-                if (_name != (stdgo.Go.str())) {
+                if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
                     (@:checkr _cpu ?? throw "null pointer dereference")._name = _name?.__copy__();
                     return;
                 };

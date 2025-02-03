@@ -27,7 +27,7 @@ package stdgo._internal.encoding.gob;
         _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id] = true;
         var _str = (((@:checkr _s ?? throw "null pointer dereference").commonType.name + (" = struct { " : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         for (__9 => _f in (@:checkr _s ?? throw "null pointer dereference").field) {
-            _str = (_str + (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s %s; " : stdgo.GoString), stdgo.Go.toInterface(_f.name), stdgo.Go.toInterface(_f.id._gobType()._safeString(_seen))))?.__copy__() : stdgo.GoString);
+            _str = (_str + (stdgo._internal.fmt.Fmt_sprintf.sprintf((("%s %s; " : stdgo.GoString) : stdgo.GoString), stdgo.Go.toInterface(_f.name), stdgo.Go.toInterface(_f.id._gobType()._safeString(_seen))))?.__copy__() : stdgo.GoString);
         };
         _str = (_str + (("}" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         return _str?.__copy__();

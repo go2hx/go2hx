@@ -1,6 +1,6 @@
 package stdgo._internal.text.template;
 function _goodName(_name:stdgo.GoString):Bool {
-        if (_name == (stdgo.Go.str())) {
+        if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
             return false;
         };
         for (_i => _r in _name) {

@@ -1,6 +1,6 @@
 package stdgo._internal.bytes;
 function trimRight(_s:stdgo.Slice<stdgo.GoUInt8>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
-        if (((_s.length == (0 : stdgo.GoInt)) || (_cutset == stdgo.Go.str()) : Bool)) {
+        if (((_s.length == (0 : stdgo.GoInt)) || (_cutset == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return _s;
         };
         if (((_cutset.length == (1 : stdgo.GoInt)) && (_cutset[(0 : stdgo.GoInt)] < (128 : stdgo.GoUInt8) : Bool) : Bool)) {

@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function benchmarkUnmarshalString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.reportAllocs();
-        var _data = (("\"hello, world\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _data = ((("\"hello, world\"" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
             var _s:stdgo.GoString = ("" : stdgo.GoString);
             var _s__pointer__ = stdgo.Go.pointer(_s);

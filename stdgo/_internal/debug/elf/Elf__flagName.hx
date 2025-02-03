@@ -1,6 +1,6 @@
 package stdgo._internal.debug.elf;
 function _flagName(_i:stdgo.GoUInt32, _names:stdgo.Slice<stdgo._internal.debug.elf.Elf_T_intName.T_intName>, _goSyntax:Bool):stdgo.GoString {
-        var _s = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _s = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         for (__2 => _n in _names) {
             if ((_n._i & _i : stdgo.GoUInt32) == (_n._i)) {
                 if (((_s.length) > (0 : stdgo.GoInt) : Bool)) {

@@ -5,7 +5,7 @@ function _diffCoverage(_base:stdgo.Slice<stdgo.GoUInt8>, _snapshot:stdgo.Slice<s
         };
         var _found = (false : Bool);
         for (_i => _ in _snapshot) {
-            if ((_snapshot[(_i : stdgo.GoInt)] & ((_base[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
+            if ((_snapshot[(_i : stdgo.GoInt)] & ((_base[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                 _found = true;
                 break;
             };
@@ -15,7 +15,7 @@ function _diffCoverage(_base:stdgo.Slice<stdgo.GoUInt8>, _snapshot:stdgo.Slice<s
         };
         var _diff = (new stdgo.Slice<stdgo.GoUInt8>((_snapshot.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (_i => _ in _diff) {
-            _diff[(_i : stdgo.GoInt)] = (_snapshot[(_i : stdgo.GoInt)] & ((_base[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
+            _diff[(_i : stdgo.GoInt)] = (_snapshot[(_i : stdgo.GoInt)] & ((_base[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };
         return _diff;
     }

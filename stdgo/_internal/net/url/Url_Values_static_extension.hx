@@ -5,7 +5,7 @@ package stdgo._internal.net.url;
     static public function encode( _v:stdgo._internal.net.url.Url_Values.Values):stdgo.GoString {
         @:recv var _v:stdgo._internal.net.url.Url_Values.Values = _v;
         if (_v == null) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_v.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
@@ -58,7 +58,7 @@ package stdgo._internal.net.url;
         @:recv var _v:stdgo._internal.net.url.Url_Values.Values = _v;
         var _vs = (_v[_key] ?? (null : stdgo.Slice<stdgo.GoString>));
         if ((_vs.length) == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return _vs[(0 : stdgo.GoInt)]?.__copy__();
     }

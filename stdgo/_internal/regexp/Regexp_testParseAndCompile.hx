@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function testParseAndCompile(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _expr = ("a$" : stdgo.GoString);
-        var _s = ("a\nb" : stdgo.GoString);
+        var _expr = (("a$" : stdgo.GoString) : stdgo.GoString);
+        var _s = (("a\nb" : stdgo.GoString) : stdgo.GoString);
         for (_i => _tc in (new stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1>(2, 2, ...[({ _reFlags : (212 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags), _expMatch : false } : stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1), ({ _reFlags : (196 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags), _expMatch : true } : stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _reFlags : ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags), _expMatch : false } : stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1)])) : stdgo.Slice<stdgo._internal.regexp.Regexp_T__struct_1.T__struct_1>)) {
             var __tmp__ = stdgo._internal.regexp.syntax.Syntax_parse.parse(_expr?.__copy__(), _tc._reFlags), _parsed:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

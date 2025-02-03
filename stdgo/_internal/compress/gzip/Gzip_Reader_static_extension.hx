@@ -250,7 +250,7 @@ package stdgo._internal.compress.gzip;
             var _i = (0 : stdgo.GoInt);
             while (true) {
                 if ((_i >= ((@:checkr _z ?? throw "null pointer dereference")._buf.length) : Bool)) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
                 };
 {
                     var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._r.readByte();
@@ -258,7 +258,7 @@ package stdgo._internal.compress.gzip;
                     _err = @:tmpset0 __tmp__._1;
                 };
 if (_err != null) {
-                    return { _0 : stdgo.Go.str().__copy__(), _1 : _err };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString).__copy__(), _1 : _err };
                 };
 if (((@:checkr _z ?? throw "null pointer dereference")._buf[(_i : stdgo.GoInt)] > (127 : stdgo.GoUInt8) : Bool)) {
                     _needConv = true;

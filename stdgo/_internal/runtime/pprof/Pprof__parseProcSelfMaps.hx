@@ -44,12 +44,12 @@ function _parseProcSelfMaps(_data:stdgo.Slice<stdgo.GoUInt8>, _addMapping:(stdgo
                 continue;
             };
             var _file = ((_line : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            var _deletedStr = (" (deleted)" : stdgo.GoString);
+            var _deletedStr = ((" (deleted)" : stdgo.GoString) : stdgo.GoString);
             var _deletedLen = (_deletedStr.length : stdgo.GoInt);
             if ((((_file.length) >= _deletedLen : Bool) && ((_file.__slice__(((_file.length) - _deletedLen : stdgo.GoInt)) : stdgo.GoString) == _deletedStr) : Bool)) {
                 _file = (_file.__slice__(0, ((_file.length) - _deletedLen : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
-            if ((((_inode.length) == ((1 : stdgo.GoInt)) && _inode[(0 : stdgo.GoInt)] == ((48 : stdgo.GoUInt8)) : Bool) && (_file == stdgo.Go.str()) : Bool)) {
+            if ((((_inode.length) == ((1 : stdgo.GoInt)) && _inode[(0 : stdgo.GoInt)] == ((48 : stdgo.GoUInt8)) : Bool) && (_file == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 continue;
             };
             var __tmp__ = stdgo._internal.runtime.pprof.Pprof__elfBuildID._elfBuildID(_file?.__copy__()), _buildID:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;

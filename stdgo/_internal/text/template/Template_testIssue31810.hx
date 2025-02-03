@@ -2,7 +2,7 @@ package stdgo._internal.text.template;
 function testIssue31810(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         {};
-        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{ (.)  }}" : stdgo.GoString)), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{ (.)  }}" : stdgo.GoString)), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.error(stdgo.Go.toInterface(_err));
         };
@@ -23,7 +23,7 @@ function testIssue31810(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         };
         {};
         {
-            var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(stdgo.Go.str()?.__copy__()).parse(("{{ (call .)  }}" : stdgo.GoString));
+            var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_((stdgo.Go.str() : stdgo.GoString)?.__copy__()).parse(("{{ (call .)  }}" : stdgo.GoString));
             _tmpl = @:tmpset0 __tmp__._0;
             _err = @:tmpset0 __tmp__._1;
         };

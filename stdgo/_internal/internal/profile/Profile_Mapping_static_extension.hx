@@ -9,9 +9,9 @@ package stdgo._internal.internal.profile;
         _size = ((_size + (4096i64 : stdgo.GoUInt64) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _size = (_size - ((_size % (4096i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         var _key = ({ _size : _size, _offset : (@:checkr _m ?? throw "null pointer dereference").offset } : stdgo._internal.internal.profile.Profile_T_mappingKey.T_mappingKey);
-        if ((@:checkr _m ?? throw "null pointer dereference").buildID != (stdgo.Go.str())) {
+        if ((@:checkr _m ?? throw "null pointer dereference").buildID != ((stdgo.Go.str() : stdgo.GoString))) {
             _key._buildIDOrFile = (@:checkr _m ?? throw "null pointer dereference").buildID?.__copy__();
-        } else if ((@:checkr _m ?? throw "null pointer dereference").file != (stdgo.Go.str())) {
+        } else if ((@:checkr _m ?? throw "null pointer dereference").file != ((stdgo.Go.str() : stdgo.GoString))) {
             _key._buildIDOrFile = (@:checkr _m ?? throw "null pointer dereference").file?.__copy__();
         } else {};
         return _key?.__copy__();

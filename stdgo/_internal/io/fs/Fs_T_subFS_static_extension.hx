@@ -18,7 +18,7 @@ package stdgo._internal.io.fs;
     static public function glob( _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>, _pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS> = _f;
         {
-            var __tmp__ = stdgo._internal.path.Path_match.match(_pattern?.__copy__(), stdgo.Go.str()?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.path.Path_match.match(_pattern?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
@@ -113,7 +113,7 @@ package stdgo._internal.io.fs;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false };
             _rel = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;
@@ -124,7 +124,7 @@ package stdgo._internal.io.fs;
     static public function _fullName( _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>, _op:stdgo.GoString, _name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS> = _f;
         if (!stdgo._internal.io.fs.Fs_validPath.validPath(_name?.__copy__())) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : _op?.__copy__(), path : _name?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("invalid name" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : _op?.__copy__(), path : _name?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("invalid name" : stdgo.GoString)) } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
         return { _0 : stdgo._internal.path.Path_join.join((@:checkr _f ?? throw "null pointer dereference")._dir?.__copy__(), _name?.__copy__())?.__copy__(), _1 : (null : stdgo.Error) };
     }

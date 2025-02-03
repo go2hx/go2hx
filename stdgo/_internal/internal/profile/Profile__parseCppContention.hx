@@ -15,7 +15,7 @@ function _parseCppContention(_r:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buf
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                     return { _0 : null, _1 : _err };
                 };
-                if (_l == (stdgo.Go.str())) {
+                if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                     break;
                 };
             };
@@ -24,7 +24,7 @@ function _parseCppContention(_r:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buf
             };
             {
                 _l = stdgo._internal.strings.Strings_trimSpace.trimSpace(_l?.__copy__())?.__copy__();
-                if (_l == (stdgo.Go.str())) {
+                if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };
             };
@@ -124,7 +124,7 @@ function _parseCppContention(_r:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buf
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                         return { _0 : null, _1 : _err };
                     };
-                    if (_l == (stdgo.Go.str())) {
+                    if (_l == ((stdgo.Go.str() : stdgo.GoString))) {
                         break;
                     };
                 };

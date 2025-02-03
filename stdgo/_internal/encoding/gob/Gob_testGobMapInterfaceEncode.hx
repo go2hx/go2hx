@@ -3,7 +3,7 @@ function testGobMapInterfaceEncode(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         var _m = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
-            x.set(("up" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoUIntptr)));
+            x.set(("up" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.GoUIntptr((new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) : stdgo.GoUIntptr)));
 x.set(("i0" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(-1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)));
 x.set(("i1" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt8>(1, 1, ...[(-1 : stdgo.GoInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt8>)));
 x.set(("i2" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt16>(1, 1, ...[(-1 : stdgo.GoInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt16>)));
@@ -18,7 +18,7 @@ x.set(("f0" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoFlo
 x.set(("f1" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoFloat64>(1, 1, ...[(1 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>)));
 x.set(("c0" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoComplex64>(1, 1, ...[new stdgo.GoComplex128((2i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64))]) : stdgo.Slice<stdgo.GoComplex64>)));
 x.set(("c1" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoComplex128>(1, 1, ...[new stdgo.GoComplex128((2 : stdgo.GoFloat64), (-2 : stdgo.GoFloat64))]) : stdgo.Slice<stdgo.GoComplex128>)));
-x.set(("us" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[(0 : stdgo.GoUIntptr)]) : stdgo.Slice<stdgo.GoUIntptr>)));
+x.set(("us" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[(new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)]) : stdgo.Slice<stdgo.GoUIntptr>)));
 x.set(("bo" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<Bool>(1, 1, ...[false]) : stdgo.Slice<Bool>)));
 x.set(("st" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("s" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)));
             x;

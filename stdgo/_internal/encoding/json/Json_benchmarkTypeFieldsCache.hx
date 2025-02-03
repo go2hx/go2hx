@@ -2,11 +2,11 @@ package stdgo._internal.encoding.json;
 function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.reportAllocs();
         var _maxTypes:stdgo.GoInt = (1000000 : stdgo.GoInt);
-        if (stdgo._internal.internal.testenv.Testenv_builder.builder() != (stdgo.Go.str())) {
+        if (stdgo._internal.internal.testenv.Testenv_builder.builder() != ((stdgo.Go.str() : stdgo.GoString))) {
             _maxTypes = (1000 : stdgo.GoInt);
         };
         var _types = (new stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>((_maxTypes : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>);
-        var _fs = (new stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>(1, 1, ...[({ type : stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(stdgo.Go.str())), index : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.reflect.Reflect_StructField.StructField)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_StructField.StructField)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>);
+        var _fs = (new stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>(1, 1, ...[({ type : stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((stdgo.Go.str() : stdgo.GoString))), index : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>) } : stdgo._internal.reflect.Reflect_StructField.StructField)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_StructField.StructField)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_StructField.StructField>);
         for (_i => _ in _types) {
             _fs[(0 : stdgo.GoInt)].name = stdgo._internal.fmt.Fmt_sprintf.sprintf(("TypeFieldsCache%d" : stdgo.GoString), stdgo.Go.toInterface(_i))?.__copy__();
             _types[(_i : stdgo.GoInt)] = stdgo._internal.reflect.Reflect_structOf.structOf(_fs);

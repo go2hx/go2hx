@@ -11,7 +11,7 @@ function round(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
             {};
             _e = (_e - ((1023u32 : stdgo.GoUInt)) : stdgo.GoUInt);
             _bits = (_bits + (((2251799813685248i64 : stdgo.GoUInt64) >> _e : stdgo.GoUInt64)) : stdgo.GoUInt64);
-            _bits = (_bits & (((((4503599627370495i64 : stdgo.GoUInt64) >> _e : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            _bits = (_bits & (((((4503599627370495i64 : stdgo.GoUInt64) >> _e : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         return stdgo._internal.math.Math_float64frombits.float64frombits(_bits);
     }

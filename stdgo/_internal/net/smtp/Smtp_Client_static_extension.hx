@@ -49,11 +49,11 @@ package stdgo._internal.net.smtp;
         {
             var _err = (@:check2r _c._hello() : stdgo.Error);
             if (_err != null) {
-                return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                return { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
             };
         };
         if ((@:checkr _c ?? throw "null pointer dereference")._ext == null) {
-            return { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+            return { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
         };
         _ext = stdgo._internal.strings.Strings_toUpper.toUpper(_ext?.__copy__())?.__copy__();
         var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(_ext?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[_ext?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _param:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -98,7 +98,7 @@ package stdgo._internal.net.smtp;
                 return _err;
             };
         };
-        var _cmdStr = ("MAIL FROM:<%s>" : stdgo.GoString);
+        var _cmdStr = (("MAIL FROM:<%s>" : stdgo.GoString) : stdgo.GoString);
         if ((@:checkr _c ?? throw "null pointer dereference")._ext != null) {
             {
                 var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(("8BITMIME" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("8BITMIME" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __0:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -283,7 +283,7 @@ package stdgo._internal.net.smtp;
         try {
             var __tmp__ = @:check2r (@:checkr _c ?? throw "null pointer dereference").text.cmd(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)), _id:stdgo.GoUInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                return { _0 : (0 : stdgo.GoInt), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
             };
             @:check2r (@:checkr _c ?? throw "null pointer dereference").text.startResponse(_id);
             {

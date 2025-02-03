@@ -6,7 +6,7 @@ package stdgo._internal.debug.buildinfo;
         @:recv var _x:stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_T_peExe.T_peExe> = _x;
         {};
         for (__0 => _sect in (@:checkr (@:checkr _x ?? throw "null pointer dereference")._f ?? throw "null pointer dereference").sections) {
-            if ((((@:checkr _sect ?? throw "null pointer dereference").sectionHeader.virtualAddress != ((0u32 : stdgo.GoUInt32)) && (@:checkr _sect ?? throw "null pointer dereference").sectionHeader.size != ((0u32 : stdgo.GoUInt32)) : Bool) && (((@:checkr _sect ?? throw "null pointer dereference").sectionHeader.characteristics & (((6291456u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32) == (-1073741760u32 : stdgo.GoUInt32)) : Bool)) {
+            if ((((@:checkr _sect ?? throw "null pointer dereference").sectionHeader.virtualAddress != ((0u32 : stdgo.GoUInt32)) && (@:checkr _sect ?? throw "null pointer dereference").sectionHeader.size != ((0u32 : stdgo.GoUInt32)) : Bool) && (((@:checkr _sect ?? throw "null pointer dereference").sectionHeader.characteristics & (((6291456u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32) == (-1073741760u32 : stdgo.GoUInt32)) : Bool)) {
                 return (((@:checkr _sect ?? throw "null pointer dereference").sectionHeader.virtualAddress : stdgo.GoUInt64) + @:check2r _x._imageBase() : stdgo.GoUInt64);
             };
         };

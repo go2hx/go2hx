@@ -7,7 +7,7 @@ function _writeHeapProto(_w:stdgo._internal.io.Io_Writer.Writer, _p:stdgo.Slice<
         @:check2r _b._pbValueType((1 : stdgo.GoInt), ("alloc_space" : stdgo.GoString), ("bytes" : stdgo.GoString));
         @:check2r _b._pbValueType((1 : stdgo.GoInt), ("inuse_objects" : stdgo.GoString), ("count" : stdgo.GoString));
         @:check2r _b._pbValueType((1 : stdgo.GoInt), ("inuse_space" : stdgo.GoString), ("bytes" : stdgo.GoString));
-        if (_defaultSampleType != (stdgo.Go.str())) {
+        if (_defaultSampleType != ((stdgo.Go.str() : stdgo.GoString))) {
             @:check2 (@:checkr _b ?? throw "null pointer dereference")._pb._int64Opt((14 : stdgo.GoInt), @:check2r _b._stringIndex(_defaultSampleType?.__copy__()));
         };
         var _values = (new stdgo.Slice<stdgo.GoInt64>(4, 4, ...[(0i64 : stdgo.GoInt64), (0i64 : stdgo.GoInt64), (0i64 : stdgo.GoInt64), (0i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
@@ -54,7 +54,7 @@ _hideRuntime = false;
             };
             @:check2r _b._pbSample(_values, _locs, function():Void {
                 if (_blockSize != ((0i64 : stdgo.GoInt64))) {
-                    @:check2r _b._pbLabel((3 : stdgo.GoInt), ("bytes" : stdgo.GoString), stdgo.Go.str()?.__copy__(), _blockSize);
+                    @:check2r _b._pbLabel((3 : stdgo.GoInt), ("bytes" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _blockSize);
                 };
             });
         };

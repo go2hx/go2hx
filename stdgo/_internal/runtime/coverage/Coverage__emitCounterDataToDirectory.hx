@@ -8,7 +8,7 @@ function _emitCounterDataToDirectory(_outdir:stdgo.GoString):stdgo.Error {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("error: meta-data not available (binary not built with -cover?)" : stdgo.GoString));
         };
         var _pm = stdgo._internal.runtime.coverage.Coverage__getCovPkgMap._getCovPkgMap();
-        var _s = (stdgo.Go.setRef(({ _counterlist : _cl, _pkgmap : _pm, _outdir : _outdir?.__copy__(), _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != (stdgo.Go.str()) } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        var _s = (stdgo.Go.setRef(({ _counterlist : _cl, _pkgmap : _pm, _outdir : _outdir?.__copy__(), _debug : stdgo._internal.os.Os_getenv.getenv(("GOCOVERDEBUG" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString)) } : stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState)) : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
         {
             var _err = (@:check2r _s._openOutputFiles(stdgo._internal.runtime.coverage.Coverage__finalHash._finalHash?.__copy__(), stdgo._internal.runtime.coverage.Coverage__finalMetaLen._finalMetaLen, (4 : stdgo._internal.runtime.coverage.Coverage_T_fileType.T_fileType)) : stdgo.Error);
             if (_err != null) {

@@ -14,7 +14,7 @@ function _verify(_publicKey:stdgo._internal.crypto.ed25519.Ed25519_PublicKey.Pub
             return false;
         };
         var _kh = (stdgo._internal.crypto.sha512.Sha512_new_.new_() : stdgo._internal.hash.Hash_Hash.Hash);
-        if (_domPrefix != (stdgo.Go.str())) {
+        if (_domPrefix != ((stdgo.Go.str() : stdgo.GoString))) {
             _kh.write((_domPrefix : stdgo.Slice<stdgo.GoUInt8>));
             _kh.write((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_context.length : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
             _kh.write((_context : stdgo.Slice<stdgo.GoUInt8>));

@@ -37,7 +37,7 @@ package stdgo._internal.net.http;
                 return _vs[(0 : stdgo.GoInt)]?.__copy__();
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield
@@ -52,7 +52,7 @@ package stdgo._internal.net.http;
                 return _vs[(0 : stdgo.GoInt)]?.__copy__();
             };
         };
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield
@@ -163,9 +163,9 @@ package stdgo._internal.net.http;
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
         var _username = ("" : stdgo.GoString), _password = ("" : stdgo.GoString), _ok = false;
         var _auth = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Authorization" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_auth == (stdgo.Go.str())) {
+        if (_auth == ((stdgo.Go.str() : stdgo.GoString))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
                 _username = __tmp__._0;
                 _password = __tmp__._1;
                 _ok = __tmp__._2;
@@ -218,7 +218,7 @@ package stdgo._internal.net.http;
         var _s = (stdgo._internal.net.http.Http__fmt._fmt.sprintf(("%s=%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieName._sanitizeCookieName((@:checkr _c ?? throw "null pointer dereference").name?.__copy__())), stdgo.Go.toInterface(stdgo._internal.net.http.Http__sanitizeCookieValue._sanitizeCookieValue((@:checkr _c ?? throw "null pointer dereference").value?.__copy__())))?.__copy__() : stdgo.GoString);
         {
             var _c = ((@:checkr _r ?? throw "null pointer dereference").header.get(("Cookie" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_c != (stdgo.Go.str())) {
+            if (_c != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _r ?? throw "null pointer dereference").header.set(("Cookie" : stdgo.GoString), ((_c + ("; " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__());
             } else {
                 (@:checkr _r ?? throw "null pointer dereference").header.set(("Cookie" : stdgo.GoString), _s?.__copy__());
@@ -229,7 +229,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function cookie( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        if (_name == (stdgo.Go.str())) {
+        if (_name == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoCookie.errNoCookie };
         };
         for (__3202 => _c in stdgo._internal.net.http.Http__readCookies._readCookies((@:checkr _r ?? throw "null pointer dereference").header, _name?.__copy__())) {
@@ -241,7 +241,7 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function cookies( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = _r;
-        return stdgo._internal.net.http.Http__readCookies._readCookies((@:checkr _r ?? throw "null pointer dereference").header, stdgo.Go.str()?.__copy__());
+        return stdgo._internal.net.http.Http__readCookies._readCookies((@:checkr _r ?? throw "null pointer dereference").header, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
     }
     @:keep
     @:tdfield

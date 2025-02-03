@@ -57,8 +57,8 @@ package stdgo._internal.mime.multipart;
             @:check2r _p._parseContentDisposition();
         };
         var _filename = (((@:checkr _p ?? throw "null pointer dereference")._dispositionParams[("filename" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_filename == (stdgo.Go.str())) {
-            return stdgo.Go.str()?.__copy__();
+        if (_filename == ((stdgo.Go.str() : stdgo.GoString))) {
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return stdgo._internal.path.filepath.Filepath_base.base(_filename?.__copy__())?.__copy__();
     }
@@ -70,7 +70,7 @@ package stdgo._internal.mime.multipart;
             @:check2r _p._parseContentDisposition();
         };
         if ((@:checkr _p ?? throw "null pointer dereference")._disposition != (("form-data" : stdgo.GoString))) {
-            return stdgo.Go.str()?.__copy__();
+            return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return ((@:checkr _p ?? throw "null pointer dereference")._dispositionParams[("name" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
     }

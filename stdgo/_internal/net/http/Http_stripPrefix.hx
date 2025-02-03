@@ -1,12 +1,12 @@
 package stdgo._internal.net.http;
 function stripPrefix(_prefix:stdgo.GoString, _h:stdgo._internal.net.http.Http_Handler.Handler):stdgo._internal.net.http.Http_Handler.Handler {
-        if (_prefix == (stdgo.Go.str())) {
+        if (_prefix == ((stdgo.Go.str() : stdgo.GoString))) {
             return _h;
         };
         return stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
             var _p = (stdgo._internal.net.http.Http__strings._strings.trimPrefix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__(), _prefix?.__copy__())?.__copy__() : stdgo.GoString);
             var _rp = (stdgo._internal.net.http.Http__strings._strings.trimPrefix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath?.__copy__(), _prefix?.__copy__())?.__copy__() : stdgo.GoString);
-            if ((((_p.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path.length) : Bool) && ((((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath == stdgo.Go.str()) || ((_rp.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath.length) : Bool) : Bool)) : Bool)) {
+            if ((((_p.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path.length) : Bool) && ((((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath == (stdgo.Go.str() : stdgo.GoString)) || ((_rp.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath.length) : Bool) : Bool)) : Bool)) {
                 var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension.stdgo._internal.net.http.Http_Request_static_extension.Request_static_extension);
                 {
                     var __tmp__ = (_r : stdgo._internal.net.http.Http_Request.Request)?.__copy__();

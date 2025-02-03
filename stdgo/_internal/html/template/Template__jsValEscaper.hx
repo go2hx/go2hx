@@ -44,13 +44,13 @@ function _jsValEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_b.length) : Bool)) {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_b.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>)), _rune:stdgo.GoInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
-                var _repl = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+                var _repl = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_rune == ((8232 : stdgo.GoInt32))) {
                     _repl = ("\\u2028" : stdgo.GoString);
                 } else if (_rune == ((8233 : stdgo.GoInt32))) {
                     _repl = ("\\u2029" : stdgo.GoString);
                 };
-                if (_repl != (stdgo.Go.str())) {
+                if (_repl != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2 _buf.write((_b.__slice__(_written, _i) : stdgo.Slice<stdgo.GoUInt8>));
                     @:check2 _buf.writeString(_repl?.__copy__());
                     _written = (_i + _n : stdgo.GoInt);

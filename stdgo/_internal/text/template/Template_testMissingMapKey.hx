@@ -15,7 +15,7 @@ function testMissingMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(_err));
         };
-        var _want = ("99 <no value>" : stdgo.GoString);
+        var _want = (("99 <no value>" : stdgo.GoString) : stdgo.GoString);
         var _got = ((@:check2 _b.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (_got != (_want)) {
             @:check2r _t.errorf(("got %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));

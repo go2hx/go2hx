@@ -7,16 +7,16 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 final __value__ = ("js" : stdgo.GoString);
                 if (__value__ == (("plan9" : stdgo.GoString))) {
                     return {
-                        final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                        final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                         _ok = __tmp__._0;
                         _reason = __tmp__._1;
                         __tmp__;
                     };
                 } else if (__value__ == (("android" : stdgo.GoString)) || __value__ == (("wasip1" : stdgo.GoString))) {
-                    var __tmp__ = stdgo._internal.os.Os_mkdirTemp.mkdirTemp(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.os.Os_mkdirTemp.mkdirTemp((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return {
-                            final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                            final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                             _ok = __tmp__._0;
                             _reason = __tmp__._1;
                             __tmp__;
@@ -36,7 +36,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = {
-                                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                                     _ok = __tmp__._0;
                                     _reason = __tmp__._1;
                                     __tmp__;
@@ -71,7 +71,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                             };
                             {
                                 final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = {
-                                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
+                                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                                     _ok = __tmp__._0;
                                     _reason = __tmp__._1;
                                     __tmp__;
@@ -89,7 +89,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
             };
             {
                 final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : true, _1 : stdgo.Go.str()?.__copy__() };
+                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : true, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                     _ok = __tmp__._0;
                     _reason = __tmp__._1;
                     __tmp__;

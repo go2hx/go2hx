@@ -4,7 +4,7 @@ package stdgo._internal.flag;
     @:tdfield
     static public function string( _f:stdgo._internal.flag.Flag_T_funcValue.T_funcValue):stdgo.GoString {
         @:recv var _f:stdgo._internal.flag.Flag_T_funcValue.T_funcValue = _f;
-        return stdgo.Go.str()?.__copy__();
+        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
     }
     @:keep
     @:tdfield

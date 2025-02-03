@@ -68,9 +68,9 @@ package stdgo._internal.net.netip;
         {
             final __value__ = _p._ip._z;
             if (__value__ == (stdgo._internal.net.netip.Netip__z0._z0)) {} else if (__value__ == (stdgo._internal.net.netip.Netip__z4._z4)) {
-                _max = (("255.255.255.255/32" : stdgo.GoString).length);
+                _max = ((("255.255.255.255/32" : stdgo.GoString) : stdgo.GoString).length);
             } else {
-                _max = (("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff%enp5s0/128" : stdgo.GoString).length);
+                _max = ((("ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff%enp5s0/128" : stdgo.GoString) : stdgo.GoString).length);
             };
         };
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -85,13 +85,13 @@ package stdgo._internal.net.netip;
             return _b;
         };
         if (!_p.isValid()) {
-            return (_b.__append__(...(("invalid Prefix" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+            return (_b.__append__(...((("invalid Prefix" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         if (_p._ip._z == (stdgo._internal.net.netip.Netip__z4._z4)) {
             _b = _p._ip._appendTo4(_b);
         } else {
             if (_p._ip.is4In6()) {
-                _b = (_b.__append__(...(("::ffff:" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
+                _b = (_b.__append__(...((("::ffff:" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                 _b = _p._ip.unmap()._appendTo4(_b);
             } else {
                 _b = _p._ip._appendTo6(_b);

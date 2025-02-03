@@ -3,7 +3,7 @@ function _unmarshalCorpusFile(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Sl
         if ((_b.length) == ((0 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.AnyInterface>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("cannot unmarshal empty string" : stdgo.GoString)) };
         };
-        var _lines = stdgo._internal.bytes.Bytes_split.split(_b, (("\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
+        var _lines = stdgo._internal.bytes.Bytes_split.split(_b, ((("\n" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
         if (((_lines.length) < (2 : stdgo.GoInt) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.AnyInterface>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("must include version and at least one value" : stdgo.GoString)) };
         };

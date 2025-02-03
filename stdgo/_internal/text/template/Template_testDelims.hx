@@ -5,15 +5,15 @@ function testDelims(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (stdgo._internal.text.template.Template__delimPairs._delimPairs.length) : Bool)) {
-                var _text = (".Str" : stdgo.GoString);
+                var _text = ((".Str" : stdgo.GoString) : stdgo.GoString);
 var _left = (stdgo._internal.text.template.Template__delimPairs._delimPairs[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)].__copy__() : stdgo.GoString);
 var _trueLeft = (_left.__copy__() : stdgo.GoString);
 var _right = (stdgo._internal.text.template.Template__delimPairs._delimPairs[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].__copy__() : stdgo.GoString);
 var _trueRight = (_right.__copy__() : stdgo.GoString);
-if (_left == (stdgo.Go.str())) {
+if (_left == ((stdgo.Go.str() : stdgo.GoString))) {
                     _trueLeft = ("{{" : stdgo.GoString);
                 };
-if (_right == (stdgo.Go.str())) {
+if (_right == ((stdgo.Go.str() : stdgo.GoString))) {
                     _trueRight = ("}}" : stdgo.GoString);
                 };
 _text = ((_trueLeft + _text.__copy__() : stdgo.GoString) + _trueRight.__copy__() : stdgo.GoString).__copy__();

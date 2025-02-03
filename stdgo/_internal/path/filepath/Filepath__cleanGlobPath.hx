@@ -2,7 +2,7 @@ package stdgo._internal.path.filepath;
 function _cleanGlobPath(_path:stdgo.GoString):stdgo.GoString {
         {
             final __value__ = _path;
-            if (__value__ == (stdgo.Go.str())) {
+            if (__value__ == ((stdgo.Go.str() : stdgo.GoString))) {
                 return ("." : stdgo.GoString);
             } else if (__value__ == (((47 : stdgo.GoInt32) : stdgo.GoString))) {
                 return _path?.__copy__();

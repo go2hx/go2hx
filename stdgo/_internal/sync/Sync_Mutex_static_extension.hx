@@ -60,7 +60,7 @@ package stdgo._internal.sync;
                 if ((_new & (2 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                     stdgo._internal.sync.Sync__throw._throw(("sync: inconsistent mutex state" : stdgo.GoString));
                 };
-                _new = (_new & ((((2 : stdgo.GoInt32)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt32);
+                _new = (_new & ((((2 : stdgo.GoInt32)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             if (stdgo._internal.sync.atomic_.Atomic__compareAndSwapInt32.compareAndSwapInt32(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._state), _old, _new)) {
                 if ((_old & (5 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {

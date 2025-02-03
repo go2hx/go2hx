@@ -3,7 +3,7 @@ function index(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _
         {
             var __tmp__ = stdgo._internal.strings.Strings_cutPrefix.cutPrefix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__(), ("/debug/pprof/" : stdgo.GoString)), _name:stdgo.GoString = __tmp__._0, _found:Bool = __tmp__._1;
             if (_found) {
-                if (_name != (stdgo.Go.str())) {
+                if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
                     (_name : stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler).serveHTTP(_w, _r);
                     return;
                 };

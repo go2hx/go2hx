@@ -1,6 +1,6 @@
 package stdgo._internal.internal.fuzz;
 var _zeroVals : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(17, 17, ...[
-stdgo.Go.toInterface((stdgo.Go.str() : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface(((stdgo.Go.str() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)),
 stdgo.Go.toInterface((stdgo.Go.str() : stdgo.GoString)),
 stdgo.Go.toInterface(false),
 stdgo.Go.toInterface((0 : stdgo.GoUInt8)),

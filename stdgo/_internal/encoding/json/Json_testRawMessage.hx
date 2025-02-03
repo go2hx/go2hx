@@ -3,7 +3,7 @@ function testRawMessage(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var _data:stdgo._internal.encoding.json.Json_T__struct_42.T__struct_42 = ({ x : (0 : stdgo.GoFloat64), id : new stdgo._internal.encoding.json.Json_RawMessage.RawMessage(0, 0), y : (0 : stdgo.GoFloat32) } : stdgo._internal.encoding.json.Json_T__struct_42.T__struct_42);
         {};
         {};
-        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"X\":0.1,\"Id\":[\"\\u0056\",null],\"Y\":0.2}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_42.T__struct_42>)))) : stdgo.Error);
+        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{\"X\":0.1,\"Id\":[\"\\u0056\",null],\"Y\":0.2}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_42.T__struct_42>)))) : stdgo.Error);
         if (_err != null) {
             @:check2r _t.fatalf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };

@@ -100,7 +100,7 @@ package stdgo._internal.net.textproto;
             var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                     _code = __tmp__._0;
                     _message = __tmp__._1;
                     _err = __tmp__._2;
@@ -123,7 +123,7 @@ package stdgo._internal.net.textproto;
             };
             _message = (_message + ((("\n" : stdgo.GoString) + _moreMessage?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
-        if (((_err != null && _multi : Bool) && (_message != stdgo.Go.str()) : Bool)) {
+        if (((_err != null && _multi : Bool) && (_message != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.textproto.Textproto_Error.Error(_code, _message?.__copy__()) : stdgo._internal.net.textproto.Textproto_Error.Error)) : stdgo.Ref<stdgo._internal.net.textproto.Textproto_Error.Error>));
         };
         return { _0 : _code, _1 : _message, _2 : _err };

@@ -14,7 +14,7 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:std
             if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_file?.__copy__(), (".bz2" : stdgo.GoString))) {
                 var _z = (stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(stdgo.Go.asInterface(_f)) : stdgo._internal.io.Io_Reader.Reader);
                 _txt = _z;
-                _file = (_file.__slice__(0, ((_file.length) - ((".bz2" : stdgo.GoString).length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                _file = (_file.__slice__(0, ((_file.length) - (((".bz2" : stdgo.GoString) : stdgo.GoString).length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             } else {
                 _txt = stdgo.Go.asInterface(_f);
             };
@@ -26,7 +26,7 @@ var _ncase = __6, _nfail = __5, _refull = __4, _re = __3, _inStrings = __2, _inp
                 var _lineno = (1 : stdgo.GoInt);
                 while (@:check2r _scanner.scan()) {
                     var _line = (@:check2r _scanner.text().__copy__() : stdgo.GoString);
-if (_line == (stdgo.Go.str())) {
+if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                         @:check2r _t.fatalf(("%s:%d: unexpected blank line" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_lineno));
                     } else if (_line[(0 : stdgo.GoInt)] == ((35 : stdgo.GoUInt8))) {
                         {

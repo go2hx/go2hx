@@ -12,13 +12,13 @@ stdgo.Go.toInterface((123 : stdgo.GoUInt8)),
 stdgo.Go.toInterface((12345 : stdgo.GoUInt16)),
 stdgo.Go.toInterface((123456u32 : stdgo.GoUInt32)),
 stdgo.Go.toInterface((1234567i64 : stdgo.GoUInt64)),
-stdgo.Go.toInterface((12345678 : stdgo.GoUIntptr)),
+stdgo.Go.toInterface((new stdgo.GoUIntptr((new stdgo.GoUIntptr(12345678) : stdgo.GoUIntptr)) : stdgo.GoUIntptr)),
 stdgo.Go.toInterface(((1.2345 : stdgo.GoFloat64) : stdgo.GoFloat32)),
 stdgo.Go.toInterface((1.2345678 : stdgo.GoFloat64)),
 stdgo.Go.toInterface(((1.2345f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2.3456f64) : stdgo.GoComplex64)),
 stdgo.Go.toInterface(((1.2345678f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2.3456789f64) : stdgo.GoComplex128)),
-stdgo.Go.toInterface((("hello" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)),
-stdgo.Go.toInterface(("hello" : stdgo.GoString))]) : stdgo.Slice<stdgo.AnyInterface>);
+stdgo.Go.toInterface(((("hello" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)),
+stdgo.Go.toInterface((("hello" : stdgo.GoString) : stdgo.GoString))]) : stdgo.Slice<stdgo.AnyInterface>);
         for (__8 => _value in _values) {
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));

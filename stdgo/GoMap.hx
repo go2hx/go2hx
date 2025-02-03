@@ -120,14 +120,23 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		this.clear();
 	}
 
-	@:from static inline function fromBoolMap<V>(map:GoBoolMap<V>):GoMap<Bool, V> {
+	@:from static inline function fromGoUIntptrMap<V>(map:GoUIntptrMap<V>):GoMap<GoUIntptr, V> {
 		return cast map;
 	}
 
 	@:to
-	static inline function toGoBoolMap<K:Bool, V>(t:IMap<K, V>):GoBoolMap<V> {
-		return new GoBoolMap<V>();
+	static inline function toGoUIntptrMap<K:GoUIntptr, V>(t:IMap<K, V>):GoUIntptrMap<V> {
+		return new GoUIntptrMap<V>();
 	}
+
+	// Needs to be first casting option otherwise GoUIntptr will resolve with unrelated types
+	
+
+	// Do not add GoUIntptrMap casting, breaks encoding/json at 
+	/*@:to
+	static inline function toUIntPtrMap<K:GoUIntptr, V>(t:IMap<K, V>):GoUIntptrMap<V> {
+		return new GoUIntptrMap<V>();
+	}*/
 
 	@:from static inline function fromGoStringMap<V>(map:GoStringMap<V>):GoMap<GoString, V> {
 		return cast map;
@@ -275,6 +284,15 @@ abstract GoMap<K, V>(IMap<K, V>) {
 
 	@:from static inline function fromAnyInterfaceMap<V>(map:GoAnyInterfaceMap<V>):GoMap<AnyInterface, V> {
 		return cast map;
+	}
+
+	@:from static inline function fromBoolMap<V>(map:GoBoolMap<V>):GoMap<Bool, V> {
+		return cast map;
+	}
+
+	@:to
+	static inline function toGoBoolMap<K:Bool, V>(t:IMap<K, V>):GoBoolMap<V> {
+		return new GoBoolMap<V>();
 	}
 
 	@:to
@@ -537,6 +555,32 @@ class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
 		return k1 == k2 ? 0 : 1;
 	}
 	override function get(key:Chan<K>):V {
+		var node = root;
+		while (node != null) {
+			var c = compare(key, node.key);
+			if (c == 0)
+				return node.value;
+			if (c < 0)
+				node = node.left;
+			else
+				node = node.right;
+		}
+		return __defaultValue__();
+	}
+}
+
+class GoUIntptrMap<T> extends BalancedTree<GoUIntptr, T> {
+	public var __defaultValue__:Void->T;
+	override function compare(k1:GoUIntptr, k2:GoUIntptr):Int {
+		return if (k1 == k2) {
+			0;
+		} else if (k1 > k2) {
+			1;
+		} else {
+			-1;
+		}
+	}
+	override function get(key:GoUIntptr):T {
 		var node = root;
 		while (node != null) {
 			var c = compare(key, node.key);

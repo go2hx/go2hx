@@ -4,12 +4,12 @@ package stdgo._internal.net.http.cookiejar;
     @:tdfield
     static public function _domainAndType( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _host:stdgo.GoString, _domain:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } {
         @:recv var _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar> = _j;
-        if (_domain == (stdgo.Go.str())) {
+        if (_domain == ((stdgo.Go.str() : stdgo.GoString))) {
             return { _0 : _host?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
         };
         if (stdgo._internal.net.http.cookiejar.Cookiejar__isIP._isIP(_host?.__copy__())) {
             if (_host != (_domain)) {
-                return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
+                return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
             };
             return { _0 : _host?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
         };
@@ -17,28 +17,28 @@ package stdgo._internal.net.http.cookiejar;
             _domain = (_domain.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         if (((_domain.length == (0 : stdgo.GoInt)) || (_domain[(0 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
         };
         var __tmp__ = stdgo._internal.net.http.internal.ascii.Ascii_toLower.toLower(_domain?.__copy__()), _domain:stdgo.GoString = __tmp__._0, _isASCII:Bool = __tmp__._1;
         if (!_isASCII) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
         };
         if (_domain[((_domain.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == ((46 : stdgo.GoUInt8))) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errMalformedDomain._errMalformedDomain };
         };
         if ((@:checkr _j ?? throw "null pointer dereference")._psList != null) {
             {
                 var _ps = ((@:checkr _j ?? throw "null pointer dereference")._psList.publicSuffix(_domain?.__copy__())?.__copy__() : stdgo.GoString);
-                if (((_ps != stdgo.Go.str()) && !stdgo._internal.net.http.cookiejar.Cookiejar__hasDotSuffix._hasDotSuffix(_domain?.__copy__(), _ps?.__copy__()) : Bool)) {
+                if (((_ps != (stdgo.Go.str() : stdgo.GoString)) && !stdgo._internal.net.http.cookiejar.Cookiejar__hasDotSuffix._hasDotSuffix(_domain?.__copy__(), _ps?.__copy__()) : Bool)) {
                     if (_host == (_domain)) {
                         return { _0 : _host?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
                     };
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
+                    return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
                 };
             };
         };
         if (((_host != _domain) && !stdgo._internal.net.http.cookiejar.Cookiejar__hasDotSuffix._hasDotSuffix(_host?.__copy__(), _domain?.__copy__()) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
+            return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.net.http.cookiejar.Cookiejar__errIllegalDomain._errIllegalDomain };
         };
         return { _0 : _domain?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
     }
@@ -48,7 +48,7 @@ package stdgo._internal.net.http.cookiejar;
         @:recv var _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar> = _j;
         var _e = ({} : stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry), _remove = false, _err = (null : stdgo.Error);
         _e.name = (@:checkr _c ?? throw "null pointer dereference").name?.__copy__();
-        if ((((@:checkr _c ?? throw "null pointer dereference").path == stdgo.Go.str()) || ((@:checkr _c ?? throw "null pointer dereference").path[(0 : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
+        if ((((@:checkr _c ?? throw "null pointer dereference").path == (stdgo.Go.str() : stdgo.GoString)) || ((@:checkr _c ?? throw "null pointer dereference").path[(0 : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
             _e.path = _defPath?.__copy__();
         } else {
             _e.path = (@:checkr _c ?? throw "null pointer dereference").path?.__copy__();
@@ -284,7 +284,7 @@ package stdgo._internal.net.http.cookiejar;
             };
             var _https = ((@:checkr _u ?? throw "null pointer dereference").scheme == (("https" : stdgo.GoString)) : Bool);
             var _path = ((@:checkr _u ?? throw "null pointer dereference").path?.__copy__() : stdgo.GoString);
-            if (_path == (stdgo.Go.str())) {
+            if (_path == ((stdgo.Go.str() : stdgo.GoString))) {
                 _path = ("/" : stdgo.GoString);
             };
             var _modified = (false : Bool);

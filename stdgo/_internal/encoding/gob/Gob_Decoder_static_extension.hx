@@ -465,7 +465,7 @@ package stdgo._internal.encoding.gob;
                 var _fieldnum = (0 : stdgo.GoInt);
                 while ((_fieldnum < ((@:checkr _wireStruct ?? throw "null pointer dereference").field.length) : Bool)) {
                     var _wireField = ((@:checkr _wireStruct ?? throw "null pointer dereference").field[(_fieldnum : stdgo.GoInt)] : stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType);
-if (_wireField.name == (stdgo.Go.str())) {
+if (_wireField.name == ((stdgo.Go.str() : stdgo.GoString))) {
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("empty name for remote field of type %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _wireStruct ?? throw "null pointer dereference").commonType.name));
                     };
 var _ovfl = (stdgo._internal.encoding.gob.Gob__overflow._overflow(_wireField.name.__copy__()) : stdgo.Error);

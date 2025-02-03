@@ -13,10 +13,10 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
         var _le = (stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian.uint32((_ident.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
         {
             final __value__ = (-17958194u32 : stdgo.GoUInt32);
-            if (__value__ == ((_be & (((1u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32))) {
+            if (__value__ == ((_be & (((1u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32))) {
                 (@:checkr _f ?? throw "null pointer dereference").byteOrder = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian);
                 (@:checkr _f ?? throw "null pointer dereference").fileHeader.magic = _be;
-            } else if (__value__ == ((_le & (((1u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32))) {
+            } else if (__value__ == ((_le & (((1u32 : stdgo.GoUInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32))) {
                 (@:checkr _f ?? throw "null pointer dereference").byteOrder = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian);
                 (@:checkr _f ?? throw "null pointer dereference").fileHeader.magic = _le;
             } else {

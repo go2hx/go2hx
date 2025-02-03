@@ -23,7 +23,7 @@ function _ldexp(_frac:stdgo.GoFloat64, _exp:stdgo.GoInt):stdgo.GoFloat64 {
             _exp = (_exp + ((53 : stdgo.GoInt)) : stdgo.GoInt);
             _m = (1.1102230246251565e-16 : stdgo.GoFloat64);
         };
-        _x = (_x & ((((9218868437227405312i64 : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        _x = (_x & ((((9218868437227405312i64 : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _x = (_x | ((((_exp + (1023 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64) << (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         return (_m * stdgo._internal.math.Math_float64frombits.float64frombits(_x) : stdgo.GoFloat64);
     }

@@ -3,7 +3,7 @@ function _genSplit(_s:stdgo.GoString, _sep:stdgo.GoString, _sepSave:stdgo.GoInt,
         if (_n == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Slice<stdgo.GoString>);
         };
-        if (_sep == (stdgo.Go.str())) {
+        if (_sep == ((stdgo.Go.str() : stdgo.GoString))) {
             return stdgo._internal.strings.Strings__explode._explode(_s?.__copy__(), _n);
         };
         if ((_n < (0 : stdgo.GoInt) : Bool)) {

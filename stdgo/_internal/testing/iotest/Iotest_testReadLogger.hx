@@ -19,7 +19,7 @@ function testReadLogger(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             stdgo._internal.log.Log_setPrefix.setPrefix(("lr: " : stdgo.GoString));
             stdgo._internal.log.Log_setOutput.setOutput(stdgo.Go.asInterface(_lOut));
             stdgo._internal.log.Log_setFlags.setFlags((0 : stdgo.GoInt));
-            var _data = (("Hello, World!" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _data = ((("Hello, World!" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             var _p = (new stdgo.Slice<stdgo.GoUInt8>((_data.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             var _lr = stdgo._internal.bytes.Bytes_newReader.newReader(_data);
             var _rl = (stdgo._internal.testing.iotest.Iotest_newReadLogger.newReadLogger(("read:" : stdgo.GoString), stdgo.Go.asInterface(_lr)) : stdgo._internal.io.Io_Reader.Reader);

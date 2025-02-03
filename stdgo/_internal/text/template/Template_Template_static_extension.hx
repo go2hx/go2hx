@@ -510,7 +510,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _setOption( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _opt:stdgo.GoString):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        if (_opt == (stdgo.Go.str())) {
+        if (_opt == ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("empty option string" : stdgo.GoString));
         };
         {
@@ -579,7 +579,7 @@ package stdgo._internal.text.template;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();

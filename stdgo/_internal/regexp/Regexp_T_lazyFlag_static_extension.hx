@@ -12,13 +12,13 @@ package stdgo._internal.regexp;
             if (((_r1 != (10 : stdgo.GoInt32)) && (_r1 >= (0 : stdgo.GoInt32) : Bool) : Bool)) {
                 return false;
             };
-            _op = (_op & ((((1 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((1 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         };
         if ((_op & (4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) != ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
             if ((_r1 >= (0 : stdgo.GoInt32) : Bool)) {
                 return false;
             };
-            _op = (_op & ((((4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         };
         if (_op == ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
             return true;
@@ -28,21 +28,21 @@ package stdgo._internal.regexp;
             if (((_r2 != (10 : stdgo.GoInt32)) && (_r2 >= (0 : stdgo.GoInt32) : Bool) : Bool)) {
                 return false;
             };
-            _op = (_op & ((((2 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((2 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         };
         if ((_op & (8 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) != ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
             if ((_r2 >= (0 : stdgo.GoInt32) : Bool)) {
                 return false;
             };
-            _op = (_op & ((((8 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((8 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         };
         if (_op == ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
             return true;
         };
         if (stdgo._internal.regexp.syntax.Syntax_isWordChar.isWordChar(_r1) != (stdgo._internal.regexp.syntax.Syntax_isWordChar.isWordChar(_r2))) {
-            _op = (_op & ((((16 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((16 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         } else {
-            _op = (_op & ((((32 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
+            _op = (_op & ((((32 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp);
         };
         return _op == ((0 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp));
     }

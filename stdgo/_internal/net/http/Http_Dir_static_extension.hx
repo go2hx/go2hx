@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
             return { _0 : (null : stdgo._internal.net.http.Http_File.File), _1 : stdgo._internal.net.http.Http__errors._errors.new_(("http: invalid or unsafe file path" : stdgo.GoString)) };
         };
         var _dir = ((_d : stdgo.GoString)?.__copy__() : stdgo.GoString);
-        if (_dir == (stdgo.Go.str())) {
+        if (_dir == ((stdgo.Go.str() : stdgo.GoString))) {
             _dir = ("." : stdgo.GoString);
         };
         var _fullName = (stdgo._internal.net.http.Http__filepath._filepath.join(_dir?.__copy__(), _path?.__copy__())?.__copy__() : stdgo.GoString);

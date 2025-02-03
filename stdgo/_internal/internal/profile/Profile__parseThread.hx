@@ -29,7 +29,7 @@ function _parseThread(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo.
                         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eOF.eOF))) {
                             return { _0 : null, _1 : _err };
                         };
-                        if (_line == (stdgo.Go.str())) {
+                        if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                             break;
                         };
                     };
@@ -53,7 +53,7 @@ function _parseThread(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo.
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_Location.Location>>);
         while (stdgo._internal.internal.profile.Profile__sectionTrigger._sectionTrigger(_line?.__copy__()) == ((0 : stdgo._internal.internal.profile.Profile_T_sectionType.T_sectionType))) {
             if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_line?.__copy__(), ("---- no stack trace for" : stdgo.GoString))) {
-                _line = stdgo.Go.str()?.__copy__();
+                _line = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 break;
             };
             {

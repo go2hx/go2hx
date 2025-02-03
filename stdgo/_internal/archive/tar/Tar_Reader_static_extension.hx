@@ -185,9 +185,9 @@ var _minor = __1, _major = __0;
             _is1x0 = false;
         } else if (((_major == ("1" : stdgo.GoString)) && (_minor == ("0" : stdgo.GoString)) : Bool)) {
             _is1x0 = true;
-        } else if (((_major != stdgo.Go.str()) || (_minor != stdgo.Go.str()) : Bool)) {
+        } else if (((_major != (stdgo.Go.str() : stdgo.GoString)) || (_minor != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
             return { _0 : null, _1 : (null : stdgo.Error) };
-        } else if (((@:checkr _hdr ?? throw "null pointer dereference").pAXRecords[("GNU.sparse.map" : stdgo.GoString)] ?? ("" : stdgo.GoString)) != (stdgo.Go.str())) {
+        } else if (((@:checkr _hdr ?? throw "null pointer dereference").pAXRecords[("GNU.sparse.map" : stdgo.GoString)] ?? ("" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString))) {
             _is1x0 = false;
         } else {
             return { _0 : null, _1 : (null : stdgo.Error) };
@@ -195,15 +195,15 @@ var _minor = __1, _major = __0;
         @:notptr (stdgo.Go.pointer((@:checkr _hdr ?? throw "null pointer dereference").format) : stdgo._internal.archive.tar.Tar_FormatPointer.FormatPointer)._mayOnlyBe((4 : stdgo._internal.archive.tar.Tar_Format.Format));
         {
             var _name = (((@:checkr _hdr ?? throw "null pointer dereference").pAXRecords[("GNU.sparse.name" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-            if (_name != (stdgo.Go.str())) {
+            if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
                 (@:checkr _hdr ?? throw "null pointer dereference").name = _name?.__copy__();
             };
         };
         var _size = (((@:checkr _hdr ?? throw "null pointer dereference").pAXRecords[("GNU.sparse.size" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-        if (_size == (stdgo.Go.str())) {
+        if (_size == ((stdgo.Go.str() : stdgo.GoString))) {
             _size = ((@:checkr _hdr ?? throw "null pointer dereference").pAXRecords[("GNU.sparse.realsize" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__();
         };
-        if (_size != (stdgo.Go.str())) {
+        if (_size != ((stdgo.Go.str() : stdgo.GoString))) {
             var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_size?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : stdgo._internal.archive.tar.Tar_errHeader.errHeader };
@@ -331,10 +331,10 @@ var _gnuLongLink = __1, _gnuLongName = __0;
                             return { _0 : null, _1 : _err };
                         };
                     };
-                    if (_gnuLongName != (stdgo.Go.str())) {
+                    if (_gnuLongName != ((stdgo.Go.str() : stdgo.GoString))) {
                         (@:checkr _hdr ?? throw "null pointer dereference").name = _gnuLongName?.__copy__();
                     };
-                    if (_gnuLongLink != (stdgo.Go.str())) {
+                    if (_gnuLongLink != ((stdgo.Go.str() : stdgo.GoString))) {
                         (@:checkr _hdr ?? throw "null pointer dereference").linkname = _gnuLongLink?.__copy__();
                     };
                     if ((@:checkr _hdr ?? throw "null pointer dereference").typeflag == ((0 : stdgo.GoUInt8))) {

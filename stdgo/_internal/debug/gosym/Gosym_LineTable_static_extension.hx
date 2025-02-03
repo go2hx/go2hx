@@ -324,7 +324,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                             stdgo.Go.recover_exception = null;
                             r;
                         }) != null) : Bool)) {
-                            _file = stdgo.Go.str()?.__copy__();
+                            _file = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                         };
                     };
                     a();
@@ -333,7 +333,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             var _f = (@:check2r _t._findFunc(_pc)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
             if (_f.isZero()) {
                 {
-                    final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
+                    final __ret__:stdgo.GoString = _file = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -348,7 +348,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             if ((@:checkr _t ?? throw "null pointer dereference")._version == ((2 : stdgo._internal.debug.gosym.Gosym_T_version.T_version))) {
                 if ((_fno <= (0 : stdgo.GoInt32) : Bool)) {
                     {
-                        final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
+                        final __ret__:stdgo.GoString = _file = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                         for (defer in __deferstack__) {
                             if (defer.ran) continue;
                             defer.ran = true;
@@ -369,7 +369,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             };
             if ((_fno < (0 : stdgo.GoInt32) : Bool)) {
                 {
-                    final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
+                    final __ret__:stdgo.GoString = _file = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -394,7 +394,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 };
             };
             {
-                final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
+                final __ret__:stdgo.GoString = _file = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

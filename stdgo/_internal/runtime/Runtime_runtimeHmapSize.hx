@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-final runtimeHmapSize : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+final runtimeHmapSize : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);

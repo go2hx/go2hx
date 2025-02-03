@@ -27,7 +27,7 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function _writeTo( _b:stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>, _sb:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode> = _b;
-        var _name = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
+        var _name = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         {
             final __value__ = (@:checkr _b ?? throw "null pointer dereference").nodeType;
             if (__value__ == ((10 : stdgo._internal.text.template.parse.Parse_NodeType.NodeType))) {

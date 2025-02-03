@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function benchmarkOnePassShortB(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         @:check2r _b.stopTimer();
-        var _x = (("abcddddddeeeededd" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+        var _x = ((("abcddddddeeeededd" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         var _re = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("^.bc(?:d|e)*$" : stdgo.GoString));
         @:check2r _b.startTimer();
         {

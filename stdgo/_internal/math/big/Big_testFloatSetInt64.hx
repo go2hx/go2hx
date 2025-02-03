@@ -21,7 +21,7 @@ function testFloatSetInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             while ((_prec <= (63u32 : stdgo.GoUInt) : Bool)) {
                 var _f = @:check2r @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setInt64((8526495040805286416i64 : stdgo.GoInt64));
 var _got = (@:check2r _f._int64() : stdgo.GoInt64);
-var _want = ((8526495040805286416i64 : stdgo.GoInt64) & ((((((1i64 : stdgo.GoInt64) << (((63u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoInt64) - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt64);
+var _want = ((8526495040805286416i64 : stdgo.GoInt64) & ((((((1i64 : stdgo.GoInt64) << (((63u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoInt64) - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt64)) : stdgo.GoInt64);
 if (_got != (_want)) {
                     @:check2r _t.errorf(("got %#x (%s); want %#x" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(@:check2r _f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(_want));
                 };

@@ -134,7 +134,7 @@ package stdgo._internal.debug.pe;
             } else if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix((@:checkr _s ?? throw "null pointer dereference").sectionHeader.name?.__copy__(), (".zdebug_" : stdgo.GoString))) {
                 return ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.name.__slice__((8 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             } else {
-                return stdgo.Go.str()?.__copy__();
+                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
         };
         var _sectionData = function(_s:stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
@@ -180,7 +180,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>>);
         for (__2 => _s in (@:checkr _f ?? throw "null pointer dereference").sections) {
             var _suffix = (_dwarfSuffix(_s)?.__copy__() : stdgo.GoString);
-            if (_suffix == (stdgo.Go.str())) {
+            if (_suffix == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             {
@@ -201,7 +201,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         for (_i => _s in (@:checkr _f ?? throw "null pointer dereference").sections) {
             var _suffix = (_dwarfSuffix(_s)?.__copy__() : stdgo.GoString);
-            if (_suffix == (stdgo.Go.str())) {
+            if (_suffix == ((stdgo.Go.str() : stdgo.GoString))) {
                 continue;
             };
             {

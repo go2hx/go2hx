@@ -301,8 +301,8 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	}
 	// Do not add ObjectMap casting, breaks regexp/syntax GoRefMap cast at stdgo/_internal/regexp/syntax/Syntax_T_parser_static_extension.hx  
 }
-
-private class GoStringMap<T> extends BalancedTree<GoString, T> {
+@:dox(hide)
+class GoStringMap<T> extends BalancedTree<GoString, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:GoString, k2:GoString):Int {
 		return if (k1 == k2) {
@@ -335,8 +335,8 @@ private class GoStringMap<T> extends BalancedTree<GoString, T> {
 		super.set(key.__copy__(), value);
 	}
 }
-
-private class GoInt64Map<T> extends BalancedTree<GoInt64, T> {
+@:dox(hide)
+class GoInt64Map<T> extends BalancedTree<GoInt64, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:GoInt64, k2:GoInt64):Int {
 		return if (k1 == k2) {
@@ -361,8 +361,8 @@ private class GoInt64Map<T> extends BalancedTree<GoInt64, T> {
 		return __defaultValue__();
 	}
 }
-
-private private typedef GoUInt64Map<T> = GoInt64Map<T>;
+@:dox(hide)
+typedef GoUInt64Map<T> = GoInt64Map<T>;
 /*
 class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 	public var __defaultValue__:Void->T;
@@ -389,8 +389,8 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 		return __defaultValue__();
 	}
 }*/
-
-private class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
+@:dox(hide)
+class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
 	public var bt:BalancedTree<GoFloat64, T>;
 	public var __defaultValue__:Void->T;
 	var root(get,set):TreeNode<GoFloat64, T>;
@@ -464,8 +464,9 @@ private class GoFloat64Map<T> implements haxe.Constraints.IMap<GoFloat64, T>  {
 /**
 	This Key/Value iterator can be used to iterate across maps.
 **/
+@:dox(hide)
 @:ifFeature("anon_read.keyValueIterator", "dynamic_read.keyValueIterator")
-private class GoFloat64MapMapKeyValueIterator<V> {
+class GoFloat64MapMapKeyValueIterator<V> {
 	var map:GoFloat64Map<V>;
 	var keys:Iterator<GoFloat64>;
 	var values:Iterator<V>;
@@ -495,21 +496,32 @@ private class GoFloat64MapMapKeyValueIterator<V> {
 
 
 // int
-private typedef GoInt8Map<T> = IntMap<T>;
-private typedef GoInt16Map<T> = IntMap<T>;
-private typedef GoInt32Map<T> = IntMap<T>;
-private typedef GoIntMap<T> = IntMap<T>;
-private typedef GoUIntMap<T> = IntMap<T>;
-private typedef GoUInt8Map<T> = IntMap<T>;
-private typedef GoUInt16Map<T> = IntMap<T>;
-private typedef GoUInt32Map<T> = IntMap<T>;
-private typedef GoFloatMap<T> = GoFloat64Map<T>;
-private typedef GoFloat32Map<T> = GoFloat64Map<T>;
-private typedef GoComplex64Map<T> = GoComplex128Map<T>;
+@:dox(hide)
+typedef GoInt8Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoInt16Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoInt32Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoIntMap<T> = IntMap<T>;
+@:dox(hide)
+typedef GoUIntMap<T> = IntMap<T>;
+@:dox(hide)
+typedef GoUInt8Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoUInt16Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoUInt32Map<T> = IntMap<T>;
+@:dox(hide)
+typedef GoFloatMap<T> = GoFloat64Map<T>;
+@:dox(hide)
+typedef GoFloat32Map<T> = GoFloat64Map<T>;
+@:dox(hide)
+typedef GoComplex64Map<T> = GoComplex128Map<T>;
 
 // ref
-
-private class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
+@:dox(hide)
+class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
 	public var __defaultValue__:Void->V;
 	override function compare(k1:Ref<K>, k2:Ref<K>):Int {
 		return k1 == k2 ? 0 : 1;
@@ -528,8 +540,8 @@ private class GoRefMap<K, V> extends BalancedTree<Ref<K>, V> {
 		return __defaultValue__();
 	}
 }
-
-private class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
+@:dox(hide)
+class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
 	public var __defaultValue__:Void->V;
 	override function compare(k1:Pointer<K>, k2:Pointer<K>):Int {
 		return k1 == k2 ? 0 : 1;
@@ -548,8 +560,8 @@ private class GoPointerMap<K, V> extends BalancedTree<Pointer<K>, V> {
 		return __defaultValue__();
 	}
 }
-
-private class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
+@:dox(hide)
+class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
 	public var __defaultValue__:Void->V;
 	override function compare(k1:Chan<K>, k2:Chan<K>):Int {
 		return k1 == k2 ? 0 : 1;
@@ -594,8 +606,8 @@ class GoUIntptrMap<T> extends BalancedTree<GoUIntptr, T> {
 		return __defaultValue__();
 	}
 }
-
-private class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
+@:dox(hide)
+class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:GoComplex128, k2:GoComplex128):Int {
 		return if (k1 == k2) {
@@ -620,8 +632,8 @@ private class GoComplex128Map<T> extends BalancedTree<GoComplex128, T> {
 		return __defaultValue__();
 	}
 }
-
-private class GoBoolMap<T> extends BalancedTree<Bool, T> {
+@:dox(hide)
+class GoBoolMap<T> extends BalancedTree<Bool, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:Bool, k2:Bool):Int {
 		return k1 == k2 ? 0 : 1;
@@ -640,8 +652,8 @@ private class GoBoolMap<T> extends BalancedTree<Bool, T> {
 		return __defaultValue__();
 	}
 }
-
-private class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
+@:dox(hide)
+class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
 	override function compare(k1:GoArray<T>, k2:GoArray<T>):Int {
 		return k1 == k2 ? 0 : 1;
 	}
@@ -668,8 +680,8 @@ class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 		}
 	}
 }
-
-private class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
+@:dox(hide)
+class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 	public var __defaultValue__:Void->V;
 
 	override function compare(k1:AnyInterface, k2:AnyInterface):Int {

@@ -1069,7 +1069,7 @@ class _Type {
 		if (k < KindType.int || k > KindType.complex128) {
 			throw Go.toInterface("reflect: Bits of non-arithmetic Type " + t.string());
 		}
-		return t.size() * 8;
+		return t.size().toBasic() * 8;
 	}
 
 	static public function comparable(t:_Type):Bool {

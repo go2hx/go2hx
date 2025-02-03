@@ -154,7 +154,7 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		return [];
 		#else
 		while (bytes.length > 0) {
-			final tmp = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(bytes);
+			final tmp = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune(bytes);
 			final rune = tmp._0;
 			final size = tmp._1;
 			bytes = bytes.__slice__(size);
@@ -276,7 +276,7 @@ private class GoStringIterator {
 		bytes = [];
 		return 0;
 		#else
-		final tmp = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(bytes);
+		final tmp = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune(bytes);
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);
@@ -301,7 +301,7 @@ private class GoStringKeyValueIterator {
 		bytes = [];
 		return {key: 0, value: 0};
 		#else
-		final tmp = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(bytes);
+		final tmp = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune(bytes);
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);

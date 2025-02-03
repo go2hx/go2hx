@@ -568,8 +568,8 @@ private class GoChanMap<K, V> extends BalancedTree<Chan<K>, V> {
 		return __defaultValue__();
 	}
 }
-
-private class GoUIntptrMap<T> extends BalancedTree<GoUIntptr, T> {
+@:dox(hide)
+class GoUIntptrMap<T> extends BalancedTree<GoUIntptr, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:GoUIntptr, k2:GoUIntptr):Int {
 		return if (k1 == k2) {
@@ -646,8 +646,8 @@ private class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
 		return k1 == k2 ? 0 : 1;
 	}
 }
-
-private class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
+@:dox(hide)
+class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 	public var t:_Type;
 
 	override function set(key:Dynamic, value:V) {

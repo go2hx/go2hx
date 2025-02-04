@@ -1,9 +1,9 @@
 package stdgo.internal.coverage.decodecounter;
 @:structInit @:using(stdgo.internal.coverage.decodecounter.Decodecounter.CounterDataReader_static_extension) abstract CounterDataReader(stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader) from stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader to stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader {
-    public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader;
-    function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader return this._stab;
-    function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader):stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader {
-        this._stab = (v : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader>);
+    public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader;
+    function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader return this._stab;
+    function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader):stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader {
+        this._stab = (v : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader>);
         return v;
     }
     public var _args(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
@@ -30,27 +30,27 @@ package stdgo.internal.coverage.decodecounter;
         this._goos = (v : stdgo.GoString);
         return v;
     }
-    public var _mr(get, set) : stdgo._internal.io.Io_ReadSeeker.ReadSeeker;
-    function get__mr():stdgo._internal.io.Io_ReadSeeker.ReadSeeker return this._mr;
-    function set__mr(v:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
+    public var _mr(get, set) : stdgo._internal.io.Io_readseeker.ReadSeeker;
+    function get__mr():stdgo._internal.io.Io_readseeker.ReadSeeker return this._mr;
+    function set__mr(v:stdgo._internal.io.Io_readseeker.ReadSeeker):stdgo._internal.io.Io_readseeker.ReadSeeker {
         this._mr = v;
         return v;
     }
-    public var _hdr(get, set) : stdgo._internal.internal.coverage.Coverage_CounterFileHeader.CounterFileHeader;
-    function get__hdr():stdgo._internal.internal.coverage.Coverage_CounterFileHeader.CounterFileHeader return this._hdr;
-    function set__hdr(v:stdgo._internal.internal.coverage.Coverage_CounterFileHeader.CounterFileHeader):stdgo._internal.internal.coverage.Coverage_CounterFileHeader.CounterFileHeader {
+    public var _hdr(get, set) : stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader;
+    function get__hdr():stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader return this._hdr;
+    function set__hdr(v:stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader):stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader {
         this._hdr = v;
         return v;
     }
-    public var _ftr(get, set) : stdgo._internal.internal.coverage.Coverage_CounterFileFooter.CounterFileFooter;
-    function get__ftr():stdgo._internal.internal.coverage.Coverage_CounterFileFooter.CounterFileFooter return this._ftr;
-    function set__ftr(v:stdgo._internal.internal.coverage.Coverage_CounterFileFooter.CounterFileFooter):stdgo._internal.internal.coverage.Coverage_CounterFileFooter.CounterFileFooter {
+    public var _ftr(get, set) : stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter;
+    function get__ftr():stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter return this._ftr;
+    function set__ftr(v:stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter):stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter {
         this._ftr = v;
         return v;
     }
-    public var _shdr(get, set) : stdgo._internal.internal.coverage.Coverage_CounterSegmentHeader.CounterSegmentHeader;
-    function get__shdr():stdgo._internal.internal.coverage.Coverage_CounterSegmentHeader.CounterSegmentHeader return this._shdr;
-    function set__shdr(v:stdgo._internal.internal.coverage.Coverage_CounterSegmentHeader.CounterSegmentHeader):stdgo._internal.internal.coverage.Coverage_CounterSegmentHeader.CounterSegmentHeader {
+    public var _shdr(get, set) : stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader;
+    function get__shdr():stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader return this._shdr;
+    function set__shdr(v:stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader):stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader {
         this._shdr = v;
         return v;
     }
@@ -84,8 +84,8 @@ package stdgo.internal.coverage.decodecounter;
         this._debug = v;
         return v;
     }
-    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader, ?_args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_osargs:Array<String>, ?_goarch:String, ?_goos:String, ?_mr:stdgo._internal.io.Io_ReadSeeker.ReadSeeker, ?_hdr:stdgo._internal.internal.coverage.Coverage_CounterFileHeader.CounterFileHeader, ?_ftr:stdgo._internal.internal.coverage.Coverage_CounterFileFooter.CounterFileFooter, ?_shdr:stdgo._internal.internal.coverage.Coverage_CounterSegmentHeader.CounterSegmentHeader, ?_u32b:Array<std.UInt>, ?_u8b:Array<std.UInt>, ?_fcnCount:std.UInt, ?_segCount:std.UInt, ?_debug:Bool) this = new stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader(
-(_stab : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_Reader.Reader>),
+    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader, ?_args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_osargs:Array<String>, ?_goarch:String, ?_goos:String, ?_mr:stdgo._internal.io.Io_readseeker.ReadSeeker, ?_hdr:stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader, ?_ftr:stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter, ?_shdr:stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader, ?_u32b:Array<std.UInt>, ?_u8b:Array<std.UInt>, ?_fcnCount:std.UInt, ?_segCount:std.UInt, ?_debug:Bool) this = new stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader(
+(_stab : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader>),
 (_args : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
 ([for (i in _osargs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (_goarch : stdgo.GoString),
@@ -128,54 +128,54 @@ _debug);
 typedef CounterDataReaderPointer = stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReaderPointer.CounterDataReaderPointer;
 class CounterDataReader_static_extension {
     static public function nextFunc(_cdr:CounterDataReader, _p:FuncPayload):stdgo.Tuple<Bool, stdgo.Error> {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_FuncPayload.FuncPayload>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_funcpayload.FuncPayload>);
         return {
             final obj = stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.nextFunc(_cdr, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function numFunctionsInSegment(_cdr:CounterDataReader):std.UInt {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.numFunctionsInSegment(_cdr);
     }
     static public function beginNextSegment(_cdr:CounterDataReader):stdgo.Tuple<Bool, stdgo.Error> {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return {
             final obj = stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.beginNextSegment(_cdr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function numSegments(_cdr:CounterDataReader):std.UInt {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.numSegments(_cdr);
     }
     static public function goarch(_cdr:CounterDataReader):String {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.goarch(_cdr);
     }
     static public function goos(_cdr:CounterDataReader):String {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.goos(_cdr);
     }
     static public function osArgs(_cdr:CounterDataReader):Array<String> {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return [for (i in stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension.osArgs(_cdr)) i];
     }
     static public function _readArgs(_cdr:CounterDataReader):stdgo.Error {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension._readArgs(_cdr);
     }
     static public function _readStringTable(_cdr:CounterDataReader):stdgo.Error {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension._readStringTable(_cdr);
     }
     static public function _readSegmentPreamble(_cdr:CounterDataReader):stdgo.Error {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension._readSegmentPreamble(_cdr);
     }
     static public function _readFooter(_cdr:CounterDataReader):stdgo.Error {
-        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader.CounterDataReader>);
+        final _cdr = (_cdr : stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader>);
         return stdgo._internal.internal.coverage.decodecounter.Decodecounter_CounterDataReader_static_extension.CounterDataReader_static_extension._readFooter(_cdr);
     }
 }
@@ -184,7 +184,7 @@ class FuncPayload_static_extension {
 
 }
 class Decodecounter {
-    static public inline function newCounterDataReader(_fn:String, _rs:stdgo._internal.io.Io_ReadSeeker.ReadSeeker):stdgo.Tuple<CounterDataReader, stdgo.Error> {
+    static public inline function newCounterDataReader(_fn:String, _rs:stdgo._internal.io.Io_readseeker.ReadSeeker):stdgo.Tuple<CounterDataReader, stdgo.Error> {
         final _fn = (_fn : stdgo.GoString);
         return {
             final obj = stdgo._internal.internal.coverage.decodecounter.Decodecounter_newCounterDataReader.newCounterDataReader(_fn, _rs);

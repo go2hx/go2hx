@@ -87,11 +87,11 @@ final aRM64_RELOC_ADDEND : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aR
 var errNotFat(get, set) : FormatError;
 private function get_errNotFat():FormatError return stdgo._internal.debug.macho.Macho_errNotFat.errNotFat;
 private function set_errNotFat(v:FormatError):FormatError {
-        stdgo._internal.debug.macho.Macho_errNotFat.errNotFat = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>);
+        stdgo._internal.debug.macho.Macho_errNotFat.errNotFat = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>);
         return v;
     }
 class Load_static_extension {
-    static public function raw(t:stdgo._internal.debug.macho.Macho_Load.Load):Array<std.UInt> {
+    static public function raw(t:stdgo._internal.debug.macho.Macho_load.Load):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Load_static_extension.Load_static_extension.raw(t)) i];
     }
 }
@@ -106,16 +106,16 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
     public var arches(get, set) : Array<FatArch>;
     function get_arches():Array<FatArch> return [for (i in this.arches) i];
     function set_arches(v:Array<FatArch>):Array<FatArch> {
-        this.arches = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_FatArch.FatArch>);
+        this.arches = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_fatarch.FatArch>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?magic:std.UInt, ?arches:Array<FatArch>, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.macho.Macho_FatFile.FatFile((magic : stdgo.GoUInt32), ([for (i in arches) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_FatArch.FatArch>), _closer);
+    public function new(?magic:std.UInt, ?arches:Array<FatArch>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_FatFile.FatFile((magic : stdgo.GoUInt32), ([for (i in arches) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_fatarch.FatArch>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -164,10 +164,10 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
     public var file(get, set) : File;
     function get_file():File return this.file;
     function set_file(v:File):File {
-        this.file = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        this.file = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return v;
     }
-    public function new(?fatArchHeader:FatArchHeader, ?file:File) this = new stdgo._internal.debug.macho.Macho_FatArch.FatArch(fatArchHeader, (file : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>));
+    public function new(?fatArchHeader:FatArchHeader, ?file:File) this = new stdgo._internal.debug.macho.Macho_FatArch.FatArch(fatArchHeader, (file : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -178,43 +178,43 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this.fileHeader = v;
         return v;
     }
-    public var byteOrder(get, set) : stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder;
-    function get_byteOrder():stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder return this.byteOrder;
-    function set_byteOrder(v:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder):stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder {
+    public var byteOrder(get, set) : stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder;
+    function get_byteOrder():stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder return this.byteOrder;
+    function set_byteOrder(v:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder):stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder {
         this.byteOrder = v;
         return v;
     }
     public var loads(get, set) : Array<Load>;
     function get_loads():Array<Load> return [for (i in this.loads) i];
     function set_loads(v:Array<Load>):Array<Load> {
-        this.loads = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Load.Load>);
+        this.loads = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>);
         return v;
     }
     public var sections(get, set) : Array<Section>;
     function get_sections():Array<Section> return [for (i in this.sections) i];
     function set_sections(v:Array<Section>):Array<Section> {
-        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>>);
+        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>>);
         return v;
     }
     public var symtab(get, set) : Symtab;
     function get_symtab():Symtab return this.symtab;
     function set_symtab(v:Symtab):Symtab {
-        this.symtab = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab>);
+        this.symtab = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtab.Symtab>);
         return v;
     }
     public var dysymtab(get, set) : Dysymtab;
     function get_dysymtab():Dysymtab return this.dysymtab;
     function set_dysymtab(v:Dysymtab):Dysymtab {
-        this.dysymtab = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab>);
+        this.dysymtab = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?byteOrder:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?loads:Array<Load>, ?sections:Array<Section>, ?symtab:Symtab, ?dysymtab:Dysymtab, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.macho.Macho_File.File(fileHeader, byteOrder, ([for (i in loads) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Load.Load>), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>>), (symtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab>), (dysymtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab>), _closer);
+    public function new(?fileHeader:FileHeader, ?byteOrder:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?loads:Array<Load>, ?sections:Array<Section>, ?symtab:Symtab, ?dysymtab:Dysymtab, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_File.File(fileHeader, byteOrder, ([for (i in loads) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>>), (symtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtab.Symtab>), (dysymtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -313,19 +313,19 @@ cmd,
         this.segmentHeader = v;
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?segmentHeader:SegmentHeader, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Segment.Segment(loadBytes, segmentHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?loadBytes:LoadBytes, ?segmentHeader:SegmentHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Segment.Segment(loadBytes, segmentHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -445,22 +445,22 @@ cmd,
     public var relocs(get, set) : Array<Reloc>;
     function get_relocs():Array<Reloc> return [for (i in this.relocs) i];
     function set_relocs(v:Array<Reloc>):Array<Reloc> {
-        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Reloc.Reloc>);
+        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_reloc.Reloc>);
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -515,10 +515,10 @@ cmd,
     public var syms(get, set) : Array<Symbol>;
     function get_syms():Array<Symbol> return [for (i in this.syms) i];
     function set_syms(v:Array<Symbol>):Array<Symbol> {
-        this.syms = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Symbol.Symbol>);
+        this.syms = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?symtabCmd:SymtabCmd, ?syms:Array<Symbol>) this = new stdgo._internal.debug.macho.Macho_Symtab.Symtab(loadBytes, symtabCmd, ([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_Symbol.Symbol>));
+    public function new(?loadBytes:LoadBytes, ?symtabCmd:SymtabCmd, ?syms:Array<Symbol>) this = new stdgo._internal.debug.macho.Macho_Symtab.Symtab(loadBytes, symtabCmd, ([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1670,7 +1670,7 @@ typedef RelocTypeARM64 = stdgo._internal.debug.macho.Macho_RelocTypeARM64.RelocT
 typedef FatFilePointer = stdgo._internal.debug.macho.Macho_FatFilePointer.FatFilePointer;
 class FatFile_static_extension {
     static public function close(_ff:FatFile):stdgo.Error {
-        final _ff = (_ff : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatFile.FatFile>);
+        final _ff = (_ff : stdgo.Ref<stdgo._internal.debug.macho.Macho_fatfile.FatFile>);
         return stdgo._internal.debug.macho.Macho_FatFile_static_extension.FatFile_static_extension.close(_ff);
     }
 }
@@ -1680,95 +1680,95 @@ class FatArchHeader_static_extension {
 }
 typedef FatArchPointer = stdgo._internal.debug.macho.Macho_FatArchPointer.FatArchPointer;
 class FatArch_static_extension {
-    public static function _pushSection(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch, _0:Section, _1:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Error {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+    public static function _pushSection(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:Section, _1:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
         return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension._pushSection(__self__, _0, _1);
     }
-    public static function _parseSymtab(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch, _0:Array<std.UInt>, _1:Array<std.UInt>, _2:Array<std.UInt>, _3:SymtabCmd, _4:haxe.Int64):stdgo.Tuple<Symtab, stdgo.Error> {
+    public static function _parseSymtab(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:Array<std.UInt>, _1:Array<std.UInt>, _2:Array<std.UInt>, _3:SymtabCmd, _4:haxe.Int64):stdgo.Tuple<Symtab, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _2 = ([for (i in _2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _3 = (_3 : stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>);
+        final _3 = (_3 : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd>);
         final _4 = (_4 : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension._parseSymtab(__self__, _0, _1, _2, _3, _4);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function segment(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch, _0:String):Segment {
+    public static function segment(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:String):Segment {
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.segment(__self__, _0);
     }
-    public static function section(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch, _0:String):Section {
+    public static function section(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:String):Section {
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.section(__self__, _0);
     }
-    public static function importedSymbols(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
+    public static function importedSymbols(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.importedSymbols(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function importedLibraries(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
+    public static function importedLibraries(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.importedLibraries(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function dWARF(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
+    public static function dWARF(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.dWARF(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function close(__self__:stdgo._internal.debug.macho.Macho_FatArch.FatArch):stdgo.Error {
+    public static function close(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Error {
         return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.close(__self__);
     }
 }
 typedef FilePointer = stdgo._internal.debug.macho.Macho_FilePointer.FilePointer;
 class File_static_extension {
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
             final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.importedLibraries(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function importedSymbols(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
             final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.importedSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
             final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function section(_f:File, _name:String):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.section(_f, _name);
     }
     static public function segment(_f:File, _name:String):Segment {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.segment(_f, _name);
     }
-    static public function _pushSection(_f:File, _sh:Section, _r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
-        final _sh = (_sh : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+    static public function _pushSection(_f:File, _sh:Section, _r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
+        final _sh = (_sh : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
         return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension._pushSection(_f, _sh, _r);
     }
     static public function _parseSymtab(_f:File, _symdat:Array<std.UInt>, _strtab:Array<std.UInt>, _cmddat:Array<std.UInt>, _hdr:SymtabCmd, _offset:haxe.Int64):stdgo.Tuple<Symtab, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _symdat = ([for (i in _symdat) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _strtab = ([for (i in _strtab) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _cmddat = ([for (i in _cmddat) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _hdr = (_hdr : stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>);
+        final _hdr = (_hdr : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd>);
         final _offset = (_offset : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension._parseSymtab(_f, _symdat, _strtab, _cmddat, _hdr, _offset);
@@ -1776,7 +1776,7 @@ class File_static_extension {
         };
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.close(_f);
     }
 }
@@ -1786,18 +1786,18 @@ class SegmentHeader_static_extension {
 }
 typedef SegmentPointer = stdgo._internal.debug.macho.Macho_SegmentPointer.SegmentPointer;
 class Segment_static_extension {
-    static public function open(_s:Segment):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment>);
+    static public function open(_s:Segment):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment>);
         return stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.open(_s);
     }
     static public function data(_s:Segment):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment>);
         return {
             final obj = stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.macho.Macho_Segment.Segment, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.macho.Macho_segment.Segment, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -1805,7 +1805,7 @@ class Segment_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function raw(__self__:stdgo._internal.debug.macho.Macho_Segment.Segment):Array<std.UInt> {
+    public static function raw(__self__:stdgo._internal.debug.macho.Macho_segment.Segment):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.raw(__self__)) i];
     }
 }
@@ -1819,18 +1819,18 @@ class Reloc_static_extension {
 }
 typedef SectionPointer = stdgo._internal.debug.macho.Macho_SectionPointer.SectionPointer;
 class Section_static_extension {
-    static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+    static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
         return stdgo._internal.debug.macho.Macho_Section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
         return {
             final obj = stdgo._internal.debug.macho.Macho_Section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.macho.Macho_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.macho.Macho_section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -1841,25 +1841,25 @@ class Section_static_extension {
 }
 typedef DylibPointer = stdgo._internal.debug.macho.Macho_DylibPointer.DylibPointer;
 class Dylib_static_extension {
-    public static function raw(__self__:stdgo._internal.debug.macho.Macho_Dylib.Dylib):Array<std.UInt> {
+    public static function raw(__self__:stdgo._internal.debug.macho.Macho_dylib.Dylib):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Dylib_static_extension.Dylib_static_extension.raw(__self__)) i];
     }
 }
 typedef SymtabPointer = stdgo._internal.debug.macho.Macho_SymtabPointer.SymtabPointer;
 class Symtab_static_extension {
-    public static function raw(__self__:stdgo._internal.debug.macho.Macho_Symtab.Symtab):Array<std.UInt> {
+    public static function raw(__self__:stdgo._internal.debug.macho.Macho_symtab.Symtab):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Symtab_static_extension.Symtab_static_extension.raw(__self__)) i];
     }
 }
 typedef DysymtabPointer = stdgo._internal.debug.macho.Macho_DysymtabPointer.DysymtabPointer;
 class Dysymtab_static_extension {
-    public static function raw(__self__:stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab):Array<std.UInt> {
+    public static function raw(__self__:stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Dysymtab_static_extension.Dysymtab_static_extension.raw(__self__)) i];
     }
 }
 typedef RpathPointer = stdgo._internal.debug.macho.Macho_RpathPointer.RpathPointer;
 class Rpath_static_extension {
-    public static function raw(__self__:stdgo._internal.debug.macho.Macho_Rpath.Rpath):Array<std.UInt> {
+    public static function raw(__self__:stdgo._internal.debug.macho.Macho_rpath.Rpath):Array<std.UInt> {
         return [for (i in stdgo._internal.debug.macho.Macho_Rpath_static_extension.Rpath_static_extension.raw(__self__)) i];
     }
 }
@@ -1870,7 +1870,7 @@ class Symbol_static_extension {
 typedef FormatErrorPointer = stdgo._internal.debug.macho.Macho_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>);
         return stdgo._internal.debug.macho.Macho_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
@@ -2030,7 +2030,7 @@ class Macho {
         universal binary. The Mach-O binary is expected to start at position 0 in
         the ReaderAt.
     **/
-    static public inline function newFatFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<FatFile, stdgo.Error> {
+    static public inline function newFatFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<FatFile, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.macho.Macho_newFatFile.newFatFile(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -2061,7 +2061,7 @@ class Macho {
         NewFile creates a new File for accessing a Mach-O binary in an underlying reader.
         The Mach-O binary is expected to start at position 0 in the ReaderAt.
     **/
-    static public inline function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.macho.Macho_newFile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };

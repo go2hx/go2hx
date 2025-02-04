@@ -7,7 +7,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
             _path = (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         {
-            var _i = (stdgo._internal.path.Path__lastSlash._lastSlash(_path?.__copy__()) : stdgo.GoInt);
+            var _i = (stdgo._internal.path.Path__lastslash._lastSlash(_path?.__copy__()) : stdgo.GoInt);
             if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _path = (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };

@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___struct_10305_static_extension.T_testStructNonStruct___localname___Struct_10305_static_extension) typedef T_testStructNonStruct___localname___Struct_10305Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___struct_10305.T_testStructNonStruct___localname___Struct_10305>;

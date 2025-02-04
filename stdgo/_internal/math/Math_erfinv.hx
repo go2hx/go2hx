@@ -1,10 +1,10 @@
 package stdgo._internal.math;
 function erfinv(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
-        if (((stdgo._internal.math.Math_isNaN.isNaN(_x) || (_x <= (-1 : stdgo.GoFloat64) : Bool) : Bool) || (_x >= (1 : stdgo.GoFloat64) : Bool) : Bool)) {
+        if (((stdgo._internal.math.Math_isnan.isNaN(_x) || (_x <= (-1 : stdgo.GoFloat64) : Bool) : Bool) || (_x >= (1 : stdgo.GoFloat64) : Bool) : Bool)) {
             if (((_x == (-1 : stdgo.GoFloat64)) || (_x == (1 : stdgo.GoFloat64)) : Bool)) {
                 return stdgo._internal.math.Math_inf.inf((_x : stdgo.GoInt));
             };
-            return stdgo._internal.math.Math_naN.naN();
+            return stdgo._internal.math.Math_nan.naN();
         };
         var _sign = (false : Bool);
         if ((_x < (0 : stdgo.GoFloat64) : Bool)) {

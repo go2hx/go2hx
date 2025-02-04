@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testmarshalfloatmap___localname___mapentry_27951_static_extension.T_testMarshalFloatMap___localname___mapEntry_27951_static_extension) typedef T_testMarshalFloatMap___localname___mapEntry_27951Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testmarshalfloatmap___localname___mapentry_27951.T_testMarshalFloatMap___localname___mapEntry_27951>;

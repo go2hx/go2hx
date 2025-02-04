@@ -1,5 +1,5 @@
 package stdgo._internal.time;
-function sleep(_d:stdgo._internal.time.Time_Duration.Duration):Void {
+function sleep(_d:stdgo._internal.time.Time_duration.Duration):Void {
         final seconds = _d.toFloat() / 1000000000;
         #if (sys || hxnodejs) {
             var ticks = std.Math.floor(seconds * 100);

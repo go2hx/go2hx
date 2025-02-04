@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.internal.nistec;
+var _p224GeneratorTable : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>> = new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>(56, 56, ...[for (i in 0 ... (56 > 56 ? 56 : 56 : stdgo.GoInt).toBasic()) new stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table(15, 15, ...[for (i in 0 ... 15) (null : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>)])]);

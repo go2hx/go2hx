@@ -1,5 +1,5 @@
 package stdgo._internal.time;
-function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _day:stdgo.GoInt, _hour:stdgo.GoInt, _min:stdgo.GoInt, _sec:stdgo.GoInt, _nsec:stdgo.GoInt, _loc:stdgo.Ref<stdgo._internal.time.Time_Location.Location>):stdgo._internal.time.Time_Time.Time {
+function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_month.Month, _day:stdgo.GoInt, _hour:stdgo.GoInt, _min:stdgo.GoInt, _sec:stdgo.GoInt, _nsec:stdgo.GoInt, _loc:stdgo.Ref<stdgo._internal.time.Time_location.Location>):stdgo._internal.time.Time_time.Time {
         if ((_loc == null || (_loc : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("time: missing Location in call to Date" : stdgo.GoString));
         };
@@ -9,7 +9,7 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
             _year = @:tmpset0 __tmp__._0;
             _m = @:tmpset0 __tmp__._1;
         };
-        _month = ((_m : stdgo._internal.time.Time_Month.Month) + (1 : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month);
+        _month = ((_m : stdgo._internal.time.Time_month.Month) + (1 : stdgo._internal.time.Time_month.Month) : stdgo._internal.time.Time_month.Month);
         {
             var __tmp__ = stdgo._internal.time.Time__norm._norm(_sec, _nsec, (1000000000 : stdgo.GoInt));
             _sec = @:tmpset0 __tmp__._0;
@@ -30,9 +30,9 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
             _day = @:tmpset0 __tmp__._0;
             _hour = @:tmpset0 __tmp__._1;
         };
-        var _d = (stdgo._internal.time.Time__daysSinceEpoch._daysSinceEpoch(_year) : stdgo.GoUInt64);
-        _d = (_d + ((stdgo._internal.time.Time__daysBefore._daysBefore[((_month - (1 : stdgo._internal.time.Time_Month.Month) : stdgo._internal.time.Time_Month.Month) : stdgo.GoInt)] : stdgo.GoUInt64)) : stdgo.GoUInt64);
-        if ((stdgo._internal.time.Time__isLeap._isLeap(_year) && (_month >= (3 : stdgo._internal.time.Time_Month.Month) : Bool) : Bool)) {
+        var _d = (stdgo._internal.time.Time__dayssinceepoch._daysSinceEpoch(_year) : stdgo.GoUInt64);
+        _d = (_d + ((stdgo._internal.time.Time__daysbefore._daysBefore[((_month - (1 : stdgo._internal.time.Time_month.Month) : stdgo._internal.time.Time_month.Month) : stdgo.GoInt)] : stdgo.GoUInt64)) : stdgo.GoUInt64);
+        if ((stdgo._internal.time.Time__isleap._isLeap(_year) && (_month >= (3 : stdgo._internal.time.Time_month.Month) : Bool) : Bool)) {
             _d++;
         };
         _d = (_d + (((_day - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
@@ -50,7 +50,7 @@ function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _
             };
             _unix = (_unix - ((_offset : stdgo.GoInt64)) : stdgo.GoInt64);
         };
-        var _t = (stdgo._internal.time.Time__unixTime._unixTime(_unix, (_nsec : stdgo.GoInt32))?.__copy__() : stdgo._internal.time.Time_Time.Time);
+        var _t = (stdgo._internal.time.Time__unixtime._unixTime(_unix, (_nsec : stdgo.GoInt32))?.__copy__() : stdgo._internal.time.Time_time.Time);
         @:check2 _t._setLoc(_loc);
         return _t?.__copy__();
     }

@@ -1,2 +1,0 @@
-package stdgo._internal.text.template;
-@:keep @:follow @:using(stdgo._internal.text.template.Template_T_testIssue48215___localname___A_58273_static_extension.T_testIssue48215___localname___A_58273_static_extension) typedef T_testIssue48215___localname___A_58273Pointer = stdgo.Pointer<stdgo._internal.text.template.Template_T_testIssue48215___localname___A_58273.T_testIssue48215___localname___A_58273>;

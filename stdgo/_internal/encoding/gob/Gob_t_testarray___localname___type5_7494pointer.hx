@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testarray___localname___type5_7494_static_extension.T_testArray___localname___Type5_7494_static_extension) typedef T_testArray___localname___Type5_7494Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testarray___localname___type5_7494.T_testArray___localname___Type5_7494>;

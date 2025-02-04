@@ -299,7 +299,7 @@ class Go {
 	/**
 		Create an interface from a type of expr
 		On the fly interface creation
-	**/
+	*/
 	public static macro function asInterface(expr) {
 		// trace(new haxe.macro.Printer().printExpr(expr));
 		final selfType = Context.typeof(switch expr.expr {
@@ -340,7 +340,7 @@ class Go {
 				if (p.pack != ["stdgo"] && p.name == "Error") {
 
 				}else{
-					p.name += s;
+					p.name += s.toLowerCase();
 				}
 				// trace(new haxe.macro.Printer().printTypePath(p));
 				return p;
@@ -1088,7 +1088,7 @@ class Go {
 										var type:haxe.macro.Type = ref.type;
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
-										final extensionPath = ref.module + "_asInterface." + ref.name + "_asInterface";
+										final extensionPath = ref.module + "_asinterface." + ref.name + "_asInterface";
 										var extensionType = null;
 										try {
 											extensionType = Context.getType(extensionPath);

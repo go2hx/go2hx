@@ -1,14 +1,14 @@
-[30;41m ERROR [0m ./stdgo/_internal/go/build/Build_Context_static_extension.hx:804: lines 804-806
+[30;41m ERROR [0m ./stdgo/_internal/go/build/Build_context_static_extension.hx:804: lines 804-806
 
-  804 | [2m                        [0m[1mif (((!_ok || !stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_sub?.__copy__(), ("src/" : stdgo.GoString)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_sub?.__copy__(), ("/testdata/" : stdgo.GoString)) : Bool)) {[0m
+  804 | [2m                        [0m[1mif (((!_ok || !stdgo._internal.strings.Strings_hasprefix.hasPrefix(_sub?.__copy__(), ("src/" : stdgo.GoString)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_sub?.__copy__(), ("/testdata/" : stdgo.GoString)) : Bool)) {[0m
   805 | [1m                            return false;[0m
   806 | [1m                        }[0m[2m;[0m
       |
       | Missing return: Bool
 
-[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_Checker_static_extension.hx:1855: character 39
+[30;41m ERROR [0m ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1858: character 39
 
- 1855 | [2m        var _keys_6825697:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+ 1858 | [2m        var _keys_6306563:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
       |                                       [31m^[0m
       | Invalid character '#'
 

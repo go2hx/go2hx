@@ -1,38 +1,38 @@
 package stdgo.internal.reflectlite;
-final ptr : stdgo._internal.internal.abi.Abi_Kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_ptr.ptr;
-final interface_ : stdgo._internal.internal.abi.Abi_Kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_interface_.interface_;
-final slice : stdgo._internal.internal.abi.Abi_Kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_slice.slice;
-final string : stdgo._internal.internal.abi.Abi_Kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_string.string;
-final struct_ : stdgo._internal.internal.abi.Abi_Kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_struct_.struct_;
+final ptr : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_ptr.ptr;
+final interface_ : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_interface_.interface_;
+final slice : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_slice.slice;
+final string : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_string.string;
+final struct_ : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_struct_.struct_;
 typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_Type_.Type_;
 @:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_rtype_static_extension) abstract T_rtype(stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype) from stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype to stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype {
-    public var type(get, set) : stdgo._internal.internal.abi.Abi_Type_.Type_;
-    function get_type():stdgo._internal.internal.abi.Abi_Type_.Type_ return this.type;
-    function set_type(v:stdgo._internal.internal.abi.Abi_Type_.Type_):stdgo._internal.internal.abi.Abi_Type_.Type_ {
-        this.type = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
+    function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
+    function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
+        this.type = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         return v;
     }
-    public function new(?type:stdgo._internal.internal.abi.Abi_Type_.Type_) this = new stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype((type : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>));
+    public function new(?type:stdgo._internal.internal.abi.Abi_type_.Type_) this = new stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype((type : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_mapType_static_extension) abstract T_mapType(stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType) from stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType to stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType {
-    public var key(get, set) : stdgo._internal.internal.abi.Abi_Type_.Type_;
-    function get_key():stdgo._internal.internal.abi.Abi_Type_.Type_ return this.key;
-    function set_key(v:stdgo._internal.internal.abi.Abi_Type_.Type_):stdgo._internal.internal.abi.Abi_Type_.Type_ {
-        this.key = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public var key(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
+    function get_key():stdgo._internal.internal.abi.Abi_type_.Type_ return this.key;
+    function set_key(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
+        this.key = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         return v;
     }
-    public var elem(get, set) : stdgo._internal.internal.abi.Abi_Type_.Type_;
-    function get_elem():stdgo._internal.internal.abi.Abi_Type_.Type_ return this.elem;
-    function set_elem(v:stdgo._internal.internal.abi.Abi_Type_.Type_):stdgo._internal.internal.abi.Abi_Type_.Type_ {
-        this.elem = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public var elem(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
+    function get_elem():stdgo._internal.internal.abi.Abi_type_.Type_ return this.elem;
+    function set_elem(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
+        this.elem = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         return v;
     }
-    public var bucket(get, set) : stdgo._internal.internal.abi.Abi_Type_.Type_;
-    function get_bucket():stdgo._internal.internal.abi.Abi_Type_.Type_ return this.bucket;
-    function set_bucket(v:stdgo._internal.internal.abi.Abi_Type_.Type_):stdgo._internal.internal.abi.Abi_Type_.Type_ {
-        this.bucket = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public var bucket(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
+    function get_bucket():stdgo._internal.internal.abi.Abi_type_.Type_ return this.bucket;
+    function set_bucket(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
+        this.bucket = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         return v;
     }
     public var hasher(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
@@ -65,7 +65,7 @@ typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_Type_.Type_;
         this.flags = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?key:stdgo._internal.internal.abi.Abi_Type_.Type_, ?elem:stdgo._internal.internal.abi.Abi_Type_.Type_, ?bucket:stdgo._internal.internal.abi.Abi_Type_.Type_, ?hasher:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr, ?keySize:std.UInt, ?valueSize:std.UInt, ?bucketSize:std.UInt, ?flags:std.UInt) this = new stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType((key : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>), (elem : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>), (bucket : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>), hasher, (keySize : stdgo.GoUInt8), (valueSize : stdgo.GoUInt8), (bucketSize : stdgo.GoUInt16), (flags : stdgo.GoUInt32));
+    public function new(?key:stdgo._internal.internal.abi.Abi_type_.Type_, ?elem:stdgo._internal.internal.abi.Abi_type_.Type_, ?bucket:stdgo._internal.internal.abi.Abi_type_.Type_, ?hasher:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr, ?keySize:std.UInt, ?valueSize:std.UInt, ?bucketSize:std.UInt, ?flags:std.UInt) this = new stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType((key : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>), (elem : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>), (bucket : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>), hasher, (keySize : stdgo.GoUInt8), (valueSize : stdgo.GoUInt8), (bucketSize : stdgo.GoUInt16), (flags : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -82,13 +82,13 @@ typedef Value = stdgo._internal.internal.reflectlite.Reflectlite_Value.Value;
         this.method = (v : stdgo.GoString);
         return v;
     }
-    public var kind(get, set) : stdgo._internal.internal.abi.Abi_Kind.Kind;
-    function get_kind():stdgo._internal.internal.abi.Abi_Kind.Kind return this.kind;
-    function set_kind(v:stdgo._internal.internal.abi.Abi_Kind.Kind):stdgo._internal.internal.abi.Abi_Kind.Kind {
+    public var kind(get, set) : stdgo._internal.internal.abi.Abi_kind.Kind;
+    function get_kind():stdgo._internal.internal.abi.Abi_kind.Kind return this.kind;
+    function set_kind(v:stdgo._internal.internal.abi.Abi_kind.Kind):stdgo._internal.internal.abi.Abi_kind.Kind {
         this.kind = v;
         return v;
     }
-    public function new(?method:String, ?kind:stdgo._internal.internal.abi.Abi_Kind.Kind) this = new stdgo._internal.internal.reflectlite.Reflectlite_ValueError.ValueError((method : stdgo.GoString), kind);
+    public function new(?method:String, ?kind:stdgo._internal.internal.abi.Abi_kind.Kind) this = new stdgo._internal.internal.reflectlite.Reflectlite_ValueError.ValueError((method : stdgo.GoString), kind);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -163,175 +163,175 @@ class T_rtype_static_extension {
     static public function string(_t:T_rtype):String {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.string(_t);
     }
-    public static function uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_UncommonType.UncommonType {
+    public static function uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.uncommon(__self__);
     }
-    public static function structType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_StructType.StructType {
+    public static function structType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_structtype.StructType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.structType(__self__);
     }
-    public static function size(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo.GoUIntptr {
+    public static function size(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo.GoUIntptr {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.size(__self__);
     }
-    public static function pointers(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):Bool {
+    public static function pointers(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.pointers(__self__);
     }
-    public static function mapType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_MapType.MapType {
+    public static function mapType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_maptype.MapType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.mapType(__self__);
     }
-    public static function kind(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Kind.Kind {
+    public static function kind(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_kind.Kind {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.kind(__self__);
     }
-    public static function isDirectIface(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):Bool {
+    public static function isDirectIface(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType {
+    public static function interfaceType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):Bool {
+    public static function ifaceIndir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):Bool {
+    public static function hasName(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+    public static function gcSlice(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUIntptr);
         return [for (i in stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.gcSlice(__self__, _0, _1)) i];
     }
-    public static function funcType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_FuncType.FuncType {
+    public static function funcType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_functype.FuncType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):StdTypes.Int {
+    public static function fieldAlign(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):Array<stdgo._internal.internal.abi.Abi_Method.Method> {
+    public static function exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):Array<stdgo._internal.internal.abi.Abi_method.Method> {
         return [for (i in stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.common(__self__);
     }
-    public static function chanDir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_ChanDir.ChanDir {
+    public static function chanDir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_chandir.ChanDir {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.chanDir(__self__);
     }
-    public static function arrayType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_ArrayType.ArrayType {
+    public static function arrayType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_arraytype.ArrayType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.arrayType(__self__);
     }
-    public static function align(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_rtype.T_rtype):StdTypes.Int {
+    public static function align(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_rtype_static_extension.T_rtype_static_extension.align(__self__);
     }
 }
 typedef T_mapTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_T_mapTypePointer.T_mapTypePointer;
 class T_mapType_static_extension {
-    public static function _uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_UncommonType.UncommonType {
+    public static function _uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension._uncommon(__self__);
     }
-    public static function _typeOff(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:stdgo._internal.internal.abi.Abi_TypeOff.TypeOff):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function _typeOff(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:stdgo._internal.internal.abi.Abi_typeoff.TypeOff):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension._typeOff(__self__, _0);
     }
-    public static function _nameOff(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:stdgo._internal.internal.abi.Abi_NameOff.NameOff):stdgo._internal.internal.abi.Abi_Name.Name {
+    public static function _nameOff(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:stdgo._internal.internal.abi.Abi_nameoff.NameOff):stdgo._internal.internal.abi.Abi_name.Name {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension._nameOff(__self__, _0);
     }
-    public static function _exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Array<stdgo._internal.internal.abi.Abi_Method.Method> {
+    public static function _exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Array<stdgo._internal.internal.abi.Abi_method.Method> {
         return [for (i in stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension._exportedMethods(__self__)) i];
     }
-    public static function _common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function _common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension._common(__self__);
     }
-    public static function uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_UncommonType.UncommonType {
+    public static function uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.uncommon(__self__);
     }
-    public static function structType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_StructType.StructType {
+    public static function structType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_structtype.StructType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.structType(__self__);
     }
-    public static function string(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):String {
+    public static function string(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):String {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.string(__self__);
     }
-    public static function size(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo.GoUIntptr {
+    public static function size(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo.GoUIntptr {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.size(__self__);
     }
-    public static function pointers(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Bool {
+    public static function pointers(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.pointers(__self__);
     }
-    public static function pkgPath(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):String {
+    public static function pkgPath(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):String {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.pkgPath(__self__);
     }
-    public static function out(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:StdTypes.Int):Type_ {
+    public static function out(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:StdTypes.Int):Type_ {
         final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.out(__self__, _0);
     }
-    public static function numOut(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function numOut(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.numOut(__self__);
     }
-    public static function numMethod(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function numMethod(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.numMethod(__self__);
     }
-    public static function numIn(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function numIn(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.numIn(__self__);
     }
-    public static function numField(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function numField(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.numField(__self__);
     }
-    public static function name(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):String {
+    public static function name(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):String {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.name(__self__);
     }
-    public static function mapType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_MapType.MapType {
+    public static function mapType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_maptype.MapType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.mapType(__self__);
     }
-    public static function len(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function len(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.len(__self__);
     }
-    public static function kind(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_Kind.Kind {
+    public static function kind(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_kind.Kind {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.kind(__self__);
     }
-    public static function isDirectIface(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Bool {
+    public static function isDirectIface(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType {
+    public static function interfaceType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.interfaceType(__self__);
     }
-    public static function in_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:StdTypes.Int):Type_ {
+    public static function in_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:StdTypes.Int):Type_ {
         final _0 = (_0 : stdgo.GoInt);
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.in_(__self__, _0);
     }
-    public static function implements_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:Type_):Bool {
+    public static function implements_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:Type_):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.implements_(__self__, _0);
     }
-    public static function ifaceIndir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Bool {
+    public static function ifaceIndir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Bool {
+    public static function hasName(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+    public static function gcSlice(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUIntptr);
         return [for (i in stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.gcSlice(__self__, _0, _1)) i];
     }
-    public static function funcType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_FuncType.FuncType {
+    public static function funcType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_functype.FuncType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function fieldAlign(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Array<stdgo._internal.internal.abi.Abi_Method.Method> {
+    public static function exportedMethods(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Array<stdgo._internal.internal.abi.Abi_method.Method> {
         return [for (i in stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function comparable_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):Bool {
+    public static function comparable_(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.comparable_(__self__);
     }
-    public static function common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function common(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.common(__self__);
     }
-    public static function chanDir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_ChanDir.ChanDir {
+    public static function chanDir(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_chandir.ChanDir {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.chanDir(__self__);
     }
-    public static function assignableTo(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType, _0:Type_):Bool {
+    public static function assignableTo(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType, _0:Type_):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.assignableTo(__self__, _0);
     }
-    public static function arrayType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):stdgo._internal.internal.abi.Abi_ArrayType.ArrayType {
+    public static function arrayType(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_arraytype.ArrayType {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.arrayType(__self__);
     }
-    public static function align(__self__:stdgo._internal.internal.reflectlite.Reflectlite_T_mapType.T_mapType):StdTypes.Int {
+    public static function align(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_T_mapType_static_extension.T_mapType_static_extension.align(__self__);
     }
 }
@@ -350,7 +350,7 @@ class Value_static_extension {
     static public function len(_v:Value):StdTypes.Int {
         return stdgo._internal.internal.reflectlite.Reflectlite_Value_static_extension.Value_static_extension.len(_v);
     }
-    static public function kind(_v:Value):stdgo._internal.internal.abi.Abi_Kind.Kind {
+    static public function kind(_v:Value):stdgo._internal.internal.abi.Abi_kind.Kind {
         return stdgo._internal.internal.reflectlite.Reflectlite_Value_static_extension.Value_static_extension.kind(_v);
     }
     static public function isValid(_v:Value):Bool {
@@ -369,7 +369,7 @@ class Value_static_extension {
 typedef ValueErrorPointer = stdgo._internal.internal.reflectlite.Reflectlite_ValueErrorPointer.ValueErrorPointer;
 class ValueError_static_extension {
     static public function error(_e:ValueError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.internal.reflectlite.Reflectlite_ValueError.ValueError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError>);
         return stdgo._internal.internal.reflectlite.Reflectlite_ValueError_static_extension.ValueError_static_extension.error(_e);
     }
 }

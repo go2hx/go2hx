@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+@:keep @:follow @:using(stdgo._internal.encoding.json.Json_t_testnullstring___localname___t_41259_static_extension.T_testNullString___localname___T_41259_static_extension) typedef T_testNullString___localname___T_41259Pointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_t_testnullstring___localname___t_41259.T_testNullString___localname___T_41259>;

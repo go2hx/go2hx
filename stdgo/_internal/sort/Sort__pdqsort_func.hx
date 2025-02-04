@@ -1,35 +1,35 @@
 package stdgo._internal.sort;
-function _pdqsort_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void {
+function _pdqsort_func(_data:stdgo._internal.sort.Sort_t_lessswap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void {
         {};
         var __0 = true, __1 = true;
 var _wasPartitioned = __1, _wasBalanced = __0;
         while (true) {
             var _length = (_b - _a : stdgo.GoInt);
             if ((_length <= (12 : stdgo.GoInt) : Bool)) {
-                stdgo._internal.sort.Sort__insertionSort_func._insertionSort_func(_data?.__copy__(), _a, _b);
+                stdgo._internal.sort.Sort__insertionsort_func._insertionSort_func(_data?.__copy__(), _a, _b);
                 return;
             };
             if (_limit == ((0 : stdgo.GoInt))) {
-                stdgo._internal.sort.Sort__heapSort_func._heapSort_func(_data?.__copy__(), _a, _b);
+                stdgo._internal.sort.Sort__heapsort_func._heapSort_func(_data?.__copy__(), _a, _b);
                 return;
             };
             if (!_wasBalanced) {
-                stdgo._internal.sort.Sort__breakPatterns_func._breakPatterns_func(_data?.__copy__(), _a, _b);
+                stdgo._internal.sort.Sort__breakpatterns_func._breakPatterns_func(_data?.__copy__(), _a, _b);
                 _limit--;
             };
-            var __tmp__ = stdgo._internal.sort.Sort__choosePivot_func._choosePivot_func(_data?.__copy__(), _a, _b), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint = __tmp__._1;
-            if (_hint == ((2 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint))) {
-                stdgo._internal.sort.Sort__reverseRange_func._reverseRange_func(_data?.__copy__(), _a, _b);
+            var __tmp__ = stdgo._internal.sort.Sort__choosepivot_func._choosePivot_func(_data?.__copy__(), _a, _b), _pivot:stdgo.GoInt = __tmp__._0, _hint:stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint = __tmp__._1;
+            if (_hint == ((2 : stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint))) {
+                stdgo._internal.sort.Sort__reverserange_func._reverseRange_func(_data?.__copy__(), _a, _b);
                 _pivot = (((_b - (1 : stdgo.GoInt) : stdgo.GoInt)) - ((_pivot - _a : stdgo.GoInt)) : stdgo.GoInt);
-                _hint = (1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint);
+                _hint = (1 : stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint);
             };
-            if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint)) : Bool)) {
-                if (stdgo._internal.sort.Sort__partialInsertionSort_func._partialInsertionSort_func(_data?.__copy__(), _a, _b)) {
+            if (((_wasBalanced && _wasPartitioned : Bool) && (_hint == (1 : stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint)) : Bool)) {
+                if (stdgo._internal.sort.Sort__partialinsertionsort_func._partialInsertionSort_func(_data?.__copy__(), _a, _b)) {
                     return;
                 };
             };
             if (((_a > (0 : stdgo.GoInt) : Bool) && !_data.less((_a - (1 : stdgo.GoInt) : stdgo.GoInt), _pivot) : Bool)) {
-                var _mid = (stdgo._internal.sort.Sort__partitionEqual_func._partitionEqual_func(_data?.__copy__(), _a, _b, _pivot) : stdgo.GoInt);
+                var _mid = (stdgo._internal.sort.Sort__partitionequal_func._partitionEqual_func(_data?.__copy__(), _a, _b, _pivot) : stdgo.GoInt);
                 _a = _mid;
                 continue;
             };

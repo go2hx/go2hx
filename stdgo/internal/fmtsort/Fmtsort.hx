@@ -1,37 +1,37 @@
 package stdgo.internal.fmtsort;
 @:structInit @:using(stdgo.internal.fmtsort.Fmtsort.SortedMap_static_extension) abstract SortedMap(stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap) from stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap to stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap {
-    public var key(get, set) : Array<stdgo._internal.reflect.Reflect_Value.Value>;
-    function get_key():Array<stdgo._internal.reflect.Reflect_Value.Value> return [for (i in this.key) i];
-    function set_key(v:Array<stdgo._internal.reflect.Reflect_Value.Value>):Array<stdgo._internal.reflect.Reflect_Value.Value> {
-        this.key = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
+    public var key(get, set) : Array<stdgo._internal.reflect.Reflect_value.Value>;
+    function get_key():Array<stdgo._internal.reflect.Reflect_value.Value> return [for (i in this.key) i];
+    function set_key(v:Array<stdgo._internal.reflect.Reflect_value.Value>):Array<stdgo._internal.reflect.Reflect_value.Value> {
+        this.key = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>);
         return v;
     }
-    public var value(get, set) : Array<stdgo._internal.reflect.Reflect_Value.Value>;
-    function get_value():Array<stdgo._internal.reflect.Reflect_Value.Value> return [for (i in this.value) i];
-    function set_value(v:Array<stdgo._internal.reflect.Reflect_Value.Value>):Array<stdgo._internal.reflect.Reflect_Value.Value> {
-        this.value = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
+    public var value(get, set) : Array<stdgo._internal.reflect.Reflect_value.Value>;
+    function get_value():Array<stdgo._internal.reflect.Reflect_value.Value> return [for (i in this.value) i];
+    function set_value(v:Array<stdgo._internal.reflect.Reflect_value.Value>):Array<stdgo._internal.reflect.Reflect_value.Value> {
+        this.value = ([for (i in v) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>);
         return v;
     }
-    public function new(?key:Array<stdgo._internal.reflect.Reflect_Value.Value>, ?value:Array<stdgo._internal.reflect.Reflect_Value.Value>) this = new stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap(([for (i in key) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>), ([for (i in value) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>));
+    public function new(?key:Array<stdgo._internal.reflect.Reflect_value.Value>, ?value:Array<stdgo._internal.reflect.Reflect_value.Value>) this = new stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap(([for (i in key) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>), ([for (i in value) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef SortedMapPointer = stdgo._internal.internal.fmtsort.Fmtsort_SortedMapPointer.SortedMapPointer;
 class SortedMap_static_extension {
     static public function swap(_o:SortedMap, _i:StdTypes.Int, _j:StdTypes.Int):Void {
-        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.swap(_o, _i, _j);
     }
     static public function less(_o:SortedMap, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
-        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         return stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.less(_o, _i, _j);
     }
     static public function len(_o:SortedMap):StdTypes.Int {
-        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_SortedMap.SortedMap>);
+        final _o = (_o : stdgo.Ref<stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap>);
         return stdgo._internal.internal.fmtsort.Fmtsort_SortedMap_static_extension.SortedMap_static_extension.len(_o);
     }
 }
@@ -42,7 +42,7 @@ class SortedMap_static_extension {
     that are valid map keys.
 **/
 class Fmtsort {
-    static public inline function compare(_a:stdgo._internal.reflect.Reflect_Value.Value, _b:stdgo._internal.reflect.Reflect_Value.Value):StdTypes.Int {
+    static public inline function compare(_a:stdgo._internal.reflect.Reflect_value.Value, _b:stdgo._internal.reflect.Reflect_value.Value):StdTypes.Int {
         return stdgo._internal.internal.fmtsort.Fmtsort_compare.compare(_a, _b);
     }
     /**
@@ -65,7 +65,7 @@ class Fmtsort {
           - interface values compare first by reflect.Type describing the concrete type
             and then by concrete value as described in the previous rules.
     **/
-    static public inline function sort(_mapValue:stdgo._internal.reflect.Reflect_Value.Value):SortedMap {
+    static public inline function sort(_mapValue:stdgo._internal.reflect.Reflect_value.Value):SortedMap {
         return stdgo._internal.internal.fmtsort.Fmtsort_sort.sort(_mapValue);
     }
 }

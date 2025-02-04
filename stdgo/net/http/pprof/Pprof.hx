@@ -35,14 +35,14 @@ class T_profileEntry_static_extension {
 }
 typedef T_handlerPointer = stdgo._internal.net.http.pprof.Pprof_T_handlerPointer.T_handlerPointer;
 class T_handler_static_extension {
-    static public function _serveDeltaProfile(_name:T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request, _p:stdgo._internal.runtime.pprof.Pprof_Profile.Profile, _secStr:String):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+    static public function _serveDeltaProfile(_name:T_handler, _w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request, _p:stdgo._internal.runtime.pprof.Pprof_profile.Profile, _secStr:String):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         final _secStr = (_secStr : stdgo.GoString);
         stdgo._internal.net.http.pprof.Pprof_T_handler_static_extension.T_handler_static_extension._serveDeltaProfile(_name, _w, _r, _p, _secStr);
     }
-    static public function serveHTTP(_name:T_handler, _w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function serveHTTP(_name:T_handler, _w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_T_handler_static_extension.T_handler_static_extension.serveHTTP(_name, _w, _r);
     }
 }
@@ -119,8 +119,8 @@ class Pprof {
         command line, with arguments separated by NUL bytes.
         The package initialization registers it as /debug/pprof/cmdline.
     **/
-    static public inline function cmdline(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function cmdline(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_cmdline.cmdline(_w, _r);
     }
     /**
@@ -128,8 +128,8 @@ class Pprof {
         Profiling lasts for duration specified in seconds GET parameter, or for 30 seconds if not specified.
         The package initialization registers it as /debug/pprof/profile.
     **/
-    static public inline function profile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function profile(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_profile.profile(_w, _r);
     }
     /**
@@ -137,8 +137,8 @@ class Pprof {
         Tracing lasts for duration specified in seconds GET parameter, or for 1 second if not specified.
         The package initialization registers it as /debug/pprof/trace.
     **/
-    static public inline function trace_(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function trace_(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_trace_.trace_(_w, _r);
     }
     /**
@@ -146,15 +146,15 @@ class Pprof {
         responding with a table mapping program counters to function names.
         The package initialization registers it as /debug/pprof/symbol.
     **/
-    static public inline function symbol(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function symbol(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_symbol.symbol(_w, _r);
     }
     /**
         Handler returns an HTTP handler that serves the named profile.
         Available profiles can be found in [runtime/pprof.Profile].
     **/
-    static public inline function handler(_name:String):stdgo._internal.net.http.Http_Handler.Handler {
+    static public inline function handler(_name:String):stdgo._internal.net.http.Http_handler.Handler {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.net.http.pprof.Pprof_handler.handler(_name);
     }
@@ -164,8 +164,8 @@ class Pprof {
         Index responds to a request for "/debug/pprof/" with an HTML page
         listing the available profiles.
     **/
-    static public inline function index(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function index(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.pprof.Pprof_index.index(_w, _r);
     }
 }

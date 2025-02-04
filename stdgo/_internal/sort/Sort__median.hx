@@ -1,5 +1,5 @@
 package stdgo._internal.sort;
-function _median(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt {
+function _median(_data:stdgo._internal.sort.Sort_interface.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _c:stdgo.GoInt, _swaps:stdgo.Pointer<stdgo.GoInt>):stdgo.GoInt {
         {
             var __tmp__ = stdgo._internal.sort.Sort__order2._order2(_data, _a, _b, _swaps);
             _a = @:tmpset0 __tmp__._0;

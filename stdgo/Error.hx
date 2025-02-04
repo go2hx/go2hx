@@ -9,8 +9,8 @@ import stdgo.Pointer;
 import stdgo.Slice;
 
 
-private var _divideError:Error = stdgo._internal.math.bits.Bits__divideError._divideError;
-private var _overflowError:Error = stdgo._internal.math.bits.Bits__overflowError._overflowError;
+private var _divideError:Error = stdgo._internal.math.bits.Bits__divideerror._divideError;
+private var _overflowError:Error = stdgo._internal.math.bits.Bits__overflowerror._overflowError;
 
 typedef Error = StructType & {
 	public dynamic function error():GoString;

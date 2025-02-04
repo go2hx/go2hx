@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+var _pointerCycleIndirect : stdgo.Ref<stdgo._internal.encoding.json.Json_pointercycleindirect.PointerCycleIndirect> = (stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_pointercycleindirect.PointerCycleIndirect() : stdgo._internal.encoding.json.Json_pointercycleindirect.PointerCycleIndirect)) : stdgo.Ref<stdgo._internal.encoding.json.Json_pointercycleindirect.PointerCycleIndirect>);

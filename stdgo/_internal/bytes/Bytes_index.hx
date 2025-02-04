@@ -4,7 +4,7 @@ function index(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):s
         if (_n == ((0 : stdgo.GoInt))) {
             return (0 : stdgo.GoInt);
         } else if (_n == ((1 : stdgo.GoInt))) {
-            return stdgo._internal.bytes.Bytes_indexByte.indexByte(_s, _sep[(0 : stdgo.GoInt)]);
+            return stdgo._internal.bytes.Bytes_indexbyte.indexByte(_s, _sep[(0 : stdgo.GoInt)]);
         } else if (_n == ((_s.length))) {
             if (stdgo._internal.bytes.Bytes_equal.equal(_sep, _s)) {
                 return (0 : stdgo.GoInt);
@@ -12,7 +12,7 @@ function index(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):s
             return (-1 : stdgo.GoInt);
         } else if ((_n > (_s.length) : Bool)) {
             return (-1 : stdgo.GoInt);
-        } else if ((_n <= stdgo._internal.internal.bytealg.Bytealg_maxLen.maxLen : Bool)) {
+        } else if ((_n <= stdgo._internal.internal.bytealg.Bytealg_maxlen.maxLen : Bool)) {
             if (((_s.length) <= (0 : stdgo.GoInt) : Bool)) {
                 return stdgo._internal.internal.bytealg.Bytealg_index.index(_s, _sep);
             };
@@ -23,7 +23,7 @@ function index(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):s
             var _fails = (0 : stdgo.GoInt);
             while ((_i < _t : Bool)) {
                 if (_s[(_i : stdgo.GoInt)] != (_c0)) {
-                    var _o = (stdgo._internal.bytes.Bytes_indexByte.indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
+                    var _o = (stdgo._internal.bytes.Bytes_indexbyte.indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
                     if ((_o < (0 : stdgo.GoInt) : Bool)) {
                         return (-1 : stdgo.GoInt);
                     };
@@ -51,7 +51,7 @@ function index(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):s
         var _t = (((_s.length) - _n : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
         while ((_i < _t : Bool)) {
             if (_s[(_i : stdgo.GoInt)] != (_c0)) {
-                var _o = (stdgo._internal.bytes.Bytes_indexByte.indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
+                var _o = (stdgo._internal.bytes.Bytes_indexbyte.indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
                 if ((_o < (0 : stdgo.GoInt) : Bool)) {
                     break;
                 };
@@ -63,7 +63,7 @@ function index(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):s
             _i++;
             _fails++;
             if (((_fails >= ((4 : stdgo.GoInt) + (_i >> (4i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoInt) : Bool) && (_i < _t : Bool) : Bool)) {
-                var _j = (stdgo._internal.internal.bytealg.Bytealg_indexRabinKarpBytes.indexRabinKarpBytes((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep) : stdgo.GoInt);
+                var _j = (stdgo._internal.internal.bytealg.Bytealg_indexrabinkarpbytes.indexRabinKarpBytes((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep) : stdgo.GoInt);
                 if ((_j < (0 : stdgo.GoInt) : Bool)) {
                     return (-1 : stdgo.GoInt);
                 };

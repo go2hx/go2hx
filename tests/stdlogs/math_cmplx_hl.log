@@ -1,16 +1,21 @@
 === RUN  TestAbs
+
 -- PASS: TestAbs
 
 === RUN  TestAcos
+
 -- PASS: TestAcos
 
 === RUN  TestAcosh
+
 -- PASS: TestAcosh
 
 === RUN  TestAsin
+
 -- PASS: TestAsin
 
 === RUN  TestAsinh
+
 -- PASS: TestAsinh
 
 === RUN  TestAtan
@@ -25,6 +30,7 @@ Atanh((NaN-Infi)) = (-0-1.5707963267948966i), want (0-1.5707963267948966i)
 -- FAIL: TestAtanh
 
 === RUN  TestConj
+
 -- PASS: TestConj
 
 === RUN  TestCos
@@ -44,30 +50,39 @@ Exp((-Inf+NaNi)) = (0-0i), want (0+0i)
 -- FAIL: TestExp
 
 === RUN  TestIsNaN
+
 -- PASS: TestIsNaN
 
 === RUN  TestLog
+
 -- PASS: TestLog
 
 === RUN  TestLog10
+
 -- PASS: TestLog10
 
 === RUN  TestPolar
+
 -- PASS: TestPolar
 
 === RUN  TestPow
+
 -- PASS: TestPow
 
 === RUN  TestRect
+
 -- PASS: TestRect
 
 === RUN  TestSin
+
 -- PASS: TestSin
 
 === RUN  TestSinh
+
 -- PASS: TestSinh
 
 === RUN  TestSqrt
+
 -- PASS: TestSqrt
 
 === RUN  TestTan

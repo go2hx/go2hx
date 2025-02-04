@@ -1,2 +1,0 @@
-package stdgo._internal.testing.quick;
-@:keep @:follow @:using(stdgo._internal.testing.quick.Quick_T_testNonZeroSliceAndMap___localname___Q_8763_static_extension.T_testNonZeroSliceAndMap___localname___Q_8763_static_extension) typedef T_testNonZeroSliceAndMap___localname___Q_8763Pointer = stdgo.Pointer<stdgo._internal.testing.quick.Quick_T_testNonZeroSliceAndMap___localname___Q_8763.T_testNonZeroSliceAndMap___localname___Q_8763>;

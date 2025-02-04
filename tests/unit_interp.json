@@ -152,5 +152,6 @@
  "interp|newniluinptrkeymap0",
  "interp|base64DecoderIssue3577",
  "interp|base64chan",
- "interp|chantimer"
+ "interp|chantimer",
+ "interp|filecasing"
 ]

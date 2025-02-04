@@ -1,7 +1,7 @@
 package stdgo._internal.math;
 function _mod(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
-        if ((((_y == (0 : stdgo.GoFloat64) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_y) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+        if ((((_y == (0 : stdgo.GoFloat64) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool) || stdgo._internal.math.Math_isnan.isNaN(_y) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
         };
         _y = stdgo._internal.math.Math_abs.abs(_y);
         var __tmp__ = stdgo._internal.math.Math_frexp.frexp(_y), _yfr:stdgo.GoFloat64 = __tmp__._0, _yexp:stdgo.GoInt = __tmp__._1;

@@ -2,10 +2,10 @@ package stdgo._internal.math.bits;
 function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
         var _quo = (0 : stdgo.GoUInt64), _rem = (0 : stdgo.GoUInt64);
         if (_y == ((0i64 : stdgo.GoUInt64))) {
-            throw stdgo.Go.toInterface(stdgo._internal.math.bits.Bits__divideError._divideError);
+            throw stdgo.Go.toInterface(stdgo._internal.math.bits.Bits__divideerror._divideError);
         };
         if ((_y <= _hi : Bool)) {
-            throw stdgo.Go.toInterface(stdgo._internal.math.bits.Bits__overflowError._overflowError);
+            throw stdgo.Go.toInterface(stdgo._internal.math.bits.Bits__overflowerror._overflowError);
         };
         if (_hi == ((0i64 : stdgo.GoUInt64))) {
             return {
@@ -15,7 +15,7 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var 
                 __tmp__;
             };
         };
-        var _s = (stdgo._internal.math.bits.Bits_leadingZeros64.leadingZeros64(_y) : stdgo.GoUInt);
+        var _s = (stdgo._internal.math.bits.Bits_leadingzeros64.leadingZeros64(_y) : stdgo.GoUInt);
         _y = (_y << (_s) : stdgo.GoUInt64);
         {};
         var _yn1 = (_y >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

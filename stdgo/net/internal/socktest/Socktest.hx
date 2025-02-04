@@ -6,27 +6,27 @@ final filterAccept = stdgo._internal.net.internal.socktest.Socktest_filterAccept
 final filterGetsockoptInt = stdgo._internal.net.internal.socktest.Socktest_filterGetsockoptInt.filterGetsockoptInt;
 final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.filterClose;
 @:structInit @:using(stdgo.net.internal.socktest.Socktest.Switch_static_extension) abstract Switch(stdgo._internal.net.internal.socktest.Socktest_Switch.Switch) from stdgo._internal.net.internal.socktest.Socktest_Switch.Switch to stdgo._internal.net.internal.socktest.Socktest_Switch.Switch {
-    public var _once(get, set) : stdgo._internal.sync.Sync_Once.Once;
-    function get__once():stdgo._internal.sync.Sync_Once.Once return this._once;
-    function set__once(v:stdgo._internal.sync.Sync_Once.Once):stdgo._internal.sync.Sync_Once.Once {
+    public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
+    function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
+    function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
         this._once = v;
         return v;
     }
-    public var _fmu(get, set) : stdgo._internal.sync.Sync_RWMutex.RWMutex;
-    function get__fmu():stdgo._internal.sync.Sync_RWMutex.RWMutex return this._fmu;
-    function set__fmu(v:stdgo._internal.sync.Sync_RWMutex.RWMutex):stdgo._internal.sync.Sync_RWMutex.RWMutex {
+    public var _fmu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
+    function get__fmu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._fmu;
+    function set__fmu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         this._fmu = v;
         return v;
     }
-    public var _fltab(get, set) : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter>;
-    function get__fltab():stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter> return this._fltab;
-    function set__fltab(v:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter>):stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter> {
-        this._fltab = (v : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter>);
+    public var _fltab(get, set) : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>;
+    function get__fltab():stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter> return this._fltab;
+    function set__fltab(v:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>):stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter> {
+        this._fltab = (v : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>);
         return v;
     }
-    public var _smu(get, set) : stdgo._internal.sync.Sync_RWMutex.RWMutex;
-    function get__smu():stdgo._internal.sync.Sync_RWMutex.RWMutex return this._smu;
-    function set__smu(v:stdgo._internal.sync.Sync_RWMutex.RWMutex):stdgo._internal.sync.Sync_RWMutex.RWMutex {
+    public var _smu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
+    function get__smu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._smu;
+    function set__smu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         this._smu = v;
         return v;
     }
@@ -42,7 +42,7 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.f
         this._stats = v;
         return v;
     }
-    public function new(?_once:stdgo._internal.sync.Sync_Once.Once, ?_fmu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_fltab:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter>, ?_smu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_sotab:Sockets, ?_stats:T_stats) this = new stdgo._internal.net.internal.socktest.Socktest_Switch.Switch(_once, _fmu, (_fltab : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType, stdgo._internal.net.internal.socktest.Socktest_Filter.Filter>), _smu, _sotab, _stats);
+    public function new(?_once:stdgo._internal.sync.Sync_once.Once, ?_fmu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_fltab:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>, ?_smu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sotab:Sockets, ?_stats:T_stats) this = new stdgo._internal.net.internal.socktest.Socktest_Switch.Switch(_once, _fmu, (_fltab : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>), _smu, _sotab, _stats);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -174,7 +174,7 @@ typedef Sockets = stdgo._internal.net.internal.socktest.Socktest_Sockets.Sockets
 typedef SwitchPointer = stdgo._internal.net.internal.socktest.Socktest_SwitchPointer.SwitchPointer;
 class Switch_static_extension {
     static public function getsockoptInt(_sw:Switch, _s:StdTypes.Int, _level:StdTypes.Int, _opt:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         final _level = (_level : stdgo.GoInt);
         final _opt = (_opt : stdgo.GoInt);
@@ -183,8 +183,8 @@ class Switch_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function accept(_sw:Switch, _s:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_Sockaddr.Sockaddr, stdgo.Error> {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+    static public function accept(_sw:Switch, _s:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         return {
             final obj = stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.accept(_sw, _s);
@@ -192,23 +192,23 @@ class Switch_static_extension {
         };
     }
     static public function listen(_sw:Switch, _s:StdTypes.Int, _backlog:StdTypes.Int):stdgo.Error {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         final _backlog = (_backlog : stdgo.GoInt);
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.listen(_sw, _s, _backlog);
     }
-    static public function connect(_sw:Switch, _s:StdTypes.Int, _sa:stdgo._internal.syscall.Syscall_Sockaddr.Sockaddr):stdgo.Error {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+    static public function connect(_sw:Switch, _s:StdTypes.Int, _sa:stdgo._internal.syscall.Syscall_sockaddr.Sockaddr):stdgo.Error {
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.connect(_sw, _s, _sa);
     }
     static public function close(_sw:Switch, _s:StdTypes.Int):stdgo.Error {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.close(_sw, _s);
     }
     static public function socket(_sw:Switch, _family:StdTypes.Int, _sotype:StdTypes.Int, _proto:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _family = (_family : stdgo.GoInt);
         final _sotype = (_sotype : stdgo.GoInt);
         final _proto = (_proto : stdgo.GoInt);
@@ -218,7 +218,7 @@ class Switch_static_extension {
         };
     }
     static public function _addLocked(_sw:Switch, _s:StdTypes.Int, _family:StdTypes.Int, _sotype:StdTypes.Int, _proto:StdTypes.Int):Status {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         final _family = (_family : stdgo.GoInt);
         final _sotype = (_sotype : stdgo.GoInt);
@@ -226,24 +226,24 @@ class Switch_static_extension {
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._addLocked(_sw, _s, _family, _sotype, _proto);
     }
     static public function _sockso(_sw:Switch, _s:StdTypes.Int):Status {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._sockso(_sw, _s);
     }
     static public function set(_sw:Switch, _t:FilterType, _f:Filter):Void {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.set(_sw, _t, _f);
     }
     static public function sockets(_sw:Switch):Sockets {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.sockets(_sw);
     }
     static public function stats(_sw:Switch):Array<Stat> {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         return [for (i in stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.stats(_sw)) i];
     }
     static public function _init(_sw:Switch):Void {
-        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Switch.Switch>);
+        final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._init(_sw);
     }
 }
@@ -284,7 +284,7 @@ class FilterType_static_extension {
 typedef FilterPointer = stdgo._internal.net.internal.socktest.Socktest_FilterPointer.FilterPointer;
 class Filter_static_extension {
     static public function _apply(_f:Filter, _st:Status):stdgo.Tuple<AfterFilter, stdgo.Error> {
-        final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Status.Status>);
+        final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_status.Status>);
         return {
             final obj = stdgo._internal.net.internal.socktest.Socktest_Filter_static_extension.Filter_static_extension._apply(_f, _st);
             { _0 : obj._0, _1 : obj._1 };
@@ -294,7 +294,7 @@ class Filter_static_extension {
 typedef AfterFilterPointer = stdgo._internal.net.internal.socktest.Socktest_AfterFilterPointer.AfterFilterPointer;
 class AfterFilter_static_extension {
     static public function _apply(_f:AfterFilter, _st:Status):stdgo.Error {
-        final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_Status.Status>);
+        final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_status.Status>);
         return stdgo._internal.net.internal.socktest.Socktest_AfterFilter_static_extension.AfterFilter_static_extension._apply(_f, _st);
     }
 }

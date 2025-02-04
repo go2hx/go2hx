@@ -1,7 +1,7 @@
 package stdgo._internal.math;
 function _asinh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
+        if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
             return _x;
         };
         var _sign = (false : Bool);

@@ -1,0 +1,2 @@
+package stdgo._internal.slices;
+@:keep @:follow @:using(stdgo._internal.slices.Slices_t_testinference___localname___s_22782_static_extension.T_testInference___localname___S_22782_static_extension) typedef T_testInference___localname___S_22782Pointer = stdgo.Pointer<stdgo._internal.slices.Slices_t_testinference___localname___s_22782.T_testInference___localname___S_22782>;

@@ -8,7 +8,7 @@ function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
                 return new stdgo.GoComplex128((0 : stdgo.GoFloat64), stdgo._internal.math.Math_copysign.copysign(stdgo._internal.math.Math_sqrt.sqrt(-(_x : stdgo.GoComplex128).real), (_x : stdgo.GoComplex128).imag));
             };
             return new stdgo.GoComplex128(stdgo._internal.math.Math_sqrt.sqrt((_x : stdgo.GoComplex128).real), (_x : stdgo.GoComplex128).imag);
-        } else if (stdgo._internal.math.Math_isInf.isInf((_x : stdgo.GoComplex128).imag, (0 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf((_x : stdgo.GoComplex128).imag, (0 : stdgo.GoInt))) {
             return new stdgo.GoComplex128(stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), (_x : stdgo.GoComplex128).imag);
         };
         if ((_x : stdgo.GoComplex128).real == (0 : stdgo.GoFloat64)) {

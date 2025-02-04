@@ -7,7 +7,7 @@ class T_reader_static_extension {
 }
 typedef T_reader = stdgo._internal.image.gif.Gif_T_reader.T_reader;
 class T_writer_static_extension {
-    static public function flush(t:stdgo._internal.image.gif.Gif_T_writer.T_writer):stdgo.Error {
+    static public function flush(t:stdgo._internal.image.gif.Gif_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.image.gif.Gif_T_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
@@ -79,9 +79,9 @@ typedef T_writer = stdgo._internal.image.gif.Gif_T_writer.T_writer;
         this._hasTransparentIndex = v;
         return v;
     }
-    public var _globalColorTable(get, set) : stdgo._internal.image.color.Color_Palette.Palette;
-    function get__globalColorTable():stdgo._internal.image.color.Color_Palette.Palette return this._globalColorTable;
-    function set__globalColorTable(v:stdgo._internal.image.color.Color_Palette.Palette):stdgo._internal.image.color.Color_Palette.Palette {
+    public var _globalColorTable(get, set) : stdgo._internal.image.color.Color_palette.Palette;
+    function get__globalColorTable():stdgo._internal.image.color.Color_palette.Palette return this._globalColorTable;
+    function set__globalColorTable(v:stdgo._internal.image.color.Color_palette.Palette):stdgo._internal.image.color.Color_palette.Palette {
         this._globalColorTable = v;
         return v;
     }
@@ -97,10 +97,10 @@ typedef T_writer = stdgo._internal.image.gif.Gif_T_writer.T_writer;
         this._disposal = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _image(get, set) : Array<stdgo._internal.image.Image_Paletted.Paletted>;
-    function get__image():Array<stdgo._internal.image.Image_Paletted.Paletted> return [for (i in this._image) i];
-    function set__image(v:Array<stdgo._internal.image.Image_Paletted.Paletted>):Array<stdgo._internal.image.Image_Paletted.Paletted> {
-        this._image = ([for (i in v) (i : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>);
+    public var _image(get, set) : Array<stdgo._internal.image.Image_paletted.Paletted>;
+    function get__image():Array<stdgo._internal.image.Image_paletted.Paletted> return [for (i in this._image) i];
+    function set__image(v:Array<stdgo._internal.image.Image_paletted.Paletted>):Array<stdgo._internal.image.Image_paletted.Paletted> {
+        this._image = ([for (i in v) (i : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>);
         return v;
     }
     public var _tmp(get, set) : haxe.ds.Vector<std.UInt>;
@@ -109,7 +109,7 @@ typedef T_writer = stdgo._internal.image.gif.Gif_T_writer.T_writer;
         this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_r:T_reader, ?_vers:String, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_loopCount:StdTypes.Int, ?_delayTime:StdTypes.Int, ?_backgroundIndex:std.UInt, ?_disposalMethod:std.UInt, ?_imageFields:std.UInt, ?_transparentIndex:std.UInt, ?_hasTransparentIndex:Bool, ?_globalColorTable:stdgo._internal.image.color.Color_Palette.Palette, ?_delay:Array<StdTypes.Int>, ?_disposal:Array<std.UInt>, ?_image:Array<stdgo._internal.image.Image_Paletted.Paletted>, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.gif.Gif_T_decoder.T_decoder(
+    public function new(?_r:T_reader, ?_vers:String, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_loopCount:StdTypes.Int, ?_delayTime:StdTypes.Int, ?_backgroundIndex:std.UInt, ?_disposalMethod:std.UInt, ?_imageFields:std.UInt, ?_transparentIndex:std.UInt, ?_hasTransparentIndex:Bool, ?_globalColorTable:stdgo._internal.image.color.Color_palette.Palette, ?_delay:Array<StdTypes.Int>, ?_disposal:Array<std.UInt>, ?_image:Array<stdgo._internal.image.Image_paletted.Paletted>, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.gif.Gif_T_decoder.T_decoder(
 _r,
 (_vers : stdgo.GoString),
 (_width : stdgo.GoInt),
@@ -124,7 +124,7 @@ _hasTransparentIndex,
 _globalColorTable,
 ([for (i in _delay) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>),
 ([for (i in _disposal) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
-([for (i in _image) (i : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>),
+([for (i in _image) (i : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>),
 ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -133,7 +133,7 @@ _globalColorTable,
     public var _d(get, set) : T_decoder;
     function get__d():T_decoder return this._d;
     function set__d(v:T_decoder):T_decoder {
-        this._d = (v : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        this._d = (v : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return v;
     }
     public var _i(get, set) : std.UInt;
@@ -154,7 +154,7 @@ _globalColorTable,
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_d:T_decoder, ?_i:std.UInt, ?_j:std.UInt, ?_err:stdgo.Error) this = new stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader((_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>), (_i : stdgo.GoUInt8), (_j : stdgo.GoUInt8), (_err : stdgo.Error));
+    public function new(?_d:T_decoder, ?_i:std.UInt, ?_j:std.UInt, ?_err:stdgo.Error) this = new stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader((_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>), (_i : stdgo.GoUInt8), (_j : stdgo.GoUInt8), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -176,10 +176,10 @@ _globalColorTable,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.image.gif.Gif.GIF_static_extension) abstract GIF(stdgo._internal.image.gif.Gif_GIF.GIF) from stdgo._internal.image.gif.Gif_GIF.GIF to stdgo._internal.image.gif.Gif_GIF.GIF {
-    public var image(get, set) : Array<stdgo._internal.image.Image_Paletted.Paletted>;
-    function get_image():Array<stdgo._internal.image.Image_Paletted.Paletted> return [for (i in this.image) i];
-    function set_image(v:Array<stdgo._internal.image.Image_Paletted.Paletted>):Array<stdgo._internal.image.Image_Paletted.Paletted> {
-        this.image = ([for (i in v) (i : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>);
+    public var image(get, set) : Array<stdgo._internal.image.Image_paletted.Paletted>;
+    function get_image():Array<stdgo._internal.image.Image_paletted.Paletted> return [for (i in this.image) i];
+    function set_image(v:Array<stdgo._internal.image.Image_paletted.Paletted>):Array<stdgo._internal.image.Image_paletted.Paletted> {
+        this.image = ([for (i in v) (i : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>);
         return v;
     }
     public var delay(get, set) : Array<StdTypes.Int>;
@@ -200,9 +200,9 @@ _globalColorTable,
         this.disposal = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var config(get, set) : stdgo._internal.image.Image_Config.Config;
-    function get_config():stdgo._internal.image.Image_Config.Config return this.config;
-    function set_config(v:stdgo._internal.image.Image_Config.Config):stdgo._internal.image.Image_Config.Config {
+    public var config(get, set) : stdgo._internal.image.Image_config.Config;
+    function get_config():stdgo._internal.image.Image_config.Config return this.config;
+    function set_config(v:stdgo._internal.image.Image_config.Config):stdgo._internal.image.Image_config.Config {
         this.config = v;
         return v;
     }
@@ -212,7 +212,7 @@ _globalColorTable,
         this.backgroundIndex = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?image:Array<stdgo._internal.image.Image_Paletted.Paletted>, ?delay:Array<StdTypes.Int>, ?loopCount:StdTypes.Int, ?disposal:Array<std.UInt>, ?config:stdgo._internal.image.Image_Config.Config, ?backgroundIndex:std.UInt) this = new stdgo._internal.image.gif.Gif_GIF.GIF(([for (i in image) (i : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>), ([for (i in delay) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (loopCount : stdgo.GoInt), ([for (i in disposal) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), config, (backgroundIndex : stdgo.GoUInt8));
+    public function new(?image:Array<stdgo._internal.image.Image_paletted.Paletted>, ?delay:Array<StdTypes.Int>, ?loopCount:StdTypes.Int, ?disposal:Array<std.UInt>, ?config:stdgo._internal.image.Image_config.Config, ?backgroundIndex:std.UInt) this = new stdgo._internal.image.gif.Gif_GIF.GIF(([for (i in image) (i : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>), ([for (i in delay) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (loopCount : stdgo.GoInt), ([for (i in disposal) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), config, (backgroundIndex : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -267,10 +267,10 @@ _globalColorTable,
     public var _e(get, set) : T_encoder;
     function get__e():T_encoder return this._e;
     function set__e(v:T_encoder):T_encoder {
-        this._e = (v : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        this._e = (v : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         return v;
     }
-    public function new(?_e:T_encoder) this = new stdgo._internal.image.gif.Gif_T_blockWriter.T_blockWriter((_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>));
+    public function new(?_e:T_encoder) this = new stdgo._internal.image.gif.Gif_T_blockWriter.T_blockWriter((_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -281,52 +281,52 @@ _globalColorTable,
         this.numColors = (v : stdgo.GoInt);
         return v;
     }
-    public var quantizer(get, set) : stdgo._internal.image.draw.Draw_Quantizer.Quantizer;
-    function get_quantizer():stdgo._internal.image.draw.Draw_Quantizer.Quantizer return this.quantizer;
-    function set_quantizer(v:stdgo._internal.image.draw.Draw_Quantizer.Quantizer):stdgo._internal.image.draw.Draw_Quantizer.Quantizer {
+    public var quantizer(get, set) : stdgo._internal.image.draw.Draw_quantizer.Quantizer;
+    function get_quantizer():stdgo._internal.image.draw.Draw_quantizer.Quantizer return this.quantizer;
+    function set_quantizer(v:stdgo._internal.image.draw.Draw_quantizer.Quantizer):stdgo._internal.image.draw.Draw_quantizer.Quantizer {
         this.quantizer = v;
         return v;
     }
-    public var drawer(get, set) : stdgo._internal.image.draw.Draw_Drawer.Drawer;
-    function get_drawer():stdgo._internal.image.draw.Draw_Drawer.Drawer return this.drawer;
-    function set_drawer(v:stdgo._internal.image.draw.Draw_Drawer.Drawer):stdgo._internal.image.draw.Draw_Drawer.Drawer {
+    public var drawer(get, set) : stdgo._internal.image.draw.Draw_drawer.Drawer;
+    function get_drawer():stdgo._internal.image.draw.Draw_drawer.Drawer return this.drawer;
+    function set_drawer(v:stdgo._internal.image.draw.Draw_drawer.Drawer):stdgo._internal.image.draw.Draw_drawer.Drawer {
         this.drawer = v;
         return v;
     }
-    public function new(?numColors:StdTypes.Int, ?quantizer:stdgo._internal.image.draw.Draw_Quantizer.Quantizer, ?drawer:stdgo._internal.image.draw.Draw_Drawer.Drawer) this = new stdgo._internal.image.gif.Gif_Options.Options((numColors : stdgo.GoInt), quantizer, drawer);
+    public function new(?numColors:StdTypes.Int, ?quantizer:stdgo._internal.image.draw.Draw_quantizer.Quantizer, ?drawer:stdgo._internal.image.draw.Draw_drawer.Drawer) this = new stdgo._internal.image.gif.Gif_Options.Options((numColors : stdgo.GoInt), quantizer, drawer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_decoderPointer = stdgo._internal.image.gif.Gif_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _readBlock(_d:T_decoder):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readBlock(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _newImageFromDescriptor(_d:T_decoder):stdgo.Tuple<stdgo._internal.image.Image_Paletted.Paletted, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+    static public function _newImageFromDescriptor(_d:T_decoder):stdgo.Tuple<stdgo._internal.image.Image_paletted.Paletted, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return {
             final obj = stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._newImageFromDescriptor(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readImageDescriptor(_d:T_decoder, _keepAllFrames:Bool):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readImageDescriptor(_d, _keepAllFrames);
     }
     static public function _readGraphicControl(_d:T_decoder):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readGraphicControl(_d);
     }
     static public function _readExtension(_d:T_decoder):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readExtension(_d);
     }
-    static public function _readColorTable(_d:T_decoder, _fields:std.UInt):stdgo.Tuple<stdgo._internal.image.color.Color_Palette.Palette, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+    static public function _readColorTable(_d:T_decoder, _fields:std.UInt):stdgo.Tuple<stdgo._internal.image.color.Color_palette.Palette, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         final _fields = (_fields : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readColorTable(_d, _fields);
@@ -334,22 +334,22 @@ class T_decoder_static_extension {
         };
     }
     static public function _readHeaderAndScreenDescriptor(_d:T_decoder):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._readHeaderAndScreenDescriptor(_d);
     }
-    static public function _decode(_d:T_decoder, _r:stdgo._internal.io.Io_Reader.Reader, _configOnly:Bool, _keepAllFrames:Bool):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_T_decoder.T_decoder>);
+    static public function _decode(_d:T_decoder, _r:stdgo._internal.io.Io_reader.Reader, _configOnly:Bool, _keepAllFrames:Bool):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.image.gif.Gif_t_decoder.T_decoder>);
         return stdgo._internal.image.gif.Gif_T_decoder_static_extension.T_decoder_static_extension._decode(_d, _r, _configOnly, _keepAllFrames);
     }
 }
 typedef T_blockReaderPointer = stdgo._internal.image.gif.Gif_T_blockReaderPointer.T_blockReaderPointer;
 class T_blockReader_static_extension {
     static public function _close(_b:T_blockReader):stdgo.Error {
-        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader>);
         return stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension._close(_b);
     }
     static public function read(_b:T_blockReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension.read(_b, _p);
@@ -357,14 +357,14 @@ class T_blockReader_static_extension {
         };
     }
     static public function readByte(_b:T_blockReader):stdgo.Tuple<std.UInt, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader>);
         return {
             final obj = stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension.readByte(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _fill(_b:T_blockReader):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader>);
         stdgo._internal.image.gif.Gif_T_blockReader_static_extension.T_blockReader_static_extension._fill(_b);
     }
 }
@@ -378,35 +378,35 @@ class GIF_static_extension {
 }
 typedef T_encoderPointer = stdgo._internal.image.gif.Gif_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
-    static public function _writeImageBlock(_e:T_encoder, _pm:stdgo._internal.image.Image_Paletted.Paletted, _delay:StdTypes.Int, _disposal:std.UInt):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
-        final _pm = (_pm : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>);
+    static public function _writeImageBlock(_e:T_encoder, _pm:stdgo._internal.image.Image_paletted.Paletted, _delay:StdTypes.Int, _disposal:std.UInt):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
+        final _pm = (_pm : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>);
         final _delay = (_delay : stdgo.GoInt);
         final _disposal = (_disposal : stdgo.GoUInt8);
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._writeImageBlock(_e, _pm, _delay, _disposal);
     }
     static public function _colorTablesMatch(_e:T_encoder, _localLen:StdTypes.Int, _transparentIndex:StdTypes.Int):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         final _localLen = (_localLen : stdgo.GoInt);
         final _transparentIndex = (_transparentIndex : stdgo.GoInt);
         return stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._colorTablesMatch(_e, _localLen, _transparentIndex);
     }
     static public function _writeHeader(_e:T_encoder):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._writeHeader(_e);
     }
     static public function _writeByte(_e:T_encoder, _b:std.UInt):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         final _b = (_b : stdgo.GoUInt8);
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._writeByte(_e, _b);
     }
     static public function _write(_e:T_encoder, _p:Array<std.UInt>):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._write(_e, _p);
     }
     static public function _flush(_e:T_encoder):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.image.gif.Gif_t_encoder.T_encoder>);
         stdgo._internal.image.gif.Gif_T_encoder_static_extension.T_encoder_static_extension._flush(_e);
     }
 }
@@ -447,7 +447,7 @@ class Gif {
         Decode reads a GIF image from r and returns the first embedded
         image as an image.Image.
     **/
-    static public inline function decode(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Image.Image, stdgo.Error> {
+    static public inline function decode(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_image.Image, stdgo.Error> {
         return {
             final obj = stdgo._internal.image.gif.Gif_decode.decode(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -457,7 +457,7 @@ class Gif {
         DecodeAll reads a GIF image from r and returns the sequential frames
         and timing information.
     **/
-    static public inline function decodeAll(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<GIF, stdgo.Error> {
+    static public inline function decodeAll(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<GIF, stdgo.Error> {
         return {
             final obj = stdgo._internal.image.gif.Gif_decodeAll.decodeAll(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -467,7 +467,7 @@ class Gif {
         DecodeConfig returns the global color model and dimensions of a GIF image
         without decoding the entire image.
     **/
-    static public inline function decodeConfig(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_Config.Config, stdgo.Error> {
+    static public inline function decodeConfig(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_config.Config, stdgo.Error> {
         return {
             final obj = stdgo._internal.image.gif.Gif_decodeConfig.decodeConfig(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -477,15 +477,15 @@ class Gif {
         EncodeAll writes the images in g to w in GIF format with the
         given loop count and delay between frames.
     **/
-    static public inline function encodeAll(_w:stdgo._internal.io.Io_Writer.Writer, _g:GIF):stdgo.Error {
-        final _g = (_g : stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>);
+    static public inline function encodeAll(_w:stdgo._internal.io.Io_writer.Writer, _g:GIF):stdgo.Error {
+        final _g = (_g : stdgo.Ref<stdgo._internal.image.gif.Gif_gif.GIF>);
         return stdgo._internal.image.gif.Gif_encodeAll.encodeAll(_w, _g);
     }
     /**
         Encode writes the Image m to w in GIF format.
     **/
-    static public inline function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _o:Options):stdgo.Error {
-        final _o = (_o : stdgo.Ref<stdgo._internal.image.gif.Gif_Options.Options>);
+    static public inline function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image, _o:Options):stdgo.Error {
+        final _o = (_o : stdgo.Ref<stdgo._internal.image.gif.Gif_options.Options>);
         return stdgo._internal.image.gif.Gif_encode.encode(_w, _m, _o);
     }
 }

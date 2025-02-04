@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+@:keep @:follow @:using(stdgo._internal.encoding.json.Json_t_benchmarkcodeencodererror___localname___dummy_2370_static_extension.T_benchmarkCodeEncoderError___localname___Dummy_2370_static_extension) typedef T_benchmarkCodeEncoderError___localname___Dummy_2370Pointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_t_benchmarkcodeencodererror___localname___dummy_2370.T_benchmarkCodeEncoderError___localname___Dummy_2370>;

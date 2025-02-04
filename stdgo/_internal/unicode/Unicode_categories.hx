@@ -1,7 +1,7 @@
 package stdgo._internal.unicode;
-var categories : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>> = ({
-        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>>();
-        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>);
+var categories : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         x.set(("C" : stdgo.GoString), stdgo._internal.unicode.Unicode_c.c);
 x.set(("Cc" : stdgo.GoString), stdgo._internal.unicode.Unicode_cc.cc);
 x.set(("Cf" : stdgo.GoString), stdgo._internal.unicode.Unicode_cf.cf);
@@ -39,4 +39,4 @@ x.set(("Zl" : stdgo.GoString), stdgo._internal.unicode.Unicode_zl.zl);
 x.set(("Zp" : stdgo.GoString), stdgo._internal.unicode.Unicode_zp.zp);
 x.set(("Zs" : stdgo.GoString), stdgo._internal.unicode.Unicode_zs.zs);
         x;
-    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable>>);
+    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);

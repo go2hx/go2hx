@@ -80,7 +80,7 @@ typedef T_asciiSet = stdgo._internal.bytes.Bytes_T_asciiSet.T_asciiSet;
 typedef BufferPointer = stdgo._internal.bytes.Bytes_BufferPointer.BufferPointer;
 class Buffer_static_extension {
     static public function readString(_b:Buffer, _delim:std.UInt):stdgo.Tuple<String, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _delim = (_delim : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.readString(_b, _delim);
@@ -88,7 +88,7 @@ class Buffer_static_extension {
         };
     }
     static public function _readSlice(_b:Buffer, _delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _delim = (_delim : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension._readSlice(_b, _delim);
@@ -96,7 +96,7 @@ class Buffer_static_extension {
         };
     }
     static public function readBytes(_b:Buffer, _delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _delim = (_delim : stdgo.GoUInt8);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.readBytes(_b, _delim);
@@ -104,34 +104,34 @@ class Buffer_static_extension {
         };
     }
     static public function unreadByte(_b:Buffer):stdgo.Error {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.unreadByte(_b);
     }
     static public function unreadRune(_b:Buffer):stdgo.Error {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.unreadRune(_b);
     }
     static public function readRune(_b:Buffer):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.readRune(_b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function readByte(_b:Buffer):stdgo.Tuple<std.UInt, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.readByte(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function next(_b:Buffer, _n:StdTypes.Int):Array<std.UInt> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _n = (_n : stdgo.GoInt);
         return [for (i in stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.next(_b, _n)) i];
     }
     static public function read(_b:Buffer, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.read(_b, _p);
@@ -139,7 +139,7 @@ class Buffer_static_extension {
         };
     }
     static public function writeRune(_b:Buffer, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _r = (_r : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.writeRune(_b, _r);
@@ -147,26 +147,26 @@ class Buffer_static_extension {
         };
     }
     static public function writeByte(_b:Buffer, _c:std.UInt):stdgo.Error {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.writeByte(_b, _c);
     }
-    static public function writeTo(_b:Buffer, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+    static public function writeTo(_b:Buffer, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.writeTo(_b, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFrom(_b:Buffer, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+    static public function readFrom(_b:Buffer, _r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.readFrom(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function writeString(_b:Buffer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.writeString(_b, _s);
@@ -174,7 +174,7 @@ class Buffer_static_extension {
         };
     }
     static public function write(_b:Buffer, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.write(_b, _p);
@@ -182,17 +182,17 @@ class Buffer_static_extension {
         };
     }
     static public function grow(_b:Buffer, _n:StdTypes.Int):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.grow(_b, _n);
     }
     static public function _grow(_b:Buffer, _n:StdTypes.Int):StdTypes.Int {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension._grow(_b, _n);
     }
     static public function _tryGrowByReslice(_b:Buffer, _n:StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension._tryGrowByReslice(_b, _n);
@@ -200,59 +200,59 @@ class Buffer_static_extension {
         };
     }
     static public function reset(_b:Buffer):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.reset(_b);
     }
     static public function truncate(_b:Buffer, _n:StdTypes.Int):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.truncate(_b, _n);
     }
     static public function available(_b:Buffer):StdTypes.Int {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.available(_b);
     }
     static public function cap(_b:Buffer):StdTypes.Int {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.cap(_b);
     }
     static public function len(_b:Buffer):StdTypes.Int {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.len(_b);
     }
     static public function _empty(_b:Buffer):Bool {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension._empty(_b);
     }
     static public function string(_b:Buffer):String {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.string(_b);
     }
     static public function availableBuffer(_b:Buffer):Array<std.UInt> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return [for (i in stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.availableBuffer(_b)) i];
     }
     static public function bytes(_b:Buffer):Array<std.UInt> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         return [for (i in stdgo._internal.bytes.Bytes_Buffer_static_extension.Buffer_static_extension.bytes(_b)) i];
     }
 }
 typedef ReaderPointer = stdgo._internal.bytes.Bytes_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function reset(_r:Reader, _b:Array<std.UInt>):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.reset(_r, _b);
     }
-    static public function writeTo(_r:Reader, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+    static public function writeTo(_r:Reader, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.writeTo(_r, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function seek(_r:Reader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         final _offset = (_offset : stdgo.GoInt64);
         final _whence = (_whence : stdgo.GoInt);
         return {
@@ -261,29 +261,29 @@ class Reader_static_extension {
         };
     }
     static public function unreadRune(_r:Reader):stdgo.Error {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.unreadRune(_r);
     }
     static public function readRune(_r:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.readRune(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function unreadByte(_r:Reader):stdgo.Error {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.unreadByte(_r);
     }
     static public function readByte(_r:Reader):stdgo.Tuple<std.UInt, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.readByte(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function readAt(_r:Reader, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -292,7 +292,7 @@ class Reader_static_extension {
         };
     }
     static public function read(_r:Reader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.read(_r, _b);
@@ -300,11 +300,11 @@ class Reader_static_extension {
         };
     }
     static public function size(_r:Reader):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.size(_r);
     }
     static public function len(_r:Reader):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.bytes.Bytes_reader.Reader>);
         return stdgo._internal.bytes.Bytes_Reader_static_extension.Reader_static_extension.len(_r);
     }
 }
@@ -315,7 +315,7 @@ class T_readOp_static_extension {
 typedef T_asciiSetPointer = stdgo._internal.bytes.Bytes_T_asciiSetPointer.T_asciiSetPointer;
 class T_asciiSet_static_extension {
     static public function _contains(_as:T_asciiSet, _c:std.UInt):Bool {
-        final _as = (_as : stdgo.Ref<stdgo._internal.bytes.Bytes_T_asciiSet.T_asciiSet>);
+        final _as = (_as : stdgo.Ref<stdgo._internal.bytes.Bytes_t_asciiset.T_asciiSet>);
         final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.bytes.Bytes_T_asciiSet_static_extension.T_asciiSet_static_extension._contains(_as, _c);
     }
@@ -631,7 +631,7 @@ class Bytes {
         ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         upper case, giving priority to the special casing rules.
     **/
-    static public inline function toUpperSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
+    static public inline function toUpperSpecial(_c:stdgo._internal.unicode.Unicode_specialcase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_toUpperSpecial.toUpperSpecial(_c, _s)) i];
     }
@@ -639,7 +639,7 @@ class Bytes {
         ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         lower case, giving priority to the special casing rules.
     **/
-    static public inline function toLowerSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
+    static public inline function toLowerSpecial(_c:stdgo._internal.unicode.Unicode_specialcase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_toLowerSpecial.toLowerSpecial(_c, _s)) i];
     }
@@ -647,7 +647,7 @@ class Bytes {
         ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         title case, giving priority to the special casing rules.
     **/
-    static public inline function toTitleSpecial(_c:stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
+    static public inline function toTitleSpecial(_c:stdgo._internal.unicode.Unicode_specialcase.SpecialCase, _s:Array<std.UInt>):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_toTitleSpecial.toTitleSpecial(_c, _s)) i];
     }

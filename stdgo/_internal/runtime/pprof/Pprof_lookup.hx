@@ -1,14 +1,14 @@
 package stdgo._internal.runtime.pprof;
-function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> {
+function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
+            stdgo._internal.runtime.pprof.Pprof__lockprofiles._lockProfiles();
             {
-                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockprofiles._unlockProfiles;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>));
+                final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile> = (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>));
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -27,7 +27,7 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
                     stdgo.Go.recover_exception = null;
                     throw e;
                 };
-                return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+                return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
             };
         } catch(__exception__) {
             {
@@ -66,7 +66,7 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
                     stdgo.Go.recover_exception = null;
                     throw e;
                 };
-                return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+                return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
             };
         };
     }

@@ -1,0 +1,8 @@
+package stdgo._internal.crypto.tls;
+function _clientHelloInfo(_ctx:stdgo._internal.context.Context_context.Context, _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, _clientHello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> {
+        var _supportedVersions = (@:checkr _clientHello ?? throw "null pointer dereference")._supportedVersions;
+        if (((@:checkr _clientHello ?? throw "null pointer dereference")._supportedVersions.length) == ((0 : stdgo.GoInt))) {
+            _supportedVersions = stdgo._internal.crypto.tls.Tls__supportedversionsfrommax._supportedVersionsFromMax((@:checkr _clientHello ?? throw "null pointer dereference")._vers);
+        };
+        return (stdgo.Go.setRef(({ cipherSuites : (@:checkr _clientHello ?? throw "null pointer dereference")._cipherSuites, serverName : (@:checkr _clientHello ?? throw "null pointer dereference")._serverName?.__copy__(), supportedCurves : (@:checkr _clientHello ?? throw "null pointer dereference")._supportedCurves, supportedPoints : (@:checkr _clientHello ?? throw "null pointer dereference")._supportedPoints, signatureSchemes : (@:checkr _clientHello ?? throw "null pointer dereference")._supportedSignatureAlgorithms, supportedProtos : (@:checkr _clientHello ?? throw "null pointer dereference")._alpnProtocols, supportedVersions : _supportedVersions, conn : (@:checkr _c ?? throw "null pointer dereference")._conn, _config : (@:checkr _c ?? throw "null pointer dereference")._config, _ctx : _ctx } : stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo>);
+    }

@@ -240,16 +240,16 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
     public var members(get, set) : Array<Member>;
     function get_members():Array<Member> return [for (i in this.members) i];
     function set_members(v:Array<Member>):Array<Member> {
-        this.members = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Member.Member>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Member.Member>>);
+        this.members = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?archiveHeader:ArchiveHeader, ?members:Array<Member>, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.internal.xcoff.Xcoff_Archive.Archive(archiveHeader, ([for (i in members) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Member.Member>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Member.Member>>), _closer);
+    public function new(?archiveHeader:ArchiveHeader, ?members:Array<Member>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.internal.xcoff.Xcoff_Archive.Archive(archiveHeader, ([for (i in members) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_member.Member>>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -271,13 +271,13 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
         this.memberHeader = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?memberHeader:MemberHeader, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.internal.xcoff.Xcoff_Member.Member(memberHeader, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?memberHeader:MemberHeader, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.internal.xcoff.Xcoff_Member.Member(memberHeader, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -349,22 +349,22 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
     public var relocs(get, set) : Array<Reloc>;
     function get_relocs():Array<Reloc> return [for (i in this.relocs) i];
     function set_relocs(v:Array<Reloc>):Array<Reloc> {
-        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>);
+        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc>);
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.internal.xcoff.Xcoff_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.internal.xcoff.Xcoff_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -453,7 +453,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
     public var symbol(get, set) : Symbol;
     function get_symbol():Symbol return this.symbol;
     function set_symbol(v:Symbol):Symbol {
-        this.symbol = (v : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
+        this.symbol = (v : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>);
         return v;
     }
     public var signed(get, set) : Bool;
@@ -480,7 +480,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
         this.type = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?virtualAddress:haxe.UInt64, ?symbol:Symbol, ?signed:Bool, ?instructionFixed:Bool, ?length_:std.UInt, ?type:std.UInt) this = new stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc((virtualAddress : stdgo.GoUInt64), (symbol : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>), signed, instructionFixed, (length_ : stdgo.GoUInt8), (type : stdgo.GoUInt8));
+    public function new(?virtualAddress:haxe.UInt64, ?symbol:Symbol, ?signed:Bool, ?instructionFixed:Bool, ?length_:std.UInt, ?type:std.UInt) this = new stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc((virtualAddress : stdgo.GoUInt64), (symbol : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>), signed, instructionFixed, (length_ : stdgo.GoUInt8), (type : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -522,13 +522,13 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
     public var sections(get, set) : Array<Section>;
     function get_sections():Array<Section> return [for (i in this.sections) i];
     function set_sections(v:Array<Section>):Array<Section> {
-        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>);
+        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>>);
         return v;
     }
     public var symbols(get, set) : Array<Symbol>;
     function get_symbols():Array<Symbol> return [for (i in this.symbols) i];
     function set_symbols(v:Array<Symbol>):Array<Symbol> {
-        this.symbols = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
+        this.symbols = ([for (i in v) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>>);
         return v;
     }
     public var stringTable(get, set) : Array<std.UInt>;
@@ -543,13 +543,13 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_TOCL.r_TOCL;
         this.libraryPaths = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?stringTable:Array<std.UInt>, ?libraryPaths:Array<String>, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.internal.xcoff.Xcoff_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>), ([for (i in symbols) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>), ([for (i in stringTable) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in libraryPaths) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), _closer);
+    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?stringTable:Array<std.UInt>, ?libraryPaths:Array<String>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.internal.xcoff.Xcoff_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>>), ([for (i in symbols) (i : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol>>), ([for (i in stringTable) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in libraryPaths) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1384,7 +1384,7 @@ class T_bigarMemberHeader_static_extension {
 typedef ArchivePointer = stdgo._internal.internal.xcoff.Xcoff_ArchivePointer.ArchivePointer;
 class Archive_static_extension {
     static public function getFile(_arch:Archive, _name:String):stdgo.Tuple<File, stdgo.Error> {
-        final _arch = (_arch : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Archive.Archive>);
+        final _arch = (_arch : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_archive.Archive>);
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_Archive_static_extension.Archive_static_extension.getFile(_arch, _name);
@@ -1392,7 +1392,7 @@ class Archive_static_extension {
         };
     }
     static public function close(_a:Archive):stdgo.Error {
-        final _a = (_a : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Archive.Archive>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_archive.Archive>);
         return stdgo._internal.internal.xcoff.Xcoff_Archive_static_extension.Archive_static_extension.close(_a);
     }
 }
@@ -1415,13 +1415,13 @@ class SectionHeader_static_extension {
 typedef SectionPointer = stdgo._internal.internal.xcoff.Xcoff_SectionPointer.SectionPointer;
 class Section_static_extension {
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_Section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.internal.xcoff.Xcoff_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.internal.xcoff.Xcoff_section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -1457,51 +1457,51 @@ class FileHeader_static_extension {
 typedef FilePointer = stdgo._internal.internal.xcoff.Xcoff_FilePointer.FilePointer;
 class File_static_extension {
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.importedLibraries(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function importedSymbols(_f:File):stdgo.Tuple<Array<ImportedSymbol>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.importedSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _readImportIDs(_f:File, _s:Section):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_section.Section>);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension._readImportIDs(_f, _s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function cSect(_f:File, _name:String):Array<std.UInt> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         final _name = (_name : stdgo.GoString);
         return [for (i in stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.cSect(_f, _name)) i];
     }
     static public function sectionByType(_f:File, _typ:std.UInt):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         final _typ = (_typ : stdgo.GoUInt32);
         return stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.sectionByType(_f, _typ);
     }
     static public function section(_f:File, _name:String):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.section(_f, _name);
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File>);
         return stdgo._internal.internal.xcoff.Xcoff_File_static_extension.File_static_extension.close(_f);
     }
 }
@@ -1606,7 +1606,7 @@ class Xcoff {
     /**
         NewArchive creates a new Archive for accessing an AIX big archive in an underlying reader.
     **/
-    static public inline function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<Archive, stdgo.Error> {
+    static public inline function newArchive(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<Archive, stdgo.Error> {
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_newArchive.newArchive(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -1625,7 +1625,7 @@ class Xcoff {
     /**
         NewFile creates a new File for accessing an XCOFF binary in an underlying reader.
     **/
-    static public inline function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
             final obj = stdgo._internal.internal.xcoff.Xcoff_newFile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };

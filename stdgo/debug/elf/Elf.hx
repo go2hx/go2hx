@@ -2198,9 +2198,9 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.aBIVersion = (v : stdgo.GoUInt8);
         return v;
     }
-    public var byteOrder(get, set) : stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder;
-    function get_byteOrder():stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder return this.byteOrder;
-    function set_byteOrder(v:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder):stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder {
+    public var byteOrder(get, set) : stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder;
+    function get_byteOrder():stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder return this.byteOrder;
+    function set_byteOrder(v:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder):stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder {
         this.byteOrder = v;
         return v;
     }
@@ -2222,7 +2222,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.entry = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?class_:Class_, ?data:Data, ?version:Version, ?oSABI:OSABI, ?aBIVersion:std.UInt, ?byteOrder:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, ?type:Type_, ?machine:Machine, ?entry:haxe.UInt64) this = new stdgo._internal.debug.elf.Elf_FileHeader.FileHeader(class_, data, version, oSABI, (aBIVersion : stdgo.GoUInt8), byteOrder, type, machine, (entry : stdgo.GoUInt64));
+    public function new(?class_:Class_, ?data:Data, ?version:Version, ?oSABI:OSABI, ?aBIVersion:std.UInt, ?byteOrder:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?type:Type_, ?machine:Machine, ?entry:haxe.UInt64) this = new stdgo._internal.debug.elf.Elf_FileHeader.FileHeader(class_, data, version, oSABI, (aBIVersion : stdgo.GoUInt8), byteOrder, type, machine, (entry : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2236,25 +2236,25 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public var sections(get, set) : Array<Section>;
     function get_sections():Array<Section> return [for (i in this.sections) i];
     function set_sections(v:Array<Section>):Array<Section> {
-        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>>);
+        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>>);
         return v;
     }
     public var progs(get, set) : Array<Prog>;
     function get_progs():Array<Prog> return [for (i in this.progs) i];
     function set_progs(v:Array<Prog>):Array<Prog> {
-        this.progs = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>>);
+        this.progs = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_prog.Prog>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_prog.Prog>>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
     public var _gnuNeed(get, set) : Array<T_verneed>;
     function get__gnuNeed():Array<T_verneed> return [for (i in this._gnuNeed) i];
     function set__gnuNeed(v:Array<T_verneed>):Array<T_verneed> {
-        this._gnuNeed = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>);
+        this._gnuNeed = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.elf.Elf_t_verneed.T_verneed>);
         return v;
     }
     public var _gnuVersym(get, set) : Array<std.UInt>;
@@ -2263,7 +2263,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this._gnuVersym = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?progs:Array<Prog>, ?_closer:stdgo._internal.io.Io_Closer.Closer, ?_gnuNeed:Array<T_verneed>, ?_gnuVersym:Array<std.UInt>) this = new stdgo._internal.debug.elf.Elf_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>>), ([for (i in progs) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>>), _closer, ([for (i in _gnuNeed) i] : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>), ([for (i in _gnuVersym) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?progs:Array<Prog>, ?_closer:stdgo._internal.io.Io_closer.Closer, ?_gnuNeed:Array<T_verneed>, ?_gnuVersym:Array<std.UInt>) this = new stdgo._internal.debug.elf.Elf_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>>), ([for (i in progs) (i : stdgo.Ref<stdgo._internal.debug.elf.Elf_prog.Prog>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_prog.Prog>>), _closer, ([for (i in _gnuNeed) i] : stdgo.Slice<stdgo._internal.debug.elf.Elf_t_verneed.T_verneed>), ([for (i in _gnuVersym) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2356,16 +2356,16 @@ flags,
         this.sectionHeader = v;
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
     public var _compressionType(get, set) : CompressionType;
@@ -2380,7 +2380,7 @@ flags,
         this._compressionOffset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader, ?_compressionType:CompressionType, ?_compressionOffset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_Section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>), _compressionType, (_compressionOffset : stdgo.GoInt64));
+    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader, ?_compressionType:CompressionType, ?_compressionOffset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_Section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>), _compressionType, (_compressionOffset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2444,19 +2444,19 @@ flags,
         this.progHeader = v;
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?progHeader:ProgHeader, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.debug.elf.Elf_Prog.Prog(progHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?progHeader:ProgHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.elf.Elf_Prog.Prog(progHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2593,15 +2593,15 @@ flags,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.debug.elf.Elf.T_readSeekerFromReader_static_extension) abstract T_readSeekerFromReader(stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader) from stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader to stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader {
-    public var _reset(get, set) : () -> { var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; };
-    function get__reset():() -> { var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; } return () -> this._reset();
-    function set__reset(v:() -> { var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; }):() -> { var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; } {
+    public var _reset(get, set) : () -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
+    function get__reset():() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return () -> this._reset();
+    function set__reset(v:() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
         this._reset = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
@@ -2617,7 +2617,7 @@ flags,
         this._offset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_reset:() -> { var _0 : stdgo._internal.io.Io_Reader.Reader; var _1 : stdgo.Error; }, ?_r:stdgo._internal.io.Io_Reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader(_reset, _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
+    public function new(?_reset:() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }, ?_r:stdgo._internal.io.Io_reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader(_reset, _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2727,28 +2727,28 @@ class FileHeader_static_extension {
 typedef FilePointer = stdgo._internal.debug.elf.Elf_FilePointer.FilePointer;
 class File_static_extension {
     static public function dynValue(_f:File, _tag:DynTag):stdgo.Tuple<Array<haxe.UInt64>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dynValue(_f, _tag);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function dynString(_f:File, _tag:DynTag):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dynString(_f, _tag);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.importedLibraries(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _gnuVersion(_f:File, _i:StdTypes.Int):stdgo.Tuple<String, String> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _i = (_i : stdgo.GoInt);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._gnuVersion(_f, _i);
@@ -2756,152 +2756,152 @@ class File_static_extension {
         };
     }
     static public function _gnuVersionInit(_f:File, _str:Array<std.UInt>):Bool {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _str = ([for (i in _str) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._gnuVersionInit(_f, _str);
     }
     static public function importedSymbols(_f:File):stdgo.Tuple<Array<ImportedSymbol>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.importedSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function dynamicSymbols(_f:File):stdgo.Tuple<Array<Symbol>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dynamicSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function symbols(_f:File):stdgo.Tuple<Array<Symbol>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.symbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _applyRelocationsSPARC64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsSPARC64(_f, _dst, _rels);
     }
     static public function _applyRelocationss390x(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationss390x(_f, _dst, _rels);
     }
     static public function _applyRelocationsRISCV64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsRISCV64(_f, _dst, _rels);
     }
     static public function _applyRelocationsLOONG64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsLOONG64(_f, _dst, _rels);
     }
     static public function _applyRelocationsMIPS64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsMIPS64(_f, _dst, _rels);
     }
     static public function _applyRelocationsMIPS(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsMIPS(_f, _dst, _rels);
     }
     static public function _applyRelocationsPPC64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsPPC64(_f, _dst, _rels);
     }
     static public function _applyRelocationsPPC(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsPPC(_f, _dst, _rels);
     }
     static public function _applyRelocationsARM64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsARM64(_f, _dst, _rels);
     }
     static public function _applyRelocationsARM(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsARM(_f, _dst, _rels);
     }
     static public function _applyRelocations386(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocations386(_f, _dst, _rels);
     }
     static public function _applyRelocationsAMD64(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocationsAMD64(_f, _dst, _rels);
     }
     static public function _applyRelocations(_f:File, _dst:Array<std.UInt>, _rels:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _rels = ([for (i in _rels) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._applyRelocations(_f, _dst, _rels);
     }
     static public function section(_f:File, _name:String):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.section(_f, _name);
     }
     static public function _getSymbols64(_f:File, _typ:SectionType):stdgo.Tuple.Tuple3<Array<Symbol>, Array<std.UInt>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._getSymbols64(_f, _typ);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
     static public function _getSymbols32(_f:File, _typ:SectionType):stdgo.Tuple.Tuple3<Array<Symbol>, Array<std.UInt>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._getSymbols32(_f, _typ);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
     static public function _getSymbols(_f:File, _typ:SectionType):stdgo.Tuple.Tuple3<Array<Symbol>, Array<std.UInt>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._getSymbols(_f, _typ);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
     static public function sectionByType(_f:File, _typ:SectionType):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.sectionByType(_f, _typ);
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         return stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension.close(_f);
     }
     static public function _stringTable(_f:File, _link:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>);
         final _link = (_link : stdgo.GoUInt32);
         return {
             final obj = stdgo._internal.debug.elf.Elf_File_static_extension.File_static_extension._stringTable(_f, _link);
@@ -2915,18 +2915,18 @@ class SectionHeader_static_extension {
 }
 typedef SectionPointer = stdgo._internal.debug.elf.Elf_SectionPointer.SectionPointer;
 class Section_static_extension {
-    static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>);
+    static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>);
         return stdgo._internal.debug.elf.Elf_Section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.elf.Elf_section.Section>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_Section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -2941,11 +2941,11 @@ class ProgHeader_static_extension {
 }
 typedef ProgPointer = stdgo._internal.debug.elf.Elf_ProgPointer.ProgPointer;
 class Prog_static_extension {
-    static public function open(_p:Prog):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _p = (_p : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>);
+    static public function open(_p:Prog):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _p = (_p : stdgo.Ref<stdgo._internal.debug.elf.Elf_prog.Prog>);
         return stdgo._internal.debug.elf.Elf_Prog_static_extension.Prog_static_extension.open(_p);
     }
-    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_Prog.Prog, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.elf.Elf_prog.Prog, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -2961,7 +2961,7 @@ class Symbol_static_extension {
 typedef FormatErrorPointer = stdgo._internal.debug.elf.Elf_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.debug.elf.Elf_formaterror.FormatError>);
         return stdgo._internal.debug.elf.Elf_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
@@ -2976,7 +2976,7 @@ class T_verneed_static_extension {
 typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.elf.Elf_T_nobitsSectionReaderPointer.T_nobitsSectionReaderPointer;
 class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _ = (_ : stdgo.Ref<stdgo._internal.debug.elf.Elf_T_nobitsSectionReader.T_nobitsSectionReader>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -3013,14 +3013,14 @@ class T_errorReader_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function error(__self__:stdgo._internal.debug.elf.Elf_T_errorReader.T_errorReader):String {
+    public static function error(__self__:stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader):String {
         return stdgo._internal.debug.elf.Elf_T_errorReader_static_extension.T_errorReader_static_extension.error(__self__);
     }
 }
 typedef T_readSeekerFromReaderPointer = stdgo._internal.debug.elf.Elf_T_readSeekerFromReaderPointer.T_readSeekerFromReaderPointer;
 class T_readSeekerFromReader_static_extension {
     static public function seek(_r:T_readSeekerFromReader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader>);
         final _offset = (_offset : stdgo.GoInt64);
         final _whence = (_whence : stdgo.GoInt);
         return {
@@ -3029,7 +3029,7 @@ class T_readSeekerFromReader_static_extension {
         };
     }
     static public function read(_r:T_readSeekerFromReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.debug.elf.Elf_T_readSeekerFromReader_static_extension.T_readSeekerFromReader_static_extension.read(_r, _p);
@@ -3037,7 +3037,7 @@ class T_readSeekerFromReader_static_extension {
         };
     }
     static public function _start(_r:T_readSeekerFromReader):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader>);
         stdgo._internal.debug.elf.Elf_T_readSeekerFromReader_static_extension.T_readSeekerFromReader_static_extension._start(_r);
     }
 }
@@ -3389,7 +3389,7 @@ class Elf {
         NewFile creates a new File for accessing an ELF binary in an underlying reader.
         The ELF binary is expected to start at position 0 in the ReaderAt.
     **/
-    static public inline function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.elf.Elf_newFile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };

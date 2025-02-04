@@ -16,13 +16,13 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this.value = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>);
         return v;
     }
-    public var file(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>>;
-    function get_file():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>> return this.file;
-    function set_file(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>> {
-        this.file = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>>);
+    public var file(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>;
+    function get_file():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>> return this.file;
+    function set_file(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>> {
+        this.file = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>);
         return v;
     }
-    public function new(?value:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>, ?file:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>>) this = new stdgo._internal.mime.multipart.Multipart_Form.Form((value : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>), (file : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>>));
+    public function new(?value:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>, ?file:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>) this = new stdgo._internal.mime.multipart.Multipart_Form.Form((value : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>), (file : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -33,9 +33,9 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this.filename = (v : stdgo.GoString);
         return v;
     }
-    public var header(get, set) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader;
-    function get_header():stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader return this.header;
-    function set_header(v:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader {
+    public var header(get, set) : stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader;
+    function get_header():stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader return this.header;
+    function set_header(v:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader):stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader {
         this.header = v;
         return v;
     }
@@ -69,38 +69,38 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._tmpshared = v;
         return v;
     }
-    public function new(?filename:String, ?header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader, ?size:haxe.Int64, ?_content:Array<std.UInt>, ?_tmpfile:String, ?_tmpoff:haxe.Int64, ?_tmpshared:Bool) this = new stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader((filename : stdgo.GoString), header, (size : stdgo.GoInt64), ([for (i in _content) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_tmpfile : stdgo.GoString), (_tmpoff : stdgo.GoInt64), _tmpshared);
+    public function new(?filename:String, ?header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, ?size:haxe.Int64, ?_content:Array<std.UInt>, ?_tmpfile:String, ?_tmpoff:haxe.Int64, ?_tmpshared:Bool) this = new stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader((filename : stdgo.GoString), header, (size : stdgo.GoInt64), ([for (i in _content) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_tmpfile : stdgo.GoString), (_tmpoff : stdgo.GoInt64), _tmpshared);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.mime.multipart.Multipart.T_sectionReadCloser_static_extension) abstract T_sectionReadCloser(stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser) from stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser to stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser {
-    public var sectionReader(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get_sectionReader():stdgo._internal.io.Io_SectionReader.SectionReader return this.sectionReader;
-    function set_sectionReader(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this.sectionReader = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var sectionReader(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get_sectionReader():stdgo._internal.io.Io_sectionreader.SectionReader return this.sectionReader;
+    function set_sectionReader(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this.sectionReader = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public var closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get_closer():stdgo._internal.io.Io_Closer.Closer return this.closer;
-    function set_closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get_closer():stdgo._internal.io.Io_closer.Closer return this.closer;
+    function set_closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this.closer = v;
         return v;
     }
-    public function new(?sectionReader:stdgo._internal.io.Io_SectionReader.SectionReader, ?closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser((sectionReader : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>), closer);
+    public function new(?sectionReader:stdgo._internal.io.Io_sectionreader.SectionReader, ?closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser((sectionReader : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>), closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.mime.multipart.Multipart.Part_static_extension) abstract Part(stdgo._internal.mime.multipart.Multipart_Part.Part) from stdgo._internal.mime.multipart.Multipart_Part.Part to stdgo._internal.mime.multipart.Multipart_Part.Part {
-    public var header(get, set) : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader;
-    function get_header():stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader return this.header;
-    function set_header(v:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader {
+    public var header(get, set) : stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader;
+    function get_header():stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader return this.header;
+    function set_header(v:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader):stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader {
         this.header = v;
         return v;
     }
     public var _mr(get, set) : Reader;
     function get__mr():Reader return this._mr;
     function set__mr(v:Reader):Reader {
-        this._mr = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        this._mr = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         return v;
     }
     public var _disposition(get, set) : String;
@@ -115,9 +115,9 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._dispositionParams = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         return v;
     }
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
@@ -145,14 +145,14 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._readErr = (v : stdgo.Error);
         return v;
     }
-    public function new(?header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader, ?_mr:Reader, ?_disposition:String, ?_dispositionParams:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_r:stdgo._internal.io.Io_Reader.Reader, ?_n:StdTypes.Int, ?_total:haxe.Int64, ?_err:stdgo.Error, ?_readErr:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_Part.Part(header, (_mr : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>), (_disposition : stdgo.GoString), (_dispositionParams : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _r, (_n : stdgo.GoInt), (_total : stdgo.GoInt64), (_err : stdgo.Error), (_readErr : stdgo.Error));
+    public function new(?header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, ?_mr:Reader, ?_disposition:String, ?_dispositionParams:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_n:StdTypes.Int, ?_total:haxe.Int64, ?_err:stdgo.Error, ?_readErr:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_Part.Part(header, (_mr : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>), (_disposition : stdgo.GoString), (_dispositionParams : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _r, (_n : stdgo.GoInt), (_total : stdgo.GoInt64), (_err : stdgo.Error), (_readErr : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.mime.multipart.Multipart.T_stickyErrorReader_static_extension) abstract T_stickyErrorReader(stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader) from stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader to stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader {
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
@@ -162,7 +162,7 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_Reader.Reader, ?_err:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader(_r, (_err : stdgo.Error));
+    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_err:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader(_r, (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -170,18 +170,18 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
     public var _p(get, set) : Part;
     function get__p():Part return this._p;
     function set__p(v:Part):Part {
-        this._p = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        this._p = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         return v;
     }
-    public function new(?_p:Part) this = new stdgo._internal.mime.multipart.Multipart_T_partReader.T_partReader((_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>));
+    public function new(?_p:Part) this = new stdgo._internal.mime.multipart.Multipart_T_partReader.T_partReader((_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.mime.multipart.Multipart.Reader_static_extension) abstract Reader(stdgo._internal.mime.multipart.Multipart_Reader.Reader) from stdgo._internal.mime.multipart.Multipart_Reader.Reader to stdgo._internal.mime.multipart.Multipart_Reader.Reader {
-    public var _bufReader(get, set) : stdgo._internal.bufio.Bufio_Reader.Reader;
-    function get__bufReader():stdgo._internal.bufio.Bufio_Reader.Reader return this._bufReader;
-    function set__bufReader(v:stdgo._internal.bufio.Bufio_Reader.Reader):stdgo._internal.bufio.Bufio_Reader.Reader {
-        this._bufReader = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    public var _bufReader(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
+    function get__bufReader():stdgo._internal.bufio.Bufio_reader.Reader return this._bufReader;
+    function set__bufReader(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
+        this._bufReader = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return v;
     }
     public var _tempDir(get, set) : String;
@@ -193,7 +193,7 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
     public var _currentPart(get, set) : Part;
     function get__currentPart():Part return this._currentPart;
     function set__currentPart(v:Part):Part {
-        this._currentPart = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        this._currentPart = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         return v;
     }
     public var _partsRead(get, set) : StdTypes.Int;
@@ -226,14 +226,14 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._dashBoundary = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_bufReader:stdgo._internal.bufio.Bufio_Reader.Reader, ?_tempDir:String, ?_currentPart:Part, ?_partsRead:StdTypes.Int, ?_nl:Array<std.UInt>, ?_nlDashBoundary:Array<std.UInt>, ?_dashBoundaryDash:Array<std.UInt>, ?_dashBoundary:Array<std.UInt>) this = new stdgo._internal.mime.multipart.Multipart_Reader.Reader((_bufReader : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>), (_tempDir : stdgo.GoString), (_currentPart : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>), (_partsRead : stdgo.GoInt), ([for (i in _nl) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _nlDashBoundary) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _dashBoundaryDash) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _dashBoundary) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_bufReader:stdgo._internal.bufio.Bufio_reader.Reader, ?_tempDir:String, ?_currentPart:Part, ?_partsRead:StdTypes.Int, ?_nl:Array<std.UInt>, ?_nlDashBoundary:Array<std.UInt>, ?_dashBoundaryDash:Array<std.UInt>, ?_dashBoundary:Array<std.UInt>) this = new stdgo._internal.mime.multipart.Multipart_Reader.Reader((_bufReader : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>), (_tempDir : stdgo.GoString), (_currentPart : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>), (_partsRead : stdgo.GoInt), ([for (i in _nl) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _nlDashBoundary) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _dashBoundaryDash) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _dashBoundary) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.mime.multipart.Multipart.Writer_static_extension) abstract Writer(stdgo._internal.mime.multipart.Multipart_Writer.Writer) from stdgo._internal.mime.multipart.Multipart_Writer.Writer to stdgo._internal.mime.multipart.Multipart_Writer.Writer {
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
@@ -246,10 +246,10 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
     public var _lastpart(get, set) : T_part;
     function get__lastpart():T_part return this._lastpart;
     function set__lastpart(v:T_part):T_part {
-        this._lastpart = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part>);
+        this._lastpart = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>);
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_boundary:String, ?_lastpart:T_part) this = new stdgo._internal.mime.multipart.Multipart_Writer.Writer(_w, (_boundary : stdgo.GoString), (_lastpart : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part>));
+    public function new(?_w:stdgo._internal.io.Io_writer.Writer, ?_boundary:String, ?_lastpart:T_part) this = new stdgo._internal.mime.multipart.Multipart_Writer.Writer(_w, (_boundary : stdgo.GoString), (_lastpart : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -257,7 +257,7 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
     public var _mw(get, set) : Writer;
     function get__mw():Writer return this._mw;
     function set__mw(v:Writer):Writer {
-        this._mw = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        this._mw = (v : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         return v;
     }
     public var _closed(get, set) : Bool;
@@ -272,21 +272,21 @@ typedef File = stdgo._internal.mime.multipart.Multipart_File.File;
         this._we = (v : stdgo.Error);
         return v;
     }
-    public function new(?_mw:Writer, ?_closed:Bool, ?_we:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_T_part.T_part((_mw : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>), _closed, (_we : stdgo.Error));
+    public function new(?_mw:Writer, ?_closed:Bool, ?_we:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_T_part.T_part((_mw : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>), _closed, (_we : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef FormPointer = stdgo._internal.mime.multipart.Multipart_FormPointer.FormPointer;
 class Form_static_extension {
     static public function removeAll(_f:Form):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>);
         return stdgo._internal.mime.multipart.Multipart_Form_static_extension.Form_static_extension.removeAll(_f);
     }
 }
 typedef FileHeaderPointer = stdgo._internal.mime.multipart.Multipart_FileHeaderPointer.FileHeaderPointer;
 class FileHeader_static_extension {
     static public function open(_fh:FileHeader):stdgo.Tuple<File, stdgo.Error> {
-        final _fh = (_fh : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>);
+        final _fh = (_fh : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_FileHeader_static_extension.FileHeader_static_extension.open(_fh);
             { _0 : obj._0, _1 : obj._1 };
@@ -298,10 +298,10 @@ class T_sectionReadCloser_static_extension {
     static public function close(_rc:T_sectionReadCloser):stdgo.Error {
         return stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser_static_extension.T_sectionReadCloser_static_extension.close(_rc);
     }
-    public static function size(__self__:stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser):haxe.Int64 {
+    public static function size(__self__:stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser):haxe.Int64 {
         return stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser_static_extension.T_sectionReadCloser_static_extension.size(__self__);
     }
-    public static function seek(__self__:stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function seek(__self__:stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt);
         return {
@@ -309,7 +309,7 @@ class T_sectionReadCloser_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -317,7 +317,7 @@ class T_sectionReadCloser_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(__self__:stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function read(__self__:stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser_static_extension.T_sectionReadCloser_static_extension.read(__self__, _0);
@@ -328,11 +328,11 @@ class T_sectionReadCloser_static_extension {
 typedef PartPointer = stdgo._internal.mime.multipart.Multipart_PartPointer.PartPointer;
 class Part_static_extension {
     static public function close(_p:Part):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         return stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension.close(_p);
     }
     static public function read(_p:Part, _d:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         final _d = ([for (i in _d) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension.read(_p, _d);
@@ -340,28 +340,28 @@ class Part_static_extension {
         };
     }
     static public function _populateHeaders(_p:Part, _maxMIMEHeaderSize:haxe.Int64, _maxMIMEHeaders:haxe.Int64):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         final _maxMIMEHeaderSize = (_maxMIMEHeaderSize : stdgo.GoInt64);
         final _maxMIMEHeaders = (_maxMIMEHeaders : stdgo.GoInt64);
         return stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension._populateHeaders(_p, _maxMIMEHeaderSize, _maxMIMEHeaders);
     }
     static public function _parseContentDisposition(_p:Part):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension._parseContentDisposition(_p);
     }
     static public function fileName(_p:Part):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         return stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension.fileName(_p);
     }
     static public function formName(_p:Part):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>);
         return stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension.formName(_p);
     }
 }
 typedef T_stickyErrorReaderPointer = stdgo._internal.mime.multipart.Multipart_T_stickyErrorReaderPointer.T_stickyErrorReaderPointer;
 class T_stickyErrorReader_static_extension {
     static public function read(_r:T_stickyErrorReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader.T_stickyErrorReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_stickyerrorreader.T_stickyErrorReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_T_stickyErrorReader_static_extension.T_stickyErrorReader_static_extension.read(_r, _p);
@@ -382,17 +382,17 @@ class T_partReader_static_extension {
 typedef ReaderPointer = stdgo._internal.mime.multipart.Multipart_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function _isBoundaryDelimiterLine(_r:Reader, _line:Array<std.UInt>):Bool {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         final _line = ([for (i in _line) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension._isBoundaryDelimiterLine(_r, _line);
     }
     static public function _isFinalBoundary(_r:Reader, _line:Array<std.UInt>):Bool {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         final _line = ([for (i in _line) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension._isFinalBoundary(_r, _line);
     }
     static public function _nextPart(_r:Reader, _rawPart:Bool, _maxMIMEHeaderSize:haxe.Int64, _maxMIMEHeaders:haxe.Int64):stdgo.Tuple<Part, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         final _maxMIMEHeaderSize = (_maxMIMEHeaderSize : stdgo.GoInt64);
         final _maxMIMEHeaders = (_maxMIMEHeaders : stdgo.GoInt64);
         return {
@@ -401,21 +401,21 @@ class Reader_static_extension {
         };
     }
     static public function nextRawPart(_r:Reader):stdgo.Tuple<Part, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension.nextRawPart(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function nextPart(_r:Reader):stdgo.Tuple<Part, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension.nextPart(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readForm(_r:Reader, _maxMemory:haxe.Int64):stdgo.Tuple<Form, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         final _maxMemory = (_maxMemory : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension._readForm(_r, _maxMemory);
@@ -423,7 +423,7 @@ class Reader_static_extension {
         };
     }
     static public function readForm(_r:Reader, _maxMemory:haxe.Int64):stdgo.Tuple<Form, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>);
         final _maxMemory = (_maxMemory : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension.readForm(_r, _maxMemory);
@@ -432,38 +432,38 @@ class Reader_static_extension {
     }
 }
 @:structInit abstract T__readForm___localname___writerOnly_5240(stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240) from stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240 to stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240 {
-    public var writer(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get_writer():stdgo._internal.io.Io_Writer.Writer return this.writer;
-    function set_writer(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var writer(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get_writer():stdgo._internal.io.Io_writer.Writer return this.writer;
+    function set_writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this.writer = v;
         return v;
     }
-    public function new(?writer:stdgo._internal.io.Io_Writer.Writer) this = new stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240(writer);
+    public function new(?writer:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240(writer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef WriterPointer = stdgo._internal.mime.multipart.Multipart_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function close(_w:Writer):stdgo.Error {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         return stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.close(_w);
     }
     static public function writeField(_w:Writer, _fieldname:String, _value:String):stdgo.Error {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         final _fieldname = (_fieldname : stdgo.GoString);
         final _value = (_value : stdgo.GoString);
         return stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.writeField(_w, _fieldname, _value);
     }
-    static public function createFormField(_w:Writer, _fieldname:String):stdgo.Tuple<stdgo._internal.io.Io_Writer.Writer, stdgo.Error> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+    static public function createFormField(_w:Writer, _fieldname:String):stdgo.Tuple<stdgo._internal.io.Io_writer.Writer, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         final _fieldname = (_fieldname : stdgo.GoString);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.createFormField(_w, _fieldname);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function createFormFile(_w:Writer, _fieldname:String, _filename:String):stdgo.Tuple<stdgo._internal.io.Io_Writer.Writer, stdgo.Error> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+    static public function createFormFile(_w:Writer, _fieldname:String, _filename:String):stdgo.Tuple<stdgo._internal.io.Io_writer.Writer, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         final _fieldname = (_fieldname : stdgo.GoString);
         final _filename = (_filename : stdgo.GoString);
         return {
@@ -471,31 +471,31 @@ class Writer_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function createPart(_w:Writer, _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo.Tuple<stdgo._internal.io.Io_Writer.Writer, stdgo.Error> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+    static public function createPart(_w:Writer, _header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader):stdgo.Tuple<stdgo._internal.io.Io_writer.Writer, stdgo.Error> {
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.createPart(_w, _header);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function formDataContentType(_w:Writer):String {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         return stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.formDataContentType(_w);
     }
     static public function setBoundary(_w:Writer, _boundary:String):stdgo.Error {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         final _boundary = (_boundary : stdgo.GoString);
         return stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.setBoundary(_w, _boundary);
     }
     static public function boundary(_w:Writer):String {
-        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>);
         return stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension.boundary(_w);
     }
 }
 typedef T_partPointer = stdgo._internal.mime.multipart.Multipart_T_partPointer.T_partPointer;
 class T_part_static_extension {
     static public function write(_p:T_part, _d:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>);
         final _d = ([for (i in _d) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.mime.multipart.Multipart_T_part_static_extension.T_part_static_extension.write(_p, _d);
@@ -503,7 +503,7 @@ class T_part_static_extension {
         };
     }
     static public function _close(_p:T_part):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_t_part.T_part>);
         return stdgo._internal.mime.multipart.Multipart_T_part_static_extension.T_part_static_extension._close(_p);
     }
 }
@@ -544,7 +544,7 @@ class Multipart {
         the message's "Content-Type" header. Use mime.ParseMediaType to
         parse such headers.
     **/
-    static public inline function newReader(_r:stdgo._internal.io.Io_Reader.Reader, _boundary:String):Reader {
+    static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader, _boundary:String):Reader {
         final _boundary = (_boundary : stdgo.GoString);
         return stdgo._internal.mime.multipart.Multipart_newReader.newReader(_r, _boundary);
     }
@@ -552,7 +552,7 @@ class Multipart {
         NewWriter returns a new multipart Writer with a random boundary,
         writing to w.
     **/
-    static public inline function newWriter(_w:stdgo._internal.io.Io_Writer.Writer):Writer {
+    static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer):Writer {
         return stdgo._internal.mime.multipart.Multipart_newWriter.newWriter(_w);
     }
 }

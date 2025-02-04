@@ -3,10 +3,10 @@ package stdgo.embed;
     public var _files(get, set) : Array<T_file>;
     function get__files():Array<T_file> return this._files;
     function set__files(v:Array<T_file>):Array<T_file> {
-        this._files = (v : stdgo.Ref<stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>>);
+        this._files = (v : stdgo.Ref<stdgo.Slice<stdgo._internal.embed.Embed_t_file.T_file>>);
         return v;
     }
-    public function new(?_files:Array<T_file>) this = new stdgo._internal.embed.Embed_FS.FS((_files : stdgo.Ref<stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>>));
+    public function new(?_files:Array<T_file>) this = new stdgo._internal.embed.Embed_FS.FS((_files : stdgo.Ref<stdgo.Slice<stdgo._internal.embed.Embed_t_file.T_file>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -37,7 +37,7 @@ package stdgo.embed;
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {
-        this._f = (v : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        this._f = (v : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return v;
     }
     public var _offset(get, set) : haxe.Int64;
@@ -46,7 +46,7 @@ package stdgo.embed;
         this._offset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_f:T_file, ?_offset:haxe.Int64) this = new stdgo._internal.embed.Embed_T_openFile.T_openFile((_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>), (_offset : stdgo.GoInt64));
+    public function new(?_f:T_file, ?_offset:haxe.Int64) this = new stdgo._internal.embed.Embed_T_openFile.T_openFile((_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>), (_offset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -54,13 +54,13 @@ package stdgo.embed;
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {
-        this._f = (v : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        this._f = (v : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return v;
     }
     public var _files(get, set) : Array<T_file>;
     function get__files():Array<T_file> return [for (i in this._files) i];
     function set__files(v:Array<T_file>):Array<T_file> {
-        this._files = ([for (i in v) i] : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
+        this._files = ([for (i in v) i] : stdgo.Slice<stdgo._internal.embed.Embed_t_file.T_file>);
         return v;
     }
     public var _offset(get, set) : StdTypes.Int;
@@ -69,7 +69,7 @@ package stdgo.embed;
         this._offset = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_f:T_file, ?_files:Array<T_file>, ?_offset:StdTypes.Int) this = new stdgo._internal.embed.Embed_T_openDir.T_openDir((_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>), ([for (i in _files) i] : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>), (_offset : stdgo.GoInt));
+    public function new(?_f:T_file, ?_files:Array<T_file>, ?_offset:StdTypes.Int) this = new stdgo._internal.embed.Embed_T_openDir.T_openDir((_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>), ([for (i in _files) i] : stdgo.Slice<stdgo._internal.embed.Embed_t_file.T_file>), (_offset : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -82,14 +82,14 @@ class FS_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readDir(_f:FS, _name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
+    static public function readDir(_f:FS, _name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.embed.Embed_FS_static_extension.FS_static_extension.readDir(_f, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function open(_f:FS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
+    static public function open(_f:FS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_file.File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.embed.Embed_FS_static_extension.FS_static_extension.open(_f, _name);
@@ -108,49 +108,49 @@ class FS_static_extension {
 typedef T_filePointer = stdgo._internal.embed.Embed_T_filePointer.T_filePointer;
 class T_file_static_extension {
     static public function string(_f:T_file):String {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.string(_f);
     }
-    static public function mode(_f:T_file):stdgo._internal.io.fs.Fs_FileMode.FileMode {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+    static public function mode(_f:T_file):stdgo._internal.io.fs.Fs_filemode.FileMode {
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.mode(_f);
     }
-    static public function info(_f:T_file):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+    static public function info(_f:T_file):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return {
             final obj = stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.info(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(_f:T_file):stdgo._internal.io.fs.Fs_FileMode.FileMode {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+    static public function type(_f:T_file):stdgo._internal.io.fs.Fs_filemode.FileMode {
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.type(_f);
     }
     static public function sys(_f:T_file):stdgo.AnyInterface {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.sys(_f);
     }
     static public function isDir(_f:T_file):Bool {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.isDir(_f);
     }
-    static public function modTime(_f:T_file):stdgo._internal.time.Time_Time.Time {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+    static public function modTime(_f:T_file):stdgo._internal.time.Time_time.Time {
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.modTime(_f);
     }
     static public function size(_f:T_file):haxe.Int64 {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.size(_f);
     }
     static public function name(_f:T_file):String {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_T_file_static_extension.T_file_static_extension.name(_f);
     }
 }
 typedef T_openFilePointer = stdgo._internal.embed.Embed_T_openFilePointer.T_openFilePointer;
 class T_openFile_static_extension {
     static public function readAt(_f:T_openFile, _b:Array<std.UInt>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_openFile.T_openFile>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _offset = (_offset : stdgo.GoInt64);
         return {
@@ -159,7 +159,7 @@ class T_openFile_static_extension {
         };
     }
     static public function seek(_f:T_openFile, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_openFile.T_openFile>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         final _offset = (_offset : stdgo.GoInt64);
         final _whence = (_whence : stdgo.GoInt);
         return {
@@ -168,29 +168,29 @@ class T_openFile_static_extension {
         };
     }
     static public function read(_f:T_openFile, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_openFile.T_openFile>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.embed.Embed_T_openFile_static_extension.T_openFile_static_extension.read(_f, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stat(_f:T_openFile):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_openFile.T_openFile>);
+    static public function stat(_f:T_openFile):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         return {
             final obj = stdgo._internal.embed.Embed_T_openFile_static_extension.T_openFile_static_extension.stat(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function close(_f:T_openFile):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_T_openFile.T_openFile>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         return stdgo._internal.embed.Embed_T_openFile_static_extension.T_openFile_static_extension.close(_f);
     }
 }
 typedef T_openDirPointer = stdgo._internal.embed.Embed_T_openDirPointer.T_openDirPointer;
 class T_openDir_static_extension {
-    static public function readDir(_d:T_openDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_T_openDir.T_openDir>);
+    static public function readDir(_d:T_openDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>);
         final _count = (_count : stdgo.GoInt);
         return {
             final obj = stdgo._internal.embed.Embed_T_openDir_static_extension.T_openDir_static_extension.readDir(_d, _count);
@@ -198,22 +198,22 @@ class T_openDir_static_extension {
         };
     }
     static public function read(_d:T_openDir, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_T_openDir.T_openDir>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>);
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.embed.Embed_T_openDir_static_extension.T_openDir_static_extension.read(_d, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stat(_d:T_openDir):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_T_openDir.T_openDir>);
+    static public function stat(_d:T_openDir):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>);
         return {
             final obj = stdgo._internal.embed.Embed_T_openDir_static_extension.T_openDir_static_extension.stat(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function close(_d:T_openDir):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_T_openDir.T_openDir>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>);
         return stdgo._internal.embed.Embed_T_openDir_static_extension.T_openDir_static_extension.close(_d);
     }
 }

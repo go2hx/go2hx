@@ -11,16 +11,16 @@ private function set_importPath(v:String):String {
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) abstract T_testLog(stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog) from stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog to stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog {
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public var _w(get, set) : stdgo._internal.bufio.Bufio_Writer.Writer;
-    function get__w():stdgo._internal.bufio.Bufio_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.bufio.Bufio_Writer.Writer):stdgo._internal.bufio.Bufio_Writer.Writer {
-        this._w = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>);
+    public var _w(get, set) : stdgo._internal.bufio.Bufio_writer.Writer;
+    function get__w():stdgo._internal.bufio.Bufio_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.bufio.Bufio_writer.Writer):stdgo._internal.bufio.Bufio_writer.Writer {
+        this._w = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>);
         return v;
     }
     public var _set(get, set) : Bool;
@@ -29,7 +29,7 @@ private function set_importPath(v:String):String {
         this._set = v;
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_w:stdgo._internal.bufio.Bufio_Writer.Writer, ?_set:Bool) this = new stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog(_mu, (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>), _set);
+    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_set:Bool) this = new stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog(_mu, (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>), _set);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -41,14 +41,14 @@ class TestDeps_static_extension {
     static public function resetCoverage(_:TestDeps):Void {
         stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.resetCoverage(_);
     }
-    static public function checkCorpus(_:TestDeps, _vals:Array<stdgo.AnyInterface>, _types:Array<stdgo._internal.reflect.Reflect_Type_.Type_>):stdgo.Error {
+    static public function checkCorpus(_:TestDeps, _vals:Array<stdgo.AnyInterface>, _types:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Error {
         final _vals = ([for (i in _vals) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
-        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>);
+        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>);
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.checkCorpus(_, _vals, _types);
     }
-    static public function readCorpus(_:TestDeps, _dir:String, _types:Array<stdgo._internal.reflect.Reflect_Type_.Type_>):stdgo.Tuple<Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, stdgo.Error> {
+    static public function readCorpus(_:TestDeps, _dir:String, _types:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Tuple<Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, stdgo.Error> {
         final _dir = (_dir : stdgo.GoString);
-        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>);
+        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>);
         return {
             final obj = stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.readCorpus(_, _dir, _types);
             { _0 : [for (i in obj._0) {
@@ -61,7 +61,7 @@ class TestDeps_static_extension {
         final _fn = _fn;
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.runFuzzWorker(_, _fn);
     }
-    static public function coordinateFuzzing(_:TestDeps, _timeout:stdgo._internal.time.Time_Duration.Duration, _limit:haxe.Int64, _minimizeTimeout:stdgo._internal.time.Time_Duration.Duration, _minimizeLimit:haxe.Int64, _parallel:StdTypes.Int, _seed:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, _types:Array<stdgo._internal.reflect.Reflect_Type_.Type_>, _corpusDir:String, _cacheDir:String):stdgo.Error {
+    static public function coordinateFuzzing(_:TestDeps, _timeout:stdgo._internal.time.Time_duration.Duration, _limit:haxe.Int64, _minimizeTimeout:stdgo._internal.time.Time_duration.Duration, _minimizeLimit:haxe.Int64, _parallel:StdTypes.Int, _seed:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, _types:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _corpusDir:String, _cacheDir:String):stdgo.Error {
         final _limit = (_limit : stdgo.GoInt64);
         final _minimizeLimit = (_minimizeLimit : stdgo.GoInt64);
         final _parallel = (_parallel : stdgo.GoInt);
@@ -69,7 +69,7 @@ class TestDeps_static_extension {
             final obj = i;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
         }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>);
-        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>);
+        final _types = ([for (i in _types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>);
         final _corpusDir = (_corpusDir : stdgo.GoString);
         final _cacheDir = (_cacheDir : stdgo.GoString);
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.coordinateFuzzing(_, _timeout, _limit, _minimizeTimeout, _minimizeLimit, _parallel, _seed, _types, _corpusDir, _cacheDir);
@@ -80,13 +80,13 @@ class TestDeps_static_extension {
     static public function stopTestLog(_:TestDeps):stdgo.Error {
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.stopTestLog(_);
     }
-    static public function startTestLog(_:TestDeps, _w:stdgo._internal.io.Io_Writer.Writer):Void {
+    static public function startTestLog(_:TestDeps, _w:stdgo._internal.io.Io_writer.Writer):Void {
         stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.startTestLog(_, _w);
     }
     static public function importPath(_:TestDeps):String {
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.importPath(_);
     }
-    static public function writeProfileTo(_:TestDeps, _name:String, _w:stdgo._internal.io.Io_Writer.Writer, _debug:StdTypes.Int):stdgo.Error {
+    static public function writeProfileTo(_:TestDeps, _name:String, _w:stdgo._internal.io.Io_writer.Writer, _debug:StdTypes.Int):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _debug = (_debug : stdgo.GoInt);
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.writeProfileTo(_, _name, _w, _debug);
@@ -94,7 +94,7 @@ class TestDeps_static_extension {
     static public function stopCPUProfile(_:TestDeps):Void {
         stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.stopCPUProfile(_);
     }
-    static public function startCPUProfile(_:TestDeps, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
+    static public function startCPUProfile(_:TestDeps, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         return stdgo._internal.testing.internal.testdeps.Testdeps_TestDeps_static_extension.TestDeps_static_extension.startCPUProfile(_, _w);
     }
     static public function matchString(_:TestDeps, _pat:String, _str:String):stdgo.Tuple<Bool, stdgo.Error> {
@@ -109,28 +109,28 @@ class TestDeps_static_extension {
 typedef T_testLogPointer = stdgo._internal.testing.internal.testdeps.Testdeps_T_testLogPointer.T_testLogPointer;
 class T_testLog_static_extension {
     static public function _add(_l:T_testLog, _op:String, _name:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _op = (_op : stdgo.GoString);
         final _name = (_name : stdgo.GoString);
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension._add(_l, _op, _name);
     }
     static public function chdir(_l:T_testLog, _name:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _name = (_name : stdgo.GoString);
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension.chdir(_l, _name);
     }
     static public function stat(_l:T_testLog, _name:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _name = (_name : stdgo.GoString);
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension.stat(_l, _name);
     }
     static public function open(_l:T_testLog, _name:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _name = (_name : stdgo.GoString);
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension.open(_l, _name);
     }
     static public function getenv(_l:T_testLog, _key:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog.T_testLog>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _key = (_key : stdgo.GoString);
         stdgo._internal.testing.internal.testdeps.Testdeps_T_testLog_static_extension.T_testLog_static_extension.getenv(_l, _key);
     }

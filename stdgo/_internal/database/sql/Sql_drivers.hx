@@ -2,9 +2,9 @@ package stdgo._internal.database.sql;
 function drivers():stdgo.Slice<stdgo.GoString> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.database.sql.Sql__driversMu._driversMu.rLock();
+            @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.rLock();
             {
-                final __f__ = @:check2 stdgo._internal.database.sql.Sql__driversMu._driversMu.rUnlock;
+                final __f__ = @:check2 stdgo._internal.database.sql.Sql__driversmu._driversMu.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _list = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.database.sql.Sql__drivers._drivers.length)).__setString__() : stdgo.Slice<stdgo.GoString>);

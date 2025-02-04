@@ -1,0 +1,4 @@
+package stdgo._internal.crypto.internal.nistec;
+function newP224Point():stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point> {
+        return (stdgo.Go.setRef(({ _x : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>), _y : @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>).one(), _z : (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>) } : stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point)) : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>);
+    }

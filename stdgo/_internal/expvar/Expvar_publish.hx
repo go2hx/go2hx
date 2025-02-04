@@ -1,5 +1,5 @@
 package stdgo._internal.expvar;
-function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var):Void {
+function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_var.Var):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             {
@@ -8,13 +8,13 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
                     stdgo._internal.log.Log_panicln.panicln(stdgo.Go.toInterface(("Reuse of exported var name:" : stdgo.GoString)), stdgo.Go.toInterface(_name));
                 };
             };
-            @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.lock();
+            @:check2 stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.lock();
             {
-                final __f__ = @:check2 stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.unlock;
+                final __f__ = @:check2 stdgo._internal.expvar.Expvar__varkeysmu._varKeysMu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            stdgo._internal.expvar.Expvar__varKeys._varKeys = (stdgo._internal.expvar.Expvar__varKeys._varKeys.__append__(_name?.__copy__()));
-            stdgo._internal.sort.Sort_strings.strings(stdgo._internal.expvar.Expvar__varKeys._varKeys);
+            stdgo._internal.expvar.Expvar__varkeys._varKeys = (stdgo._internal.expvar.Expvar__varkeys._varKeys.__append__(_name?.__copy__()));
+            stdgo._internal.sort.Sort_strings.strings(stdgo._internal.expvar.Expvar__varkeys._varKeys);
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

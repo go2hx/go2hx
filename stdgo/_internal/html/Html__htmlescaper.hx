@@ -1,0 +1,2 @@
+package stdgo._internal.html;
+var _htmlEscaper : stdgo.Ref<stdgo._internal.strings.Strings_replacer.Replacer> = stdgo._internal.strings.Strings_newreplacer.newReplacer(("&" : stdgo.GoString), ("&amp;" : stdgo.GoString), ("\'" : stdgo.GoString), ("&#39;" : stdgo.GoString), ("<" : stdgo.GoString), ("&lt;" : stdgo.GoString), (">" : stdgo.GoString), ("&gt;" : stdgo.GoString), ("\"" : stdgo.GoString), ("&#34;" : stdgo.GoString));

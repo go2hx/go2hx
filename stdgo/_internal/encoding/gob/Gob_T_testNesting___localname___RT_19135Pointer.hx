@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_T_testNesting___localname___RT_19135_static_extension.T_testNesting___localname___RT_19135_static_extension) typedef T_testNesting___localname___RT_19135Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_testNesting___localname___RT_19135.T_testNesting___localname___RT_19135>;

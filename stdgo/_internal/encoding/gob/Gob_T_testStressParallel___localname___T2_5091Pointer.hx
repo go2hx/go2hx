@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_T_testStressParallel___localname___T2_5091_static_extension.T_testStressParallel___localname___T2_5091_static_extension) typedef T_testStressParallel___localname___T2_5091Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_testStressParallel___localname___T2_5091.T_testStressParallel___localname___T2_5091>;

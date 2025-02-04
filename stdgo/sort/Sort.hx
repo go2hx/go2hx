@@ -1,16 +1,16 @@
 package stdgo.sort;
 class Interface_static_extension {
-    static public function swap(t:stdgo._internal.sort.Sort_Interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+    static public function swap(t:stdgo._internal.sort.Sort_interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         stdgo._internal.sort.Sort_Interface_static_extension.Interface_static_extension.swap(t, _i, _j);
     }
-    static public function less(t:stdgo._internal.sort.Sort_Interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+    static public function less(t:stdgo._internal.sort.Sort_interface.Interface, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_Interface_static_extension.Interface_static_extension.less(t, _i, _j);
     }
-    static public function len(t:stdgo._internal.sort.Sort_Interface.Interface):StdTypes.Int {
+    static public function len(t:stdgo._internal.sort.Sort_interface.Interface):StdTypes.Int {
         return stdgo._internal.sort.Sort_Interface_static_extension.Interface_static_extension.len(t);
     }
 }
@@ -59,12 +59,12 @@ class T_reverse_static_extension {
         final _j = (_j : stdgo.GoInt);
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.less(_r, _i, _j);
     }
-    public static function swap(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse, _0:StdTypes.Int, _1:StdTypes.Int):Void {
+    public static function swap(__self__:stdgo._internal.sort.Sort_t_reverse.T_reverse, _0:StdTypes.Int, _1:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt);
         final _1 = (_1 : stdgo.GoInt);
         stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.swap(__self__, _0, _1);
     }
-    public static function len(__self__:stdgo._internal.sort.Sort_T_reverse.T_reverse):StdTypes.Int {
+    public static function len(__self__:stdgo._internal.sort.Sort_t_reverse.T_reverse):StdTypes.Int {
         return stdgo._internal.sort.Sort_T_reverse_static_extension.T_reverse_static_extension.len(__self__);
     }
 }

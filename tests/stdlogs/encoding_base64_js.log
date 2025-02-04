@@ -1,37 +1,49 @@
 === RUN  TestEncode
+
 -- PASS: TestEncode
 
 === RUN  TestEncoder
+
 -- PASS: TestEncoder
 
 === RUN  TestEncoderBuffering
+
 -- PASS: TestEncoderBuffering
 
 === RUN  TestDecode
+
 -- PASS: TestDecode
 
 === RUN  TestDecoder
+
 -- PASS: TestDecoder
 
 === RUN  TestDecoderBuffering
+
 -- PASS: TestDecoderBuffering
 
 === RUN  TestDecodeCorrupt
+
 -- PASS: TestDecodeCorrupt
 
 === RUN  TestDecodeBounds
+
 -- PASS: TestDecodeBounds
 
 === RUN  TestEncodedLen
+
 -- PASS: TestEncodedLen
 
 === RUN  TestDecodedLen
+
 -- PASS: TestDecodedLen
 
 === RUN  TestBig
+
 -- PASS: TestBig
 
 === RUN  TestNewLineCharacters
+
 -- PASS: TestNewLineCharacters
 
 === RUN  TestDecoderIssue3577
@@ -40,14 +52,18 @@ got error <invalid reflect.Value>; want %!v(MISSING)
 -- FAIL: TestDecoderIssue3577
 
 === RUN  TestDecoderIssue4779
+
 -- PASS: TestDecoderIssue4779
 
 === RUN  TestDecoderIssue7733
+
 -- PASS: TestDecoderIssue7733
 
 === RUN  TestDecoderIssue15656
+
 -- PASS: TestDecoderIssue15656
 
 === RUN  TestDecoderRaw
+
 -- PASS: TestDecoderRaw
 

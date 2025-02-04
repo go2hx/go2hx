@@ -1,5 +1,5 @@
 package stdgo._internal.net.http.pprof;
-function _sleep(_r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _d:stdgo._internal.time.Time_Duration.Duration):Void {
+function _sleep(_r:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, _d:stdgo._internal.time.Time_duration.Duration):Void {
         {
             var __select__ = true;
             while (__select__) {

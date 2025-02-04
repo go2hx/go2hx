@@ -9,9 +9,9 @@ function sincos(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                 _cos = __tmp__._1;
                 __tmp__;
             };
-        } else if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
+        } else if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : stdgo._internal.math.Math_naN.naN(), _1 : stdgo._internal.math.Math_naN.naN() };
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : stdgo._internal.math.Math_nan.naN() };
                 _sin = __tmp__._0;
                 _cos = __tmp__._1;
                 __tmp__;
@@ -28,7 +28,7 @@ var _cosSign = __1, _sinSign = __0;
 var _z = __1, _y = __0;
         if ((_x >= (5.36870912e+08 : stdgo.GoFloat64) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.math.Math__trigReduce._trigReduce(_x);
+                var __tmp__ = stdgo._internal.math.Math__trigreduce._trigReduce(_x);
                 _j = @:tmpset0 __tmp__._0;
                 _z = @:tmpset0 __tmp__._1;
             };

@@ -5,56 +5,56 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
         stdgo._internal.net.http.httputil.Httputil_errLineTooLong.errLineTooLong = (v : stdgo.Error);
         return v;
     }
-var errPersistEOF(get, set) : stdgo._internal.net.http.Http_ProtocolError.ProtocolError;
-private function get_errPersistEOF():stdgo._internal.net.http.Http_ProtocolError.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errPersistEOF.errPersistEOF;
-private function set_errPersistEOF(v:stdgo._internal.net.http.Http_ProtocolError.ProtocolError):stdgo._internal.net.http.Http_ProtocolError.ProtocolError {
-        stdgo._internal.net.http.httputil.Httputil_errPersistEOF.errPersistEOF = (v : stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError>);
+var errPersistEOF(get, set) : stdgo._internal.net.http.Http_protocolerror.ProtocolError;
+private function get_errPersistEOF():stdgo._internal.net.http.Http_protocolerror.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errPersistEOF.errPersistEOF;
+private function set_errPersistEOF(v:stdgo._internal.net.http.Http_protocolerror.ProtocolError):stdgo._internal.net.http.Http_protocolerror.ProtocolError {
+        stdgo._internal.net.http.httputil.Httputil_errPersistEOF.errPersistEOF = (v : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError>);
         return v;
     }
-var errClosed(get, set) : stdgo._internal.net.http.Http_ProtocolError.ProtocolError;
-private function get_errClosed():stdgo._internal.net.http.Http_ProtocolError.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errClosed.errClosed;
-private function set_errClosed(v:stdgo._internal.net.http.Http_ProtocolError.ProtocolError):stdgo._internal.net.http.Http_ProtocolError.ProtocolError {
-        stdgo._internal.net.http.httputil.Httputil_errClosed.errClosed = (v : stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError>);
+var errClosed(get, set) : stdgo._internal.net.http.Http_protocolerror.ProtocolError;
+private function get_errClosed():stdgo._internal.net.http.Http_protocolerror.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errClosed.errClosed;
+private function set_errClosed(v:stdgo._internal.net.http.Http_protocolerror.ProtocolError):stdgo._internal.net.http.Http_protocolerror.ProtocolError {
+        stdgo._internal.net.http.httputil.Httputil_errClosed.errClosed = (v : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError>);
         return v;
     }
-var errPipeline(get, set) : stdgo._internal.net.http.Http_ProtocolError.ProtocolError;
-private function get_errPipeline():stdgo._internal.net.http.Http_ProtocolError.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline;
-private function set_errPipeline(v:stdgo._internal.net.http.Http_ProtocolError.ProtocolError):stdgo._internal.net.http.Http_ProtocolError.ProtocolError {
-        stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline = (v : stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError>);
+var errPipeline(get, set) : stdgo._internal.net.http.Http_protocolerror.ProtocolError;
+private function get_errPipeline():stdgo._internal.net.http.Http_protocolerror.ProtocolError return stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline;
+private function set_errPipeline(v:stdgo._internal.net.http.Http_protocolerror.ProtocolError):stdgo._internal.net.http.Http_protocolerror.ProtocolError {
+        stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline = (v : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError>);
         return v;
     }
 class BufferPool_static_extension {
-    static public function put(t:stdgo._internal.net.http.httputil.Httputil_BufferPool.BufferPool, _0:Array<std.UInt>):Void {
+    static public function put(t:stdgo._internal.net.http.httputil.Httputil_bufferpool.BufferPool, _0:Array<std.UInt>):Void {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.net.http.httputil.Httputil_BufferPool_static_extension.BufferPool_static_extension.put(t, _0);
     }
-    static public function get(t:stdgo._internal.net.http.httputil.Httputil_BufferPool.BufferPool):Array<std.UInt> {
+    static public function get(t:stdgo._internal.net.http.httputil.Httputil_bufferpool.BufferPool):Array<std.UInt> {
         return [for (i in stdgo._internal.net.http.httputil.Httputil_BufferPool_static_extension.BufferPool_static_extension.get(t)) i];
     }
 }
 typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.BufferPool;
 @:structInit @:using(stdgo.net.http.httputil.Httputil.T_dumpConn_static_extension) abstract T_dumpConn(stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn) from stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn to stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn {
-    public var writer(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get_writer():stdgo._internal.io.Io_Writer.Writer return this.writer;
-    function set_writer(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var writer(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get_writer():stdgo._internal.io.Io_writer.Writer return this.writer;
+    function set_writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this.writer = v;
         return v;
     }
-    public var reader(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get_reader():stdgo._internal.io.Io_Reader.Reader return this.reader;
-    function set_reader(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var reader(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get_reader():stdgo._internal.io.Io_reader.Reader return this.reader;
+    function set_reader(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this.reader = v;
         return v;
     }
-    public function new(?writer:stdgo._internal.io.Io_Writer.Writer, ?reader:stdgo._internal.io.Io_Reader.Reader) this = new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(writer, reader);
+    public function new(?writer:stdgo._internal.io.Io_writer.Writer, ?reader:stdgo._internal.io.Io_reader.Reader) this = new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(writer, reader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.T_delegateReader_static_extension) abstract T_delegateReader(stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader) from stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader to stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader {
-    public var _c(get, set) : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>;
-    function get__c():stdgo.Chan<stdgo._internal.io.Io_Reader.Reader> return this._c;
-    function set__c(v:stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>):stdgo.Chan<stdgo._internal.io.Io_Reader.Reader> {
-        this._c = (v : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>);
+    public var _c(get, set) : stdgo.Chan<stdgo._internal.io.Io_reader.Reader>;
+    function get__c():stdgo.Chan<stdgo._internal.io.Io_reader.Reader> return this._c;
+    function set__c(v:stdgo.Chan<stdgo._internal.io.Io_reader.Reader>):stdgo.Chan<stdgo._internal.io.Io_reader.Reader> {
+        this._c = (v : stdgo.Chan<stdgo._internal.io.Io_reader.Reader>);
         return v;
     }
     public var _err(get, set) : stdgo.Error;
@@ -63,13 +63,13 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
         this._err = (v : stdgo.Error);
         return v;
     }
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
-    public function new(?_c:stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>, ?_err:stdgo.Error, ?_r:stdgo._internal.io.Io_Reader.Reader) this = new stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader((_c : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>), (_err : stdgo.Error), _r);
+    public function new(?_c:stdgo.Chan<stdgo._internal.io.Io_reader.Reader>, ?_err:stdgo.Error, ?_r:stdgo._internal.io.Io_reader.Reader) this = new stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader((_c : stdgo.Chan<stdgo._internal.io.Io_reader.Reader>), (_err : stdgo.Error), _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -79,22 +79,22 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.ServerConn_static_extension) abstract ServerConn(stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn) from stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn to stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn {
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public var _c(get, set) : stdgo._internal.net.Net_Conn.Conn;
-    function get__c():stdgo._internal.net.Net_Conn.Conn return this._c;
-    function set__c(v:stdgo._internal.net.Net_Conn.Conn):stdgo._internal.net.Net_Conn.Conn {
+    public var _c(get, set) : stdgo._internal.net.Net_conn.Conn;
+    function get__c():stdgo._internal.net.Net_conn.Conn return this._c;
+    function set__c(v:stdgo._internal.net.Net_conn.Conn):stdgo._internal.net.Net_conn.Conn {
         this._c = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.bufio.Bufio_Reader.Reader;
-    function get__r():stdgo._internal.bufio.Bufio_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.bufio.Bufio_Reader.Reader):stdgo._internal.bufio.Bufio_Reader.Reader {
-        this._r = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    public var _r(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
+    function get__r():stdgo._internal.bufio.Bufio_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
+        this._r = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return v;
     }
     public var _re(get, set) : stdgo.Error;
@@ -109,9 +109,9 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
         this._we = (v : stdgo.Error);
         return v;
     }
-    public var _lastbody(get, set) : stdgo._internal.io.Io_ReadCloser.ReadCloser;
-    function get__lastbody():stdgo._internal.io.Io_ReadCloser.ReadCloser return this._lastbody;
-    function set__lastbody(v:stdgo._internal.io.Io_ReadCloser.ReadCloser):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    public var _lastbody(get, set) : stdgo._internal.io.Io_readcloser.ReadCloser;
+    function get__lastbody():stdgo._internal.io.Io_readcloser.ReadCloser return this._lastbody;
+    function set__lastbody(v:stdgo._internal.io.Io_readcloser.ReadCloser):stdgo._internal.io.Io_readcloser.ReadCloser {
         this._lastbody = v;
         return v;
     }
@@ -127,39 +127,39 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
         this._nwritten = (v : stdgo.GoInt);
         return v;
     }
-    public var _pipereq(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>;
-    function get__pipereq():stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt> return this._pipereq;
-    function set__pipereq(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt> {
-        this._pipereq = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>);
+    public var _pipereq(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>;
+    function get__pipereq():stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt> return this._pipereq;
+    function set__pipereq(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt> {
+        this._pipereq = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>);
         return v;
     }
-    public var _pipe(get, set) : stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline;
-    function get__pipe():stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline return this._pipe;
-    function set__pipe(v:stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline):stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline {
+    public var _pipe(get, set) : stdgo._internal.net.textproto.Textproto_pipeline.Pipeline;
+    function get__pipe():stdgo._internal.net.textproto.Textproto_pipeline.Pipeline return this._pipe;
+    function set__pipe(v:stdgo._internal.net.textproto.Textproto_pipeline.Pipeline):stdgo._internal.net.textproto.Textproto_pipeline.Pipeline {
         this._pipe = v;
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_c:stdgo._internal.net.Net_Conn.Conn, ?_r:stdgo._internal.bufio.Bufio_Reader.Reader, ?_re:stdgo.Error, ?_we:stdgo.Error, ?_lastbody:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_nread:StdTypes.Int, ?_nwritten:StdTypes.Int, ?_pipereq:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>, ?_pipe:stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline) this = new stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn(_mu, _c, (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>), (_re : stdgo.Error), (_we : stdgo.Error), _lastbody, (_nread : stdgo.GoInt), (_nwritten : stdgo.GoInt), (_pipereq : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>), _pipe);
+    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_c:stdgo._internal.net.Net_conn.Conn, ?_r:stdgo._internal.bufio.Bufio_reader.Reader, ?_re:stdgo.Error, ?_we:stdgo.Error, ?_lastbody:stdgo._internal.io.Io_readcloser.ReadCloser, ?_nread:StdTypes.Int, ?_nwritten:StdTypes.Int, ?_pipereq:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>, ?_pipe:stdgo._internal.net.textproto.Textproto_pipeline.Pipeline) this = new stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn(_mu, _c, (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>), (_re : stdgo.Error), (_we : stdgo.Error), _lastbody, (_nread : stdgo.GoInt), (_nwritten : stdgo.GoInt), (_pipereq : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>), _pipe);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.ClientConn_static_extension) abstract ClientConn(stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn) from stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn to stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn {
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public var _c(get, set) : stdgo._internal.net.Net_Conn.Conn;
-    function get__c():stdgo._internal.net.Net_Conn.Conn return this._c;
-    function set__c(v:stdgo._internal.net.Net_Conn.Conn):stdgo._internal.net.Net_Conn.Conn {
+    public var _c(get, set) : stdgo._internal.net.Net_conn.Conn;
+    function get__c():stdgo._internal.net.Net_conn.Conn return this._c;
+    function set__c(v:stdgo._internal.net.Net_conn.Conn):stdgo._internal.net.Net_conn.Conn {
         this._c = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.bufio.Bufio_Reader.Reader;
-    function get__r():stdgo._internal.bufio.Bufio_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.bufio.Bufio_Reader.Reader):stdgo._internal.bufio.Bufio_Reader.Reader {
-        this._r = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    public var _r(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
+    function get__r():stdgo._internal.bufio.Bufio_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
+        this._r = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return v;
     }
     public var _re(get, set) : stdgo.Error;
@@ -174,9 +174,9 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
         this._we = (v : stdgo.Error);
         return v;
     }
-    public var _lastbody(get, set) : stdgo._internal.io.Io_ReadCloser.ReadCloser;
-    function get__lastbody():stdgo._internal.io.Io_ReadCloser.ReadCloser return this._lastbody;
-    function set__lastbody(v:stdgo._internal.io.Io_ReadCloser.ReadCloser):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    public var _lastbody(get, set) : stdgo._internal.io.Io_readcloser.ReadCloser;
+    function get__lastbody():stdgo._internal.io.Io_readcloser.ReadCloser return this._lastbody;
+    function set__lastbody(v:stdgo._internal.io.Io_readcloser.ReadCloser):stdgo._internal.io.Io_readcloser.ReadCloser {
         this._lastbody = v;
         return v;
     }
@@ -192,85 +192,85 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_BufferPool.Buffe
         this._nwritten = (v : stdgo.GoInt);
         return v;
     }
-    public var _pipereq(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>;
-    function get__pipereq():stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt> return this._pipereq;
-    function set__pipereq(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt> {
-        this._pipereq = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>);
+    public var _pipereq(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>;
+    function get__pipereq():stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt> return this._pipereq;
+    function set__pipereq(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt> {
+        this._pipereq = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>);
         return v;
     }
-    public var _pipe(get, set) : stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline;
-    function get__pipe():stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline return this._pipe;
-    function set__pipe(v:stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline):stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline {
+    public var _pipe(get, set) : stdgo._internal.net.textproto.Textproto_pipeline.Pipeline;
+    function get__pipe():stdgo._internal.net.textproto.Textproto_pipeline.Pipeline return this._pipe;
+    function set__pipe(v:stdgo._internal.net.textproto.Textproto_pipeline.Pipeline):stdgo._internal.net.textproto.Textproto_pipeline.Pipeline {
         this._pipe = v;
         return v;
     }
-    public var _writeReq(get, set) : (stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo._internal.io.Io_Writer.Writer) -> stdgo.Error;
-    function get__writeReq():(stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo._internal.io.Io_Writer.Writer) -> stdgo.Error return (_0, _1) -> this._writeReq(_0, _1);
-    function set__writeReq(v:(stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo._internal.io.Io_Writer.Writer) -> stdgo.Error):(stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo._internal.io.Io_Writer.Writer) -> stdgo.Error {
+    public var _writeReq(get, set) : (stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error;
+    function get__writeReq():(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error return (_0, _1) -> this._writeReq(_0, _1);
+    function set__writeReq(v:(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error):(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error {
         this._writeReq = v;
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_c:stdgo._internal.net.Net_Conn.Conn, ?_r:stdgo._internal.bufio.Bufio_Reader.Reader, ?_re:stdgo.Error, ?_we:stdgo.Error, ?_lastbody:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_nread:StdTypes.Int, ?_nwritten:StdTypes.Int, ?_pipereq:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>, ?_pipe:stdgo._internal.net.textproto.Textproto_Pipeline.Pipeline, ?_writeReq:(stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo._internal.io.Io_Writer.Writer) -> stdgo.Error) this = new stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn(
+    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_c:stdgo._internal.net.Net_conn.Conn, ?_r:stdgo._internal.bufio.Bufio_reader.Reader, ?_re:stdgo.Error, ?_we:stdgo.Error, ?_lastbody:stdgo._internal.io.Io_readcloser.ReadCloser, ?_nread:StdTypes.Int, ?_nwritten:StdTypes.Int, ?_pipereq:stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>, ?_pipe:stdgo._internal.net.textproto.Textproto_pipeline.Pipeline, ?_writeReq:(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error) this = new stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn(
 _mu,
 _c,
-(_r : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>),
+(_r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>),
 (_re : stdgo.Error),
 (_we : stdgo.Error),
 _lastbody,
 (_nread : stdgo.GoInt),
 (_nwritten : stdgo.GoInt),
-(_pipereq : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.GoUInt>),
+(_pipereq : stdgo.GoMap<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.GoUInt>),
 _pipe,
 _writeReq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.ProxyRequest_static_extension) abstract ProxyRequest(stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest) from stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest to stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest {
-    public var in_(get, set) : stdgo._internal.net.http.Http_Request.Request;
-    function get_in_():stdgo._internal.net.http.Http_Request.Request return this.in_;
-    function set_in_(v:stdgo._internal.net.http.Http_Request.Request):stdgo._internal.net.http.Http_Request.Request {
-        this.in_ = (v : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    public var in_(get, set) : stdgo._internal.net.http.Http_request.Request;
+    function get_in_():stdgo._internal.net.http.Http_request.Request return this.in_;
+    function set_in_(v:stdgo._internal.net.http.Http_request.Request):stdgo._internal.net.http.Http_request.Request {
+        this.in_ = (v : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return v;
     }
-    public var out(get, set) : stdgo._internal.net.http.Http_Request.Request;
-    function get_out():stdgo._internal.net.http.Http_Request.Request return this.out;
-    function set_out(v:stdgo._internal.net.http.Http_Request.Request):stdgo._internal.net.http.Http_Request.Request {
-        this.out = (v : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    public var out(get, set) : stdgo._internal.net.http.Http_request.Request;
+    function get_out():stdgo._internal.net.http.Http_request.Request return this.out;
+    function set_out(v:stdgo._internal.net.http.Http_request.Request):stdgo._internal.net.http.Http_request.Request {
+        this.out = (v : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return v;
     }
-    public function new(?in_:stdgo._internal.net.http.Http_Request.Request, ?out:stdgo._internal.net.http.Http_Request.Request) this = new stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest((in_ : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>), (out : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>));
+    public function new(?in_:stdgo._internal.net.http.Http_request.Request, ?out:stdgo._internal.net.http.Http_request.Request) this = new stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest((in_ : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (out : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.ReverseProxy_static_extension) abstract ReverseProxy(stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy) from stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy to stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy {
-    public var rewrite(get, set) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> -> Void;
-    function get_rewrite():stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> -> Void return _0 -> this.rewrite(_0);
-    function set_rewrite(v:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> -> Void):stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> -> Void {
+    public var rewrite(get, set) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest> -> Void;
+    function get_rewrite():stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest> -> Void return _0 -> this.rewrite(_0);
+    function set_rewrite(v:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest> -> Void):stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest> -> Void {
         this.rewrite = v;
         return v;
     }
-    public var director(get, set) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void;
-    function get_director():stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void return _0 -> this.director(_0);
-    function set_director(v:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void {
+    public var director(get, set) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> Void;
+    function get_director():stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> Void return _0 -> this.director(_0);
+    function set_director(v:stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> Void):stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> Void {
         this.director = v;
         return v;
     }
-    public var transport(get, set) : stdgo._internal.net.http.Http_RoundTripper.RoundTripper;
-    function get_transport():stdgo._internal.net.http.Http_RoundTripper.RoundTripper return this.transport;
-    function set_transport(v:stdgo._internal.net.http.Http_RoundTripper.RoundTripper):stdgo._internal.net.http.Http_RoundTripper.RoundTripper {
+    public var transport(get, set) : stdgo._internal.net.http.Http_roundtripper.RoundTripper;
+    function get_transport():stdgo._internal.net.http.Http_roundtripper.RoundTripper return this.transport;
+    function set_transport(v:stdgo._internal.net.http.Http_roundtripper.RoundTripper):stdgo._internal.net.http.Http_roundtripper.RoundTripper {
         this.transport = v;
         return v;
     }
-    public var flushInterval(get, set) : stdgo._internal.time.Time_Duration.Duration;
-    function get_flushInterval():stdgo._internal.time.Time_Duration.Duration return this.flushInterval;
-    function set_flushInterval(v:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
+    public var flushInterval(get, set) : stdgo._internal.time.Time_duration.Duration;
+    function get_flushInterval():stdgo._internal.time.Time_duration.Duration return this.flushInterval;
+    function set_flushInterval(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
         this.flushInterval = v;
         return v;
     }
-    public var errorLog(get, set) : stdgo._internal.log.Log_Logger.Logger;
-    function get_errorLog():stdgo._internal.log.Log_Logger.Logger return this.errorLog;
-    function set_errorLog(v:stdgo._internal.log.Log_Logger.Logger):stdgo._internal.log.Log_Logger.Logger {
-        this.errorLog = (v : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+    public var errorLog(get, set) : stdgo._internal.log.Log_logger.Logger;
+    function get_errorLog():stdgo._internal.log.Log_logger.Logger return this.errorLog;
+    function set_errorLog(v:stdgo._internal.log.Log_logger.Logger):stdgo._internal.log.Log_logger.Logger {
+        this.errorLog = (v : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         return v;
     }
     public var bufferPool(get, set) : BufferPool;
@@ -279,26 +279,26 @@ _writeReq);
         this.bufferPool = v;
         return v;
     }
-    public var modifyResponse(get, set) : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> -> stdgo.Error;
-    function get_modifyResponse():stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> -> stdgo.Error return _0 -> this.modifyResponse(_0);
-    function set_modifyResponse(v:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> -> stdgo.Error):stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> -> stdgo.Error {
+    public var modifyResponse(get, set) : stdgo.Ref<stdgo._internal.net.http.Http_response.Response> -> stdgo.Error;
+    function get_modifyResponse():stdgo.Ref<stdgo._internal.net.http.Http_response.Response> -> stdgo.Error return _0 -> this.modifyResponse(_0);
+    function set_modifyResponse(v:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> -> stdgo.Error):stdgo.Ref<stdgo._internal.net.http.Http_response.Response> -> stdgo.Error {
         this.modifyResponse = v;
         return v;
     }
-    public var errorHandler(get, set) : (stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void;
-    function get_errorHandler():(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void return (_0, _1, _2) -> this.errorHandler(_0, _1, _2);
-    function set_errorHandler(v:(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void):(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void {
+    public var errorHandler(get, set) : (stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void;
+    function get_errorHandler():(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void return (_0, _1, _2) -> this.errorHandler(_0, _1, _2);
+    function set_errorHandler(v:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void):(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void {
         this.errorHandler = v;
         return v;
     }
-    public function new(?rewrite:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest> -> Void, ?director:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void, ?transport:stdgo._internal.net.http.Http_RoundTripper.RoundTripper, ?flushInterval:stdgo._internal.time.Time_Duration.Duration, ?errorLog:stdgo._internal.log.Log_Logger.Logger, ?bufferPool:BufferPool, ?modifyResponse:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> -> stdgo.Error, ?errorHandler:(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void) this = new stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy(rewrite, director, transport, flushInterval, (errorLog : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>), bufferPool, modifyResponse, errorHandler);
+    public function new(?rewrite:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest> -> Void, ?director:stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> Void, ?transport:stdgo._internal.net.http.Http_roundtripper.RoundTripper, ?flushInterval:stdgo._internal.time.Time_duration.Duration, ?errorLog:stdgo._internal.log.Log_logger.Logger, ?bufferPool:BufferPool, ?modifyResponse:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> -> stdgo.Error, ?errorHandler:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void) this = new stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy(rewrite, director, transport, flushInterval, (errorLog : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>), bufferPool, modifyResponse, errorHandler);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.T_maxLatencyWriter_static_extension) abstract T_maxLatencyWriter(stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter) from stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter to stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter {
-    public var _dst(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__dst():stdgo._internal.io.Io_Writer.Writer return this._dst;
-    function set__dst(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _dst(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__dst():stdgo._internal.io.Io_writer.Writer return this._dst;
+    function set__dst(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._dst = v;
         return v;
     }
@@ -308,22 +308,22 @@ _writeReq);
         this._flush = v;
         return v;
     }
-    public var _latency(get, set) : stdgo._internal.time.Time_Duration.Duration;
-    function get__latency():stdgo._internal.time.Time_Duration.Duration return this._latency;
-    function set__latency(v:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
+    public var _latency(get, set) : stdgo._internal.time.Time_duration.Duration;
+    function get__latency():stdgo._internal.time.Time_duration.Duration return this._latency;
+    function set__latency(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
         this._latency = v;
         return v;
     }
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public var _t(get, set) : stdgo._internal.time.Time_Timer.Timer;
-    function get__t():stdgo._internal.time.Time_Timer.Timer return this._t;
-    function set__t(v:stdgo._internal.time.Time_Timer.Timer):stdgo._internal.time.Time_Timer.Timer {
-        this._t = (v : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>);
+    public var _t(get, set) : stdgo._internal.time.Time_timer.Timer;
+    function get__t():stdgo._internal.time.Time_timer.Timer return this._t;
+    function set__t(v:stdgo._internal.time.Time_timer.Timer):stdgo._internal.time.Time_timer.Timer {
+        this._t = (v : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>);
         return v;
     }
     public var _flushPending(get, set) : Bool;
@@ -332,24 +332,24 @@ _writeReq);
         this._flushPending = v;
         return v;
     }
-    public function new(?_dst:stdgo._internal.io.Io_Writer.Writer, ?_flush:() -> stdgo.Error, ?_latency:stdgo._internal.time.Time_Duration.Duration, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_t:stdgo._internal.time.Time_Timer.Timer, ?_flushPending:Bool) this = new stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter(_dst, _flush, _latency, _mu, (_t : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>), _flushPending);
+    public function new(?_dst:stdgo._internal.io.Io_writer.Writer, ?_flush:() -> stdgo.Error, ?_latency:stdgo._internal.time.Time_duration.Duration, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_t:stdgo._internal.time.Time_timer.Timer, ?_flushPending:Bool) this = new stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter(_dst, _flush, _latency, _mu, (_t : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>), _flushPending);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.httputil.Httputil.T_switchProtocolCopier_static_extension) abstract T_switchProtocolCopier(stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier.T_switchProtocolCopier) from stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier.T_switchProtocolCopier to stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier.T_switchProtocolCopier {
-    public var _user(get, set) : stdgo._internal.io.Io_ReadWriter.ReadWriter;
-    function get__user():stdgo._internal.io.Io_ReadWriter.ReadWriter return this._user;
-    function set__user(v:stdgo._internal.io.Io_ReadWriter.ReadWriter):stdgo._internal.io.Io_ReadWriter.ReadWriter {
+    public var _user(get, set) : stdgo._internal.io.Io_readwriter.ReadWriter;
+    function get__user():stdgo._internal.io.Io_readwriter.ReadWriter return this._user;
+    function set__user(v:stdgo._internal.io.Io_readwriter.ReadWriter):stdgo._internal.io.Io_readwriter.ReadWriter {
         this._user = v;
         return v;
     }
-    public var _backend(get, set) : stdgo._internal.io.Io_ReadWriter.ReadWriter;
-    function get__backend():stdgo._internal.io.Io_ReadWriter.ReadWriter return this._backend;
-    function set__backend(v:stdgo._internal.io.Io_ReadWriter.ReadWriter):stdgo._internal.io.Io_ReadWriter.ReadWriter {
+    public var _backend(get, set) : stdgo._internal.io.Io_readwriter.ReadWriter;
+    function get__backend():stdgo._internal.io.Io_readwriter.ReadWriter return this._backend;
+    function set__backend(v:stdgo._internal.io.Io_readwriter.ReadWriter):stdgo._internal.io.Io_readwriter.ReadWriter {
         this._backend = v;
         return v;
     }
-    public function new(?_user:stdgo._internal.io.Io_ReadWriter.ReadWriter, ?_backend:stdgo._internal.io.Io_ReadWriter.ReadWriter) this = new stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier.T_switchProtocolCopier(_user, _backend);
+    public function new(?_user:stdgo._internal.io.Io_readwriter.ReadWriter, ?_backend:stdgo._internal.io.Io_readwriter.ReadWriter) this = new stdgo._internal.net.http.httputil.Httputil_T_switchProtocolCopier.T_switchProtocolCopier(_user, _backend);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -361,38 +361,38 @@ typedef T__struct_0 = stdgo._internal.net.http.httputil.Httputil_T__struct_0.T__
 typedef T_neverEnding = stdgo._internal.net.http.httputil.Httputil_T_neverEnding.T_neverEnding;
 typedef T_dumpConnPointer = stdgo._internal.net.http.httputil.Httputil_T_dumpConnPointer.T_dumpConnPointer;
 class T_dumpConn_static_extension {
-    static public function setWriteDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+    static public function setWriteDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.setWriteDeadline(_c, _t);
     }
-    static public function setReadDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+    static public function setReadDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.setReadDeadline(_c, _t);
     }
-    static public function setDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+    static public function setDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.setDeadline(_c, _t);
     }
-    static public function remoteAddr(_c:T_dumpConn):stdgo._internal.net.Net_Addr.Addr {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+    static public function remoteAddr(_c:T_dumpConn):stdgo._internal.net.Net_addr.Addr {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.remoteAddr(_c);
     }
-    static public function localAddr(_c:T_dumpConn):stdgo._internal.net.Net_Addr.Addr {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+    static public function localAddr(_c:T_dumpConn):stdgo._internal.net.Net_addr.Addr {
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.localAddr(_c);
     }
     static public function close(_c:T_dumpConn):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.close(_c);
     }
-    public static function write(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function write(__self__:stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(__self__:stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function read(__self__:stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_T_dumpConn_static_extension.T_dumpConn_static_extension.read(__self__, _0);
@@ -403,7 +403,7 @@ class T_dumpConn_static_extension {
 typedef T_delegateReaderPointer = stdgo._internal.net.http.httputil.Httputil_T_delegateReaderPointer.T_delegateReaderPointer;
 class T_delegateReader_static_extension {
     static public function read(_r:T_delegateReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_T_delegateReader_static_extension.T_delegateReader_static_extension.read(_r, _p);
@@ -426,29 +426,29 @@ class T_failureToReadBody_static_extension {
 }
 typedef ServerConnPointer = stdgo._internal.net.http.httputil.Httputil_ServerConnPointer.ServerConnPointer;
 class ServerConn_static_extension {
-    static public function write(_sc:ServerConn, _req:stdgo._internal.net.http.Http_Request.Request, _resp:stdgo._internal.net.http.Http_Response.Response):stdgo.Error {
-        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
-        final _resp = (_resp : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
+    static public function write(_sc:ServerConn, _req:stdgo._internal.net.http.Http_request.Request, _resp:stdgo._internal.net.http.Http_response.Response):stdgo.Error {
+        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_serverconn.ServerConn>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
+        final _resp = (_resp : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         return stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.write(_sc, _req, _resp);
     }
     static public function pending(_sc:ServerConn):StdTypes.Int {
-        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn>);
+        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_serverconn.ServerConn>);
         return stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.pending(_sc);
     }
-    static public function read(_sc:ServerConn):stdgo.Tuple<stdgo._internal.net.http.Http_Request.Request, stdgo.Error> {
-        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn>);
+    static public function read(_sc:ServerConn):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
+        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_serverconn.ServerConn>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.read(_sc);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function close(_sc:ServerConn):stdgo.Error {
-        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn>);
+        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_serverconn.ServerConn>);
         return stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.close(_sc);
     }
-    static public function hijack(_sc:ServerConn):stdgo.Tuple<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.bufio.Bufio_Reader.Reader> {
-        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ServerConn.ServerConn>);
+    static public function hijack(_sc:ServerConn):stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo._internal.bufio.Bufio_reader.Reader> {
+        final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_serverconn.ServerConn>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ServerConn_static_extension.ServerConn_static_extension.hijack(_sc);
             { _0 : obj._0, _1 : obj._1 };
@@ -457,37 +457,37 @@ class ServerConn_static_extension {
 }
 typedef ClientConnPointer = stdgo._internal.net.http.httputil.Httputil_ClientConnPointer.ClientConnPointer;
 class ClientConn_static_extension {
-    static public function do_(_cc:ClientConn, _req:stdgo._internal.net.http.Http_Request.Request):stdgo.Tuple<stdgo._internal.net.http.Http_Response.Response, stdgo.Error> {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function do_(_cc:ClientConn, _req:stdgo._internal.net.http.Http_request.Request):stdgo.Tuple<stdgo._internal.net.http.Http_response.Response, stdgo.Error> {
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.do_(_cc, _req);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function read(_cc:ClientConn, _req:stdgo._internal.net.http.Http_Request.Request):stdgo.Tuple<stdgo._internal.net.http.Http_Response.Response, stdgo.Error> {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function read(_cc:ClientConn, _req:stdgo._internal.net.http.Http_request.Request):stdgo.Tuple<stdgo._internal.net.http.Http_response.Response, stdgo.Error> {
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.read(_cc, _req);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function pending(_cc:ClientConn):StdTypes.Int {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
         return stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.pending(_cc);
     }
-    static public function write(_cc:ClientConn, _req:stdgo._internal.net.http.Http_Request.Request):stdgo.Error {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function write(_cc:ClientConn, _req:stdgo._internal.net.http.Http_request.Request):stdgo.Error {
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.write(_cc, _req);
     }
     static public function close(_cc:ClientConn):stdgo.Error {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
         return stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.close(_cc);
     }
-    static public function hijack(_cc:ClientConn):stdgo.Tuple<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.bufio.Bufio_Reader.Reader> {
-        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ClientConn.ClientConn>);
+    static public function hijack(_cc:ClientConn):stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo._internal.bufio.Bufio_reader.Reader> {
+        final _cc = (_cc : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ClientConn_static_extension.ClientConn_static_extension.hijack(_cc);
             { _0 : obj._0, _1 : obj._1 };
@@ -497,63 +497,63 @@ class ClientConn_static_extension {
 typedef ProxyRequestPointer = stdgo._internal.net.http.httputil.Httputil_ProxyRequestPointer.ProxyRequestPointer;
 class ProxyRequest_static_extension {
     static public function setXForwarded(_r:ProxyRequest):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest>);
         stdgo._internal.net.http.httputil.Httputil_ProxyRequest_static_extension.ProxyRequest_static_extension.setXForwarded(_r);
     }
-    static public function setURL(_r:ProxyRequest, _target:stdgo._internal.net.url.Url_URL.URL):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ProxyRequest.ProxyRequest>);
-        final _target = (_target : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+    static public function setURL(_r:ProxyRequest, _target:stdgo._internal.net.url.Url_url.URL):Void {
+        final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest>);
+        final _target = (_target : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         stdgo._internal.net.http.httputil.Httputil_ProxyRequest_static_extension.ProxyRequest_static_extension.setURL(_r, _target);
     }
 }
 typedef ReverseProxyPointer = stdgo._internal.net.http.httputil.Httputil_ReverseProxyPointer.ReverseProxyPointer;
 class ReverseProxy_static_extension {
-    static public function _handleUpgradeResponse(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request, _res:stdgo._internal.net.http.Http_Response.Response):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
-        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
+    static public function _handleUpgradeResponse(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _req:stdgo._internal.net.http.Http_request.Request, _res:stdgo._internal.net.http.Http_response.Response):Void {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
+        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._handleUpgradeResponse(_p, _rw, _req, _res);
     }
     static public function _logf(_p:ReverseProxy, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._logf(_p, _format, ...[for (i in _args) i]);
     }
-    static public function _copyBuffer(_p:ReverseProxy, _dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._internal.io.Io_Reader.Reader, _buf:Array<std.UInt>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
+    static public function _copyBuffer(_p:ReverseProxy, _dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._internal.io.Io_reader.Reader, _buf:Array<std.UInt>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._copyBuffer(_p, _dst, _src, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _copyResponse(_p:ReverseProxy, _dst:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _src:stdgo._internal.io.Io_Reader.Reader, _flushInterval:stdgo._internal.time.Time_Duration.Duration):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
+    static public function _copyResponse(_p:ReverseProxy, _dst:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _src:stdgo._internal.io.Io_reader.Reader, _flushInterval:stdgo._internal.time.Time_duration.Duration):stdgo.Error {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
         return stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._copyResponse(_p, _dst, _src, _flushInterval);
     }
-    static public function _flushInterval(_p:ReverseProxy, _res:stdgo._internal.net.http.Http_Response.Response):stdgo._internal.time.Time_Duration.Duration {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
-        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
+    static public function _flushInterval(_p:ReverseProxy, _res:stdgo._internal.net.http.Http_response.Response):stdgo._internal.time.Time_duration.Duration {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
+        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         return stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._flushInterval(_p, _res);
     }
-    static public function serveHTTP(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function serveHTTP(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _req:stdgo._internal.net.http.Http_request.Request):Void {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension.serveHTTP(_p, _rw, _req);
     }
-    static public function _modifyResponse(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _res:stdgo._internal.net.http.Http_Response.Response, _req:stdgo._internal.net.http.Http_Request.Request):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
-        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function _modifyResponse(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _res:stdgo._internal.net.http.Http_response.Response, _req:stdgo._internal.net.http.Http_request.Request):Bool {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
+        final _res = (_res : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._modifyResponse(_p, _rw, _res, _req);
     }
-    static public function _getErrorHandler(_p:ReverseProxy):(stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, stdgo.Error) -> Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
+    static public function _getErrorHandler(_p:ReverseProxy):(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Error) -> Void {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
         return (_0, _1, _2) -> stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._getErrorHandler(_p)(_0, _1, _2);
     }
-    static public function _defaultErrorHandler(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo._internal.net.http.Http_Request.Request, _err:stdgo.Error):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>);
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public function _defaultErrorHandler(_p:ReverseProxy, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _req:stdgo._internal.net.http.Http_request.Request, _err:stdgo.Error):Void {
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>);
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         final _err = (_err : stdgo.Error);
         stdgo._internal.net.http.httputil.Httputil_ReverseProxy_static_extension.ReverseProxy_static_extension._defaultErrorHandler(_p, _rw, _req, _err);
     }
@@ -561,15 +561,15 @@ class ReverseProxy_static_extension {
 typedef T_maxLatencyWriterPointer = stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriterPointer.T_maxLatencyWriterPointer;
 class T_maxLatencyWriter_static_extension {
     static public function _stop(_m:T_maxLatencyWriter):Void {
-        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter>);
         stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter_static_extension.T_maxLatencyWriter_static_extension._stop(_m);
     }
     static public function _delayedFlush(_m:T_maxLatencyWriter):Void {
-        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter>);
         stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter_static_extension.T_maxLatencyWriter_static_extension._delayedFlush(_m);
     }
     static public function write(_m:T_maxLatencyWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter_static_extension.T_maxLatencyWriter_static_extension.write(_m, _p);
@@ -612,8 +612,8 @@ class Httputil {
         includes any headers that the standard http.Transport adds, such as
         User-Agent.
     **/
-    static public inline function dumpRequestOut(_req:stdgo._internal.net.http.Http_Request.Request, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function dumpRequestOut(_req:stdgo._internal.net.http.Http_request.Request, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_dumpRequestOut.dumpRequestOut(_req, _body);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -637,8 +637,8 @@ class Httputil {
         The documentation for http.Request.Write details which fields
         of req are included in the dump.
     **/
-    static public inline function dumpRequest(_req:stdgo._internal.net.http.Http_Request.Request, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
+    static public inline function dumpRequest(_req:stdgo._internal.net.http.Http_request.Request, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_dumpRequest.dumpRequest(_req, _body);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -647,8 +647,8 @@ class Httputil {
     /**
         DumpResponse is like DumpRequest but dumps a response.
     **/
-    static public inline function dumpResponse(_resp:stdgo._internal.net.http.Http_Response.Response, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _resp = (_resp : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
+    static public inline function dumpResponse(_resp:stdgo._internal.net.http.Http_response.Response, _body:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _resp = (_resp : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         return {
             final obj = stdgo._internal.net.http.httputil.Httputil_dumpResponse.dumpResponse(_resp, _body);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -662,7 +662,7 @@ class Httputil {
         NewChunkedReader is not needed by normal applications. The http package
         automatically decodes chunking when reading response bodies.
     **/
-    static public inline function newChunkedReader(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    static public inline function newChunkedReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.net.http.httputil.Httputil_newChunkedReader.newChunkedReader(_r);
     }
     /**
@@ -678,7 +678,7 @@ class Httputil {
         would result in double chunking or chunking with a Content-Length
         length, both of which are wrong.
     **/
-    static public inline function newChunkedWriter(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_WriteCloser.WriteCloser {
+    static public inline function newChunkedWriter(_w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writecloser.WriteCloser {
         return stdgo._internal.net.http.httputil.Httputil_newChunkedWriter.newChunkedWriter(_w);
     }
     /**
@@ -688,8 +688,8 @@ class Httputil {
         
         Deprecated: Use the Server in package net/http instead.
     **/
-    static public inline function newServerConn(_c:stdgo._internal.net.Net_Conn.Conn, _r:stdgo._internal.bufio.Bufio_Reader.Reader):ServerConn {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    static public inline function newServerConn(_c:stdgo._internal.net.Net_conn.Conn, _r:stdgo._internal.bufio.Bufio_reader.Reader):ServerConn {
+        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return stdgo._internal.net.http.httputil.Httputil_newServerConn.newServerConn(_c, _r);
     }
     /**
@@ -699,8 +699,8 @@ class Httputil {
         
         Deprecated: Use the Client or Transport in package net/http instead.
     **/
-    static public inline function newClientConn(_c:stdgo._internal.net.Net_Conn.Conn, _r:stdgo._internal.bufio.Bufio_Reader.Reader):ClientConn {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    static public inline function newClientConn(_c:stdgo._internal.net.Net_conn.Conn, _r:stdgo._internal.bufio.Bufio_reader.Reader):ClientConn {
+        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return stdgo._internal.net.http.httputil.Httputil_newClientConn.newClientConn(_c, _r);
     }
     /**
@@ -710,8 +710,8 @@ class Httputil {
         
         Deprecated: Use the Client or Transport in package net/http instead.
     **/
-    static public inline function newProxyClientConn(_c:stdgo._internal.net.Net_Conn.Conn, _r:stdgo._internal.bufio.Bufio_Reader.Reader):ClientConn {
-        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    static public inline function newProxyClientConn(_c:stdgo._internal.net.Net_conn.Conn, _r:stdgo._internal.bufio.Bufio_reader.Reader):ClientConn {
+        final _r = (_r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return stdgo._internal.net.http.httputil.Httputil_newProxyClientConn.newProxyClientConn(_c, _r);
     }
     /**
@@ -736,8 +736,8 @@ class Httputil {
         		},
         	}
     **/
-    static public inline function newSingleHostReverseProxy(_target:stdgo._internal.net.url.Url_URL.URL):ReverseProxy {
-        final _target = (_target : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+    static public inline function newSingleHostReverseProxy(_target:stdgo._internal.net.url.Url_url.URL):ReverseProxy {
+        final _target = (_target : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.http.httputil.Httputil_newSingleHostReverseProxy.newSingleHostReverseProxy(_target);
     }
 }

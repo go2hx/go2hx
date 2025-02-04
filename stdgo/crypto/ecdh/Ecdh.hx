@@ -1,32 +1,32 @@
 package stdgo.crypto.ecdh;
 class Curve_static_extension {
-    static public function _privateKeyToPublicKey(t:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve, _0:PrivateKey):PublicKey {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+    static public function _privateKeyToPublicKey(t:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve, _0:PrivateKey):PublicKey {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_Curve_static_extension.Curve_static_extension._privateKeyToPublicKey(t, _0);
     }
-    static public function _ecdh(t:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve, _local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
-        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+    static public function _ecdh(t:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve, _local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
+        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_Curve_static_extension.Curve_static_extension._ecdh(t, _local, _remote);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function newPublicKey(t:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve, _key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error> {
+    static public function newPublicKey(t:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve, _key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error> {
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_Curve_static_extension.Curve_static_extension.newPublicKey(t, _key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function newPrivateKey(t:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve, _key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error> {
+    static public function newPrivateKey(t:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve, _key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error> {
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_Curve_static_extension.Curve_static_extension.newPrivateKey(t, _key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function generateKey(t:stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
+    static public function generateKey(t:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_Curve_static_extension.Curve_static_extension.generateKey(t, _rand);
             { _0 : obj._0, _1 : obj._1 };
@@ -35,34 +35,34 @@ class Curve_static_extension {
 }
 typedef Curve = stdgo._internal.crypto.ecdh.Ecdh_Curve.Curve;
 class T_nistPoint_static_extension {
-    static public function scalarBaseMult(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
+    static public function scalarBaseMult(t:stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint_static_extension.T_nistPoint_static_extension.scalarBaseMult(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function scalarMult(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint, _0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
+    static public function scalarMult(t:stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint, _0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint_static_extension.T_nistPoint_static_extension.scalarMult(t, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function setBytes(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
+    static public function setBytes(t:stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint_static_extension.T_nistPoint_static_extension.setBytes(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function bytesX(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function bytesX(t:stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint_static_extension.T_nistPoint_static_extension.bytesX(t);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function bytes(t:stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint):Array<std.UInt> {
+    static public function bytes(t:stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint):Array<std.UInt> {
         return [for (i in stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
@@ -80,13 +80,13 @@ typedef T_nistPoint = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint<T
         this._publicKey = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _boring(get, set) : stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH;
-    function get__boring():stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH return this._boring;
-    function set__boring(v:stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH):stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH {
-        this._boring = (v : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH>);
+    public var _boring(get, set) : stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH;
+    function get__boring():stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH return this._boring;
+    function set__boring(v:stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH):stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH {
+        this._boring = (v : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH>);
         return v;
     }
-    public function new(?_curve:Curve, ?_publicKey:Array<std.UInt>, ?_boring:stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH) this = new stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey(_curve, ([for (i in _publicKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_boring : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyECDH.PublicKeyECDH>));
+    public function new(?_curve:Curve, ?_publicKey:Array<std.UInt>, ?_boring:stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH) this = new stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey(_curve, ([for (i in _publicKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_boring : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -103,25 +103,25 @@ typedef T_nistPoint = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint<T
         this._privateKey = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _boring(get, set) : stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH;
-    function get__boring():stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH return this._boring;
-    function set__boring(v:stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH):stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH {
-        this._boring = (v : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH>);
+    public var _boring(get, set) : stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH;
+    function get__boring():stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH return this._boring;
+    function set__boring(v:stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH):stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH {
+        this._boring = (v : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH>);
         return v;
     }
     public var _publicKey(get, set) : PublicKey;
     function get__publicKey():PublicKey return this._publicKey;
     function set__publicKey(v:PublicKey):PublicKey {
-        this._publicKey = (v : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        this._publicKey = (v : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return v;
     }
-    public var _publicKeyOnce(get, set) : stdgo._internal.sync.Sync_Once.Once;
-    function get__publicKeyOnce():stdgo._internal.sync.Sync_Once.Once return this._publicKeyOnce;
-    function set__publicKeyOnce(v:stdgo._internal.sync.Sync_Once.Once):stdgo._internal.sync.Sync_Once.Once {
+    public var _publicKeyOnce(get, set) : stdgo._internal.sync.Sync_once.Once;
+    function get__publicKeyOnce():stdgo._internal.sync.Sync_once.Once return this._publicKeyOnce;
+    function set__publicKeyOnce(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
         this._publicKeyOnce = v;
         return v;
     }
-    public function new(?_curve:Curve, ?_privateKey:Array<std.UInt>, ?_boring:stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH, ?_publicKey:PublicKey, ?_publicKeyOnce:stdgo._internal.sync.Sync_Once.Once) this = new stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey(_curve, ([for (i in _privateKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_boring : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PrivateKeyECDH.PrivateKeyECDH>), (_publicKey : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>), _publicKeyOnce);
+    public function new(?_curve:Curve, ?_privateKey:Array<std.UInt>, ?_boring:stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH, ?_publicKey:PublicKey, ?_publicKeyOnce:stdgo._internal.sync.Sync_once.Once) this = new stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey(_curve, ([for (i in _privateKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_boring : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH>), (_publicKey : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>), _publicKeyOnce);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -156,43 +156,43 @@ typedef T_nistPoint = stdgo._internal.crypto.ecdh.Ecdh_T_nistPoint.T_nistPoint<T
 typedef PublicKeyPointer = stdgo._internal.crypto.ecdh.Ecdh_PublicKeyPointer.PublicKeyPointer;
 class PublicKey_static_extension {
     static public function curve(_k:PublicKey):Curve {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PublicKey_static_extension.PublicKey_static_extension.curve(_k);
     }
-    static public function equal(_k:PublicKey, _x:stdgo._internal.crypto.Crypto_PublicKey.PublicKey):Bool {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+    static public function equal(_k:PublicKey, _x:stdgo._internal.crypto.Crypto_publickey.PublicKey):Bool {
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PublicKey_static_extension.PublicKey_static_extension.equal(_k, _x);
     }
     static public function bytes(_k:PublicKey):Array<std.UInt> {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return [for (i in stdgo._internal.crypto.ecdh.Ecdh_PublicKey_static_extension.PublicKey_static_extension.bytes(_k)) i];
     }
 }
 typedef PrivateKeyPointer = stdgo._internal.crypto.ecdh.Ecdh_PrivateKeyPointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
-    static public function public_(_k:PrivateKey):stdgo._internal.crypto.Crypto_PublicKey.PublicKey {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+    static public function public_(_k:PrivateKey):stdgo._internal.crypto.Crypto_publickey.PublicKey {
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.public_(_k);
     }
     static public function publicKey(_k:PrivateKey):PublicKey {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.publicKey(_k);
     }
     static public function curve(_k:PrivateKey):Curve {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.curve(_k);
     }
-    static public function equal(_k:PrivateKey, _x:stdgo._internal.crypto.Crypto_PrivateKey.PrivateKey):Bool {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+    static public function equal(_k:PrivateKey, _x:stdgo._internal.crypto.Crypto_privatekey.PrivateKey):Bool {
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.equal(_k, _x);
     }
     static public function bytes(_k:PrivateKey):Array<std.UInt> {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return [for (i in stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.bytes(_k)) i];
     }
     static public function eCDH(_k:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
-        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        final _k = (_k : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
+        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_PrivateKey_static_extension.PrivateKey_static_extension.eCDH(_k, _remote);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -202,16 +202,16 @@ class PrivateKey_static_extension {
 typedef T_nistCurvePointer = stdgo._internal.crypto.ecdh.Ecdh_T_nistCurvePointer.T_nistCurvePointer<Point>;
 class T_nistCurve_static_extension {
     static public function _ecdh(_c:T_nistCurve<Dynamic>, _local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
-        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
-        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
+        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
+        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension._ecdh(_c, _local, _remote);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function newPublicKey(_c:T_nistCurve<Dynamic>, _key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension.newPublicKey(_c, _key);
@@ -219,43 +219,43 @@ class T_nistCurve_static_extension {
         };
     }
     static public function _privateKeyToPublicKey(_c:T_nistCurve<Dynamic>, _key:PrivateKey):PublicKey {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
-        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
+        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension._privateKeyToPublicKey(_c, _key);
     }
     static public function newPrivateKey(_c:T_nistCurve<Dynamic>, _key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension.newPrivateKey(_c, _key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function generateKey(_c:T_nistCurve<Dynamic>, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
+    static public function generateKey(_c:T_nistCurve<Dynamic>, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension.generateKey(_c, _rand);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function string(_c:T_nistCurve<Dynamic>):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve.T_nistCurve<Dynamic>>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve<Dynamic>>);
         return stdgo._internal.crypto.ecdh.Ecdh_T_nistCurve_static_extension.T_nistCurve_static_extension.string(_c);
     }
 }
 typedef T_x25519CurvePointer = stdgo._internal.crypto.ecdh.Ecdh_T_x25519CurvePointer.T_x25519CurvePointer;
 class T_x25519Curve_static_extension {
     static public function _ecdh(_c:T_x25519Curve, _local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
-        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
-        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
+        final _local = (_local : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
+        final _remote = (_remote : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension._ecdh(_c, _local, _remote);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function newPublicKey(_c:T_x25519Curve, _key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension.newPublicKey(_c, _key);
@@ -263,27 +263,27 @@ class T_x25519Curve_static_extension {
         };
     }
     static public function _privateKeyToPublicKey(_c:T_x25519Curve, _key:PrivateKey):PublicKey {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
-        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
+        final _key = (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
         return stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension._privateKeyToPublicKey(_c, _key);
     }
     static public function newPrivateKey(_c:T_x25519Curve, _key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension.newPrivateKey(_c, _key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function generateKey(_c:T_x25519Curve, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
+    static public function generateKey(_c:T_x25519Curve, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error> {
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
         return {
             final obj = stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension.generateKey(_c, _rand);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function string(_c:T_x25519Curve):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve.T_x25519Curve>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_t_x25519curve.T_x25519Curve>);
         return stdgo._internal.crypto.ecdh.Ecdh_T_x25519Curve_static_extension.T_x25519Curve_static_extension.string(_c);
     }
 }

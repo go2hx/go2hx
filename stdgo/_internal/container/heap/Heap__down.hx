@@ -1,5 +1,5 @@
 package stdgo._internal.container.heap;
-function _down(_h:stdgo._internal.container.heap.Heap_Interface.Interface, _i0:stdgo.GoInt, _n:stdgo.GoInt):Bool {
+function _down(_h:stdgo._internal.container.heap.Heap_interface.Interface, _i0:stdgo.GoInt, _n:stdgo.GoInt):Bool {
         var _i = (_i0 : stdgo.GoInt);
         while (true) {
             var _j1 = (((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);

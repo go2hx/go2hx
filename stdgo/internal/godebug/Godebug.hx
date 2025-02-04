@@ -6,48 +6,48 @@ package stdgo.internal.godebug;
         this._name = (v : stdgo.GoString);
         return v;
     }
-    public var _once(get, set) : stdgo._internal.sync.Sync_Once.Once;
-    function get__once():stdgo._internal.sync.Sync_Once.Once return this._once;
-    function set__once(v:stdgo._internal.sync.Sync_Once.Once):stdgo._internal.sync.Sync_Once.Once {
+    public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
+    function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
+    function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
         this._once = v;
         return v;
     }
     public var _setting(get, set) : T_setting;
     function get__setting():T_setting return this._setting;
     function set__setting(v:T_setting):T_setting {
-        this._setting = (v : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_T_setting.T_setting>);
+        this._setting = (v : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_t_setting.T_setting>);
         return v;
     }
-    public function new(?_name:String, ?_once:stdgo._internal.sync.Sync_Once.Once, ?_setting:T_setting) this = new stdgo._internal.internal.godebug.Godebug_Setting.Setting((_name : stdgo.GoString), _once, (_setting : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_T_setting.T_setting>));
+    public function new(?_name:String, ?_once:stdgo._internal.sync.Sync_once.Once, ?_setting:T_setting) this = new stdgo._internal.internal.godebug.Godebug_Setting.Setting((_name : stdgo.GoString), _once, (_setting : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_t_setting.T_setting>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.godebug.Godebug.T_setting_static_extension) abstract T_setting(stdgo._internal.internal.godebug.Godebug_T_setting.T_setting) from stdgo._internal.internal.godebug.Godebug_T_setting.T_setting to stdgo._internal.internal.godebug.Godebug_T_setting.T_setting {
-    public var _value(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value>;
-    function get__value():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value> return this._value;
-    function set__value(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value> {
+    public var _value(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>;
+    function get__value():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> return this._value;
+    function set__value(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> {
         this._value = v;
         return v;
     }
-    public var _nonDefaultOnce(get, set) : stdgo._internal.sync.Sync_Once.Once;
-    function get__nonDefaultOnce():stdgo._internal.sync.Sync_Once.Once return this._nonDefaultOnce;
-    function set__nonDefaultOnce(v:stdgo._internal.sync.Sync_Once.Once):stdgo._internal.sync.Sync_Once.Once {
+    public var _nonDefaultOnce(get, set) : stdgo._internal.sync.Sync_once.Once;
+    function get__nonDefaultOnce():stdgo._internal.sync.Sync_once.Once return this._nonDefaultOnce;
+    function set__nonDefaultOnce(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
         this._nonDefaultOnce = v;
         return v;
     }
-    public var _nonDefault(get, set) : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64;
-    function get__nonDefault():stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 return this._nonDefault;
-    function set__nonDefault(v:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 {
+    public var _nonDefault(get, set) : stdgo._internal.sync.atomic_.Atomic__uint64.Uint64;
+    function get__nonDefault():stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 return this._nonDefault;
+    function set__nonDefault(v:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 {
         this._nonDefault = v;
         return v;
     }
     public var _info(get, set) : Info;
     function get__info():Info return this._info;
     function set__info(v:Info):Info {
-        this._info = (v : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_Info.Info>);
+        this._info = (v : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_info.Info>);
         return v;
     }
-    public function new(?_value:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync_Once.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64, ?_info:Info) this = new stdgo._internal.internal.godebug.Godebug_T_setting.T_setting(_value, _nonDefaultOnce, _nonDefault, (_info : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_Info.Info>));
+    public function new(?_value:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync_once.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_info:Info) this = new stdgo._internal.internal.godebug.Godebug_T_setting.T_setting(_value, _nonDefaultOnce, _nonDefault, (_info : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_info.Info>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -58,13 +58,13 @@ package stdgo.internal.godebug;
         this._text = (v : stdgo.GoString);
         return v;
     }
-    public var _bisect(get, set) : stdgo._internal.internal.bisect.Bisect_Matcher.Matcher;
-    function get__bisect():stdgo._internal.internal.bisect.Bisect_Matcher.Matcher return this._bisect;
-    function set__bisect(v:stdgo._internal.internal.bisect.Bisect_Matcher.Matcher):stdgo._internal.internal.bisect.Bisect_Matcher.Matcher {
-        this._bisect = (v : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher>);
+    public var _bisect(get, set) : stdgo._internal.internal.bisect.Bisect_matcher.Matcher;
+    function get__bisect():stdgo._internal.internal.bisect.Bisect_matcher.Matcher return this._bisect;
+    function set__bisect(v:stdgo._internal.internal.bisect.Bisect_matcher.Matcher):stdgo._internal.internal.bisect.Bisect_matcher.Matcher {
+        this._bisect = (v : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_matcher.Matcher>);
         return v;
     }
-    public function new(?_text:String, ?_bisect:stdgo._internal.internal.bisect.Bisect_Matcher.Matcher) this = new stdgo._internal.internal.godebug.Godebug_T_value.T_value((_text : stdgo.GoString), (_bisect : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher>));
+    public function new(?_text:String, ?_bisect:stdgo._internal.internal.bisect.Bisect_matcher.Matcher) this = new stdgo._internal.internal.godebug.Godebug_T_value.T_value((_text : stdgo.GoString), (_bisect : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_matcher.Matcher>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -76,27 +76,27 @@ package stdgo.internal.godebug;
 typedef SettingPointer = stdgo._internal.internal.godebug.Godebug_SettingPointer.SettingPointer;
 class Setting_static_extension {
     static public function value(_s:Setting):String {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.value(_s);
     }
     static public function _register(_s:Setting):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension._register(_s);
     }
     static public function incNonDefault(_s:Setting):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.incNonDefault(_s);
     }
     static public function string(_s:Setting):String {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.string(_s);
     }
     static public function undocumented(_s:Setting):Bool {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.undocumented(_s);
     }
     static public function name(_s:Setting):String {
-        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_setting.Setting>);
         return stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension.name(_s);
     }
 }
@@ -111,7 +111,7 @@ class T_value_static_extension {
 typedef T_runtimeStderrPointer = stdgo._internal.internal.godebug.Godebug_T_runtimeStderrPointer.T_runtimeStderrPointer;
 class T_runtimeStderr_static_extension {
     static public function write(_:T_runtimeStderr, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _ = (_ : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_T_runtimeStderr.T_runtimeStderr>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.internal.godebug.Godebug_T_runtimeStderr_static_extension.T_runtimeStderr_static_extension.write(_, _b);

@@ -286,7 +286,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public var units(get, set) : Array<CoverableUnit>;
     function get_units():Array<CoverableUnit> return [for (i in this.units) i];
     function set_units(v:Array<CoverableUnit>):Array<CoverableUnit> {
-        this.units = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.Coverage_CoverableUnit.CoverableUnit>);
+        this.units = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit>);
         return v;
     }
     public var lit(get, set) : Bool;
@@ -295,7 +295,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
         this.lit = v;
         return v;
     }
-    public function new(?funcname:String, ?srcfile:String, ?units:Array<CoverableUnit>, ?lit:Bool) this = new stdgo._internal.internal.coverage.Coverage_FuncDesc.FuncDesc((funcname : stdgo.GoString), (srcfile : stdgo.GoString), ([for (i in units) i] : stdgo.Slice<stdgo._internal.internal.coverage.Coverage_CoverableUnit.CoverableUnit>), lit);
+    public function new(?funcname:String, ?srcfile:String, ?units:Array<CoverableUnit>, ?lit:Bool) this = new stdgo._internal.internal.coverage.Coverage_FuncDesc.FuncDesc((funcname : stdgo.GoString), (srcfile : stdgo.GoString), ([for (i in units) i] : stdgo.Slice<stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit>), lit);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

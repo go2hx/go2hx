@@ -1,5 +1,5 @@
 package stdgo._internal.os.signal;
-function reset(_sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
-        var _sig = new stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>(_sig.length, 0, ..._sig);
-        stdgo._internal.os.signal.Signal__cancel._cancel(_sig, stdgo._internal.os.signal.Signal__disableSignal._disableSignal);
+function reset(_sig:haxe.Rest<stdgo._internal.os.Os_signal.Signal>):Void {
+        var _sig = new stdgo.Slice<stdgo._internal.os.Os_signal.Signal>(_sig.length, 0, ..._sig);
+        stdgo._internal.os.signal.Signal__cancel._cancel(_sig, stdgo._internal.os.signal.Signal__disablesignal._disableSignal);
     }

@@ -5,7 +5,7 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         };
         var _rooted = (_path[(0 : stdgo.GoInt)] == ((47 : stdgo.GoUInt8)) : Bool);
         var _n = (_path.length : stdgo.GoInt);
-        var _out = ({ _s : _path?.__copy__() } : stdgo._internal.path.Path_T_lazybuf.T_lazybuf);
+        var _out = ({ _s : _path?.__copy__() } : stdgo._internal.path.Path_t_lazybuf.T_lazybuf);
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _dotdot = __1, _r = __0;
         if (_rooted) {

@@ -5,5 +5,5 @@ function _lookup(_tab:stdgo.Slice<stdgo.GoString>, _val:stdgo.GoString):{ var _0
                 return { _0 : _i, _1 : (_val.__slice__((_v.length)) : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Error) };
             };
         };
-        return { _0 : (-1 : stdgo.GoInt), _1 : _val?.__copy__(), _2 : stdgo._internal.time.Time__errBad._errBad };
+        return { _0 : (-1 : stdgo.GoInt), _1 : _val?.__copy__(), _2 : stdgo._internal.time.Time__errbad._errBad };
     }

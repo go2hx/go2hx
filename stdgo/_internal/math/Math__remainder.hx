@@ -1,9 +1,9 @@
 package stdgo._internal.math;
 function _remainder(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if ((((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y) : Bool) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool) || (_y == (0 : stdgo.GoFloat64)) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
-        } else if (stdgo._internal.math.Math_isInf.isInf(_y, (0 : stdgo.GoInt))) {
+        if ((((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y) : Bool) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool) || (_y == (0 : stdgo.GoFloat64)) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
+        } else if (stdgo._internal.math.Math_isinf.isInf(_y, (0 : stdgo.GoInt))) {
             return _x;
         };
         var _sign = (false : Bool);

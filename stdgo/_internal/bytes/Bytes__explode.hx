@@ -13,7 +13,7 @@ function _explode(_s:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<std
                 break;
             };
             {
-                var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(_s);
+                var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune(_s);
                 _size = @:tmpset0 __tmp__._1;
             };
             _a[(_na : stdgo.GoInt)] = (_s.__slice__((0 : stdgo.GoInt), _size, _size) : stdgo.Slice<stdgo.GoUInt8>);

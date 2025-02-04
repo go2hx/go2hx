@@ -1,7 +1,7 @@
 package stdgo._internal.math;
 function _cbrt(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (((_x == (0 : stdgo.GoFloat64) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
+        if (((_x == (0 : stdgo.GoFloat64) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
             return _x;
         };
         var _sign = (false : Bool);

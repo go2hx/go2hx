@@ -1,10 +1,10 @@
 package stdgo._internal.math.big;
-function _msb64(_x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoUInt64 {
+function _msb64(_x:stdgo._internal.math.big.Big_t_nat.T_nat):stdgo.GoUInt64 {
         var _i = ((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             return (0i64 : stdgo.GoUInt64);
         };
-        if ((false && ((_x[(_i : stdgo.GoInt)] & (-2147483648u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) == (0u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
+        if ((false && ((_x[(_i : stdgo.GoInt)] & (-2147483648u32 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word) == (0u32 : stdgo._internal.math.big.Big_word.Word)) : Bool)) {
             throw stdgo.Go.toInterface(("x not normalized" : stdgo.GoString));
         };
         {

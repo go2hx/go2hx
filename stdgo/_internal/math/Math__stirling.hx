@@ -5,7 +5,7 @@ function _stirling(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdg
         };
         {};
         var _w = ((1 : stdgo.GoFloat64) / _x : stdgo.GoFloat64);
-        _w = ((1 : stdgo.GoFloat64) + (_w * ((((((((((((stdgo._internal.math.Math___gamS.__gamS[(0 : stdgo.GoInt)] * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gamS.__gamS[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gamS.__gamS[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gamS.__gamS[(3 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gamS.__gamS[(4 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
+        _w = ((1 : stdgo.GoFloat64) + (_w * ((((((((((((stdgo._internal.math.Math___gams.__gamS[(0 : stdgo.GoInt)] * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gams.__gamS[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gams.__gamS[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gams.__gamS[(3 : stdgo.GoInt)] : stdgo.GoFloat64)) * _w : stdgo.GoFloat64) + stdgo._internal.math.Math___gams.__gamS[(4 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
         var _y1 = (stdgo._internal.math.Math_exp.exp(_x) : stdgo.GoFloat64);
         var _y2 = (1 : stdgo.GoFloat64);
         if ((_x > (143.01608 : stdgo.GoFloat64) : Bool)) {

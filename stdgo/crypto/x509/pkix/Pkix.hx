@@ -1,25 +1,25 @@
 package stdgo.crypto.x509.pkix;
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AlgorithmIdentifier_static_extension) abstract AlgorithmIdentifier(stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier) from stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier to stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier {
-    public var algorithm(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
-    function get_algorithm():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.algorithm;
-    function set_algorithm(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
+    public var algorithm(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
+    function get_algorithm():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.algorithm;
+    function set_algorithm(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
         this.algorithm = v;
         return v;
     }
-    public var parameters(get, set) : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue;
-    function get_parameters():stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue return this.parameters;
-    function set_parameters(v:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue):stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue {
+    public var parameters(get, set) : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue;
+    function get_parameters():stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue return this.parameters;
+    function set_parameters(v:stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue):stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue {
         this.parameters = v;
         return v;
     }
-    public function new(?algorithm:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?parameters:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue) this = new stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier(algorithm, parameters);
+    public function new(?algorithm:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier, ?parameters:stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) this = new stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier(algorithm, parameters);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue_static_extension) abstract AttributeTypeAndValue(stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue) from stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue to stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue {
-    public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
-    function get_type():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.type;
-    function set_type(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
+    public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
+    function get_type():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.type;
+    function set_type(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
         this.type = v;
         return v;
     }
@@ -29,31 +29,31 @@ package stdgo.crypto.x509.pkix;
         this.value = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?type:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?value:stdgo.AnyInterface) this = new stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue(type, (value : stdgo.AnyInterface));
+    public function new(?type:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier, ?value:stdgo.AnyInterface) this = new stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue(type, (value : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValueSET_static_extension) abstract AttributeTypeAndValueSET(stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET) from stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET to stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET {
-    public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
-    function get_type():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.type;
-    function set_type(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
+    public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
+    function get_type():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.type;
+    function set_type(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
         this.type = v;
         return v;
     }
     public var value(get, set) : Array<Array<AttributeTypeAndValue>>;
     function get_value():Array<Array<AttributeTypeAndValue>> return [for (i in this.value) [for (i in i) i]];
     function set_value(v:Array<Array<AttributeTypeAndValue>>):Array<Array<AttributeTypeAndValue>> {
-        this.value = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>);
+        this.value = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>>);
         return v;
     }
-    public function new(?type:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?value:Array<Array<AttributeTypeAndValue>>) this = new stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET(type, ([for (i in value) ([for (i in i) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>));
+    public function new(?type:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier, ?value:Array<Array<AttributeTypeAndValue>>) this = new stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET(type, ([for (i in value) ([for (i in i) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.Extension_static_extension) abstract Extension(stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension) from stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension to stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension {
-    public var id(get, set) : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
-    function get_id():stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier return this.id;
-    function set_id(v:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier {
+    public var id(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
+    function get_id():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.id;
+    function set_id(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
         this.id = v;
         return v;
     }
@@ -69,7 +69,7 @@ package stdgo.crypto.x509.pkix;
         this.value = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?id:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier, ?critical:Bool, ?value:Array<std.UInt>) this = new stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension(id, critical, ([for (i in value) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?id:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier, ?critical:Bool, ?value:Array<std.UInt>) this = new stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension(id, critical, ([for (i in value) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -131,13 +131,13 @@ package stdgo.crypto.x509.pkix;
     public var names(get, set) : Array<AttributeTypeAndValue>;
     function get_names():Array<AttributeTypeAndValue> return [for (i in this.names) i];
     function set_names(v:Array<AttributeTypeAndValue>):Array<AttributeTypeAndValue> {
-        this.names = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>);
+        this.names = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
         return v;
     }
     public var extraNames(get, set) : Array<AttributeTypeAndValue>;
     function get_extraNames():Array<AttributeTypeAndValue> return [for (i in this.extraNames) i];
     function set_extraNames(v:Array<AttributeTypeAndValue>):Array<AttributeTypeAndValue> {
-        this.extraNames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>);
+        this.extraNames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>);
         return v;
     }
     public function new(?country:Array<String>, ?organization:Array<String>, ?organizationalUnit:Array<String>, ?locality:Array<String>, ?province:Array<String>, ?streetAddress:Array<String>, ?postalCode:Array<String>, ?serialNumber:String, ?commonName:String, ?names:Array<AttributeTypeAndValue>, ?extraNames:Array<AttributeTypeAndValue>) this = new stdgo._internal.crypto.x509.pkix.Pkix_Name.Name(
@@ -150,8 +150,8 @@ package stdgo.crypto.x509.pkix;
 ([for (i in postalCode) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (serialNumber : stdgo.GoString),
 (commonName : stdgo.GoString),
-([for (i in names) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>),
-([for (i in extraNames) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>));
+([for (i in names) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>),
+([for (i in extraNames) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -168,20 +168,20 @@ package stdgo.crypto.x509.pkix;
         this.signatureAlgorithm = v;
         return v;
     }
-    public var signatureValue(get, set) : stdgo._internal.encoding.asn1.Asn1_BitString.BitString;
-    function get_signatureValue():stdgo._internal.encoding.asn1.Asn1_BitString.BitString return this.signatureValue;
-    function set_signatureValue(v:stdgo._internal.encoding.asn1.Asn1_BitString.BitString):stdgo._internal.encoding.asn1.Asn1_BitString.BitString {
+    public var signatureValue(get, set) : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString;
+    function get_signatureValue():stdgo._internal.encoding.asn1.Asn1_bitstring.BitString return this.signatureValue;
+    function set_signatureValue(v:stdgo._internal.encoding.asn1.Asn1_bitstring.BitString):stdgo._internal.encoding.asn1.Asn1_bitstring.BitString {
         this.signatureValue = v;
         return v;
     }
-    public function new(?tBSCertList:TBSCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_BitString.BitString) this = new stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList(tBSCertList, signatureAlgorithm, signatureValue);
+    public function new(?tBSCertList:TBSCertificateList, ?signatureAlgorithm:AlgorithmIdentifier, ?signatureValue:stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) this = new stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList(tBSCertList, signatureAlgorithm, signatureValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.TBSCertificateList_static_extension) abstract TBSCertificateList(stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList to stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList {
-    public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
-    function get_raw():stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent return this.raw;
-    function set_raw(v:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent):stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent {
+    public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent;
+    function get_raw():stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent return this.raw;
+    function set_raw(v:stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent):stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent {
         this.raw = v;
         return v;
     }
@@ -203,54 +203,54 @@ package stdgo.crypto.x509.pkix;
         this.issuer = v;
         return v;
     }
-    public var thisUpdate(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_thisUpdate():stdgo._internal.time.Time_Time.Time return this.thisUpdate;
-    function set_thisUpdate(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var thisUpdate(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_thisUpdate():stdgo._internal.time.Time_time.Time return this.thisUpdate;
+    function set_thisUpdate(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.thisUpdate = v;
         return v;
     }
-    public var nextUpdate(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_nextUpdate():stdgo._internal.time.Time_Time.Time return this.nextUpdate;
-    function set_nextUpdate(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var nextUpdate(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_nextUpdate():stdgo._internal.time.Time_time.Time return this.nextUpdate;
+    function set_nextUpdate(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.nextUpdate = v;
         return v;
     }
     public var revokedCertificates(get, set) : Array<RevokedCertificate>;
     function get_revokedCertificates():Array<RevokedCertificate> return [for (i in this.revokedCertificates) i];
     function set_revokedCertificates(v:Array<RevokedCertificate>):Array<RevokedCertificate> {
-        this.revokedCertificates = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>);
+        this.revokedCertificates = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate>);
         return v;
     }
     public var extensions(get, set) : Array<Extension>;
     function get_extensions():Array<Extension> return [for (i in this.extensions) i];
     function set_extensions(v:Array<Extension>):Array<Extension> {
-        this.extensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
+        this.extensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         return v;
     }
-    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent, ?version:StdTypes.Int, ?signature:AlgorithmIdentifier, ?issuer:RDNSequence, ?thisUpdate:stdgo._internal.time.Time_Time.Time, ?nextUpdate:stdgo._internal.time.Time_Time.Time, ?revokedCertificates:Array<RevokedCertificate>, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList(raw, (version : stdgo.GoInt), signature, issuer, thisUpdate, nextUpdate, ([for (i in revokedCertificates) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>), ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
+    public function new(?raw:stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent, ?version:StdTypes.Int, ?signature:AlgorithmIdentifier, ?issuer:RDNSequence, ?thisUpdate:stdgo._internal.time.Time_time.Time, ?nextUpdate:stdgo._internal.time.Time_time.Time, ?revokedCertificates:Array<RevokedCertificate>, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.pkix.Pkix_TBSCertificateList.TBSCertificateList(raw, (version : stdgo.GoInt), signature, issuer, thisUpdate, nextUpdate, ([for (i in revokedCertificates) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate>), ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.x509.pkix.Pkix.RevokedCertificate_static_extension) abstract RevokedCertificate(stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate) from stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate to stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate {
-    public var serialNumber(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_serialNumber():stdgo._internal.math.big.Big_Int_.Int_ return this.serialNumber;
-    function set_serialNumber(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.serialNumber = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var serialNumber(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_serialNumber():stdgo._internal.math.big.Big_int_.Int_ return this.serialNumber;
+    function set_serialNumber(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.serialNumber = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public var revocationTime(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_revocationTime():stdgo._internal.time.Time_Time.Time return this.revocationTime;
-    function set_revocationTime(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var revocationTime(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_revocationTime():stdgo._internal.time.Time_time.Time return this.revocationTime;
+    function set_revocationTime(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.revocationTime = v;
         return v;
     }
     public var extensions(get, set) : Array<Extension>;
     function get_extensions():Array<Extension> return [for (i in this.extensions) i];
     function set_extensions(v:Array<Extension>):Array<Extension> {
-        this.extensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>);
+        this.extensions = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>);
         return v;
     }
-    public function new(?serialNumber:stdgo._internal.math.big.Big_Int_.Int_, ?revocationTime:stdgo._internal.time.Time_Time.Time, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate((serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), revocationTime, ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>));
+    public function new(?serialNumber:stdgo._internal.math.big.Big_int_.Int_, ?revocationTime:stdgo._internal.time.Time_time.Time, ?extensions:Array<Extension>) this = new stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate((serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), revocationTime, ([for (i in extensions) i] : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -280,20 +280,20 @@ class Name_static_extension {
     static public function toRDNSequence(_n:Name):RDNSequence {
         return stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension.toRDNSequence(_n);
     }
-    static public function _appendRDNs(_n:Name, _in:RDNSequence, _values:Array<String>, _oid:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier):RDNSequence {
+    static public function _appendRDNs(_n:Name, _in:RDNSequence, _values:Array<String>, _oid:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):RDNSequence {
         final _values = ([for (i in _values) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension._appendRDNs(_n, _in, _values, _oid);
     }
     static public function fillFromRDNSequence(_n:Name, _rdns:RDNSequence):Void {
-        final _n = (_n : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_Name.Name>);
-        final _rdns = (_rdns : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_name.Name>);
+        final _rdns = (_rdns : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence>);
         stdgo._internal.crypto.x509.pkix.Pkix_Name_static_extension.Name_static_extension.fillFromRDNSequence(_n, _rdns);
     }
 }
 typedef CertificateListPointer = stdgo._internal.crypto.x509.pkix.Pkix_CertificateListPointer.CertificateListPointer;
 class CertificateList_static_extension {
-    static public function hasExpired(_certList:CertificateList, _now:stdgo._internal.time.Time_Time.Time):Bool {
-        final _certList = (_certList : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList>);
+    static public function hasExpired(_certList:CertificateList, _now:stdgo._internal.time.Time_time.Time):Bool {
+        final _certList = (_certList : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList>);
         return stdgo._internal.crypto.x509.pkix.Pkix_CertificateList_static_extension.CertificateList_static_extension.hasExpired(_certList, _now);
     }
 }

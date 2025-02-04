@@ -1,9 +1,9 @@
 package stdgo._internal.math;
 function jn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (stdgo._internal.math.Math_isNaN.isNaN(_x)) {
+        if (stdgo._internal.math.Math_isnan.isNaN(_x)) {
             return _x;
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt))) {
             return (0 : stdgo.GoFloat64);
         };
         if (_n == ((0 : stdgo.GoInt))) {

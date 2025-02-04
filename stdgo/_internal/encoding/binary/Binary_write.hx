@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.binary;
-function write(_w:stdgo._internal.io.Io_Writer.Writer, _order:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
+function write(_w:stdgo._internal.io.Io_writer.Writer, _order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
         {
-            var _n = (stdgo._internal.encoding.binary.Binary__intDataSize._intDataSize(_data) : stdgo.GoInt);
+            var _n = (stdgo._internal.encoding.binary.Binary__intdatasize._intDataSize(_data) : stdgo.GoInt);
             if (_n != ((0 : stdgo.GoInt))) {
                 var _bs = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 {
@@ -143,13 +143,13 @@ function write(_w:stdgo._internal.io.Io_Writer.Writer, _order:stdgo._internal.en
                 return _err;
             };
         };
-        var _v = (stdgo._internal.reflect.Reflect_indirect.indirect(stdgo._internal.reflect.Reflect_valueOf.valueOf(_data)?.__copy__())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-        var _size = (stdgo._internal.encoding.binary.Binary__dataSize._dataSize(_v?.__copy__()) : stdgo.GoInt);
+        var _v = (stdgo._internal.reflect.Reflect_indirect.indirect(stdgo._internal.reflect.Reflect_valueof.valueOf(_data)?.__copy__())?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
+        var _size = (stdgo._internal.encoding.binary.Binary__datasize._dataSize(_v?.__copy__()) : stdgo.GoInt);
         if ((_size < (0 : stdgo.GoInt) : Bool)) {
-            return stdgo._internal.errors.Errors_new_.new_((("binary.Write: some values are not fixed-sized in type " : stdgo.GoString) + (stdgo._internal.reflect.Reflect_typeOf.typeOf(_data).string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
+            return stdgo._internal.errors.Errors_new_.new_((("binary.Write: some values are not fixed-sized in type " : stdgo.GoString) + (stdgo._internal.reflect.Reflect_typeof.typeOf(_data).string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _e = (stdgo.Go.setRef(({ _order : _order, _buf : _buf } : stdgo._internal.encoding.binary.Binary_T_encoder.T_encoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_encoder.T_encoder>);
+        var _e = (stdgo.Go.setRef(({ _order : _order, _buf : _buf } : stdgo._internal.encoding.binary.Binary_t_encoder.T_encoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_encoder.T_encoder>);
         @:check2r _e._value(_v?.__copy__());
         var __tmp__ = _w.write(_buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;

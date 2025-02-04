@@ -426,7 +426,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		for (file in module.files) {
 			final defs = file.defs.copy();
 			for (def in defs) {
-				if (StringTools.endsWith(def.name, "_asInterface") || StringTools.endsWith(def.name, "_static_extension"))
+				if (def.name == "__go2hxdoc__package")
+					continue;
+				if (StringTools.endsWith(def.name, "_asinterface") || StringTools.endsWith(def.name, "_asInterface") || StringTools.endsWith(def.name, "_static_extension"))
 					continue;
 				var local:Array<{func:Ast.FuncDecl, sel:String, recvName:String}> = [];
 				final names:Array<{name:String, sel:String, recvName:String}> = [{name: def.name, sel: "", recvName: ""}];
@@ -5124,7 +5126,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	// for split deps
 	pack.push(title(pkg));
 	final last = pack.pop();
-	pack.push(last + "_" + cl);
+	pack.push(last + "_" + cl.toLowerCase());
 	return {pack: pack, name: cl};
 }
 
@@ -6319,7 +6321,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						});
 					}
 				}
-				x = macro $i{s + "_" + sel};
+				x = macro $i{s + "_" + sel.toLowerCase()};
 			}
 		default:
 	}
@@ -6470,14 +6472,14 @@ private function addPointerSuffix(ct:ComplexType) {
 				if (p.pack.length == 0) {
 					final parts = p.name.split(".");
 					final last = parts.pop() + "Pointer";
-					final lastPack = parts.pop() + "Pointer";
+					final lastPack = parts.pop() + "pointer";
 					parts.push(lastPack);
 					parts.push(last);
 					p.name = parts.join(".");
 				}
 			}else{
 				p.name += "Pointer";
-			p.pack.push(p.pack.pop() + "Pointer");
+			p.pack.push(p.pack.pop() + "pointer");
 			}
 		default:
 	}
@@ -8631,7 +8633,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		}
 		final filePath = pack.pop();
 		pack.push(filePath);
-		pack.push(title(filePath) + "_" + name);
+		pack.push(title(filePath) + "_" + name.toLowerCase());
 		pack.push(name);
 		//name = path + "." + filePath + "_" + name + "." + name;
 		name = pack.join(".");
@@ -8657,7 +8659,7 @@ function splitDepFullPathName(name:String, info:Info):String {
 	/*if (StringTools.endsWith(filePath, "_test")) {
 		filePath = filePath.substr(0, filePath.length - "_test".length);
 	}*/
-	name = path + "." + filePath + "_" + name + "." + name;
+	name = path + "." + filePath + "_" + name.toLowerCase() + "." + name;
 	return name;
 }
 

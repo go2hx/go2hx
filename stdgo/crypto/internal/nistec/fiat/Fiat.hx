@@ -66,42 +66,42 @@ typedef T_p521NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.
 typedef P224ElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224ElementPointer.P224ElementPointer;
 class P224Element_static_extension {
     static public function invert(_e:P224Element, _x:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.invert(_e, _x);
     }
     static public function select(_v:P224Element, _a:P224Element, _b:P224Element, _cond:StdTypes.Int):P224Element {
-        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         final _cond = (_cond : stdgo.GoInt);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.select(_v, _a, _b, _cond);
     }
     static public function square(_e:P224Element, _t:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.square(_e, _t);
     }
     static public function mul(_e:P224Element, _t1:P224Element, _t2:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.mul(_e, _t1, _t2);
     }
     static public function sub(_e:P224Element, _t1:P224Element, _t2:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.sub(_e, _t1, _t2);
     }
     static public function add(_e:P224Element, _t1:P224Element, _t2:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.add(_e, _t1, _t2);
     }
     static public function setBytes(_e:P224Element, _v:Array<std.UInt>):stdgo.Tuple<P224Element, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         final _v = ([for (i in _v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.setBytes(_e, _v);
@@ -109,72 +109,72 @@ class P224Element_static_extension {
         };
     }
     static public function _bytes(_e:P224Element, _out:haxe.ds.Vector<std.UInt>):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         final _out = (_out : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension._bytes(_e, _out)) i];
     }
     static public function bytes(_e:P224Element):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.bytes(_e)) i];
     }
     static public function set(_e:P224Element, _t:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.set(_e, _t);
     }
     static public function isZero(_e:P224Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.isZero(_e);
     }
     static public function equal(_e:P224Element, _t:P224Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.equal(_e, _t);
     }
     static public function one(_e:P224Element):P224Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element.P224Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P224Element_static_extension.P224Element_static_extension.one(_e);
     }
 }
 typedef P256ElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256ElementPointer.P256ElementPointer;
 class P256Element_static_extension {
     static public function invert(_e:P256Element, _x:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.invert(_e, _x);
     }
     static public function select(_v:P256Element, _a:P256Element, _b:P256Element, _cond:StdTypes.Int):P256Element {
-        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         final _cond = (_cond : stdgo.GoInt);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.select(_v, _a, _b, _cond);
     }
     static public function square(_e:P256Element, _t:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.square(_e, _t);
     }
     static public function mul(_e:P256Element, _t1:P256Element, _t2:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.mul(_e, _t1, _t2);
     }
     static public function sub(_e:P256Element, _t1:P256Element, _t2:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.sub(_e, _t1, _t2);
     }
     static public function add(_e:P256Element, _t1:P256Element, _t2:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.add(_e, _t1, _t2);
     }
     static public function setBytes(_e:P256Element, _v:Array<std.UInt>):stdgo.Tuple<P256Element, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         final _v = ([for (i in _v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.setBytes(_e, _v);
@@ -182,72 +182,72 @@ class P256Element_static_extension {
         };
     }
     static public function _bytes(_e:P256Element, _out:haxe.ds.Vector<std.UInt>):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         final _out = (_out : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension._bytes(_e, _out)) i];
     }
     static public function bytes(_e:P256Element):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.bytes(_e)) i];
     }
     static public function set(_e:P256Element, _t:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.set(_e, _t);
     }
     static public function isZero(_e:P256Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.isZero(_e);
     }
     static public function equal(_e:P256Element, _t:P256Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.equal(_e, _t);
     }
     static public function one(_e:P256Element):P256Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element.P256Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P256Element_static_extension.P256Element_static_extension.one(_e);
     }
 }
 typedef P384ElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384ElementPointer.P384ElementPointer;
 class P384Element_static_extension {
     static public function invert(_e:P384Element, _x:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.invert(_e, _x);
     }
     static public function select(_v:P384Element, _a:P384Element, _b:P384Element, _cond:StdTypes.Int):P384Element {
-        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         final _cond = (_cond : stdgo.GoInt);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.select(_v, _a, _b, _cond);
     }
     static public function square(_e:P384Element, _t:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.square(_e, _t);
     }
     static public function mul(_e:P384Element, _t1:P384Element, _t2:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.mul(_e, _t1, _t2);
     }
     static public function sub(_e:P384Element, _t1:P384Element, _t2:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.sub(_e, _t1, _t2);
     }
     static public function add(_e:P384Element, _t1:P384Element, _t2:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.add(_e, _t1, _t2);
     }
     static public function setBytes(_e:P384Element, _v:Array<std.UInt>):stdgo.Tuple<P384Element, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         final _v = ([for (i in _v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.setBytes(_e, _v);
@@ -255,72 +255,72 @@ class P384Element_static_extension {
         };
     }
     static public function _bytes(_e:P384Element, _out:haxe.ds.Vector<std.UInt>):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         final _out = (_out : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension._bytes(_e, _out)) i];
     }
     static public function bytes(_e:P384Element):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.bytes(_e)) i];
     }
     static public function set(_e:P384Element, _t:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.set(_e, _t);
     }
     static public function isZero(_e:P384Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.isZero(_e);
     }
     static public function equal(_e:P384Element, _t:P384Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.equal(_e, _t);
     }
     static public function one(_e:P384Element):P384Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element.P384Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P384Element_static_extension.P384Element_static_extension.one(_e);
     }
 }
 typedef P521ElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521ElementPointer.P521ElementPointer;
 class P521Element_static_extension {
     static public function invert(_e:P521Element, _x:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.invert(_e, _x);
     }
     static public function select(_v:P521Element, _a:P521Element, _b:P521Element, _cond:StdTypes.Int):P521Element {
-        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         final _cond = (_cond : stdgo.GoInt);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.select(_v, _a, _b, _cond);
     }
     static public function square(_e:P521Element, _t:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.square(_e, _t);
     }
     static public function mul(_e:P521Element, _t1:P521Element, _t2:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.mul(_e, _t1, _t2);
     }
     static public function sub(_e:P521Element, _t1:P521Element, _t2:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.sub(_e, _t1, _t2);
     }
     static public function add(_e:P521Element, _t1:P521Element, _t2:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t1 = (_t1 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t2 = (_t2 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.add(_e, _t1, _t2);
     }
     static public function setBytes(_e:P521Element, _v:Array<std.UInt>):stdgo.Tuple<P521Element, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         final _v = ([for (i in _v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.setBytes(_e, _v);
@@ -328,30 +328,30 @@ class P521Element_static_extension {
         };
     }
     static public function _bytes(_e:P521Element, _out:haxe.ds.Vector<std.UInt>):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         final _out = (_out : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension._bytes(_e, _out)) i];
     }
     static public function bytes(_e:P521Element):Array<std.UInt> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return [for (i in stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.bytes(_e)) i];
     }
     static public function set(_e:P521Element, _t:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.set(_e, _t);
     }
     static public function isZero(_e:P521Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.isZero(_e);
     }
     static public function equal(_e:P521Element, _t:P521Element):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.equal(_e, _t);
     }
     static public function one(_e:P521Element):P521Element {
-        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_P521Element_static_extension.P521Element_static_extension.one(_e);
     }
 }

@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903_static_extension.T_testRecursiveMapType___localname___recursiveMap_7903_static_extension) typedef T_testRecursiveMapType___localname___recursiveMap_7903Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testrecursivemaptype___localname___recursivemap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>;

@@ -19,21 +19,21 @@ private function set_args(v:Array<String>):Array<String> {
         stdgo._internal.os.Os_args.args = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-final modeDir : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeDir.modeDir;
-final modeAppend : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeAppend.modeAppend;
-final modeExclusive : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeExclusive.modeExclusive;
-final modeTemporary : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeTemporary.modeTemporary;
-final modeSymlink : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeSymlink.modeSymlink;
-final modeDevice : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeDevice.modeDevice;
-final modeNamedPipe : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeNamedPipe.modeNamedPipe;
-final modeSocket : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeSocket.modeSocket;
-final modeSetuid : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeSetuid.modeSetuid;
-final modeSetgid : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeSetgid.modeSetgid;
-final modeCharDevice : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeCharDevice.modeCharDevice;
-final modeSticky : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeSticky.modeSticky;
-final modeIrregular : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeIrregular.modeIrregular;
-final modeType : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modeType.modeType;
-final modePerm : stdgo._internal.io.fs.Fs_FileMode.FileMode = stdgo._internal.os.Os_modePerm.modePerm;
+final modeDir : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeDir.modeDir;
+final modeAppend : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeAppend.modeAppend;
+final modeExclusive : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeExclusive.modeExclusive;
+final modeTemporary : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeTemporary.modeTemporary;
+final modeSymlink : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeSymlink.modeSymlink;
+final modeDevice : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeDevice.modeDevice;
+final modeNamedPipe : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeNamedPipe.modeNamedPipe;
+final modeSocket : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeSocket.modeSocket;
+final modeSetuid : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeSetuid.modeSetuid;
+final modeSetgid : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeSetgid.modeSetgid;
+final modeCharDevice : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeCharDevice.modeCharDevice;
+final modeSticky : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeSticky.modeSticky;
+final modeIrregular : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeIrregular.modeIrregular;
+final modeType : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modeType.modeType;
+final modePerm : stdgo._internal.io.fs.Fs_filemode.FileMode = stdgo._internal.os.Os_modePerm.modePerm;
 var errInvalid(get, set) : stdgo.Error;
 private function get_errInvalid():stdgo.Error return stdgo._internal.os.Os_errInvalid.errInvalid;
 private function set_errInvalid(v:stdgo.Error):stdgo.Error {
@@ -97,30 +97,30 @@ private function set_kill(v:Signal):Signal {
 var stdin(get, set) : File;
 private function get_stdin():File return stdgo._internal.os.Os_stdin.stdin;
 private function set_stdin(v:File):File {
-        stdgo._internal.os.Os_stdin.stdin = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        stdgo._internal.os.Os_stdin.stdin = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
 var stdout(get, set) : File;
 private function get_stdout():File return stdgo._internal.os.Os_stdout.stdout;
 private function set_stdout(v:File):File {
-        stdgo._internal.os.Os_stdout.stdout = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        stdgo._internal.os.Os_stdout.stdout = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
 var stderr(get, set) : File;
 private function get_stderr():File return stdgo._internal.os.Os_stderr.stderr;
 private function set_stderr(v:File):File {
-        stdgo._internal.os.Os_stderr.stderr = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        stdgo._internal.os.Os_stderr.stderr = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
-var atime(get, set) : stdgo._internal.io.fs.Fs_FileInfo.FileInfo -> stdgo._internal.time.Time_Time.Time;
-private function get_atime():stdgo._internal.io.fs.Fs_FileInfo.FileInfo -> stdgo._internal.time.Time_Time.Time return _0 -> stdgo._internal.os.Os_atime.atime(_0);
-private function set_atime(v:stdgo._internal.io.fs.Fs_FileInfo.FileInfo -> stdgo._internal.time.Time_Time.Time):stdgo._internal.io.fs.Fs_FileInfo.FileInfo -> stdgo._internal.time.Time_Time.Time {
+var atime(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time;
+private function get_atime():stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time return _0 -> stdgo._internal.os.Os_atime.atime(_0);
+private function set_atime(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time):stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time {
         stdgo._internal.os.Os_atime.atime = v;
         return v;
     }
-var lstatP(get, set) : stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; }>;
-private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.os.Os_lstatP.lstatP(_0);
-private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; }>):stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; }> {
+var lstatP(get, set) : stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>;
+private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.os.Os_lstatP.lstatP(_0);
+private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>):stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> {
         stdgo._internal.os.Os_lstatP.lstatP = v;
         return v;
     }
@@ -149,16 +149,16 @@ private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; va
         return v;
     }
 class T_timeout_static_extension {
-    static public function timeout(t:stdgo._internal.os.Os_T_timeout.T_timeout):Bool {
+    static public function timeout(t:stdgo._internal.os.Os_t_timeout.T_timeout):Bool {
         return stdgo._internal.os.Os_T_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
 typedef T_timeout = stdgo._internal.os.Os_T_timeout.T_timeout;
 class Signal_static_extension {
-    static public function signal(t:stdgo._internal.os.Os_Signal.Signal):Void {
+    static public function signal(t:stdgo._internal.os.Os_signal.Signal):Void {
         stdgo._internal.os.Os_Signal_static_extension.Signal_static_extension.signal(t);
     }
-    static public function string(t:stdgo._internal.os.Os_Signal.Signal):String {
+    static public function string(t:stdgo._internal.os.Os_signal.Signal):String {
         return stdgo._internal.os.Os_Signal_static_extension.Signal_static_extension.string(t);
     }
 }
@@ -216,19 +216,19 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._handle = (v : stdgo.GoUIntptr);
         return v;
     }
-    public var _isdone(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__isdone():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isdone;
-    function set__isdone(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _isdone(get, set) : stdgo._internal.sync.atomic_.Atomic__bool_.Bool_;
+    function get__isdone():stdgo._internal.sync.atomic_.Atomic__bool_.Bool_ return this._isdone;
+    function set__isdone(v:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__bool_.Bool_ {
         this._isdone = v;
         return v;
     }
-    public var _sigMu(get, set) : stdgo._internal.sync.Sync_RWMutex.RWMutex;
-    function get__sigMu():stdgo._internal.sync.Sync_RWMutex.RWMutex return this._sigMu;
-    function set__sigMu(v:stdgo._internal.sync.Sync_RWMutex.RWMutex):stdgo._internal.sync.Sync_RWMutex.RWMutex {
+    public var _sigMu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
+    function get__sigMu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._sigMu;
+    function set__sigMu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         this._sigMu = v;
         return v;
     }
-    public function new(?pid:StdTypes.Int, ?_handle:stdgo.GoUIntptr, ?_isdone:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_, ?_sigMu:stdgo._internal.sync.Sync_RWMutex.RWMutex) this = new stdgo._internal.os.Os_Process.Process((pid : stdgo.GoInt), (_handle : stdgo.GoUIntptr), _isdone, _sigMu);
+    public function new(?pid:StdTypes.Int, ?_handle:stdgo.GoUIntptr, ?_isdone:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_sigMu:stdgo._internal.sync.Sync_rwmutex.RWMutex) this = new stdgo._internal.os.Os_Process.Process((pid : stdgo.GoInt), (_handle : stdgo.GoUIntptr), _isdone, _sigMu);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -248,16 +248,16 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
     public var files(get, set) : Array<File>;
     function get_files():Array<File> return [for (i in this.files) i];
     function set_files(v:Array<File>):Array<File> {
-        this.files = ([for (i in v) (i : stdgo.Ref<stdgo._internal.os.Os_File.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_File.File>>);
+        this.files = ([for (i in v) (i : stdgo.Ref<stdgo._internal.os.Os_file.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_file.File>>);
         return v;
     }
-    public var sys(get, set) : stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr;
-    function get_sys():stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr return this.sys;
-    function set_sys(v:stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr):stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr {
-        this.sys = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr>);
+    public var sys(get, set) : stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr;
+    function get_sys():stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr return this.sys;
+    function set_sys(v:stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr):stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr {
+        this.sys = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr>);
         return v;
     }
-    public function new(?dir:String, ?env:Array<String>, ?files:Array<File>, ?sys:stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr) this = new stdgo._internal.os.Os_ProcAttr.ProcAttr((dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in files) (i : stdgo.Ref<stdgo._internal.os.Os_File.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_File.File>>), (sys : stdgo.Ref<stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr>));
+    public function new(?dir:String, ?env:Array<String>, ?files:Array<File>, ?sys:stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr) this = new stdgo._internal.os.Os_ProcAttr.ProcAttr((dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in files) (i : stdgo.Ref<stdgo._internal.os.Os_file.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os_file.File>>), (sys : stdgo.Ref<stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -268,19 +268,19 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._pid = (v : stdgo.GoInt);
         return v;
     }
-    public var _status(get, set) : stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus;
-    function get__status():stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus return this._status;
-    function set__status(v:stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus):stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus {
+    public var _status(get, set) : stdgo._internal.syscall.Syscall_waitstatus.WaitStatus;
+    function get__status():stdgo._internal.syscall.Syscall_waitstatus.WaitStatus return this._status;
+    function set__status(v:stdgo._internal.syscall.Syscall_waitstatus.WaitStatus):stdgo._internal.syscall.Syscall_waitstatus.WaitStatus {
         this._status = v;
         return v;
     }
-    public var _rusage(get, set) : stdgo._internal.syscall.Syscall_Rusage.Rusage;
-    function get__rusage():stdgo._internal.syscall.Syscall_Rusage.Rusage return this._rusage;
-    function set__rusage(v:stdgo._internal.syscall.Syscall_Rusage.Rusage):stdgo._internal.syscall.Syscall_Rusage.Rusage {
-        this._rusage = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_Rusage.Rusage>);
+    public var _rusage(get, set) : stdgo._internal.syscall.Syscall_rusage.Rusage;
+    function get__rusage():stdgo._internal.syscall.Syscall_rusage.Rusage return this._rusage;
+    function set__rusage(v:stdgo._internal.syscall.Syscall_rusage.Rusage):stdgo._internal.syscall.Syscall_rusage.Rusage {
+        this._rusage = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_rusage.Rusage>);
         return v;
     }
-    public function new(?_pid:StdTypes.Int, ?_status:stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus, ?_rusage:stdgo._internal.syscall.Syscall_Rusage.Rusage) this = new stdgo._internal.os.Os_ProcessState.ProcessState((_pid : stdgo.GoInt), _status, (_rusage : stdgo.Ref<stdgo._internal.syscall.Syscall_Rusage.Rusage>));
+    public function new(?_pid:StdTypes.Int, ?_status:stdgo._internal.syscall.Syscall_waitstatus.WaitStatus, ?_rusage:stdgo._internal.syscall.Syscall_rusage.Rusage) this = new stdgo._internal.os.Os_ProcessState.ProcessState((_pid : stdgo.GoInt), _status, (_rusage : stdgo.Ref<stdgo._internal.syscall.Syscall_rusage.Rusage>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -317,17 +317,17 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
     public var file(get, set) : File;
     function get_file():File return this.file;
     function set_file(v:File):File {
-        this.file = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        this.file = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
-    public function new(?file:File) this = new stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom((file : stdgo.Ref<stdgo._internal.os.Os_File.File>));
+    public function new(?file:File) this = new stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom((file : stdgo.Ref<stdgo._internal.os.Os_file.File>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.os.Os.T_file_static_extension) abstract T_file(stdgo._internal.os.Os_T_file.T_file) from stdgo._internal.os.Os_T_file.T_file to stdgo._internal.os.Os_T_file.T_file {
-    public var _pfd(get, set) : stdgo._internal.internal.poll.Poll_FD.FD;
-    function get__pfd():stdgo._internal.internal.poll.Poll_FD.FD return this._pfd;
-    function set__pfd(v:stdgo._internal.internal.poll.Poll_FD.FD):stdgo._internal.internal.poll.Poll_FD.FD {
+    public var _pfd(get, set) : stdgo._internal.internal.poll.Poll_fd.FD;
+    function get__pfd():stdgo._internal.internal.poll.Poll_fd.FD return this._pfd;
+    function set__pfd(v:stdgo._internal.internal.poll.Poll_fd.FD):stdgo._internal.internal.poll.Poll_fd.FD {
         this._pfd = v;
         return v;
     }
@@ -340,7 +340,7 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
     public var _dirinfo(get, set) : T_dirInfo;
     function get__dirinfo():T_dirInfo return this._dirinfo;
     function set__dirinfo(v:T_dirInfo):T_dirInfo {
-        this._dirinfo = (v : stdgo.Ref<stdgo._internal.os.Os_T_dirInfo.T_dirInfo>);
+        this._dirinfo = (v : stdgo.Ref<stdgo._internal.os.Os_t_dirinfo.T_dirInfo>);
         return v;
     }
     public var _nonblock(get, set) : Bool;
@@ -361,7 +361,7 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._appendMode = v;
         return v;
     }
-    public function new(?_pfd:stdgo._internal.internal.poll.Poll_FD.FD, ?_name:String, ?_dirinfo:T_dirInfo, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) this = new stdgo._internal.os.Os_T_file.T_file(_pfd, (_name : stdgo.GoString), (_dirinfo : stdgo.Ref<stdgo._internal.os.Os_T_dirInfo.T_dirInfo>), _nonblock, _stdoutOrErr, _appendMode);
+    public function new(?_pfd:stdgo._internal.internal.poll.Poll_fd.FD, ?_name:String, ?_dirinfo:T_dirInfo, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) this = new stdgo._internal.os.Os_T_file.T_file(_pfd, (_name : stdgo.GoString), (_dirinfo : stdgo.Ref<stdgo._internal.os.Os_t_dirinfo.T_dirInfo>), _nonblock, _stdoutOrErr, _appendMode);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -378,19 +378,19 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._name = (v : stdgo.GoString);
         return v;
     }
-    public var _typ(get, set) : stdgo._internal.io.fs.Fs_FileMode.FileMode;
-    function get__typ():stdgo._internal.io.fs.Fs_FileMode.FileMode return this._typ;
-    function set__typ(v:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo._internal.io.fs.Fs_FileMode.FileMode {
+    public var _typ(get, set) : stdgo._internal.io.fs.Fs_filemode.FileMode;
+    function get__typ():stdgo._internal.io.fs.Fs_filemode.FileMode return this._typ;
+    function set__typ(v:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo._internal.io.fs.Fs_filemode.FileMode {
         this._typ = v;
         return v;
     }
-    public var _info(get, set) : stdgo._internal.io.fs.Fs_FileInfo.FileInfo;
-    function get__info():stdgo._internal.io.fs.Fs_FileInfo.FileInfo return this._info;
-    function set__info(v:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):stdgo._internal.io.fs.Fs_FileInfo.FileInfo {
+    public var _info(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo;
+    function get__info():stdgo._internal.io.fs.Fs_fileinfo.FileInfo return this._info;
+    function set__info(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo._internal.io.fs.Fs_fileinfo.FileInfo {
         this._info = v;
         return v;
     }
-    public function new(?_parent:String, ?_name:String, ?_typ:stdgo._internal.io.fs.Fs_FileMode.FileMode, ?_info:stdgo._internal.io.fs.Fs_FileInfo.FileInfo) this = new stdgo._internal.os.Os_T_unixDirent.T_unixDirent((_parent : stdgo.GoString), (_name : stdgo.GoString), _typ, _info);
+    public function new(?_parent:String, ?_name:String, ?_typ:stdgo._internal.io.fs.Fs_filemode.FileMode, ?_info:stdgo._internal.io.fs.Fs_fileinfo.FileInfo) this = new stdgo._internal.os.Os_T_unixDirent.T_unixDirent((_parent : stdgo.GoString), (_name : stdgo.GoString), _typ, _info);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -398,10 +398,10 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
     public var _file(get, set) : File;
     function get__file():File return this._file;
     function set__file(v:File):File {
-        this._file = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        this._file = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
-    public function new(?_file:File) this = new stdgo._internal.os.Os_T_rawConn.T_rawConn((_file : stdgo.Ref<stdgo._internal.os.Os_File.File>));
+    public function new(?_file:File) this = new stdgo._internal.os.Os_T_rawConn.T_rawConn((_file : stdgo.Ref<stdgo._internal.os.Os_file.File>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -409,10 +409,10 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
     public var _file(get, set) : T_file;
     function get__file():T_file return this._file;
     function set__file(v:T_file):T_file {
-        this._file = (v : stdgo.Ref<stdgo._internal.os.Os_T_file.T_file>);
+        this._file = (v : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>);
         return v;
     }
-    public function new(?_file:T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os_File.File((_file : stdgo.Ref<stdgo._internal.os.Os_T_file.T_file>), _input, _output);
+    public function new(?_file:T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os_File.File((_file : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>), _input, _output);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -429,44 +429,44 @@ typedef Signal = stdgo._internal.os.Os_Signal.Signal;
         this._size = (v : stdgo.GoInt64);
         return v;
     }
-    public var _mode(get, set) : stdgo._internal.io.fs.Fs_FileMode.FileMode;
-    function get__mode():stdgo._internal.io.fs.Fs_FileMode.FileMode return this._mode;
-    function set__mode(v:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo._internal.io.fs.Fs_FileMode.FileMode {
+    public var _mode(get, set) : stdgo._internal.io.fs.Fs_filemode.FileMode;
+    function get__mode():stdgo._internal.io.fs.Fs_filemode.FileMode return this._mode;
+    function set__mode(v:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo._internal.io.fs.Fs_filemode.FileMode {
         this._mode = v;
         return v;
     }
-    public var _modTime(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get__modTime():stdgo._internal.time.Time_Time.Time return this._modTime;
-    function set__modTime(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var _modTime(get, set) : stdgo._internal.time.Time_time.Time;
+    function get__modTime():stdgo._internal.time.Time_time.Time return this._modTime;
+    function set__modTime(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this._modTime = v;
         return v;
     }
-    public var _sys(get, set) : stdgo._internal.syscall.Syscall_Stat_t.Stat_t;
-    function get__sys():stdgo._internal.syscall.Syscall_Stat_t.Stat_t return this._sys;
-    function set__sys(v:stdgo._internal.syscall.Syscall_Stat_t.Stat_t):stdgo._internal.syscall.Syscall_Stat_t.Stat_t {
+    public var _sys(get, set) : stdgo._internal.syscall.Syscall_stat_t.Stat_t;
+    function get__sys():stdgo._internal.syscall.Syscall_stat_t.Stat_t return this._sys;
+    function set__sys(v:stdgo._internal.syscall.Syscall_stat_t.Stat_t):stdgo._internal.syscall.Syscall_stat_t.Stat_t {
         this._sys = v;
         return v;
     }
-    public function new(?_name:String, ?_size:haxe.Int64, ?_mode:stdgo._internal.io.fs.Fs_FileMode.FileMode, ?_modTime:stdgo._internal.time.Time_Time.Time, ?_sys:stdgo._internal.syscall.Syscall_Stat_t.Stat_t) this = new stdgo._internal.os.Os_T_fileStat.T_fileStat((_name : stdgo.GoString), (_size : stdgo.GoInt64), _mode, _modTime, _sys);
+    public function new(?_name:String, ?_size:haxe.Int64, ?_mode:stdgo._internal.io.fs.Fs_filemode.FileMode, ?_modTime:stdgo._internal.time.Time_time.Time, ?_sys:stdgo._internal.syscall.Syscall_stat_t.Stat_t) this = new stdgo._internal.os.Os_T_fileStat.T_fileStat((_name : stdgo.GoString), (_size : stdgo.GoInt64), _mode, _modTime, _sys);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T__struct_0Pointer = stdgo._internal.os.Os_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.os.Os_T__struct_0.T__struct_0, _0:StdTypes.Int):Void {
+    public static function _unlockSlow(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.os.Os_T__struct_0_static_extension.T__struct_0_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void {
+    public static function _lockSlow(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0):Void {
         stdgo._internal.os.Os_T__struct_0_static_extension.T__struct_0_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void {
+    public static function unlock(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0):Void {
         stdgo._internal.os.Os_T__struct_0_static_extension.T__struct_0_static_extension.unlock(__self__);
     }
-    public static function tryLock(__self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Bool {
+    public static function tryLock(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0):Bool {
         return stdgo._internal.os.Os_T__struct_0_static_extension.T__struct_0_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.os.Os_T__struct_0.T__struct_0):Void {
+    public static function lock(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0):Void {
         stdgo._internal.os.Os_T__struct_0_static_extension.T__struct_0_static_extension.lock(__self__);
     }
 }
@@ -485,78 +485,78 @@ typedef FileMode = stdgo._internal.os.Os_FileMode.FileMode;
 typedef T_dirInfoPointer = stdgo._internal.os.Os_T_dirInfoPointer.T_dirInfoPointer;
 class T_dirInfo_static_extension {
     static public function _close(_d:T_dirInfo):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_dirInfo.T_dirInfo>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_dirinfo.T_dirInfo>);
         stdgo._internal.os.Os_T_dirInfo_static_extension.T_dirInfo_static_extension._close(_d);
     }
 }
 typedef SyscallErrorPointer = stdgo._internal.os.Os_SyscallErrorPointer.SyscallErrorPointer;
 class SyscallError_static_extension {
     static public function timeout(_e:SyscallError):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_syscallerror.SyscallError>);
         return stdgo._internal.os.Os_SyscallError_static_extension.SyscallError_static_extension.timeout(_e);
     }
     static public function unwrap(_e:SyscallError):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_syscallerror.SyscallError>);
         return stdgo._internal.os.Os_SyscallError_static_extension.SyscallError_static_extension.unwrap(_e);
     }
     static public function error(_e:SyscallError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_syscallerror.SyscallError>);
         return stdgo._internal.os.Os_SyscallError_static_extension.SyscallError_static_extension.error(_e);
     }
 }
 typedef ProcessPointer = stdgo._internal.os.Os_ProcessPointer.ProcessPointer;
 class Process_static_extension {
     static public function _blockUntilWaitable(_p:Process):stdgo.Tuple<Bool, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return {
             final obj = stdgo._internal.os.Os_Process_static_extension.Process_static_extension._blockUntilWaitable(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _release(_p:Process):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension._release(_p);
     }
     static public function _signal(_p:Process, _sig:Signal):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension._signal(_p, _sig);
     }
     static public function _wait(_p:Process):stdgo.Tuple<ProcessState, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return {
             final obj = stdgo._internal.os.Os_Process_static_extension.Process_static_extension._wait(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _kill(_p:Process):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension._kill(_p);
     }
     static public function signal(_p:Process, _sig:Signal):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension.signal(_p, _sig);
     }
     static public function wait_(_p:Process):stdgo.Tuple<ProcessState, stdgo.Error> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return {
             final obj = stdgo._internal.os.Os_Process_static_extension.Process_static_extension.wait_(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function kill(_p:Process):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension.kill(_p);
     }
     static public function release(_p:Process):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension.release(_p);
     }
     static public function _done(_p:Process):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         return stdgo._internal.os.Os_Process_static_extension.Process_static_extension._done(_p);
     }
     static public function _setDone(_p:Process):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_Process.Process>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_process.Process>);
         stdgo._internal.os.Os_Process_static_extension.Process_static_extension._setDone(_p);
     }
 }
@@ -566,75 +566,75 @@ class ProcAttr_static_extension {
 }
 typedef ProcessStatePointer = stdgo._internal.os.Os_ProcessStatePointer.ProcessStatePointer;
 class ProcessState_static_extension {
-    static public function _systemTime(_p:ProcessState):stdgo._internal.time.Time_Duration.Duration {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+    static public function _systemTime(_p:ProcessState):stdgo._internal.time.Time_duration.Duration {
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._systemTime(_p);
     }
-    static public function _userTime(_p:ProcessState):stdgo._internal.time.Time_Duration.Duration {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+    static public function _userTime(_p:ProcessState):stdgo._internal.time.Time_duration.Duration {
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._userTime(_p);
     }
     static public function exitCode(_p:ProcessState):StdTypes.Int {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.exitCode(_p);
     }
     static public function string(_p:ProcessState):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.string(_p);
     }
     static public function _sysUsage(_p:ProcessState):stdgo.AnyInterface {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._sysUsage(_p);
     }
     static public function _sys(_p:ProcessState):stdgo.AnyInterface {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._sys(_p);
     }
     static public function _success(_p:ProcessState):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._success(_p);
     }
     static public function _exited(_p:ProcessState):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension._exited(_p);
     }
     static public function pid(_p:ProcessState):StdTypes.Int {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.pid(_p);
     }
     static public function sysUsage(_p:ProcessState):stdgo.AnyInterface {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.sysUsage(_p);
     }
     static public function sys(_p:ProcessState):stdgo.AnyInterface {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.sys(_p);
     }
     static public function success(_p:ProcessState):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.success(_p);
     }
     static public function exited(_p:ProcessState):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.exited(_p);
     }
-    static public function systemTime(_p:ProcessState):stdgo._internal.time.Time_Duration.Duration {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+    static public function systemTime(_p:ProcessState):stdgo._internal.time.Time_duration.Duration {
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.systemTime(_p);
     }
-    static public function userTime(_p:ProcessState):stdgo._internal.time.Time_Duration.Duration {
-        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>);
+    static public function userTime(_p:ProcessState):stdgo._internal.time.Time_duration.Duration {
+        final _p = (_p : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>);
         return stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension.userTime(_p);
     }
 }
 typedef LinkErrorPointer = stdgo._internal.os.Os_LinkErrorPointer.LinkErrorPointer;
 class LinkError_static_extension {
     static public function unwrap(_e:LinkError):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_LinkError.LinkError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_linkerror.LinkError>);
         return stdgo._internal.os.Os_LinkError_static_extension.LinkError_static_extension.unwrap(_e);
     }
     static public function error(_e:LinkError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_LinkError.LinkError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.os.Os_linkerror.LinkError>);
         return stdgo._internal.os.Os_LinkError_static_extension.LinkError_static_extension.error(_e);
     }
 }
@@ -643,28 +643,28 @@ class T_fileWithoutReadFrom_static_extension {
     static public function readFrom(_:T_fileWithoutReadFrom, _0:T_fileWithoutReadFrom):Void {
         stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.readFrom(_, _0);
     }
-    public static function _write(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function _write(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _wrapErr(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:String, _1:stdgo.Error):stdgo.Error {
+    public static function _wrapErr(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:String, _1:stdgo.Error):stdgo.Error {
         final _0 = (_0 : stdgo.GoString);
         final _1 = (_1 : stdgo.Error);
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._wrapErr(__self__, _0, _1);
     }
-    public static function _setWriteDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function _setWriteDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._setWriteDeadline(__self__, _0);
     }
-    public static function _setReadDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function _setReadDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._setReadDeadline(__self__, _0);
     }
-    public static function _setDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function _setDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._setDeadline(__self__, _0);
     }
-    public static function _seek(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function _seek(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt);
         return {
@@ -672,27 +672,27 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _readdir(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:StdTypes.Int, _1:T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, Array<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>, stdgo.Error> {
+    public static function _readdir(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:StdTypes.Int, _1:T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._readdir(__self__, _0, _1);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : [for (i in obj._2) i], _3 : obj._3 };
         };
     }
-    public static function _readFrom(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple.Tuple3<haxe.Int64, Bool, stdgo.Error> {
+    public static function _readFrom(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple.Tuple3<haxe.Int64, Bool, stdgo.Error> {
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._readFrom(__self__, _0);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function _read(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function _read(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _pwrite(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function _pwrite(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -700,7 +700,7 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _pread(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function _pread(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -708,24 +708,24 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _close(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Error {
+    public static function _close(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._close(__self__);
     }
-    public static function _chmod(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    public static function _chmod(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._chmod(__self__, _0);
     }
-    public static function _checkValid(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:String):stdgo.Error {
+    public static function _checkValid(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:String):stdgo.Error {
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension._checkValid(__self__, _0);
     }
-    public static function writeString(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeString(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = (_0 : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.writeString(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeAt(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeAt(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -733,42 +733,42 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function write(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function write(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function truncate(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:haxe.Int64):stdgo.Error {
+    public static function truncate(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:haxe.Int64):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt64);
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.truncate(__self__, _0);
     }
-    public static function syscallConn(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Tuple<stdgo._internal.syscall.Syscall_RawConn.RawConn, stdgo.Error> {
+    public static function syscallConn(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.syscallConn(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function sync(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Error {
+    public static function sync(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.sync(__self__);
     }
-    public static function stat(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
+    public static function stat(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.stat(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function setWriteDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function setWriteDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.setWriteDeadline(__self__, _0);
     }
-    public static function setReadDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function setReadDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.setReadDeadline(__self__, _0);
     }
-    public static function setDeadline(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    public static function setDeadline(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.setDeadline(__self__, _0);
     }
-    public static function seek(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function seek(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt);
         return {
@@ -776,28 +776,28 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readdirnames(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<String>, stdgo.Error> {
+    public static function readdirnames(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.readdirnames(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readdir(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>, stdgo.Error> {
+    public static function readdir(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.readdir(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readDir(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
+    public static function readDir(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.readDir(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -805,103 +805,103 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function read(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function name(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):String {
+    public static function name(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):String {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.name(__self__);
     }
-    public static function fd(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.GoUIntptr {
+    public static function fd(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.GoUIntptr {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.fd(__self__);
     }
-    public static function close(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Error {
+    public static function close(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.close(__self__);
     }
-    public static function chown(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:StdTypes.Int, _1:StdTypes.Int):stdgo.Error {
+    public static function chown(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:StdTypes.Int, _1:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
         final _1 = (_1 : stdgo.GoInt);
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.chown(__self__, _0, _1);
     }
-    public static function chmod(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    public static function chmod(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom, _0:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.chmod(__self__, _0);
     }
-    public static function chdir(__self__:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):stdgo.Error {
+    public static function chdir(__self__:stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom):stdgo.Error {
         return stdgo._internal.os.Os_T_fileWithoutReadFrom_static_extension.T_fileWithoutReadFrom_static_extension.chdir(__self__);
     }
 }
 typedef T_filePointer = stdgo._internal.os.Os_T_filePointer.T_filePointer;
 class T_file_static_extension {
     static public function _close(_file:T_file):stdgo.Error {
-        final _file = (_file : stdgo.Ref<stdgo._internal.os.Os_T_file.T_file>);
+        final _file = (_file : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>);
         return stdgo._internal.os.Os_T_file_static_extension.T_file_static_extension._close(_file);
     }
 }
 typedef T_unixDirentPointer = stdgo._internal.os.Os_T_unixDirentPointer.T_unixDirentPointer;
 class T_unixDirent_static_extension {
     static public function string(_d:T_unixDirent):String {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension.string(_d);
     }
-    static public function info(_d:T_unixDirent):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>);
+    static public function info(_d:T_unixDirent):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return {
             final obj = stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension.info(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(_d:T_unixDirent):stdgo._internal.io.fs.Fs_FileMode.FileMode {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>);
+    static public function type(_d:T_unixDirent):stdgo._internal.io.fs.Fs_filemode.FileMode {
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension.type(_d);
     }
     static public function isDir(_d:T_unixDirent):Bool {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension.isDir(_d);
     }
     static public function name(_d:T_unixDirent):String {
-        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension.name(_d);
     }
 }
 typedef T_rawConnPointer = stdgo._internal.os.Os_T_rawConnPointer.T_rawConnPointer;
 class T_rawConn_static_extension {
     static public function write(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_T_rawConn.T_rawConn>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
         final _f = _f;
         return stdgo._internal.os.Os_T_rawConn_static_extension.T_rawConn_static_extension.write(_c, _f);
     }
     static public function read(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_T_rawConn.T_rawConn>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
         final _f = _f;
         return stdgo._internal.os.Os_T_rawConn_static_extension.T_rawConn_static_extension.read(_c, _f);
     }
     static public function control(_c:T_rawConn, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
-        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_T_rawConn.T_rawConn>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
         final _f = _f;
         return stdgo._internal.os.Os_T_rawConn_static_extension.T_rawConn_static_extension.control(_c, _f);
     }
 }
 typedef FilePointer = stdgo._internal.os.Os_FilePointer.FilePointer;
 class File_static_extension {
-    static public function stat(_f:File):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function stat(_f:File):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.stat(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _readFrom(_f:File, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple.Tuple3<haxe.Int64, Bool, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _readFrom(_f:File, _r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple.Tuple3<haxe.Int64, Bool, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension._readFrom(_f, _r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function _seek(_f:File, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _offset = (_offset : stdgo.GoInt64);
         final _whence = (_whence : stdgo.GoInt);
         return {
@@ -910,51 +910,51 @@ class File_static_extension {
         };
     }
     static public function fd(_f:File):stdgo.GoUIntptr {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.fd(_f);
     }
     static public function _checkValid(_f:File, _op:String):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _op = (_op : stdgo.GoString);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._checkValid(_f, _op);
     }
-    static public function _setWriteDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _setWriteDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._setWriteDeadline(_f, _t);
     }
-    static public function _setReadDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _setReadDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._setReadDeadline(_f, _t);
     }
-    static public function _setDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _setDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._setDeadline(_f, _t);
     }
     static public function chdir(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.chdir(_f);
     }
     static public function sync(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.sync(_f);
     }
     static public function truncate(_f:File, _size:haxe.Int64):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _size = (_size : stdgo.GoInt64);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.truncate(_f, _size);
     }
     static public function chown(_f:File, _uid:StdTypes.Int, _gid:StdTypes.Int):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _uid = (_uid : stdgo.GoInt);
         final _gid = (_gid : stdgo.GoInt);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.chown(_f, _uid, _gid);
     }
-    static public function _chmod(_f:File, _mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _chmod(_f:File, _mode:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._chmod(_f, _mode);
     }
     static public function _pwrite(_f:File, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -963,7 +963,7 @@ class File_static_extension {
         };
     }
     static public function _write(_f:File, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension._write(_f, _b);
@@ -971,7 +971,7 @@ class File_static_extension {
         };
     }
     static public function _pread(_f:File, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -980,7 +980,7 @@ class File_static_extension {
         };
     }
     static public function _read(_f:File, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension._read(_f, _b);
@@ -988,40 +988,40 @@ class File_static_extension {
         };
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.close(_f);
     }
-    static public function syscallConn(_f:File):stdgo.Tuple<stdgo._internal.syscall.Syscall_RawConn.RawConn, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function syscallConn(_f:File):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.syscallConn(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function setWriteDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function setWriteDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.setWriteDeadline(_f, _t);
     }
-    static public function setReadDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function setReadDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.setReadDeadline(_f, _t);
     }
-    static public function setDeadline(_f:File, _t:stdgo._internal.time.Time_Time.Time):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function setDeadline(_f:File, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.setDeadline(_f, _t);
     }
-    static public function chmod(_f:File, _mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function chmod(_f:File, _mode:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.chmod(_f, _mode);
     }
     static public function _wrapErr(_f:File, _op:String, _err:stdgo.Error):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _op = (_op : stdgo.GoString);
         final _err = (_err : stdgo.Error);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._wrapErr(_f, _op, _err);
     }
     static public function writeString(_f:File, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.writeString(_f, _s);
@@ -1029,7 +1029,7 @@ class File_static_extension {
         };
     }
     static public function seek(_f:File, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _offset = (_offset : stdgo.GoInt64);
         final _whence = (_whence : stdgo.GoInt);
         return {
@@ -1038,7 +1038,7 @@ class File_static_extension {
         };
     }
     static public function writeAt(_f:File, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -1047,22 +1047,22 @@ class File_static_extension {
         };
     }
     static public function write(_f:File, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.write(_f, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFrom(_f:File, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function readFrom(_f:File, _r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.readFrom(_f, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function readAt(_f:File, _b:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -1071,7 +1071,7 @@ class File_static_extension {
         };
     }
     static public function read(_f:File, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.read(_f, _b);
@@ -1079,19 +1079,19 @@ class File_static_extension {
         };
     }
     static public function name(_f:File):String {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return stdgo._internal.os.Os_File_static_extension.File_static_extension.name(_f);
     }
-    static public function _readdir(_f:File, _n:StdTypes.Int, _mode:T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, Array<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function _readdir(_f:File, _n:StdTypes.Int, _mode:T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension._readdir(_f, _n, _mode);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : [for (i in obj._2) i], _3 : obj._3 };
         };
     }
-    static public function readDir(_f:File, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function readDir(_f:File, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.readDir(_f, _n);
@@ -1099,49 +1099,49 @@ class File_static_extension {
         };
     }
     static public function readdirnames(_f:File, _n:StdTypes.Int):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.readdirnames(_f, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readdir(_f:File, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    static public function readdir(_f:File, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.os.Os_File_static_extension.File_static_extension.readdir(_f, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function _close(__self__:stdgo._internal.os.Os_File.File):stdgo.Error {
+    public static function _close(__self__:stdgo._internal.os.Os_file.File):stdgo.Error {
         return stdgo._internal.os.Os_File_static_extension.File_static_extension._close(__self__);
     }
 }
 typedef T_fileStatPointer = stdgo._internal.os.Os_T_fileStatPointer.T_fileStatPointer;
 class T_fileStat_static_extension {
     static public function sys(_fs:T_fileStat):stdgo.AnyInterface {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.sys(_fs);
     }
-    static public function modTime(_fs:T_fileStat):stdgo._internal.time.Time_Time.Time {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+    static public function modTime(_fs:T_fileStat):stdgo._internal.time.Time_time.Time {
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.modTime(_fs);
     }
-    static public function mode(_fs:T_fileStat):stdgo._internal.io.fs.Fs_FileMode.FileMode {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+    static public function mode(_fs:T_fileStat):stdgo._internal.io.fs.Fs_filemode.FileMode {
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.mode(_fs);
     }
     static public function size(_fs:T_fileStat):haxe.Int64 {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.size(_fs);
     }
     static public function isDir(_fs:T_fileStat):Bool {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.isDir(_fs);
     }
     static public function name(_fs:T_fileStat):String {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>);
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension.name(_fs);
     }
 }
@@ -1174,14 +1174,14 @@ class T_dirFS_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stat(_dir:T_dirFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
+    static public function stat(_dir:T_dirFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_T_dirFS_static_extension.T_dirFS_static_extension.stat(_dir, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readDir(_dir:T_dirFS, _name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
+    static public function readDir(_dir:T_dirFS, _name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_T_dirFS_static_extension.T_dirFS_static_extension.readDir(_dir, _name);
@@ -1195,7 +1195,7 @@ class T_dirFS_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function open(_dir:T_dirFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_File.File, stdgo.Error> {
+    static public function open(_dir:T_dirFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_file.File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_T_dirFS_static_extension.T_dirFS_static_extension.open(_dir, _name);
@@ -1264,7 +1264,7 @@ class Os {
         ReadDir returns the entries it was able to read before the error,
         along with the error.
     **/
-    static public inline function readDir(_name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>, stdgo.Error> {
+    static public inline function readDir(_name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_readDir.readDir(_name);
@@ -1449,7 +1449,7 @@ class Os {
     static public inline function startProcess(_name:String, _argv:Array<String>, _attr:ProcAttr):stdgo.Tuple<Process, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         final _argv = ([for (i in _argv) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        final _attr = (_attr : stdgo.Ref<stdgo._internal.os.Os_ProcAttr.ProcAttr>);
+        final _attr = (_attr : stdgo.Ref<stdgo._internal.os.Os_procattr.ProcAttr>);
         return {
             final obj = stdgo._internal.os.Os_startProcess.startProcess(_name, _argv, _attr);
             { _0 : obj._0, _1 : obj._1 };
@@ -1479,7 +1479,7 @@ class Os {
         bits (before umask).
         If there is an error, it will be of type *PathError.
     **/
-    static public inline function mkdir(_name:String, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    static public inline function mkdir(_name:String, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.os.Os_mkdir.mkdir(_name, _perm);
     }
@@ -1526,7 +1526,7 @@ class Os {
         methods on the returned File can be used for I/O.
         If there is an error, it will be of type *PathError.
     **/
-    static public inline function openFile(_name:String, _flag:StdTypes.Int, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function openFile(_name:String, _flag:StdTypes.Int, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         final _flag = (_flag : stdgo.GoInt);
         return {
@@ -1638,7 +1638,7 @@ class Os {
         On Plan 9, the mode's permission bits, ModeAppend, ModeExclusive,
         and ModeTemporary are used.
     **/
-    static public inline function chmod(_name:String, _mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    static public inline function chmod(_name:String, _mode:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.os.Os_chmod.chmod(_name, _mode);
     }
@@ -1659,7 +1659,7 @@ class Os {
         The result implements [io/fs.StatFS], [io/fs.ReadFileFS] and
         [io/fs.ReadDirFS].
     **/
-    static public inline function dirFS(_dir:String):stdgo._internal.io.fs.Fs_FS.FS {
+    static public inline function dirFS(_dir:String):stdgo._internal.io.fs.Fs_fs.FS {
         final _dir = (_dir : stdgo.GoString);
         return stdgo._internal.os.Os_dirFS.dirFS(_dir);
     }
@@ -1683,7 +1683,7 @@ class Os {
         Since WriteFile requires multiple system calls to complete, a failure mid-operation
         can leave the file in a partially written state.
     **/
-    static public inline function writeFile(_name:String, _data:Array<std.UInt>, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    static public inline function writeFile(_name:String, _data:Array<std.UInt>, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.os.Os_writeFile.writeFile(_name, _data, _perm);
@@ -1726,7 +1726,7 @@ class Os {
         less precise time unit.
         If there is an error, it will be of type *PathError.
     **/
-    static public inline function chtimes(_name:String, _atime:stdgo._internal.time.Time_Time.Time, _mtime:stdgo._internal.time.Time_Time.Time):stdgo.Error {
+    static public inline function chtimes(_name:String, _atime:stdgo._internal.time.Time_time.Time, _mtime:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.os.Os_chtimes.chtimes(_name, _atime, _mtime);
     }
@@ -1816,7 +1816,7 @@ class Os {
         If path is already a directory, MkdirAll does nothing
         and returns nil.
     **/
-    static public inline function mkdirAll(_path:String, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    static public inline function mkdirAll(_path:String, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _path = (_path : stdgo.GoString);
         return stdgo._internal.os.Os_mkdirAll.mkdirAll(_path, _perm);
     }
@@ -1907,7 +1907,7 @@ class Os {
         Stat returns a FileInfo describing the named file.
         If there is an error, it will be of type *PathError.
     **/
-    static public inline function stat(_name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
+    static public inline function stat(_name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_stat.stat(_name);
@@ -1920,7 +1920,7 @@ class Os {
         describes the symbolic link. Lstat makes no attempt to follow the link.
         If there is an error, it will be of type *PathError.
     **/
-    static public inline function lstat(_name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_FileInfo.FileInfo, stdgo.Error> {
+    static public inline function lstat(_name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.os.Os_lstat.lstat(_name);
@@ -1985,7 +1985,7 @@ class Os {
         SameFile only applies to results returned by this package's Stat.
         It returns false in other cases.
     **/
-    static public inline function sameFile(_fi1:stdgo._internal.io.fs.Fs_FileInfo.FileInfo, _fi2:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):Bool {
+    static public inline function sameFile(_fi1:stdgo._internal.io.fs.Fs_fileinfo.FileInfo, _fi2:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):Bool {
         return stdgo._internal.os.Os_sameFile.sameFile(_fi1, _fi2);
     }
 }

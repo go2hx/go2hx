@@ -1,2 +1,0 @@
-package stdgo._internal.runtime.pprof;
-var _blockProfile : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo.Go.setRef(({ _name : ("block" : stdgo.GoString), _count : stdgo._internal.runtime.pprof.Pprof__countBlock._countBlock, _write : stdgo._internal.runtime.pprof.Pprof__writeBlock._writeBlock } : stdgo._internal.runtime.pprof.Pprof_Profile.Profile)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);

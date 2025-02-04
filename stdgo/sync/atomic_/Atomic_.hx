@@ -177,193 +177,193 @@ package stdgo.sync.atomic_;
 typedef Bool_Pointer = stdgo._internal.sync.atomic_.Atomic__Bool_Pointer.Bool_Pointer;
 class Bool__static_extension {
     static public function compareAndSwap(_x:Bool_, _old:Bool, _new:Bool):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>);
         return stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Bool_, _new:Bool):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>);
         return stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.swap(_x, _new);
     }
     static public function store(_x:Bool_, _val:Bool):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>);
         stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.store(_x, _val);
     }
     static public function load(_x:Bool_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>);
         return stdgo._internal.sync.atomic_.Atomic__Bool__static_extension.Bool__static_extension.load(_x);
     }
 }
 typedef Pointer_Pointer = stdgo._internal.sync.atomic_.Atomic__Pointer_Pointer.Pointer_Pointer<T_>;
 class Pointer__static_extension {
     static public function compareAndSwap(_x:Pointer_<Dynamic>, _old:Dynamic, _new:Dynamic):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<Dynamic>>);
         final _old = (_old : stdgo.Ref<Dynamic>);
         final _new = (_new : stdgo.Ref<Dynamic>);
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Pointer_<Dynamic>, _new:Dynamic):Dynamic {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<Dynamic>>);
         final _new = (_new : stdgo.Ref<Dynamic>);
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.swap(_x, _new);
     }
     static public function store(_x:Pointer_<Dynamic>, _val:Dynamic):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<Dynamic>>);
         final _val = (_val : stdgo.Ref<Dynamic>);
         stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.store(_x, _val);
     }
     static public function load(_x:Pointer_<Dynamic>):Dynamic {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<Dynamic>>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<Dynamic>>);
         return stdgo._internal.sync.atomic_.Atomic__Pointer__static_extension.Pointer__static_extension.load(_x);
     }
 }
 typedef Int32Pointer = stdgo._internal.sync.atomic_.Atomic__Int32Pointer.Int32Pointer;
 class Int32_static_extension {
     static public function add(_x:Int32, _delta:StdTypes.Int):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int32.Int32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>);
         final _delta = (_delta : stdgo.GoInt32);
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.add(_x, _delta);
     }
     static public function compareAndSwap(_x:Int32, _old:StdTypes.Int, _new:StdTypes.Int):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int32.Int32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>);
         final _old = (_old : stdgo.GoInt32);
         final _new = (_new : stdgo.GoInt32);
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Int32, _new:StdTypes.Int):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int32.Int32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>);
         final _new = (_new : stdgo.GoInt32);
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.swap(_x, _new);
     }
     static public function store(_x:Int32, _val:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int32.Int32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>);
         final _val = (_val : stdgo.GoInt32);
         stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.store(_x, _val);
     }
     static public function load(_x:Int32):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int32.Int32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>);
         return stdgo._internal.sync.atomic_.Atomic__Int32_static_extension.Int32_static_extension.load(_x);
     }
 }
 typedef Int64_Pointer = stdgo._internal.sync.atomic_.Atomic__Int64_Pointer.Int64_Pointer;
 class Int64__static_extension {
     static public function add(_x:Int64_, _delta:haxe.Int64):haxe.Int64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int64_.Int64_>);
         final _delta = (_delta : stdgo.GoInt64);
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.add(_x, _delta);
     }
     static public function compareAndSwap(_x:Int64_, _old:haxe.Int64, _new:haxe.Int64):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int64_.Int64_>);
         final _old = (_old : stdgo.GoInt64);
         final _new = (_new : stdgo.GoInt64);
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Int64_, _new:haxe.Int64):haxe.Int64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int64_.Int64_>);
         final _new = (_new : stdgo.GoInt64);
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.swap(_x, _new);
     }
     static public function store(_x:Int64_, _val:haxe.Int64):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int64_.Int64_>);
         final _val = (_val : stdgo.GoInt64);
         stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.store(_x, _val);
     }
     static public function load(_x:Int64_):haxe.Int64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Int64_.Int64_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int64_.Int64_>);
         return stdgo._internal.sync.atomic_.Atomic__Int64__static_extension.Int64__static_extension.load(_x);
     }
 }
 typedef Uint32Pointer = stdgo._internal.sync.atomic_.Atomic__Uint32Pointer.Uint32Pointer;
 class Uint32_static_extension {
     static public function add(_x:Uint32, _delta:std.UInt):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>);
         final _delta = (_delta : stdgo.GoUInt32);
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.add(_x, _delta);
     }
     static public function compareAndSwap(_x:Uint32, _old:std.UInt, _new:std.UInt):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>);
         final _old = (_old : stdgo.GoUInt32);
         final _new = (_new : stdgo.GoUInt32);
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Uint32, _new:std.UInt):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>);
         final _new = (_new : stdgo.GoUInt32);
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.swap(_x, _new);
     }
     static public function store(_x:Uint32, _val:std.UInt):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>);
         final _val = (_val : stdgo.GoUInt32);
         stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.store(_x, _val);
     }
     static public function load(_x:Uint32):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint32.Uint32>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint32.Uint32>);
         return stdgo._internal.sync.atomic_.Atomic__Uint32_static_extension.Uint32_static_extension.load(_x);
     }
 }
 typedef Uint64Pointer = stdgo._internal.sync.atomic_.Atomic__Uint64Pointer.Uint64Pointer;
 class Uint64_static_extension {
     static public function add(_x:Uint64, _delta:haxe.UInt64):haxe.UInt64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint64.Uint64>);
         final _delta = (_delta : stdgo.GoUInt64);
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.add(_x, _delta);
     }
     static public function compareAndSwap(_x:Uint64, _old:haxe.UInt64, _new:haxe.UInt64):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint64.Uint64>);
         final _old = (_old : stdgo.GoUInt64);
         final _new = (_new : stdgo.GoUInt64);
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Uint64, _new:haxe.UInt64):haxe.UInt64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint64.Uint64>);
         final _new = (_new : stdgo.GoUInt64);
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.swap(_x, _new);
     }
     static public function store(_x:Uint64, _val:haxe.UInt64):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint64.Uint64>);
         final _val = (_val : stdgo.GoUInt64);
         stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.store(_x, _val);
     }
     static public function load(_x:Uint64):haxe.UInt64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uint64.Uint64>);
         return stdgo._internal.sync.atomic_.Atomic__Uint64_static_extension.Uint64_static_extension.load(_x);
     }
 }
 typedef UintptrPointer = stdgo._internal.sync.atomic_.Atomic__UintptrPointer.UintptrPointer;
 class Uintptr_static_extension {
     static public function add(_x:Uintptr, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uintptr.Uintptr>);
         final _delta = (_delta : stdgo.GoUIntptr);
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.add(_x, _delta);
     }
     static public function compareAndSwap(_x:Uintptr, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uintptr.Uintptr>);
         final _old = (_old : stdgo.GoUIntptr);
         final _new = (_new : stdgo.GoUIntptr);
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.compareAndSwap(_x, _old, _new);
     }
     static public function swap(_x:Uintptr, _new:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uintptr.Uintptr>);
         final _new = (_new : stdgo.GoUIntptr);
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.swap(_x, _new);
     }
     static public function store(_x:Uintptr, _val:stdgo.GoUIntptr):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uintptr.Uintptr>);
         final _val = (_val : stdgo.GoUIntptr);
         stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.store(_x, _val);
     }
     static public function load(_x:Uintptr):stdgo.GoUIntptr {
-        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Uintptr.Uintptr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__uintptr.Uintptr>);
         return stdgo._internal.sync.atomic_.Atomic__Uintptr_static_extension.Uintptr_static_extension.load(_x);
     }
 }
 typedef T_noCopyPointer = stdgo._internal.sync.atomic_.Atomic__T_noCopyPointer.T_noCopyPointer;
 class T_noCopy_static_extension {
     static public function unlock(_:T_noCopy):Void {
-        final _ = (_ : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy>);
         stdgo._internal.sync.atomic_.Atomic__T_noCopy_static_extension.T_noCopy_static_extension.unlock(_);
     }
     static public function lock(_:T_noCopy):Void {
-        final _ = (_ : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy>);
         stdgo._internal.sync.atomic_.Atomic__T_noCopy_static_extension.T_noCopy_static_extension.lock(_);
     }
 }
@@ -374,23 +374,23 @@ class T_align64_static_extension {
 typedef ValuePointer = stdgo._internal.sync.atomic_.Atomic__ValuePointer.ValuePointer;
 class Value_static_extension {
     static public function compareAndSwap(_v:Value, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
-        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Value.Value>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>);
         final _old = (_old : stdgo.AnyInterface);
         final _new = (_new : stdgo.AnyInterface);
         return stdgo._internal.sync.atomic_.Atomic__Value_static_extension.Value_static_extension.compareAndSwap(_v, _old, _new);
     }
     static public function swap(_v:Value, _new:stdgo.AnyInterface):stdgo.AnyInterface {
-        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Value.Value>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>);
         final _new = (_new : stdgo.AnyInterface);
         return stdgo._internal.sync.atomic_.Atomic__Value_static_extension.Value_static_extension.swap(_v, _new);
     }
     static public function store(_v:Value, _val:stdgo.AnyInterface):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Value.Value>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>);
         final _val = (_val : stdgo.AnyInterface);
         stdgo._internal.sync.atomic_.Atomic__Value_static_extension.Value_static_extension.store(_v, _val);
     }
     static public function load(_v:Value):stdgo.AnyInterface {
-        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Value.Value>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__value.Value>);
         return stdgo._internal.sync.atomic_.Atomic__Value_static_extension.Value_static_extension.load(_v);
     }
 }

@@ -1,137 +1,181 @@
 === RUN  TestNaN
+
 -- PASS: TestNaN
 
 === RUN  TestAcos
+
 -- PASS: TestAcos
 
 === RUN  TestAcosh
+
 -- PASS: TestAcosh
 
 === RUN  TestAsin
+
 -- PASS: TestAsin
 
 === RUN  TestAsinh
+
 -- PASS: TestAsinh
 
 === RUN  TestAtan
+
 -- PASS: TestAtan
 
 === RUN  TestAtanh
+
 -- PASS: TestAtanh
 
 === RUN  TestAtan2
+
 -- PASS: TestAtan2
 
 === RUN  TestCbrt
+
 -- PASS: TestCbrt
 
 === RUN  TestCeil
+
 -- PASS: TestCeil
 
 === RUN  TestCopysign
+
 -- PASS: TestCopysign
 
 === RUN  TestCos
+
 -- PASS: TestCos
 
 === RUN  TestCosh
+
 -- PASS: TestCosh
 
 === RUN  TestErf
+
 -- PASS: TestErf
 
 === RUN  TestErfc
+
 -- PASS: TestErfc
 
 === RUN  TestErfinv
+
 -- PASS: TestErfinv
 
 === RUN  TestErfcinv
+
 -- PASS: TestErfcinv
 
 === RUN  TestExp
+
 -- PASS: TestExp
 
 === RUN  TestExpm1
+
 -- PASS: TestExpm1
 
 === RUN  TestExp2
+
 -- PASS: TestExp2
 
 === RUN  TestAbs
+
 -- PASS: TestAbs
 
 === RUN  TestDim
+
 -- PASS: TestDim
 
 === RUN  TestFloor
+
 -- PASS: TestFloor
 
 === RUN  TestMax
+
 -- PASS: TestMax
 
 === RUN  TestMin
+
 -- PASS: TestMin
 
 === RUN  TestMod
+
 -- PASS: TestMod
 
 === RUN  TestFrexp
+
 -- PASS: TestFrexp
 
 === RUN  TestGamma
 -- SKIP: testGamma
  skip targets: interp, js
+
 -- PASS: TestGamma
 
 === RUN  TestHypot
+
 -- PASS: TestHypot
 
 === RUN  TestHypotGo
+
 -- PASS: TestHypotGo
 
 === RUN  TestIlogb
+
 -- PASS: TestIlogb
 
 === RUN  TestJ0
+
 -- PASS: TestJ0
 
 === RUN  TestJ1
+
 -- PASS: TestJ1
 
 === RUN  TestJn
+
 -- PASS: TestJn
 
 === RUN  TestLdexp
+
 -- PASS: TestLdexp
 
 === RUN  TestLgamma
+
 -- PASS: TestLgamma
 
 === RUN  TestLog
+
 -- PASS: TestLog
 
 === RUN  TestLogb
+
 -- PASS: TestLogb
 
 === RUN  TestLog10
+
 -- PASS: TestLog10
 
 === RUN  TestLog1p
+
 -- PASS: TestLog1p
 
 === RUN  TestLog2
+
 -- PASS: TestLog2
 
 === RUN  TestModf
+
 -- PASS: TestModf
 
 === RUN  TestNextafter32
 -- SKIP: testNextafter32
  skip targets: interp, js
+
 -- PASS: TestNextafter32
 
 === RUN  TestNextafter64
+
 -- PASS: TestNextafter64
 
 === RUN  TestPow
@@ -141,98 +185,129 @@ Pow(NaN, 0) = NaN, want 1
 -- FAIL: TestPow
 
 === RUN  TestPow10
+
 -- PASS: TestPow10
 
 === RUN  TestRemainder
+
 -- PASS: TestRemainder
 
 === RUN  TestRound
+
 -- PASS: TestRound
 
 === RUN  TestRoundToEven
+
 -- PASS: TestRoundToEven
 
 === RUN  TestSignbit
+
 -- PASS: TestSignbit
 
 === RUN  TestSin
+
 -- PASS: TestSin
 
 === RUN  TestSincos
+
 -- PASS: TestSincos
 
 === RUN  TestSinh
+
 -- PASS: TestSinh
 
 === RUN  TestSqrt
+
 -- PASS: TestSqrt
 
 === RUN  TestTan
+
 -- PASS: TestTan
 
 === RUN  TestTanh
+
 -- PASS: TestTanh
 
 === RUN  TestTrunc
+
 -- PASS: TestTrunc
 
 === RUN  TestY0
+
 -- PASS: TestY0
 
 === RUN  TestY1
+
 -- PASS: TestY1
 
 === RUN  TestYn
+
 -- PASS: TestYn
 
 === RUN  TestFMA
+
 -- PASS: TestFMA
 
 === RUN  TestFMANegativeArgs
+
 -- PASS: TestFMANegativeArgs
 
 === RUN  TestLargeCos
+
 -- PASS: TestLargeCos
 
 === RUN  TestLargeSin
+
 -- PASS: TestLargeSin
 
 === RUN  TestLargeSincos
+
 -- PASS: TestLargeSincos
 
 === RUN  TestLargeTan
+
 -- PASS: TestLargeTan
 
 === RUN  TestTrigReduce
+
 -- PASS: TestTrigReduce
 
 === RUN  TestFloatMinMax
 -- SKIP: testFloatMinMax
+
 -- PASS: TestFloatMinMax
 
 === RUN  TestFloatMinima
 -- SKIP: testFloatMinima
  skip targets: interp, js
+
 -- PASS: TestFloatMinima
 
 === RUN  TestFloat32Sqrt
+
 -- PASS: TestFloat32Sqrt
 
 === RUN  TestMaxUint
+
 -- PASS: TestMaxUint
 
 === RUN  TestMaxInt
+
 -- PASS: TestMaxInt
 
 === RUN  TestHugeCos
+
 -- PASS: TestHugeCos
 
 === RUN  TestHugeSin
+
 -- PASS: TestHugeSin
 
 === RUN  TestHugeSinCos
+
 -- PASS: TestHugeSinCos
 
 === RUN  TestHugeTan
+
 -- PASS: TestHugeTan
 

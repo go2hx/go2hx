@@ -1,0 +1,2 @@
+package stdgo._internal.net.http;
+@:keep @:follow @:using(stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig_static_extension.T_http2PriorityWriteSchedulerConfig_static_extension) typedef T_http2PriorityWriteSchedulerConfigPointer = stdgo.Pointer<stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig>;

@@ -90,9 +90,9 @@ final s_IRWXO : haxe.UInt64 = stdgo._internal.syscall.Syscall_s_IRWXO.s_IRWXO;
 final s_IROTH : haxe.UInt64 = stdgo._internal.syscall.Syscall_s_IROTH.s_IROTH;
 final s_IWOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall_s_IWOTH.s_IWOTH;
 final s_IXOTH : haxe.UInt64 = stdgo._internal.syscall.Syscall_s_IXOTH.s_IXOTH;
-var forkLock(get, set) : stdgo._internal.sync.Sync_RWMutex.RWMutex;
-private function get_forkLock():stdgo._internal.sync.Sync_RWMutex.RWMutex return stdgo._internal.syscall.Syscall_forkLock.forkLock;
-private function set_forkLock(v:stdgo._internal.sync.Sync_RWMutex.RWMutex):stdgo._internal.sync.Sync_RWMutex.RWMutex {
+var forkLock(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
+private function get_forkLock():stdgo._internal.sync.Sync_rwmutex.RWMutex return stdgo._internal.syscall.Syscall_forkLock.forkLock;
+private function set_forkLock(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         stdgo._internal.syscall.Syscall_forkLock.forkLock = v;
         return v;
     }
@@ -220,22 +220,22 @@ final eNOSHARE : Errno = stdgo._internal.syscall.Syscall_eNOSHARE.eNOSHARE;
 final eCASECLASH : Errno = stdgo._internal.syscall.Syscall_eCASECLASH.eCASECLASH;
 final eWOULDBLOCK : Errno = stdgo._internal.syscall.Syscall_eWOULDBLOCK.eWOULDBLOCK;
 class RawConn_static_extension {
-    static public function write(t:stdgo._internal.syscall.Syscall_RawConn.RawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
+    static public function write(t:stdgo._internal.syscall.Syscall_rawconn.RawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _f = _f;
         return stdgo._internal.syscall.Syscall_RawConn_static_extension.RawConn_static_extension.write(t, _f);
     }
-    static public function read(t:stdgo._internal.syscall.Syscall_RawConn.RawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
+    static public function read(t:stdgo._internal.syscall.Syscall_rawconn.RawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _f = _f;
         return stdgo._internal.syscall.Syscall_RawConn_static_extension.RawConn_static_extension.read(t, _f);
     }
-    static public function control(t:stdgo._internal.syscall.Syscall_RawConn.RawConn, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
+    static public function control(t:stdgo._internal.syscall.Syscall_rawconn.RawConn, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
         final _f = _f;
         return stdgo._internal.syscall.Syscall_RawConn_static_extension.RawConn_static_extension.control(t, _f);
     }
 }
 typedef RawConn = stdgo._internal.syscall.Syscall_RawConn.RawConn;
 class Conn_static_extension {
-    static public function syscallConn(t:stdgo._internal.syscall.Syscall_Conn.Conn):stdgo.Tuple<RawConn, stdgo.Error> {
+    static public function syscallConn(t:stdgo._internal.syscall.Syscall_conn.Conn):stdgo.Tuple<RawConn, stdgo.Error> {
         return {
             final obj = stdgo._internal.syscall.Syscall_Conn_static_extension.Conn_static_extension.syscallConn(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -502,10 +502,10 @@ typedef Conn = stdgo._internal.syscall.Syscall_Conn.Conn;
     public var sys(get, set) : SysProcAttr;
     function get_sys():SysProcAttr return this.sys;
     function set_sys(v:SysProcAttr):SysProcAttr {
-        this.sys = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr>);
+        this.sys = (v : stdgo.Ref<stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr>);
         return v;
     }
-    public function new(?dir:String, ?env:Array<String>, ?files:Array<stdgo.GoUIntptr>, ?sys:SysProcAttr) this = new stdgo._internal.syscall.Syscall_ProcAttr.ProcAttr((dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in files) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), (sys : stdgo.Ref<stdgo._internal.syscall.Syscall_SysProcAttr.SysProcAttr>));
+    public function new(?dir:String, ?env:Array<String>, ?files:Array<stdgo.GoUIntptr>, ?sys:SysProcAttr) this = new stdgo._internal.syscall.Syscall_ProcAttr.ProcAttr((dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in files) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), (sys : stdgo.Ref<stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -600,11 +600,11 @@ class Iovec_static_extension {
 typedef TimespecPointer = stdgo._internal.syscall.Syscall_TimespecPointer.TimespecPointer;
 class Timespec_static_extension {
     static public function nano(_ts:Timespec):haxe.Int64 {
-        final _ts = (_ts : stdgo.Ref<stdgo._internal.syscall.Syscall_Timespec.Timespec>);
+        final _ts = (_ts : stdgo.Ref<stdgo._internal.syscall.Syscall_timespec.Timespec>);
         return stdgo._internal.syscall.Syscall_Timespec_static_extension.Timespec_static_extension.nano(_ts);
     }
     static public function unix(_ts:Timespec):stdgo.Tuple<haxe.Int64, haxe.Int64> {
-        final _ts = (_ts : stdgo.Ref<stdgo._internal.syscall.Syscall_Timespec.Timespec>);
+        final _ts = (_ts : stdgo.Ref<stdgo._internal.syscall.Syscall_timespec.Timespec>);
         return {
             final obj = stdgo._internal.syscall.Syscall_Timespec_static_extension.Timespec_static_extension.unix(_ts);
             { _0 : obj._0, _1 : obj._1 };
@@ -614,11 +614,11 @@ class Timespec_static_extension {
 typedef TimevalPointer = stdgo._internal.syscall.Syscall_TimevalPointer.TimevalPointer;
 class Timeval_static_extension {
     static public function nano(_tv:Timeval):haxe.Int64 {
-        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_Timeval.Timeval>);
+        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_timeval.Timeval>);
         return stdgo._internal.syscall.Syscall_Timeval_static_extension.Timeval_static_extension.nano(_tv);
     }
     static public function unix(_tv:Timeval):stdgo.Tuple<haxe.Int64, haxe.Int64> {
-        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_Timeval.Timeval>);
+        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_timeval.Timeval>);
         return {
             final obj = stdgo._internal.syscall.Syscall_Timeval_static_extension.Timeval_static_extension.unix(_tv);
             { _0 : obj._0, _1 : obj._1 };
@@ -777,17 +777,17 @@ class Syscall {
     }
     static public inline function stat(_path:String, _st:Stat_t):stdgo.Error {
         final _path = (_path : stdgo.GoString);
-        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_Stat_t.Stat_t>);
+        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_stat_t.Stat_t>);
         return stdgo._internal.syscall.Syscall_stat.stat(_path, _st);
     }
     static public inline function lstat(_path:String, _st:Stat_t):stdgo.Error {
         final _path = (_path : stdgo.GoString);
-        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_Stat_t.Stat_t>);
+        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_stat_t.Stat_t>);
         return stdgo._internal.syscall.Syscall_lstat.lstat(_path, _st);
     }
     static public inline function fstat(_fd:StdTypes.Int, _st:Stat_t):stdgo.Error {
         final _fd = (_fd : stdgo.GoInt);
-        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_Stat_t.Stat_t>);
+        final _st = (_st : stdgo.Ref<stdgo._internal.syscall.Syscall_stat_t.Stat_t>);
         return stdgo._internal.syscall.Syscall_fstat.fstat(_fd, _st);
     }
     static public inline function unlink(_path:String):stdgo.Error {
@@ -828,7 +828,7 @@ class Syscall {
     }
     static public inline function utimesNano(_path:String, _ts:Array<Timespec>):stdgo.Error {
         final _path = (_path : stdgo.GoString);
-        final _ts = ([for (i in _ts) i] : stdgo.Slice<stdgo._internal.syscall.Syscall_Timespec.Timespec>);
+        final _ts = ([for (i in _ts) i] : stdgo.Slice<stdgo._internal.syscall.Syscall_timespec.Timespec>);
         return stdgo._internal.syscall.Syscall_utimesNano.utimesNano(_path, _ts);
     }
     static public inline function rename(_from:String, _to:String):stdgo.Error {
@@ -1186,7 +1186,7 @@ class Syscall {
         return stdgo._internal.syscall.Syscall_umask.umask(_mask);
     }
     static public inline function gettimeofday(_tv:Timeval):stdgo.Error {
-        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_Timeval.Timeval>);
+        final _tv = (_tv : stdgo.Ref<stdgo._internal.syscall.Syscall_timeval.Timeval>);
         return stdgo._internal.syscall.Syscall_gettimeofday.gettimeofday(_tv);
     }
     static public inline function kill(_pid:StdTypes.Int, _signum:Signal):stdgo.Error {
@@ -1205,7 +1205,7 @@ class Syscall {
     static public inline function startProcess(_argv0:String, _argv:Array<String>, _attr:ProcAttr):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo.GoUIntptr, stdgo.Error> {
         final _argv0 = (_argv0 : stdgo.GoString);
         final _argv = ([for (i in _argv) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        final _attr = (_attr : stdgo.Ref<stdgo._internal.syscall.Syscall_ProcAttr.ProcAttr>);
+        final _attr = (_attr : stdgo.Ref<stdgo._internal.syscall.Syscall_procattr.ProcAttr>);
         return {
             final obj = stdgo._internal.syscall.Syscall_startProcess.startProcess(_argv0, _argv, _attr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
@@ -1214,7 +1214,7 @@ class Syscall {
     static public inline function wait4(_pid:StdTypes.Int, _wstatus:stdgo.Pointer<WaitStatus>, _options:StdTypes.Int, _rusage:Rusage):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _pid = (_pid : stdgo.GoInt);
         final _options = (_options : stdgo.GoInt);
-        final _rusage = (_rusage : stdgo.Ref<stdgo._internal.syscall.Syscall_Rusage.Rusage>);
+        final _rusage = (_rusage : stdgo.Ref<stdgo._internal.syscall.Syscall_rusage.Rusage>);
         return {
             final obj = stdgo._internal.syscall.Syscall_wait4.wait4(_pid, _wstatus, _options, _rusage);
             { _0 : obj._0, _1 : obj._1 };

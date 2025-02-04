@@ -12,10 +12,10 @@ package stdgo.runtime.coverage;
         this._mftmp = (v : stdgo.GoString);
         return v;
     }
-    public var _mf(get, set) : stdgo._internal.os.Os_File.File;
-    function get__mf():stdgo._internal.os.Os_File.File return this._mf;
-    function set__mf(v:stdgo._internal.os.Os_File.File):stdgo._internal.os.Os_File.File {
-        this._mf = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    public var _mf(get, set) : stdgo._internal.os.Os_file.File;
+    function get__mf():stdgo._internal.os.Os_file.File return this._mf;
+    function set__mf(v:stdgo._internal.os.Os_file.File):stdgo._internal.os.Os_file.File {
+        this._mf = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
     public var _cfname(get, set) : String;
@@ -30,10 +30,10 @@ package stdgo.runtime.coverage;
         this._cftmp = (v : stdgo.GoString);
         return v;
     }
-    public var _cf(get, set) : stdgo._internal.os.Os_File.File;
-    function get__cf():stdgo._internal.os.Os_File.File return this._cf;
-    function set__cf(v:stdgo._internal.os.Os_File.File):stdgo._internal.os.Os_File.File {
-        this._cf = (v : stdgo.Ref<stdgo._internal.os.Os_File.File>);
+    public var _cf(get, set) : stdgo._internal.os.Os_file.File;
+    function get__cf():stdgo._internal.os.Os_file.File return this._cf;
+    function set__cf(v:stdgo._internal.os.Os_file.File):stdgo._internal.os.Os_file.File {
+        this._cf = (v : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return v;
     }
     public var _outdir(get, set) : String;
@@ -42,16 +42,16 @@ package stdgo.runtime.coverage;
         this._outdir = (v : stdgo.GoString);
         return v;
     }
-    public var _metalist(get, set) : Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>;
-    function get__metalist():Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob> return [for (i in this._metalist) i];
-    function set__metalist(v:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>):Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob> {
-        this._metalist = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>);
+    public var _metalist(get, set) : Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob>;
+    function get__metalist():Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob> return [for (i in this._metalist) i];
+    function set__metalist(v:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob>):Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob> {
+        this._metalist = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob>);
         return v;
     }
-    public var _counterlist(get, set) : Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob>;
-    function get__counterlist():Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob> return [for (i in this._counterlist) i];
-    function set__counterlist(v:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob>):Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob> {
-        this._counterlist = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob>);
+    public var _counterlist(get, set) : Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob>;
+    function get__counterlist():Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob> return [for (i in this._counterlist) i];
+    function set__counterlist(v:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob>):Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob> {
+        this._counterlist = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob>);
         return v;
     }
     public var _pkgmap(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
@@ -66,47 +66,47 @@ package stdgo.runtime.coverage;
         this._debug = v;
         return v;
     }
-    public function new(?_mfname:String, ?_mftmp:String, ?_mf:stdgo._internal.os.Os_File.File, ?_cfname:String, ?_cftmp:String, ?_cf:stdgo._internal.os.Os_File.File, ?_outdir:String, ?_metalist:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>, ?_counterlist:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob>, ?_pkgmap:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?_debug:Bool) this = new stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState(
+    public function new(?_mfname:String, ?_mftmp:String, ?_mf:stdgo._internal.os.Os_file.File, ?_cfname:String, ?_cftmp:String, ?_cf:stdgo._internal.os.Os_file.File, ?_outdir:String, ?_metalist:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob>, ?_counterlist:Array<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob>, ?_pkgmap:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?_debug:Bool) this = new stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState(
 (_mfname : stdgo.GoString),
 (_mftmp : stdgo.GoString),
-(_mf : stdgo.Ref<stdgo._internal.os.Os_File.File>),
+(_mf : stdgo.Ref<stdgo._internal.os.Os_file.File>),
 (_cfname : stdgo.GoString),
 (_cftmp : stdgo.GoString),
-(_cf : stdgo.Ref<stdgo._internal.os.Os_File.File>),
+(_cf : stdgo.Ref<stdgo._internal.os.Os_file.File>),
 (_outdir : stdgo.GoString),
-([for (i in _metalist) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovMetaBlob.CovMetaBlob>),
-([for (i in _counterlist) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_CovCounterBlob.CovCounterBlob>),
+([for (i in _metalist) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob>),
+([for (i in _counterlist) i] : stdgo.Slice<stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob>),
 (_pkgmap : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>),
 _debug);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.coverage.Coverage.T_tstate_static_extension) abstract T_tstate(stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate) from stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate to stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate {
-    public var batchCounterAlloc(get, set) : stdgo._internal.internal.coverage.calloc.Calloc_BatchCounterAlloc.BatchCounterAlloc;
-    function get_batchCounterAlloc():stdgo._internal.internal.coverage.calloc.Calloc_BatchCounterAlloc.BatchCounterAlloc return this.batchCounterAlloc;
-    function set_batchCounterAlloc(v:stdgo._internal.internal.coverage.calloc.Calloc_BatchCounterAlloc.BatchCounterAlloc):stdgo._internal.internal.coverage.calloc.Calloc_BatchCounterAlloc.BatchCounterAlloc {
+    public var batchCounterAlloc(get, set) : stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc;
+    function get_batchCounterAlloc():stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc return this.batchCounterAlloc;
+    function set_batchCounterAlloc(v:stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc):stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc {
         this.batchCounterAlloc = v;
         return v;
     }
-    public var _cm(get, set) : stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger;
-    function get__cm():stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger return this._cm;
-    function set__cm(v:stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger):stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger {
-        this._cm = (v : stdgo.Ref<stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger>);
+    public var _cm(get, set) : stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger;
+    function get__cm():stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger return this._cm;
+    function set__cm(v:stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger):stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger {
+        this._cm = (v : stdgo.Ref<stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger>);
         return v;
     }
-    public var _cf(get, set) : stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter;
-    function get__cf():stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter return this._cf;
-    function set__cf(v:stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter):stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter {
-        this._cf = (v : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter>);
+    public var _cf(get, set) : stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter;
+    function get__cf():stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter return this._cf;
+    function set__cf(v:stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter):stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter {
+        this._cf = (v : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter>);
         return v;
     }
-    public var _cmode(get, set) : stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode;
-    function get__cmode():stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode return this._cmode;
-    function set__cmode(v:stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode):stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode {
+    public var _cmode(get, set) : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode;
+    function get__cmode():stdgo._internal.internal.coverage.Coverage_countermode.CounterMode return this._cmode;
+    function set__cmode(v:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode):stdgo._internal.internal.coverage.Coverage_countermode.CounterMode {
         this._cmode = v;
         return v;
     }
-    public function new(?batchCounterAlloc:stdgo._internal.internal.coverage.calloc.Calloc_BatchCounterAlloc.BatchCounterAlloc, ?_cm:stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger, ?_cf:stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter, ?_cmode:stdgo._internal.internal.coverage.Coverage_CounterMode.CounterMode) this = new stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate(batchCounterAlloc, (_cm : stdgo.Ref<stdgo._internal.internal.coverage.cmerge.Cmerge_Merger.Merger>), (_cf : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_Formatter.Formatter>), _cmode);
+    public function new(?batchCounterAlloc:stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc, ?_cm:stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger, ?_cf:stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter, ?_cmode:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode) this = new stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate(batchCounterAlloc, (_cm : stdgo.Ref<stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger>), (_cf : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter>), _cmode);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -135,61 +135,61 @@ typedef T__struct_0 = stdgo._internal.runtime.coverage.Coverage_T__struct_0.T__s
 typedef T_fileType = stdgo._internal.runtime.coverage.Coverage_T_fileType.T_fileType;
 typedef T_emitStatePointer = stdgo._internal.runtime.coverage.Coverage_T_emitStatePointer.T_emitStatePointer;
 class T_emitState_static_extension {
-    static public function _emitCounterDataFile(_s:T_emitState, _finalHash:haxe.ds.Vector<std.UInt>, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+    static public function _emitCounterDataFile(_s:T_emitState, _finalHash:haxe.ds.Vector<std.UInt>, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _finalHash = ([for (i in _finalHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._emitCounterDataFile(_s, _finalHash, _w);
     }
-    static public function visitFuncs(_s:T_emitState, _f:stdgo._internal.internal.coverage.encodecounter.Encodecounter_CounterVisitorFn.CounterVisitorFn):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+    static public function visitFuncs(_s:T_emitState, _f:stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitorfn.CounterVisitorFn):stdgo.Error {
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension.visitFuncs(_s, _f);
     }
     static public function _needMetaDataFile(_s:T_emitState):Bool {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._needMetaDataFile(_s);
     }
     static public function _emitMetaDataFile(_s:T_emitState, _finalHash:haxe.ds.Vector<std.UInt>, _tlen:haxe.UInt64):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _finalHash = ([for (i in _finalHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         final _tlen = (_tlen : stdgo.GoUInt64);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._emitMetaDataFile(_s, _finalHash, _tlen);
     }
     static public function _openOutputFiles(_s:T_emitState, _metaHash:haxe.ds.Vector<std.UInt>, _metaLen:haxe.UInt64, _which:T_fileType):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _metaHash = ([for (i in _metaHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         final _metaLen = (_metaLen : stdgo.GoUInt64);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._openOutputFiles(_s, _metaHash, _metaLen, _which);
     }
     static public function _openCounterFile(_s:T_emitState, _metaHash:haxe.ds.Vector<std.UInt>):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _metaHash = ([for (i in _metaHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._openCounterFile(_s, _metaHash);
     }
     static public function _openMetaFile(_s:T_emitState, _metaHash:haxe.ds.Vector<std.UInt>, _metaLen:haxe.UInt64):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _metaHash = ([for (i in _metaHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         final _metaLen = (_metaLen : stdgo.GoUInt64);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._openMetaFile(_s, _metaHash, _metaLen);
     }
-    static public function _emitCounterDataToWriter(_s:T_emitState, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_emitState.T_emitState>);
+    static public function _emitCounterDataToWriter(_s:T_emitState, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         return stdgo._internal.runtime.coverage.Coverage_T_emitState_static_extension.T_emitState_static_extension._emitCounterDataToWriter(_s, _w);
     }
 }
 typedef T_tstatePointer = stdgo._internal.runtime.coverage.Coverage_T_tstatePointer.T_tstatePointer;
 class T_tstate_static_extension {
-    static public function _readAuxMetaFiles(_ts:T_tstate, _metafiles:String, _importpaths:stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_T__struct_0.T__struct_0>):stdgo.Error {
-        final _ts = (_ts : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate>);
+    static public function _readAuxMetaFiles(_ts:T_tstate, _metafiles:String, _importpaths:stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0>):stdgo.Error {
+        final _ts = (_ts : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate>);
         final _metafiles = (_metafiles : stdgo.GoString);
-        final _importpaths = (_importpaths : stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_T__struct_0.T__struct_0>);
+        final _importpaths = (_importpaths : stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0>);
         return stdgo._internal.runtime.coverage.Coverage_T_tstate_static_extension.T_tstate_static_extension._readAuxMetaFiles(_ts, _metafiles, _importpaths);
     }
-    static public function _processPod(_ts:T_tstate, _p:stdgo._internal.internal.coverage.pods.Pods_Pod.Pod, _importpaths:stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_T__struct_0.T__struct_0>):stdgo.Error {
-        final _ts = (_ts : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate>);
-        final _importpaths = (_importpaths : stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_T__struct_0.T__struct_0>);
+    static public function _processPod(_ts:T_tstate, _p:stdgo._internal.internal.coverage.pods.Pods_pod.Pod, _importpaths:stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0>):stdgo.Error {
+        final _ts = (_ts : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate>);
+        final _importpaths = (_importpaths : stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0>);
         return stdgo._internal.runtime.coverage.Coverage_T_tstate_static_extension.T_tstate_static_extension._processPod(_ts, _p, _importpaths);
     }
-    public static function allocateCounters(__self__:stdgo._internal.runtime.coverage.Coverage_T_tstate.T_tstate, _0:StdTypes.Int):Array<std.UInt> {
+    public static function allocateCounters(__self__:stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate, _0:StdTypes.Int):Array<std.UInt> {
         final _0 = (_0 : stdgo.GoInt);
         return [for (i in stdgo._internal.runtime.coverage.Coverage_T_tstate_static_extension.T_tstate_static_extension.allocateCounters(__self__, _0)) i];
     }
@@ -226,7 +226,7 @@ class Coverage {
         currently running program was not built with "-cover", or if a
         write fails).
     **/
-    static public inline function writeMeta(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
+    static public inline function writeMeta(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         return stdgo._internal.runtime.coverage.Coverage_writeMeta.writeMeta(_w);
     }
     /**
@@ -250,7 +250,7 @@ class Coverage {
         "-cover", or if a write fails). The counter data written will be a
         snapshot taken at the point of the invocation.
     **/
-    static public inline function writeCounters(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
+    static public inline function writeCounters(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         return stdgo._internal.runtime.coverage.Coverage_writeCounters.writeCounters(_w);
     }
     /**

@@ -1,9 +1,9 @@
 package stdgo._internal.math;
 function _expm1(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if ((stdgo._internal.math.Math_isInf.isInf(_x, (1 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {
+        if ((stdgo._internal.math.Math_isinf.isInf(_x, (1 : stdgo.GoInt)) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool)) {
             return _x;
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (-1 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (-1 : stdgo.GoInt))) {
             return (-1 : stdgo.GoFloat64);
         };
         var _absx = (_x : stdgo.GoFloat64);

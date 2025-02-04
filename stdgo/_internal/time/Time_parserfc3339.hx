@@ -1,0 +1,2 @@
+package stdgo._internal.time;
+var parseRFC3339 : (stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; } = function(s:stdgo.GoString, local:stdgo.Ref<stdgo._internal.time.Time_location.Location>):{ var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; } return stdgo._internal.time.Time__parserfc3339._parseRFC3339(s, local);

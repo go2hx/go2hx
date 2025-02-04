@@ -1,6 +1,6 @@
 package stdgo._internal.index.suffixarray;
 function _expand_64(_text:stdgo.Slice<stdgo.GoInt64>, _freq:stdgo.Slice<stdgo.GoInt64>, _bucket:stdgo.Slice<stdgo.GoInt64>, _sa:stdgo.Slice<stdgo.GoInt64>, _numLMS:stdgo.GoInt):Void {
-        stdgo._internal.index.suffixarray.Suffixarray__bucketMax_64._bucketMax_64(_text, _freq, _bucket);
+        stdgo._internal.index.suffixarray.Suffixarray__bucketmax_64._bucketMax_64(_text, _freq, _bucket);
         var _x = (_numLMS - (1 : stdgo.GoInt) : stdgo.GoInt);
         var _saX = (_sa[(_x : stdgo.GoInt)] : stdgo.GoInt64);
         var _c = (_text[(_saX : stdgo.GoInt)] : stdgo.GoInt64);

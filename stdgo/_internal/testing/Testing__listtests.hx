@@ -1,0 +1,2 @@
+package stdgo._internal.testing;
+function _listTests(_matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }, _tests:stdgo.Slice<stdgo._internal.testing.Testing_internaltest.InternalTest>, _benchmarks:stdgo.Slice<stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark>, _fuzzTargets:stdgo.Slice<stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget>, _examples:stdgo.Slice<stdgo._internal.testing.Testing_internalexample.InternalExample>):Void throw ":testing._listTests is not yet implemented";

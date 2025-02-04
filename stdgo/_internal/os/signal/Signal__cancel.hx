@@ -1,5 +1,5 @@
 package stdgo._internal.os.signal;
-function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action:stdgo.GoInt -> Void):Void {
+function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_signal.Signal>, _action:stdgo.GoInt -> Void):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
@@ -8,7 +8,7 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _remove = (function(_n:stdgo.GoInt):Void {
-                var _zerohandler:stdgo._internal.os.signal.Signal_T_handler.T_handler = ({} : stdgo._internal.os.signal.Signal_T_handler.T_handler);
+                var _zerohandler:stdgo._internal.os.signal.Signal_t_handler.T_handler = ({} : stdgo._internal.os.signal.Signal_t_handler.T_handler);
                 for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
                     if (@:check2r _h._want(_n)) {
                         stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]--;

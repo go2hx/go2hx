@@ -1,12 +1,12 @@
 package stdgo._internal.os.user;
-function _current():{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_User.User>; var _1 : stdgo.Error; } {
-        var _uid = (stdgo._internal.os.user.User__currentUID._currentUID()?.__copy__() : stdgo.GoString);
-        var __tmp__ = stdgo._internal.os.user.User__lookupUserId._lookupUserId(_uid?.__copy__()), _u:stdgo.Ref<stdgo._internal.os.user.User_User.User> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+function _current():{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_user.User>; var _1 : stdgo.Error; } {
+        var _uid = (stdgo._internal.os.user.User__currentuid._currentUID()?.__copy__() : stdgo.GoString);
+        var __tmp__ = stdgo._internal.os.user.User__lookupuserid._lookupUserId(_uid?.__copy__()), _u:stdgo.Ref<stdgo._internal.os.user.User_user.User> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
             return { _0 : _u, _1 : (null : stdgo.Error) };
         };
-        var __tmp__ = stdgo._internal.os.Os_userHomeDir.userHomeDir(), _homeDir:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
-        _u = (stdgo.Go.setRef(({ uid : _uid?.__copy__(), gid : stdgo._internal.os.user.User__currentGID._currentGID()?.__copy__(), username : stdgo._internal.os.Os_getenv.getenv(("USER" : stdgo.GoString))?.__copy__(), name : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), homeDir : _homeDir?.__copy__() } : stdgo._internal.os.user.User_User.User)) : stdgo.Ref<stdgo._internal.os.user.User_User.User>);
+        var __tmp__ = stdgo._internal.os.Os_userhomedir.userHomeDir(), _homeDir:stdgo.GoString = __tmp__._0, __0:stdgo.Error = __tmp__._1;
+        _u = (stdgo.Go.setRef(({ uid : _uid?.__copy__(), gid : stdgo._internal.os.user.User__currentgid._currentGID()?.__copy__(), username : stdgo._internal.os.Os_getenv.getenv(("USER" : stdgo.GoString))?.__copy__(), name : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), homeDir : _homeDir?.__copy__() } : stdgo._internal.os.user.User_user.User)) : stdgo.Ref<stdgo._internal.os.user.User_user.User>);
         {
             final __value__ = ("js" : stdgo.GoString);
             if (__value__ == (("android" : stdgo.GoString))) {

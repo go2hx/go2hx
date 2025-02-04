@@ -1,8 +1,8 @@
 package stdgo._internal.internal.dag;
-function parse(_dag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>; var _1 : stdgo.Error; } {
-        var _g = stdgo._internal.internal.dag.Dag__newGraph._newGraph();
-        var _disallowed = (new stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.dag.Dag_T_rule.T_rule)])) : stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule>);
-        var __tmp__ = stdgo._internal.internal.dag.Dag__parseRules._parseRules(_dag?.__copy__()), _rules:stdgo.Slice<stdgo._internal.internal.dag.Dag_T_rule.T_rule> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+function parse(_dag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>; var _1 : stdgo.Error; } {
+        var _g = stdgo._internal.internal.dag.Dag__newgraph._newGraph();
+        var _disallowed = (new stdgo.Slice<stdgo._internal.internal.dag.Dag_t_rule.T_rule>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.dag.Dag_t_rule.T_rule)])) : stdgo.Slice<stdgo._internal.internal.dag.Dag_t_rule.T_rule>);
+        var __tmp__ = stdgo._internal.internal.dag.Dag__parserules._parseRules(_dag?.__copy__()), _rules:stdgo.Slice<stdgo._internal.internal.dag.Dag_t_rule.T_rule> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };

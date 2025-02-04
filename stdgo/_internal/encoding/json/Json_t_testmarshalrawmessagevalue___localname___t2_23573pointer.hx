@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+@:keep @:follow @:using(stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573_static_extension.T_testMarshalRawMessageValue___localname___T2_23573_static_extension) typedef T_testMarshalRawMessageValue___localname___T2_23573Pointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_t_testmarshalrawmessagevalue___localname___t2_23573.T_testMarshalRawMessageValue___localname___T2_23573>;

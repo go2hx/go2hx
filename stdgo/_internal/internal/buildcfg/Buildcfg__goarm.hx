@@ -1,11 +1,11 @@
 package stdgo._internal.internal.buildcfg;
 function _goarm():stdgo.GoInt {
         var _def = (("7" : stdgo.GoString) : stdgo.GoString);
-        if (((stdgo._internal.internal.buildcfg.Buildcfg_gOOS.gOOS == ("android" : stdgo.GoString)) && (stdgo._internal.internal.buildcfg.Buildcfg_gOARCH.gOARCH == ("arm" : stdgo.GoString)) : Bool)) {
+        if (((stdgo._internal.internal.buildcfg.Buildcfg_goos.gOOS == ("android" : stdgo.GoString)) && (stdgo._internal.internal.buildcfg.Buildcfg_goarch.gOARCH == ("arm" : stdgo.GoString)) : Bool)) {
             _def = ("7" : stdgo.GoString);
         };
         {
-            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envOr._envOr(("GOARM" : stdgo.GoString), _def?.__copy__())?.__copy__() : stdgo.GoString);
+            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envor._envOr(("GOARM" : stdgo.GoString), _def?.__copy__())?.__copy__() : stdgo.GoString);
             {
                 final __value__ = _v;
                 if (__value__ == (("5" : stdgo.GoString))) {

@@ -1,8 +1,8 @@
 package stdgo._internal.io.fs;
-function _glob(_fs:stdgo._internal.io.fs.Fs_FS.FS, _dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
+function _glob(_fs:stdgo._internal.io.fs.Fs_fs.FS, _dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var _m = (null : stdgo.Slice<stdgo.GoString>), _e = (null : stdgo.Error);
         _m = _matches;
-        var __tmp__ = stdgo._internal.io.fs.Fs_readDir.readDir(_fs, _dir?.__copy__()), _infos:stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.fs.Fs_readdir.readDir(_fs, _dir?.__copy__()), _infos:stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : _m, _1 : _e };
         };

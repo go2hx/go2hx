@@ -1,43 +1,48 @@
 === RUN  TestErrorf
 Exception: stdgo._internal.math.bits.T_errorString_asInterface
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testErrorf.Fmt_test_testErrorf_Fields_.testErrorf (./_internal/fmt_test/Fmt_test_testErrorf.hx line 47 column 22)
-Called from stdgo._internal.reflect._Reflect_deepEqual.Reflect_deepEqual_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepEqual.hx line 4 column 20)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testerrorf.Fmt_test_testerrorf_Fields_.testErrorf (./_internal/fmt_test/Fmt_test_testerrorf.hx line 47 column 22)
+Called from stdgo._internal.reflect._Reflect_deepequal.Reflect_deepequal_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepequal.hx line 4 column 20)
 Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.hx line 181 column 5)
 
 -- FAIL: TestErrorf
 
 === RUN  TestFmtInterface
+
 -- PASS: TestFmtInterface
 
 === RUN  TestSprintf
 Exception: Unexpected value #fun, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testSprintf.Fmt_test_testSprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testSprintf.hx line 19 column 23)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testsprintf.hx line 19 column 23)
 Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
-Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 179 column 31)
-Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_T_pp_static_extension.hx line 834 column 22)
-Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_Value_static_extension.hx line 456 column 29)
+Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179 column 31)
+Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 834 column 22)
+Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 456 column 29)
 
 -- FAIL: TestSprintf
 
 === RUN  TestComplexFormatting
+
 -- PASS: TestComplexFormatting
 
 === RUN  TestReorder
+
 -- PASS: TestReorder
 
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testCountMallocs.Fmt_test_testCountMallocs_Fields_.testCountMallocs (./_internal/fmt_test/Fmt_test_testCountMallocs.hx line 19 column 31)
-Called from local function #1 (./stdgo/_internal/testing/Testing_T_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 61 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_T_common_static_extension.hx line 45 column 9)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testcountmallocs.Fmt_test_testcountmallocs_Fields_.testCountMallocs (./_internal/fmt_test/Fmt_test_testcountmallocs.hx line 19 column 31)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
+Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+
 -- SKIP: TestCountMallocs
 
 === RUN  TestFlagParser
+
 -- PASS: TestFlagParser
 
 === RUN  TestStructPrinter
@@ -47,34 +52,44 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 -- FAIL: TestStructPrinter
 
 === RUN  TestSlicePrinter
+
 -- PASS: TestSlicePrinter
 
 === RUN  TestMapPrinter
+
 -- PASS: TestMapPrinter
 
 === RUN  TestEmptyMap
+
 -- PASS: TestEmptyMap
 
 === RUN  TestBlank
+
 -- PASS: TestBlank
 
 === RUN  TestBlankln
+
 -- PASS: TestBlankln
 
 === RUN  TestFormatterPrintln
+
 -- PASS: TestFormatterPrintln
 
 === RUN  TestWidthAndPrecision
+
 -- PASS: TestWidthAndPrecision
 
 === RUN  TestPanics
 -- SKIP: testPanics
+
 -- PASS: TestPanics
 
 === RUN  TestBadVerbRecursion
+
 -- PASS: TestBadVerbRecursion
 
 === RUN  TestIsSpace
+
 -- PASS: TestIsSpace
 
 === RUN  TestNilDoesNotBecomeTyped
@@ -91,30 +106,36 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 -- FAIL: TestFormatterFlags
 
 === RUN  TestParsenum
+
 -- PASS: TestParsenum
 
 === RUN  TestAppendf
+Appendf allocated a new slice
 -- PASS: TestAppendf
 
 === RUN  TestAppend
+Append allocated a new slice
 -- PASS: TestAppend
 
 === RUN  TestAppendln
+Appendln allocated a new slice
 -- PASS: TestAppendln
 
 === RUN  TestScan
+
 -- PASS: TestScan
 
 === RUN  TestScanln
+
 -- PASS: TestScanln
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testScanf.Fmt_test_testScanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testScanf.hx line 19 column 27)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testscanf.Fmt_test_testscanf_Fields_.testScanf (./_internal/fmt_test/Fmt_test_testscanf.hx line 19 column 27)
 Called from stdgo._internal.fmt._Fmt_sscanf.Fmt_sscanf_Fields_.sscanf (./stdgo/_internal/fmt/Fmt_sscanf.hx line 6 column 77)
 Called from stdgo._internal.fmt._Fmt_fscanf.Fmt_fscanf_Fields_.fscanf (./stdgo/_internal/fmt/Fmt_fscanf.hx line 7 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 126 column 21)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScanf (./stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 126 column 21)
 
 -- FAIL: TestScanf
 
@@ -134,12 +155,15 @@ expected overflow scanning "(1-1e500i)"
 -- FAIL: TestScanOverflow
 
 === RUN  TestNaN
+
 -- PASS: TestNaN
 
 === RUN  TestInf
+
 -- PASS: TestInf
 
 === RUN  TestScanfMulti
+
 -- PASS: TestScanfMulti
 
 === RUN  TestScanMultiple
@@ -155,10 +179,10 @@ Sscan <empty> expected error; got none
 
 === RUN  TestScanNotPointer
 Exception: Unexpected value 0, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_M_static_extension.hx line 34 column 17)
-Called from _internal.fmt_test._Fmt_test_testScanNotPointer.Fmt_test_testScanNotPointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testScanNotPointer.hx line 20 column 23)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.fmt_test._Fmt_test_testscannotpointer.Fmt_test_testscannotpointer_Fields_.testScanNotPointer (./_internal/fmt_test/Fmt_test_testscannotpointer.hx line 20 column 23)
 Called from stdgo._internal.fmt._Fmt_fscan.Fmt_fscan_Fields_.fscan (./stdgo/_internal/fmt/Fmt_fscan.hx line 7 column 37)
-Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_T_ss_static_extension.hx line 291 column 21)
+Called from stdgo._internal.fmt.T_ss_static_extension._doScan (./stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 291 column 21)
 
 -- FAIL: TestScanNotPointer
 
@@ -223,6 +247,7 @@ Sscan expected EOF; got %!q(nil=<nil>)
 -- FAIL: TestEOFAllTypes
 
 === RUN  TestUnreadRuneWithBufio
+
 -- PASS: TestUnreadRuneWithBufio
 
 === RUN  TestMultiLine
@@ -231,12 +256,15 @@ Sscanln: expected error; got none
 -- FAIL: TestMultiLine
 
 === RUN  TestLineByLineFscanf
+
 -- PASS: TestLineByLineFscanf
 
 === RUN  TestScanStateCount
+
 -- PASS: TestScanStateCount
 
 === RUN  TestScanInts
+bad scan: expected 1 got 0bad scan count: expected 800 got 1
 -- PASS: TestScanInts
 
 === RUN  TestHexBytes
@@ -251,6 +279,7 @@ odd count: got count, err = 0, <nil>; expected 0, error
 -- FAIL: TestHexBytes
 
 === RUN  TestScanNewlinesAreSpaces
+
 -- PASS: TestScanNewlinesAreSpaces
 
 === RUN  TestScanlnNewlinesTerminate
@@ -273,11 +302,14 @@ space vs newline no-percent 1110: expected error; got none
 -- FAIL: TestScanfNewlineMatchFormat
 
 === RUN  TestHexByte
+expected 0123 got 0000
 -- PASS: TestHexByte
 
 === RUN  TestFormatString
+
 -- PASS: TestFormatString
 
 === RUN  TestStringer
+
 -- PASS: TestStringer
 

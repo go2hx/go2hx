@@ -1,5 +1,5 @@
 package stdgo._internal.math.big;
-function _low64(_x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoUInt64 {
+function _low64(_x:stdgo._internal.math.big.Big_t_nat.T_nat):stdgo.GoUInt64 {
         if ((_x.length) == ((0 : stdgo.GoInt))) {
             return (0i64 : stdgo.GoUInt64);
         };

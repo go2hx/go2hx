@@ -1,0 +1,2 @@
+package stdgo._internal.net.http;
+var errMissingContentLength : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError> = (stdgo.Go.setRef((new stdgo._internal.net.http.Http_protocolerror.ProtocolError(("missing ContentLength in HEAD response" : stdgo.GoString)) : stdgo._internal.net.http.Http_protocolerror.ProtocolError)) : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError>);

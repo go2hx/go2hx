@@ -9,7 +9,7 @@ function _asin(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
             _sign = true;
         };
         if ((_x > (1 : stdgo.GoFloat64) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+            return stdgo._internal.math.Math_nan.naN();
         };
         var _temp = (stdgo._internal.math.Math_sqrt.sqrt(((1 : stdgo.GoFloat64) - (_x * _x : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoFloat64);
         if ((_x > (0.7 : stdgo.GoFloat64) : Bool)) {

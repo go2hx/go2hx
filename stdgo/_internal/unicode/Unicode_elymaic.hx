@@ -1,2 +1,2 @@
 package stdgo._internal.unicode;
-var elymaic : stdgo.Ref<stdgo._internal.unicode.Unicode_RangeTable.RangeTable> = stdgo._internal.unicode.Unicode___Elymaic.__Elymaic;
+var elymaic : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable> = stdgo._internal.unicode.Unicode___elymaic.__Elymaic;

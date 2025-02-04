@@ -7,12 +7,12 @@
     at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:27290:11)
     at stdgo__$internal_reflect_Value_$static_$extension.unsafePointer (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11467:23)
     at stdgo__$internal_sort_T_$lessSwap.less (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11006:79)
-    at stdgo__$internal_sort_Sort_$_$insertionSort_$func__insertionSort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:16809:42)
+    at stdgo__$internal_sort_Sort_$_$insertionsort_$func__insertionSort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:16809:42)
     at stdgo__$internal_sort_Sort_$_$pdqsort_$func__pdqsort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:16752:4)
     at stdgo__$internal_sort_Sort_$slice_slice (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11350:2)
-    at _$internal_internal_fmtsort_$test_Fmtsort_$test_$_$makeChans__makeChans (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11003:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:53921:71
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:56647:3) {
+    at _$internal_internal_fmtsort_$test_Fmtsort_$test_$_$makechans__makeChans (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11003:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:53895:71
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:56621:3) {
   __previousException: undefined,
   __nativeException: [Circular *1],
   __skipStack: 2,

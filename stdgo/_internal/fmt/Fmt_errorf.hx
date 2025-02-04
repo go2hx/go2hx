@@ -1,7 +1,7 @@
 package stdgo._internal.fmt;
 function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
-        var _p = stdgo._internal.fmt.Fmt__newPrinter._newPrinter();
+        var _p = stdgo._internal.fmt.Fmt__newprinter._newPrinter();
         (@:checkr _p ?? throw "null pointer dereference")._wrapErrs = true;
         @:check2r _p._doPrintf(_format?.__copy__(), _a);
         var _s = (((@:checkr _p ?? throw "null pointer dereference")._buf : stdgo.GoString)?.__copy__() : stdgo.GoString);
@@ -11,7 +11,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
             if (__value__ == ((0 : stdgo.GoInt))) {
                 _err = stdgo._internal.errors.Errors_new_.new_(_s?.__copy__());
             } else if (__value__ == ((1 : stdgo.GoInt))) {
-                var _w = (stdgo.Go.setRef(({ _msg : _s?.__copy__() } : stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError)) : stdgo.Ref<stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError>);
+                var _w = (stdgo.Go.setRef(({ _msg : _s?.__copy__() } : stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError)) : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError>);
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((_a[((@:checkr _p ?? throw "null pointer dereference")._wrappedErrs[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.Error)) : stdgo.Error), _1 : true };
@@ -41,7 +41,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
                         };
                     };
                 };
-                _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors(_s?.__copy__(), _errs) : stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors)) : stdgo.Ref<stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors>));
+                _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors(_s?.__copy__(), _errs) : stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors)) : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors>));
             };
         };
         @:check2r _p._free();

@@ -1,5 +1,5 @@
 package stdgo._internal.encoding.json;
-function _diff(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):Void {
+function _diff(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):Void {
         {
             var _i = (0 : stdgo.GoInt);
             while (true) {

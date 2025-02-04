@@ -18,7 +18,7 @@ function _tanh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
                 return _x;
             };
             var _s = (_x * _x : stdgo.GoFloat64);
-            _z = (_x + (((_x * _s : stdgo.GoFloat64) * ((((((stdgo._internal.math.Math__tanhP._tanhP[(0 : stdgo.GoInt)] * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhP._tanhP[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhP._tanhP[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) / ((((((((_s + stdgo._internal.math.Math__tanhQ._tanhQ[(0 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhQ._tanhQ[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhQ._tanhQ[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
+            _z = (_x + (((_x * _s : stdgo.GoFloat64) * ((((((stdgo._internal.math.Math__tanhp._tanhP[(0 : stdgo.GoInt)] * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhp._tanhP[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhp._tanhP[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) / ((((((((_s + stdgo._internal.math.Math__tanhq._tanhQ[(0 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhq._tanhQ[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _s : stdgo.GoFloat64) + stdgo._internal.math.Math__tanhq._tanhQ[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
         };
         return _z;
     }

@@ -1,0 +1,22 @@
+package stdgo._internal.html.template;
+var _funcMap : stdgo._internal.text.template.Template_funcmap.FuncMap = (({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
+        x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
+        x.set(("_html_template_attrescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__attrescaper._attrEscaper));
+x.set(("_html_template_commentescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__commentescaper._commentEscaper));
+x.set(("_html_template_cssescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__cssescaper._cssEscaper));
+x.set(("_html_template_cssvaluefilter" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__cssvaluefilter._cssValueFilter));
+x.set(("_html_template_htmlnamefilter" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__htmlnamefilter._htmlNameFilter));
+x.set(("_html_template_htmlescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__htmlescaper._htmlEscaper));
+x.set(("_html_template_jsregexpescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__jsregexpescaper._jsRegexpEscaper));
+x.set(("_html_template_jsstrescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__jsstrescaper._jsStrEscaper));
+x.set(("_html_template_jsvalescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__jsvalescaper._jsValEscaper));
+x.set(("_html_template_nospaceescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__htmlnospaceescaper._htmlNospaceEscaper));
+x.set(("_html_template_rcdataescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__rcdataescaper._rcdataEscaper));
+x.set(("_html_template_srcsetescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__srcsetfilterandescaper._srcsetFilterAndEscaper));
+x.set(("_html_template_urlescaper" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__urlescaper._urlEscaper));
+x.set(("_html_template_urlfilter" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__urlfilter._urlFilter));
+x.set(("_html_template_urlnormalizer" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__urlnormalizer._urlNormalizer));
+x.set(("_eval_args_" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.html.template.Template__evalargs._evalArgs));
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template_funcmap.FuncMap);

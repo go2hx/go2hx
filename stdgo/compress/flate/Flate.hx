@@ -5,7 +5,7 @@ final bestCompression : haxe.UInt64 = stdgo._internal.compress.flate.Flate_bestC
 final defaultCompression : haxe.UInt64 = stdgo._internal.compress.flate.Flate_defaultCompression.defaultCompression;
 final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.flate.Flate_huffmanOnly.huffmanOnly;
 class Resetter_static_extension {
-    static public function reset(t:stdgo._internal.compress.flate.Flate_Resetter.Resetter, _r:stdgo._internal.io.Io_Reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
+    static public function reset(t:stdgo._internal.compress.flate.Flate_resetter.Resetter, _r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_Resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
@@ -66,7 +66,7 @@ typedef Reader = stdgo._internal.compress.flate.Flate_Reader.Reader;
     public var _w(get, set) : T_huffmanBitWriter;
     function get__w():T_huffmanBitWriter return this._w;
     function set__w(v:T_huffmanBitWriter):T_huffmanBitWriter {
-        this._w = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        this._w = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         return v;
     }
     public var _bulkHasher(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void;
@@ -75,15 +75,15 @@ typedef Reader = stdgo._internal.compress.flate.Flate_Reader.Reader;
         this._bulkHasher = v;
         return v;
     }
-    public var _fill(get, set) : (stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt;
-    function get__fill():(stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
-    function set__fill(v:(stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt):(stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt {
+    public var _fill(get, set) : (stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt;
+    function get__fill():(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
+    function set__fill(v:(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt):(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt {
         this._fill = v;
         return v;
     }
-    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> -> Void;
-    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> -> Void return _0 -> this._step(_0);
-    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> -> Void {
+    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void;
+    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void return _0 -> this._step(_0);
+    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void {
         this._step = v;
         return v;
     }
@@ -96,7 +96,7 @@ typedef Reader = stdgo._internal.compress.flate.Flate_Reader.Reader;
     public var _bestSpeed(get, set) : T_deflateFast;
     function get__bestSpeed():T_deflateFast return this._bestSpeed;
     function set__bestSpeed(v:T_deflateFast):T_deflateFast {
-        this._bestSpeed = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>);
+        this._bestSpeed = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>);
         return v;
     }
     public var _chainHead(get, set) : StdTypes.Int;
@@ -156,7 +156,7 @@ typedef Reader = stdgo._internal.compress.flate.Flate_Reader.Reader;
     public var _tokens(get, set) : Array<T_token>;
     function get__tokens():Array<T_token> return [for (i in this._tokens) i];
     function set__tokens(v:Array<T_token>):Array<T_token> {
-        this._tokens = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        this._tokens = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         return v;
     }
     public var _length(get, set) : StdTypes.Int;
@@ -189,14 +189,14 @@ typedef Reader = stdgo._internal.compress.flate.Flate_Reader.Reader;
         this._hashMatch = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?_compressionLevel:T_compressionLevel, ?_w:T_huffmanBitWriter, ?_bulkHasher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void, ?_fill:(stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> -> Void, ?_sync:Bool, ?_bestSpeed:T_deflateFast, ?_chainHead:StdTypes.Int, ?_hashHead:haxe.ds.Vector<std.UInt>, ?_hashPrev:haxe.ds.Vector<std.UInt>, ?_hashOffset:StdTypes.Int, ?_index:StdTypes.Int, ?_window:Array<std.UInt>, ?_windowEnd:StdTypes.Int, ?_blockStart:StdTypes.Int, ?_byteAvailable:Bool, ?_tokens:Array<T_token>, ?_length:StdTypes.Int, ?_offset:StdTypes.Int, ?_maxInsertIndex:StdTypes.Int, ?_err:stdgo.Error, ?_hashMatch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.flate.Flate_T_compressor.T_compressor(
+    public function new(?_compressionLevel:T_compressionLevel, ?_w:T_huffmanBitWriter, ?_bulkHasher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void, ?_fill:(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void, ?_sync:Bool, ?_bestSpeed:T_deflateFast, ?_chainHead:StdTypes.Int, ?_hashHead:haxe.ds.Vector<std.UInt>, ?_hashPrev:haxe.ds.Vector<std.UInt>, ?_hashOffset:StdTypes.Int, ?_index:StdTypes.Int, ?_window:Array<std.UInt>, ?_windowEnd:StdTypes.Int, ?_blockStart:StdTypes.Int, ?_byteAvailable:Bool, ?_tokens:Array<T_token>, ?_length:StdTypes.Int, ?_offset:StdTypes.Int, ?_maxInsertIndex:StdTypes.Int, ?_err:stdgo.Error, ?_hashMatch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.flate.Flate_T_compressor.T_compressor(
 _compressionLevel,
-(_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>),
+(_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>),
 _bulkHasher,
 _fill,
 _step,
 _sync,
-(_bestSpeed : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>),
+(_bestSpeed : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>),
 (_chainHead : stdgo.GoInt),
 ([for (i in _hashHead) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>),
 ([for (i in _hashPrev) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>),
@@ -206,7 +206,7 @@ _sync,
 (_windowEnd : stdgo.GoInt),
 (_blockStart : stdgo.GoInt),
 _byteAvailable,
-([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>),
+([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>),
 (_length : stdgo.GoInt),
 (_offset : stdgo.GoInt),
 (_maxInsertIndex : stdgo.GoInt),
@@ -216,13 +216,13 @@ _byteAvailable,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.compress.flate.Flate.T_dictWriter_static_extension) abstract T_dictWriter(stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter) from stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter to stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter {
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer) this = new stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter(_w);
+    public function new(?_w:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter(_w);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -264,7 +264,7 @@ _byteAvailable,
     public var _table(get, set) : haxe.ds.Vector<T_tableEntry>;
     function get__table():haxe.ds.Vector<T_tableEntry> return haxe.ds.Vector.fromArrayCopy([for (i in this._table) i]);
     function set__table(v:haxe.ds.Vector<T_tableEntry>):haxe.ds.Vector<T_tableEntry> {
-        this._table = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry>);
+        this._table = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry>);
         return v;
     }
     public var _prev(get, set) : Array<std.UInt>;
@@ -279,7 +279,7 @@ _byteAvailable,
         this._cur = (v : stdgo.GoInt32);
         return v;
     }
-    public function new(?_table:haxe.ds.Vector<T_tableEntry>, ?_prev:Array<std.UInt>, ?_cur:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast(([for (i in _table) i] : stdgo.GoArray<stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry>), ([for (i in _prev) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_cur : stdgo.GoInt32));
+    public function new(?_table:haxe.ds.Vector<T_tableEntry>, ?_prev:Array<std.UInt>, ?_cur:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast(([for (i in _table) i] : stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry>), ([for (i in _prev) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_cur : stdgo.GoInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -313,9 +313,9 @@ _byteAvailable,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.compress.flate.Flate.T_huffmanBitWriter_static_extension) abstract T_huffmanBitWriter(stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter) from stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter to stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter {
-    public var _writer(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__writer():stdgo._internal.io.Io_Writer.Writer return this._writer;
-    function set__writer(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _writer(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__writer():stdgo._internal.io.Io_writer.Writer return this._writer;
+    function set__writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._writer = v;
         return v;
     }
@@ -370,19 +370,19 @@ _byteAvailable,
     public var _literalEncoding(get, set) : T_huffmanEncoder;
     function get__literalEncoding():T_huffmanEncoder return this._literalEncoding;
     function set__literalEncoding(v:T_huffmanEncoder):T_huffmanEncoder {
-        this._literalEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        this._literalEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         return v;
     }
     public var _offsetEncoding(get, set) : T_huffmanEncoder;
     function get__offsetEncoding():T_huffmanEncoder return this._offsetEncoding;
     function set__offsetEncoding(v:T_huffmanEncoder):T_huffmanEncoder {
-        this._offsetEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        this._offsetEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         return v;
     }
     public var _codegenEncoding(get, set) : T_huffmanEncoder;
     function get__codegenEncoding():T_huffmanEncoder return this._codegenEncoding;
     function set__codegenEncoding(v:T_huffmanEncoder):T_huffmanEncoder {
-        this._codegenEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        this._codegenEncoding = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         return v;
     }
     public var _err(get, set) : stdgo.Error;
@@ -391,7 +391,7 @@ _byteAvailable,
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_writer:stdgo._internal.io.Io_Writer.Writer, ?_bits:haxe.UInt64, ?_nbits:std.UInt, ?_bytes:haxe.ds.Vector<std.UInt>, ?_codegenFreq:haxe.ds.Vector<StdTypes.Int>, ?_nbytes:StdTypes.Int, ?_literalFreq:Array<StdTypes.Int>, ?_offsetFreq:Array<StdTypes.Int>, ?_codegen:Array<std.UInt>, ?_literalEncoding:T_huffmanEncoder, ?_offsetEncoding:T_huffmanEncoder, ?_codegenEncoding:T_huffmanEncoder, ?_err:stdgo.Error) this = new stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter(
+    public function new(?_writer:stdgo._internal.io.Io_writer.Writer, ?_bits:haxe.UInt64, ?_nbits:std.UInt, ?_bytes:haxe.ds.Vector<std.UInt>, ?_codegenFreq:haxe.ds.Vector<StdTypes.Int>, ?_nbytes:StdTypes.Int, ?_literalFreq:Array<StdTypes.Int>, ?_offsetFreq:Array<StdTypes.Int>, ?_codegen:Array<std.UInt>, ?_literalEncoding:T_huffmanEncoder, ?_offsetEncoding:T_huffmanEncoder, ?_codegenEncoding:T_huffmanEncoder, ?_err:stdgo.Error) this = new stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter(
 _writer,
 (_bits : stdgo.GoUInt64),
 (_nbits : stdgo.GoUInt),
@@ -401,9 +401,9 @@ _writer,
 ([for (i in _literalFreq) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>),
 ([for (i in _offsetFreq) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>),
 ([for (i in _codegen) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
-(_literalEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>),
-(_offsetEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>),
-(_codegenEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>),
+(_literalEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>),
+(_offsetEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>),
+(_codegenEncoding : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>),
 (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -429,13 +429,13 @@ _writer,
     public var _codes(get, set) : Array<T_hcode>;
     function get__codes():Array<T_hcode> return [for (i in this._codes) i];
     function set__codes(v:Array<T_hcode>):Array<T_hcode> {
-        this._codes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>);
+        this._codes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_hcode.T_hcode>);
         return v;
     }
     public var _freqcache(get, set) : Array<T_literalNode>;
     function get__freqcache():Array<T_literalNode> return [for (i in this._freqcache) i];
     function set__freqcache(v:Array<T_literalNode>):Array<T_literalNode> {
-        this._freqcache = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);
+        this._freqcache = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>);
         return v;
     }
     public var _bitCount(get, set) : haxe.ds.Vector<StdTypes.Int>;
@@ -456,7 +456,7 @@ _writer,
         this._lfs = v;
         return v;
     }
-    public function new(?_codes:Array<T_hcode>, ?_freqcache:Array<T_literalNode>, ?_bitCount:haxe.ds.Vector<StdTypes.Int>, ?_lns:T_byLiteral, ?_lfs:T_byFreq) this = new stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder(([for (i in _codes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>), ([for (i in _freqcache) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>), ([for (i in _bitCount) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>), _lns, _lfs);
+    public function new(?_codes:Array<T_hcode>, ?_freqcache:Array<T_literalNode>, ?_bitCount:haxe.ds.Vector<StdTypes.Int>, ?_lns:T_byLiteral, ?_lfs:T_byFreq) this = new stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder(([for (i in _codes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_hcode.T_hcode>), ([for (i in _freqcache) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>), ([for (i in _bitCount) (i : stdgo.GoInt32)] : stdgo.GoArray<stdgo.GoInt32>), _lns, _lfs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -582,10 +582,10 @@ _writer,
         this._r = v;
         return v;
     }
-    public var _rBuf(get, set) : stdgo._internal.bufio.Bufio_Reader.Reader;
-    function get__rBuf():stdgo._internal.bufio.Bufio_Reader.Reader return this._rBuf;
-    function set__rBuf(v:stdgo._internal.bufio.Bufio_Reader.Reader):stdgo._internal.bufio.Bufio_Reader.Reader {
-        this._rBuf = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
+    public var _rBuf(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
+    function get__rBuf():stdgo._internal.bufio.Bufio_reader.Reader return this._rBuf;
+    function set__rBuf(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
+        this._rBuf = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
         return v;
     }
     public var _roffset(get, set) : haxe.Int64;
@@ -642,9 +642,9 @@ _writer,
         this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> -> Void;
-    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> -> Void return _0 -> this._step(_0);
-    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> -> Void {
+    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void;
+    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void return _0 -> this._step(_0);
+    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void {
         this._step = v;
         return v;
     }
@@ -675,13 +675,13 @@ _writer,
     public var _hl(get, set) : T_huffmanDecoder;
     function get__hl():T_huffmanDecoder return this._hl;
     function set__hl(v:T_huffmanDecoder):T_huffmanDecoder {
-        this._hl = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>);
+        this._hl = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>);
         return v;
     }
     public var _hd(get, set) : T_huffmanDecoder;
     function get__hd():T_huffmanDecoder return this._hd;
     function set__hd(v:T_huffmanDecoder):T_huffmanDecoder {
-        this._hd = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>);
+        this._hd = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>);
         return v;
     }
     public var _copyLen(get, set) : StdTypes.Int;
@@ -696,9 +696,9 @@ _writer,
         this._copyDist = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_r:Reader, ?_rBuf:stdgo._internal.bufio.Bufio_Reader.Reader, ?_roffset:haxe.Int64, ?_b:std.UInt, ?_nb:std.UInt, ?_h1:T_huffmanDecoder, ?_h2:T_huffmanDecoder, ?_bits:haxe.ds.Vector<StdTypes.Int>, ?_codebits:haxe.ds.Vector<StdTypes.Int>, ?_dict:T_dictDecoder, ?_buf:haxe.ds.Vector<std.UInt>, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> -> Void, ?_stepState:StdTypes.Int, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:Array<std.UInt>, ?_hl:T_huffmanDecoder, ?_hd:T_huffmanDecoder, ?_copyLen:StdTypes.Int, ?_copyDist:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor(
+    public function new(?_r:Reader, ?_rBuf:stdgo._internal.bufio.Bufio_reader.Reader, ?_roffset:haxe.Int64, ?_b:std.UInt, ?_nb:std.UInt, ?_h1:T_huffmanDecoder, ?_h2:T_huffmanDecoder, ?_bits:haxe.ds.Vector<StdTypes.Int>, ?_codebits:haxe.ds.Vector<StdTypes.Int>, ?_dict:T_dictDecoder, ?_buf:haxe.ds.Vector<std.UInt>, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void, ?_stepState:StdTypes.Int, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:Array<std.UInt>, ?_hl:T_huffmanDecoder, ?_hd:T_huffmanDecoder, ?_copyLen:StdTypes.Int, ?_copyDist:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor(
 _r,
-(_rBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>),
+(_rBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>),
 (_roffset : stdgo.GoInt64),
 (_b : stdgo.GoUInt32),
 (_nb : stdgo.GoUInt),
@@ -713,8 +713,8 @@ _step,
 _final,
 (_err : stdgo.Error),
 ([for (i in _toRead) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
-(_hl : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>),
-(_hd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>),
+(_hl : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>),
+(_hd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>),
 (_copyLen : stdgo.GoInt),
 (_copyDist : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -732,24 +732,24 @@ class T_compressionLevel_static_extension {
 typedef T_compressorPointer = stdgo._internal.compress.flate.Flate_T_compressorPointer.T_compressorPointer;
 class T_compressor_static_extension {
     static public function _close(_d:T_compressor):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._close(_d);
     }
-    static public function _reset(_d:T_compressor, _w:stdgo._internal.io.Io_Writer.Writer):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+    static public function _reset(_d:T_compressor, _w:stdgo._internal.io.Io_writer.Writer):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._reset(_d, _w);
     }
-    static public function _init(_d:T_compressor, _w:stdgo._internal.io.Io_Writer.Writer, _level:StdTypes.Int):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+    static public function _init(_d:T_compressor, _w:stdgo._internal.io.Io_writer.Writer, _level:StdTypes.Int):stdgo.Error {
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _level = (_level : stdgo.GoInt);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._init(_d, _w, _level);
     }
     static public function _syncFlush(_d:T_compressor):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._syncFlush(_d);
     }
     static public function _write(_d:T_compressor, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._write(_d, _b);
@@ -757,37 +757,37 @@ class T_compressor_static_extension {
         };
     }
     static public function _storeHuff(_d:T_compressor):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._storeHuff(_d);
     }
     static public function _store(_d:T_compressor):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._store(_d);
     }
     static public function _fillStore(_d:T_compressor, _b:Array<std.UInt>):StdTypes.Int {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._fillStore(_d, _b);
     }
     static public function _deflate(_d:T_compressor):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._deflate(_d);
     }
     static public function _initDeflate(_d:T_compressor):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._initDeflate(_d);
     }
     static public function _encSpeed(_d:T_compressor):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._encSpeed(_d);
     }
     static public function _writeStoredBlock(_d:T_compressor, _buf:Array<std.UInt>):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._writeStoredBlock(_d, _buf);
     }
     static public function _findMatch(_d:T_compressor, _pos:StdTypes.Int, _prevHead:StdTypes.Int, _prevLength:StdTypes.Int, _lookahead:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, Bool> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _pos = (_pos : stdgo.GoInt);
         final _prevHead = (_prevHead : stdgo.GoInt);
         final _prevLength = (_prevLength : stdgo.GoInt);
@@ -798,18 +798,18 @@ class T_compressor_static_extension {
         };
     }
     static public function _fillWindow(_d:T_compressor, _b:Array<std.UInt>):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._fillWindow(_d, _b);
     }
     static public function _writeBlock(_d:T_compressor, _tokens:Array<T_token>, _index:StdTypes.Int):stdgo.Error {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
-        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
+        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         final _index = (_index : stdgo.GoInt);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._writeBlock(_d, _tokens, _index);
     }
     static public function _fillDeflate(_d:T_compressor, _b:Array<std.UInt>):StdTypes.Int {
-        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_T_compressor_static_extension.T_compressor_static_extension._fillDeflate(_d, _b);
     }
@@ -817,7 +817,7 @@ class T_compressor_static_extension {
 typedef T_dictWriterPointer = stdgo._internal.compress.flate.Flate_T_dictWriterPointer.T_dictWriterPointer;
 class T_dictWriter_static_extension {
     static public function write(_w:T_dictWriter, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictWriter.T_dictWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_dictWriter_static_extension.T_dictWriter_static_extension.write(_w, _b);
@@ -827,20 +827,20 @@ class T_dictWriter_static_extension {
 }
 typedef WriterPointer = stdgo._internal.compress.flate.Flate_WriterPointer.WriterPointer;
 class Writer_static_extension {
-    static public function reset(_w:Writer, _dst:stdgo._internal.io.Io_Writer.Writer):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
+    static public function reset(_w:Writer, _dst:stdgo._internal.io.Io_writer.Writer):Void {
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>);
         stdgo._internal.compress.flate.Flate_Writer_static_extension.Writer_static_extension.reset(_w, _dst);
     }
     static public function close(_w:Writer):stdgo.Error {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>);
         return stdgo._internal.compress.flate.Flate_Writer_static_extension.Writer_static_extension.close(_w);
     }
     static public function flush(_w:Writer):stdgo.Error {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>);
         return stdgo._internal.compress.flate.Flate_Writer_static_extension.Writer_static_extension.flush(_w);
     }
     static public function write(_w:Writer, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_Writer_static_extension.Writer_static_extension.write(_w, _data);
@@ -855,23 +855,23 @@ class T_tableEntry_static_extension {
 typedef T_deflateFastPointer = stdgo._internal.compress.flate.Flate_T_deflateFastPointer.T_deflateFastPointer;
 class T_deflateFast_static_extension {
     static public function _shiftOffsets(_e:T_deflateFast):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>);
         stdgo._internal.compress.flate.Flate_T_deflateFast_static_extension.T_deflateFast_static_extension._shiftOffsets(_e);
     }
     static public function _reset(_e:T_deflateFast):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>);
         stdgo._internal.compress.flate.Flate_T_deflateFast_static_extension.T_deflateFast_static_extension._reset(_e);
     }
     static public function _matchLen(_e:T_deflateFast, _s:StdTypes.Int, _t:StdTypes.Int, _src:Array<std.UInt>):StdTypes.Int {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>);
         final _s = (_s : stdgo.GoInt32);
         final _t = (_t : stdgo.GoInt32);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_T_deflateFast_static_extension.T_deflateFast_static_extension._matchLen(_e, _s, _t, _src);
     }
     static public function _encode(_e:T_deflateFast, _dst:Array<T_token>, _src:Array<std.UInt>):Array<T_token> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>);
-        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>);
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.compress.flate.Flate_T_deflateFast_static_extension.T_deflateFast_static_extension._encode(_e, _dst, _src)) i];
     }
@@ -879,49 +879,49 @@ class T_deflateFast_static_extension {
 typedef T_dictDecoderPointer = stdgo._internal.compress.flate.Flate_T_dictDecoderPointer.T_dictDecoderPointer;
 class T_dictDecoder_static_extension {
     static public function _readFlush(_dd:T_dictDecoder):Array<std.UInt> {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         return [for (i in stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._readFlush(_dd)) i];
     }
     static public function _tryWriteCopy(_dd:T_dictDecoder, _dist:StdTypes.Int, _length:StdTypes.Int):StdTypes.Int {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         final _dist = (_dist : stdgo.GoInt);
         final _length = (_length : stdgo.GoInt);
         return stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._tryWriteCopy(_dd, _dist, _length);
     }
     static public function _writeCopy(_dd:T_dictDecoder, _dist:StdTypes.Int, _length:StdTypes.Int):StdTypes.Int {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         final _dist = (_dist : stdgo.GoInt);
         final _length = (_length : stdgo.GoInt);
         return stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._writeCopy(_dd, _dist, _length);
     }
     static public function _writeByte(_dd:T_dictDecoder, _c:std.UInt):Void {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         final _c = (_c : stdgo.GoUInt8);
         stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._writeByte(_dd, _c);
     }
     static public function _writeMark(_dd:T_dictDecoder, _cnt:StdTypes.Int):Void {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         final _cnt = (_cnt : stdgo.GoInt);
         stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._writeMark(_dd, _cnt);
     }
     static public function _writeSlice(_dd:T_dictDecoder):Array<std.UInt> {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         return [for (i in stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._writeSlice(_dd)) i];
     }
     static public function _availWrite(_dd:T_dictDecoder):StdTypes.Int {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         return stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._availWrite(_dd);
     }
     static public function _availRead(_dd:T_dictDecoder):StdTypes.Int {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         return stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._availRead(_dd);
     }
     static public function _histSize(_dd:T_dictDecoder):StdTypes.Int {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         return stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._histSize(_dd);
     }
     static public function _init(_dd:T_dictDecoder, _size:StdTypes.Int, _dict:Array<std.UInt>):Void {
-        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder>);
+        final _dd = (_dd : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder>);
         final _size = (_size : stdgo.GoInt);
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_dictDecoder_static_extension.T_dictDecoder_static_extension._init(_dd, _size, _dict);
@@ -930,59 +930,59 @@ class T_dictDecoder_static_extension {
 typedef T_huffmanBitWriterPointer = stdgo._internal.compress.flate.Flate_T_huffmanBitWriterPointer.T_huffmanBitWriterPointer;
 class T_huffmanBitWriter_static_extension {
     static public function _writeBlockHuff(_w:T_huffmanBitWriter, _eof:Bool, _input:Array<std.UInt>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _input = ([for (i in _input) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeBlockHuff(_w, _eof, _input);
     }
     static public function _writeTokens(_w:T_huffmanBitWriter, _tokens:Array<T_token>, _leCodes:Array<T_hcode>, _oeCodes:Array<T_hcode>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
-        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
-        final _leCodes = ([for (i in _leCodes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>);
-        final _oeCodes = ([for (i in _oeCodes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
+        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
+        final _leCodes = ([for (i in _leCodes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_hcode.T_hcode>);
+        final _oeCodes = ([for (i in _oeCodes) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_hcode.T_hcode>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeTokens(_w, _tokens, _leCodes, _oeCodes);
     }
     static public function _indexTokens(_w:T_huffmanBitWriter, _tokens:Array<T_token>):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
-        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
+        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._indexTokens(_w, _tokens);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _writeBlockDynamic(_w:T_huffmanBitWriter, _tokens:Array<T_token>, _eof:Bool, _input:Array<std.UInt>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
-        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
+        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         final _input = ([for (i in _input) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeBlockDynamic(_w, _tokens, _eof, _input);
     }
     static public function _writeBlock(_w:T_huffmanBitWriter, _tokens:Array<T_token>, _eof:Bool, _input:Array<std.UInt>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
-        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
+        final _tokens = ([for (i in _tokens) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
         final _input = ([for (i in _input) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeBlock(_w, _tokens, _eof, _input);
     }
     static public function _writeFixedHeader(_w:T_huffmanBitWriter, _isEof:Bool):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeFixedHeader(_w, _isEof);
     }
     static public function _writeStoredHeader(_w:T_huffmanBitWriter, _length:StdTypes.Int, _isEof:Bool):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _length = (_length : stdgo.GoInt);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeStoredHeader(_w, _length, _isEof);
     }
     static public function _writeDynamicHeader(_w:T_huffmanBitWriter, _numLiterals:StdTypes.Int, _numOffsets:StdTypes.Int, _numCodegens:StdTypes.Int, _isEof:Bool):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _numLiterals = (_numLiterals : stdgo.GoInt);
         final _numOffsets = (_numOffsets : stdgo.GoInt);
         final _numCodegens = (_numCodegens : stdgo.GoInt);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeDynamicHeader(_w, _numLiterals, _numOffsets, _numCodegens, _isEof);
     }
     static public function _writeCode(_w:T_huffmanBitWriter, _c:T_hcode):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeCode(_w, _c);
     }
     static public function _storedSize(_w:T_huffmanBitWriter, _in:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._storedSize(_w, _in);
@@ -990,14 +990,14 @@ class T_huffmanBitWriter_static_extension {
         };
     }
     static public function _fixedSize(_w:T_huffmanBitWriter, _extraBits:StdTypes.Int):StdTypes.Int {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _extraBits = (_extraBits : stdgo.GoInt);
         return stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._fixedSize(_w, _extraBits);
     }
     static public function _dynamicSize(_w:T_huffmanBitWriter, _litEnc:T_huffmanEncoder, _offEnc:T_huffmanEncoder, _extraBits:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
-        final _litEnc = (_litEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
-        final _offEnc = (_offEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
+        final _litEnc = (_litEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
+        final _offEnc = (_offEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         final _extraBits = (_extraBits : stdgo.GoInt);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._dynamicSize(_w, _litEnc, _offEnc, _extraBits);
@@ -1005,42 +1005,42 @@ class T_huffmanBitWriter_static_extension {
         };
     }
     static public function _generateCodegen(_w:T_huffmanBitWriter, _numLiterals:StdTypes.Int, _numOffsets:StdTypes.Int, _litEnc:T_huffmanEncoder, _offEnc:T_huffmanEncoder):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _numLiterals = (_numLiterals : stdgo.GoInt);
         final _numOffsets = (_numOffsets : stdgo.GoInt);
-        final _litEnc = (_litEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
-        final _offEnc = (_offEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        final _litEnc = (_litEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
+        final _offEnc = (_offEnc : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._generateCodegen(_w, _numLiterals, _numOffsets, _litEnc, _offEnc);
     }
     static public function _writeBytes(_w:T_huffmanBitWriter, _bytes:Array<std.UInt>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _bytes = ([for (i in _bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeBytes(_w, _bytes);
     }
     static public function _writeBits(_w:T_huffmanBitWriter, _b:StdTypes.Int, _nb:std.UInt):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _b = (_b : stdgo.GoInt32);
         final _nb = (_nb : stdgo.GoUInt);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._writeBits(_w, _b, _nb);
     }
     static public function _write(_w:T_huffmanBitWriter, _b:Array<std.UInt>):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._write(_w, _b);
     }
     static public function _flush(_w:T_huffmanBitWriter):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._flush(_w);
     }
-    static public function _reset(_w:T_huffmanBitWriter, _writer:stdgo._internal.io.Io_Writer.Writer):Void {
-        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>);
+    static public function _reset(_w:T_huffmanBitWriter, _writer:stdgo._internal.io.Io_writer.Writer):Void {
+        final _w = (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         stdgo._internal.compress.flate.Flate_T_huffmanBitWriter_static_extension.T_huffmanBitWriter_static_extension._reset(_w, _writer);
     }
 }
 typedef T_hcodePointer = stdgo._internal.compress.flate.Flate_T_hcodePointer.T_hcodePointer;
 class T_hcode_static_extension {
     static public function _set(_h:T_hcode, _code:std.UInt, _length:std.UInt):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_hcode.T_hcode>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_hcode.T_hcode>);
         final _code = (_code : stdgo.GoUInt16);
         final _length = (_length : stdgo.GoUInt16);
         stdgo._internal.compress.flate.Flate_T_hcode_static_extension.T_hcode_static_extension._set(_h, _code, _length);
@@ -1049,25 +1049,25 @@ class T_hcode_static_extension {
 typedef T_huffmanEncoderPointer = stdgo._internal.compress.flate.Flate_T_huffmanEncoderPointer.T_huffmanEncoderPointer;
 class T_huffmanEncoder_static_extension {
     static public function _generate(_h:T_huffmanEncoder, _freq:Array<StdTypes.Int>, _maxBits:StdTypes.Int):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         final _freq = ([for (i in _freq) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>);
         final _maxBits = (_maxBits : stdgo.GoInt32);
         stdgo._internal.compress.flate.Flate_T_huffmanEncoder_static_extension.T_huffmanEncoder_static_extension._generate(_h, _freq, _maxBits);
     }
     static public function _assignEncodingAndSize(_h:T_huffmanEncoder, _bitCount:Array<StdTypes.Int>, _list:Array<T_literalNode>):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         final _bitCount = ([for (i in _bitCount) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>);
-        final _list = ([for (i in _list) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);
+        final _list = ([for (i in _list) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>);
         stdgo._internal.compress.flate.Flate_T_huffmanEncoder_static_extension.T_huffmanEncoder_static_extension._assignEncodingAndSize(_h, _bitCount, _list);
     }
     static public function _bitCounts(_h:T_huffmanEncoder, _list:Array<T_literalNode>, _maxBits:StdTypes.Int):Array<StdTypes.Int> {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
-        final _list = ([for (i in _list) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
+        final _list = ([for (i in _list) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>);
         final _maxBits = (_maxBits : stdgo.GoInt32);
         return [for (i in stdgo._internal.compress.flate.Flate_T_huffmanEncoder_static_extension.T_huffmanEncoder_static_extension._bitCounts(_h, _list, _maxBits)) i];
     }
     static public function _bitLength(_h:T_huffmanEncoder, _freq:Array<StdTypes.Int>):StdTypes.Int {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder>);
         final _freq = ([for (i in _freq) (i : stdgo.GoInt32)] : stdgo.Slice<stdgo.GoInt32>);
         return stdgo._internal.compress.flate.Flate_T_huffmanEncoder_static_extension.T_huffmanEncoder_static_extension._bitLength(_h, _freq);
     }
@@ -1083,74 +1083,74 @@ class T_levelInfo_static_extension {
 typedef ReadErrorPointer = stdgo._internal.compress.flate.Flate_ReadErrorPointer.ReadErrorPointer;
 class ReadError_static_extension {
     static public function error(_e:ReadError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_ReadError.ReadError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_readerror.ReadError>);
         return stdgo._internal.compress.flate.Flate_ReadError_static_extension.ReadError_static_extension.error(_e);
     }
 }
 typedef WriteErrorPointer = stdgo._internal.compress.flate.Flate_WriteErrorPointer.WriteErrorPointer;
 class WriteError_static_extension {
     static public function error(_e:WriteError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_WriteError.WriteError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.compress.flate.Flate_writeerror.WriteError>);
         return stdgo._internal.compress.flate.Flate_WriteError_static_extension.WriteError_static_extension.error(_e);
     }
 }
 typedef T_huffmanDecoderPointer = stdgo._internal.compress.flate.Flate_T_huffmanDecoderPointer.T_huffmanDecoderPointer;
 class T_huffmanDecoder_static_extension {
     static public function _init(_h:T_huffmanDecoder, _lengths:Array<StdTypes.Int>):Bool {
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>);
         final _lengths = ([for (i in _lengths) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return stdgo._internal.compress.flate.Flate_T_huffmanDecoder_static_extension.T_huffmanDecoder_static_extension._init(_h, _lengths);
     }
 }
 typedef T_decompressorPointer = stdgo._internal.compress.flate.Flate_T_decompressorPointer.T_decompressorPointer;
 class T_decompressor_static_extension {
-    static public function reset(_f:T_decompressor, _r:stdgo._internal.io.Io_Reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+    static public function reset(_f:T_decompressor, _r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension.reset(_f, _r, _dict);
     }
-    static public function _makeReader(_f:T_decompressor, _r:stdgo._internal.io.Io_Reader.Reader):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+    static public function _makeReader(_f:T_decompressor, _r:stdgo._internal.io.Io_reader.Reader):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._makeReader(_f, _r);
     }
     static public function _huffSym(_f:T_decompressor, _h:T_huffmanDecoder):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
-        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._huffSym(_f, _h);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _moreBits(_f:T_decompressor):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         return stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._moreBits(_f);
     }
     static public function _finishBlock(_f:T_decompressor):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._finishBlock(_f);
     }
     static public function _copyData(_f:T_decompressor):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._copyData(_f);
     }
     static public function _dataBlock(_f:T_decompressor):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._dataBlock(_f);
     }
     static public function _huffmanBlock(_f:T_decompressor):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._huffmanBlock(_f);
     }
     static public function _readHuffman(_f:T_decompressor):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         return stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._readHuffman(_f);
     }
     static public function close(_f:T_decompressor):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         return stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension.close(_f);
     }
     static public function read(_f:T_decompressor, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension.read(_f, _b);
@@ -1158,7 +1158,7 @@ class T_decompressor_static_extension {
         };
     }
     static public function _nextBlock(_f:T_decompressor):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>);
         stdgo._internal.compress.flate.Flate_T_decompressor_static_extension.T_decompressor_static_extension._nextBlock(_f);
     }
 }
@@ -1178,8 +1178,8 @@ class T_byLiteral_static_extension {
         return stdgo._internal.compress.flate.Flate_T_byLiteral_static_extension.T_byLiteral_static_extension.len(_s);
     }
     static public function _sort(_s:T_byLiteral, _a:Array<T_literalNode>):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byLiteral.T_byLiteral>);
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byliteral.T_byLiteral>);
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>);
         stdgo._internal.compress.flate.Flate_T_byLiteral_static_extension.T_byLiteral_static_extension._sort(_s, _a);
     }
 }
@@ -1199,8 +1199,8 @@ class T_byFreq_static_extension {
         return stdgo._internal.compress.flate.Flate_T_byFreq_static_extension.T_byFreq_static_extension.len(_s);
     }
     static public function _sort(_s:T_byFreq, _a:Array<T_literalNode>):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.compress.flate.Flate_T_byFreq.T_byFreq>);
-        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_T_literalNode.T_literalNode>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_byfreq.T_byFreq>);
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode>);
         stdgo._internal.compress.flate.Flate_T_byFreq_static_extension.T_byFreq_static_extension._sort(_s, _a);
     }
 }
@@ -1248,7 +1248,7 @@ class Flate {
         If level is in the range [-2, 9] then the error returned will be nil.
         Otherwise the error returned will be non-nil.
     **/
-    static public inline function newWriter(_w:stdgo._internal.io.Io_Writer.Writer, _level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
+    static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer, _level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
         final _level = (_level : stdgo.GoInt);
         return {
             final obj = stdgo._internal.compress.flate.Flate_newWriter.newWriter(_w, _level);
@@ -1263,7 +1263,7 @@ class Flate {
         can only be decompressed by a Reader initialized with the
         same dictionary.
     **/
-    static public inline function newWriterDict(_w:stdgo._internal.io.Io_Writer.Writer, _level:StdTypes.Int, _dict:Array<std.UInt>):stdgo.Tuple<Writer, stdgo.Error> {
+    static public inline function newWriterDict(_w:stdgo._internal.io.Io_writer.Writer, _level:StdTypes.Int, _dict:Array<std.UInt>):stdgo.Tuple<Writer, stdgo.Error> {
         final _level = (_level : stdgo.GoInt);
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -1281,7 +1281,7 @@ class Flate {
         
         The ReadCloser returned by NewReader also implements Resetter.
     **/
-    static public inline function newReader(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_readcloser.ReadCloser {
         return stdgo._internal.compress.flate.Flate_newReader.newReader(_r);
     }
     /**
@@ -1293,7 +1293,7 @@ class Flate {
         
         The ReadCloser returned by NewReader also implements Resetter.
     **/
-    static public inline function newReaderDict(_r:stdgo._internal.io.Io_Reader.Reader, _dict:Array<std.UInt>):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    static public inline function newReaderDict(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo._internal.io.Io_readcloser.ReadCloser {
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.flate.Flate_newReaderDict.newReaderDict(_r, _dict);
     }

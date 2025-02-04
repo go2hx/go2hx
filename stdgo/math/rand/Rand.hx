@@ -1,16 +1,16 @@
 package stdgo.math.rand;
 class Source_static_extension {
-    static public function seed(t:stdgo._internal.math.rand.Rand_Source.Source, _seed:haxe.Int64):Void {
+    static public function seed(t:stdgo._internal.math.rand.Rand_source.Source, _seed:haxe.Int64):Void {
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_Source_static_extension.Source_static_extension.seed(t, _seed);
     }
-    static public function int63(t:stdgo._internal.math.rand.Rand_Source.Source):haxe.Int64 {
+    static public function int63(t:stdgo._internal.math.rand.Rand_source.Source):haxe.Int64 {
         return stdgo._internal.math.rand.Rand_Source_static_extension.Source_static_extension.int63(t);
     }
 }
 typedef Source = stdgo._internal.math.rand.Rand_Source.Source;
 class Source64_static_extension {
-    static public function uint64(t:stdgo._internal.math.rand.Rand_Source64.Source64):haxe.UInt64 {
+    static public function uint64(t:stdgo._internal.math.rand.Rand_source64.Source64):haxe.UInt64 {
         return stdgo._internal.math.rand.Rand_Source64_static_extension.Source64_static_extension.uint64(t);
     }
 }
@@ -45,30 +45,30 @@ typedef Source64 = stdgo._internal.math.rand.Rand_Source64.Source64;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.math.rand.Rand.T_fastSource_static_extension) abstract T_fastSource(stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource) from stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource to stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource {
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_Mutex.Mutex) this = new stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource(_mu);
+    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex) this = new stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource(_mu);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.math.rand.Rand.T_lockedSource_static_extension) abstract T_lockedSource(stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource) from stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource to stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource {
-    public var _lk(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__lk():stdgo._internal.sync.Sync_Mutex.Mutex return this._lk;
-    function set__lk(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _lk(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__lk():stdgo._internal.sync.Sync_mutex.Mutex return this._lk;
+    function set__lk(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._lk = v;
         return v;
     }
     public var _s(get, set) : T_rngSource;
     function get__s():T_rngSource return this._s;
     function set__s(v:T_rngSource):T_rngSource {
-        this._s = (v : stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>);
+        this._s = (v : stdgo.Ref<stdgo._internal.math.rand.Rand_t_rngsource.T_rngSource>);
         return v;
     }
-    public function new(?_lk:stdgo._internal.sync.Sync_Mutex.Mutex, ?_s:T_rngSource) this = new stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource(_lk, (_s : stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>));
+    public function new(?_lk:stdgo._internal.sync.Sync_mutex.Mutex, ?_s:T_rngSource) this = new stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource(_lk, (_s : stdgo.Ref<stdgo._internal.math.rand.Rand_t_rngsource.T_rngSource>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -99,7 +99,7 @@ typedef Source64 = stdgo._internal.math.rand.Rand_Source64.Source64;
     public var _r(get, set) : Rand_;
     function get__r():Rand_ return this._r;
     function set__r(v:Rand_):Rand_ {
-        this._r = (v : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        this._r = (v : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return v;
     }
     public var _imax(get, set) : StdTypes.Float;
@@ -150,14 +150,14 @@ typedef Source64 = stdgo._internal.math.rand.Rand_Source64.Source64;
         this._hx0minusHxm = (v : stdgo.GoFloat64);
         return v;
     }
-    public function new(?_r:Rand_, ?_imax:StdTypes.Float, ?_v:StdTypes.Float, ?_q:StdTypes.Float, ?_s:StdTypes.Float, ?_oneminusQ:StdTypes.Float, ?_oneminusQinv:StdTypes.Float, ?_hxm:StdTypes.Float, ?_hx0minusHxm:StdTypes.Float) this = new stdgo._internal.math.rand.Rand_Zipf.Zipf((_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>), (_imax : stdgo.GoFloat64), (_v : stdgo.GoFloat64), (_q : stdgo.GoFloat64), (_s : stdgo.GoFloat64), (_oneminusQ : stdgo.GoFloat64), (_oneminusQinv : stdgo.GoFloat64), (_hxm : stdgo.GoFloat64), (_hx0minusHxm : stdgo.GoFloat64));
+    public function new(?_r:Rand_, ?_imax:StdTypes.Float, ?_v:StdTypes.Float, ?_q:StdTypes.Float, ?_s:StdTypes.Float, ?_oneminusQ:StdTypes.Float, ?_oneminusQinv:StdTypes.Float, ?_hxm:StdTypes.Float, ?_hx0minusHxm:StdTypes.Float) this = new stdgo._internal.math.rand.Rand_Zipf.Zipf((_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>), (_imax : stdgo.GoFloat64), (_v : stdgo.GoFloat64), (_q : stdgo.GoFloat64), (_s : stdgo.GoFloat64), (_oneminusQ : stdgo.GoFloat64), (_oneminusQinv : stdgo.GoFloat64), (_hxm : stdgo.GoFloat64), (_hx0minusHxm : stdgo.GoFloat64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef RandPointer = stdgo._internal.math.rand.Rand_RandPointer.RandPointer;
 class Rand_static_extension {
     static public function read(_r:Rand_, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.read(_r, _p);
@@ -165,82 +165,82 @@ class Rand_static_extension {
         };
     }
     static public function shuffle(_r:Rand_, _n:StdTypes.Int, _swap:(stdgo.GoInt, stdgo.GoInt) -> Void):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
         final _swap = _swap;
         stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.shuffle(_r, _n, _swap);
     }
     static public function perm(_r:Rand_, _n:StdTypes.Int):Array<StdTypes.Int> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
         return [for (i in stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.perm(_r, _n)) i];
     }
     static public function float32(_r:Rand_):StdTypes.Float {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.float32(_r);
     }
     static public function float64(_r:Rand_):StdTypes.Float {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.float64(_r);
     }
     static public function intn(_r:Rand_, _n:StdTypes.Int):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.intn(_r, _n);
     }
     static public function _int31n(_r:Rand_, _n:StdTypes.Int):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt32);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension._int31n(_r, _n);
     }
     static public function int31n(_r:Rand_, _n:StdTypes.Int):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt32);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.int31n(_r, _n);
     }
     static public function int63n(_r:Rand_, _n:haxe.Int64):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt64);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.int63n(_r, _n);
     }
     static public function int_(_r:Rand_):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.int_(_r);
     }
     static public function int31(_r:Rand_):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.int31(_r);
     }
     static public function uint64(_r:Rand_):haxe.UInt64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.uint64(_r);
     }
     static public function uint32(_r:Rand_):std.UInt {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.uint32(_r);
     }
     static public function int63(_r:Rand_):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.int63(_r);
     }
     static public function seed(_r:Rand_, _seed:haxe.Int64):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.seed(_r, _seed);
     }
     static public function normFloat64(_r:Rand_):StdTypes.Float {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.normFloat64(_r);
     }
     static public function expFloat64(_r:Rand_):StdTypes.Float {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         return stdgo._internal.math.rand.Rand_Rand_static_extension.Rand_static_extension.expFloat64(_r);
     }
 }
 typedef T_fastSourcePointer = stdgo._internal.math.rand.Rand_T_fastSourcePointer.T_fastSourcePointer;
 class T_fastSource_static_extension {
     static public function _read(_fs:T_fastSource, _p:Array<std.UInt>, _readVal:stdgo.Pointer<haxe.Int64>, _readPos:stdgo.Pointer<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _fs = (_fs : stdgo.Ref<stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource>);
+        final _fs = (_fs : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.math.rand.Rand_T_fastSource_static_extension.T_fastSource_static_extension._read(_fs, _p, _readVal, _readPos);
@@ -248,23 +248,23 @@ class T_fastSource_static_extension {
         };
     }
     static public function uint64(_:T_fastSource):haxe.UInt64 {
-        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>);
         return stdgo._internal.math.rand.Rand_T_fastSource_static_extension.T_fastSource_static_extension.uint64(_);
     }
     static public function seed(_:T_fastSource, _0:haxe.Int64):Void {
-        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>);
         final _0 = (_0 : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_T_fastSource_static_extension.T_fastSource_static_extension.seed(_, _0);
     }
     static public function int63(_:T_fastSource):haxe.Int64 {
-        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>);
         return stdgo._internal.math.rand.Rand_T_fastSource_static_extension.T_fastSource_static_extension.int63(_);
     }
 }
 typedef T_lockedSourcePointer = stdgo._internal.math.rand.Rand_T_lockedSourcePointer.T_lockedSourcePointer;
 class T_lockedSource_static_extension {
     static public function _read(_r:T_lockedSource, _p:Array<std.UInt>, _readVal:stdgo.Pointer<haxe.Int64>, _readPos:stdgo.Pointer<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension._read(_r, _p, _readVal, _readPos);
@@ -272,41 +272,41 @@ class T_lockedSource_static_extension {
         };
     }
     static public function _seed(_r:T_lockedSource, _seed:haxe.Int64):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension._seed(_r, _seed);
     }
     static public function _seedPos(_r:T_lockedSource, _seed:haxe.Int64, _readPos:stdgo.Pointer<StdTypes.Int>):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension._seedPos(_r, _seed, _readPos);
     }
     static public function seed(_r:T_lockedSource, _seed:haxe.Int64):Void {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension.seed(_r, _seed);
     }
     static public function uint64(_r:T_lockedSource):haxe.UInt64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         return stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension.uint64(_r);
     }
     static public function int63(_r:T_lockedSource):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>);
         return stdgo._internal.math.rand.Rand_T_lockedSource_static_extension.T_lockedSource_static_extension.int63(_r);
     }
 }
 typedef T_rngSourcePointer = stdgo._internal.math.rand.Rand_T_rngSourcePointer.T_rngSourcePointer;
 class T_rngSource_static_extension {
     static public function uint64(_rng:T_rngSource):haxe.UInt64 {
-        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>);
+        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_t_rngsource.T_rngSource>);
         return stdgo._internal.math.rand.Rand_T_rngSource_static_extension.T_rngSource_static_extension.uint64(_rng);
     }
     static public function int63(_rng:T_rngSource):haxe.Int64 {
-        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>);
+        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_t_rngsource.T_rngSource>);
         return stdgo._internal.math.rand.Rand_T_rngSource_static_extension.T_rngSource_static_extension.int63(_rng);
     }
     static public function seed(_rng:T_rngSource, _seed:haxe.Int64):Void {
-        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>);
+        final _rng = (_rng : stdgo.Ref<stdgo._internal.math.rand.Rand_t_rngsource.T_rngSource>);
         final _seed = (_seed : stdgo.GoInt64);
         stdgo._internal.math.rand.Rand_T_rngSource_static_extension.T_rngSource_static_extension.seed(_rng, _seed);
     }
@@ -314,16 +314,16 @@ class T_rngSource_static_extension {
 typedef ZipfPointer = stdgo._internal.math.rand.Rand_ZipfPointer.ZipfPointer;
 class Zipf_static_extension {
     static public function uint64(_z:Zipf):haxe.UInt64 {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_zipf.Zipf>);
         return stdgo._internal.math.rand.Rand_Zipf_static_extension.Zipf_static_extension.uint64(_z);
     }
     static public function _hinv(_z:Zipf, _x:StdTypes.Float):StdTypes.Float {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_zipf.Zipf>);
         final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.rand.Rand_Zipf_static_extension.Zipf_static_extension._hinv(_z, _x);
     }
     static public function _h(_z:Zipf, _x:StdTypes.Float):StdTypes.Float {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.rand.Rand_zipf.Zipf>);
         final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.rand.Rand_Zipf_static_extension.Zipf_static_extension._h(_z, _x);
     }
@@ -345,7 +345,7 @@ class Zipf_static_extension {
 **/
 class Rand {
     static public inline function int31nForTest(_r:Rand_, _n:StdTypes.Int):StdTypes.Int {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt32);
         return stdgo._internal.math.rand.Rand_int31nForTest.int31nForTest(_r, _n);
     }
@@ -539,7 +539,7 @@ class Rand {
         Requirements: s > 1 and v >= 1.
     **/
     static public inline function newZipf(_r:Rand_, _s:StdTypes.Float, _v:StdTypes.Float, _imax:haxe.UInt64):Zipf {
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _s = (_s : stdgo.GoFloat64);
         final _v = (_v : stdgo.GoFloat64);
         final _imax = (_imax : stdgo.GoUInt64);

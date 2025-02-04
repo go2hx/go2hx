@@ -57,7 +57,7 @@ private function set_skipAll(v:stdgo.Error):stdgo.Error {
         return v;
     }
 class FS_static_extension {
-    static public function open(t:stdgo._internal.io.fs.Fs_FS.FS, _name:String):stdgo.Tuple<File, stdgo.Error> {
+    static public function open(t:stdgo._internal.io.fs.Fs_fs.FS, _name:String):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_FS_static_extension.FS_static_extension.open(t, _name);
@@ -67,17 +67,17 @@ class FS_static_extension {
 }
 typedef FS = stdgo._internal.io.fs.Fs_FS.FS;
 class File_static_extension {
-    static public function close(t:stdgo._internal.io.fs.Fs_File.File):stdgo.Error {
+    static public function close(t:stdgo._internal.io.fs.Fs_file.File):stdgo.Error {
         return stdgo._internal.io.fs.Fs_File_static_extension.File_static_extension.close(t);
     }
-    static public function read(t:stdgo._internal.io.fs.Fs_File.File, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function read(t:stdgo._internal.io.fs.Fs_file.File, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.io.fs.Fs_File_static_extension.File_static_extension.read(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stat(t:stdgo._internal.io.fs.Fs_File.File):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function stat(t:stdgo._internal.io.fs.Fs_file.File):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
             final obj = stdgo._internal.io.fs.Fs_File_static_extension.File_static_extension.stat(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -86,25 +86,25 @@ class File_static_extension {
 }
 typedef File = stdgo._internal.io.fs.Fs_File.File;
 class DirEntry_static_extension {
-    static public function info(t:stdgo._internal.io.fs.Fs_DirEntry.DirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function info(t:stdgo._internal.io.fs.Fs_direntry.DirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
             final obj = stdgo._internal.io.fs.Fs_DirEntry_static_extension.DirEntry_static_extension.info(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(t:stdgo._internal.io.fs.Fs_DirEntry.DirEntry):FileMode {
+    static public function type(t:stdgo._internal.io.fs.Fs_direntry.DirEntry):FileMode {
         return stdgo._internal.io.fs.Fs_DirEntry_static_extension.DirEntry_static_extension.type(t);
     }
-    static public function isDir(t:stdgo._internal.io.fs.Fs_DirEntry.DirEntry):Bool {
+    static public function isDir(t:stdgo._internal.io.fs.Fs_direntry.DirEntry):Bool {
         return stdgo._internal.io.fs.Fs_DirEntry_static_extension.DirEntry_static_extension.isDir(t);
     }
-    static public function name(t:stdgo._internal.io.fs.Fs_DirEntry.DirEntry):String {
+    static public function name(t:stdgo._internal.io.fs.Fs_direntry.DirEntry):String {
         return stdgo._internal.io.fs.Fs_DirEntry_static_extension.DirEntry_static_extension.name(t);
     }
 }
 typedef DirEntry = stdgo._internal.io.fs.Fs_DirEntry.DirEntry;
 class ReadDirFile_static_extension {
-    static public function readDir(t:stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile, _n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(t:stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile, _n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         final _n = (_n : stdgo.GoInt);
         return {
             final obj = stdgo._internal.io.fs.Fs_ReadDirFile_static_extension.ReadDirFile_static_extension.readDir(t, _n);
@@ -114,28 +114,28 @@ class ReadDirFile_static_extension {
 }
 typedef ReadDirFile = stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile;
 class FileInfo_static_extension {
-    static public function sys(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):stdgo.AnyInterface {
+    static public function sys(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo.AnyInterface {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.sys(t);
     }
-    static public function isDir(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):Bool {
+    static public function isDir(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):Bool {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.isDir(t);
     }
-    static public function modTime(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):stdgo._internal.time.Time_Time.Time {
+    static public function modTime(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo._internal.time.Time_time.Time {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.modTime(t);
     }
-    static public function mode(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):FileMode {
+    static public function mode(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):FileMode {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.mode(t);
     }
-    static public function size(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):haxe.Int64 {
+    static public function size(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):haxe.Int64 {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.size(t);
     }
-    static public function name(t:stdgo._internal.io.fs.Fs_FileInfo.FileInfo):String {
+    static public function name(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):String {
         return stdgo._internal.io.fs.Fs_FileInfo_static_extension.FileInfo_static_extension.name(t);
     }
 }
 typedef FileInfo = stdgo._internal.io.fs.Fs_FileInfo.FileInfo;
 class GlobFS_static_extension {
-    static public function glob(t:stdgo._internal.io.fs.Fs_GlobFS.GlobFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(t:stdgo._internal.io.fs.Fs_globfs.GlobFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _pattern = (_pattern : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_GlobFS_static_extension.GlobFS_static_extension.glob(t, _pattern);
@@ -145,7 +145,7 @@ class GlobFS_static_extension {
 }
 typedef GlobFS = stdgo._internal.io.fs.Fs_GlobFS.GlobFS;
 class ReadDirFS_static_extension {
-    static public function readDir(t:stdgo._internal.io.fs.Fs_ReadDirFS.ReadDirFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(t:stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_ReadDirFS_static_extension.ReadDirFS_static_extension.readDir(t, _name);
@@ -155,7 +155,7 @@ class ReadDirFS_static_extension {
 }
 typedef ReadDirFS = stdgo._internal.io.fs.Fs_ReadDirFS.ReadDirFS;
 class ReadFileFS_static_extension {
-    static public function readFile(t:stdgo._internal.io.fs.Fs_ReadFileFS.ReadFileFS, _name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function readFile(t:stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS, _name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_ReadFileFS_static_extension.ReadFileFS_static_extension.readFile(t, _name);
@@ -165,7 +165,7 @@ class ReadFileFS_static_extension {
 }
 typedef ReadFileFS = stdgo._internal.io.fs.Fs_ReadFileFS.ReadFileFS;
 class StatFS_static_extension {
-    static public function stat(t:stdgo._internal.io.fs.Fs_StatFS.StatFS, _name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function stat(t:stdgo._internal.io.fs.Fs_statfs.StatFS, _name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_StatFS_static_extension.StatFS_static_extension.stat(t, _name);
@@ -175,7 +175,7 @@ class StatFS_static_extension {
 }
 typedef StatFS = stdgo._internal.io.fs.Fs_StatFS.StatFS;
 class SubFS_static_extension {
-    static public function sub(t:stdgo._internal.io.fs.Fs_SubFS.SubFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
+    static public function sub(t:stdgo._internal.io.fs.Fs_subfs.SubFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         final _dir = (_dir : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_SubFS_static_extension.SubFS_static_extension.sub(t, _dir);
@@ -185,7 +185,7 @@ class SubFS_static_extension {
 }
 typedef SubFS = stdgo._internal.io.fs.Fs_SubFS.SubFS;
 class T__interface_0_static_extension {
-    static public function timeout(t:stdgo._internal.io.fs.Fs_T__interface_0.T__interface_0):Bool {
+    static public function timeout(t:stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0):Bool {
         return stdgo._internal.io.fs.Fs_T__interface_0_static_extension.T__interface_0_static_extension.timeout(t);
     }
 }
@@ -257,15 +257,15 @@ typedef WalkDirFunc = stdgo._internal.io.fs.Fs_WalkDirFunc.WalkDirFunc;
 typedef PathErrorPointer = stdgo._internal.io.fs.Fs_PathErrorPointer.PathErrorPointer;
 class PathError_static_extension {
     static public function timeout(_e:PathError):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>);
         return stdgo._internal.io.fs.Fs_PathError_static_extension.PathError_static_extension.timeout(_e);
     }
     static public function unwrap(_e:PathError):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>);
         return stdgo._internal.io.fs.Fs_PathError_static_extension.PathError_static_extension.unwrap(_e);
     }
     static public function error(_e:PathError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>);
         return stdgo._internal.io.fs.Fs_PathError_static_extension.PathError_static_extension.error(_e);
     }
 }
@@ -293,7 +293,7 @@ class T_dirInfo_static_extension {
 typedef T_subFSPointer = stdgo._internal.io.fs.Fs_T_subFSPointer.T_subFSPointer;
 class T_subFS_static_extension {
     static public function sub(_f:T_subFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _dir = (_dir : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension.sub(_f, _dir);
@@ -301,7 +301,7 @@ class T_subFS_static_extension {
         };
     }
     static public function glob(_f:T_subFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _pattern = (_pattern : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension.glob(_f, _pattern);
@@ -309,7 +309,7 @@ class T_subFS_static_extension {
         };
     }
     static public function readFile(_f:T_subFS, _name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension.readFile(_f, _name);
@@ -317,7 +317,7 @@ class T_subFS_static_extension {
         };
     }
     static public function readDir(_f:T_subFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension.readDir(_f, _name);
@@ -325,7 +325,7 @@ class T_subFS_static_extension {
         };
     }
     static public function open(_f:T_subFS, _name:String):stdgo.Tuple<File, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension.open(_f, _name);
@@ -333,12 +333,12 @@ class T_subFS_static_extension {
         };
     }
     static public function _fixErr(_f:T_subFS, _err:stdgo.Error):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _err = (_err : stdgo.Error);
         return stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension._fixErr(_f, _err);
     }
     static public function _shorten(_f:T_subFS, _name:String):stdgo.Tuple<String, Bool> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_subFS_static_extension.T_subFS_static_extension._shorten(_f, _name);
@@ -346,7 +346,7 @@ class T_subFS_static_extension {
         };
     }
     static public function _fullName(_f:T_subFS, _op:String, _name:String):stdgo.Tuple<String, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _op = (_op : stdgo.GoString);
         final _name = (_name : stdgo.GoString);
         return {
@@ -358,26 +358,26 @@ class T_subFS_static_extension {
 typedef T_statDirEntryPointer = stdgo._internal.io.fs.Fs_T_statDirEntryPointer.T_statDirEntryPointer;
 class T_statDirEntry_static_extension {
     static public function string(_d:T_statDirEntry):String {
-        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_T_statDirEntry.T_statDirEntry>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.string(_d);
     }
     static public function info(_d:T_statDirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_T_statDirEntry.T_statDirEntry>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return {
             final obj = stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.info(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function type(_d:T_statDirEntry):FileMode {
-        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_T_statDirEntry.T_statDirEntry>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.type(_d);
     }
     static public function isDir(_d:T_statDirEntry):Bool {
-        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_T_statDirEntry.T_statDirEntry>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.isDir(_d);
     }
     static public function name(_d:T_statDirEntry):String {
-        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_T_statDirEntry.T_statDirEntry>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.io.fs.Fs_T_statDirEntry_static_extension.T_statDirEntry_static_extension.name(_d);
     }
 }

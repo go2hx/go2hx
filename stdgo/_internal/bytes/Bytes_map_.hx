@@ -8,14 +8,14 @@ function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:stdgo.Slice<stdgo.GoUI
                 var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoInt32);
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
                         _r = @:tmpset0 __tmp__._0;
                         _wid = @:tmpset0 __tmp__._1;
                     };
                 };
                 _r = _mapping(_r);
                 if ((_r >= (0 : stdgo.GoInt32) : Bool)) {
-                    _b = stdgo._internal.unicode.utf8.Utf8_appendRune.appendRune(_b, _r);
+                    _b = stdgo._internal.unicode.utf8.Utf8_appendrune.appendRune(_b, _r);
                 };
                 _i = (_i + (_wid) : stdgo.GoInt);
             };

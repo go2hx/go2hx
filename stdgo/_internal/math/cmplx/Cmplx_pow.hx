@@ -1,8 +1,8 @@
 package stdgo._internal.math.cmplx;
 function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128 {
         if (_x == (((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)))) {
-            if (stdgo._internal.math.cmplx.Cmplx_isNaN.isNaN(_y)) {
-                return stdgo._internal.math.cmplx.Cmplx_naN.naN();
+            if (stdgo._internal.math.cmplx.Cmplx_isnan.isNaN(_y)) {
+                return stdgo._internal.math.cmplx.Cmplx_nan.naN();
             };
             var __0 = ((_y : stdgo.GoComplex128).real : stdgo.GoFloat64), __1 = ((_y : stdgo.GoComplex128).imag : stdgo.GoFloat64);
 var _i = __1, _r = __0;

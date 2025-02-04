@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.binary;
+@:keep @:follow @:using(stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888_static_extension.T_testNoFixedSize___localname___Person_12888_static_extension) typedef T_testNoFixedSize___localname___Person_12888Pointer = stdgo.Pointer<stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888>;

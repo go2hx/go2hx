@@ -4,9 +4,9 @@
      |        [31m^^^^^[0m
      | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
 
-     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepEqualTests.hx:180: characters 70-223
+     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepequaltests.hx:180: characters 70-223
 
-      180 | [2m(new _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>))[0m[2m, stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest),[0m
+      180 | [2m(new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>))[0m[2m, stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),[0m
           |                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
@@ -22,9 +22,9 @@
           |          [31m^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepEqualTests.hx:180: characters 92-160
+     [30;41m -> [0m ./_internal/reflect_test/Reflect_test__deepequaltests.hx:180: characters 92-160
 
-      180 | [2m(new _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest(stdgo.Go.toInterface(([0m[1mstdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1)[0m[2m : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_Loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_DeepEqualTest.DeepEqualTest),[0m
+      180 | [2m(new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface(([0m[1mstdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1)[0m[2m : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),[0m
           |                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 

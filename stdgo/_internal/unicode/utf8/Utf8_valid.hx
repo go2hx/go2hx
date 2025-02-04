@@ -26,7 +26,7 @@ function valid(_p:stdgo.Slice<stdgo.GoUInt8>):Bool {
                 if (((_i + _size : stdgo.GoInt) > _n : Bool)) {
                     return false;
                 };
-                var _accept = (stdgo._internal.unicode.utf8.Utf8__acceptRanges._acceptRanges[((_x >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)] : stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange);
+                var _accept = (stdgo._internal.unicode.utf8.Utf8__acceptranges._acceptRanges[((_x >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)] : stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange);
                 {
                     var _c = (_p[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
                     if (((_c < _accept._lo : Bool) || (_accept._hi < _c : Bool) : Bool)) {

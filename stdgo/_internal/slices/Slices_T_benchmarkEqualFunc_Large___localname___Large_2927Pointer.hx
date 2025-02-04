@@ -1,2 +1,0 @@
-package stdgo._internal.slices;
-@:keep @:follow @:using(stdgo._internal.slices.Slices_T_benchmarkEqualFunc_Large___localname___Large_2927_static_extension.T_benchmarkEqualFunc_Large___localname___Large_2927_static_extension) typedef T_benchmarkEqualFunc_Large___localname___Large_2927Pointer = stdgo.Pointer<stdgo._internal.slices.Slices_T_benchmarkEqualFunc_Large___localname___Large_2927.T_benchmarkEqualFunc_Large___localname___Large_2927>;

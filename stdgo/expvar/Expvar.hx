@@ -1,6 +1,6 @@
 package stdgo.expvar;
 class Var_static_extension {
-    static public function string(t:stdgo._internal.expvar.Expvar_Var.Var):String {
+    static public function string(t:stdgo._internal.expvar.Expvar_var.Var):String {
         return stdgo._internal.expvar.Expvar_Var_static_extension.Var_static_extension.string(t);
     }
 }
@@ -17,26 +17,26 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.expvar.Expvar.Float__static_extension) abstract Float_(stdgo._internal.expvar.Expvar_Float_.Float_) from stdgo._internal.expvar.Expvar_Float_.Float_ to stdgo._internal.expvar.Expvar_Float_.Float_ {
-    public var _f(get, set) : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64;
-    function get__f():stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 return this._f;
-    function set__f(v:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 {
+    public var _f(get, set) : stdgo._internal.sync.atomic_.Atomic__uint64.Uint64;
+    function get__f():stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 return this._f;
+    function set__f(v:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 {
         this._f = v;
         return v;
     }
-    public function new(?_f:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64) this = new stdgo._internal.expvar.Expvar_Float_.Float_(_f);
+    public function new(?_f:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64) this = new stdgo._internal.expvar.Expvar_Float_.Float_(_f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.expvar.Expvar.Map__static_extension) abstract Map_(stdgo._internal.expvar.Expvar_Map_.Map_) from stdgo._internal.expvar.Expvar_Map_.Map_ to stdgo._internal.expvar.Expvar_Map_.Map_ {
-    public var _m(get, set) : stdgo._internal.sync.Sync_Map_.Map_;
-    function get__m():stdgo._internal.sync.Sync_Map_.Map_ return this._m;
-    function set__m(v:stdgo._internal.sync.Sync_Map_.Map_):stdgo._internal.sync.Sync_Map_.Map_ {
+    public var _m(get, set) : stdgo._internal.sync.Sync_map_.Map_;
+    function get__m():stdgo._internal.sync.Sync_map_.Map_ return this._m;
+    function set__m(v:stdgo._internal.sync.Sync_map_.Map_):stdgo._internal.sync.Sync_map_.Map_ {
         this._m = v;
         return v;
     }
-    public var _keysMu(get, set) : stdgo._internal.sync.Sync_RWMutex.RWMutex;
-    function get__keysMu():stdgo._internal.sync.Sync_RWMutex.RWMutex return this._keysMu;
-    function set__keysMu(v:stdgo._internal.sync.Sync_RWMutex.RWMutex):stdgo._internal.sync.Sync_RWMutex.RWMutex {
+    public var _keysMu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
+    function get__keysMu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._keysMu;
+    function set__keysMu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         this._keysMu = v;
         return v;
     }
@@ -46,7 +46,7 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
         this._keys = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_m:stdgo._internal.sync.Sync_Map_.Map_, ?_keysMu:stdgo._internal.sync.Sync_RWMutex.RWMutex, ?_keys:Array<String>) this = new stdgo._internal.expvar.Expvar_Map_.Map_(_m, _keysMu, ([for (i in _keys) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_m:stdgo._internal.sync.Sync_map_.Map_, ?_keysMu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_keys:Array<String>) this = new stdgo._internal.expvar.Expvar_Map_.Map_(_m, _keysMu, ([for (i in _keys) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -68,13 +68,13 @@ typedef Var = stdgo._internal.expvar.Expvar_Var.Var;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.expvar.Expvar.String__static_extension) abstract String_(stdgo._internal.expvar.Expvar_String_.String_) from stdgo._internal.expvar.Expvar_String_.String_ to stdgo._internal.expvar.Expvar_String_.String_ {
-    public var _s(get, set) : stdgo._internal.sync.atomic_.Atomic__Value.Value;
-    function get__s():stdgo._internal.sync.atomic_.Atomic__Value.Value return this._s;
-    function set__s(v:stdgo._internal.sync.atomic_.Atomic__Value.Value):stdgo._internal.sync.atomic_.Atomic__Value.Value {
+    public var _s(get, set) : stdgo._internal.sync.atomic_.Atomic__value.Value;
+    function get__s():stdgo._internal.sync.atomic_.Atomic__value.Value return this._s;
+    function set__s(v:stdgo._internal.sync.atomic_.Atomic__value.Value):stdgo._internal.sync.atomic_.Atomic__value.Value {
         this._s = v;
         return v;
     }
-    public function new(?_s:stdgo._internal.sync.atomic_.Atomic__Value.Value) this = new stdgo._internal.expvar.Expvar_String_.String_(_s);
+    public function new(?_s:stdgo._internal.sync.atomic_.Atomic__value.Value) this = new stdgo._internal.expvar.Expvar_String_.String_(_s);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -82,90 +82,90 @@ typedef Func = stdgo._internal.expvar.Expvar_Func.Func;
 typedef Int_Pointer = stdgo._internal.expvar.Expvar_Int_Pointer.Int_Pointer;
 class Int__static_extension {
     static public function set(_v:Int_, _value:haxe.Int64):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Int_.Int_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_int_.Int_>);
         final _value = (_value : stdgo.GoInt64);
         stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.set(_v, _value);
     }
     static public function add(_v:Int_, _delta:haxe.Int64):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Int_.Int_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_int_.Int_>);
         final _delta = (_delta : stdgo.GoInt64);
         stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.add(_v, _delta);
     }
     static public function string(_v:Int_):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Int_.Int_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_int_.Int_>);
         return stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.string(_v);
     }
     static public function value(_v:Int_):haxe.Int64 {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Int_.Int_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_int_.Int_>);
         return stdgo._internal.expvar.Expvar_Int__static_extension.Int__static_extension.value(_v);
     }
 }
 typedef Float_Pointer = stdgo._internal.expvar.Expvar_Float_Pointer.Float_Pointer;
 class Float__static_extension {
     static public function set(_v:Float_, _value:StdTypes.Float):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Float_.Float_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_float_.Float_>);
         final _value = (_value : stdgo.GoFloat64);
         stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.set(_v, _value);
     }
     static public function add(_v:Float_, _delta:StdTypes.Float):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Float_.Float_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_float_.Float_>);
         final _delta = (_delta : stdgo.GoFloat64);
         stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.add(_v, _delta);
     }
     static public function string(_v:Float_):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Float_.Float_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_float_.Float_>);
         return stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.string(_v);
     }
     static public function value(_v:Float_):StdTypes.Float {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Float_.Float_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_float_.Float_>);
         return stdgo._internal.expvar.Expvar_Float__static_extension.Float__static_extension.value(_v);
     }
 }
 typedef Map_Pointer = stdgo._internal.expvar.Expvar_Map_Pointer.Map_Pointer;
 class Map__static_extension {
-    static public function do_(_v:Map_, _f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+    static public function do_(_v:Map_, _f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _f = _f;
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.do_(_v, _f);
     }
     static public function delete(_v:Map_, _key:String):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.delete(_v, _key);
     }
     static public function addFloat(_v:Map_, _key:String, _delta:StdTypes.Float):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         final _delta = (_delta : stdgo.GoFloat64);
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.addFloat(_v, _key, _delta);
     }
     static public function add(_v:Map_, _key:String, _delta:haxe.Int64):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         final _delta = (_delta : stdgo.GoInt64);
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.add(_v, _key, _delta);
     }
     static public function set(_v:Map_, _key:String, _av:Var):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.set(_v, _key, _av);
     }
     static public function get(_v:Map_, _key:String):Var {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         return stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.get(_v, _key);
     }
     static public function _addKey(_v:Map_, _key:String):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _key = (_key : stdgo.GoString);
         stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension._addKey(_v, _key);
     }
     static public function init(_v:Map_):Map_ {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         return stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.init(_v);
     }
     static public function string(_v:Map_):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         return stdgo._internal.expvar.Expvar_Map__static_extension.Map__static_extension.string(_v);
     }
 }
@@ -176,16 +176,16 @@ class KeyValue_static_extension {
 typedef String_Pointer = stdgo._internal.expvar.Expvar_String_Pointer.String_Pointer;
 class String__static_extension {
     static public function set(_v:String_, _value:String):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_String_.String_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_string_.String_>);
         final _value = (_value : stdgo.GoString);
         stdgo._internal.expvar.Expvar_String__static_extension.String__static_extension.set(_v, _value);
     }
     static public function string(_v:String_):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_String_.String_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_string_.String_>);
         return stdgo._internal.expvar.Expvar_String__static_extension.String__static_extension.string(_v);
     }
     static public function value(_v:String_):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_String_.String_>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_string_.String_>);
         return stdgo._internal.expvar.Expvar_String__static_extension.String__static_extension.value(_v);
     }
 }
@@ -256,7 +256,7 @@ class Expvar {
         The global variable map is locked during the iteration,
         but existing entries may be concurrently updated.
     **/
-    static public inline function do_(_f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
+    static public inline function do_(_f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
         final _f = _f;
         stdgo._internal.expvar.Expvar_do_.do_(_f);
     }
@@ -265,7 +265,7 @@ class Expvar {
         
         This is only needed to install the handler in a non-standard location.
     **/
-    static public inline function handler():stdgo._internal.net.http.Http_Handler.Handler {
+    static public inline function handler():stdgo._internal.net.http.Http_handler.Handler {
         return stdgo._internal.expvar.Expvar_handler.handler();
     }
 }

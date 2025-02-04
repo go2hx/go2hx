@@ -8,7 +8,7 @@
 
 [30;41m ERROR [0m ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1858: character 39
 
- 1858 | [2m        var _keys_6306563:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
+ 1858 | [2m        var _keys_6343627:stdgo.Slice<[0m[1m[0m[2m#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);[0m
       |                                       [31m^[0m
       | Invalid character '#'
 

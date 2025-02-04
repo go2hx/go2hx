@@ -1,4 +1,4 @@
-[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/math/big/Big_T_nat_static_extension.hx:442: characters 16-25
+[30;41m ERROR [0m [31m(macro) [0m./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
 
  442 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
      |                [31m^^^^^^^^^[0m

@@ -1,28 +1,32 @@
 === RUN  TestMapFS
+
 -- PASS: TestMapFS
 
 === RUN  TestMapFSChmodDot
+
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
+writeFile i2g2idrrm5/hello: no such file or directory
 Exception: :os.symlink is not yet implemented
 Called from stdgo._internal.os._Os_symlink.$Os_symlink_Fields_.symlink (stdgo/_internal/os/Os_symlink.hx line 2)
-Called from stdgo._internal.testing.fstest._Fstest_testSymlink.$Fstest_testSymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testSymlink.hx line 13)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from stdgo._internal.testing.fstest._Fstest_testsymlink.$Fstest_testsymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 13)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 7)
 
 -- FAIL: TestSymlink
 
 === RUN  TestDash
+
 -- PASS: TestDash
 
 === RUN  TestShuffledFS
 Exception: Null access .name
-Called from stdgo._internal.testing.fstest.$T_fsTester_static_extension._checkDir (stdgo/_internal/testing/fstest/Fstest_T_fsTester_static_extension.hx line 672)
-Called from stdgo._internal.testing.fstest._Fstest__testFS.$Fstest__testFS_Fields_._testFS (stdgo/_internal/testing/fstest/Fstest__testFS.hx line 5)
-Called from stdgo._internal.testing.fstest._Fstest_testFS.$Fstest_testFS_Fields_.testFS (stdgo/_internal/testing/fstest/Fstest_testFS.hx line 5)
-Called from stdgo._internal.testing.fstest._Fstest_testShuffledFS.$Fstest_testShuffledFS_Fields_.testShuffledFS (stdgo/_internal/testing/fstest/Fstest_testShuffledFS.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_M_static_extension.hx line 34)
+Called from stdgo._internal.testing.fstest.$T_fsTester_static_extension._checkDir (stdgo/_internal/testing/fstest/Fstest_t_fstester_static_extension.hx line 672)
+Called from stdgo._internal.testing.fstest._Fstest__testfs.$Fstest__testfs_Fields_._testFS (stdgo/_internal/testing/fstest/Fstest__testfs.hx line 5)
+Called from stdgo._internal.testing.fstest._Fstest_testfs.$Fstest_testfs_Fields_.testFS (stdgo/_internal/testing/fstest/Fstest_testfs.hx line 5)
+Called from stdgo._internal.testing.fstest._Fstest_testshuffledfs.$Fstest_testshuffledfs_Fields_.testShuffledFS (stdgo/_internal/testing/fstest/Fstest_testshuffledfs.hx line 12)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.testing.fstest_dot_test._Fstest_dot_test.$Fstest_dot_test_Fields_.main (_internal/testing/fstest_dot_test/Fstest_dot_test.hx line 7)
 
 -- FAIL: TestShuffledFS

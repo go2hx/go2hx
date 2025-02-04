@@ -1,6 +1,6 @@
 [30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 81-204
 
-  12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>)[0m[2m);[0m
+  12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>)[0m[2m);[0m
      |                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
      | For function argument '__self__'
@@ -13,13 +13,13 @@
 
      [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 60-205
 
-      12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>))[0m[2m;[0m
+      12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_i.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>))[0m[2m;[0m
          |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
          | Called from macro here
 
 [30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 82-295
 
-  12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_I.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>)[0m[2m);[0m
+  12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>)[0m[2m);[0m
      |                                                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
      | For function argument '__self__'
@@ -32,7 +32,7 @@
 
      [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 61-296
 
-      12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_I.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_G.G<_internal.runtime.debug_test.Debug_test_G.G<stdgo.GoInt>>))[0m[2m;[0m
+      12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>))[0m[2m;[0m
          |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
          | Called from macro here
 

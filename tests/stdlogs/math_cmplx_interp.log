@@ -1,4 +1,5 @@
 === RUN  TestAbs
+
 -- PASS: TestAbs
 
 === RUN  TestAcos
@@ -24,6 +25,7 @@ Asinh((0-2i)) not continuous, got (-1.3169578969248164-1.5707963267948966i) want
 -- FAIL: TestAsinh
 
 === RUN  TestAtan
+
 -- PASS: TestAtan
 
 === RUN  TestAtanh
@@ -33,6 +35,7 @@ Atanh((1+0i)) = (+Inf-0i), want (+Inf+0i)
 -- FAIL: TestAtanh
 
 === RUN  TestConj
+
 -- PASS: TestConj
 
 === RUN  TestCos
@@ -44,36 +47,47 @@ Cos((-0-Infi)) = (+Inf+0i), want (+Inf-0i)
 -- FAIL: TestCos
 
 === RUN  TestCosh
+
 -- PASS: TestCosh
 
 === RUN  TestExp
+
 -- PASS: TestExp
 
 === RUN  TestIsNaN
+
 -- PASS: TestIsNaN
 
 === RUN  TestLog
+
 -- PASS: TestLog
 
 === RUN  TestLog10
+
 -- PASS: TestLog10
 
 === RUN  TestPolar
+
 -- PASS: TestPolar
 
 === RUN  TestPow
+
 -- PASS: TestPow
 
 === RUN  TestRect
+
 -- PASS: TestRect
 
 === RUN  TestSin
+
 -- PASS: TestSin
 
 === RUN  TestSinh
+
 -- PASS: TestSinh
 
 === RUN  TestSqrt
+
 -- PASS: TestSqrt
 
 === RUN  TestTan
@@ -82,6 +96,7 @@ Tan((7.738872474578105-0.2768800571920016i)) = (1.2424126853628314-3.17149693882
 -- FAIL: TestTan
 
 === RUN  TestTanh
+
 -- PASS: TestTanh
 
 === RUN  TestInfiniteLoopIntanSeries

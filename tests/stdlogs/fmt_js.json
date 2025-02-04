@@ -17,8 +17,6 @@
         "TestBadVerbRecursion",
         "TestIsSpace",
         "TestParsenum",
-        "TestAppendf",
-        "TestAppend",
         "TestAppendln",
         "TestScan",
         "TestScanln",

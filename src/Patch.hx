@@ -1636,7 +1636,7 @@ final list = [
 	"testing.T_common:log" => macro {},
 	"testing.T_common:logf" => macro {},
 	"testing.T_common:fatal" => macro {
-		stdgo._internal.fmt.Fmt_printf.println(...[for (arg in _args) arg]);
+		stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
 		_c.failNow();
 	},
 	"testing.T_common:cleanup" => macro {

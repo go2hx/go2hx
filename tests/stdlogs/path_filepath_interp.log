@@ -193,7 +193,7 @@ Called from _internal.path.filepath_test._Filepath_test_testabs.Filepath_test_te
 -- FAIL: TestAbs
 
 === RUN  TestAbsEmptyString
-iqeemh1q4m: readFile iqeemh1q4m: no such file or directoryException: :os.sameFile is not yet implemented
+5gklgti6yz: readFile 5gklgti6yz: no such file or directoryException: :os.sameFile is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testabsemptystring.Filepath_test_testabsemptystring_Fields_.testAbsEmptyString (./_internal/path/filepath_test/Filepath_test_testabsemptystring.hx line 97 column 21)
 
@@ -232,7 +232,7 @@ Called from _internal.path.filepath_test._Filepath_test__testwalksymlink.Filepat
 -- FAIL: TestWalkSymlink
 
 === RUN  TestIssue29372
-writeFile b7f6id4zgr/file.txt: no such file or directory
+writeFile osbfa5ktt7/file.txt: no such file or directory
 
 -- PASS: TestIssue29372
 
@@ -258,7 +258,7 @@ Try 'chmod --help' for more information.
 
  8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
    |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Uncaught exception w6iuo0p0g5/a/bad: Permission denied
+   | Uncaught exception 1ph86hjkjx/a/bad: Permission denied
 
     11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
        |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m

@@ -426,7 +426,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		for (file in module.files) {
 			final defs = file.defs.copy();
 			for (def in defs) {
-				if (StringTools.endsWith(def.name, "_asInterface") || StringTools.endsWith(def.name, "_static_extension"))
+				if (def.name == "__go2hxdoc__package")
+					continue;
+				if (StringTools.endsWith(def.name, "_asinterface") || StringTools.endsWith(def.name, "_asInterface") || StringTools.endsWith(def.name, "_static_extension"))
 					continue;
 				var local:Array<{func:Ast.FuncDecl, sel:String, recvName:String}> = [];
 				final names:Array<{name:String, sel:String, recvName:String}> = [{name: def.name, sel: "", recvName: ""}];
@@ -6319,7 +6321,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						});
 					}
 				}
-				x = macro $i{s + "_" + sel};
+				x = macro $i{s + "_" + sel.toLowerCase()};
 			}
 		default:
 	}

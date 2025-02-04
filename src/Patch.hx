@@ -538,8 +538,7 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
-		final s = haxe.io.Bytes.alloc(_b.length);
-		final bytes = @:privateAccess _f._input.readBytes(s, 0, _b.length);
+		final bytes = @:privateAccess _f._input.read(_b.length);
 		for (i in 0...bytes.length) {
 			_b[i] = bytes.get(i);
 		}
@@ -1636,11 +1635,17 @@ final list = [
 	"testing.T_:run" => macro return true,
 	"testing.T_common:log" => macro {},
 	"testing.T_common:logf" => macro {},
-	"testing.T_common:fatal" => macro {},
+	"testing.T_common:fatal" => macro {
+		stdgo._internal.fmt.Fmt_printf.println(...[for (arg in _args) arg]);
+		_c.failNow();
+	},
 	"testing.T_common:cleanup" => macro {
 		_c._cleanups = _c._cleanups.__append__(_f);
 	},
-	"testing.T_common:fatalf" => macro {},
+	"testing.T_common:fatalf" => macro {
+		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+		_c.failNow();
+	},
 	"testing.T_common:tempDir" => macro {
 		final pattern = "";
 		final obj = stdgo._internal.os.Os_mkdirtemp.mkdirTemp("", pattern);

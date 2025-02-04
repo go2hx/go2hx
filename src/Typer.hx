@@ -6472,14 +6472,14 @@ private function addPointerSuffix(ct:ComplexType) {
 				if (p.pack.length == 0) {
 					final parts = p.name.split(".");
 					final last = parts.pop() + "Pointer";
-					final lastPack = parts.pop() + "Pointer";
+					final lastPack = parts.pop() + "pointer";
 					parts.push(lastPack);
 					parts.push(last);
 					p.name = parts.join(".");
 				}
 			}else{
 				p.name += "Pointer";
-			p.pack.push(p.pack.pop() + "Pointer");
+			p.pack.push(p.pack.pop() + "pointer");
 			}
 		default:
 	}

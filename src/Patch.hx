@@ -478,7 +478,7 @@ final list = [
 		// special cases
 		if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
 			return stdgo._internal.math.Math_inf.inf(1);
-		if (_x == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isNan.isNaN(_y) || _y == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isnan.isNaN(_x))
+		if (_x == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isnan.isNaN(_y) || _y == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isnan.isNaN(_x))
 			return 0.0;
 		if (stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y))
 			return stdgo._internal.math.Math_nan.naN();
@@ -538,7 +538,8 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
-		final bytes = @:privateAccess _f._input.read(_b.length);
+		final s = haxe.io.Bytes.alloc(_b.length);
+		final bytes = @:privateAccess _f._input.readBytes(s, 0, _b.length);
 		for (i in 0...bytes.length) {
 			_b[i] = bytes.get(i);
 		}

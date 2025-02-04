@@ -745,7 +745,7 @@ function errorString(s:stdgo.GoString) {
 	#if no_linkerr
 	return s;
 	#else
-	return stdgo.Go.toInterface(stdgo.Go.asInterface((s : stdgo._internal.math.bits.Bits_T_errorString.T_errorString)));
+	return stdgo.Go.toInterface(stdgo.Go.asInterface((s : stdgo._internal.math.bits.Bits_t_errorstring.T_errorString)));
 	#end
 }
 

@@ -152,5 +152,6 @@
  "hl|newniluinptrkeymap0",
  "hl|base64DecoderIssue3577",
  "hl|base64chan",
- "hl|chantimer"
+ "hl|chantimer",
+ "hl|filecasing"
 ]
